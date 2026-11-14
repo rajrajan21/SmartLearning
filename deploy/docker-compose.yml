@@ -1,0 +1,25 @@
+# Runs on Oracle Always Free (arm64). All images are free/open source.
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: studysmart
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set in .env}
+      POSTGRES_DB: studysmart
+    volumes: [pgdata:/var/lib/postgresql/data]
+    deploy: { resources: { limits: { memory: 1g } } }
+  api:
+    build: { context: .., dockerfile: apps/api/Dockerfile }
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgres://studysmart:${POSTGRES_PASSWORD}@postgres:5432/studysmart
+      PORT: 3000
+    depends_on: [postgres]
+    deploy: { resources: { limits: { memory: 512m } } }
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    volumes: [./Caddyfile:/etc/caddy/Caddyfile, caddydata:/data]
+volumes: { pgdata: {}, caddydata: {} }
