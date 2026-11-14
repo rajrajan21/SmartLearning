@@ -12,7 +12,7 @@ export interface PracticeService {
   importQuestions(raw: unknown): Promise<{ topicId: string; added: number; updated: number; unchanged: number }>;
   getPractice(board: string, classLevel: number, subject: string, chapter: string, topic: string): Promise<PracticeSet | null>;
   publishedTopicIds(): Promise<string[]>;
-  answer(req: AnswerRequest): Promise<AnswerFeedback>;
+  answer(req: AnswerRequest, studentId?: string | null): Promise<AnswerFeedback>;
   /** Share of correct first answers per question, for calibrating difficulty (used by Module 7+). */
   stats(topicId: string): Promise<{ key: string; attempts: number; correct: number }[]>;
 }
@@ -66,7 +66,7 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
       return rows.map((r) => r.id);
     },
 
-    async answer(req) {
+    async answer(req, studentId) {
       const [row] = await db.select().from(s.questions).where(eq(s.questions.id, req.questionId));
       if (!row || row.status !== "published") throw new PracticeError("Question not found", 404);
       const q = Question.parse(JSON.parse(row.bodyJson));
@@ -83,7 +83,7 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
       const g = grade(q, req.response);
       if ("error" in g) throw new PracticeError(g.error);
       await db.insert(s.questionAttempts).values({
-        attemptId: req.attemptId, questionId: row.id, questionVersion: row.version, anonId: req.anonId,
+        attemptId: req.attemptId, questionId: row.id, questionVersion: row.version, anonId: req.anonId, studentId: studentId ?? null,
         responseJson: JSON.stringify(req.response), correct: g.correct, hintsUsed: req.hintsUsed,
       }).onConflictDoNothing(); // two simultaneous sends: the first wins
       return build(req.attemptId, req.questionId, q, g, false, audio);

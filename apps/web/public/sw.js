@@ -1,5 +1,5 @@
-// StudySmart service worker: app shell + curriculum data work offline after the first visit.
-const VERSION = "v2";
+// StudySmart service worker (never caches admin or account/child data): app shell + curriculum data work offline after the first visit.
+const VERSION = "v3";
 const SHELL = `ss-shell-${VERSION}`;
 const DATA = `ss-data-${VERSION}`;
 
@@ -12,7 +12,7 @@ self.addEventListener("fetch", (e) => {
   const req = e.request;
   if (req.method !== "GET" || req.headers.has("range")) return; // never touch audio range requests
   const url = new URL(req.url);
-  if (url.origin !== location.origin || url.pathname.startsWith("/api/v1/admin")) return;
+  if (url.origin !== location.origin || url.pathname.startsWith("/api/v1/admin") || url.pathname.startsWith("/api/v1/account")) return;
   if (url.pathname.startsWith("/api/")) {
     // data: network first, fall back to the last good copy
     e.respondWith(fetch(req).then((r) => { if (r.ok) { const copy = r.clone(); caches.open(DATA).then((c) => c.put(req, copy)); } return r; }).catch(() => caches.match(req).then((m) => m || new Response("{}", { status: 503, headers: { "content-type": "application/json" } }))));

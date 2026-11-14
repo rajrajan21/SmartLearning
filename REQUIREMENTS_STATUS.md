@@ -58,3 +58,6 @@ Legend: ⬜ not started · 🟨 designed / in progress · ✅ built and tested
 
 ## Module 5 (done)
 Practice rounds with 5 question types, server grading, hints, stars, checkpoints in lessons, question/feedback audio, polished audio build. Pending: run Generate-Lesson-Audio.bat to record the new clips; Tamil wording review.
+
+## Module 6 (done)
+Parent accounts, child profiles, progress sync, consent, account deletion, admin controls. Pending: password reset (needs e-mail), parent dashboard (Module 9).

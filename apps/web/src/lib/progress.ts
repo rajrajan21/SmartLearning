@@ -29,3 +29,8 @@ export function useTopicProgress(topicId: string | undefined): [Progress | null,
   const clear = useCallback(() => { if (topicId) clearProgress(topicId); }, [topicId]);
   return [topicId ? (all[topicId] ?? null) : null, clear];
 }
+
+/** Used by account sync: read everything, or replace everything (then tell the screens). */
+export const readAllProgress = (): All => readAll();
+export function replaceAllProgress(all: All): void { store.setJson(KEY, all); listeners.forEach((l) => l()); }
+export function onProgressChange(l: () => void): () => void { listeners.add(l); return () => { listeners.delete(l); }; }

@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router, type Request } from "express";
 import { z } from "zod";
 import { AnswerRequest } from "@studysmart/shared";
 import { rateLimit } from "../../http/rate-limit.js";
@@ -7,7 +7,7 @@ import { PracticeError, type PracticeService } from "./service.js";
 const code = z.string().regex(/^[A-Za-z0-9_-]{1,20}$/);
 const slug = z.string().regex(/^[a-z0-9-]{1,80}$/);
 
-export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<number>): Router {
+export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<number>, studentOf?: (req: Request) => Promise<string | null>): Router {
   const r = Router();
   r.get("/available", async (_req, res) => {
     const age = await maxAge();
@@ -28,7 +28,7 @@ export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<numbe
     const body = AnswerRequest.safeParse(req.body);
     if (!body.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid answer", details: body.error.issues.map((i) => `${i.path.join(".")}: ${i.message}`) } });
     try {
-      res.set("Cache-Control", "no-store").json(await svc.answer(body.data));
+      res.set("Cache-Control", "no-store").json(await svc.answer(body.data, studentOf ? await studentOf(req) : null));
     } catch (e) {
       if (e instanceof PracticeError) return void res.status(e.status).json({ error: { code: e.status === 404 ? "not_found" : e.status === 409 ? "conflict" : "bad_request", message: e.message } });
       throw e;

@@ -4,6 +4,8 @@ import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
+import { AccountPage } from "./pages/Account";
+import { AccountProvider } from "./lib/account";
 import { PracticePage } from "./pages/Practice";
 import { AdminApp } from "./admin/AdminApp";
 
@@ -11,6 +13,7 @@ export function Routes() {
   return (
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/account" component={AccountPage} />
       <Route path="/:board/:cls" component={ClassPage} />
       <Route path="/:board/:cls/:subject" component={SubjectPage} />
       <Route path="/:board/:cls/:subject/:chapter" component={ChapterPage} />
@@ -30,7 +33,9 @@ export function App({ ssrPath }: { ssrPath?: string }) {
         <Route path="/admin" nest><AdminApp /></Route>
         <Route>
           <SettingsProvider>
-            <Layout><Routes /></Layout>
+            <AccountProvider>
+              <Layout><Routes /></Layout>
+            </AccountProvider>
           </SettingsProvider>
         </Route>
       </Switch>

@@ -85,3 +85,7 @@ export function usePracticeResults(topicId: string | undefined): Record<number, 
 export const shuffled = <T,>(a: T[]): T[] => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j]!, b[i]!]; } return b; };
 export const pickRound = (qs: PublicQuestion[], round: number, per: number, mix: boolean) => { const r = qs.filter((q) => q.round === round); return (mix ? shuffled(r) : r).slice(0, per); };
 export const usePlay = () => useCallback((url: string | undefined) => { if (!url) return; try { void new Audio(url).play().catch(() => {}); } catch { /* no audio available */ } }, []);
+
+export const readAllResults = (): Results => readAll();
+export function replaceAllResults(all: Results): void { store.setJson(KEY, all); listeners.forEach((l) => l()); }
+export function onResultsChange(l: () => void): () => void { listeners.add(l); return () => { listeners.delete(l); }; }

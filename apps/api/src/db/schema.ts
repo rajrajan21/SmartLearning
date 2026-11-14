@@ -113,6 +113,7 @@ export const users = pgTable("users", {
   id: id(),
   email: text("email").notNull(),
   role: userRole("role").notNull().default("parent"),
+  passwordHash: text("password_hash"), // scrypt, format s1$salt$hash; never leaves the server
   ...timestamps,
 }, (t) => [uniqueIndex("users_email_uq").on(t.email)]);
 
@@ -122,6 +123,7 @@ export const studentProfiles = pgTable("student_profiles", {
   classLevel: integer("class_level").notNull(),
   boardCode: text("board_code").notNull(),
   language: text("language").notNull().default("en"),
+  avatar: text("avatar").notNull().default("owl"),
   pinHash: text("pin_hash"),
   ...timestamps,
 });
@@ -140,6 +142,24 @@ export const consents = pgTable("consents", {
   grantedAt: timestamp("granted_at", { withTimezone: true }).notNull().defaultNow(),
   revokedAt: timestamp("revoked_at", { withTimezone: true }),
 });
+
+/** Browser sessions. Only a hash of the cookie token is stored, so a database leak cannot be replayed. */
+export const sessions = pgTable("sessions", {
+  tokenHash: text("token_hash").primaryKey(),
+  userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
+  studentId: uuid("student_id").references(() => studentProfiles.id, { onDelete: "set null" }), // the child currently learning
+  expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index("sessions_user_idx").on(t.userId)]);
+
+/** Lesson progress and practice results kept per child so they follow the child across devices. */
+export const studentProgress = pgTable("student_progress", {
+  studentId: uuid("student_id").notNull().references(() => studentProfiles.id, { onDelete: "cascade" }),
+  kind: text("kind").notNull(), // lesson | practice
+  topicId: text("topic_id").notNull(),
+  dataJson: text("data_json").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [primaryKey({ columns: [t.studentId, t.kind, t.topicId] })]);
 
 // ---------- Platform settings (see packages/shared/src/settings.ts for the registry) ----------
 export const settings = pgTable("settings", {
@@ -177,7 +197,8 @@ export const questionAttempts = pgTable("question_attempts", {
   attemptId: uuid("attempt_id").primaryKey(),
   questionId: uuid("question_id").notNull().references(() => questions.id),
   questionVersion: integer("question_version").notNull(),
-  anonId: uuid("anon_id").notNull(), // replaced by a student profile id in Module 6
+  anonId: uuid("anon_id").notNull(), // random id from the device; studentId below is set when a child was signed in
+  studentId: uuid("student_id").references(() => studentProfiles.id, { onDelete: "set null" }),
   responseJson: text("response_json").notNull(),
   correct: boolean("correct").notNull(),
   hintsUsed: integer("hints_used").notNull().default(0),

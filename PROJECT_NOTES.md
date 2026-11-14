@@ -53,3 +53,8 @@ pnpm --filter web dev      # http://localhost:5173
 - Practice: 4 rounds, 5 question types, server-side grading, hints, why-wrong, stars, pass mark, lesson checkpoints (docs/09-practice.md). 12 questions for Sides and corners.
 - Audio: one English voice (malar / af_heart, speed 0.92); clips trimmed, levelled, 64 kbps; lesson sentences, question stems, explanations, why-wrong lines and stock praise phrases are all covered by Generate-Lesson-Audio.bat.
 - Tests: shared 12, API 61, web 27 (all passing). Next: Module 6 (accounts).
+
+## Status: Module 6 complete (accounts)
+- Parent accounts + child profiles, per-child progress sync across devices, delete account, admin switches (docs/10-accounts.md). Migration 0003.
+- Tests: shared 13, API 72, web 33 (all passing). Next: Module 7 (mastery and revision).
+- Pending: password reset by e-mail needs an e-mail service (none yet); ADMIN_KEY must be set in production.

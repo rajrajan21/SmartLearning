@@ -2,12 +2,16 @@ import { type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
+import { useAccountOptional } from "../lib/account";
+import { AVATAR_EMOJI } from "../pages/Account";
 
 export function Layout({ children }: { children: ReactNode }) {
   const s = useSettings();
   const { lang } = s;
   const site = s.get<string>("site.name");
   const maintenance = s.get("site.maintenance.enabled");
+  const acct = useAccountOptional();
+  const showAcct = s.get("feature.accounts") === true && s.get("accounts.showHeaderLink") === true;
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <div className="shell">
@@ -22,6 +26,11 @@ export function Layout({ children }: { children: ReactNode }) {
             <button type="button" className="btn ghost" lang={lang === "en" ? "ta" : "en"} onClick={() => s.setLang(lang === "en" ? "ta" : "en")} aria-label={ui("language", lang)}>
               {ui("switchTo", lang)}
             </button>
+          )}
+          {showAcct && (
+            <Link href="/account" className="btn ghost acct-link">
+              {acct?.active ? <><span aria-hidden="true">{AVATAR_EMOJI[acct.active.avatar] ?? "🙂"}</span> {acct.active.nickname}</> : acct?.me ? ui("account", lang) : ui("signIn", lang)}
+            </Link>
           )}
         </nav>
       </header>

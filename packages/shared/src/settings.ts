@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -40,6 +40,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "home", label: "Home page", help: "What visitors see first." },
   { id: "languages", label: "Languages", help: "Tamil and English behaviour." },
   { id: "catalog", label: "Classes and boards", help: "Which classes and boards are open to students." },
+  { id: "accounts", label: "Accounts", help: "Parent sign-in, child profiles and saving progress across devices." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
 ];
 
@@ -60,9 +61,9 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.languageToggle", "features", "Reliability", "Tamil / English switch in the header", true),
   bool("feature.teacherNarration", "features", "Learning", "Teacher voice and board", true, { dependsOn: "feature.lessons", help: "Listen buttons, the teacher's voice and the drawing board inside lessons." }),
   bool("feature.practice", "features", "Learning", "Practice rounds", true, { help: "Four practice rounds on every topic that has questions." }),
+  bool("feature.accounts", "features", "Learning", "Parent accounts and child profiles", true, { help: "Lets a parent sign in, add children and keep progress across devices. Students can still learn without signing in." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.accounts", "Student and parent accounts", "Module 6"),
   planned("feature.mastery", "Chapter mastery and revision", "Module 7"),
   planned("feature.aiTutor", "AI tutor", "Module 8"),
   planned("feature.parentDashboard", "Parent dashboard", "Module 9"),
@@ -111,6 +112,15 @@ export const SETTINGS: SettingDef[] = [
   bool("practice.lessonCheckpoints", "practice", "Help", "Show checkpoint questions inside lessons", true, { dependsOn: "feature.practice" }),
   bool("practice.audio.questions", "practice", "Teacher voice", "Let students listen to each question", true, { dependsOn: "feature.practice", help: "Uses the recorded teacher voice when it exists, otherwise the device voice." }),
   bool("practice.audio.feedback", "practice", "Teacher voice", "Teacher speaks the feedback after each answer", true, { dependsOn: "feature.practice", help: "Praise or encouragement, then the explanation. Students can switch it off on their own device." }),
+
+  // ---------------- Accounts ----------------
+  bool("accounts.signup", "accounts", "Signing up", "Allow new parents to create accounts", true, { dependsOn: "feature.accounts", help: "Switch off to stop new sign-ups; existing parents can still sign in." }),
+  { key: "accounts.passwordMinLength", panel: "accounts", section: "Signing up", label: "Shortest password", public: true, type: "number", default: 8, min: 6, max: 30, step: 1, dependsOn: "feature.accounts" },
+  { key: "accounts.maxChildren", panel: "accounts", section: "Signing up", label: "Most children per parent", public: true, type: "number", default: 5, min: 1, max: 10, step: 1, dependsOn: "feature.accounts" },
+  { key: "accounts.sessionDays", panel: "accounts", section: "Signing in", label: "Stay signed in for", public: true, type: "number", default: 30, min: 1, max: 365, step: 1, unit: "days", dependsOn: "feature.accounts" },
+  bool("accounts.showHeaderLink", "accounts", "Signing in", "Show the account link in the header", true, { dependsOn: "feature.accounts" }),
+  { key: "accounts.consentText", panel: "accounts", section: "Privacy", label: "Parent agreement shown when signing up", public: true, type: "localized", maxLength: 400, multiline: true, dependsOn: "feature.accounts",
+    default: { en: "I am the parent or guardian. I agree that StudySmart keeps my child's nickname, class and learning progress so it can be saved across devices. I can delete it at any time.", ta: "நான் பெற்றோர் அல்லது பாதுகாவலர். என் குழந்தையின் புனைப்பெயர், வகுப்பு, கற்றல் முன்னேற்றம் சாதனங்களுக்கிடையே சேமிக்கப்பட இதை ஒப்புக்கொள்கிறேன். நான் எப்போது வேண்டுமானாலும் அழிக்கலாம்." } },
 
   // ---------------- Theme ----------------
   { key: "theme.mode", panel: "theme", section: "Mode", label: "Light or dark", public: true, type: "select", default: "light",
