@@ -134,6 +134,7 @@ export function createAccountService(db: Db): AccountService {
         try {
           if (r.kind === "lesson") out.lesson[r.topicId] = JSON.parse(r.dataJson);
           else if (r.kind === "practice") out.practice[r.topicId] = JSON.parse(r.dataJson);
+          else if (r.kind === "revision") out.revision[r.topicId] = JSON.parse(r.dataJson);
         } catch { /* skip an unreadable row */ }
       }
       return SyncData.parse(out);
@@ -145,7 +146,7 @@ export function createAccountService(db: Db): AccountService {
       return db.transaction(async (tx) => {
         const rows = await tx.select().from(s.studentProgress).where(eq(s.studentProgress.studentId, studentId));
         const have = emptySync();
-        for (const r of rows) { try { if (r.kind === "lesson") have.lesson[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "practice") have.practice[r.topicId] = JSON.parse(r.dataJson); } catch { /* ignore */ } }
+        for (const r of rows) { try { if (r.kind === "lesson") have.lesson[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "practice") have.practice[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "revision") have.revision[r.topicId] = JSON.parse(r.dataJson); } catch { /* ignore */ } }
         const merged = mergeSync(have, incoming);
         const write = async (kind: string, topicId: string, data: unknown) => {
           const json = JSON.stringify(data);
@@ -153,6 +154,7 @@ export function createAccountService(db: Db): AccountService {
         };
         for (const [id, v] of Object.entries(merged.lesson)) if (JSON.stringify(have.lesson[id]) !== JSON.stringify(v)) await write("lesson", id, v);
         for (const [id, v] of Object.entries(merged.practice)) if (JSON.stringify(have.practice[id]) !== JSON.stringify(v)) await write("practice", id, v);
+        for (const [id, v] of Object.entries(merged.revision)) if (JSON.stringify(have.revision[id]) !== JSON.stringify(v)) await write("revision", id, v);
         return merged;
       });
     },

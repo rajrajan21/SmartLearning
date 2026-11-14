@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -41,6 +41,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "languages", label: "Languages", help: "Tamil and English behaviour." },
   { id: "catalog", label: "Classes and boards", help: "Which classes and boards are open to students." },
   { id: "accounts", label: "Accounts", help: "Parent sign-in, child profiles and saving progress across devices." },
+  { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
 ];
 
@@ -62,9 +63,9 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.teacherNarration", "features", "Learning", "Teacher voice and board", true, { dependsOn: "feature.lessons", help: "Listen buttons, the teacher's voice and the drawing board inside lessons." }),
   bool("feature.practice", "features", "Learning", "Practice rounds", true, { help: "Four practice rounds on every topic that has questions." }),
   bool("feature.accounts", "features", "Learning", "Parent accounts and child profiles", true, { help: "Lets a parent sign in, add children and keep progress across devices. Students can still learn without signing in." }),
+  bool("feature.mastery", "features", "Learning", "Mastery and daily revision", true, { help: "Shows how well each topic and chapter is known, and a daily revision set of questions to remember." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.mastery", "Chapter mastery and revision", "Module 7"),
   planned("feature.aiTutor", "AI tutor", "Module 8"),
   planned("feature.parentDashboard", "Parent dashboard", "Module 9"),
   planned("feature.exams", "Exams and worksheets", "Module 10"),
@@ -121,6 +122,14 @@ export const SETTINGS: SettingDef[] = [
   bool("accounts.showHeaderLink", "accounts", "Signing in", "Show the account link in the header", true, { dependsOn: "feature.accounts" }),
   { key: "accounts.consentText", panel: "accounts", section: "Privacy", label: "Parent agreement shown when signing up", public: true, type: "localized", maxLength: 400, multiline: true, dependsOn: "feature.accounts",
     default: { en: "I am the parent or guardian. I agree that StudySmart keeps my child's nickname, class and learning progress so it can be saved across devices. I can delete it at any time.", ta: "நான் பெற்றோர் அல்லது பாதுகாவலர். என் குழந்தையின் புனைப்பெயர், வகுப்பு, கற்றல் முன்னேற்றம் சாதனங்களுக்கிடையே சேமிக்கப்பட இதை ஒப்புக்கொள்கிறேன். நான் எப்போது வேண்டுமானாலும் அழிக்கலாம்." } },
+
+  // ---------------- Mastery and revision ----------------
+  bool("mastery.badges", "mastery", "Showing progress", "Show how well each topic is known on chapter pages", true, { dependsOn: "feature.mastery" }),
+  bool("mastery.homeCard", "mastery", "Showing progress", "Show the daily revision card on the home page", true, { dependsOn: "feature.mastery" }),
+  bool("mastery.progressPage", "mastery", "Showing progress", "Show the 'My progress' page", true, { dependsOn: "feature.mastery" }),
+  bool("mastery.revision.enabled", "mastery", "Revision", "Bring questions back for revision", true, { dependsOn: "feature.mastery", help: "Questions answered correctly return after longer and longer gaps; wrong ones return the next day." }),
+  { key: "mastery.revision.dailyLimit", panel: "mastery", section: "Revision", label: "Most questions in one revision", public: true, type: "number", default: 10, min: 3, max: 30, step: 1, dependsOn: "mastery.revision.enabled" },
+  { key: "mastery.revision.intervals", panel: "mastery", section: "Revision", label: "Days before each question comes back", public: true, type: "numberlist", default: [1, 3, 7, 14, 30], options: [1, 2, 3, 5, 7, 10, 14, 21, 30, 45, 60], dependsOn: "mastery.revision.enabled", help: "Up to five steps, from the first return to the last (sorted automatically). Fewer steps means the last gap repeats." },
 
   // ---------------- Theme ----------------
   { key: "theme.mode", panel: "theme", section: "Mode", label: "Light or dark", public: true, type: "select", default: "light",

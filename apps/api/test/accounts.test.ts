@@ -110,7 +110,17 @@ describe("accounts API", () => {
     const add = await request(app).post("/api/v1/account/children").set("Cookie", cookie).send({ nickname: "Arun", classLevel: 3 });
     const arun = add.body.profiles.find((p: { nickname: string }) => p.nickname === "Arun").id;
     await request(app).post(`/api/v1/account/children/${arun}/select`).set("Cookie", cookie).send({});
-    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body).toEqual({ lesson: {}, practice: {} });
+    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body).toEqual({ lesson: {}, practice: {}, revision: {} });
+  });
+
+  it("keeps the latest revision review for each question", async () => {
+    const { cookie } = await signUp();
+    const q = "00000000-0000-4000-8000-0000000000aa";
+    await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ revision: { [q]: { box: 2, due: 20000, updatedAt: 100 } } });
+    const r = await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ revision: { [q]: { box: 1, due: 19000, updatedAt: 50 } } }); // older: ignored
+    expect(r.body.revision[q]).toEqual({ box: 2, due: 20000, updatedAt: 100 });
+    const r2 = await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ revision: { [q]: { box: 1, due: 20001, updatedAt: 200 } } });
+    expect(r2.body.revision[q].box).toBe(1);
   });
 
   it("rejects junk sync data", async () => {

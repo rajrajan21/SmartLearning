@@ -4,6 +4,8 @@ import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
+import { RevisePage } from "./pages/Revise";
+import { ProgressPage } from "./pages/Progress";
 import { AccountPage } from "./pages/Account";
 import { AccountProvider } from "./lib/account";
 import { PracticePage } from "./pages/Practice";
@@ -14,6 +16,8 @@ export function Routes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/account" component={AccountPage} />
+      <Route path="/revise" component={RevisePage} />
+      <Route path="/progress" component={ProgressPage} />
       <Route path="/:board/:cls" component={ClassPage} />
       <Route path="/:board/:cls/:subject" component={SubjectPage} />
       <Route path="/:board/:cls/:subject/:chapter" component={ChapterPage} />

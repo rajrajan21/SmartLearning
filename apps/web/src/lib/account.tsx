@@ -3,6 +3,7 @@ import { emptySync, Me, mergeSync, SyncData, type PublicProfile } from "@studysm
 import { useSettings } from "./settings";
 import { store } from "./storage";
 import { onProgressChange, readAllProgress, replaceAllProgress } from "./progress";
+import { onRevisionChange, readAllRevision, replaceAllRevision } from "./revision";
 import { onResultsChange, readAllResults, replaceAllResults } from "./practice";
 
 export type Result = { ok: true } | { ok: false; message: string };
@@ -38,8 +39,8 @@ async function call(method: string, path: string, body?: unknown): Promise<{ ok:
 }
 const messageOf = (r: { status: number; data: unknown }): string => (r.status === 0 ? "offline" : (r.data as { error?: { message?: string } } | null)?.error?.message ?? "Something went wrong. Please try again.");
 
-const local = (): SyncData => SyncData.parse({ lesson: readAllProgress(), practice: readAllResults() });
-const writeLocal = (d: SyncData) => { replaceAllProgress(d.lesson); replaceAllResults(d.practice as never); };
+const local = (): SyncData => SyncData.parse({ lesson: readAllProgress(), practice: readAllResults(), revision: readAllRevision() });
+const writeLocal = (d: SyncData) => { replaceAllProgress(d.lesson); replaceAllResults(d.practice as never); replaceAllRevision(d.revision); };
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const s = useSettings();
@@ -87,8 +88,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     if (!on || !activeId) return;
     let t: ReturnType<typeof setTimeout> | undefined;
     const changed = () => { if (adopting.current) return; clearTimeout(t); t = setTimeout(() => void push(), 1500); };
-    const a = onProgressChange(changed), b = onResultsChange(changed);
-    return () => { clearTimeout(t); a(); b(); };
+    const a = onProgressChange(changed), b = onResultsChange(changed), c = onRevisionChange(changed);
+    return () => { clearTimeout(t); a(); b(); c(); };
   }, [on, activeId, push]);
 
   const accept = (r: { ok: boolean; status: number; data: unknown }): Result => {
@@ -97,7 +98,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     if (!parsed.success) return { ok: false, message: "Something went wrong. Please try again." };
     setMe(parsed.data); return { ok: true };
   };
-  const clearDevice = () => { replaceAllProgress({}); replaceAllResults({}); store.set(OWNER, ""); setSync("idle"); };
+  const clearDevice = () => { replaceAllProgress({}); replaceAllResults({}); replaceAllRevision({}); store.set(OWNER, ""); setSync("idle"); };
 
   const ctx = useMemo<Ctx>(() => ({
     me,

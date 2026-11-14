@@ -4,6 +4,8 @@ import { ui } from "../lib/i18n";
 import { useBoard, useLesson, useLessonTopicIds, useRetry, useTopic } from "../lib/curriculum";
 import { useAllProgress, useTopicProgress } from "../lib/progress";
 import { usePractice, usePracticeResults } from "../lib/practice";
+import { useMastery } from "../lib/mastery";
+import { MasteryTag } from "./Progress";
 import { LessonPlayer } from "../components/LessonPlayer";
 import { subjectVar } from "../lib/theme";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
@@ -77,6 +79,7 @@ export function ChapterPage() {
   const s = useSettings();
   const progress = useAllProgress();
   const lessonIds = useLessonTopicIds(s.get("feature.lessons"));
+  const masteryOf = useMastery(s.get("feature.mastery") === true);
   const { subject = "", chapter = "" } = useParams<{ subject: string; chapter: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
   if (state.status === "loading") return <Loading />;
@@ -101,6 +104,7 @@ export function ChapterPage() {
                 <li key={t.id}>
                   <Link href={`${base}/${ch.slug}/${t.slug}`}><Title name={t.name} /></Link>
                   {s.get("feature.lessons") && lessonIds.has(t.id) && <span className="tag">{ui("hasLesson", s.lang)}</span>}
+                  {s.get("feature.mastery") === true && s.get("mastery.badges") === true && (() => { const m = masteryOf(t.id); return m && m.level !== "new" ? <MasteryTag m={m} /> : null; })()}
                   {s.get("lesson.progress.showTicks") && progress[t.id]?.done && <span className="tick" title={ui("lessonTick", s.lang)} role="img" aria-label={ui("lessonTick", s.lang)}>✓</span>}
                 </li>
               ))}

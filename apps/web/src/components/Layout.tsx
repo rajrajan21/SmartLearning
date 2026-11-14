@@ -27,6 +27,7 @@ export function Layout({ children }: { children: ReactNode }) {
               {ui("switchTo", lang)}
             </button>
           )}
+          {s.get("feature.mastery") === true && s.get("mastery.progressPage") === true && <Link href="/progress" className="btn ghost">{ui("myProgress", lang)}</Link>}
           {showAcct && (
             <Link href="/account" className="btn ghost acct-link">
               {acct?.active ? <><span aria-hidden="true">{AVATAR_EMOJI[acct.active.avatar] ?? "🙂"}</span> {acct.active.nickname}</> : acct?.me ? ui("account", lang) : ui("signIn", lang)}

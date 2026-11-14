@@ -89,3 +89,8 @@ export const usePlay = () => useCallback((url: string | undefined) => { if (!url
 export const readAllResults = (): Results => readAll();
 export function replaceAllResults(all: Results): void { store.setJson(KEY, all); listeners.forEach((l) => l()); }
 export function onResultsChange(l: () => void): () => void { listeners.add(l); return () => { listeners.delete(l); }; }
+export function useAllResults(): Results {
+  const [all, setAll] = useState<Results>(readAll);
+  useEffect(() => { const l = () => setAll(readAll()); listeners.add(l); return () => { listeners.delete(l); }; }, []);
+  return all;
+}

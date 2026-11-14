@@ -98,6 +98,16 @@ describe("practice API", () => {
     expect(JSON.stringify(set)).not.toMatch(/whyWrong|"correct"|explanation|accepted/);
     const avail = await request(app).get("/api/v1/practice/available").expect(200);
     expect(avail.body.topicIds).toContain(set.topicId);
+    expect(avail.body.rounds[set.topicId]).toEqual([1, 2, 3, 4]);
+  });
+  it("fetches questions by id for revision, without answers, and ignores unknown ids", async () => {
+    const set = await get();
+    const ids = [set.questions[0]!.id, set.questions[5]!.id, randomUUID()];
+    const r = await request(app).post("/api/v1/practice/by-ids").send({ ids }).expect(200);
+    expect(r.body.questions.map((q: { id: string }) => q.id).sort()).toEqual([ids[0], ids[1]].sort());
+    expect(JSON.stringify(r.body)).not.toMatch(/whyWrong|"correct"|explanation|accepted/);
+    await request(app).post("/api/v1/practice/by-ids").send({ ids: [] }).expect(400);
+    await request(app).post("/api/v1/practice/by-ids").send({ ids: ["nope"] }).expect(400);
   });
   it("grades a wrong answer with the specific reason, and records it once even if sent twice", async () => {
     const set = await get();

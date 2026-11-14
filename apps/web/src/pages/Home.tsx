@@ -3,6 +3,7 @@ import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { SearchBox } from "../components/SearchBox";
 import { useBoard, useRetry } from "../lib/curriculum";
+import { useDueCount } from "../lib/revision";
 import { Loading, ErrorBox } from "../components/bits";
 
 const COMING_BOARDS = [
@@ -16,12 +17,20 @@ export function Home() {
   const [attempt, retry] = useRetry();
   const state = useBoard(board, attempt);
   const open = new Set(s.get<number[]>("catalog.openClasses"));
+  const due = useDueCount();
+  const mastery = s.get("feature.mastery") === true;
   return (
     <div className="paper">
       {s.get("home.hero.show") && (
         <section className="hero">
           <h1>{s.text("home.hero.title")}</h1>
           <p className="lead">{s.text("home.hero.subtitle")}</p>
+        </section>
+      )}
+      {mastery && s.get("mastery.homeCard") === true && s.get("mastery.revision.enabled") === true && due > 0 && (
+        <section className="revise-card" aria-label={ui("reviseToday", s.lang)}>
+          <div><h2>{ui("reviseToday", s.lang)}</h2><p>{due} {ui("reviseCount", s.lang)}</p></div>
+          <Link className="btn" href="/revise">{ui("reviseStart", s.lang)}</Link>
         </section>
       )}
       {s.get("home.search.show") && s.get("feature.search") && <SearchBox board={board} />}

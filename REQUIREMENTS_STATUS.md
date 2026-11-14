@@ -61,3 +61,6 @@ Practice rounds with 5 question types, server grading, hints, stars, checkpoints
 
 ## Module 6 (done)
 Parent accounts, child profiles, progress sync, consent, account deletion, admin controls. Pending: password reset (needs e-mail), parent dashboard (Module 9).
+
+## Module 7 (done)
+Mastery levels, My progress, daily spaced revision, admin controls. Parent-facing views come in Module 9.

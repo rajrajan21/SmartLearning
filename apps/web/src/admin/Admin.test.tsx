@@ -36,7 +36,7 @@ describe("admin console", () => {
     fireEvent.click(screen.getByRole("button", { name: "Save changes" }));
     await waitFor(() => expect(saved).toEqual({ "feature.search": false }));
     const planned = screen.getAllByRole("switch").filter((e) => (e as HTMLButtonElement).disabled);
-    expect(planned.length).toBeGreaterThan(5);
+    expect(planned.length).toBeGreaterThanOrEqual(4);
   });
   it("applies a style preset to the draft and warns about low contrast", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");

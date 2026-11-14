@@ -1,4 +1,4 @@
-import { and, asc, eq } from "drizzle-orm";
+import { and, asc, eq, inArray } from "drizzle-orm";
 import { AnswerFeedback, AnswerRequest, PracticeSet, Question, QuestionImport, type PublicQuestion } from "@studysmart/shared";
 import type { Db } from "../../db/client.js";
 import * as s from "../../db/schema.js";
@@ -12,6 +12,10 @@ export interface PracticeService {
   importQuestions(raw: unknown): Promise<{ topicId: string; added: number; updated: number; unchanged: number }>;
   getPractice(board: string, classLevel: number, subject: string, chapter: string, topic: string): Promise<PracticeSet | null>;
   publishedTopicIds(): Promise<string[]>;
+  /** which rounds have published questions, per topic (used to measure mastery) */
+  roundsByTopic(): Promise<Record<string, number[]>>;
+  /** questions by id, for the revision set (published only, answers never included) */
+  getByIds(ids: string[]): Promise<PublicQuestion[]>;
   answer(req: AnswerRequest, studentId?: string | null): Promise<AnswerFeedback>;
   /** Share of correct first answers per question, for calibrating difficulty (used by Module 7+). */
   stats(topicId: string): Promise<{ key: string; attempts: number; correct: number }[]>;
@@ -64,6 +68,24 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
     async publishedTopicIds() {
       const rows = await db.selectDistinct({ id: s.questions.topicId }).from(s.questions).where(eq(s.questions.status, "published"));
       return rows.map((r) => r.id);
+    },
+
+    async roundsByTopic() {
+      const rows = await db.selectDistinct({ topicId: s.questions.topicId, round: s.questions.round }).from(s.questions).where(eq(s.questions.status, "published"));
+      const out: Record<string, number[]> = {};
+      for (const r of rows) (out[r.topicId] ??= []).push(r.round);
+      for (const k of Object.keys(out)) out[k]!.sort();
+      return out;
+    },
+
+    async getByIds(ids) {
+      if (ids.length === 0) return [];
+      const rows = await db.select().from(s.questions).where(and(inArray(s.questions.id, ids), eq(s.questions.status, "published")));
+      return rows.map((r) => {
+        const q = Question.parse(JSON.parse(r.bodyJson));
+        const pub = toPublic(r.id, q), stem = audio?.refs("malar", q.stem);
+        return stem ? { ...pub, audio: { stem } } : pub;
+      });
     },
 
     async answer(req, studentId) {

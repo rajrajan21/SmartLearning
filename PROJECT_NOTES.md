@@ -58,3 +58,7 @@ pnpm --filter web dev      # http://localhost:5173
 - Parent accounts + child profiles, per-child progress sync across devices, delete account, admin switches (docs/10-accounts.md). Migration 0003.
 - Tests: shared 13, API 72, web 33 (all passing). Next: Module 7 (mastery and revision).
 - Pending: password reset by e-mail needs an e-mail service (none yet); ADMIN_KEY must be set in production.
+
+## Status: Module 7 complete (mastery and revision)
+- Mastery levels per topic/chapter, My progress page, chapter badges, spaced daily revision (/revise), home card, sync of revision data (docs/11-mastery.md). No new migration (revision uses student_progress).
+- Tests: shared 21, API 74, web 40 (all passing). Next: Module 8 (AI tutor; needs a free-tier model key from the owner).

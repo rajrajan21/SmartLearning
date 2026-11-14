@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { AnswerFeedback, AnswerResponse, LangAudio, PublicQuestion } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui, type Lang } from "../lib/i18n";
+import { recordReview } from "../lib/revision";
 import { sendAnswer, shuffled, usePhrases } from "../lib/practice";
 
 interface Part { audio?: LangAudio; text: string }
@@ -66,6 +67,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
     try {
       const f = await sendAnswer(q.id, attemptId.current, hints, response);
       setFb(f);
+      if (s.get("feature.mastery") === true && s.get("mastery.revision.enabled") === true) recordReview(q.id, f.correct, s.get<number[]>("mastery.revision.intervals"));
       if (voiceFb) {
         const list = f.correct ? phrases.praise : phrases.tryAgain;
         const phrase = list && list.length ? list[Math.floor(Math.random() * list.length)] : undefined;
