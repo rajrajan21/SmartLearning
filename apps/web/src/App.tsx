@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
+import { PracticePage } from "./pages/Practice";
 import { AdminApp } from "./admin/AdminApp";
 
 export function Routes() {
@@ -14,6 +15,7 @@ export function Routes() {
       <Route path="/:board/:cls/:subject" component={SubjectPage} />
       <Route path="/:board/:cls/:subject/:chapter" component={ChapterPage} />
       <Route path="/:board/:cls/:subject/:chapter/:topic/learn" component={LessonPage} />
+      <Route path="/:board/:cls/:subject/:chapter/:topic/practice" component={PracticePage} />
       <Route path="/:board/:cls/:subject/:chapter/:topic" component={TopicPage} />
       <Route component={NotFound} />
     </Switch>

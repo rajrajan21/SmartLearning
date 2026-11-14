@@ -1,8 +1,8 @@
 // Usage: pnpm --filter @studysmart/api db:migrate | db:seed | curriculum:check   (migrate/seed need DATABASE_URL)
 import { existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { CurriculumImport, LessonImport } from "@studysmart/shared";
-import { curriculumDir, lessonsDir } from "../server-paths.js";
+import { CurriculumImport, LessonImport, QuestionImport } from "@studysmart/shared";
+import { curriculumDir, lessonsDir, questionsDir } from "../server-paths.js";
 
 const cmd = process.argv[2];
 
@@ -25,6 +25,11 @@ if (cmd === "check") {
     if (r.success) console.log(`OK    lessons/${f}: ${r.data.lesson.blocks.length} blocks`);
     else { failed = true; console.log(`FAIL  lessons/${f}`); for (const i of r.error.issues) console.log(`      ${i.path.join(".")}: ${i.message}`); }
   }
+  for (const f of existsSync(questionsDir) ? readdirSync(questionsDir).filter((x) => x.endsWith(".json")).sort() : []) {
+    const r = QuestionImport.safeParse(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
+    if (r.success) { const by = [1, 2, 3, 4].map((n) => r.data.questions.filter((q) => q.round === n).length); console.log(`OK    questions/${f}: ${r.data.questions.length} questions (rounds 1-4: ${by.join("/")})`); }
+    else { failed = true; console.log(`FAIL  questions/${f}`); for (const i of r.error.issues) console.log(`      ${i.path.join(".")}: ${i.message}`); }
+  }
   process.exit(failed ? 1 : 0);
 }
 
@@ -35,7 +40,7 @@ const { migrate } = await import("drizzle-orm/node-postgres/migrator");
 const { default: pg } = await import("pg");
 const { importCurriculum } = await import("../modules/curriculum/importer.js");
 const schema = await import("./schema.js");
-const { seedLessons } = await import("./dev.js");
+const { seedLessons, seedQuestions } = await import("./dev.js");
 const pool = new pg.Pool({ connectionString: url, max: 2 });
 const db = drizzle(pool, { schema });
 
@@ -47,6 +52,7 @@ if (cmd === "migrate") {
     console.log("imported", f, await importCurriculum(db as never, JSON.parse(readFileSync(join(curriculumDir, f), "utf8"))));
   }
   await seedLessons(db as never);
+  await seedQuestions(db as never);
 } else {
   throw new Error("usage: cli.ts check|migrate|seed");
 }

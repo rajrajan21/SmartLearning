@@ -1,6 +1,8 @@
 import express, { type NextFunction, type Request, type Response } from "express";
 import type { CurriculumRepository } from "./modules/curriculum/repository.js";
 import { curriculumRoutes } from "./modules/curriculum/routes.js";
+import { practiceRoutes } from "./modules/practice/routes.js";
+import type { PracticeService } from "./modules/practice/service.js";
 import { audioRoutes } from "./modules/audio/routes.js";
 import type { AudioStore } from "./modules/audio/manifest.js";
 import { lessonRoutes } from "./modules/lessons/routes.js";
@@ -12,6 +14,7 @@ export interface AppDeps {
   curriculum: CurriculumRepository;
   settings: SettingsService;
   lessons: LessonService;
+  practice: PracticeService;
   /** recorded teacher speech; omit to disable the audio route */
   audio?: AudioStore;
   /** null = admin API disabled */
@@ -29,7 +32,7 @@ export function createApp(deps: AppDeps) {
   app.use("/api/v1/admin", adminSettingsRoutes(deps.settings, deps.adminKey));
 
   // Maintenance mode: public data routes answer 503 with a clear message (admin and settings stay available).
-  app.use(["/api/v1/curriculum", "/api/v1/lessons", "/api/v1/audio"], async (_req, res, next) => {
+  app.use(["/api/v1/curriculum", "/api/v1/lessons", "/api/v1/audio", "/api/v1/practice"], async (_req, res, next) => {
     const v = await deps.settings.all();
     if (v["site.maintenance.enabled"] === true) {
       return void res.status(503).set("Retry-After", "600").json({ error: { code: "maintenance", message: (v["site.maintenance.message"] as { en: string }).en } });
@@ -40,6 +43,7 @@ export function createApp(deps: AppDeps) {
 
   app.use("/api/v1/lessons", lessonRoutes(deps.lessons, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
 
+  app.use("/api/v1/practice", practiceRoutes(deps.practice, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
   if (deps.audio) app.use("/api/v1/audio", audioRoutes(deps.audio));
 
   app.use((_req, res) => void res.status(404).json({ error: { code: "not_found", message: "Route not found" } }));

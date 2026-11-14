@@ -4,6 +4,7 @@ import type { Db } from "./db/client.js";
 import { createDbCurriculumRepository } from "./modules/curriculum/db-repository.js";
 import { createAudioStore } from "./modules/audio/manifest.js";
 import { audioDir } from "./server-paths.js";
+import { createPracticeService } from "./modules/practice/service.js";
 import { createLessonService } from "./modules/lessons/service.js";
 import { resolveAdminKey } from "./modules/settings/admin-auth.js";
 import { createSettingsService } from "./modules/settings/service.js";
@@ -25,6 +26,6 @@ async function connect(): Promise<Db> {
 const port = Number(process.env.PORT ?? 3000);
 const db = await connect();
 const curriculum = createDbCurriculumRepository(db);
-const audio = createAudioStore({ manifestPath: `${audioDir}/manifest.json`, voicesPath: `${audioDir}/voices.json`, filesDir: `${audioDir}/files` });
-const app = createApp({ curriculum, lessons: createLessonService(db, curriculum, audio), audio, settings: createSettingsService(db), adminKey: resolveAdminKey(process.env) });
+const audio = createAudioStore({ manifestPath: `${audioDir}/manifest.json`, voicesPath: `${audioDir}/voices.json`, phrasesPath: `${audioDir}/phrases.json`, filesDir: `${audioDir}/files` });
+const app = createApp({ curriculum, lessons: createLessonService(db, curriculum, audio), practice: createPracticeService(db, curriculum, audio), audio, settings: createSettingsService(db), adminKey: resolveAdminKey(process.env) });
 app.listen(port, () => console.log(`StudySmart API listening on :${port}`));

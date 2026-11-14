@@ -82,10 +82,10 @@ describe("serving recorded speech", () => {
     writeFileSync(join(dirs.lessons, "a.json"), JSON.stringify(lesson()));
     await buildAudio({ lessonsDir: dirs.lessons, audioDir: dirs.audio, speak: fakeSpeak });
     const m = await makeRepo();
-    const store = createAudioStore({ manifestPath: join(dirs.audio, "manifest.json"), voicesPath: join(dirs.audio, "voices.json"), filesDir: join(dirs.audio, "files") });
+    const store = createAudioStore({ manifestPath: join(dirs.audio, "manifest.json"), voicesPath: join(dirs.audio, "voices.json"), phrasesPath: join(dirs.audio, "phrases.json"), filesDir: join(dirs.audio, "files") });
     const lessons = createLessonService(m.db, m.repo, store);
     await lessons.importLesson(lesson());
-    app = createApp({ curriculum: m.repo, settings: m.settings, lessons, audio: store, adminKey: null });
+    app = createApp({ curriculum: m.repo, settings: m.settings, lessons, practice: m.practice, audio: store, adminKey: null });
   });
   it("adds audio to sentences that have a recording, per language", async () => {
     const res = await request(app).get("/api/v1/lessons/boards/CBSE/3/maths/toy-joy/counting-toys").expect(200);
@@ -112,5 +112,37 @@ describe("serving recorded speech", () => {
     const a = audioKey({ lang: "en", voice: "v", speed: 1, text: "Hi" });
     expect(audioKey({ lang: "en", voice: "v", speed: 1, text: "Hi" })).toBe(a);
     for (const other of [{ lang: "ta" as const, voice: "v", speed: 1, text: "Hi" }, { lang: "en" as const, voice: "w", speed: 1, text: "Hi" }, { lang: "en" as const, voice: "v", speed: 1.1, text: "Hi" }, { lang: "en" as const, voice: "v", speed: 1, text: "Hi!" }]) expect(audioKey(other)).not.toBe(a);
+  });
+});
+
+describe("natural-sounding polish and full coverage", () => {
+  it("trims silence, levels loudness and keeps clips short", async () => {
+    const { polish } = await import("../src/modules/audio/build.js");
+    const rate = 24000, quiet = new Int16Array(rate * 2);
+    for (let i = rate * 0.5; i < rate * 1.5; i++) quiet[i] = Math.round(Math.sin(i / 20) * 1500);
+    const p = polish(quiet, rate);
+    expect(p.samples.length).toBeLessThan(quiet.length * 0.65); // leading/trailing silence removed
+    expect(p.headTrimMs).toBeGreaterThan(300);
+    const peak = Math.max(...Array.from(p.samples, Math.abs));
+    expect(peak).toBeGreaterThan(1500 * 1.5); // quiet speech brought up
+    expect(peak).toBeLessThanOrEqual(32768 * 0.9); // never clips
+  });
+
+  it("speaks question stems, explanations, why-wrong lines and phrases, once each", async () => {
+    const { audio } = setup();
+    const lessons = join(audio, "..", "lessons"), questions = join(audio, "..", "questions");
+    mkdirSync(questions, { recursive: true });
+    writeFileSync(join(audio, "..", "lessons", "x.json"), JSON.stringify(lesson()));
+    writeFileSync(join(audio, "..", "questions", "q.json"), JSON.stringify({
+      board: "CBSE", classLevel: 3, subject: "maths", chapter: "toy-joy", topic: "counting-toys",
+      questions: [{ key: "a", type: "true_false", round: 1, status: "published", stem: { en: "A square has 4 corners." }, answer: true, explanation: { en: "Yes, four corners." }, provenance: "original" }],
+    }));
+    writeFileSync(join(audio, "phrases.json"), JSON.stringify({ praise: [{ text: { en: "Well done!" } }, { text: { en: "Well done!" } }] }));
+    calls.length = 0;
+    const r = await buildAudio({ lessonsDir: lessons, questionsDir: questions, audioDir: audio, speak: fakeSpeak, langs: ["en"] });
+    expect(calls).toContain("Well done!");
+    expect(calls.filter((c) => c === "Well done!")).toHaveLength(1); // duplicate phrase recorded once
+    expect(calls.some((c) => c.includes("square has 4 corners"))).toBe(true);
+    expect(r.generated).toBe(r.wanted);
   });
 });

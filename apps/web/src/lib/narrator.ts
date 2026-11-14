@@ -18,7 +18,7 @@ export function useDeviceVoice(lang: Lang, enabled: boolean): boolean {
   return ok;
 }
 
-export interface NarratorOptions { lang: Lang; autoAdvance: boolean; initialRate: number; deviceVoice: boolean }
+export interface NarratorOptions { lang: Lang; autoAdvance: boolean; initialRate: number; deviceVoice: boolean; pauseMs?: number }
 export interface Narrator {
   /** recorded = every sentence has a recording; mixed = some do; device = device voice only; none = cannot speak */
   source: "recorded" | "mixed" | "device" | "none";
@@ -59,7 +59,12 @@ export function useNarrator(sentences: NarrationSentence[], o: NarratorOptions):
       if (n >= sentences.length) { setPlaying(false); setIndex(0); setWordIndex(-1); return; }
       const sen = sentences[n]!, { lang, autoAdvance, deviceVoice } = opts.current;
       setIndex(n); setWordIndex(-1);
-      const done = () => { if (run.current !== id) return; if (autoAdvance) step(n + 1); else { setPlaying(false); setWordIndex(-1); } };
+      const done = () => {
+        if (run.current !== id) return;
+        if (!autoAdvance) { setPlaying(false); setWordIndex(-1); return; }
+        const gap = (opts.current.pauseMs ?? 0) + (sen.pauseAfterMs ?? 0); // a short breath between sentences sounds like a teacher
+        if (gap > 0 && n + 1 < sentences.length) setTimeout(() => step(n + 1), gap); else step(n + 1);
+      };
       const rec = sen.audio[lang];
       if (rec) {
         const a = new Audio(rec.url); audio.current = a; a.playbackRate = rateRef.current;
@@ -67,7 +72,7 @@ export function useNarrator(sentences: NarrationSentence[], o: NarratorOptions):
         a.onended = done; a.onerror = done;
         void a.play().catch(() => { if (run.current === id) setPlaying(false); });
       } else if (deviceVoice && hasSpeech() && sen.text[lang]) {
-        const u = new SpeechSynthesisUtterance(sen.text[lang]); u.lang = SPEECH_LANG[lang]; u.rate = rateRef.current;
+        const u = new SpeechSynthesisUtterance(sen.spoken?.[lang] ?? sen.text[lang]); u.lang = SPEECH_LANG[lang]; u.rate = rateRef.current;
         u.onend = done; u.onerror = done; speechSynthesis.speak(u);
       } else done();
     };

@@ -3,6 +3,7 @@ import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useBoard, useLesson, useLessonTopicIds, useRetry, useTopic } from "../lib/curriculum";
 import { useAllProgress, useTopicProgress } from "../lib/progress";
+import { usePractice, usePracticeResults } from "../lib/practice";
 import { LessonPlayer } from "../components/LessonPlayer";
 import { subjectVar } from "../lib/theme";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
@@ -123,6 +124,9 @@ export function TopicPage() {
   const lessonOn = s.get("feature.lessons");
   const lesson = useLesson(board, level, subject, chapter, topic, lessonOn);
   const [prog] = useTopicProgress(lesson.status === "ready" ? lesson.data?.topicId : undefined);
+  const practiceOn = s.get("feature.practice");
+  const practice = usePractice(board, level, subject, chapter, topic, practiceOn);
+  const pres = usePracticeResults(practice.status === "ready" ? practice.data?.topicId : undefined);
   if (!allowed) return <NotFound />;
   if (state.status === "loading") return <Loading />;
   if (state.status === "error") return <NotFound />;
@@ -139,6 +143,12 @@ export function TopicPage() {
             {prog?.done ? ui("reviewLesson", s.lang) : prog && prog.step > 0 ? ui("continueLesson", s.lang) : ui("startLesson", s.lang)}
           </Link>
           {prog?.done && s.get("lesson.progress.showTicks") && <span className="tick" role="img" aria-label={ui("lessonTick", s.lang)}>✓</span>}
+        </p>
+      )}
+      {practiceOn && practice.status === "ready" && practice.data && (
+        <p className="actions">
+          <Link className="btn ghost" href={`${link({ classLevel: level, subjectSlug: d.subject.slug, chapterSlug: d.chapter.slug, topicSlug: d.topic.slug })}/practice`}>{ui("startPractice", s.lang)}</Link>
+          {s.get("practice.stars") && Object.keys(pres).length > 0 && <span className="stars" role="img" aria-label={`${Object.values(pres).reduce((a, r) => a + r.stars, 0)} ${ui("starsLabel", s.lang)}`}>{"★".repeat(Object.values(pres).reduce((a, r) => a + r.stars, 0))}</span>}
         </p>
       )}
       {d.objectives.length > 0 && (<><h2>{ui("learnGoals", s.lang)}</h2><ul className="goals">{d.objectives.map((o, i) => <li key={i}>{s.name(o.text)}</li>)}</ul></>)}
@@ -159,6 +169,7 @@ export function LessonPage() {
   const detail = useTopic(board, level, subject, chapter, topic);
   const lessonOn = s.get("feature.lessons");
   const lesson = useLesson(board, level, subject, chapter, topic, lessonOn);
+  const checkpoints = usePractice(board, level, subject, chapter, topic, s.get("feature.practice") === true && s.get("practice.lessonCheckpoints") === true);
   if (!allowed || !lessonOn) return <NotFound />;
   if (detail.status === "loading" || lesson.status === "loading") return <Loading />;
   if (detail.status === "error" || lesson.status === "error" || !lesson.data) return <NotFound />;
@@ -170,6 +181,7 @@ export function LessonPage() {
       <LessonPlayer
         key={lesson.data.topicId}
         lesson={lesson.data}
+        questions={checkpoints.status === "ready" && checkpoints.data ? checkpoints.data.questions : []}
         links={{
           chapterHref: `${base}/${d.chapter.slug}`,
           nextHref: next ? `/${board}/${next.classLevel}/${next.subjectSlug}/${next.chapterSlug}/${next.topicSlug}` : null,

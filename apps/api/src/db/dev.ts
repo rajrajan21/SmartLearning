@@ -6,7 +6,8 @@ import { migrate } from "drizzle-orm/pglite/migrator";
 import { importCurriculum } from "../modules/curriculum/importer.js";
 import { createDbCurriculumRepository } from "../modules/curriculum/db-repository.js";
 import { createLessonService } from "../modules/lessons/service.js";
-import { curriculumDir, lessonsDir } from "../server-paths.js";
+import { createPracticeService } from "../modules/practice/service.js";
+import { curriculumDir, lessonsDir, questionsDir } from "../server-paths.js";
 import type { Db } from "./client.js";
 import * as schema from "./schema.js";
 
@@ -25,6 +26,15 @@ export async function seedAll(db: Db): Promise<void> {
     console.log("imported", f, JSON.stringify(summary));
   }
   await seedLessons(db);
+  await seedQuestions(db);
+}
+
+export async function seedQuestions(db: Db): Promise<void> {
+  if (!existsSync(questionsDir)) return;
+  const practice = createPracticeService(db, createDbCurriculumRepository(db));
+  for (const f of readdirSync(questionsDir).filter((x) => x.endsWith(".json")).sort()) {
+    console.log("questions", f, JSON.stringify(await practice.importQuestions(JSON.parse(readFileSync(join(questionsDir, f), "utf8")))));
+  }
 }
 
 export async function seedLessons(db: Db): Promise<void> {

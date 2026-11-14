@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malar Teacher – Smart Class Test Room</title>
+<style>
+:root{--ink:#22302e;--cream:#fbf5ea;--teal:#0f766e;--rose:#b4235a;--gold:#f2c14e;--board:#1f4d3f;--wood:#8a5a3b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:14px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+header h1{font-size:1.15rem;margin:0;flex:1}
+header h1 small{font-weight:400;opacity:.7}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 14px;background:var(--teal);color:#fff}
+button.ghost{background:#fff;color:var(--ink);border:1px solid #d9cdb8}
+button.rose{background:var(--rose)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+input,select{font:inherit;padding:9px 10px;border:1px solid #d9cdb8;border-radius:10px;background:#fff;color:var(--ink)}
+/* start screen */
+#start{background:#fff;border:1px solid #eadfca;border-radius:16px;padding:20px}
+#start h2{margin:0 0 4px}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.row label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;flex:1;min-width:180px}
+.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.lesson{background:var(--cream);border:2px solid #eadfca;border-radius:14px;padding:14px;text-align:left;color:var(--ink)}
+.lesson:hover{border-color:var(--teal)}
+.lesson b{display:block;font-size:1.05rem}
+.lesson span{font-size:.85rem;opacity:.75}
+/* stage */
+#class{display:none}
+.stage{display:grid;grid-template-columns:1.55fr 1fr;border-radius:16px;overflow:hidden;background:#f3e3c7;border:1px solid #d9cdb8;position:relative}
+.boardwrap{padding:16px 6px 16px 16px;display:flex}
+.board{flex:1;background:var(--board);border:10px solid var(--wood);border-radius:8px;box-shadow:inset 0 0 40px rgba(0,0,0,.35);min-height:340px;max-height:430px;overflow-y:auto;padding:12px 16px;
+ font-family:"Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS",cursive;color:#f6f3e7;scroll-behavior:smooth}
+.board .title{font-size:1.5rem;color:var(--gold);border-bottom:2px dashed rgba(255,255,255,.35);padding-bottom:4px;margin-bottom:8px}
+.board .line{font-size:1.08rem;margin:5px 0;min-height:1.3em}
+.board .eq{font-size:1.2rem;color:#ffe9a8;margin:8px 0;padding:6px 10px;border:1.5px solid rgba(255,255,255,.5);border-radius:6px;display:inline-block}
+.board svg{width:100%;max-width:380px;display:block;margin:6px auto}
+.board svg text{font-family:inherit;font-size:13px;fill:#f6f3e7;stroke:none;opacity:0;transition:opacity .4s}
+.board svg text.on{opacity:1}
+.teacher{position:relative;min-height:340px}
+.teacher svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#arm{transform-origin:84px 262px;transition:transform .5s ease}
+#arm.point{transform:rotate(108deg)}
+.eye{transform-box:fill-box;transform-origin:center;transition:transform .07s}
+.eye.shut{transform:scaleY(.08)}
+#brows{transition:transform .25s}
+#brows.up{transform:translateY(-4px)}
+.nameplate{position:absolute;right:10px;bottom:8px;background:var(--rose);color:#fff;border-radius:8px;padding:3px 10px;font-size:.8rem;font-weight:600}
+#caption{background:#22302e;color:#fff;border-radius:12px;padding:10px 14px;margin-top:10px;min-height:2.9em;font-size:1.02rem;line-height:1.4}
+#choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#choices button{background:#fff;color:var(--ink);border:2px solid var(--teal);font-weight:600}
+#choices button:hover{background:var(--teal);color:#fff}
+.ask{display:flex;gap:8px;margin-top:10px}
+.ask input{flex:1;min-width:0}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.85rem}
+.bar select{max-width:230px}
+progress{flex:1;min-width:100px;height:8px;accent-color:var(--teal)}
+details{margin-top:12px;background:#fff;border:1px solid #eadfca;border-radius:12px;padding:10px 14px;font-size:.88rem}
+details li{margin:3px 0}
+#log div{margin:4px 0}#log b{color:var(--teal)}
+@media(max-width:720px){.stage{grid-template-columns:1fr}.boardwrap{padding:12px}.board{min-height:230px;max-height:300px}.teacher{min-height:250px}}
+@media(prefers-reduced-motion:reduce){#arm,.board svg text{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1><span id="hTeacher">Malar</span> Teacher <small>· Smart Class test room</small></h1>
+  <button class="ghost" id="btnHome" style="display:none">All lessons</button>
+</header>
+
+<section id="start">
+  <h2>Welcome to class!</h2>
+  <p style="margin:0;opacity:.8">Type your name, pick a lesson, and your teacher will start. Turn your sound on.</p>
+  <div class="row">
+    <label>Your name <input id="inStudent" placeholder="e.g. Kavin" maxlength="20" autocomplete="off"></label>
+    <label>Teacher's name <input id="inTeacher" value="Malar" maxlength="20" autocomplete="off"></label>
+  </div>
+  <div class="lessons" id="lessonList"></div>
+</section>
+
+<section id="class">
+  <div class="stage">
+    <div class="boardwrap"><div class="board" id="board" aria-live="off"></div></div>
+    <div class="teacher">
+      <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Animated teacher">
+        <rect width="300" height="400" fill="#f3e3c7"/>
+        <rect y="300" width="300" height="100" fill="#e6d1ab"/>
+        <!-- window -->
+        <rect x="204" y="36" width="84" height="96" rx="4" fill="#8a5a3b"/>
+        <rect x="210" y="42" width="72" height="84" fill="#bfe3f5"/>
+        <circle cx="262" cy="62" r="10" fill="#ffe58a"/>
+        <path d="M210 110 Q230 92 250 108 T282 100 V126 H210Z" fill="#7fbf7a"/>
+        <path d="M246 42V126M210 84H282" stroke="#8a5a3b" stroke-width="4"/>
+        <!-- clock -->
+        <circle cx="46" cy="64" r="24" fill="#fff" stroke="#8a5a3b" stroke-width="5"/>
+        <path d="M46 64V48M46 64L57 70" stroke="#22302e" stroke-width="3" stroke-linecap="round"/>
+        <!-- body -->
+        <g id="body">
+          <rect x="133" y="198" width="34" height="46" fill="#c58d62"/>
+          <path d="M58 400 Q60 262 118 240 Q150 258 182 240 Q240 262 242 400Z" fill="#0f766e"/>
+          <path d="M172 244 L214 254 Q232 268 236 300 L118 400 H58 Q58 372 62 350Z" fill="#b4235a" stroke="#f2c14e" stroke-width="3"/>
+          <path d="M128 240 Q150 262 172 240" fill="none" stroke="#f2c14e" stroke-width="3"/>
+        </g>
+        <!-- head -->
+        <g id="head">
+          <circle cx="176" cy="60" r="23" fill="#1d1411"/>
+          <ellipse cx="150" cy="146" rx="68" ry="80" fill="#1d1411"/>
+          <ellipse cx="90" cy="148" rx="8" ry="14" fill="#cf9469"/><ellipse cx="210" cy="148" rx="8" ry="14" fill="#cf9469"/>
+          <circle cx="90" cy="168" r="5" fill="#f2c14e"/><circle cx="210" cy="168" r="5" fill="#f2c14e"/>
+          <ellipse cx="150" cy="142" rx="60" ry="72" fill="#d9a074"/>
+          <path d="M89 138 Q84 60 150 62 Q216 60 211 138 Q204 96 150 86 Q96 96 89 138Z" fill="#1d1411"/>
+          <circle cx="150" cy="106" r="4" fill="#a3122f"/>
+          <g id="brows" fill="none" stroke="#1d1411" stroke-width="4" stroke-linecap="round">
+            <path d="M111 123 Q126 114 140 122"/><path d="M160 122 Q174 114 189 123"/>
+          </g>
+          <g class="eye"><ellipse cx="126" cy="140" rx="12" ry="8.5" fill="#fff"/><circle cx="126" cy="140" r="6.2" fill="#3b2416"/><circle cx="128" cy="138" r="2" fill="#fff"/></g>
+          <g class="eye"><ellipse cx="174" cy="140" rx="12" ry="8.5" fill="#fff"/><circle cx="174" cy="140" r="6.2" fill="#3b2416"/><circle cx="176" cy="138" r="2" fill="#fff"/></g>
+          <path d="M150 148 Q144 166 150 169 Q154 170 157 167" fill="none" stroke="#b07c55" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="112" cy="170" r="10" fill="#e2767a" opacity=".22"/><circle cx="188" cy="170" r="10" fill="#e2767a" opacity=".22"/>
+          <g transform="translate(150 188)">
+            <clipPath id="mclip"><path id="mclipP"/></clipPath>
+            <path id="mouth" fill="#4a1418" stroke="#b5484f" stroke-width="2.6" stroke-linejoin="round"/>
+            <g clip-path="url(#mclip)"><rect id="teeth" x="-20" y="-8" width="40" height="6" fill="#fff"/><ellipse id="tongue" cx="0" cy="8" rx="8" ry="4" fill="#e2767a"/></g>
+          </g>
+        </g>
+        <!-- desk -->
+        <rect y="352" width="300" height="48" fill="#8a5a3b"/><rect y="352" width="300" height="7" fill="#a8744f"/>
+        <rect x="214" y="334" width="52" height="9" fill="#2f6fb0"/><rect x="218" y="343" width="46" height="9" fill="#f2c14e"/>
+        <circle cx="282" cy="342" r="10" fill="#d6373c"/><path d="M282 332q3-7 8-6" stroke="#3d7a3a" stroke-width="2.5" fill="none"/>
+        <!-- arm with chalk -->
+        <g id="arm">
+          <path d="M84 262 L72 350" stroke="#0f766e" stroke-width="27" stroke-linecap="round"/>
+          <circle cx="71" cy="362" r="12" fill="#d9a074"/>
+          <path d="M70 366 L67 388" stroke="#fff" stroke-width="5" stroke-linecap="round"/>
+        </g>
+      </svg>
+      <div class="nameplate"><span id="plate">Malar</span> Teacher</div>
+    </div>
+  </div>
+  <div id="caption" aria-live="polite"></div>
+  <div id="choices"></div>
+  <form class="ask" id="askForm">
+    <input id="q" placeholder="Raise your hand: type any doubt here…" autocomplete="off" aria-label="Ask your teacher a question">
+    <button type="button" class="ghost" id="mic" style="display:none" title="Speak your question">🎤</button>
+    <button class="rose">Ask</button>
+  </form>
+  <div class="bar">
+    <button class="ghost" id="btnPause">Pause</button>
+    <button class="ghost" id="btnRepeat">Repeat this part</button>
+    <progress id="prog" value="0" max="1"></progress>
+    <label>Speed <input type="range" id="rate" min="0.7" max="1.2" step="0.05" value="0.95" style="padding:0;vertical-align:middle"></label>
+    <select id="voice" aria-label="Teacher voice"></select>
+  </div>
+  <details>
+    <summary>Tester panel (for the site owner)</summary>
+    <ul>
+      <li>Voice in use: <b id="tVoice">–</b></li>
+      <li>Lip-sync mode: <b id="tSync">waiting for speech</b></li>
+      <li>Doubts the teacher could not answer (add these to the lesson notes): <span id="tMiss">none yet</span></li>
+    </ul>
+    <div id="log"></div>
+  </details>
+</section>
+</div>
+
+<script>
+/* ============ LESSON CONTENT (this is the "database": plain data, no AI) ============ */
+const LESSONS=[
+{id:'photo',title:'Photosynthesis',meta:'Science · Class 7',steps:[
+ {say:"Today's topic is photosynthesis. Big word, but a very simple idea. Tell me {name}, when you are hungry, you eat food, right? But have you ever seen a plant eating lunch?",board:[{t:'title',text:'Photosynthesis'}]},
+ {say:"No! Plants don't eat. They cook their own food, inside their leaves. That cooking is called photosynthesis. Photo means light. Synthesis means making. So photosynthesis simply means, making food using light.",
+  board:[{t:'write',text:'Photo = light'},{t:'write',text:'Synthesis = making'},{t:'write',text:'→ making food using light'}]},
+ {check:1,simpler:"Think of the leaf as a tiny kitchen. The plant is the cook, and sunlight is the stove. With that stove, the plant prepares its own food. That whole cooking job is photosynthesis.",
+  example:"Keep one plant near a sunny window, and another inside a dark cupboard. After a week, the window plant is green and healthy. The cupboard plant turns pale and weak, because without light it cannot make food."},
+ {say:"Now, for any cooking we need ingredients. The plant needs three. Number one, sunlight. Number two, water, which the roots pull up from the soil. Number three, carbon dioxide, a gas from the air. It enters through tiny holes in the leaf, called stomata.",
+  board:[{t:'fig',svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.2" stroke-linecap="round"><circle cx="42" cy="38" r="18" stroke="#f2c14e"/><path d="M42 8v-6M42 74v-6M10 38H4M80 38h-6M20 16l-5-5M64 60l5 5M20 60l-5 5M64 16l5-5" stroke="#f2c14e"/><path d="M160 150V70" stroke="#9be08f"/><path d="M160 105 Q120 100 112 72 Q146 70 160 105Z" stroke="#9be08f"/><path d="M160 90 Q200 84 210 56 Q174 54 160 90Z" stroke="#9be08f"/><path d="M90 150H235" stroke="#c9a27a"/><path d="M160 150l-14 22M160 150l2 26M160 150l16 20" stroke="#c9a27a"/><path d="M66 50 L112 74M112 74l-9-1M112 74l-4-8" stroke="#f2c14e"/><text x="88" y="34">Sunlight</text><path d="M290 96 L216 70M216 70l9 0M216 70l5 7"/><text x="246" y="112">CO₂ in</text><path d="M118 182 Q130 166 148 164M148 164l-8-3M148 164l-6 6" stroke="#8fd3ff"/><text x="64" y="186">Water</text><path d="M214 48 L262 22M262 22l-9 0M262 22l-4 8"/><text x="266" y="24">O₂ out</text></svg>`}]},
+ {say:"And who is the cook? A green substance inside the leaf, called chlorophyll. Chlorophyll catches the sunlight. And that is exactly why leaves look green.",board:[{t:'write',text:'Chlorophyll: green pigment, traps sunlight'}]},
+ {quiz:{q:"Quick one for you. Which gas does the plant take in from the air to make food?",options:['Oxygen','Carbon dioxide','Nitrogen'],answer:1,hint:"Think again. It is the same gas that we breathe out.",why:"Carbon dioxide goes in through the stomata."}},
+ {say:"So what comes out of this kitchen? Two things. First, glucose. That is a sugar, and it is the plant's food. Second, oxygen, which the plant gives out into the air. Yes, the very oxygen you are breathing right now!",
+  board:[{t:'eq',text:'CO₂ + Water  —sunlight, chlorophyll→  Glucose + O₂'}]},
+ {check:1,simpler:"Three things go in. Sunlight, water, and carbon dioxide. Two things come out. Food for the plant, and oxygen for us. That's the whole story.",
+  example:"When you eat rice, a mango, or even a chapati, that energy first came from a plant doing photosynthesis. So in a way, you are eating stored sunlight!"},
+ {quiz:{q:"Last question. Why do leaves look green?",options:['Because of chlorophyll','Because of water','Because of oxygen'],answer:0,hint:"Remember our cook inside the leaf? What was its name?",why:"Chlorophyll is the green pigment that traps sunlight."}},
+ {say:"Lovely. Let us quickly write our short notes. Plants make their own food. They use sunlight, water, and carbon dioxide. Chlorophyll traps the light. They give us glucose and oxygen. That's photosynthesis, {name}. You did really well today.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'1. Plants make their own food in leaves'},{t:'write',text:'2. Need: sunlight + water + CO₂'},{t:'write',text:'3. Chlorophyll traps sunlight'},{t:'write',text:'4. Give: glucose (food) + oxygen'}]}
+],qa:[
+ {k:'stomata hole pore opening',a:"Stomata are very tiny holes, mostly on the underside of a leaf. Carbon dioxide enters through them, and oxygen and water vapour leave through them. They can open and close, a bit like little mouths."},
+ {k:'chlorophyll green colour color pigment',a:"Chlorophyll is the green pigment inside leaf cells. It traps sunlight, and it reflects green light, which is why leaves look green to our eyes."},
+ {k:'night dark moon without sunlight',a:"At night there is no sunlight, so photosynthesis stops. The plant still breathes, that is respiration, and it uses the food it prepared during the day."},
+ {k:'glucose sugar starch food store',a:"Glucose is a simple sugar, the food the plant makes. Whatever it does not use immediately, it stores as starch, in leaves, roots, fruits and seeds. A potato is full of stored starch."},
+ {k:'important importance use need why matter human animal',a:"Photosynthesis matters for two big reasons. It makes the food that every animal and human finally depends on, and it releases the oxygen we breathe. No photosynthesis, no life as we know it."},
+ {k:'root water soil absorb xylem',a:"Roots absorb water from the soil. That water travels up the stem through thin tubes called xylem, all the way to the leaves."},
+ {k:'oxygen release give out',a:"Oxygen is made when water is split using light energy. The plant does not need all of it, so it lets it out through the stomata. Lucky for us!"},
+ {k:'mushroom fungi non-green nongreen yellow red leaf',a:"Mushrooms and other fungi have no chlorophyll, so they cannot do photosynthesis. They take food from dead or living things. Red or purple leaves still have chlorophyll, it is just hidden by other colours."},
+ {k:'where chloroplast cell place happen',a:"It happens mainly in the leaves, inside tiny green parts of the cell called chloroplasts. Chloroplasts hold the chlorophyll."},
+ {k:'carbon dioxide co2 gas air',a:"Carbon dioxide is a gas in the air. We breathe it out, and plants take it in through the stomata, and use it to build glucose."}
+]},
+{id:'pyth',title:'Pythagoras Theorem',meta:'Maths · Class 8–10',steps:[
+ {say:"Today we will learn something that builders and carpenters use every single day. The Pythagoras theorem. Imagine a ladder leaning on a wall, {name}. The wall, the floor, and the ladder make a triangle. Can you see it?",board:[{t:'title',text:'Pythagoras Theorem'}]},
+ {say:"Look at this triangle. The wall and the floor meet at a perfect corner, ninety degrees. We call that a right angle, so this is a right angled triangle. The two sides making the corner, we will call a and b. The slanting side, opposite the right angle, is the longest side. It has a special name. The hypotenuse. We call it c.",
+  board:[{t:'fig',svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M70 160 V40"/><path d="M70 160 H250"/><path d="M70 40 L250 160" stroke="#f2c14e"/><path d="M70 144 H86 V160"/><text x="48" y="104">a</text><text x="154" y="180">b</text><text x="166" y="88" style="fill:#f2c14e">c (hypotenuse)</text><text x="92" y="150">90°</text></svg>`}]},
+ {say:"Now the theorem. In a right angled triangle, a squared plus b squared equals c squared. In simple words, square the two short sides, add them, and you get the square of the longest side.",board:[{t:'eq',text:'a² + b² = c²'}]},
+ {check:1,simpler:"Squaring just means multiplying a number by itself. So take the first short side, multiply it by itself. Do the same for the second short side. Add the two answers. That total is the long side multiplied by itself.",
+  example:"Take short sides three and four. Three squared is nine. Four squared is sixteen. Nine plus sixteen is twenty five. And twenty five is five squared. So the longest side is five. Three, four, five. Easy to remember!"},
+ {say:"Let us do one together on the board. The short sides are six and eight. So c squared is six squared plus eight squared. That is thirty six plus sixty four. Which is one hundred. Now, which number multiplied by itself gives one hundred? Ten! So c is ten.",
+  board:[{t:'write',text:'a = 6,  b = 8,  c = ?'},{t:'write',text:'c² = 6² + 8²'},{t:'write',text:'   = 36 + 64 = 100'},{t:'write',text:'c = √100 = 10'}]},
+ {quiz:{q:"Your turn. The short sides are five and twelve. What is the hypotenuse?",options:['13','17','15'],answer:0,hint:"Careful. Don't just add five and twelve. Square them first. Twenty five plus one hundred and forty four. Then find the square root.",why:"Twenty five plus one hundred forty four is one hundred sixty nine, and the square root of that is thirteen."}},
+ {say:"Back to our ladder. Say the wall is four metres high, and the foot of the ladder is three metres away from the wall. How long should the ladder be? Sixteen plus nine is twenty five. So the ladder must be five metres. See? Real life maths.",
+  board:[{t:'write',text:'Ladder: 4² + 3² = 16 + 9 = 25 → 5 m'}]},
+ {check:1,simpler:"Whenever you see a right angle and you know two sides, this theorem finds the third side for you. Square, add, then take the square root.",
+  example:"A television is sold as thirty two inches. That number is the diagonal of the screen, which is the hypotenuse of the height and the width!"},
+ {say:"Super. Short notes now. It works only for right angled triangles. The hypotenuse is the longest side, opposite the right angle. And a squared plus b squared equals c squared. Well done {name}, you were sharp today.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'1. Only for right-angled triangles'},{t:'write',text:'2. Hypotenuse = longest side, opposite 90°'},{t:'write',text:'3. a² + b² = c²'},{t:'write',text:'4. Triplets: 3-4-5, 5-12-13, 6-8-10'}]}
+],qa:[
+ {k:'hypotenuse longest slant',a:"The hypotenuse is the side opposite the right angle. It is always the longest side of a right angled triangle."},
+ {k:'right angle 90 degree ninety',a:"A right angle is exactly ninety degrees, like the corner of your notebook, or where a wall meets the floor."},
+ {k:'triplet triple 3 4 5',a:"Pythagorean triplets are sets of three whole numbers that fit the theorem. Three, four, five. Five, twelve, thirteen. Eight, fifteen, seventeen. Multiply a triplet by any number and you get another one, like six, eight, ten."},
+ {k:'pythagoras who person greek history invent discover',a:"Pythagoras was a Greek mathematician who lived about two thousand five hundred years ago. The idea was also known in ancient India. The Baudhayana Sulba Sutra describes the same rule."},
+ {k:'all any other triangle every work acute obtuse',a:"No, it works only for right angled triangles. If no angle is ninety degrees, a squared plus b squared will not equal c squared."},
+ {k:'square root √',a:"A square root asks, which number multiplied by itself gives this? The square root of forty nine is seven, because seven times seven is forty nine."},
+ {k:'short side find missing subtract base height',a:"To find a short side, do it in reverse. Square the hypotenuse, subtract the square of the side you know, and take the square root. For example, hypotenuse ten and one side six. One hundred minus thirty six is sixty four. So the other side is eight."},
+ {k:'converse check prove whether',a:"The converse also works. If a squared plus b squared equals c squared for a triangle, then that triangle must be right angled. Builders use a three, four, five rope to check corners."},
+ {k:'use real life application where daily',a:"It is used in construction, in navigation, for finding the shortest distance on a map, for screen sizes, and even in video games to measure distance between two points."}
+]}
+];
+
+/* ============ TEACHER PERSONALITY ============ */
+const P={
+ checkq:["Is that clear so far, {name}?","Did you follow that? Be honest, there are no silly doubts here.","Shall I go on, or should I explain that once more?","All okay till here, {name}?"],
+ ok:["Very good. Let's move on.","Super! I knew you'd get it.","Nice. Onward we go.","Good, good. Next part."],
+ again:["No problem at all. Let me say it in a different way.","That's perfectly fine. Let's go slowly.","Okay, one more time, in an easier way."],
+ ex:["Sure, here is an example.","Good idea, examples always help.","Let me give you one from daily life."],
+ qpre:["Good question!","Nice thinking, {name}.","Not a bad thought at all!","Ah, I'm glad you asked that.","That's a smart doubt."],
+ quiz:["Now a small question for you.","Let me check with a quick question.","Okay, your turn now."],
+ right:["Correct! Well done.","Yes! Exactly right.","Excellent, {name}!","Spot on."],
+ wrong:["Hmm, not quite. Good try though.","Close, but not that one.","Not a bad guess, but try once more."],
+ cont:["Shall we get back to the lesson?","Okay, shall we continue?"]
+};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+
+/* ============ STATE ============ */
+const $=s=>document.querySelector(s);
+const S={teacher:'Malar',student:'',rate:.95,voice:null,run:0,idx:0,paused:false,L:null,miss:[]};
+const store={get(k,d){try{return localStorage.getItem(k)??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const fill=t=>t.replace(/\{name\}/g,S.student||'dear').replace(/\{teacher\}/g,S.teacher);
+
+/* ============ VOICE (browser's built-in speech engine: free, no keys) ============ */
+const synth=window.speechSynthesis;
+function vscore(v){let s=0,n=v.name;
+ if(/en[-_]IN/i.test(v.lang))s+=6;else if(/en[-_]GB/i.test(v.lang))s+=1;
+ if(/female|neerja|heera|veena|swara|aditi|raveena|kajal|zira|samantha|sonia|libby|jenny|aria|karen|moira|tessa/i.test(n))s+=3;
+ else if(/male|ravi|prabhat|hemant|david|mark|george|daniel|rishi|guy|ryan/i.test(n))s-=3;
+ if(/natural|neural/i.test(n))s+=2;return s}
+function loadVoices(){if(!synth)return;const vs=synth.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vscore(b)-vscore(a));
+ if(!vs.length)return;const sel=$('#voice'),saved=store.get('mt_voice','');sel.innerHTML='';
+ vs.forEach(v=>{const o=document.createElement('option');o.value=v.name;o.textContent=v.name.replace(/Microsoft |Online \(Natural\) - /g,'')+' ('+v.lang+')';sel.appendChild(o)});
+ S.voice=vs.find(v=>v.name===saved)||vs[0];sel.value=S.voice.name;$('#tVoice').textContent=S.voice.name;S.voices=vs}
+if(synth){loadVoices();synth.onvoiceschanged=loadVoices}
+$('#voice').onchange=e=>{S.voice=S.voices.find(v=>v.name===e.target.value);store.set('mt_voice',S.voice.name);$('#tVoice').textContent=S.voice.name};
+$('#rate').oninput=e=>S.rate=+e.target.value;
+
+function sentences(t){return (t.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[]).map(s=>s.trim()).filter(Boolean)}
+async function say(text,run){for(const s of sentences(fill(text))){if(run!==S.run)return false;await sayOne(s)}return run===S.run}
+function sayOne(s){return new Promise(res=>{
+ $('#caption').textContent=s;$('#brows').classList.toggle('up',/\?$/.test(s));
+ const est=s.length*72/S.rate+500;let done=false,guard;
+ const fin=()=>{if(done)return;done=true;clearTimeout(guard);Q=[];talking=false;res()};
+ if(!synth||!S.voice){talking=true;scheduleSentence(s,performance.now());guard=setTimeout(fin,est);return}
+ const u=new SpeechSynthesisUtterance(s);u.voice=S.voice;u.lang=S.voice.lang;u.rate=S.rate;u.pitch=1.05;
+ u.onstart=()=>{talking=true;scheduleSentence(s,performance.now())};
+ u.onboundary=e=>{if(e.name&&e.name!=='word')return;scheduleWord(s,e.charIndex)};
+ u.onend=fin;u.onerror=fin;guard=setTimeout(fin,est*2+4000);S.utt=u;synth.speak(u)})}
+function stopSpeech(){S.run++;if(synth)synth.cancel();Q=[];talking=false}
+
+/* ============ LIP-SYNC: letters → mouth shapes, timed to each spoken word ============ */
+const VIS={rest:[15,0,0],M:[14,0,0],A:[15,13,.3],E:[18,6,.9],I:[17,4,.8],O:[9,11,.1],U:[6,6,0],F:[14,3,1],L:[14,8,.5],C:[15,4,.7],S:[10,5,.6]};
+let Q=[],cur=[15,0,0],talking=false,gotBoundary=false;
+function wordVis(w){w=w.toLowerCase();const out=[];
+ for(let i=0;i<w.length;i++){const two=w.substr(i,2),c=w[i];let v=null;
+  if(two==='th'){v='L';i++}else if(two==='sh'||two==='ch'){v='S';i++}else if(/^(oo|ou|ow)$/.test(two)){v='U';i++}else if(two==='ee'||two==='ea'){v='E';i++}
+  else if(c==='a')v='A';else if(c==='e')v='E';else if(c==='i'||c==='y')v='I';else if(c==='o')v='O';else if(c==='u'||c==='w')v='U';
+  else if('mbp'.includes(c))v='M';else if('fv'.includes(c))v='F';else if(c==='l')v='L';else if(/[a-z]/.test(c))v='C';else if(/\d/.test(c))v='A';
+  if(v&&v!==out[out.length-1])out.push(v)}
+ return out}
+function addWord(w,t0){const vs=wordVis(w);if(!vs.length)return 0;const d=Math.max(170,w.length*68)/S.rate;
+ vs.forEach((v,i)=>Q.push({t:t0+i*d/vs.length,v}));Q.push({t:t0+d,v:'rest'});return d}
+function scheduleSentence(s,t0){Q=[];let t=t0+90;for(const tok of s.split(/\s+/)){const w=tok.replace(/[^\w'-]/g,'');if(w)t+=addWord(w,t)+45/S.rate;if(/[,;:]/.test(tok))t+=190/S.rate}}
+function scheduleWord(s,ci){if(!gotBoundary){gotBoundary=true;$('#tSync').textContent='word-synced (voice reports each word)'}
+ const m=s.slice(ci).match(/^[\w'-]+/);if(!m)return;const now=performance.now();Q=Q.filter(q=>q.t<=now);addWord(m[0],now)}
+const mouth=$('#mouth'),mclip=$('#mclipP'),teeth=$('#teeth'),tongue=$('#tongue'),head=$('#head'),eyes=document.querySelectorAll('.eye');
+let nextBlink=performance.now()+2000;
+function frame(now){let v='rest';for(const q of Q){if(q.t<=now)v=q.v;else break}
+ const tg=VIS[v];for(let i=0;i<3;i++)cur[i]+=(tg[i]-cur[i])*.38;
+ const w=cur[0],h=cur[1],up=h*.35+1.5,d=`M${-w} -1 Q0 ${-up} ${w} -1 Q0 ${h*1.5+3.5} ${-w} -1Z`;
+ mouth.setAttribute('d',d);mclip.setAttribute('d',d);
+ teeth.setAttribute('y',-up-1.5);teeth.setAttribute('opacity',cur[2]*Math.min(1,h/4));
+ tongue.setAttribute('cy',h*.75+2);tongue.setAttribute('ry',h*.3);tongue.setAttribute('opacity',Math.min(1,h/8));
+ const a=talking?Math.sin(now/430)*1.6:Math.sin(now/1400)*.5,y=talking?Math.sin(now/260)*1.2:0;
+ head.setAttribute('transform',`translate(0 ${y.toFixed(2)}) rotate(${a.toFixed(2)} 150 220)`);
+ if(now>nextBlink){eyes.forEach(e=>e.classList.add('shut'));setTimeout(()=>eyes.forEach(e=>e.classList.remove('shut')),130);nextBlink=now+2200+Math.random()*3000}
+ requestAnimationFrame(frame)}
+requestAnimationFrame(frame);
+setTimeout(()=>{if(!gotBoundary&&talking)$('#tSync').textContent='estimated timing (this voice does not report words)'},9000);
+
+/* ============ CHALKBOARD ============ */
+const board=$('#board'),arm=$('#arm');
+const B={
+ clear(){board.innerHTML=''},
+ async title(o,run,fast){await type('title',o.text,run,fast)},
+ async write(o,run,fast){await type('line',o.text,run,fast)},
+ async eq(o,run,fast){await type('eq',o.text,run,fast)},
+ async fig(o,run,fast){const d=document.createElement('div');d.innerHTML=o.svg;const svg=d.firstChild;board.appendChild(svg);board.scrollTop=board.scrollHeight;
+  for(const el of svg.children){if(el.tagName==='text'){el.classList.add('on');if(!fast)await sleep(250)}
+   else if(el.getTotalLength&&!fast){const len=el.getTotalLength();el.style.strokeDasharray=len;el.style.strokeDashoffset=len;el.getBoundingClientRect();
+    el.style.transition='stroke-dashoffset .55s ease';el.style.strokeDashoffset=0;await sleep(420)}
+   if(run!==S.run&&!fast)return}}
+};
+async function type(cls,text,run,fast){const d=document.createElement('div');d.className=cls;board.appendChild(d);
+ if(fast){d.textContent=text;return}
+ for(let i=1;i<=text.length;i++){if(run!==S.run){d.textContent=text;return}d.textContent=text.slice(0,i);board.scrollTop=board.scrollHeight;await sleep(34)}
+ await sleep(250)}
+async function doBoard(ops,run,fast){if(!ops)return;if(!fast){await sleep(500);arm.classList.add('point')}
+ for(const o of ops){if(run!==S.run&&!fast)break;await B[o.t](o,run,fast)}
+ arm.classList.remove('point')}
+async function rebuildBoard(upto){board.innerHTML='';for(let i=0;i<upto;i++)await doBoard(S.L.steps[i].board,S.run,true)}
+
+/* ============ CLASS FLOW ============ */
+function choose(opts){return new Promise(res=>{const c=$('#choices');c.innerHTML='';
+ opts.forEach(([val,label])=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>{c.innerHTML='';res(val)};c.appendChild(b)})})}
+const hideChoices=()=>$('#choices').innerHTML='';
+function setPaused(p){S.paused=p;$('#btnPause').textContent=p?'Resume':'Pause'}
+
+async function play(from,intro){stopSpeech();const run=S.run,L=S.L;S.idx=from;hideChoices();setPaused(false);
+ if(intro&&!(await say(intro,run)))return;
+ for(;S.idx<L.steps.length;S.idx++){if(run!==S.run)return;const st=L.steps[S.idx];$('#prog').value=S.idx/L.steps.length;
+  if(st.say){await Promise.all([say(st.say,run),doBoard(st.board,run)]);if(run!==S.run)return;await sleep(400)}
+  if(st.check&&!(await check(st,run)))return;
+  if(st.quiz&&!(await quiz(st.quiz,run)))return}
+ if(run!==S.run)return;$('#prog').value=1;
+ await say("That's the end of today's class. Revise the short notes once before you sleep, okay? See you soon, {name}!",run);if(run!==S.run)return;
+ const c=await choose([['again','Take this class again'],['home','Choose another lesson']]);if(run!==S.run)return;
+ c==='again'?(board.innerHTML='',play(0)):goHome()}
+
+async function check(st,run){for(;;){if(!(await say(pick(P.checkq),run)))return false;
+ const c=await choose([['yes','Yes, got it'],['again','Explain again'],['ex','Give an example'],['ask','I have a doubt']]);if(run!==S.run)return false;
+ if(c==='yes')return say(pick(P.ok),run);
+ if(c==='again'){if(!(await say(pick(P.again)+' '+st.simpler,run)))return false}
+ else if(c==='ex'){if(!(await say(pick(P.ex)+' '+st.example,run)))return false}
+ else{S.idx++;await say("Sure, tell me. Type your doubt in the box below.",run);$('#q').focus();return false}}}
+
+async function quiz(q,run){if(!(await say(pick(P.quiz)+' '+q.q,run)))return false;
+ for(let n=0;;n++){const c=await choose(q.options.map((o,i)=>[i,o]));if(run!==S.run)return false;
+  if(c===q.answer)return say(pick(P.right)+' '+q.why,run);
+  if(n>=1)return say("That's okay, this is how we learn. The answer is "+q.options[q.answer]+". "+q.why,run);
+  if(!(await say(pick(P.wrong)+' '+q.hint,run)))return false}}
+
+/* ============ ANSWERING DOUBTS: keyword search over the notes (no AI) ============ */
+const STOP=new Set('a an the is are was were what why how when where which who whom does do did can could will would shall should i you me my we it its of in on at to for and or but that this these those there tell about please mam madam miss teacher explain mean meaning means say called know want understand doubt'.split(' '));
+const stem=w=>w.length>4?w.replace(/(ing|es|ed|s)$/,''):w;
+const toks=s=>s.toLowerCase().replace(/[^a-z0-9√\s-]/g,' ').split(/\s+/).filter(w=>w&&!STOP.has(w)).map(stem);
+function answer(text){const t=text.toLowerCase();
+ if(/\b(robot|ai|human|real person|computer|machine)\b/.test(t)&&/\byou\b/.test(t))return{ok:1,text:"Honest answer? I'm {teacher}, a computer teacher. A program made to explain your lessons. I'm not a human, but I'm here any time you want to learn, and I never get tired of doubts!"};
+ if(/your name|who are you/.test(t))return{ok:1,text:"I'm {teacher} teacher. I take your smart classes here."};
+ if(/thank/.test(t))return{ok:1,text:"You're most welcome, {name}. That's what I'm here for."};
+ if(/^(hi|hello|hey|good (morning|afternoon|evening))\b/.test(t))return{ok:1,text:"Hello hello! Nice to see you, {name}."};
+ if(/slow|too fast/.test(t)){S.rate=Math.max(.7,S.rate-.1);$('#rate').value=S.rate;return{ok:1,text:"Sorry about that. I will speak a little slower now."}}
+ const q=toks(text);let best=null,bs=0;
+ for(const L of LESSONS)for(const e of L.qa){const ks=e.k.split(' ').map(stem);let s=q.filter(w=>ks.includes(w)).length;if(s&&L===S.L)s+=.5;if(s>bs){bs=s;best=e}}
+ if(best)return{ok:1,pre:pick(P.qpre),text:best.a};
+ // fall back to the lesson script itself
+ let sb=null,ss=1;const sents=S.L.steps.flatMap(st=>st.say?sentences(st.say):[]);
+ sents.forEach((s,i)=>{const ws=toks(s);const sc=q.filter(w=>ws.includes(w)).length;if(sc>ss){ss=sc;sb=i}});
+ if(sb!==null)return{ok:1,pre:"Let me go back to that part.",text:sents[sb]+' '+(sents[sb+1]||'')};
+ return{ok:0,text:"Hmm, that's an interesting one, {name}, but it's not in my notes yet. I have written it down so it can be added. Meanwhile, do ask your class teacher too."}}
+
+async function onQuestion(text){text=text.trim();if(!text||!S.L)return;stopSpeech();const run=S.run;hideChoices();arm.classList.remove('point');
+ const a=answer(text);log(text,fill(a.text));
+ if(!a.ok){S.miss.push(text);$('#tMiss').textContent=S.miss.join(' | ')}
+ if(!(await say((a.pre?a.pre+' ':'')+a.text,run)))return;
+ if(S.idx>=S.L.steps.length)return;
+ if(!(await say(pick(P.cont),run)))return;
+ const c=await choose([['go','Yes, continue'],['more','One more doubt']]);if(run!==S.run)return;
+ if(c==='go'){await rebuildBoard(S.idx);play(S.idx,"Okay. So, as I was saying.")}else{say("Go ahead, I'm listening.",run);$('#q').focus()}}
+function log(q,a){const d=document.createElement('div');d.innerHTML='<b>Q:</b> ';d.append(q,' → ',a);$('#log').appendChild(d)}
+
+/* ============ UI WIRING ============ */
+$('#askForm').onsubmit=e=>{e.preventDefault();const v=$('#q').value;$('#q').value='';onQuestion(v)};
+$('#btnPause').onclick=()=>{if(!S.L)return;if(S.paused){rebuildBoard(S.idx).then(()=>play(S.idx))}else{stopSpeech();hideChoices();arm.classList.remove('point');setPaused(true);$('#caption').textContent='Paused. Press Resume when you are ready.'}};
+$('#btnRepeat').onclick=()=>{if(!S.L)return;let i=Math.min(S.idx,S.L.steps.length-1);while(i>0&&!S.L.steps[i].say)i--;rebuildBoard(i).then(()=>play(i,"Sure, once more."))};
+$('#btnHome').onclick=goHome;
+function goHome(){stopSpeech();S.L=null;$('#class').style.display='none';$('#start').style.display='';$('#btnHome').style.display='none'}
+function greet(){const h=new Date().getHours();return h<12?'Good morning':h<16?'Good afternoon':'Good evening'}
+function startLesson(L){S.student=$('#inStudent').value.trim();S.teacher=$('#inTeacher').value.trim()||'Malar';store.set('mt_student',S.student);store.set('mt_teacher',S.teacher);
+ $('#hTeacher').textContent=$('#plate').textContent=S.teacher;S.L=L;board.innerHTML='';
+ $('#start').style.display='none';$('#class').style.display='block';$('#btnHome').style.display='';
+ if(synth&&!S.voice)loadVoices();
+ play(0,greet()+", {name}! I'm {teacher} teacher. Sit comfortably. If you have any doubt, just stop me and ask, okay?")}
+$('#inStudent').value=store.get('mt_student','');$('#inTeacher').value=store.get('mt_teacher','Malar');
+LESSONS.forEach(L=>{const b=document.createElement('button');b.className='lesson';b.innerHTML=`<b>${L.title}</b><span>${L.meta}</span>`;b.onclick=()=>startLesson(L);$('#lessonList').appendChild(b)});
+
+/* optional: spoken doubts, where the browser and page allow the microphone */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SR&&window.self===window.top){const mic=$('#mic');mic.style.display='';mic.onclick=()=>{try{stopSpeech();const r=new SR();r.lang='en-IN';
+ r.onresult=e=>onQuestion(e.results[0][0].transcript);r.onerror=()=>{$('#caption').textContent='I could not hear you. Please type your doubt.'};
+ $('#caption').textContent='Listening…';r.start()}catch(e){mic.style.display='none'}}}
+</script>
+</body>
+</html>

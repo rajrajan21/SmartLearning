@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
-import type { ContentBlock, TopicLesson } from "@studysmart/shared";
+import type { ContentBlock, PublicQuestion, TopicLesson } from "@studysmart/shared";
+import { QuestionCard } from "./QuestionCard";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { Board } from "./Board";
@@ -17,7 +18,7 @@ function Narration({ block }: { block: Extract<ContentBlock, { type: "teacher_na
   const { lang } = s;
   const voiceOn = s.get("feature.teacherNarration");
   const device = useDeviceVoice(lang, voiceOn && s.get("narration.browserVoice"));
-  const n = useNarrator(block.sentences, { lang, autoAdvance: s.get("narration.autoAdvance"), initialRate: Number(s.get<string>("narration.defaultSpeed")), deviceVoice: device });
+  const n = useNarrator(block.sentences, { lang, autoAdvance: s.get("narration.autoAdvance"), initialRate: Number(s.get<string>("narration.defaultSpeed")), deviceVoice: device, pauseMs: s.get<number>("narration.pauseBetweenMs") });
   const canSpeak = voiceOn && n.source !== "none";
   const showBoard = voiceOn && s.get("narration.showBoard") && hasBoard(block.sentences);
   const highlight = s.get("narration.highlight");
@@ -60,7 +61,21 @@ function Narration({ block }: { block: Extract<ContentBlock, { type: "teacher_na
   );
 }
 
-function Block({ block }: { block: ContentBlock }) {
+/** Quick-check questions inside the lesson: same cards and same server grading as the practice rounds. */
+function Checkpoint({ questions }: { questions: PublicQuestion[] }) {
+  const s = useSettings();
+  const [i, setI] = useState(0);
+  const [right, setRight] = useState(0);
+  if (i >= questions.length) return (<article className="blk checkpoint" aria-live="polite"><h2>{ui("checkpoint", s.lang)}</h2><p className="lead">{ui("roundScore", s.lang)} {right} {ui("outOf", s.lang)} {questions.length}</p></article>);
+  return (
+    <article className="blk checkpoint">
+      <h2>{ui("checkpoint", s.lang)} <span className="small">{i + 1} {ui("ofWord", s.lang)} {questions.length}</span></h2>
+      <QuestionCard key={questions[i]!.id} q={questions[i]!} compact nextLabel={i === questions.length - 1 ? ui("seeResults", s.lang) : undefined} onDone={(r) => { if (r.correct) setRight((n) => n + 1); setI((n) => n + 1); }} />
+    </article>
+  );
+}
+
+function Block({ block, questions }: { block: ContentBlock; questions: PublicQuestion[] }) {
   const s = useSettings();
   const { lang } = s;
   const [shown, setShown] = useState(() => (s.get("lesson.example.stepByStep") ? 1 : 99));
@@ -90,8 +105,10 @@ function Block({ block }: { block: ContentBlock }) {
       return (<figure className="blk"><img src={`/assets/lessons/${block.assetKey}`} alt={s.name(block.altText)} />{block.caption && <figcaption>{s.name(block.caption)}</figcaption>}</figure>);
     case "teacher_narration":
       return <Narration block={block} />;
-    case "quiz":
-      return (<article className="blk soon-note"><p>{ui("quizSoon", lang)}</p></article>);
+    case "quiz": {
+      const mine = s.get("feature.practice") && s.get("practice.lessonCheckpoints") ? block.questionIds.map((k) => questions.find((q) => q.key === k)).filter((q): q is PublicQuestion => !!q) : [];
+      return mine.length > 0 ? <Checkpoint questions={mine} /> : (<article className="blk soon-note"><p>{ui("quizSoon", lang)}</p></article>);
+    }
     case "teach_back":
       return (
         <article className="blk teachback">
@@ -119,7 +136,7 @@ function Block({ block }: { block: ContentBlock }) {
   }
 }
 
-export function LessonPlayer({ lesson, links }: { lesson: TopicLesson; links: PlayerLinks }) {
+export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicLesson; links: PlayerLinks; questions?: PublicQuestion[] }) {
   const s = useSettings();
   const { lang } = s;
   const save = s.get("lesson.progress.save");
@@ -182,13 +199,13 @@ export function LessonPlayer({ lesson, links }: { lesson: TopicLesson; links: Pl
       {resumed && <p className="small" role="status">{ui("resumed", lang)}</p>}
       {scroll ? (
         <>
-          {blocks.map((b) => <Block key={b.id} block={b} />)}
+          {blocks.map((b) => <Block key={b.id} block={b} questions={questions} />)}
           <div className="lesson-nav"><span /><button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button></div>
         </>
       ) : (
         <>
           <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>
-          <Block key={blocks[step]!.id} block={blocks[step]!} />
+          <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} />
           <div className="lesson-nav">
             <button type="button" className="btn ghost" onClick={() => go(-1)} disabled={step === 0}>← {ui("back", lang)}</button>
             {last ? <button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button> : <button type="button" className="btn" onClick={() => go(1)}>{ui("next", lang)} →</button>}

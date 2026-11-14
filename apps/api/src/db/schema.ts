@@ -158,3 +158,28 @@ export const settingsAudit = pgTable("settings_audit", {
   changedBy: text("changed_by").notNull(),
   changedAt: timestamp("changed_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index("settings_audit_changed_idx").on(t.changedAt)]);
+
+// ---------- Practice (Module 5) ----------
+export const questions = pgTable("questions", {
+  id: id(),
+  topicId: uuid("topic_id").notNull().references(() => topics.id),
+  key: text("key").notNull(), // authoring key, unique within the topic
+  type: text("type").notNull(),
+  round: integer("round").notNull(),
+  status: contentStatus("status").notNull().default("draft"),
+  version: integer("version").notNull().default(1),
+  bodyJson: text("body_json").notNull(), // the full authored question, validated by Question (shared)
+  ...timestamps,
+}, (t) => [uniqueIndex("questions_topic_key_uq").on(t.topicId, t.key), index("questions_topic_idx").on(t.topicId)]);
+
+/** One row per answered question. attemptId is the idempotency key made by the app. */
+export const questionAttempts = pgTable("question_attempts", {
+  attemptId: uuid("attempt_id").primaryKey(),
+  questionId: uuid("question_id").notNull().references(() => questions.id),
+  questionVersion: integer("question_version").notNull(),
+  anonId: uuid("anon_id").notNull(), // replaced by a student profile id in Module 6
+  responseJson: text("response_json").notNull(),
+  correct: boolean("correct").notNull(),
+  hintsUsed: integer("hints_used").notNull().default(0),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index("qa_question_idx").on(t.questionId), index("qa_anon_idx").on(t.anonId)]);

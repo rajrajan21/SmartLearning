@@ -34,6 +34,18 @@ git config user.email >nul 2>&1 || git config user.email "itsme.rajrajan@gmail.c
 
 git branch -M main >> "%LOG%" 2>&1
 
+rem Refresh the Malar Teacher copy (source only: no node_modules, cache, big asset zips or videos)
+set "MALAR_SRC=%USERPROFILE%\Documents\Malar Teacher"
+if exist "%MALAR_SRC%\server.mjs" (
+  echo Updating Malar Teacher copy from %MALAR_SRC% ...
+  robocopy "%MALAR_SRC%" "%~dp0malar-teacher" /E /XD node_modules cache clips _backup _build screenshots voices .git /XF *.zip *.mp4 *.bin *.log /NFL /NDL /NJH /NJS /NP >> "%LOG%" 2>&1
+  if errorlevel 8 (
+    echo WARNING: could not copy Malar Teacher. See publish-github-report.txt
+  )
+) else (
+  echo Malar Teacher folder not found at %MALAR_SRC% - skipping it.
+)
+
 echo Adding changes...
 git add -A >> "%LOG%" 2>&1
 

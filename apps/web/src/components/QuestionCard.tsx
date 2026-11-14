@@ -1,0 +1,147 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import type { AnswerFeedback, AnswerResponse, LangAudio, PublicQuestion } from "@studysmart/shared";
+import { useSettings } from "../lib/settings";
+import { ui, type Lang } from "../lib/i18n";
+import { sendAnswer, shuffled, usePhrases } from "../lib/practice";
+
+interface Part { audio?: LangAudio; text: string }
+
+/** Plays recorded clips one after another; falls back to the device voice when a clip is missing. */
+function useSpeaker(lang: Lang, deviceFallback: boolean) {
+  const run = useRef(0);
+  const el = useRef<HTMLAudioElement | null>(null);
+  const stop = useCallback(() => {
+    run.current++;
+    if (el.current) { el.current.pause(); el.current.onended = null; el.current = null; }
+    if (typeof window !== "undefined" && "speechSynthesis" in window) speechSynthesis.cancel();
+  }, []);
+  const say = useCallback((parts: Part[]) => {
+    stop();
+    const id = run.current;
+    const next = (i: number) => {
+      if (run.current !== id || i >= parts.length) return;
+      const p = parts[i]!, rec = p.audio?.[lang];
+      if (rec) { const a = new Audio(rec.url); el.current = a; a.onended = () => next(i + 1); a.onerror = () => next(i + 1); void a.play().catch(() => next(i + 1)); }
+      else if (deviceFallback && p.text && typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined") {
+        const u = new SpeechSynthesisUtterance(p.text); u.lang = lang === "ta" ? "ta-IN" : "en-IN"; u.onend = () => next(i + 1); u.onerror = () => next(i + 1); speechSynthesis.speak(u);
+      } else next(i + 1);
+    };
+    next(0);
+  }, [lang, deviceFallback, stop]);
+  useEffect(() => stop, [stop]);
+  return { say, stop };
+}
+
+export interface CardResult { correct: boolean; hintsUsed: number }
+
+export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuestion; onDone: (r: CardResult) => void; nextLabel?: string; compact?: boolean }) {
+  const s = useSettings();
+  const { lang } = s;
+  const attemptId = useRef(crypto.randomUUID()); // one per question shown, so a resend never counts twice
+  const [pick, setPick] = useState<string | boolean | null>(null);
+  const [text, setText] = useState("");
+  const [chosen, setChosen] = useState<string[]>([]);
+  const [hints, setHints] = useState(0);
+  const [fb, setFb] = useState<AnswerFeedback | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [err, setErr] = useState(false);
+  const voiceFb = s.get("practice.audio.feedback"), voiceQ = s.get("practice.audio.questions");
+  const speaker = useSpeaker(lang, s.get("narration.browserVoice"));
+  const phrases = usePhrases(voiceFb);
+  const options = useMemo(() => (q.type === "mcq" && s.get("practice.shuffleOptions") ? shuffled(q.options) : q.type === "mcq" ? q.options : []), [q, s]);
+  const items = q.type === "order" ? q.items : [];
+  const hintMax = s.get("practice.hints.enabled") ? Math.min(q.hints.length, s.get<number>("practice.hints.max")) : 0;
+  const locked = fb !== null;
+
+  const response: AnswerResponse | null =
+    q.type === "mcq" ? (typeof pick === "string" ? { type: "mcq", optionId: pick } : null)
+    : q.type === "true_false" ? (typeof pick === "boolean" ? { type: "true_false", value: pick } : null)
+    : q.type === "number" ? (text.trim() !== "" && Number.isFinite(Number(text.replace(",", "."))) ? { type: "number", value: Number(text.replace(",", ".")) } : null)
+    : q.type === "short" ? (text.trim() ? { type: "short", text: text.trim() } : null)
+    : chosen.length === items.length && items.length > 0 ? { type: "order", ids: chosen } : null;
+
+  const check = async () => {
+    if (!response || busy || locked) return;
+    setBusy(true); setErr(false);
+    try {
+      const f = await sendAnswer(q.id, attemptId.current, hints, response);
+      setFb(f);
+      if (voiceFb) {
+        const list = f.correct ? phrases.praise : phrases.tryAgain;
+        const phrase = list && list.length ? list[Math.floor(Math.random() * list.length)] : undefined;
+        const parts: Part[] = [];
+        if (phrase) parts.push({ audio: phrase.audio, text: s.name(phrase.text) });
+        if (!f.correct && f.whyWrong && s.get("practice.showWhyWrong")) parts.push({ audio: f.audio?.whyWrong, text: s.name(f.whyWrong) });
+        parts.push({ audio: f.audio?.explanation, text: s.name(f.explanation) });
+        speaker.say(parts);
+      }
+    } catch { setErr(true); } finally { setBusy(false); }
+  };
+
+  const stem = s.name(q.stem);
+  const label = (id: string) => items.find((i) => i.id === id);
+  return (
+    <section className={`qcard${compact ? " compact" : ""}`} aria-label={stem}>
+      <div className="q-stem">
+        <p className="problem">{stem}</p>
+        {voiceQ && <button type="button" className="btn ghost sm" onClick={() => speaker.say([{ audio: q.audio?.stem, text: stem }])}>🔊 {ui("listenQuestion", lang)}</button>}
+      </div>
+      {q.image && <img className="q-img" src={`/assets/questions/${q.image.assetKey}`} alt={s.name(q.image.altText)} />}
+
+      {q.type === "mcq" && (
+        <div className="opts" role="radiogroup" aria-label={stem}>
+          {options.map((o) => (
+            <button key={o.id} type="button" role="radio" aria-checked={pick === o.id} disabled={locked} className={`opt${pick === o.id ? " on" : ""}`} onClick={() => setPick(o.id)}>{s.name(o.text)}</button>
+          ))}
+        </div>
+      )}
+      {q.type === "true_false" && (
+        <div className="opts row" role="radiogroup" aria-label={stem}>
+          {([[true, "trueWord"], [false, "falseWord"]] as const).map(([v, k]) => (
+            <button key={k} type="button" role="radio" aria-checked={pick === v} disabled={locked} className={`opt${pick === v ? " on" : ""}`} onClick={() => setPick(v)}>{ui(k, lang)}</button>
+          ))}
+        </div>
+      )}
+      {(q.type === "number" || q.type === "short") && (
+        <div className="typed">
+          <label htmlFor={`a-${q.id}`}>{q.type === "number" ? ui("typeNumber", lang) : ui("typeAnswer", lang)}</label>
+          <div className="typed-row">
+            <input id={`a-${q.id}`} inputMode={q.type === "number" ? "decimal" : "text"} autoComplete="off" value={text} disabled={locked} maxLength={q.type === "short" ? 60 : 20}
+              onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") void check(); }} />
+            {q.type === "number" && q.unit && <span className="unit">{s.name(q.unit)}</span>}
+          </div>
+        </div>
+      )}
+      {q.type === "order" && (
+        <div className="order">
+          <p className="small">{ui("orderHelp", lang)}</p>
+          <ol className="picked" aria-label={ui("orderHelp", lang)}>{chosen.map((id) => <li key={id}>{s.name(label(id)!.text)}</li>)}</ol>
+          <div className="opts">
+            {items.filter((i) => !chosen.includes(i.id)).map((i) => <button key={i.id} type="button" className="opt" disabled={locked} onClick={() => setChosen((c) => [...c, i.id])}>{s.name(i.text)}</button>)}
+          </div>
+          {chosen.length > 0 && !locked && <button type="button" className="link" onClick={() => setChosen([])}>{ui("clearOrder", lang)}</button>}
+        </div>
+      )}
+
+      {hints > 0 && <ul className="hints">{q.hints.slice(0, hints).map((h, i) => <li key={i}>💡 {s.name(h)}</li>)}</ul>}
+
+      {!locked && (
+        <div className="q-actions">
+          <button type="button" className="btn" disabled={!response || busy} onClick={() => void check()}>{ui("checkAnswer", lang)}</button>
+          {hints < hintMax && <button type="button" className="btn ghost" onClick={() => setHints((h) => h + 1)}>{ui("hint", lang)}</button>}
+        </div>
+      )}
+      {err && <p className="err" role="alert">{ui("practiceOnline", lang)}</p>}
+
+      {fb && (
+        <div className={`feedback ${fb.correct ? "yes" : "no"}`} role="status" aria-live="polite">
+          <h3>{fb.correct ? `✓ ${ui("correct", lang)}` : ui("notQuite", lang)}</h3>
+          {!fb.correct && fb.whyWrong && s.get("practice.showWhyWrong") && <p>{s.name(fb.whyWrong)}</p>}
+          {!fb.correct && s.get("practice.showCorrectAnswer") && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(fb.correctAnswer)}</p>}
+          <p>{s.name(fb.explanation)}</p>
+          <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>
+        </div>
+      )}
+    </section>
+  );
+}

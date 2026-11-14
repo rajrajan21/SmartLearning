@@ -10,8 +10,8 @@ const admin = (r: request.Test) => r.set("x-admin-key", KEY);
 
 beforeEach(async () => {
   const m = await makeRepo(); // fresh in-memory database per test
-  app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: KEY });
-  noAdmin = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: null });
+  app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: KEY });
+  noAdmin = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: null });
 });
 
 describe("public settings", () => {

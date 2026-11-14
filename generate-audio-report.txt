@@ -3,9 +3,295 @@
 > @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
 > tsx src/tools/build-audio.ts
 
-en cbse-3-maths-fun-with-shapes-sides-and-corners.json t1: 4250 ms, 25920 bytes
-en cbse-3-maths-fun-with-shapes-sides-and-corners.json t2: 4250 ms, 25920 bytes
-en cbse-3-maths-fun-with-shapes-sides-and-corners.json t3: 4275 ms, 26064 bytes
+file:///D:/Smart%20Learning%20Website/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39
+                const error = new ZodError(ctx.common.issues);
+                              ^
 
-Sentences wanted 3: generated 3, already done 0.
-  skipped: cbse-3-maths-fun-with-shapes-sides-and-corners.json: no ta voice for teacher "malar"
+ZodError: [
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      0,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      1,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      2,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      3,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      4,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "praise",
+      5,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "tryAgain",
+      0,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "tryAgain",
+      1,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "tryAgain",
+      2,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "tryAgain",
+      3,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "roundPassed",
+      0,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "roundPassed",
+      1,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "roundRetry",
+      0,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "lessonStart",
+      0,
+      "text"
+    ],
+    "message": "Required"
+  },
+  {
+    "code": "invalid_type",
+    "expected": "object",
+    "received": "undefined",
+    "path": [
+      "lessonStart",
+      1,
+      "text"
+    ],
+    "message": "Required"
+  }
+]
+    at get error (file:///D:/Smart%20Learning%20Website/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:39:31)
+    at ZodRecord.parse (file:///D:/Smart%20Learning%20Website/node_modules/.pnpm/zod@3.25.76/node_modules/zod/v3/types.js:114:22)
+    at collectJobs (D:\Smart Learning Website\apps\api\src\modules\audio\build.ts:104:80)
+    at buildAudio (D:\Smart Learning Website\apps\api\src\modules\audio\build.ts:118:21)
+    at <anonymous> (D:\Smart Learning Website\apps\api\src\tools\build-audio.ts:21:22)
+    at process.processTicksAndRejections (node:internal/process/task_queues:104:5) {
+  issues: [
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 0, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 1, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 2, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 3, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 4, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'praise', 5, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'tryAgain', 0, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'tryAgain', 1, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'tryAgain', 2, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'tryAgain', 3, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'roundPassed', 0, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'roundPassed', 1, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'roundRetry', 0, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'lessonStart', 0, 'text' ],
+      message: 'Required'
+    },
+    {
+      code: 'invalid_type',
+      expected: 'object',
+      received: 'undefined',
+      path: [ 'lessonStart', 1, 'text' ],
+      message: 'Required'
+    }
+  ],
+  addIssue: [Function (anonymous)],
+  addIssues: [Function (anonymous)]
+}
+
+Node.js v26.13.1
+D:\Smart Learning Website\apps\api:
+ ERR_PNPM_RECURSIVE_RUN_FIRST_FAIL  @studysmart/api@0.1.0 audio:build: `tsx src/tools/build-audio.ts`
+Exit status 1

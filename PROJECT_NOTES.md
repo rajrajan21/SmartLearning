@@ -48,3 +48,8 @@ pnpm --filter web dev      # http://localhost:5173
 - Player: Listen/Pause, speed, word highlight, chalkboard board actions, device-voice fallback (Tamil).
 - Tests: shared 12, API 44, web 21. USER TODO: run Start Malar Teacher.bat then Generate-Lesson-Audio.bat to record the first lesson.
 - Tamil recordings need a Tamil speech engine (not in Malar yet).
+
+## Status: Module 5 complete (practice rounds, natural single-voice audio)
+- Practice: 4 rounds, 5 question types, server-side grading, hints, why-wrong, stars, pass mark, lesson checkpoints (docs/09-practice.md). 12 questions for Sides and corners.
+- Audio: one English voice (malar / af_heart, speed 0.92); clips trimmed, levelled, 64 kbps; lesson sentences, question stems, explanations, why-wrong lines and stock praise phrases are all covered by Generate-Lesson-Audio.bat.
+- Tests: shared 12, API 61, web 27 (all passing). Next: Module 6 (accounts).

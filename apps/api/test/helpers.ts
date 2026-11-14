@@ -4,6 +4,7 @@ import { createPgliteDb } from "../src/db/dev.js";
 import { importCurriculum } from "../src/modules/curriculum/importer.js";
 import { createDbCurriculumRepository } from "../src/modules/curriculum/db-repository.js";
 import { createLessonService } from "../src/modules/lessons/service.js";
+import { createPracticeService } from "../src/modules/practice/service.js";
 import { createSettingsService } from "../src/modules/settings/service.js";
 import { curriculumDir } from "../src/server-paths.js";
 
@@ -27,5 +28,5 @@ export async function makeRepo(data: unknown = authoredFixture()) {
   const db = await createPgliteDb(); // in-memory real PostgreSQL
   await importCurriculum(db, data);
   const repo = createDbCurriculumRepository(db);
-  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo) };
+  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo), practice: createPracticeService(db, repo) };
 }

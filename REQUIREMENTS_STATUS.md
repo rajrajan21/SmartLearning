@@ -11,7 +11,7 @@ Legend: ⬜ not started · 🟨 designed / in progress · ✅ built and tested
 | Web shell (Vite React, mobile-first) | 🟨 | Module 1 |
 | Curriculum import + browse | ⬜ | Module 2 |
 | Lesson player | ⬜ | Module 3 |
-| Malar Teacher audio narration | ⬜ | Module 4 (reuses Malar Teacher project voice) |
+| Malar Teacher audio narration | ✅ English | Modules 4-5 (one English voice; Tamil needs another engine) |
 | Question bank, 4 practice rounds | ⬜ | Module 5 |
 | Auth, parent/child, consent | ⬜ | Module 6 |
 | Mastery, revision | ⬜ | Module 7 |
@@ -45,7 +45,8 @@ Legend: ⬜ not started · 🟨 designed / in progress · ✅ built and tested
 - [x] Progress save + resume (device only until Module 6), ticks on chapter lists
 - [x] Offline for opened lessons (service worker)
 - [x] Lesson import, versions, published-only serving, admin settings
-- [ ] Practice questions (Module 5), voice (Module 4), more lessons (ongoing authoring)
+- [x] Practice questions (Module 5), voice (Modules 4-5)
+- [ ] More lessons and questions (ongoing authoring)
 
 
 ## Module 4 (done, English)
@@ -54,3 +55,6 @@ Legend: ⬜ not started · 🟨 designed / in progress · ✅ built and tested
 - [x] Device-voice fallback for Tamil
 - [ ] YOU: run the two .bat files once to record the first lesson's audio
 - [ ] Tamil / Hindi recordings (needs a Tamil engine), lip-sync video, offline audio cache
+
+## Module 5 (done)
+Practice rounds with 5 question types, server grading, hints, stars, checkpoints in lessons, question/feedback audio, polished audio build. Pending: run Generate-Lesson-Audio.bat to record the new clips; Tamil wording review.

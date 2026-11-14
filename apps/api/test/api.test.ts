@@ -4,7 +4,7 @@ import { createApp } from "../src/app.js";
 import { makeRepo } from "./helpers.js";
 
 let app: ReturnType<typeof createApp>;
-beforeAll(async () => { const m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: "test-key-0123456789abcdef0123" }); });
+beforeAll(async () => { const m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: "test-key-0123456789abcdef0123" }); });
 const base = "/api/v1/curriculum";
 
 describe("API", () => {

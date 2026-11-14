@@ -36,7 +36,7 @@ describe("lesson content files", () => {
 describe("lesson import and API", () => {
   let m: Awaited<ReturnType<typeof makeRepo>>;
   let app: ReturnType<typeof createApp>;
-  beforeAll(async () => { m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: null }); });
+  beforeAll(async () => { m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: null }); });
 
   it("is idempotent, versions only on real change", async () => {
     const a = await m.lessons.importLesson(lessonFor());

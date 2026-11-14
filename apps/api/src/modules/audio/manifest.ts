@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
-import type { AudioRef, TopicLesson } from "@studysmart/shared";
+import { PhraseSet, type AudioRef, type LangAudio, type TopicLesson } from "@studysmart/shared";
 
 export type Lang = "en" | "ta";
 export const LANGS: Lang[] = ["en", "ta"];
@@ -28,13 +28,35 @@ export const emptyManifest = (): Manifest => ({ version: 1, entries: {} });
 export const audioKey = (p: { lang: Lang; voice: string; speed: number; text: string }): string =>
   createHash("sha1").update([p.lang, p.voice, p.speed.toFixed(2), p.text].join("|")).digest("hex").slice(0, 16);
 
+/**
+ * Turns written text into text that is read well: symbols and arrows become words, brackets become pauses,
+ * and every sentence ends with punctuation so the voice finishes it naturally. Used for the audio key AND for what is spoken,
+ * so a lesson's written text can differ from its spoken text without regenerating audio by mistake.
+ */
+export function speechText(text: string, lang: Lang = "en"): string {
+  let t = text.normalize("NFC").replace(/[*_`#>]+/g, "").replace(/\s+/g, " ").trim();
+  if (lang === "en") {
+    t = t
+      .replace(/\s*→\s*/g, ", then ").replace(/\s*=\s*/g, " equals ").replace(/\s*×\s*/g, " times ").replace(/\s*÷\s*/g, " divided by ")
+      .replace(/(\d)\s*\+\s*(\d)/g, "$1 plus $2").replace(/(\d)\s*[−]\s*(\d)/g, "$1 minus $2").replace(/(\d)\s+-\s+(\d)/g, "$1 minus $2")
+      .replace(/(\d)\s*%/g, "$1 percent").replace(/\s*&\s*/g, " and ").replace(/\be\.g\./gi, "for example").replace(/\bi\.e\./gi, "that is");
+  }
+  t = t.replace(/\s*\(([^)]*)\)/g, ", $1,").replace(/,\s*,/g, ",").replace(/,\s*([.!?])/g, "$1").replace(/\s+([,.!?])/g, "$1").replace(/\s+/g, " ").trim();
+  if (t && !/[.!?…।]$/u.test(t)) t += ".";
+  return t;
+}
+
 export interface AudioStore {
+  /** Recording for any one piece of text (question stems, explanations, phrases); undefined when none exists yet. */
+  ref(teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined;
+  refs(teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
+  phrases(): PhraseSet;
   /** Adds `audio` to every narration sentence that has a recording. Never changes the stored lesson. */
   enrich(lesson: TopicLesson): TopicLesson;
   filePath(file: string): string | null;
 }
 
-export function createAudioStore(opts: { manifestPath: string; voicesPath: string; filesDir: string; urlBase?: string }): AudioStore {
+export function createAudioStore(opts: { manifestPath: string; voicesPath: string; phrasesPath: string; filesDir: string; urlBase?: string }): AudioStore {
   const base = opts.urlBase ?? "/api/v1/audio";
   let manifest = emptyManifest(), voices: VoiceMap = {};
   let mTime = -1, vTime = -1;
@@ -49,7 +71,29 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
       if (t !== vTime) { const r = VoiceMap.safeParse(JSON.parse(readFileSync(opts.voicesPath, "utf8"))); if (r.success) { voices = r.data; vTime = t; } }
     }
   };
+  const lookup = (teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined => {
+    fresh();
+    const cfg = voices[teacher]?.[lang];
+    if (!cfg || !text?.trim()) return undefined;
+    const e = manifest.entries[audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text: speechText(text, lang) })];
+    return e && existsSync(join(opts.filesDir, e.file)) ? { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words } : undefined;
+  };
+  const refs = (teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
+    if (!text) return undefined;
+    const out: LangAudio = {};
+    for (const lang of LANGS) { const r = lookup(teacher, lang, text[lang]); if (r) out[lang] = r; }
+    return out.en || out.ta ? out : undefined;
+  };
   return {
+    ref: lookup,
+    refs,
+    phrases() {
+      fresh();
+      if (!existsSync(opts.phrasesPath)) return {};
+      const r = PhraseSet.safeParse(JSON.parse(readFileSync(opts.phrasesPath, "utf8")));
+      if (!r.success) return {};
+      return Object.fromEntries(Object.entries(r.data).map(([k, list]) => [k, list.map((p) => ({ text: p.text, ...(refs("malar", p.text) ? { audio: refs("malar", p.text) } : {}) }))]));
+    },
     enrich(lesson) {
       fresh();
       return {
@@ -63,10 +107,8 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
             sentences: b.sentences.map((sen) => {
               const audio: { en?: AudioRef; ta?: AudioRef } = {};
               for (const lang of LANGS) {
-                const cfg = v[lang], text = sen.text[lang];
-                if (!cfg || !text) continue;
-                const e = manifest.entries[audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text })];
-                if (e && existsSync(join(opts.filesDir, e.file))) audio[lang] = { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words };
+                const r = lookup(b.teacher, lang, sen.spoken?.[lang] ?? sen.text[lang]);
+                if (r) audio[lang] = r;
               }
               return { ...sen, audio };
             }),

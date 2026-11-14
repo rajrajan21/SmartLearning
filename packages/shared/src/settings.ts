@@ -31,10 +31,11 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "theme" | "home" | "languages" | "catalog" | "site";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
+  { id: "practice", label: "Practice", help: "Practice rounds, hints, pass marks and feedback." },
   { id: "theme", label: "Look and feel", help: "Colours, fonts, sizes and style presets." },
   { id: "home", label: "Home page", help: "What visitors see first." },
   { id: "languages", label: "Languages", help: "Tamil and English behaviour." },
@@ -58,9 +59,9 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.offline", "features", "Reliability", "Work offline (installable app)", true, { help: "Keeps the curriculum available without internet after the first visit." }),
   bool("feature.languageToggle", "features", "Reliability", "Tamil / English switch in the header", true),
   bool("feature.teacherNarration", "features", "Learning", "Teacher voice and board", true, { dependsOn: "feature.lessons", help: "Listen buttons, the teacher's voice and the drawing board inside lessons." }),
+  bool("feature.practice", "features", "Learning", "Practice rounds", true, { help: "Four practice rounds on every topic that has questions." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.practice", "Practice rounds and quizzes", "Module 5"),
   planned("feature.accounts", "Student and parent accounts", "Module 6"),
   planned("feature.mastery", "Chapter mastery and revision", "Module 7"),
   planned("feature.aiTutor", "AI tutor", "Module 8"),
@@ -91,7 +92,25 @@ export const SETTINGS: SettingDef[] = [
   bool("narration.speedControl", "lessons", "Teacher voice", "Let students change the speaking speed", true, { dependsOn: "feature.teacherNarration" }),
   { key: "narration.defaultSpeed", panel: "lessons", section: "Teacher voice", label: "Starting speed", public: true, type: "select", default: "1", dependsOn: "feature.teacherNarration",
     options: [{ value: "0.8", label: "Slow" }, { value: "1", label: "Normal" }, { value: "1.2", label: "Fast" }] },
+  { key: "narration.pauseBetweenMs", panel: "lessons", section: "Teacher voice", label: "Pause between sentences", public: true, type: "number", default: 350, min: 0, max: 2000, step: 50, unit: "ms", dependsOn: "feature.teacherNarration", help: "A short breath after each sentence makes the teacher sound calmer and easier to follow." },
   bool("narration.browserVoice", "lessons", "Teacher voice", "Use the device's own voice when no recorded voice exists", true, { dependsOn: "feature.teacherNarration", help: "Needed for Tamil until recorded Tamil voices are added. Quality depends on the device." }),
+
+  // ---------------- Practice ----------------
+  { key: "practice.questionsPerRound", panel: "practice", section: "Rounds", label: "Questions in each round", public: true, type: "number", default: 5, min: 3, max: 15, step: 1, dependsOn: "feature.practice", help: "If a round has fewer questions written, all of them are used." },
+  { key: "practice.passMark", panel: "practice", section: "Rounds", label: "Pass mark", public: true, type: "number", default: 70, min: 50, max: 100, step: 5, unit: "%", dependsOn: "feature.practice" },
+  { key: "practice.unlock", panel: "practice", section: "Rounds", label: "Opening the next round", public: true, type: "select", default: "sequential", dependsOn: "feature.practice",
+    options: [{ value: "sequential", label: "Pass a round to open the next" }, { value: "open", label: "All rounds open from the start" }] },
+  bool("practice.shuffleQuestions", "practice", "Rounds", "Mix up the question order", true, { dependsOn: "feature.practice" }),
+  bool("practice.shuffleOptions", "practice", "Rounds", "Mix up the answer choices", true, { dependsOn: "feature.practice" }),
+  bool("practice.allowRetry", "practice", "Rounds", "Let students try a round again", true, { dependsOn: "feature.practice" }),
+  bool("practice.stars", "practice", "Rewards", "Give stars for each round", true, { dependsOn: "feature.practice" }),
+  bool("practice.hints.enabled", "practice", "Help", "Allow hints", true, { dependsOn: "feature.practice" }),
+  { key: "practice.hints.max", panel: "practice", section: "Help", label: "Most hints per question", public: true, type: "number", default: 2, min: 1, max: 2, step: 1, dependsOn: "practice.hints.enabled" },
+  bool("practice.showWhyWrong", "practice", "Help", "Explain why a wrong answer is wrong", true, { dependsOn: "feature.practice", help: "Switch off for a quiz-like feel." }),
+  bool("practice.showCorrectAnswer", "practice", "Help", "Show the right answer after a mistake", true, { dependsOn: "feature.practice" }),
+  bool("practice.lessonCheckpoints", "practice", "Help", "Show checkpoint questions inside lessons", true, { dependsOn: "feature.practice" }),
+  bool("practice.audio.questions", "practice", "Teacher voice", "Let students listen to each question", true, { dependsOn: "feature.practice", help: "Uses the recorded teacher voice when it exists, otherwise the device voice." }),
+  bool("practice.audio.feedback", "practice", "Teacher voice", "Teacher speaks the feedback after each answer", true, { dependsOn: "feature.practice", help: "Praise or encouragement, then the explanation. Students can switch it off on their own device." }),
 
   // ---------------- Theme ----------------
   { key: "theme.mode", panel: "theme", section: "Mode", label: "Light or dark", public: true, type: "select", default: "light",
