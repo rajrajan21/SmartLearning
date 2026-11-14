@@ -7,7 +7,7 @@ import { Question, QuestionImport } from "@studysmart/shared";
 import { createApp } from "../src/app.js";
 import { grade, normText, toPublic } from "../src/modules/practice/grade.js";
 import { questionsDir } from "../src/server-paths.js";
-import { makeRepo, seedFile } from "./helpers.js";
+import { makeRepo, seedFile, shapesJson } from "./helpers.js";
 
 const L = (en: string) => ({ en });
 const common = { round: 1, stem: L("Q?"), hints: [], explanation: L("Because."), provenance: "original", status: "published" };
@@ -76,7 +76,7 @@ describe("question files", () => {
 describe("practice API", () => {
   let m: Awaited<ReturnType<typeof makeRepo>>;
   let app: ReturnType<typeof createApp>;
-  const file = () => JSON.parse(readFileSync(join(questionsDir, readdirSync(questionsDir).filter((f) => f.endsWith(".json"))[0]!), "utf8"));
+  const file = () => shapesJson(questionsDir);
   const path = "/api/v1/practice/boards/CBSE/3/maths/fun-with-shapes/sides-and-corners";
   beforeAll(async () => {
     m = await makeRepo(seedFile());

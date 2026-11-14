@@ -4,7 +4,7 @@ import request from "supertest";
 import { beforeAll, describe, expect, it } from "vitest";
 import { LessonImport } from "@studysmart/shared";
 import { createApp } from "../src/app.js";
-import { lessonsDir } from "../src/server-paths.js";
+import { curriculumDir, lessonsDir, questionsDir } from "../src/server-paths.js";
 import { LessonImportError } from "../src/modules/lessons/service.js";
 import { makeRepo, seedFile } from "./helpers.js";
 
@@ -23,9 +23,18 @@ describe("lesson content files", () => {
     for (const f of files) expect(LessonImport.safeParse(JSON.parse(readFileSync(join(lessonsDir, f), "utf8"))).success, f).toBe(true);
   });
   it("the shipped lessons import against the shipped curriculum and are served", async () => {
-    const m = await makeRepo(seedFile());
+    const m = await makeRepo(JSON.parse(readFileSync(join(curriculumDir, "cbse-2026-27.json"), "utf8")));
     for (const f of readdirSync(lessonsDir).filter((x) => x.endsWith(".json"))) {
       await m.lessons.importLesson(JSON.parse(readFileSync(join(lessonsDir, f), "utf8")));
+    }
+    for (const f of readdirSync(questionsDir).filter((x) => x.endsWith(".json"))) {
+      await m.practice.importQuestions(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
+    }
+    // every quiz block points at questions that exist in its own topic's question file
+    for (const f of readdirSync(lessonsDir).filter((x) => x.endsWith(".json"))) {
+      const les = JSON.parse(readFileSync(join(lessonsDir, f), "utf8")), qs = JSON.parse(readFileSync(join(questionsDir, f), "utf8"));
+      const keys = new Set(qs.questions.map((q: { key: string }) => q.key));
+      for (const b of les.lesson.blocks) if (b.type === "quiz") for (const id of b.questionIds) expect(keys.has(id), `${f}: quiz question ${id}`).toBe(true);
     }
     const l = await m.lessons.getPublished("CBSE", 3, "maths", "fun-with-shapes", "sides-and-corners");
     expect(l?.blocks.length).toBeGreaterThan(4);

@@ -1,0 +1,18 @@
+[Unit]
+Description=StudySmart (studysmart.in)
+After=network.target postgresql.service
+
+[Service]
+User=studysmart
+WorkingDirectory=/opt/studysmart/apps/api
+EnvironmentFile=/etc/studysmart.env
+ExecStart=/usr/bin/env pnpm start
+Restart=always
+RestartSec=3
+# keeps one bug from taking the whole VM (it also runs chennaideals.in)
+MemoryMax=700M
+NoNewPrivileges=true
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target

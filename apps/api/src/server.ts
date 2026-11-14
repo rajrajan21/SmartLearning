@@ -9,6 +9,7 @@ import { modelFromEnv } from "./modules/tutor/provider.js";
 import { createAccountService } from "./modules/accounts/service.js";
 import { createPracticeService } from "./modules/practice/service.js";
 import { createLessonService } from "./modules/lessons/service.js";
+import { resolve } from "node:path";
 import { resolveAdminKey } from "./modules/settings/admin-auth.js";
 import { createSettingsService } from "./modules/settings/service.js";
 
@@ -31,5 +32,5 @@ const db = await connect();
 const curriculum = createDbCurriculumRepository(db);
 const audio = createAudioStore({ manifestPath: `${audioDir}/manifest.json`, voicesPath: `${audioDir}/voices.json`, phrasesPath: `${audioDir}/phrases.json`, filesDir: `${audioDir}/files` });
 const lessonSvc = createLessonService(db, curriculum, audio);
-const app = createApp({ curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: createSettingsService(db), adminKey: resolveAdminKey(process.env) });
+const app = createApp({ curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: createSettingsService(db), adminKey: resolveAdminKey(process.env), webDir: process.env.WEB_DIR ? resolve(process.env.WEB_DIR) : undefined });
 app.listen(port, () => console.log(`StudySmart API listening on :${port}`));

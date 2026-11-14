@@ -11,7 +11,14 @@ import { createPracticeService } from "../src/modules/practice/service.js";
 import { createSettingsService } from "../src/modules/settings/service.js";
 import { curriculumDir } from "../src/server-paths.js";
 
-export const seedFile = () => JSON.parse(readFileSync(join(curriculumDir, "cbse-2026-27.json"), "utf8"));
+/** The real curriculum, but with only the shapes chapter's topics kept, so these tests do not change when more lessons are authored. */
+export const seedFile = () => {
+  const d = JSON.parse(readFileSync(join(curriculumDir, "cbse-2026-27.json"), "utf8"));
+  for (const c of d.classes) for (const sub of c.subjects) for (const ch of sub.chapters) if (ch.slug !== "fun-with-shapes") ch.topics = [];
+  return d;
+};
+/** One fixed content file (the shapes topic) from a content folder, whatever else is authored. */
+export const shapesJson = (dir: string) => JSON.parse(readFileSync(join(dir, "cbse-3-maths-fun-with-shapes-sides-and-corners.json"), "utf8"));
 
 /** The real seed plus a few authored topics, objectives and prerequisites. */
 export function authoredFixture() {

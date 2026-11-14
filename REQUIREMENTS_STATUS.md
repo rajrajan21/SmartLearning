@@ -69,3 +69,6 @@ Mastery levels, My progress, daily spaced revision, admin controls. Parent-facin
 Question helper with safety screening, daily limits, lesson-only answers, optional free-tier model. Owner action: choose and set the three TUTOR_* variables when ready. Content gap: add more hints to practice questions.
 
 - Module 9 Parent dashboard: DONE (weekly goal, streak, accuracy, activity chart, chapter mastery, tricky questions, print, CSV, data export; all switchable).
+- Module 10 Tests, worksheets, games: DONE (timed chapter test with review, printable worksheet with parent-only key, Quick Fire and Three Lives; all switchable).
+- Module 11: privacy/terms/about pages DONE; deployment pack DONE (needs owner to run it); password help without e-mail DONE (admin tool); Class 3 maths content: 5 topics of ~30 (English; Tamil text and audio pending).
+- Still open: Tamil review, more content (rest of Class 3, Classes 4-7, TN boards), real e-mail password reset (needs a free mail service), audio generation run by owner, legal read of privacy text.

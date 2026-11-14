@@ -1,3 +1,6 @@
-api.studysmart.in {
-  reverse_proxy api:3000
+# Add this block to the Caddyfile that already serves chennaideals.in (or use it alone on a new server).
+# Caddy gets and renews the HTTPS certificate by itself. Free.
+studysmart.in, www.studysmart.in {
+	encode zstd gzip
+	reverse_proxy 127.0.0.1:3100
 }

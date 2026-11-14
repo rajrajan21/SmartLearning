@@ -36,7 +36,8 @@ function useSpeaker(lang: Lang, deviceFallback: boolean) {
 
 export interface CardResult { correct: boolean; hintsUsed: number }
 
-export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuestion; onDone: (r: CardResult) => void; nextLabel?: string; compact?: boolean }) {
+/** collect: test mode, the answer is kept for marking at the end and nothing is shown. quick: game mode, moves on by itself. */
+export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: { q: PublicQuestion; onDone: (r: CardResult) => void; nextLabel?: string; compact?: boolean; collect?: (r: AnswerResponse) => void; quick?: boolean }) {
   const s = useSettings();
   const { lang } = s;
   const attemptId = useRef(crypto.randomUUID()); // one per question shown, so a resend never counts twice
@@ -52,7 +53,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
   const phrases = usePhrases(voiceFb);
   const options = useMemo(() => (q.type === "mcq" && s.get("practice.shuffleOptions") ? shuffled(q.options) : q.type === "mcq" ? q.options : []), [q, s]);
   const items = q.type === "order" ? q.items : [];
-  const hintMax = s.get("practice.hints.enabled") ? Math.min(q.hints.length, s.get<number>("practice.hints.max")) : 0;
+  const hintMax = !collect && !quick && s.get("practice.hints.enabled") ? Math.min(q.hints.length, s.get<number>("practice.hints.max")) : 0;
   const locked = fb !== null;
 
   const response: AnswerResponse | null =
@@ -64,6 +65,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
 
   const check = async () => {
     if (!response || busy || locked) return;
+    if (collect) { collect(response); return; }
     setBusy(true); setErr(false);
     try {
       const f = await sendAnswer(q.id, attemptId.current, hints, response);
@@ -80,6 +82,13 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
       }
     } catch { setErr(true); } finally { setBusy(false); }
   };
+
+  useEffect(() => {
+    if (!quick || !fb) return;
+    const t = setTimeout(() => onDone({ correct: fb.correct, hintsUsed: hints }), fb.correct ? 700 : 1800);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [fb, quick]);
 
   const stem = s.name(q.stem);
   const label = (id: string) => items.find((i) => i.id === id);
@@ -130,7 +139,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
 
       {!locked && (
         <div className="q-actions">
-          <button type="button" className="btn" disabled={!response || busy} onClick={() => void check()}>{ui("checkAnswer", lang)}</button>
+          <button type="button" className="btn" disabled={!response || busy} onClick={() => void check()}>{collect ? ui("saveAnswer", lang) : ui("checkAnswer", lang)}</button>
           {hints < hintMax && <button type="button" className="btn ghost" onClick={() => setHints((h) => h + 1)}>{ui("hint", lang)}</button>}
         </div>
       )}
@@ -142,7 +151,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
           {!fb.correct && fb.whyWrong && s.get("practice.showWhyWrong") && <p>{s.name(fb.whyWrong)}</p>}
           {!fb.correct && s.get("practice.showCorrectAnswer") && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(fb.correctAnswer)}</p>}
           <p>{s.name(fb.explanation)}</p>
-          {s.get("feature.aiTutor") === true && s.get("tutor.inPractice") === true && <AskTeacher questionId={q.id} about={stem} afterAnswer />}
+          {!quick && s.get("feature.aiTutor") === true && s.get("tutor.inPractice") === true && <AskTeacher questionId={q.id} about={stem} afterAnswer />}
           <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>
         </div>
       )}

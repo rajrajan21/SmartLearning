@@ -46,6 +46,9 @@ export function Layout({ children }: { children: ReactNode }) {
       </main>
       <footer className="foot">
         <p>{s.text("home.footer.text")}</p>
+        {s.get("feature.sitePages") === true && s.get("pages.footerLinks") === true && (
+          <p className="small foot-links"><Link href="/about">{ui("aboutTitle", lang)}</Link> · <Link href="/privacy">{ui("privacyTitle", lang)}</Link> · <Link href="/terms">{ui("termsTitle", lang)}</Link></p>
+        )}
         {s.get("feature.offline") && <p className="small">{ui("offlineReady", lang)}</p>}
         {!s.online && <p className="small" role="status">Offline</p>}
       </footer>

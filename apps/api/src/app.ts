@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import express, { type NextFunction, type Request, type Response } from "express";
 import type { CurriculumRepository } from "./modules/curriculum/repository.js";
 import { curriculumRoutes } from "./modules/curriculum/routes.js";
@@ -27,6 +29,8 @@ export interface AppDeps {
   secureCookie?: boolean;
   /** recorded teacher speech; omit to disable the audio route */
   audio?: AudioStore;
+  /** folder with the built web app (apps/web/dist); when set, this server also serves the site itself */
+  webDir?: string;
   /** null = admin API disabled */
   adminKey: string | null;
 }
@@ -53,10 +57,26 @@ export function createApp(deps: AppDeps) {
 
   app.use("/api/v1/lessons", lessonRoutes(deps.lessons, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
 
-  app.use("/api/v1/practice", practiceRoutes(deps.practice, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"]), async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null)));
+  app.use("/api/v1/practice", practiceRoutes(deps.practice, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"]), async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null), async (req) => {
+    if (!deps.accounts) return false;
+    const v = await deps.settings.all();
+    return v["feature.worksheets"] === true && v["worksheets.answerKey"] === true && (await deps.accounts.session(readCookie(req))) !== null;
+  }));
   if (deps.accounts) app.use("/api/v1/account", accountRoutes(deps.accounts, deps.settings, deps.secureCookie ?? false));
   if (deps.tutor) app.use("/api/v1/tutor", tutorRoutes(deps.tutor, deps.settings, async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null)));
   if (deps.audio) app.use("/api/v1/audio", audioRoutes(deps.audio));
+
+  if (deps.webDir && existsSync(join(deps.webDir, "index.html"))) {
+    const dir = deps.webDir;
+    app.use(express.static(dir, {
+      index: false,
+      setHeaders(res, file) {
+        // hashed files never change; the page shell and the service worker must always be re-checked so updates reach everyone
+        res.setHeader("Cache-Control", /\/assets\//.test(file.replace(/\\/g, "/")) ? "public, max-age=31536000, immutable" : "no-cache");
+      },
+    }));
+    app.get(/^\/(?!api\/|health).*/, (_req, res) => void res.set("Cache-Control", "no-cache").sendFile(join(dir, "index.html")));
+  }
 
   app.use((_req, res) => void res.status(404).json({ error: { code: "not_found", message: "Route not found" } }));
 

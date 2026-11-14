@@ -285,3 +285,10 @@ a { color: var(--brand); }
 .mini { border-collapse: collapse; margin-top: .4rem; } .mini th, .mini td { padding: .15rem .7rem; text-align: left; border-bottom: 1px solid var(--rule); }
 .tricky { padding-left: 1.2rem; } .tricky li { margin: .3rem 0; }
 @media print { .parent .tabs, .noprint { display: none !important; } .report { break-inside: avoid; } }
+
+/* ---------- tests, worksheets, games ---------- */
+.exam-bar { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .5rem; margin-bottom: .8rem; align-items: center; }
+.timer { font-variant-numeric: tabular-nums; font-weight: 700; } .timer.low { color: var(--danger, #b3261e); }
+.review { padding-left: 1.3rem; } .review li { margin: 1rem 0; padding-left: .6rem; border-left: 4px solid var(--rule); } .review li.ok { border-color: var(--success); } .review li.miss { border-color: var(--danger, #b3261e); }
+.sheet { padding-left: 1.4rem; } .sheet > li { margin: 1.1rem 0; break-inside: avoid; } .sheet-opts { list-style: none; padding-left: .4rem; } .blank, .sheet-lines { margin-top: .6rem; } .sheet-lines { display: flex; flex-wrap: wrap; gap: 2rem; } .key-line { color: var(--success); } .sheet-foot { margin-top: 2rem; text-align: center; }
+@media print { .worksheet { box-shadow: none; border: 0; } .worksheet .key-line { color: #000; } header, footer, nav { display: none !important; } }

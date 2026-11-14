@@ -69,3 +69,9 @@ pnpm --filter web dev      # http://localhost:5173
 
 ## Module 9 - Parent dashboard (done)
 `/parent` page, `/api/v1/account/dashboard` and `/export`, panel `parent` in settings, docs/13. Tests: shared 24, API 95, web 49. Next: Module 10 (exams, worksheets, games; feature.exams / feature.games are still planned).
+
+## Module 10 - Tests, worksheets, games (done)
+`/exam`, `/worksheet`, `/play/:mode` pages, `useChapterPool`, `POST /api/v1/practice/answer-key`, panel `tests`, docs/14. Tests: shared 24, API 99, web 58.
+
+## Module 11 - Site pages, deployment pack, content batch (done)
+Privacy/terms/about pages (settings-driven), `deploy/` pack + API serves web build (`WEB_DIR`), `account:reset-password` tool, 4 new Class 3 maths topics (tools/author_class3.py). Tests: shared 24, API 101, web 61. Test fixtures no longer depend on how much content exists (helpers.seedFile keeps only the shapes topics).

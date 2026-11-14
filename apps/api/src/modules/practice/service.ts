@@ -4,7 +4,7 @@ import type { Db } from "../../db/client.js";
 import * as s from "../../db/schema.js";
 import type { CurriculumRepository } from "../curriculum/repository.js";
 import type { AudioStore } from "../audio/manifest.js";
-import { grade, toPublic } from "./grade.js";
+import { correctAnswerOf, grade, toPublic } from "./grade.js";
 
 export class PracticeError extends Error { constructor(message: string, readonly status: 400 | 404 | 409 = 400) { super(message); } }
 
@@ -16,6 +16,8 @@ export interface PracticeService {
   roundsByTopic(): Promise<Record<string, number[]>>;
   /** questions by id, for the revision set (published only, answers never included) */
   getByIds(ids: string[]): Promise<PublicQuestion[]>;
+  /** right answers for a worksheet (only ever called for a signed-in parent) */
+  answerKey(ids: string[]): Promise<{ id: string; answer: { en: string; ta?: string } }[]>;
   answer(req: AnswerRequest, studentId?: string | null): Promise<AnswerFeedback>;
   /** Share of correct first answers per question, for calibrating difficulty (used by Module 7+). */
   stats(topicId: string): Promise<{ key: string; attempts: number; correct: number }[]>;
@@ -86,6 +88,12 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
         const pub = toPublic(r.id, q), stem = audio?.refs("malar", q.stem);
         return stem ? { ...pub, audio: { stem } } : pub;
       });
+    },
+
+    async answerKey(ids) {
+      if (ids.length === 0) return [];
+      const rows = await db.select().from(s.questions).where(and(inArray(s.questions.id, ids), eq(s.questions.status, "published")));
+      return rows.map((r) => ({ id: r.id, answer: correctAnswerOf(Question.parse(JSON.parse(r.bodyJson))) }));
     },
 
     async answer(req, studentId) {

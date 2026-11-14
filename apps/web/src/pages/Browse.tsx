@@ -112,6 +112,17 @@ export function ChapterPage() {
           </>
         )
       )}
+      {ch.topics.length > 0 && s.get("feature.practice") === true && (s.get("feature.exams") === true || s.get("feature.worksheets") === true || s.get("feature.games") === true) && (
+        <>
+          <h2>{ui("chapterTest", s.lang)}</h2>
+          <div className="actions">
+            {s.get("feature.exams") === true && <Link className="btn" href={`/exam/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("chapterTest", s.lang)}</Link>}
+            {s.get("feature.worksheets") === true && <Link className="btn ghost" href={`/worksheet/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("worksheetWord", s.lang)}</Link>}
+            {s.get("feature.games") === true && s.get("games.quickfire") === true && <Link className="btn ghost" href={`/play/quickfire/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("quickFire", s.lang)}</Link>}
+            {s.get("feature.games") === true && s.get("games.survival") === true && <Link className="btn ghost" href={`/play/survival/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("survival", s.lang)}</Link>}
+          </div>
+        </>
+      )}
       <nav className="pager" aria-label="Chapters">
         {prev ? <Link href={`${base}/${prev.slug}`}>← {ui("prevChapter", s.lang)}: {s.name(prev.name)}</Link> : <span />}
         {next ? <Link href={`${base}/${next.slug}`}>{ui("nextChapter", s.lang)}: {s.name(next.name)} →</Link> : <span />}

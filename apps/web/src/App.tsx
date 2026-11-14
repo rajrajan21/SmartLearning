@@ -4,6 +4,10 @@ import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
+import { ExamPage } from "./pages/Exam";
+import { WorksheetPage } from "./pages/Worksheet";
+import { GamePage } from "./pages/Games";
+import { SitePage } from "./pages/SitePages";
 import { ParentPage } from "./pages/Parent";
 import { RevisePage } from "./pages/Revise";
 import { ProgressPage } from "./pages/Progress";
@@ -17,6 +21,12 @@ export function Routes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/account" component={AccountPage} />
+      <Route path="/exam/:board/:cls/:subject/:chapter" component={ExamPage} />
+      <Route path="/worksheet/:board/:cls/:subject/:chapter" component={WorksheetPage} />
+      <Route path="/play/:mode/:board/:cls/:subject/:chapter" component={GamePage} />
+      <Route path="/privacy">{() => <SitePage kind="privacy" />}</Route>
+      <Route path="/terms">{() => <SitePage kind="terms" />}</Route>
+      <Route path="/about">{() => <SitePage kind="about" />}</Route>
       <Route path="/parent" component={ParentPage} />
       <Route path="/revise" component={RevisePage} />
       <Route path="/progress" component={ProgressPage} />

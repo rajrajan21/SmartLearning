@@ -8,9 +8,9 @@ import { passagesOf, retrieve } from "../src/modules/tutor/context.js";
 import { cleanOutput, screenInput } from "../src/modules/tutor/safety.js";
 import type { Chat } from "../src/modules/tutor/provider.js";
 import { lessonsDir, questionsDir } from "../src/server-paths.js";
-import { makeRepo, seedFile } from "./helpers.js";
+import { makeRepo, seedFile, shapesJson } from "./helpers.js";
 
-const json = (dir: string) => JSON.parse(readFileSync(join(dir, readdirSync(dir).filter((f) => f.endsWith(".json"))[0]!), "utf8"));
+const json = (dir: string) => shapesJson(dir);
 let m: Awaited<ReturnType<typeof makeRepo>>;
 let app: ReturnType<typeof createApp>;
 let topicId: string;

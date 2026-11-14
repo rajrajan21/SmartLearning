@@ -48,6 +48,17 @@ export function grade(q: Question, r: AnswerResponse): Grade | { error: string }
   }
 }
 
+/** The right answer as text, for the parent's answer key. Never sent to students. */
+export function correctAnswerOf(q: Question): L {
+  switch (q.type) {
+    case "mcq": return q.options.find((o) => o.correct)!.text;
+    case "true_false": return q.answer ? both("True", "சரி") : both("False", "தவறு");
+    case "number": return both(`${q.answer}${q.unit ? ` ${q.unit.en}` : ""}`, `${q.answer}${q.unit ? ` ${q.unit.ta ?? q.unit.en}` : ""}`);
+    case "short": return both(q.accepted[0]!);
+    case "order": return both(q.items.map((i) => i.text.en).join(" → "), q.items.every((i) => i.text.ta) ? q.items.map((i) => i.text.ta).join(" → ") : undefined);
+  }
+}
+
 /** The version students receive: no answers, no explanations. Ordering items are scrambled so the list does not give the answer away. */
 export function toPublic(id: string, q: Question): PublicQuestion {
   const common = { id, key: q.key, round: q.round, stem: q.stem, ...(q.image ? { image: q.image } : {}), hints: q.hints };

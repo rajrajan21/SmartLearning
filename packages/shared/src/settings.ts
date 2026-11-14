@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor" | "parent";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor" | "parent" | "tests" | "pages";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -44,6 +44,8 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
   { id: "tutor", label: "Ask the teacher", help: "The question helper: where it appears, daily limits and safety." },
   { id: "parent", label: "Parent dashboard", help: "What parents can see about their children and download." },
+  { id: "tests", label: "Tests, worksheets and games", help: "Timed chapter tests, printable worksheets and quick games built from the practice questions." },
+  { id: "pages", label: "Privacy, terms and about", help: "The text of the privacy, terms and about pages, and the links in the footer." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
 ];
 
@@ -70,8 +72,10 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.parentDashboard", "features", "Learning", "Parent dashboard", true, { dependsOn: "feature.accounts", help: "Signed-in parents see each child's progress, activity and tricky questions, and can print or download a report." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.exams", "Exams and worksheets", "Module 10"),
-  planned("feature.games", "Games and challenges", "Module 10"),
+  bool("feature.exams", "features", "Learning", "Chapter tests", true, { help: "A timed test on a whole chapter, marked at the end with a review of every answer." }),
+  bool("feature.sitePages", "features", "Reliability", "Privacy, terms and about pages", true, { help: "Pages and footer links for the privacy notice, terms of use and about text. Edit the wording in the \"Privacy, terms and about\" panel." }),
+  bool("feature.worksheets", "features", "Learning", "Printable worksheets", true, { help: "A chapter worksheet to print or write on, with an answer key for signed-in parents." }),
+  bool("feature.games", "features", "Learning", "Quick games", true, { help: "Quick Fire and Three Lives games made from a chapter's practice questions." }),
   planned("feature.adminEmails", "Admin e-mail notifications", "Off by default; added with accounts."),
 
   // ---------------- Lessons ----------------
@@ -144,7 +148,32 @@ export const SETTINGS: SettingDef[] = [
   { key: "tutor.greeting", panel: "tutor", section: "Wording", label: "Invitation shown above the question box", public: true, type: "localized", maxLength: 100, dependsOn: "feature.aiTutor",
     default: { en: "Stuck? Ask me about this lesson.", ta: "புரியவில்லையா? இந்தப் பாடத்தைப் பற்றி என்னிடம் கேள்." } },
 
+
+  // ---------------- Tests, worksheets and games ----------------
+  { key: "exams.questionCount", panel: "tests", section: "Chapter tests", label: "Questions in a test", public: true, type: "number", default: 10, min: 5, max: 30, step: 1, dependsOn: "feature.exams" },
+  bool("exams.timed", "tests", "Chapter tests", "Time limit", true, { dependsOn: "feature.exams", help: "When off, students take as long as they like." }),
+  { key: "exams.secondsPerQuestion", panel: "tests", section: "Chapter tests", label: "Time for each question", public: true, type: "number", default: 60, min: 20, max: 300, step: 10, unit: "seconds", dependsOn: "exams.timed" },
+  { key: "exams.passPercent", panel: "tests", section: "Chapter tests", label: "Pass mark", public: true, type: "number", default: 60, min: 30, max: 100, step: 5, unit: "%", dependsOn: "feature.exams" },
+  bool("exams.allowSkip", "tests", "Chapter tests", "Allow skipping a question", true, { dependsOn: "feature.exams" }),
+  bool("exams.showReview", "tests", "Chapter tests", "Show a review of every answer at the end", true, { dependsOn: "feature.exams", help: "Shows the right answer and the explanation for each question after the test is marked." }),
+  { key: "worksheets.questionCount", panel: "tests", section: "Worksheets", label: "Questions on a worksheet", public: true, type: "number", default: 10, min: 5, max: 30, step: 1, dependsOn: "feature.worksheets" },
+  bool("worksheets.answerKey", "tests", "Worksheets", "Answer key for signed-in parents", true, { dependsOn: "feature.worksheets", help: "Signed-in parents can show the answers beside a worksheet. Students who are not signed in never see them." }),
+  bool("worksheets.nameLine", "tests", "Worksheets", "Name and date lines at the top", true, { dependsOn: "feature.worksheets" }),
+  { key: "worksheets.footer", panel: "tests", section: "Worksheets", label: "Footer printed on every worksheet", public: true, type: "localized", maxLength: 100, dependsOn: "feature.worksheets", default: { en: "studysmart.in · free learning for every child", ta: "studysmart.in · ஒவ்வொரு குழந்தைக்கும் இலவசக் கற்றல்" } },
+  bool("games.quickfire", "tests", "Games", "Quick Fire (beat the clock)", true, { dependsOn: "feature.games" }),
+  { key: "games.quickfireSeconds", panel: "tests", section: "Games", label: "Quick Fire length", public: true, type: "number", default: 60, min: 30, max: 180, step: 10, unit: "seconds", dependsOn: "games.quickfire" },
+  bool("games.survival", "tests", "Games", "Three Lives (keep going until lives run out)", true, { dependsOn: "feature.games" }),
+  { key: "games.lives", panel: "tests", section: "Games", label: "Lives", public: true, type: "number", default: 3, min: 1, max: 5, step: 1, dependsOn: "games.survival" },
+
   // ---------------- Parent dashboard ----------------
+  // ---------------- Privacy, terms and about ----------------
+  { key: "pages.privacy", panel: "pages", section: "Privacy notice", label: "Privacy notice text", public: true, type: "localized", maxLength: 6000, multiline: true, dependsOn: "feature.sitePages", help: "Separate paragraphs with a blank line. Have the wording checked before launch.", default: { en: "Short version: StudySmart is free, has no adverts and does not sell or share anything about children.\n\nWhat we keep. Children can learn without signing in, and then nothing leaves their device except the answers they check, which are marked on our server without a name. If a parent creates an account we keep: the parent's e-mail address, a scrambled (hashed) password, each child's nickname, class, picture and language, the child's learning progress and answers, and the agreement the parent gave. We never ask for a child's real name, photo, school, phone number or address, and the question helper refuses to take such details.\n\nWhat we do with it. Only to run the site: to save progress across devices, to show parents how their children are doing, and to keep the service safe. We do not show adverts, do not use trackers and do not sell or share data.\n\nCookies and storage. One cookie keeps a parent signed in. The browser also saves progress, settings and downloaded lessons on the device so the site works offline. Neither is used to follow anyone.\n\nThe question helper. When a child asks Malar Teacher a question, the text is checked for personal details and unsafe content. If a language model service is configured for the site, the question and the lesson text it is about may be sent to that service to write an answer, without any name or e-mail address.\n\nYour choices. A parent can download everything we hold about their children and delete a child or the whole account at any time from the Account page. Deleting removes the data.\n\nQuestions or a request about your data: write to the contact address on this page." } },
+  { key: "pages.terms", panel: "pages", section: "Terms of use", label: "Terms of use text", public: true, type: "localized", maxLength: 6000, multiline: true, dependsOn: "feature.sitePages", default: { en: "StudySmart is a free learning site for school students. By using it you agree to these simple terms.\n\nLearning only. Lessons and practice are made to help children learn. They are not a replacement for a school, teacher or tutor, and we do our best to be correct but cannot promise there are no mistakes. Tell us if you find one.\n\nChildren. Children under 18 should use the site with a parent or guardian's permission. A parent or guardian creates and looks after the account.\n\nFair use. Do not try to break the site, overload it, or look at other people's accounts. Do not enter personal details about anyone in the question helper.\n\nContent. The lessons, questions and voice on this site belong to StudySmart. You may use them for your own learning and print worksheets for your own class or family, but please do not copy the site or sell its content.\n\nChanges and availability. The site is free and may change, pause or stop. We may update these terms and will show the new version here." } },
+  { key: "pages.about", panel: "pages", section: "About", label: "About text", public: true, type: "localized", maxLength: 3000, multiline: true, dependsOn: "feature.sitePages", default: { en: 'StudySmart is a free, ad-free learning site for school students in India. It starts with CBSE Class 3 and will grow to more classes and State boards, in English and Tamil.\n\nEvery lesson, question and explanation is written for children, with a patient teacher voice, four rounds of practice, daily revision, and clear help for parents.' } },
+  bool("pages.showContact", "pages", "Contact", "Show a contact e-mail on the privacy and terms pages", false, { dependsOn: "feature.sitePages", help: "Switch on after you have a working address (set below)." }),
+  { key: "pages.contactEmail", panel: "pages", section: "Contact", label: "Contact e-mail", public: true, type: "text", maxLength: 80, dependsOn: "pages.showContact", default: "contact@studysmart.in" },
+  bool("pages.footerLinks", "pages", "Footer", "Show links to these pages in the footer", true, { dependsOn: "feature.sitePages" }),
+
   bool("parent.showAccuracy", "parent", "What parents see", "Show how many answers were right", true, { dependsOn: "feature.parentDashboard" }),
   bool("parent.showActivity", "parent", "What parents see", "Show the daily activity chart", true, { dependsOn: "feature.parentDashboard" }),
   bool("parent.showWeakSpots", "parent", "What parents see", "Show questions the child often gets wrong", true, { dependsOn: "feature.parentDashboard" }),

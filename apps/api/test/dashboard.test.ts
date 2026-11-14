@@ -6,14 +6,14 @@ import { beforeEach, describe, expect, it } from "vitest";
 import { dayNumber } from "@studysmart/shared";
 import { createApp } from "../src/app.js";
 import { questionsDir } from "../src/server-paths.js";
-import { makeRepo, seedFile } from "./helpers.js";
+import { makeRepo, seedFile, shapesJson } from "./helpers.js";
 
 let m: Awaited<ReturnType<typeof makeRepo>>;
 let app: ReturnType<typeof createApp>;
 let qs: { id: string; key: string }[];
 beforeEach(async () => {
   m = await makeRepo(seedFile());
-  await m.practice.importQuestions(JSON.parse(readFileSync(join(questionsDir, readdirSync(questionsDir).filter((f) => f.endsWith(".json"))[0]!), "utf8")));
+  await m.practice.importQuestions(shapesJson(questionsDir));
   app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, accounts: m.accounts, tutor: m.tutor, adminKey: "k" });
   qs = (await request(app).get("/api/v1/practice/boards/CBSE/3/maths/fun-with-shapes/sides-and-corners")).body.questions;
 });
