@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import type { ContentBlock, PublicQuestion, TopicLesson } from "@studysmart/shared";
+import { AskTeacher } from "./AskTeacher";
 import { QuestionCard } from "./QuestionCard";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
@@ -183,6 +184,7 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
   }
 
   const last = step === total - 1;
+  const ask = s.get("feature.aiTutor") === true && s.get("tutor.inLessons") === true ? <AskTeacher topicId={lesson.topicId} about={s.name(lesson.title)} /> : null;
   const pct = Math.round(((scroll ? total : step + 1) / total) * 100);
   return (
     <div className="paper lesson">
@@ -200,12 +202,14 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
       {scroll ? (
         <>
           {blocks.map((b) => <Block key={b.id} block={b} questions={questions} />)}
+          {ask}
           <div className="lesson-nav"><span /><button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button></div>
         </>
       ) : (
         <>
           <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>
           <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} />
+          {ask}
           <div className="lesson-nav">
             <button type="button" className="btn ghost" onClick={() => go(-1)} disabled={step === 0}>← {ui("back", lang)}</button>
             {last ? <button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button> : <button type="button" className="btn" onClick={() => go(1)}>{ui("next", lang)} →</button>}

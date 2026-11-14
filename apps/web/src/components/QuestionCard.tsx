@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { AnswerFeedback, AnswerResponse, LangAudio, PublicQuestion } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui, type Lang } from "../lib/i18n";
+import { AskTeacher } from "./AskTeacher";
 import { recordReview } from "../lib/revision";
 import { sendAnswer, shuffled, usePhrases } from "../lib/practice";
 
@@ -141,6 +142,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact }: { q: PublicQuest
           {!fb.correct && fb.whyWrong && s.get("practice.showWhyWrong") && <p>{s.name(fb.whyWrong)}</p>}
           {!fb.correct && s.get("practice.showCorrectAnswer") && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(fb.correctAnswer)}</p>}
           <p>{s.name(fb.explanation)}</p>
+          {s.get("feature.aiTutor") === true && s.get("tutor.inPractice") === true && <AskTeacher questionId={q.id} about={stem} afterAnswer />}
           <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>
         </div>
       )}

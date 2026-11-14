@@ -64,3 +64,6 @@ Parent accounts, child profiles, progress sync, consent, account deletion, admin
 
 ## Module 7 (done)
 Mastery levels, My progress, daily spaced revision, admin controls. Parent-facing views come in Module 9.
+
+## Module 8 (done)
+Question helper with safety screening, daily limits, lesson-only answers, optional free-tier model. Owner action: choose and set the three TUTOR_* variables when ready. Content gap: add more hints to practice questions.

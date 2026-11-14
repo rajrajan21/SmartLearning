@@ -5,6 +5,8 @@ import { importCurriculum } from "../src/modules/curriculum/importer.js";
 import { createDbCurriculumRepository } from "../src/modules/curriculum/db-repository.js";
 import { createLessonService } from "../src/modules/lessons/service.js";
 import { createAccountService } from "../src/modules/accounts/service.js";
+import { createTutorService } from "../src/modules/tutor/service.js";
+import type { ModelCall } from "../src/modules/tutor/provider.js";
 import { createPracticeService } from "../src/modules/practice/service.js";
 import { createSettingsService } from "../src/modules/settings/service.js";
 import { curriculumDir } from "../src/server-paths.js";
@@ -25,9 +27,9 @@ export function authoredFixture() {
   return d;
 }
 
-export async function makeRepo(data: unknown = authoredFixture()) {
+export async function makeRepo(data: unknown = authoredFixture(), ai: ModelCall | null = null) {
   const db = await createPgliteDb(); // in-memory real PostgreSQL
   await importCurriculum(db, data);
   const repo = createDbCurriculumRepository(db);
-  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo), practice: createPracticeService(db, repo), accounts: createAccountService(db) };
+  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo), practice: createPracticeService(db, repo), accounts: createAccountService(db), tutor: createTutorService(db, createLessonService(db, repo), ai) };
 }

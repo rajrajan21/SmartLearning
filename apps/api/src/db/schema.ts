@@ -161,6 +161,13 @@ export const studentProgress = pgTable("student_progress", {
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [primaryKey({ columns: [t.studentId, t.kind, t.topicId] })]);
 
+/** Counts AI answers per child (or per network address for guests) per day, to protect the free model quota. */
+export const tutorUsage = pgTable("tutor_usage", {
+  key: text("key").notNull(),
+  day: integer("day").notNull(),
+  count: integer("count").notNull().default(0),
+}, (t) => [primaryKey({ columns: [t.key, t.day] })]);
+
 // ---------- Platform settings (see packages/shared/src/settings.ts for the registry) ----------
 export const settings = pgTable("settings", {
   key: text("key").primaryKey(),

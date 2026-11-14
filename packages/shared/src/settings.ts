@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -42,6 +42,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "catalog", label: "Classes and boards", help: "Which classes and boards are open to students." },
   { id: "accounts", label: "Accounts", help: "Parent sign-in, child profiles and saving progress across devices." },
   { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
+  { id: "tutor", label: "Ask the teacher", help: "The question helper: where it appears, daily limits and safety." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
 ];
 
@@ -64,9 +65,9 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.practice", "features", "Learning", "Practice rounds", true, { help: "Four practice rounds on every topic that has questions." }),
   bool("feature.accounts", "features", "Learning", "Parent accounts and child profiles", true, { help: "Lets a parent sign in, add children and keep progress across devices. Students can still learn without signing in." }),
   bool("feature.mastery", "features", "Learning", "Mastery and daily revision", true, { help: "Shows how well each topic and chapter is known, and a daily revision set of questions to remember." }),
+  bool("feature.aiTutor", "features", "Learning", "Ask the teacher (question helper)", true, { help: "Students can ask Malar Teacher questions about a lesson. Answers come only from that lesson; a language model is used only if a key is set on the server." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.aiTutor", "AI tutor", "Module 8"),
   planned("feature.parentDashboard", "Parent dashboard", "Module 9"),
   planned("feature.exams", "Exams and worksheets", "Module 10"),
   planned("feature.games", "Games and challenges", "Module 10"),
@@ -130,6 +131,17 @@ export const SETTINGS: SettingDef[] = [
   bool("mastery.revision.enabled", "mastery", "Revision", "Bring questions back for revision", true, { dependsOn: "feature.mastery", help: "Questions answered correctly return after longer and longer gaps; wrong ones return the next day." }),
   { key: "mastery.revision.dailyLimit", panel: "mastery", section: "Revision", label: "Most questions in one revision", public: true, type: "number", default: 10, min: 3, max: 30, step: 1, dependsOn: "mastery.revision.enabled" },
   { key: "mastery.revision.intervals", panel: "mastery", section: "Revision", label: "Days before each question comes back", public: true, type: "numberlist", default: [1, 3, 7, 14, 30], options: [1, 2, 3, 5, 7, 10, 14, 21, 30, 45, 60], dependsOn: "mastery.revision.enabled", help: "Up to five steps, from the first return to the last (sorted automatically). Fewer steps means the last gap repeats." },
+
+  // ---------------- Ask the teacher ----------------
+  bool("tutor.inLessons", "tutor", "Where it appears", "Show 'Ask Malar Teacher' inside lessons", true, { dependsOn: "feature.aiTutor" }),
+  bool("tutor.inPractice", "tutor", "Where it appears", "Show 'Ask Malar Teacher' after answering a practice question", true, { dependsOn: "feature.aiTutor" }),
+  bool("tutor.useAI", "tutor", "Answers", "Use the AI model when one is set up on the server", true, { dependsOn: "feature.aiTutor", help: "Off = answers are always taken straight from the lesson. Nothing is sent to any AI service when this is off or no key is set." }),
+  bool("tutor.showAiNote", "tutor", "Answers", "Tell students when an answer was written by AI", true, { dependsOn: "feature.aiTutor" }),
+  { key: "tutor.dailyLimit", panel: "tutor", section: "Limits", label: "AI answers per child per day", public: true, type: "number", default: 20, min: 1, max: 200, step: 1, dependsOn: "tutor.useAI", help: "Protects a free model quota. Answers taken straight from the lesson are not counted." },
+  { key: "tutor.maxQuestionChars", panel: "tutor", section: "Limits", label: "Longest question", public: true, type: "number", default: 250, min: 50, max: 500, step: 10, dependsOn: "feature.aiTutor", unit: "characters" },
+  bool("tutor.requireSignIn", "tutor", "Limits", "Only signed-in children can ask", false, { dependsOn: "feature.aiTutor", help: "Gives each child their own daily limit. Needs accounts to be on." }),
+  { key: "tutor.greeting", panel: "tutor", section: "Wording", label: "Invitation shown above the question box", public: true, type: "localized", maxLength: 100, dependsOn: "feature.aiTutor",
+    default: { en: "Stuck? Ask me about this lesson.", ta: "புரியவில்லையா? இந்தப் பாடத்தைப் பற்றி என்னிடம் கேள்." } },
 
   // ---------------- Theme ----------------
   { key: "theme.mode", panel: "theme", section: "Mode", label: "Light or dark", public: true, type: "select", default: "light",

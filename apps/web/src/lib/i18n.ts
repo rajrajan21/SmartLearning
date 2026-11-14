@@ -149,6 +149,18 @@ const UI = {
   lvlMastered: { en: "Mastered", ta: "தேர்ச்சி" },
   progressIntro: { en: "How well you know each chapter. Open a chapter to learn or practise more.", ta: "ஒவ்வொரு பாடத்தையும் எவ்வளவு அறிவீர்கள். மேலும் கற்க ஒரு பாடத்தைத் திறக்கவும்." },
   progressNone: { en: "Nothing to measure here yet.", ta: "இங்கே அளவிட இன்னும் எதுவும் இல்லை." },
+  askTeacher: { en: "Ask Malar Teacher", ta: "மலர் டீச்சரிடம் கேள்" },
+  askPlaceholder: { en: "Type your question", ta: "உன் கேள்வியை எழுது" },
+  askButton: { en: "Ask", ta: "கேள்" },
+  explainAgain: { en: "Explain again", ta: "மீண்டும் விளக்கு" },
+  giveExample: { en: "Give an example", ta: "ஓர் எடுத்துக்காட்டு தா" },
+  aiNote: { en: "Written by AI from this lesson. Ask your teacher if unsure.", ta: "இந்தப் பாடத்திலிருந்து AI எழுதியது. உறுதியில்லை என்றால் ஆசிரியரிடம் கேள்." },
+  listenAnswer: { en: "Listen", ta: "கேள்" },
+  askLeft: { en: "AI answers left today", ta: "இன்று மீதமுள்ள AI பதில்கள்" },
+  askError: { en: "Could not get an answer. Check your internet and try again.", ta: "பதில் கிடைக்கவில்லை. இணையத்தைச் சரிபார்த்து மீண்டும் முயற்சி செய்." },
+  askSignIn: { en: "Please sign in and choose who is learning to ask questions.", ta: "கேள்வி கேட்க உள்நுழைந்து யார் கற்கிறார் எனத் தேர்ந்தெடு." },
+  askWait: { en: "You are asking very fast. Wait a moment.", ta: "மிக வேகமாகக் கேட்கிறாய். சற்றுக் காத்திரு." },
+  close: { en: "Close", ta: "மூடு" },
   boardLabel: { en: "Teacher's board", ta: "ஆசிரியரின் பலகை" },
 } as const;
 export type UiKey = keyof typeof UI;

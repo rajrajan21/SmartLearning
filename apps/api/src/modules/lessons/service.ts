@@ -12,6 +12,8 @@ export interface LessonService {
   importLesson(raw: unknown): Promise<{ topicId: string; version: number; changed: boolean }>;
   getPublished(board: string, classLevel: number, subject: string, chapter: string, topic: string): Promise<TopicLesson | null>;
   publishedTopicIds(): Promise<string[]>;
+  /** the newest published lesson for a topic id (used by the question helper) */
+  getPublishedById(topicId: string): Promise<TopicLesson | null>;
 }
 
 export function createLessonService(db: Db, curriculum: CurriculumRepository, audio?: AudioStore): LessonService {
@@ -47,6 +49,13 @@ export function createLessonService(db: Db, curriculum: CurriculumRepository, au
       const parsed = TopicLesson.safeParse(JSON.parse(row.lessonJson));
       if (!parsed.success) { console.error("invalid_stored_lesson", row.topicId, row.version); return null; }
       return audio ? audio.enrich(parsed.data) : parsed.data;
+    },
+
+    async getPublishedById(topicId) {
+      const [row] = await db.select().from(s.topicVersions).where(and(eq(s.topicVersions.topicId, topicId), eq(s.topicVersions.status, "published"))).orderBy(desc(s.topicVersions.version)).limit(1);
+      if (!row) return null;
+      const parsed = TopicLesson.safeParse(JSON.parse(row.lessonJson));
+      return parsed.success ? parsed.data : null;
     },
 
     async publishedTopicIds() {

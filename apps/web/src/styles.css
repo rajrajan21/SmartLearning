@@ -267,3 +267,12 @@ a { color: var(--brand); }
 .m-learning { background: #FFEFCF; color: #6B3F00; } .m-practising { background: #E3EDFF; color: #0F2E85; } .m-strong { background: #DDF5EA; color: #0B5A41; } .m-mastered { background: #17785A; color: #fff; }
 .p-list { list-style: none; margin: .4rem 0 1.2rem; padding: 0; display: grid; gap: .8rem; } .p-list li { display: grid; gap: .25rem; } .p-list a { font-weight: 700; }
 .progress .meter { margin: 0; }
+
+/* ---------- ask the teacher ---------- */
+.ask { margin: 1rem 0; padding: .8rem 1rem; border: 2px solid var(--rule); border-radius: var(--radius); background: color-mix(in srgb, var(--brand) 4%, var(--surface)); }
+.ask-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+.ask-log { list-style: none; margin: .6rem 0; padding: 0; display: grid; gap: .5rem; max-height: 22rem; overflow: auto; }
+.ask-log li { padding: .4rem .8rem; border-radius: var(--radius); max-width: 92%; } .ask-log p { margin: .2rem 0; white-space: pre-line; }
+.ask-log .me { background: var(--rule); justify-self: end; } .ask-log .teacher { background: var(--surface); border: 2px solid var(--rule); }
+.chips-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: .4rem 0; }
+.ask-form { display: flex; gap: .5rem; } .ask-form input { flex: 1; min-height: 46px; padding: 0 .9rem; border: 2px solid var(--rule); border-radius: var(--radius); font: 1rem var(--font-body); background: var(--surface); color: var(--ink); }

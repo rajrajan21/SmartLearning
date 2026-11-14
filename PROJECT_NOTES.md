@@ -62,3 +62,7 @@ pnpm --filter web dev      # http://localhost:5173
 ## Status: Module 7 complete (mastery and revision)
 - Mastery levels per topic/chapter, My progress page, chapter badges, spaced daily revision (/revise), home card, sync of revision data (docs/11-mastery.md). No new migration (revision uses student_progress).
 - Tests: shared 21, API 74, web 40 (all passing). Next: Module 8 (AI tutor; needs a free-tier model key from the owner).
+
+## Status: Module 8 complete (ask the teacher / AI tutor)
+- Safety-screened, lesson-grounded question helper; works with no key; optional OpenAI-compatible model via TUTOR_API_URL/KEY/MODEL (docs/12-ask-teacher.md). Migration 0004 (tutor_usage).
+- Tests: shared 21, API 88, web 44 (all passing). Next: Module 9 (parent dashboard).
