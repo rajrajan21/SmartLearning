@@ -185,17 +185,19 @@ TOPICS.append(dict(chapter="give-and-take", topic="using-rupees",
     mcq("r4-afford", 4, "Rani has ₹30. Which one can she buy?", "a book for ₹28", [("a bag for ₹45", "₹45 is more than ₹30."), ("a toy for ₹35", "₹35 is more than ₹30."), ("a box for ₹31", "₹31 is more than ₹30, just by one rupee.")], "Only ₹28 is less than or equal to ₹30.", "Which price is not more than 30?", 3),
   ]))
 
-def write():
+def write(topics=None, subject="maths"):
+    topics = TOPICS if topics is None else topics
     cur_path = os.path.join(ROOT, "content/curriculum/cbse-2026-27.json")
     cur = json.load(open(cur_path, encoding="utf8"))
-    maths = next(s for c in cur["classes"] if c["classLevel"] == 3 for s in c["subjects"] if s["slug"] == "maths")
-    for t in TOPICS:
+    maths = next(s for c in cur["classes"] if c["classLevel"] == 3 for s in c["subjects"] if s["slug"] == subject)
+    for t in topics:
         ch = next(c for c in maths["chapters"] if c["slug"] == t["chapter"])
         if not any(x["slug"] == t["topic"] for x in ch.get("topics", [])):
             ch.setdefault("topics", []).append({"slug": t["topic"], "name": t["name"], "objectives": [{"text": L(o)} for o in t["objectives"]]})
-        key = f"cbse-3-maths-{t['chapter']}-{t['topic']}"
-        json.dump({"board": "CBSE", "classLevel": 3, "subject": "maths", "chapter": t["chapter"], "topic": t["topic"], "lesson": t["lesson"]}, open(os.path.join(ROOT, f"content/lessons/{key}.json"), "w", encoding="utf8"), ensure_ascii=False, indent=1)
-        json.dump({"board": "CBSE", "classLevel": 3, "subject": "maths", "chapter": t["chapter"], "topic": t["topic"], "questions": t["questions"]}, open(os.path.join(ROOT, f"content/questions/{key}.json"), "w", encoding="utf8"), ensure_ascii=False, indent=1)
+        key = f"cbse-3-{subject}-{t['chapter']}-{t['topic']}"
+        json.dump({"board": "CBSE", "classLevel": 3, "subject": subject, "chapter": t["chapter"], "topic": t["topic"], "lesson": t["lesson"]}, open(os.path.join(ROOT, f"content/lessons/{key}.json"), "w", encoding="utf8"), ensure_ascii=False, indent=1)
+        json.dump({"board": "CBSE", "classLevel": 3, "subject": subject, "chapter": t["chapter"], "topic": t["topic"], "questions": t["questions"]}, open(os.path.join(ROOT, f"content/questions/{key}.json"), "w", encoding="utf8"), ensure_ascii=False, indent=1)
     json.dump(cur, open(cur_path, "w", encoding="utf8"), ensure_ascii=False, indent=2)
-write()
-print("written", len(TOPICS), "topics")
+if __name__ == "__main__":
+    write()
+    print("written", len(TOPICS), "topics")

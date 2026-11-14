@@ -72,3 +72,5 @@ Question helper with safety screening, daily limits, lesson-only answers, option
 - Module 10 Tests, worksheets, games: DONE (timed chapter test with review, printable worksheet with parent-only key, Quick Fire and Three Lives; all switchable).
 - Module 11: privacy/terms/about pages DONE; deployment pack DONE (needs owner to run it); password help without e-mail DONE (admin tool); Class 3 maths content: 5 topics of ~30 (English; Tamil text and audio pending).
 - Still open: Tamil review, more content (rest of Class 3, Classes 4-7, TN boards), real e-mail password reset (needs a free mail service), audio generation run by owner, legal read of privacy text.
+- Content: 10 Class 3 topics now (5 maths, 5 EVS), English; Tamil text, chapter-fit check and audio pending.
+- Content: 13 Class 3 topics (8 maths, 5 EVS).
