@@ -1,5 +1,5 @@
-import { and, eq, gt, inArray, lt } from "drizzle-orm";
-import { emptySync, mergeSync, SyncData, type Me, type PublicProfile } from "@studysmart/shared";
+import { and, desc, eq, gt, inArray, lt } from "drizzle-orm";
+import { emptySync, mergeSync, SyncData, type ChildReport, type Me, type PublicProfile } from "@studysmart/shared";
 import type { Db } from "../../db/client.js";
 import * as s from "../../db/schema.js";
 import { hashPassword, hashToken, newToken, verifyPassword } from "./crypto.js";
@@ -23,6 +23,10 @@ export interface AccountService {
   deleteAccount(sess: Session, password: string): Promise<void>;
   getSync(sess: Session): Promise<SyncData>;
   putSync(sess: Session, d: SyncData): Promise<SyncData>;
+  /** progress and activity for every child of this parent; tz = minutes behind UTC like Date.getTimezoneOffset() */
+  dashboard(sess: Session, tzMinutes: number): Promise<{ children: ChildReport[] }>;
+  /** everything stored about this parent and their children, to download */
+  exportData(sess: Session): Promise<unknown>;
 }
 
 export function createAccountService(db: Db): AccountService {
@@ -44,6 +48,18 @@ export function createAccountService(db: Db): AccountService {
   const owns = async (userId: string, studentId: string) => {
     const [g] = await db.select().from(s.guardianships).where(and(eq(s.guardianships.parentId, userId), eq(s.guardianships.studentId, studentId)));
     return !!g;
+  };
+  const readProgress = async (studentId: string): Promise<SyncData> => {
+    const rows = await db.select().from(s.studentProgress).where(eq(s.studentProgress.studentId, studentId));
+    const out = emptySync();
+    for (const r of rows) {
+      try {
+        if (r.kind === "lesson") out.lesson[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "practice") out.practice[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "revision") out.revision[r.topicId] = JSON.parse(r.dataJson);
+      } catch { /* skip an unreadable row */ }
+    }
+    return SyncData.parse(out);
   };
   const checkPassword = (pw: string, l: Limits) => { if (pw.length < l.minPassword) throw new AccountError(`Use at least ${l.minPassword} characters for the password.`); };
 
@@ -124,6 +140,46 @@ export function createAccountService(db: Db): AccountService {
         if (kids.length) await tx.delete(s.studentProfiles).where(inArray(s.studentProfiles.id, kids));
         await tx.delete(s.users).where(eq(s.users.id, u.id)); // sessions and consents cascade
       });
+    },
+
+
+    async dashboard(sess, tz) {
+      const profiles = await profilesOf(sess.userId);
+      const day = (ms: number) => Math.floor((ms - tz * 60_000) / 86_400_000);
+      const today = day(Date.now()), from = today - 59;
+      const children: ChildReport[] = [];
+      for (const p of profiles) {
+        const progress = await readProgress(p.id);
+        const rows = await db.select({ q: s.questionAttempts.questionId, ok: s.questionAttempts.correct, at: s.questionAttempts.createdAt }).from(s.questionAttempts).where(eq(s.questionAttempts.studentId, p.id)).orderBy(desc(s.questionAttempts.createdAt)).limit(5000);
+        const daily: Record<string, { n: number; right: number }> = {};
+        const perQ = new Map<string, { wrong: number; total: number }>();
+        const active = new Set<number>();
+        let attempts = 0, correct = 0;
+        for (const r of rows) {
+          const d = day(r.at.getTime());
+          if (d < from) continue;
+          const slot = (daily[d] ??= { n: 0, right: 0 }); slot.n++; if (r.ok) slot.right++;
+          attempts++; if (r.ok) correct++; active.add(d);
+          const q = perQ.get(r.q) ?? { wrong: 0, total: 0 }; q.total++; if (!r.ok) q.wrong++; perQ.set(r.q, q);
+        }
+        for (const l of Object.values(progress.lesson)) { const d = day(l.updatedAt); if (d >= from && d <= today) active.add(d); }
+        const weak = [...perQ.entries()].filter(([, v]) => v.total >= 2 && v.wrong / v.total > 0.4).sort((a, b) => b[1].wrong - a[1].wrong || b[1].total - a[1].total).slice(0, 10).map(([questionId, v]) => ({ questionId, ...v }));
+        children.push({ profile: p, progress, activeDays: [...active].sort((a, b) => a - b), daily, attempts, correct, weak });
+      }
+      return { children };
+    },
+
+    async exportData(sess) {
+      const [u] = await db.select().from(s.users).where(eq(s.users.id, sess.userId));
+      if (!u) throw new AccountError("Not signed in", 401);
+      const profiles = await profilesOf(u.id);
+      const kids = [];
+      for (const p of profiles) {
+        const attempts = await db.select({ questionId: s.questionAttempts.questionId, correct: s.questionAttempts.correct, hintsUsed: s.questionAttempts.hintsUsed, at: s.questionAttempts.createdAt }).from(s.questionAttempts).where(eq(s.questionAttempts.studentId, p.id));
+        const consents = await db.select({ purpose: s.consents.purpose, textVersion: s.consents.textVersion, grantedAt: s.consents.grantedAt, revokedAt: s.consents.revokedAt }).from(s.consents).where(eq(s.consents.studentId, p.id));
+        kids.push({ profile: p, progress: await readProgress(p.id), attempts, consents });
+      }
+      return { exportedAt: new Date().toISOString(), parent: { email: u.email, createdAt: u.createdAt }, children: kids };
     },
 
     async getSync(sess) {

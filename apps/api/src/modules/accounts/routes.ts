@@ -91,6 +91,19 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
     await svc.deleteAccount(auth(res).session, b.data.password); clearCookie(res); res.status(204).end();
   }));
 
+  // Parent dashboard: only the signed-in parent's own children (the service looks them up through the guardianship).
+  const dashboardOn = async () => (await settings.all())["feature.parentDashboard"] === true;
+  r.get("/dashboard", needSession, guard(async (req, res) => {
+    if (!(await dashboardOn())) return err(res, 404, "not_found", "The parent dashboard is switched off");
+    const tz = z.coerce.number().int().min(-840).max(840).catch(0).parse(req.query.tz);
+    res.json(await svc.dashboard(auth(res).session, tz));
+  }));
+  r.get("/export", needSession, guard(async (req, res) => {
+    const v = await settings.all();
+    if (v["feature.parentDashboard"] !== true || v["parent.export"] !== true) return err(res, 404, "not_found", "Downloads are switched off");
+    res.set("Content-Disposition", 'attachment; filename="studysmart-data.json"').json(await svc.exportData(auth(res).session));
+  }));
+
   r.get("/sync", needSession, guard(async (req, res) => void res.json(await svc.getSync(auth(res).session))));
   r.put("/sync", rateLimit({ windowMs: 60_000, max: 60 }), needSession, guard(async (req, res) => {
     const b = SyncData.safeParse(req.body); if (!b.success) return bad(res, b.error);

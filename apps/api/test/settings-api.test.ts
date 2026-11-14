@@ -59,7 +59,7 @@ describe("admin settings", () => {
     expect(audit.body.entries[0]).toMatchObject({ action: "update", changedBy: "admin" });
   });
   it("is all-or-nothing and explains what is wrong", async () => {
-    const res = await admin(request(app).put("/api/v1/admin/settings")).send({ changes: { "feature.search": false, "theme.color.brand": "blue", "site.search.maxResults": 500, "feature.parentDashboard": true } });
+    const res = await admin(request(app).put("/api/v1/admin/settings")).send({ changes: { "feature.search": false, "theme.color.brand": "blue", "site.search.maxResults": 500, "feature.exams": true } });
     expect(res.status).toBe(400);
     expect(res.body.error.message).toMatch(/colour/);
     expect(res.body.error.message).toMatch(/between 5 and 50/);

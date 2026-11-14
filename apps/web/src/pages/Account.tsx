@@ -130,6 +130,7 @@ function SignedIn() {
       {note && <p className="small" role="status">{ui(note, lang)}</p>}
       <div className="actions">
         {me.activeProfileId && <Link className="btn" href="/">{ui("home", lang)}</Link>}
+        {s.get("feature.parentDashboard") === true && <Link className="btn ghost" href="/parent">{ui("parentArea", lang)}</Link>}
         <button type="button" className="btn ghost" onClick={() => void acct.logout()}>{ui("signOut", lang)}</button>
       </div>
       <p className="small">{ui("signOutNote", lang)}</p>

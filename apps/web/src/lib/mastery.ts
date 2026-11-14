@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { topicMastery, type Mastery } from "@studysmart/shared";
+import { topicMastery, type Mastery, type SyncData } from "@studysmart/shared";
 import { store } from "./storage";
 import { useAllProgress } from "./progress";
 import { useAllResults } from "./practice";
@@ -27,5 +27,15 @@ export function useMastery(enabled: boolean): (topicId: string) => Mastery | nul
     const available = rounds[id] ?? [], hasLesson = lessons.has(id);
     if (!hasLesson && available.length === 0) return null;
     return topicMastery({ lesson: progress[id], rounds: results[id] as never, available, hasLesson });
+  };
+}
+
+/** Same measure, for a child's saved progress from the server (parent dashboard) instead of this device. */
+export function useMasteryFor(data: SyncData, enabled: boolean): (topicId: string) => Mastery | null {
+  const lessons = useLessonTopicIds(enabled), rounds = usePracticeRounds(enabled);
+  return (id) => {
+    const available = rounds[id] ?? [], hasLesson = lessons.has(id);
+    if (!hasLesson && available.length === 0) return null;
+    return topicMastery({ lesson: data.lesson[id], rounds: data.practice[id], available, hasLesson });
   };
 }

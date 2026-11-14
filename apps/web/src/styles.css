@@ -276,3 +276,12 @@ a { color: var(--brand); }
 .ask-log .me { background: var(--rule); justify-self: end; } .ask-log .teacher { background: var(--surface); border: 2px solid var(--rule); }
 .chips-row { display: flex; flex-wrap: wrap; gap: .5rem; margin: .4rem 0; }
 .ask-form { display: flex; gap: .5rem; } .ask-form input { flex: 1; min-height: 46px; padding: 0 .9rem; border: 2px solid var(--rule); border-radius: var(--radius); font: 1rem var(--font-body); background: var(--surface); color: var(--ink); }
+
+/* ---------- parent dashboard ---------- */
+.report { margin: 1rem 0 2rem; } .report h2 { display: flex; flex-wrap: wrap; align-items: baseline; gap: .6rem; }
+.stats { list-style: none; margin: 1rem 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr)); gap: .7rem; }
+.stats li { display: flex; flex-direction: column; padding: .6rem .9rem; border: 2px solid var(--rule); border-radius: var(--radius); background: var(--surface); } .stats b { font-size: 1.7rem; line-height: 1.1; font-family: var(--font-heading); } .stats span { font-size: .85rem; color: var(--muted); }
+.chart { width: 100%; max-width: 32rem; height: auto; } .chart .bar { fill: color-mix(in srgb, var(--brand) 30%, var(--surface)); } .chart .bar.right { fill: var(--success); } .chart .axis { stroke: var(--rule); stroke-width: 1; }
+.mini { border-collapse: collapse; margin-top: .4rem; } .mini th, .mini td { padding: .15rem .7rem; text-align: left; border-bottom: 1px solid var(--rule); }
+.tricky { padding-left: 1.2rem; } .tricky li { margin: .3rem 0; }
+@media print { .parent .tabs, .noprint { display: none !important; } .report { break-inside: avoid; } }

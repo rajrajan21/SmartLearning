@@ -5,3 +5,4 @@ export * from "./question.js";
 export * from "./sync.js";
 export * from "./mastery.js";
 export * from "./tutor.js";
+export * from "./parent.js";

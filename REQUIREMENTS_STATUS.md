@@ -67,3 +67,5 @@ Mastery levels, My progress, daily spaced revision, admin controls. Parent-facin
 
 ## Module 8 (done)
 Question helper with safety screening, daily limits, lesson-only answers, optional free-tier model. Owner action: choose and set the three TUTOR_* variables when ready. Content gap: add more hints to practice questions.
+
+- Module 9 Parent dashboard: DONE (weekly goal, streak, accuracy, activity chart, chapter mastery, tricky questions, print, CSV, data export; all switchable).

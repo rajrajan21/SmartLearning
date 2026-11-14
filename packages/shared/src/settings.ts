@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor" | "parent";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -43,6 +43,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "accounts", label: "Accounts", help: "Parent sign-in, child profiles and saving progress across devices." },
   { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
   { id: "tutor", label: "Ask the teacher", help: "The question helper: where it appears, daily limits and safety." },
+  { id: "parent", label: "Parent dashboard", help: "What parents can see about their children and download." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
 ];
 
@@ -66,9 +67,9 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.accounts", "features", "Learning", "Parent accounts and child profiles", true, { help: "Lets a parent sign in, add children and keep progress across devices. Students can still learn without signing in." }),
   bool("feature.mastery", "features", "Learning", "Mastery and daily revision", true, { help: "Shows how well each topic and chapter is known, and a daily revision set of questions to remember." }),
   bool("feature.aiTutor", "features", "Learning", "Ask the teacher (question helper)", true, { help: "Students can ask Malar Teacher questions about a lesson. Answers come only from that lesson; a language model is used only if a key is set on the server." }),
+  bool("feature.parentDashboard", "features", "Learning", "Parent dashboard", true, { dependsOn: "feature.accounts", help: "Signed-in parents see each child's progress, activity and tricky questions, and can print or download a report." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
-  planned("feature.parentDashboard", "Parent dashboard", "Module 9"),
   planned("feature.exams", "Exams and worksheets", "Module 10"),
   planned("feature.games", "Games and challenges", "Module 10"),
   planned("feature.adminEmails", "Admin e-mail notifications", "Off by default; added with accounts."),
@@ -142,6 +143,15 @@ export const SETTINGS: SettingDef[] = [
   bool("tutor.requireSignIn", "tutor", "Limits", "Only signed-in children can ask", false, { dependsOn: "feature.aiTutor", help: "Gives each child their own daily limit. Needs accounts to be on." }),
   { key: "tutor.greeting", panel: "tutor", section: "Wording", label: "Invitation shown above the question box", public: true, type: "localized", maxLength: 100, dependsOn: "feature.aiTutor",
     default: { en: "Stuck? Ask me about this lesson.", ta: "புரியவில்லையா? இந்தப் பாடத்தைப் பற்றி என்னிடம் கேள்." } },
+
+  // ---------------- Parent dashboard ----------------
+  bool("parent.showAccuracy", "parent", "What parents see", "Show how many answers were right", true, { dependsOn: "feature.parentDashboard" }),
+  bool("parent.showActivity", "parent", "What parents see", "Show the daily activity chart", true, { dependsOn: "feature.parentDashboard" }),
+  bool("parent.showWeakSpots", "parent", "What parents see", "Show questions the child often gets wrong", true, { dependsOn: "feature.parentDashboard" }),
+  { key: "parent.weakSpotsCount", panel: "parent", section: "What parents see", label: "Most tricky questions listed", public: true, type: "number", default: 5, min: 1, max: 10, step: 1, dependsOn: "parent.showWeakSpots" },
+  { key: "parent.weeklyGoalDays", panel: "parent", section: "Goals", label: "Weekly goal: days of learning", public: true, type: "number", default: 4, min: 1, max: 7, step: 1, dependsOn: "feature.parentDashboard", help: "Shown to parents as a gentle target (days a child practised or learned this week)." },
+  bool("parent.showStreak", "parent", "Goals", "Show the learning streak", true, { dependsOn: "feature.parentDashboard" }),
+  bool("parent.export", "parent", "Downloads", "Allow printing, CSV and full data download", true, { dependsOn: "feature.parentDashboard", help: "Parents can always delete their data; this controls the report and the download." }),
 
   // ---------------- Theme ----------------
   { key: "theme.mode", panel: "theme", section: "Mode", label: "Light or dark", public: true, type: "select", default: "light",

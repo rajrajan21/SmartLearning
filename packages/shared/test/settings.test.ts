@@ -10,7 +10,7 @@ describe("settings registry", () => {
     for (const d of SETTINGS) if (d.dependsOn) expect(SETTINGS_BY_KEY.get(d.dependsOn)?.type).toBe("boolean");
   });
   it("planned features cannot be switched on yet, and default off", () => {
-    expect(() => parseSetting("feature.parentDashboard", true)).toThrow(/not built yet/);
+    expect(() => parseSetting("feature.exams", true)).toThrow(/not built yet/);
     expect(defaults()["feature.adminEmails"]).toBe(false);
   });
   it("validates by type", () => {

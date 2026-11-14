@@ -66,3 +66,6 @@ pnpm --filter web dev      # http://localhost:5173
 ## Status: Module 8 complete (ask the teacher / AI tutor)
 - Safety-screened, lesson-grounded question helper; works with no key; optional OpenAI-compatible model via TUTOR_API_URL/KEY/MODEL (docs/12-ask-teacher.md). Migration 0004 (tutor_usage).
 - Tests: shared 21, API 88, web 44 (all passing). Next: Module 9 (parent dashboard).
+
+## Module 9 - Parent dashboard (done)
+`/parent` page, `/api/v1/account/dashboard` and `/export`, panel `parent` in settings, docs/13. Tests: shared 24, API 95, web 49. Next: Module 10 (exams, worksheets, games; feature.exams / feature.games are still planned).
