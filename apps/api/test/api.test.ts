@@ -1,35 +1,52 @@
 import request from "supertest";
-import { describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 import { createApp } from "../src/app.js";
-import { createMemoryCurriculumRepository } from "../src/modules/curriculum/memory-repository.js";
+import { makeRepo } from "./helpers.js";
 
-const app = createApp({ curriculum: createMemoryCurriculumRepository() });
+let app: ReturnType<typeof createApp>;
+beforeAll(async () => { const m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: "test-key-0123456789abcdef0123" }); });
+const base = "/api/v1/curriculum";
 
 describe("API", () => {
   it("health", async () => {
-    const res = await request(app).get("/health");
+    expect((await request(app).get("/health")).body.status).toBe("ok");
+  });
+  it("boards + years", async () => {
+    expect((await request(app).get(`${base}/boards`)).body.boards[0].boardCode).toBe("CBSE");
+    expect((await request(app).get(`${base}/boards/cbse/years`)).body.years).toHaveLength(1);
+  });
+  it("returns the Class 3 tree, case-insensitive, cacheable", async () => {
+    const res = await request(app).get(`${base}/boards/cbse`);
     expect(res.status).toBe(200);
-    expect(res.body.status).toBe("ok");
+    expect(res.headers["cache-control"]).toMatch(/max-age/);
+    const subjects = res.body.classes[0].subjects;
+    expect(subjects.map((s: { textbook: { title: string } }) => s.textbook.title).sort()).toEqual(["Maths Mela", "Our Wondrous World"]);
   });
-  it("lists boards", async () => {
-    const res = await request(app).get("/api/v1/curriculum/boards");
+  it("year filter", async () => {
+    expect((await request(app).get(`${base}/boards/cbse?year=2026-27`)).status).toBe(200);
+    expect((await request(app).get(`${base}/boards/cbse?year=1999-00`)).status).toBe(404);
+    expect((await request(app).get(`${base}/boards/cbse?year=bad`)).status).toBe(400);
+  });
+  it("topic detail", async () => {
+    const res = await request(app).get(`${base}/boards/cbse/topics/3/maths/toy-joy/toy-patterns`);
     expect(res.status).toBe(200);
-    expect(res.body.boards[0].boardCode).toBe("CBSE");
+    expect(res.body.prerequisites[0].topicSlug).toBe("counting-toys");
+    expect((await request(app).get(`${base}/boards/cbse/topics/3/maths/toy-joy/ghost`)).status).toBe(404);
+    expect((await request(app).get(`${base}/boards/cbse/topics/99/maths/toy-joy/x`)).status).toBe(400);
   });
-  it("returns a board hierarchy, case-insensitive", async () => {
-    const res = await request(app).get("/api/v1/curriculum/boards/cbse");
-    expect(res.status).toBe(200);
-    expect(res.body.classes[0].subjects[0].chapters[0].topics.length).toBeGreaterThan(0);
+  it("search validates and finds", async () => {
+    expect((await request(app).get(`${base}/boards/cbse/search?q=shapes`)).body.hits[0].name.en).toBe("Fun with Shapes");
+    expect((await request(app).get(`${base}/boards/cbse/search`)).status).toBe(400);
+    expect((await request(app).get(`${base}/boards/cbse/search?q=${"a".repeat(81)}`)).status).toBe(400);
   });
-  it("404 for unknown board", async () => {
-    const res = await request(app).get("/api/v1/curriculum/boards/XYZ");
-    expect(res.status).toBe(404);
+  it("coverage and diff", async () => {
+    expect((await request(app).get(`${base}/boards/cbse/coverage`)).body.totals.chapters).toBe(26);
+    expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27`)).status).toBe(400);
+    expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27&to=2030-31`)).status).toBe(404);
   });
-  it("400 for malformed board code", async () => {
-    const res = await request(app).get("/api/v1/curriculum/boards/a%20b;drop");
-    expect(res.status).toBe(400);
-  });
-  it("404 for unknown route with JSON error", async () => {
+  it("errors", async () => {
+    expect((await request(app).get(`${base}/boards/XYZ`)).status).toBe(404);
+    expect((await request(app).get(`${base}/boards/a%20b;drop`)).status).toBe(400);
     const res = await request(app).get("/nope");
     expect(res.status).toBe(404);
     expect(res.body.error.code).toBe("not_found");

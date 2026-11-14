@@ -1,5 +1,5 @@
 {
-  "id": "070b88ec-6ae2-4539-a104-ed9f6c094f64",
+  "id": "50337023-1b7e-409f-ae3e-d8f7ee285a15",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -533,6 +533,19 @@
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "competency_code": {
+          "name": "competency_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "position": {
+          "name": "position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 1
         },
         "created_at": {
           "name": "created_at",

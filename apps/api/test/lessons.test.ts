@@ -1,0 +1,70 @@
+import { readdirSync, readFileSync } from "node:fs";
+import { join } from "node:path";
+import request from "supertest";
+import { beforeAll, describe, expect, it } from "vitest";
+import { LessonImport } from "@studysmart/shared";
+import { createApp } from "../src/app.js";
+import { lessonsDir } from "../src/server-paths.js";
+import { LessonImportError } from "../src/modules/lessons/service.js";
+import { makeRepo, seedFile } from "./helpers.js";
+
+const lessonFor = (over: Record<string, unknown> = {}) => ({
+  board: "CBSE", classLevel: 3, subject: "maths", chapter: "toy-joy", topic: "counting-toys",
+  lesson: { status: "published", title: { en: "Counting toys" }, blocks: [
+    { id: "b1", type: "explanation", provenance: "original", text: { en: "Count in tens." } },
+    { id: "b2", type: "summary", provenance: "original", points: [{ en: "Tens help." }] }] },
+  ...over,
+});
+
+describe("lesson content files", () => {
+  it("every file in content/lessons is valid", () => {
+    const files = readdirSync(lessonsDir).filter((f) => f.endsWith(".json"));
+    expect(files.length).toBeGreaterThan(0);
+    for (const f of files) expect(LessonImport.safeParse(JSON.parse(readFileSync(join(lessonsDir, f), "utf8"))).success, f).toBe(true);
+  });
+  it("the shipped lessons import against the shipped curriculum and are served", async () => {
+    const m = await makeRepo(seedFile());
+    for (const f of readdirSync(lessonsDir).filter((x) => x.endsWith(".json"))) {
+      await m.lessons.importLesson(JSON.parse(readFileSync(join(lessonsDir, f), "utf8")));
+    }
+    const l = await m.lessons.getPublished("CBSE", 3, "maths", "fun-with-shapes", "sides-and-corners");
+    expect(l?.blocks.length).toBeGreaterThan(4);
+    expect(l?.title.ta).toBeTruthy();
+  });
+});
+
+describe("lesson import and API", () => {
+  let m: Awaited<ReturnType<typeof makeRepo>>;
+  let app: ReturnType<typeof createApp>;
+  beforeAll(async () => { m = await makeRepo(); app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, adminKey: null }); });
+
+  it("is idempotent, versions only on real change", async () => {
+    const a = await m.lessons.importLesson(lessonFor());
+    expect(a).toMatchObject({ version: 1, changed: true });
+    expect(await m.lessons.importLesson(lessonFor())).toMatchObject({ version: 1, changed: false });
+    const edited = lessonFor({ lesson: { status: "published", title: { en: "Counting toys!" }, blocks: [{ id: "b1", type: "explanation", provenance: "original", text: { en: "Count." } }] } });
+    expect(await m.lessons.importLesson(edited)).toMatchObject({ version: 2, changed: true });
+  });
+  it("serves the newest published lesson and lists available topics", async () => {
+    const res = await request(app).get("/api/v1/lessons/boards/CBSE/3/maths/toy-joy/counting-toys").expect(200);
+    expect(res.body.version).toBe(2);
+    expect(res.body.title.en).toBe("Counting toys!");
+    const avail = await request(app).get("/api/v1/lessons/available").expect(200);
+    expect(avail.body.topicIds).toContain(res.body.topicId);
+  });
+  it("draft lessons are never served", async () => {
+    await m.lessons.importLesson(lessonFor({ topic: "toy-patterns", lesson: { status: "draft", title: { en: "Draft" }, blocks: [{ id: "b", type: "summary", provenance: "original", points: [{ en: "x" }] }] } }));
+    await request(app).get("/api/v1/lessons/boards/CBSE/3/maths/toy-joy/toy-patterns").expect(404);
+  });
+  it("rejects unknown topics, bad content and bad paths", async () => {
+    await expect(m.lessons.importLesson(lessonFor({ topic: "nope" }))).rejects.toBeInstanceOf(LessonImportError);
+    await expect(m.lessons.importLesson(lessonFor({ lesson: { status: "published", title: { en: "x" }, blocks: [{ id: "a", type: "summary", provenance: "original", points: [{ en: "x" }] }, { id: "a", type: "summary", provenance: "original", points: [{ en: "y" }] }] } }))).rejects.toThrow(/Duplicate block id/);
+    await request(app).get("/api/v1/lessons/boards/CBSE/99/maths/toy-joy/counting-toys").expect(400);
+    await request(app).get("/api/v1/lessons/boards/CBSE/3/maths/toy-joy/missing").expect(404);
+  });
+  it("maintenance mode also pauses lessons", async () => {
+    await m.settings.update({ "site.maintenance.enabled": true }, "test");
+    await request(app).get("/api/v1/lessons/available").expect(503);
+    await m.settings.update({ "site.maintenance.enabled": false }, "test");
+  });
+});

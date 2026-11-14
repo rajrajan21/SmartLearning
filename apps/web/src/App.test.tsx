@@ -1,16 +1,66 @@
-import { render, screen, waitFor } from "@testing-library/react";
-import { afterEach, describe, expect, it, vi } from "vitest";
-import { App } from "./App";
+import { describe, it, expect, vi, beforeEach } from "vitest";
+import { render, screen, waitFor, fireEvent, cleanup } from "@testing-library/react";
+import { Router } from "wouter";
+import { memoryLocation } from "wouter/memory-location";
+import { SettingsProvider } from "./lib/settings";
+import { Layout } from "./components/Layout";
+import { Routes } from "./App";
+import { themeVars } from "./lib/theme";
+import { defaults } from "@studysmart/shared";
 
-afterEach(() => vi.restoreAllMocks());
+const tree = {
+  boardCode: "CBSE", boardName: "CBSE", academicYear: "2026-27",
+  classes: [{ classLevel: 3, subjects: [{ id: "s1", slug: "maths", name: { en: "Mathematics", ta: "கணிதம்" }, textbook: { title: "Maths Mela" },
+    chapters: [{ id: "c1", slug: "whats-in-a-name", position: 1, name: { en: "What's in a Name?" }, topics: [] }, { id: "c2", slug: "toy-joy", position: 2, name: { en: "Toy Joy" }, topics: [] }] }] }],
+};
 
-describe("App", () => {
-  it("shows tagline and loads boards", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockResolvedValue({
-      json: async () => ({ boards: [{ boardCode: "CBSE", boardName: "CBSE", academicYear: "2026-27" }] }),
-    }));
-    render(<App />);
-    expect(screen.getByText(/Understand every chapter/)).toBeTruthy();
-    await waitFor(() => expect(screen.getByText(/CBSE \(2026-27\)/)).toBeTruthy());
+function mount(path: string, settings: Record<string, unknown> = {}) {
+  vi.stubGlobal("fetch", vi.fn(async (url: string) => {
+    if (url.includes("/settings/public")) return new Response(JSON.stringify({ values: settings }), { status: 200 });
+    if (url.includes("/curriculum/boards/CBSE") || url.includes("/curriculum/boards/cbse")) return new Response(JSON.stringify(tree), { status: 200 });
+    return new Response("{}", { status: 404 });
+  }));
+  const { hook } = memoryLocation({ path, static: false });
+  return render(<Router hook={hook}><SettingsProvider><Layout><Routes /></Layout></SettingsProvider></Router>);
+}
+
+beforeEach(() => { cleanup(); localStorage.clear(); });
+
+describe("web app", () => {
+  it("home shows open class and coming-soon classes", async () => {
+    mount("/");
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/Understand every chapter/);
+    await waitFor(() => expect(document.querySelector("a.class-tab.on")?.textContent).toContain("3"));
+    expect(document.querySelectorAll(".class-tab.off").length).toBeGreaterThan(0);
+  });
+  it("lists chapters of a subject", async () => {
+    mount("/cbse/3/maths");
+    await waitFor(() => expect(screen.getByText("Toy Joy")).toBeTruthy());
+    expect(screen.getByText(/Maths Mela/)).toBeTruthy();
+  });
+  it("closed class gives not-found", async () => {
+    mount("/cbse/5");
+    await waitFor(() => expect(screen.getByText("404")).toBeTruthy());
+  });
+  it("language toggle switches to Tamil and can be hidden by settings", async () => {
+    mount("/");
+    fireEvent.click(screen.getByRole("button", { name: /Language/i }));
+    await waitFor(() => expect(document.documentElement.lang).toBe("ta"));
+    cleanup();
+    mount("/", { "feature.languageToggle": false });
+    await waitFor(() => expect(screen.queryByRole("button", { name: /Language/i })).toBeNull());
+  });
+  it("maintenance mode replaces the page", async () => {
+    mount("/", { "site.maintenance.enabled": true });
+    await waitFor(() => expect(screen.getByText("Back soon")).toBeTruthy());
+  });
+});
+
+describe("theme", () => {
+  it("turns settings into css variables", () => {
+    const { vars, attrs } = themeVars({ ...defaults(), "theme.radius": "round", "theme.mode": "dark" }, false);
+    expect(vars["--radius"]).toBe("22px");
+    expect(attrs["data-mode"]).toBe("dark");
+    expect(vars["--paper"]).toBe(defaults()["theme.dark.paper"]);
   });
 });

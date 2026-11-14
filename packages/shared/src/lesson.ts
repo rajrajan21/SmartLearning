@@ -26,14 +26,26 @@ export const BoardAction = z.discriminatedUnion("op", [
   z.object({ op: z.literal("clear") }),
 ]);
 
+/** Recorded speech for one sentence in one language (filled in by the server from the audio manifest). */
+export const AudioRef = z.object({
+  url: z.string(),
+  durationMs: z.number().int().positive(),
+  /** word timings in ms from the start of the clip, for highlighting */
+  words: z.array(z.object({ w: z.string(), t: z.number(), d: z.number() })).default([]),
+});
+export type AudioRef = z.infer<typeof AudioRef>;
+
 export const NarrationSentence = z.object({
   id: z.string(),
   text: LocalizedText,
   audioKey: z.string().nullable().default(null),
+  audio: z.object({ en: AudioRef.optional(), ta: AudioRef.optional() }).default({}),
   videoKey: z.string().nullable().default(null), // reserved for later lip-sync clips
   board: z.array(BoardAction).default([]),
   checkpointQuestionId: z.string().nullable().default(null),
 });
+
+export type NarrationSentence = z.infer<typeof NarrationSentence>;
 
 export const ExplanationBlock = z.object({
   ...base,
@@ -107,3 +119,33 @@ export const TopicLesson = z.object({
   blocks: z.array(ContentBlock).min(1),
 });
 export type TopicLesson = z.infer<typeof TopicLesson>;
+
+// ================= Lesson import files (content/lessons/*.json) =================
+const slugRe = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+/** Authors write the lesson without topicId/version: the server finds the topic by its path and numbers versions itself. */
+export const LessonBody = TopicLesson.omit({ topicId: true, version: true });
+export const LessonImport = z
+  .object({
+    board: z.string().regex(/^[A-Za-z0-9_-]{1,20}$/),
+    classLevel: z.number().int().min(1).max(12),
+    subject: z.string().regex(slugRe),
+    chapter: z.string().regex(slugRe),
+    topic: z.string().regex(slugRe),
+    lesson: LessonBody,
+  })
+  .superRefine((d, ctx) => {
+    const seen = new Set<string>();
+    d.lesson.blocks.forEach((b, i) => {
+      if (seen.has(b.id)) ctx.addIssue({ code: "custom", path: ["lesson", "blocks", i, "id"], message: `Duplicate block id "${b.id}"` });
+      seen.add(b.id);
+      if (b.type === "teacher_narration") {
+        const ids = new Set<string>();
+        b.sentences.forEach((s, j) => {
+          if (ids.has(s.id)) ctx.addIssue({ code: "custom", path: ["lesson", "blocks", i, "sentences", j, "id"], message: `Duplicate sentence id "${s.id}"` });
+          ids.add(s.id);
+        });
+      }
+    });
+  });
+export type LessonImport = z.infer<typeof LessonImport>;
+export const lessonPath = (d: Pick<LessonImport, "classLevel" | "subject" | "chapter" | "topic">) => `${d.classLevel}/${d.subject}/${d.chapter}/${d.topic}`;

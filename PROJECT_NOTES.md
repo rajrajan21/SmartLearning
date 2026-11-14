@@ -26,4 +26,25 @@ pnpm --filter api dev      # http://localhost:3000/health
 pnpm --filter web dev      # http://localhost:5173
 ```
 
-**Module 1 (Foundation) complete and tested. Next: Module 2 – curriculum import + browse (Postgres-backed repository).** See docs/05-roadmap.md.
+**Current module:** 1 – Foundation. See docs/05-roadmap.md.
+
+
+## Status: Module 2 complete (curriculum + settings + web)
+- Curriculum API (DB-backed, PGlite for dev/tests), CBSE Class 3 Maths + EVS chapter lists seeded.
+- Settings registry + admin page at /admin (see docs/06-settings-and-admin.md).
+- Web: notebook design, Tamil/English, search, offline (service worker), settings-driven theme.
+- Tests: shared 12, API 29, web 9 (all passing). Next: Module 3 (lesson player).
+- Needs review: Tamil UI strings in apps/web/src/lib/i18n.ts by a native speaker.
+
+
+## Status: Module 3 complete (lesson player)
+- Lesson content files + importer + versioning + API; step-by-step player with resume, ticks, 11 admin settings.
+- First original lesson: Class 3 Maths > Fun with Shapes > Sides and corners (English + Tamil).
+- Tests: shared 12, API 36, web 15 (all passing). Next: Module 4 (Malar narration audio).
+
+
+## Status: Module 4 complete (teacher voice, English)
+- Audio pipeline: Generate-Lesson-Audio.bat -> content/audio (mp3 + manifest + voices.json); API serves clips and adds them to lesson sentences.
+- Player: Listen/Pause, speed, word highlight, chalkboard board actions, device-voice fallback (Tamil).
+- Tests: shared 12, API 44, web 21. USER TODO: run Start Malar Teacher.bat then Generate-Lesson-Audio.bat to record the first lesson.
+- Tamil recordings need a Tamil speech engine (not in Malar yet).

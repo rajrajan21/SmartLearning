@@ -1,5 +1,5 @@
 import {
-  index, integer, pgEnum, pgTable, primaryKey, text, timestamp, uniqueIndex, uuid, boolean,
+  jsonb, index, integer, pgEnum, pgTable, primaryKey, text, timestamp, uniqueIndex, uuid, boolean,
 } from "drizzle-orm/pg-core";
 
 const id = () => uuid("id").primaryKey().defaultRandom();
@@ -88,6 +88,8 @@ export const objectives = pgTable("objectives", {
   topicId: uuid("topic_id").notNull().references(() => topics.id),
   textEn: text("text_en").notNull(),
   textTa: text("text_ta"),
+  competencyCode: text("competency_code"), // NCF-SE competency, e.g. C-3.2 (optional)
+  position: integer("position").notNull().default(1),
   ...timestamps,
 }, (t) => [index("objectives_topic_idx").on(t.topicId)]);
 
@@ -138,3 +140,21 @@ export const consents = pgTable("consents", {
   grantedAt: timestamp("granted_at", { withTimezone: true }).notNull().defaultNow(),
   revokedAt: timestamp("revoked_at", { withTimezone: true }),
 });
+
+// ---------- Platform settings (see packages/shared/src/settings.ts for the registry) ----------
+export const settings = pgTable("settings", {
+  key: text("key").primaryKey(),
+  value: jsonb("value").notNull(),
+  updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  updatedBy: text("updated_by").notNull(),
+});
+
+export const settingsAudit = pgTable("settings_audit", {
+  id: id(),
+  key: text("key").notNull(),
+  action: text("action").notNull(), // update | reset | import
+  oldValue: jsonb("old_value"),
+  newValue: jsonb("new_value"),
+  changedBy: text("changed_by").notNull(),
+  changedAt: timestamp("changed_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [index("settings_audit_changed_idx").on(t.changedAt)]);
