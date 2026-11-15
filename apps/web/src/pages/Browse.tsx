@@ -1,4 +1,5 @@
 import { Link, useParams } from "wouter";
+import { useClassroomIndex } from "../lib/classroom";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useBoard, useLesson, useLessonTopicIds, useRetry, useTopic } from "../lib/curriculum";
@@ -141,6 +142,9 @@ export function TopicPage() {
   const [prog] = useTopicProgress(lesson.status === "ready" ? lesson.data?.topicId : undefined);
   const practiceOn = s.get("feature.practice");
   const practice = usePractice(board, level, subject, chapter, topic, practiceOn);
+  const classOn = s.get("feature.classroom") === true;
+  const classIdx = useClassroomIndex(classOn);
+  const hasClass = classOn && classIdx.status === "ready" && classIdx.data.items.some((i) => i.classLevel === level && i.subject === subject && i.chapter === chapter && i.topic === topic);
   const pres = usePracticeResults(practice.status === "ready" ? practice.data?.topicId : undefined);
   if (!allowed) return <NotFound />;
   if (state.status === "loading") return <Loading />;
@@ -152,6 +156,7 @@ export function TopicPage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { label: s.name(d.topic.name) }]} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
+      {hasClass && <p className="actions"><Link className="btn" href={`/classroom/${board}/${level}/${subject}/${chapter}/${topic}`}>🎓 {ui("classroomOpen", s.lang)}</Link></p>}
       {lessonOn && lesson.status === "ready" && lesson.data && (
         <p className="actions">
           <Link className="btn" href={`${link({ classLevel: level, subjectSlug: d.subject.slug, chapterSlug: d.chapter.slug, topicSlug: d.topic.slug })}/learn`}>

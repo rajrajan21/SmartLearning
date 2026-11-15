@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
+import { ClassroomHub, ClassroomPage } from "./pages/Classroom";
 import { ExamPage } from "./pages/Exam";
 import { WorksheetPage } from "./pages/Worksheet";
 import { GamePage } from "./pages/Games";
@@ -21,6 +22,8 @@ export function Routes() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/account" component={AccountPage} />
+      <Route path="/classroom" component={ClassroomHub} />
+      <Route path="/classroom/:board/:cls/:subject/:chapter/:topic" component={ClassroomPage} />
       <Route path="/exam/:board/:cls/:subject/:chapter" component={ExamPage} />
       <Route path="/worksheet/:board/:cls/:subject/:chapter" component={WorksheetPage} />
       <Route path="/play/:mode/:board/:cls/:subject/:chapter" component={GamePage} />

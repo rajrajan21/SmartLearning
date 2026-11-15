@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malar Teacher – Smart Class Test Room</title>
+<style>
+:root{--ink:#22302e;--cream:#fbf5ea;--teal:#0f766e;--rose:#b4235a;--gold:#f2c14e;--board:#1f4d3f;--wood:#8a5a3b}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--cream);color:var(--ink)}
+.wrap{max-width:1080px;margin:0 auto;padding:14px}
+header{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+header h1{font-size:1.15rem;margin:0;flex:1}
+header h1 small{font-weight:400;opacity:.7}
+button{font:inherit;cursor:pointer;border:0;border-radius:10px;padding:9px 14px;background:var(--teal);color:#fff}
+button.ghost{background:#fff;color:var(--ink);border:1px solid #d9cdb8}
+button.rose{background:var(--rose)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+input,select{font:inherit;padding:9px 10px;border:1px solid #d9cdb8;border-radius:10px;background:#fff;color:var(--ink)}
+/* start screen */
+#start{background:#fff;border:1px solid #eadfca;border-radius:16px;padding:20px}
+#start h2{margin:0 0 4px}
+.row{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.row label{display:flex;flex-direction:column;gap:4px;font-size:.85rem;flex:1;min-width:180px}
+.lessons{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.lesson{background:var(--cream);border:2px solid #eadfca;border-radius:14px;padding:14px;text-align:left;color:var(--ink)}
+.lesson:hover{border-color:var(--teal)}
+.prep{margin-top:16px;padding:14px;border:2px dashed #eadfca;border-radius:14px;background:#fffdf7}
+.prep button{padding:9px 14px;border-radius:10px;border:0;background:var(--teal);color:#fff;font-weight:600;cursor:pointer}
+.prep button:disabled{opacity:.5;cursor:default}
+#prepMsg{margin-top:8px;font-size:.92rem}
+.lesson .tick{display:block;margin-top:6px;font-size:.8rem;opacity:1;color:#18794e;font-weight:600}
+.lesson b{display:block;font-size:1.05rem}
+.lesson span{font-size:.85rem;opacity:.75}
+/* stage */
+#class{display:none}
+.stage{display:grid;grid-template-columns:1fr 1.55fr;border-radius:16px;overflow:hidden;background:#f3e3c7;border:1px solid #d9cdb8;position:relative}
+.boardwrap{padding:16px 16px 16px 6px;display:flex;order:2}
+.teacher{order:1}
+.board{flex:1;background:var(--board);border:10px solid var(--wood);border-radius:8px;box-shadow:inset 0 0 40px rgba(0,0,0,.35);min-height:340px;max-height:430px;overflow-y:auto;padding:12px 16px;
+ font-family:"Segoe Print","Bradley Hand","Chalkboard SE","Comic Sans MS",cursive;color:#f6f3e7;scroll-behavior:smooth}
+.board .title{font-size:1.5rem;color:var(--gold);border-bottom:2px dashed rgba(255,255,255,.35);padding-bottom:4px;margin-bottom:8px}
+.board .line{font-size:1.08rem;margin:5px 0;min-height:1.3em}
+.board .eq{font-size:1.2rem;color:#ffe9a8;margin:8px 0;padding:6px 10px;border:1.5px solid rgba(255,255,255,.5);border-radius:6px;display:inline-block}
+.board svg{width:100%;max-width:380px;display:block;margin:6px auto}
+.board svg text{font-family:inherit;font-size:13px;fill:#f6f3e7;stroke:none;opacity:0;transition:opacity .4s}
+.board svg text.on{opacity:1}
+.board svg .hot{stroke:#ffe14d!important;stroke-width:6;filter:drop-shadow(0 0 5px #ffe14d);transition:stroke-width .15s}
+.board svg text.hot{fill:#ffe14d!important;stroke:none!important;font-size:18px;font-weight:700}
+.teacher{position:relative;min-height:400px;overflow:hidden;background:radial-gradient(ellipse at 50% 30%,#fbf3e2 0,#e9d9bb 55%,#cdb893 100%)}
+.teacher:before{content:'';position:absolute;left:0;right:0;top:0;height:46%;background:linear-gradient(90deg,transparent 0 8%,rgba(255,255,255,.35) 8% 9%,transparent 9% 91%,rgba(255,255,255,.35) 91% 92%,transparent 92%)}
+.desk{z-index:3;position:absolute;left:0;right:0;bottom:0;height:44px;background:linear-gradient(#a8744f,#8a5a3b 22%,#6f4529)}
+#avLoad{position:absolute;left:0;right:0;top:45%;text-align:center;font-size:.9rem;opacity:.7}
+#av{position:absolute;left:0;top:0;width:100%;height:100%;display:block;pointer-events:none;z-index:2}
+#pad{width:100%;height:220px;background:#fff;border:1px dashed #cbbd9f;border-radius:10px;touch-action:none;cursor:crosshair;display:block;margin-top:8px}
+#arm{transform-origin:84px 262px;transition:transform .5s ease}
+#arm.point{transform:rotate(108deg)}
+.eye{transform-box:fill-box;transform-origin:center;transition:transform .07s}
+.eye.shut{transform:scaleY(.08)}
+#brows{transition:transform .25s}
+#brows.up{transform:translateY(-4px)}
+.nameplate{position:absolute;left:10px;bottom:8px;z-index:4;background:var(--rose);color:#fff;border-radius:8px;padding:3px 10px;font-size:.8rem;font-weight:600}
+#caption{background:#22302e;color:#fff;border-radius:12px;padding:10px 14px;margin-top:10px;min-height:2.9em;font-size:1.02rem;line-height:1.4}
+#choices{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#choices button{background:#fff;color:var(--ink);border:2px solid var(--teal);font-weight:600}
+#choices button:hover{background:var(--teal);color:#fff}
+.ask{display:flex;gap:8px;margin-top:10px}
+.ask input{flex:1;min-width:0}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:10px;font-size:.85rem}
+.bar select{max-width:230px}
+progress{flex:1;min-width:100px;height:8px;accent-color:var(--teal)}
+details{margin-top:12px;background:#fff;border:1px solid #eadfca;border-radius:12px;padding:10px 14px;font-size:.88rem}
+details li{margin:3px 0}
+#log div{margin:4px 0}#log b{color:var(--teal)}
+@media(max-width:720px){#av{top:0;bottom:auto;height:250px}.stage{grid-template-columns:1fr}.boardwrap{padding:12px}.board{min-height:230px;max-height:300px}.teacher{min-height:250px}}
+@media(prefers-reduced-motion:reduce){#arm,.board svg text{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1><span id="hTeacher">Malar</span> Teacher <small>· Smart Class 3D test room</small></h1>
+  <button class="ghost" id="btnHome" style="display:none">All lessons</button>
+</header>
+
+<section id="start">
+  <h2>Welcome to class!</h2>
+  <p style="margin:0;opacity:.8">Type your name, pick a lesson, and your teacher will start. Turn your sound on.</p>
+  <div class="row">
+    <label>Your name <input id="inStudent" placeholder="e.g. Kavin" maxlength="20" autocomplete="off"></label>
+    <label>Teacher's name <input id="inTeacher" value="Malar" maxlength="20" autocomplete="off"></label>
+  </div>
+  <div class="row">
+    <label>Choose your teacher <select id="selAvatar"></select></label>
+    <label>Teacher's voice <select id="voice" aria-label="Teacher voice"></select></label>
+    <label>Class level <select id="grade"></select></label>
+    <label>Explanation level <select id="level"><option value="0">Basic (extra simple)</option><option value="1" selected>Standard</option><option value="2">Advanced (90+ students)</option></select></label>
+  </div>
+  <div class="lessons" id="lessonList"></div>
+  <div class="prep" id="prep">
+    <b>Prepare a lesson</b> <span style="opacity:.75">(do this once, before class: the whole lesson's voice is made ahead, so the teacher speaks without waiting)</span>
+    <div class="row" style="align-items:flex-end">
+      <label>Lesson <select id="prepLesson"></select></label>
+      <button id="prepGo" type="button">Prepare this lesson</button>
+      <button id="prepAll" type="button">Prepare all lessons</button>
+      <button id="prepStop" type="button" style="display:none">Stop</button>
+    </div>
+    <progress id="prepBar" value="0" max="1" style="width:100%;display:none"></progress>
+    <div id="prepMsg" aria-live="polite">Checking…</div>
+  </div>
+</section>
+
+<section id="class">
+  <div class="stage">
+    <div class="boardwrap"><div class="board" id="board" aria-live="off"></div></div>
+    <div class="teacher">
+      <div class="desk"></div><div id="avLoad">Loading teacher…</div>
+      <div class="nameplate"><span id="plate">Malar</span> Teacher</div>
+    </div>
+    <canvas id="av" aria-label="3D teacher"></canvas>
+  </div>
+  <div id="caption" aria-live="polite"></div>
+  <div id="src" style="font-size:.85rem;margin-top:6px"></div>
+  <div id="choices"></div>
+  <form class="ask" id="askForm">
+    <input id="q" placeholder="Raise your hand: type any doubt here…" autocomplete="off" aria-label="Ask your teacher a question">
+    <button type="button" class="ghost" id="mic" style="display:none" title="Speak your question">🎤</button>
+    <button class="rose">Ask</button>
+  </form>
+  <div class="bar">
+    <button class="ghost" id="btnPause">Pause</button>
+    <button class="ghost" id="btnRepeat">Repeat this part</button>
+    <progress id="prog" value="0" max="1"></progress>
+    <label>Speed <input type="range" id="rate" min="0.7" max="1.2" step="0.05" value="1" style="padding:0;vertical-align:middle"></label>
+  </div>
+  <details>
+    <summary>My rough-work board (draw or work out sums here)</summary>
+    <canvas id="pad"></canvas>
+    <div class="bar"><button class="ghost" id="padPen" type="button">Pen</button><button class="ghost" id="padErase" type="button">Eraser</button><button class="ghost" id="padClear" type="button">Clear</button></div>
+  </details>
+  <details>
+    <summary>Tester panel (for the site owner)</summary>
+    <ul>
+      <li>Voice in use: <b id="tVoice">–</b></li>
+      <li>Speech: <b id="tLat">–</b></li>
+      <li>Lip-sync mode: <b id="tSync">waiting for speech</b></li>
+      <li>Doubts the teacher could not answer (add these to the lesson notes): <span id="tMiss">none yet</span></li>
+    </ul>
+    <div id="log"></div>
+  </details>
+</section>
+</div>
+
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+<script type="module">
+import { Avatar } from './avatar.js';
+/* ============ LESSON CONTENT (this is the "database": plain data, no AI) ============ */
+const LESSONS=[
+{id:'photo',title:'Photosynthesis',meta:'Science · Class 7',steps:[
+ {say:"Today's topic is photosynthesis. Big word, but a very simple idea. Tell me {name}, when you are hungry, you eat food, right? But have you ever seen a plant eating lunch?",board:[{t:'title',text:'Photosynthesis'}]},
+ {say:"No! Plants don't eat. They cook their own food, inside their leaves. That cooking is called photosynthesis. Photo means light. Synthesis means making. So photosynthesis simply means, making food using light.",
+  board:[{t:'write',text:'Photo = light'},{t:'write',text:'Synthesis = making'},{t:'write',text:'→ making food using light'}]},
+ {check:1,activity:"Cover one leaf of a plant at home with a piece of black paper for three days. Then remove it. That leaf will look paler than the others, because it could not make food without light.",lateral:"Let us flip the question. What would happen if every plant on Earth stopped doing this for one year? No new food. No fresh oxygen. Every animal, and every one of us, would be in trouble. So this quiet cooking inside a leaf is actually running the whole planet.",simpler:"Think of the leaf as a tiny kitchen. The plant is the cook, and sunlight is the stove. With that stove, the plant prepares its own food. That whole cooking job is photosynthesis.",
+  story:"Once there was a small tulsi plant called Mini. Every morning the sun knocked on her leaves and said, wake up, time to cook! Mini drank water through her roots, breathed in air through her leaves, and with the sun's fire, she cooked sweet food for herself. And she was so generous, she gave away fresh oxygen to everyone in the house.",
+  example:"Keep one plant near a sunny window, and another inside a dark cupboard. After a week, the window plant is green and healthy. The cupboard plant turns pale and weak, because without light it cannot make food."},
+ {hl:[["sunlight","sun"],["water","water"],["roots","water"],["carbon dioxide","co2"],["stomata","co2"]],say:"Now, for any cooking we need ingredients. The plant needs three. Number one, sunlight. Number two, water, which the roots pull up from the soil. Number three, carbon dioxide, a gas from the air. It enters through tiny holes in the leaf, called stomata.",
+  board:[{t:'fig',svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.2" stroke-linecap="round"><circle data-k="sun" cx="42" cy="38" r="18" stroke="#f2c14e"/><path d="M42 8v-6M42 74v-6M10 38H4M80 38h-6M20 16l-5-5M64 60l5 5M20 60l-5 5M64 16l5-5" stroke="#f2c14e"/><path d="M160 150V70" stroke="#9be08f"/><path d="M160 105 Q120 100 112 72 Q146 70 160 105Z" stroke="#9be08f"/><path d="M160 90 Q200 84 210 56 Q174 54 160 90Z" stroke="#9be08f"/><path d="M90 150H235" stroke="#c9a27a"/><path d="M160 150l-14 22M160 150l2 26M160 150l16 20" stroke="#c9a27a"/><path data-k="sun" d="M66 50 L112 74M112 74l-9-1M112 74l-4-8" stroke="#f2c14e"/><text data-k="sun" x="88" y="34">Sunlight</text><path data-k="co2" d="M290 96 L216 70M216 70l9 0M216 70l5 7"/><text data-k="co2" x="246" y="112">CO₂ in</text><path data-k="water" d="M118 182 Q130 166 148 164M148 164l-8-3M148 164l-6 6" stroke="#8fd3ff"/><text data-k="water" x="64" y="186">Water</text><path data-k="o2" d="M214 48 L262 22M262 22l-9 0M262 22l-4 8"/><text data-k="o2" x="266" y="24">O₂ out</text></svg>`}]},
+ {say:"And who is the cook? A green substance inside the leaf, called chlorophyll. Chlorophyll catches the sunlight. And that is exactly why leaves look green.",board:[{t:'write',text:'Chlorophyll: green pigment, traps sunlight'}]},
+ {quiz:{q:"Quick one for you. Which gas does the plant take in from the air to make food?",options:['Oxygen','Carbon dioxide','Nitrogen'],answer:1,hint:"Think again. It is the same gas that we breathe out.",why:"Carbon dioxide goes in through the stomata."}},
+ {hl:[["oxygen","o2"]],say:"So what comes out of this kitchen? Two things. First, glucose. That is a sugar, and it is the plant's food. Second, oxygen, which the plant gives out into the air. Yes, the very oxygen you are breathing right now!",
+  board:[{t:'eq',text:'CO₂ + Water  —sunlight, chlorophyll→  Glucose + O₂'}]},
+ {check:1,simpler:"Three things go in. Sunlight, water, and carbon dioxide. Two things come out. Food for the plant, and oxygen for us. That's the whole story.",
+  example:"When you eat rice, a mango, or even a chapati, that energy first came from a plant doing photosynthesis. So in a way, you are eating stored sunlight!"},
+ {quiz:{q:"Last question. Why do leaves look green?",options:['Because of chlorophyll','Because of water','Because of oxygen'],answer:0,hint:"Remember our cook inside the leaf? What was its name?",why:"Chlorophyll is the green pigment that traps sunlight."}},
+ {level:2,say:"This part is for my advanced students. The full equation is, six molecules of carbon dioxide, plus six molecules of water, give one molecule of glucose and six molecules of oxygen. The light energy gets stored as chemical energy inside the glucose. And here is a surprise. The oxygen that comes out is actually from the water, not from the carbon dioxide.",board:[{t:"eq",text:"6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂"}]},
+ {quiz:{q:"Answer in one word. What is the green substance in the leaf called?",accept:["chlorophyl","clorophyl","chlorofil"],reveal:"chlorophyll",hint:"It starts with the sound, kloro.",why:"Chlorophyll is the green pigment that traps sunlight."}},
+ {joke:"Why did the leaf go to the doctor? Because it was feeling a little green!"},
+ {say:"Lovely. Let us quickly write our short notes. Plants make their own food. They use sunlight, water, and carbon dioxide. Chlorophyll traps the light. They give us glucose and oxygen. That's photosynthesis, {name}. You did really well today.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'1. Plants make their own food in leaves'},{t:'write',text:'2. Need: sunlight + water + CO₂'},{t:'write',text:'3. Chlorophyll traps sunlight'},{t:'write',text:'4. Give: glucose (food) + oxygen'}]}
+],ideas:[['sunlight',['sun','light'],'Plants need sunlight.'],['water',['water'],'Roots bring water from the soil.'],['carbon dioxide',['carbon','co2'],'Carbon dioxide comes from the air.'],['chlorophyll',['chlorophyll','green'],'Chlorophyll traps the light.'],['food and oxygen',['glucose','sugar','food','oxygen'],'The plant makes glucose and gives out oxygen.']],qa:[
+ {k:'stomata hole pore opening',a:"Stomata are very tiny holes, mostly on the underside of a leaf. Carbon dioxide enters through them, and oxygen and water vapour leave through them. They can open and close, a bit like little mouths."},
+ {k:'chlorophyll green colour color pigment',a:"Chlorophyll is the green pigment inside leaf cells. It traps sunlight, and it reflects green light, which is why leaves look green to our eyes."},
+ {k:'night dark moon without sunlight',a:"At night there is no sunlight, so photosynthesis stops. The plant still breathes, that is respiration, and it uses the food it prepared during the day."},
+ {k:'glucose sugar starch food store',a:"Glucose is a simple sugar, the food the plant makes. Whatever it does not use immediately, it stores as starch, in leaves, roots, fruits and seeds. A potato is full of stored starch."},
+ {k:'important importance use need why matter human animal',a:"Photosynthesis matters for two big reasons. It makes the food that every animal and human finally depends on, and it releases the oxygen we breathe. No photosynthesis, no life as we know it."},
+ {k:'root water soil absorb xylem',a:"Roots absorb water from the soil. That water travels up the stem through thin tubes called xylem, all the way to the leaves."},
+ {k:'oxygen release give out',a:"Oxygen is made when water is split using light energy. The plant does not need all of it, so it lets it out through the stomata. Lucky for us!"},
+ {k:'mushroom fungi non-green nongreen yellow red leaf',a:"Mushrooms and other fungi have no chlorophyll, so they cannot do photosynthesis. They take food from dead or living things. Red or purple leaves still have chlorophyll, it is just hidden by other colours."},
+ {k:'where chloroplast cell place happen',a:"It happens mainly in the leaves, inside tiny green parts of the cell called chloroplasts. Chloroplasts hold the chlorophyll."},
+ {k:'carbon dioxide co2 gas air',a:"Carbon dioxide is a gas in the air. We breathe it out, and plants take it in through the stomata, and use it to build glucose."}
+]},
+{id:'pyth',title:'Pythagoras Theorem',meta:'Maths · Class 8–10',steps:[
+ {say:"Today we will learn something that builders and carpenters use every single day. The Pythagoras theorem. Imagine a ladder leaning on a wall, {name}. The wall, the floor, and the ladder make a triangle. Can you see it?",board:[{t:'title',text:'Pythagoras Theorem'}]},
+ {hl:[["wall","a"],["floor","b"],["corner","r"],["ninety","r"],["right angle","r"],["a and","a"],["and b","b"],["slanting","c"],["hypotenuse","c"],["longest","c"],["call it c","c"]],say:"Look at this triangle. The wall and the floor meet at a perfect corner, ninety degrees. We call that a right angle, so this is a right angled triangle. The two sides making the corner, we will call a and b. The slanting side, opposite the right angle, is the longest side. It has a special name. The hypotenuse. We call it c.",
+  board:[{t:'fig',svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path data-k="a" d="M70 160 V40"/><path data-k="b" d="M70 160 H250"/><path data-k="c" d="M70 40 L250 160" stroke="#f2c14e"/><path data-k="r" d="M70 144 H86 V160"/><text data-k="a" x="48" y="104">a</text><text data-k="b" x="154" y="180">b</text><text data-k="c" x="166" y="88" style="fill:#f2c14e">c (hypotenuse)</text><text x="92" y="150">90°</text></svg>`}]},
+ {hl:[["a squared","a"],["b squared","b"],["c squared","c"],["two short","a"],["longest","c"]],say:"Now the theorem. In a right angled triangle, a squared plus b squared equals c squared. In simple words, square the two short sides, add them, and you get the square of the longest side.",board:[{t:'eq',text:'a² + b² = c²'}]},
+ {check:1,hl:[["first short","a"],["second short","b"],["long side","c"]],exHl:[["three","a"],["nine","a"],["four","b"],["sixteen","b"],["twenty five","c"],["five","c"],["longest","c"]],exampleBoard:[{t:"fig",svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path data-k="a" d="M90 160 V70"/><path data-k="b" d="M90 160 H210"/><path data-k="c" d="M90 70 L210 160" stroke="#f2c14e"/><path d="M90 146 H104 V160"/><text data-k="a" x="66" y="120">3</text><text data-k="b" x="144" y="182">4</text><text data-k="c" x="160" y="104" style="fill:#f2c14e">5</text></svg>`},{t:"write",text:"3² + 4² = 9 + 16 = 25 = 5²"}],activity:"Take a rope or a long thread. Mark three hand lengths on the floor in one direction, and four hand lengths at a corner from it. Now measure straight across between the two ends. If your corner is a true right angle, it will be exactly five hand lengths.",lateral:"Forget the formula for a second. Imagine a square carpet laid along each side of the triangle. Three carpets. The theorem says, the two small carpets together cover exactly the same floor as the big carpet. So it is really a fact about areas, not only about lengths.",simpler:"Squaring just means multiplying a number by itself. So take the first short side, multiply it by itself. Do the same for the second short side. Add the two answers. That total is the long side multiplied by itself.",
+  story:"A carpenter named Murugan had to make a perfect corner for a door frame. He had no fancy tools. So he took a rope, and marked three feet on one side, four feet on the other. Then he measured across. Exactly five feet! That told him the corner was a perfect right angle. He was using this very theorem.",
+  example:"Take short sides three and four. Three squared is nine. Four squared is sixteen. Nine plus sixteen is twenty five. And twenty five is five squared. So the longest side is five. Three, four, five. Easy to remember!"},
+ {say:"Let us do one together on the board. The short sides are six and eight. So c squared is six squared plus eight squared. That is thirty six plus sixty four. Which is one hundred. Now, which number multiplied by itself gives one hundred? Ten! So c is ten.",
+  board:[{t:'write',text:'a = 6,  b = 8,  c = ?'},{t:'write',text:'c² = 6² + 8²'},{t:'write',text:'   = 36 + 64 = 100'},{t:'write',text:'c = √100 = 10'}]},
+ {quiz:{q:"Your turn. The short sides are five and twelve. What is the hypotenuse?",options:['13','17','15'],answer:0,hint:"Careful. Don't just add five and twelve. Square them first. Twenty five plus one hundred and forty four. Then find the square root.",why:"Twenty five plus one hundred forty four is one hundred sixty nine, and the square root of that is thirteen."}},
+ {say:"Back to our ladder. Say the wall is four metres high, and the foot of the ladder is three metres away from the wall. How long should the ladder be? Sixteen plus nine is twenty five. So the ladder must be five metres. See? Real life maths.",
+  board:[{t:'write',text:'Ladder: 4² + 3² = 16 + 9 = 25 → 5 m'}]},
+ {check:1,simpler:"Whenever you see a right angle and you know two sides, this theorem finds the third side for you. Square, add, then take the square root.",
+  example:"A television is sold as thirty two inches. That number is the diagonal of the screen, which is the hypotenuse of the height and the width!"},
+ {level:2,say:"A challenge for my advanced students. The distance between two points on a graph uses this very theorem. Take the points one comma two, and four comma six. The gap across is three. The gap upward is four. So the distance between them is five.",board:[{t:"eq",text:"d = √((x₂−x₁)² + (y₂−y₁)²)"}]},
+ {quiz:{q:"Now show me on the board. Tap the hypotenuse of this triangle.",tap:{svg:`<svg viewBox="0 0 320 170" fill="none" stroke="#f6f3e7" stroke-width="7" stroke-linecap="round" style="cursor:pointer"><path data-k="a" d="M90 140 V40"/><path data-k="b" d="M90 140 H230"/><path data-k="c" d="M90 40 L230 140"/><text x="96" y="162">Tap a side</text></svg>`,answer:"c"},reveal:"the slanting side, opposite the right angle",hint:"It is the longest side, the one that does not touch the right angle.",why:"The slanting side opposite the right angle is the hypotenuse."}},
+ {quiz:{q:"True or false. The Pythagoras theorem works for every triangle.",options:["True","False"],answer:1,hint:"Think. What special angle must the triangle have?",why:"It works only for right angled triangles."}},
+ {joke:"Why was the ninety degree angle so confident? Because it was always right!"},
+ {say:"Super. Short notes now. It works only for right angled triangles. The hypotenuse is the longest side, opposite the right angle. And a squared plus b squared equals c squared. Well done {name}, you were sharp today.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'1. Only for right-angled triangles'},{t:'write',text:'2. Hypotenuse = longest side, opposite 90°'},{t:'write',text:'3. a² + b² = c²'},{t:'write',text:'4. Triplets: 3-4-5, 5-12-13, 6-8-10'}]}
+],ideas:[['the right angle',['right','90','ninety'],'It works only when one angle is ninety degrees.'],['the hypotenuse',['hypotenuse','longest'],'The longest side is called the hypotenuse.'],['squaring and adding',['square','squared','add','plus','sum'],'Square the two short sides and add them.'],['the square root',['root'],'Take the square root to get the side.']],qa:[
+ {k:'hypotenuse longest slant',a:"The hypotenuse is the side opposite the right angle. It is always the longest side of a right angled triangle."},
+ {k:'right angle 90 degree ninety',a:"A right angle is exactly ninety degrees, like the corner of your notebook, or where a wall meets the floor."},
+ {k:'triplet triple 3 4 5',a:"Pythagorean triplets are sets of three whole numbers that fit the theorem. Three, four, five. Five, twelve, thirteen. Eight, fifteen, seventeen. Multiply a triplet by any number and you get another one, like six, eight, ten."},
+ {k:'pythagoras who person greek history invent discover',a:"Pythagoras was a Greek mathematician who lived about two thousand five hundred years ago. The idea was also known in ancient India. The Baudhayana Sulba Sutra describes the same rule."},
+ {k:'all any other triangle every work acute obtuse',a:"No, it works only for right angled triangles. If no angle is ninety degrees, a squared plus b squared will not equal c squared."},
+ {k:'square root √',a:"A square root asks, which number multiplied by itself gives this? The square root of forty nine is seven, because seven times seven is forty nine."},
+ {k:'short side find missing subtract base height',a:"To find a short side, do it in reverse. Square the hypotenuse, subtract the square of the side you know, and take the square root. For example, hypotenuse ten and one side six. One hundred minus thirty six is sixty four. So the other side is eight."},
+ {k:'converse check prove whether',a:"The converse also works. If a squared plus b squared equals c squared for a triangle, then that triangle must be right angled. Builders use a three, four, five rope to check corners."},
+ {k:'use real life application where daily',a:"It is used in construction, in navigation, for finding the shortest distance on a map, for screen sizes, and even in video games to measure distance between two points."}
+]},
+{id:'frac',title:'Fractions',meta:'Maths · Class 4–5',steps:[
+ {hl:[["four equal","rest"],["chocolate bar","one"]],say:"Today we are going to share a chocolate. And while sharing it, we will learn fractions. Imagine one chocolate bar, {name}. I break it into four equal pieces.",board:[{t:'title',text:'Fractions'},{t:'fig',svg:`<svg viewBox="0 0 320 110" fill="none" stroke="#f6f3e7" stroke-width="2.2"><rect data-k="one" x="40" y="25" width="60" height="50" fill="#b9793f"/><rect data-k="rest" x="100" y="25" width="60" height="50"/><rect data-k="rest" x="160" y="25" width="60" height="50"/><rect data-k="rest" x="220" y="25" width="60" height="50"/><text data-k="one" x="52" y="98">1 piece taken</text><text data-k="rest" x="190" y="98">4 equal pieces</text></svg>`}]},
+ {hl:[["one piece","one"],["one fourth","one"],["four","rest"]],say:"If I take one piece out of the four, I have taken one fourth of the chocolate. We write it as one, a line, and four below. The bottom number tells how many equal pieces the whole was cut into. We call it the denominator. The top number tells how many pieces we took. That is the numerator.",
+  board:[{t:'eq',text:'1/4  =  one piece out of four'},{t:'write',text:'Top = numerator (pieces taken)'},{t:'write',text:'Bottom = denominator (equal pieces in the whole)'}]},
+ {check:1,activity:"Take a sheet of paper. Fold it once, and you have halves. Fold it again, and you have fourths. Fold once more for eighths. Shade one part each time and see how the piece keeps getting smaller.",simpler:"A fraction is just a part of something. Cut a thing into equal pieces. Count how many you took. Write that on top. Write the total pieces at the bottom. That's all.",
+  example:"A pizza is cut into eight equal slices. You eat three. You have eaten three eighths of the pizza. Three on top, eight at the bottom.",
+  story:"Two sisters, Meena and Rani, got one laddu. Meena broke it into a big piece and a small piece, and kept the big one. Rani cried, that is not half! She was right. Half means two equal pieces. Fractions only work when the pieces are equal.",
+  lateral:"Here is a strange thing. Which is bigger, one half or one fourth? Four is bigger than two, so many children say one fourth. But think of sharing one dosa. Between two friends, or among four friends? More friends, smaller piece. So a bigger bottom number means a smaller piece."},
+ {quiz:{q:"A chocolate has four equal pieces. Ravi eats three of them. What fraction did he eat?",options:['3/4','1/3','4/3'],answer:0,hint:"Pieces eaten go on top. Total pieces go at the bottom.",why:"Three pieces out of four is three fourths."}},
+ {say:"Now a little magic. Cut a roti into two equal parts and take one. That is one half. Cut the same roti into four equal parts and take two. That is two fourths. But look, you got the same amount of roti! So one half and two fourths are equal. We call them equivalent fractions.",
+  board:[{t:'eq',text:'1/2  =  2/4  =  4/8'},{t:'write',text:'Same amount, different names'}]},
+ {quiz:{q:"Which is the bigger piece of the same cake? One half, or one fourth?",options:['One half','One fourth','Both are the same'],answer:0,hint:"Think of the dosa. Shared by two people, or by four people?",why:"Cutting into fewer pieces makes each piece bigger, so one half is bigger."}},
+ {check:1,simpler:"One half, two fourths and four eighths look different, but they are the same amount. Like one ten rupee note and two five rupee coins.",example:"Half an hour is thirty minutes. Two quarters of an hour, fifteen plus fifteen, is also thirty minutes. Same time, two names."},
+ {level:2,say:"For my advanced students. How do we compare three fourths and five eighths? Make the bottom numbers the same. Three fourths is the same as six eighths. And six eighths is bigger than five eighths. So three fourths wins.",board:[{t:"eq",text:"3/4 = 6/8  >  5/8"}]},
+ {quiz:{q:"One word answer. What do we call the bottom number of a fraction?",accept:["denominator","denomina"],reveal:"the denominator",hint:"It starts with the letter D.",why:"The bottom number is the denominator."}},
+ {joke:"I asked my friend for half of his dosa. He gave me a tiny piece and said, this is also a fraction!"},
+ {say:"Short notes time. A fraction is a part of a whole. The pieces must be equal. Numerator on top, denominator below. And a bigger denominator means smaller pieces. Lovely work, {name}.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'1. Fraction = part of a whole'},{t:'write',text:'2. Pieces must be equal'},{t:'write',text:'3. Numerator on top, denominator below'},{t:'write',text:'4. Bigger denominator → smaller pieces'},{t:'write',text:'5. 1/2 = 2/4 (equivalent fractions)'}]}
+],ideas:[['equal pieces',['equal'],'The pieces must be equal.'],['the numerator',['numerator','top'],'The top number, the numerator, is the pieces we take.'],['the denominator',['denominator','bottom'],'The bottom number, the denominator, is the total equal pieces.'],['part of a whole',['part','whole','piece'],'A fraction is a part of a whole.']],qa:[
+ {k:'numerator top',a:"The numerator is the top number. It tells how many pieces we have taken or are talking about."},
+ {k:'denominator bottom',a:"The denominator is the bottom number. It tells into how many equal pieces the whole has been cut."},
+ {k:'equivalent equal same',a:"Equivalent fractions are different names for the same amount. One half, two fourths and four eighths are all the same. Multiply the top and the bottom by the same number, and you get an equivalent fraction."},
+ {k:'half quarter',a:"Half means one out of two equal parts. A quarter means one out of four equal parts. Two quarters make one half."},
+ {k:'improper mixed bigger than one whole',a:"When the top number is bigger than the bottom, like five fourths, it is more than one whole. It is called an improper fraction. Five fourths is one whole and one fourth."},
+ {k:'compare bigger smaller greater larger',a:"If the bottom numbers are the same, the bigger top number wins. If the top numbers are the same, the smaller bottom number gives the bigger piece."},
+ {k:'add adding plus sum',a:"To add fractions with the same denominator, just add the top numbers. One fourth plus two fourths is three fourths. The bottom number stays the same."},
+ {k:'use real life daily why',a:"We use fractions all the time. Half a litre of milk, a quarter kilo of sugar, three fourths of an hour. Any time we talk about a part of something."}
+]},
+{id:'water',title:'The Water Cycle',meta:'Science · Class 6',steps:[
+ {say:"Here is a puzzle to begin, {name}. Rivers pour water into the sea all day, every day. So why does the sea never overflow? And where does all the rain come from? Today's lesson answers both. It is called the water cycle.",board:[{t:'title',text:'The Water Cycle'}]},
+ {hl:[["sun","wsun"],["evaporation","evap"],["water vapour","evap"],["rises","evap"]],say:"Step one. The sun heats the water in seas, lakes and rivers. The water slowly turns into an invisible gas called water vapour, and rises into the air. This is evaporation. The same thing happens when wet clothes dry on the line.",
+  board:[{t:'fig',svg:`<svg viewBox="0 0 320 190" fill="none" stroke="#f6f3e7" stroke-width="2.2" stroke-linecap="round"><circle data-k="wsun" cx="40" cy="34" r="16" stroke="#f2c14e"/><path d="M10 160 q12 -10 24 0 t24 0 t24 0 t24 0 t24 0" stroke="#8fd3ff"/><text x="30" y="182">Sea</text><path data-k="evap" d="M60 148 V92 M60 92 l-6 9 M60 92 l6 9" stroke="#8fd3ff"/><text data-k="evap" x="70" y="124">Evaporation</text><path data-k="cond" d="M120 62 q-18 0 -16 -16 q2 -14 18 -12 q8 -16 26 -8 q16 -6 22 10 q16 2 12 16 q-2 10 -14 10 Z"/><text data-k="cond" x="112" y="22">Condensation</text><path data-k="rain" d="M200 70 l-6 16 M216 70 l-6 16 M232 70 l-6 16 M210 96 l-6 16 M226 96 l-6 16" stroke="#8fd3ff"/><text data-k="rain" x="244" y="92">Rain</text><path d="M190 160 L250 112 L312 160" stroke="#c9a27a"/><path data-k="coll" d="M236 150 Q190 172 138 160 M138 160 l10 -5 M138 160 l9 6" stroke="#8fd3ff"/><text data-k="coll" x="186" y="186">Collection</text></svg>`},{t:'write',text:'1. Evaporation: water → vapour'}]},
+ {hl:[["cloud","cond"],["condensation","cond"],["tiny drops","cond"]],say:"Step two. High up in the sky, the air is cold. The vapour cools down and turns back into tiny drops of water. Millions of these tiny drops together make a cloud. This is condensation. You see it on the outside of a cold steel tumbler.",board:[{t:'write',text:'2. Condensation: vapour → tiny drops (clouds)'}]},
+ {check:1,activity:"Pour a little water into a steel plate and keep it in the sun. Mark the water level with a pen. Look again after two hours. The water has gone down. You have just watched evaporation happen.",simpler:"Heat pulls water up as an invisible gas. Cold turns that gas back into drops. Going up is evaporation. Turning back into drops is condensation.",
+  example:"Boil water in a pot with a lid. The steam goes up. That is evaporation. Now lift the lid. You see drops of water under it. That is condensation. You just made a tiny water cycle in your kitchen.",
+  story:"Once there was a little drop called Thuli, living in the Bay of Bengal. One hot afternoon the sun lifted her up, lighter than a feather. High in the cold sky she shivered, and held hands with a million other drops. Together they became a cloud. When the cloud grew heavy, Thuli fell as rain on a paddy field, ran into a river, and swam all the way home to the sea.",
+  lateral:"Think about this. The Earth has had the same water for millions of years. No new water is being made. So the water in your glass today may once have been in a cloud over the Himalayas, in a river, even inside a dinosaur. Water does not get used up. It only travels."},
+ {hl:[["rain","rain"],["fall","rain"],["precipitation","rain"]],say:"Step three. The drops in the cloud join together and become heavy. When they are too heavy to float, they fall. As rain, or as snow or hail in cold places. This is precipitation.",board:[{t:'write',text:'3. Precipitation: rain, snow, hail'}]},
+ {hl:[["rivers","coll"],["collection","coll"],["back to the sea","coll"]],say:"Step four. The rain water flows into streams and rivers, and back to the sea. Some of it soaks into the ground and fills our wells. This is collection. And then the sun heats it, and the whole journey starts again. That is why the sea never overflows. The same water just keeps going round and round.",board:[{t:'write',text:'4. Collection: rivers, sea, groundwater'}]},
+ {quiz:{q:"Wet clothes become dry in the sun. Which step of the water cycle is that?",options:['Evaporation','Condensation','Precipitation'],answer:0,hint:"The water in the clothes turned into vapour and went into the air.",why:"Water turning into vapour because of heat is evaporation."}},
+ {quiz:{q:"What are clouds made of?",options:['Smoke','Tiny drops of water','Cotton'],answer:1,hint:"Remember what happens to the vapour when it reaches cold air.",why:"Clouds are millions of tiny water drops formed by condensation."}},
+ {level:2,say:"For my advanced students. Evaporation takes heat away. That is why sweat cools your skin. Condensation gives that heat back to the air. Over a warm sea, this released heat is the fuel that powers a cyclone.",board:[{t:"write",text:"Evaporation absorbs heat, condensation releases it"}]},
+ {quiz:{q:"True or false. Rain water is salty, because it comes from the sea.",options:["True","False"],answer:1,hint:"When sea water evaporates, what stays behind?",why:"Only the water evaporates. The salt stays in the sea, so rain is fresh water."}},
+ {joke:"What did one raindrop say to the other? Two is company, but three is a cloud!"},
+ {say:"Short notes. Evaporation, condensation, precipitation, collection. Four steps, powered by the sun, going round forever. Very nicely done, {name}.",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'Evaporation → Condensation →'},{t:'write',text:'Precipitation → Collection → (again)'},{t:'write',text:'The sun powers the cycle'},{t:'write',text:'Water is never used up, it only travels'}]}
+],ideas:[['evaporation',['evaporat','vapour','vapor'],'The sun turns water into vapour. That is evaporation.'],['condensation',['condens','cloud'],'Vapour cools into tiny drops and forms clouds. That is condensation.'],['rain',['rain','precipitat','snow'],'Heavy drops fall as rain. That is precipitation.'],['collection',['collect','river','sea','ground'],'The water collects in rivers and the sea, and the cycle repeats.'],['the sun',['sun','heat'],'The sun gives the heat that runs the cycle.']],qa:[
+ {k:'evaporation evaporate vapour vapor',a:"Evaporation is when liquid water turns into water vapour, an invisible gas, because of heat. It happens faster on hot, windy days."},
+ {k:'condensation condense',a:"Condensation is the opposite of evaporation. Water vapour cools down and turns back into liquid drops. That is how clouds and morning dew form."},
+ {k:'precipitation rain snow hail',a:"Precipitation is any water that falls from clouds. Rain, snow, sleet or hail. It happens when the drops in a cloud become too heavy to stay up."},
+ {k:'cloud float white grey gray dark',a:"A cloud is millions of tiny water drops or ice crystals floating in the air. They are so small and light that rising air holds them up. Thick clouds look dark because sunlight cannot pass through them."},
+ {k:'groundwater ground well soil soak',a:"Some rain soaks into the soil and collects between rocks under the ground. That is groundwater. Wells and borewells bring it up. That is why we should not waste it."},
+ {k:'transpiration plant leaf tree',a:"Plants also send water into the air. Roots take water from the soil, and leaves release it as vapour. This is called transpiration, and it adds to the water cycle."},
+ {k:'salt sea salty',a:"When sea water evaporates, only the water goes up. The salt stays behind. That is why rain water is not salty, even though it came from the sea."},
+ {k:'overflow never full sea ocean',a:"The sea does not overflow because water keeps leaving it by evaporation, as fast as rivers bring water in. It is a balance."},
+ {k:'important why need save',a:"The water cycle gives us fresh water again and again, for drinking, farming and all living things. It also moves heat around the Earth and shapes our weather."}
+]},
+{id:'noun',title:'Nouns and Verbs',meta:'English · Class 3–5',steps:[
+ {say:"Let us play a small game, {name}. Look around your room. Tell yourself the names of five things you can see. Fan. Table. Book. Window. Bag. Every one of those words is a noun.",board:[{t:'title',text:'Nouns and Verbs'}]},
+ {say:"A noun is a naming word. It is the name of a person, a place, an animal, or a thing. Priya is a noun. Chennai is a noun. Elephant is a noun. Pencil is a noun.",
+  board:[{t:'write',text:'Noun = naming word'},{t:'write',text:'Person: Priya   Place: Chennai'},{t:'write',text:'Animal: elephant   Thing: pencil'}]},
+ {say:"Now, what do those nouns do? The fan spins. The bird flies. Priya writes. Spins, flies, writes. These are doing words. We call them verbs. A verb tells us the action.",
+  board:[{t:'write',text:'Verb = doing word (action)'},{t:'write',text:'The bird flies.   Priya writes.'}]},
+ {check:1,activity:"Pick any page of your story book. With a pencil, circle five nouns and underline five verbs. Then read only the verbs aloud and act them out.",simpler:"If you can point at it or call it by a name, it is a noun. If you can do it, it is a verb. You can point at a ball. You can kick. Ball is a noun. Kick is a verb.",
+  example:"Take this sentence. The dog barks. Who is it about? The dog. That is the noun. What does it do? Barks. That is the verb.",
+  story:"In a village there were two friends. Peyar, who loved giving names to everything, and Seyal, who could never sit still. Peyar would say, tree, river, goat. And Seyal would shout, climb, swim, run! Peyar is the noun. Seyal is the verb. A sentence needs both friends to make sense.",
+  lateral:"Try this trick. Put the words, I can, in front of the word. I can jump. That sounds right, so jump is a verb. I can table. That sounds silly, so table is not a verb. Now put the word, the, in front. The table. Sounds right, so table is a noun."},
+ {quiz:{q:"In the sentence, the monkey eats a banana, which word is the verb?",options:['monkey','eats','banana'],answer:1,hint:"Which word tells you the action? What is the monkey doing?",why:"Eats is the action, so it is the verb. Monkey and banana are nouns."}},
+ {quiz:{q:"Which of these is a noun?",options:['run','happy','school'],answer:2,hint:"Which one is the name of a place or a thing?",why:"School is the name of a place, so it is a noun."}},
+ {level:2,say:"For my advanced students. Some nouns you cannot touch or see. Honesty. Courage. Friendship. They are names of ideas and feelings. We call them abstract nouns.",board:[{t:"write",text:"Abstract nouns: honesty, courage, friendship"}]},
+ {quiz:{q:"Yes or no. Is the word, jump, a noun?",options:["Yes","No"],answer:1,hint:"Try the trick. Can you say, I can jump?",why:"Jump is an action, so it is a verb."}},
+ {joke:"Why was the verb so tired? Because it did all the work, while the noun just sat there with its name!"},
+ {say:"Short notes. Nouns name. Verbs do. Every complete sentence needs at least one of each. Now you can spot them everywhere. Well done, {name}!",
+  board:[{t:'clear'},{t:'title',text:'Short notes'},{t:'write',text:'Noun: names a person, place, animal, thing'},{t:'write',text:'Verb: tells the action'},{t:'write',text:'Test: "the ___" → noun,  "I can ___" → verb'}]}
+],ideas:[['nouns are names',['name','naming','noun'],'A noun is a naming word.'],['verbs are actions',['action','doing','verb','do'],'A verb is a doing word.'],['an example',['dog','bird','run','jump','eat','priya','ball','fly','write'],'For example, in the bird flies, bird is the noun and flies is the verb.']],qa:[
+ {k:'noun naming name',a:"A noun is the name of a person, place, animal, thing or idea. Teacher, Madurai, cow, bottle and happiness are all nouns."},
+ {k:'verb action doing',a:"A verb is a word that shows an action or a state. Run, eat, think, is and have are verbs."},
+ {k:'proper common capital',a:"A common noun is a general name, like city or girl. A proper noun is a special name, like Chennai or Priya, and it always starts with a capital letter."},
+ {k:'adjective describing describe',a:"An adjective describes a noun. In, the red ball, red is the adjective. That is a lesson for another day, but good that you are curious!"},
+ {k:'sentence subject',a:"A sentence is a group of words that makes complete sense. It needs a noun to tell who, and a verb to tell what happens."},
+ {k:'both same word play',a:"Yes, some words can be both. I play cricket, here play is a verb. We watched a play, here play is a noun. Look at how the word is used in the sentence."},
+ {k:'plural many singular',a:"A singular noun means one, like book. A plural noun means more than one, like books. Usually we add the letter s."}
+]}
+];
+
+/* ============ TEACHER PERSONALITY ============ */
+const P={
+ intro:["I'm {teacher} teacher. Sit comfortably. If you have any doubt, just stop me and ask, okay?"],bye:["That's the end of today's class. Revise the short notes once before you sleep, okay? See you soon, {name}!"],
+ checkq:["Is that clear so far, {name}?","Did you follow that? Be honest, there are no silly doubts here.","Shall I go on, or should I explain that once more?","All okay till here, {name}?","How is that sitting with you? Clear, or a bit foggy?","Tell me truthfully, did that make sense?","Are you with me, or did I go too fast?","Before I move on, any confusion in that part?","Thumbs up, or shall we look at it again?","Okay {name}, could you explain that to a friend now?"],
+ ok:["Very good. Let's move on.","Super! I knew you'd get it.","Nice. Onward we go.","Good, good. Next part.","Lovely. Then let's keep going.","That's the spirit. Moving ahead.","Perfect. Here comes the next bit.","Wonderful. You are picking this up fast."],
+ again:["No problem at all. Let me say it in a different way.","That's perfectly fine. Let's go slowly.","Okay, one more time, in an easier way.","Sure. Forget how I said it before, try this.","Happy to. Let me come at it from another side.","Of course. Even I needed this twice when I was your age."],
+ ex:["Sure, here is an example.","Good idea, examples always help.","Let me give you one from daily life.","Alright, picture this.","Here is one you might have seen at home.","Yes, let's make it real."],
+ qpre:["Good question!","Nice thinking, {name}.","Not a bad thought at all!","Ah, I'm glad you asked that.","That's a smart doubt.","Ooh, I like that one.","Now that is the kind of doubt a scientist asks.","You are really paying attention, I can tell.","Interesting! Let me answer that.","Yes, many students wonder about this."],
+ quiz:["Now a small question for you.","Let me check with a quick question.","Okay, your turn now.","Time to test my teaching, not you.","Quick puzzle for you, {name}.","Let's see how well I explained that."],
+ right:["Correct! Well done.","Yes! Exactly right.","Excellent, {name}!","Spot on.","That's it! Full marks.","Brilliant. You got it.","Right answer, and quickly too.","Yes yes yes. Perfect."],
+ wrong:["Hmm, not quite. Good try though.","Close, but not that one.","Not a bad guess, but try once more.","Almost. Think about it again.","I can see why you picked that, but no.","Not this time. Have another go."],
+ cont:["Shall we get back to the lesson?","Okay, shall we continue?","Ready to carry on?","Back to where we stopped?","Shall I pick up from where we left off?"],
+ look:["Hmm, that one is not in today's notes. Give me a moment, let me look it up.","Interesting doubt! It is outside this lesson, so let me check quickly.","Good one. I don't have that written down, let me find out for you."],
+ lat:["Okay, let us look at it from a completely different side.","Here is another way to think about it.","Let me turn the idea upside down for you."],
+ jokepre:["Small break. Here is a joke for you.","Before we finish, one silly joke.","You have worked hard, so here is something funny.","Okay, joke time. Ready?"],
+ jokepost:["Ha ha! Okay okay, back to work.","I know, I know, my jokes are terrible. Let us continue.","Did you at least smile? Good. Moving on.","Alright, enough comedy. Back to class."],
+ back:["Okay. So, as I was saying.","Right, back to our lesson.","Now, where were we? Yes.","Good. Let us continue from there."]
+};
+/* never repeat a phrase until every other phrase in its list has been used */
+const bags=new Map();const pick=a=>{let b=bags.get(a);if(!b||!b.length){b=a.slice().sort(()=>Math.random()-.5);if(b.length>1&&b[b.length-1]===a.last)b.reverse();bags.set(a,b)}const x=b.pop();a.last=x;return x};
+
+/* each teacher has their own way of saying the same thing */
+const PERSONA={
+ malar:{intro:["I'm {teacher} teacher. Come, sit comfortably. And if any doubt comes, just stop me and ask, okay?","I'm {teacher} teacher, and I am so happy you came today. Get comfortable, and interrupt me any time you like."],
+  checkq:["Is that clear so far, kanna?","Did that go into the head, {name}? Tell me honestly.","Shall I go on, or would you like it once more?","All okay till here, ma?","Any small doubt hiding there? Don't be shy."],
+  ok:["Very good, kanna. Let's move on.","Super. I knew you would get it.","Lovely. Next part now.","That's my smart student. Onward."],
+  qpre:["Good question, kanna!","Ah, I'm glad you asked that.","What a nice doubt, {name}.","See, this is why I like teaching you."],
+  right:["Correct! Well done, kanna.","Yes! Exactly right.","Excellent, {name}. I am proud of you."],wrong:["Hmm, not quite, but good try.","Close, kanna. Think once more.","That's okay. Try again, slowly."],
+  bye:["That's the end of today's class. Revise the short notes once before you sleep, okay? See you soon, {name}!","We are done for today, kanna. Drink some water, rest a little, and read the notes once tonight."]},
+ kavitha:{intro:["I am {teacher} teacher. Sit up straight, keep a notebook ready, and listen carefully. Questions are always welcome.","{teacher} teacher here. Today we work properly, step by step. If you do not follow something, tell me at once."],
+  checkq:["Have you understood this point, {name}?","Before we proceed, is this part clear?","Shall I continue, or do you need it repeated?","Any doubt in this step? Ask now.","Are you following the steps so far?"],
+  ok:["Good. We proceed.","Right. Next point.","Fine. Let us continue.","Well understood. Moving on."],
+  qpre:["A sensible question.","Good, you are thinking carefully.","That is worth asking, {name}.","Correct thing to ask at this point."],
+  right:["Correct. Good work.","That is right. Well done.","Precisely, {name}."],wrong:["No, that is not correct. Try again.","Not that one. Read the question once more.","Incorrect, but do not worry. Think again."],
+  bye:["That completes today's lesson. Copy the short notes into your notebook and revise them tonight. Good work, {name}.","We stop here. Revise once today and once tomorrow morning. That is how it stays in memory."]},
+ priya:{intro:["Hi hi! I'm {teacher}, your teacher for today. Get cosy, grab some water, and shout if anything feels confusing!","I'm {teacher} teacher! Ready for something fun? Sit however you like, and stop me whenever you want."],
+  checkq:["Making sense so far, {name}?","Okay, quick check. Are we good?","Got it, or should I try that again?","Still with me? Be honest!","How was that? Clear, or a little fuzzy?"],
+  ok:["Yay! Let's keep going.","Awesome. Next one!","Nice! You're on a roll.","Perfect. Here comes the fun part."],
+  qpre:["Ooh, great question!","I love that you asked that!","Nice one, {name}!","Okay, that is a really cool doubt."],
+  right:["Yes! You nailed it!","Correct! High five, {name}!","Woohoo, exactly right!"],wrong:["Oops, not that one. Try again!","So close! One more go.","Hmm, nope. But I like your thinking."],
+  bye:["And that's a wrap! Peek at the short notes once tonight, okay? Bye, {name}!","Done for today! You were great. Come back soon, and bring your doubts with you."]},
+ arun:{intro:["Hello, I'm {teacher} sir. Relax, sit easy. Think of me as an elder brother. Ask me anything, any time.","I'm {teacher} sir. Take a comfortable seat. We will take this slowly, like a friendly cricket practice."],
+  checkq:["Okay champ, is that clear?","Did you catch that, {name}, or did it go over the boundary?","Shall we move to the next over, or replay that one?","All fine so far, buddy?","Any doubt? Throw it at me."],
+  ok:["Good shot. Next ball.","Nice. Let's keep the scoreboard moving.","Well played. Onward.","Great. You are batting well today."],
+  qpre:["Good question, champ!","Nice thinking, {name}.","That's a clever one.","I was hoping someone would ask that."],
+  right:["That's a six! Correct.","Yes! Well played, {name}.","Right on target."],wrong:["Missed that one. Take another swing.","Not out yet! Try again.","Close, buddy. Have another look."],
+  bye:["That's stumps for today. Look at the short notes once before bed. See you, champ!","Good game today, {name}. A quick revision tonight and you will remember this for a long time."]},
+ karthik:{intro:["Good to see you. I am {teacher} sir. Make yourself comfortable. We will reason this out together, one step at a time.","I am {teacher} sir. Settle down calmly. I will explain the why behind everything, and you may question any step."],
+  checkq:["Does that reasoning make sense to you, {name}?","Is the logic clear up to this point?","Shall I proceed, or go over the reason again?","Can you see why that is true?","Any step where you lost the thread?"],
+  ok:["Good. Then the next step follows.","Clear. Let us build on that.","Right. Moving forward.","Well reasoned. Next."],
+  qpre:["That is a thoughtful question.","Good, you are asking why.","An important doubt, {name}.","Let us think about that carefully."],
+  right:["Correct. Your reasoning is sound.","Exactly right, {name}.","Yes. Well thought out."],wrong:["Not quite. Check your reasoning once more.","That does not follow. Try again.","Think about what we just learned, and try once more."],
+  bye:["That concludes the lesson. Go through the short notes once, and ask yourself why each line is true. Well done, {name}.","We are finished for today. Understanding stays longer than memorising, so think it over once tonight."]},
+ rajan:{intro:["Welcome, my dear child. I am {teacher} sir. I have been teaching for many years. Sit down peacefully, and never be afraid to ask.","I am {teacher} sir. Come, sit near. In my class, no question is a foolish question."],
+  checkq:["Have you understood, my child?","Is it clear, {name}? In my time we asked three times before we understood.","Shall I go ahead, or shall I tell it once more?","Tell me, did that reach you?","Any doubt, little one?"],
+  ok:["Very good, my child. Let us go on.","Good, good. Next.","I am pleased. We continue.","Fine. You are learning well."],
+  qpre:["Ah, a fine question.","Very good, my child. Curious minds learn the most.","I have heard that doubt from many good students.","Well asked, {name}."],
+  right:["Correct, my child. Well done.","Yes. That is right, {name}.","Very good. You have understood."],wrong:["No, my child. Think once again.","Not correct. But mistakes are how we learn.","Try once more, slowly."],
+  bye:["That is all for today, my child. Read the short notes once tonight. God bless you, {name}.","We end here. Learn a little every day, {name}, and you will go far."]}
+};
+const PH=new Proxy({},{get:(_,k)=>(PERSONA[S.avatar]&&PERSONA[S.avatar][k])||P[k]});
+
+/* ============ STATE ============ */
+const $=s=>document.querySelector(s);
+const S={level:1,teacher:'Malar',student:'',rate:1,voice:null,voiceId:'af_heart',avatar:'malar',run:0,idx:0,paused:false,L:null,miss:[]};
+const store={get(k,d){try{return localStorage.getItem(k)??d}catch(e){return d}},set(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
+const fill=t=>t.replace(/\{name\}/g,S.student||'dear').replace(/\{teacher\}/g,S.teacher);
+
+/* ============ TEACHERS AND VOICES ============ */
+const AV=new Avatar($('#av'));window.AV=AV;
+const TEACHERS=[['malar','Malar','f'],['kavitha','Kavitha','f'],['priya','Priya','f'],['arun','Arun','m'],['karthik','Karthik','m'],['rajan','Rajan','m']];
+const VOICES=[['af_heart','Woman 1 · American English','f'],['af_bella','Woman 2 · American English','f'],['af_nicole','Woman 3 · American, soft','f'],['bf_emma','Woman 4 · British English','f'],['bf_isabella','Woman 5 · British English','f'],['hf_alpha','Woman 6 · Indian tone (trial)','f'],['hf_beta','Woman 7 · Indian tone (trial)','f'],
+ ['am_michael','Man 1 · American English','m'],['am_fenrir','Man 2 · American English','m'],['bm_george','Man 3 · British English','m'],['bm_lewis','Man 4 · British English','m'],['hm_omega','Man 5 · Indian tone (trial)','m'],['hm_psi','Man 6 · Indian tone (trial)','m']];
+const GRADES=[['Classes 1–5 (slower, gentle)',.9],['Classes 6–8',1],['Classes 9–12 (faster)',1.1]];
+const opt=(sel,v,t)=>{const o=document.createElement('option');o.value=v;o.textContent=t;sel.appendChild(o)};
+function fillVoices(avail){const sel=$('#voice');sel.innerHTML='';VOICES.filter(v=>!avail||avail.includes(v[0])).forEach(v=>opt(sel,v[0],v[1]));
+ if(![...sel.options].some(o=>o.value===S.voiceId)&&sel.options.length)S.voiceId=sel.options[0].value;sel.value=S.voiceId;$('#tVoice').textContent=S.voiceId}
+const gender=()=>TEACHERS.find(t=>t[0]===S.avatar)[2];
+async function loadTeacher(id){const old=TEACHERS.find(t=>t[0]===S.avatar),nw=TEACHERS.find(t=>t[0]===id);S.avatar=id;store.set('mt_avatar',id);
+ const inp=$('#inTeacher');if(!inp.value.trim()||TEACHERS.some(t=>t[1]===inp.value.trim()))inp.value=nw[1];
+ const cur=VOICES.find(v=>v[0]===S.voiceId);if(!cur||cur[2]!==nw[2]){const sel=$('#voice'),f=VOICES.find(v=>v[2]===nw[2]&&[...sel.options].some(o=>o.value===v[0]));if(f){S.voiceId=f[0];sel.value=f[0];$('#tVoice').textContent=f[0]}}
+ $('#avLoad').style.display='';$('#avLoad').textContent='Loading teacher…';
+ try{await AV.load('avatars/'+id+'.glb');$('#avLoad').style.display='none'}catch(e){$('#avLoad').textContent='The 3D teacher could not load. The lesson still works.'}}
+TEACHERS.forEach(t=>opt($('#selAvatar'),t[0],t[1]+(t[2]==='f'?' (madam)':' (sir)')));
+GRADES.forEach((g,i)=>opt($('#grade'),i,g[0]));$('#grade').value=1;
+S.avatar=TEACHERS.some(t=>t[0]===store.get('mt_avatar',''))?store.get('mt_avatar','malar'):'malar';S.voiceId=store.get('mt_voice3d','af_heart');
+fillVoices(null);$('#selAvatar').value=S.avatar;
+$('#selAvatar').onchange=e=>loadTeacher(e.target.value);
+$('#voice').onchange=e=>{S.voiceId=e.target.value;store.set('mt_voice3d',S.voiceId);$('#tVoice').textContent=S.voiceId};
+$('#grade').onchange=e=>{S.rate=GRADES[+e.target.value][1];$('#rate').value=S.rate};
+$('#rate').oninput=e=>S.rate=+e.target.value;
+
+/* ============ SPEECH: our own API first, this browser's voice as the emergency fallback ============ */
+const synthU=window.speechSynthesis;let ctx=null,srcNode=null,api=null;const pending=new Map();
+async function ready(){
+ try{ctx=ctx||new (window.AudioContext||window.webkitAudioContext)();if(ctx.state==='suspended')await ctx.resume()}catch(e){ctx=null}
+ $('#caption').textContent='Getting the voice ready…';api=false;
+ for(let i=0;i<60&&ctx;i++){try{const h=await (await fetch('/api/health')).json();if(h.tts){api=true;fillVoices(h.voices);break}
+   $('#caption').textContent='The voice engine is warming up. The very first start can take a few minutes…'}catch(e){break}await sleep(3000)}
+ $('#tSync').textContent=api?'exact (mouth shapes timed by our own speech API)':'estimated (speech API not reachable, using this browser\'s voice)'}
+function fetchSpeech(text,low){const key=S.voiceId+'|'+S.rate+'|'+text,e=pending.get(key);
+ if(e&&e.low&&!low&&!e.done){e.low=false;fetch('/api/speak',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,voice:S.voiceId,speed:S.rate})}).catch(()=>{})}
+ if(!e){const p=(async()=>{const t0=performance.now();
+   const r=await fetch('/api/speak',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text,voice:S.voiceId,speed:S.rate,priority:low?'low':'high'})});
+   if(!r.ok)throw new Error('speak '+r.status);const j=await r.json();const bin=Uint8Array.from(atob(j.audio),c=>c.charCodeAt(0));
+   j.buf=await ctx.decodeAudioData(bin.buffer);j.audio=null;trim(j);j.ms=Math.round(performance.now()-t0);j.hit=r.headers.get('X-Cache')==='hit';return j})();
+  const ent={p,low:!!low,done:false};p.then(()=>ent.done=true,()=>pending.delete(key));pending.set(key,ent)}
+ return pending.get(key).p}
+/* the engine leaves about 0.3 s of silence before and 0.5 s after every sentence, which sounded like a pause between sentences.
+   We keep only a short natural breath: play from just before the first sound to just after the last one. */
+function trim(j){const d=j.buf.getChannelData(0),sr=j.buf.sampleRate,th=.01;let a=0,b=d.length-1;while(a<b&&Math.abs(d[a])<th)a++;while(b>a&&Math.abs(d[b])<th)b--;
+ j.t0=Math.max(0,a/sr-.05);j.t1=Math.min(j.buf.duration,b/sr+.2);if(j.t1-j.t0<.1){j.t0=0;j.t1=j.buf.duration}}
+/* background job: while the teacher talks, get the next minute of speech ready */
+function prefetch(i,main){const st=S.L&&S.L.steps[i];if(!api||!st||(st.level!==undefined&&st.level!==S.level))return;const t=main?[st.say,st.joke,st.quiz&&st.quiz.q]:[st.say,st.simpler,st.example,st.story,st.lateral,st.activity,st.quiz&&st.quiz.q,st.quiz&&st.quiz.hint,st.quiz&&st.quiz.why].filter(Boolean);
+ t.forEach(x=>sentences(fill(x)).forEach(s=>fetchSpeech(s,true).catch(()=>{})))}
+function prefetchPhrases(){if(!api)return;Object.values(Object.assign({},P,PERSONA[S.avatar]||{})).forEach(l=>l.forEach(x=>sentences(fill(x)).forEach(s=>fetchSpeech(s,true).catch(()=>{}))))}
+function sentences(t){return (t.match(/[^.!?]+[.!?]+|[^.!?]+$/g)||[]).map(s=>s.trim()).filter(Boolean)}
+function hot(k,ms){board.querySelectorAll('[data-k="'+k+'"]').forEach(e=>{e.classList.add('hot');setTimeout(()=>e.classList.remove('hot'),ms)})}
+/* when a sentence talks about something drawn on the board, the teacher turns and points while that part lights up */
+function cap(s){$('#caption').textContent=s;AV.mood.browUp=/\?$/.test(s)?.6:0;const low=' '+s.toLowerCase(),m=(S.cues||[]).filter(c=>low.includes(' '+c[0]));S.pointing=m.length>0;
+ if(m.length){AV.setScene('board');AV.look=.6}else if(!S.writing){AV.setScene('talk');AV.look=0}return m}
+async function say(text,run){const ss=sentences(fill(text)),ps=api?ss.map(s=>fetchSpeech(s)):[];ps.forEach(p=>p.catch(()=>{}));
+ for(let i=0;i<ss.length;i++){if(run!==S.run)return false;let j=null;if(api){try{j=await Promise.race([ps[i],new Promise(r=>setTimeout(()=>r(null),S.wait||2000))])}catch(e){j=null}}/* v2: if our voice is not ready within 2 s (sentence not prepared yet), this browser's voice keeps the lesson going instead of stopping; the engine still finishes and caches the sentence */
+  if(run!==S.run)return false;await (j?playOne(ss[i],j):sayBrowser(ss[i]))}
+ return run===S.run}
+function playOne(s,j){return new Promise(res=>{cap(s);const n=ctx.createBufferSource();n.buffer=j.buf;n.connect(ctx.destination);const t0=ctx.currentTime+.04;srcNode=n;
+ let done=false;const fin=()=>{if(done)return;done=true;AV.stop();res()};n.onended=fin;const off=j.t0||0;n.start(t0,off,(j.t1||j.buf.duration)-off);AV.speak(j,()=>(ctx.currentTime-t0+off)*1000);
+ if(S.cues&&S.cues.length&&j.words&&j.wtimes){const w=j.words.map(x=>String(x).toLowerCase().replace(/[^a-z0-9]/g,'')),run=S.run;
+  w.forEach((x,i)=>{if(!x)return;const win=x+' '+(w.slice(i+1).find(Boolean)||''),c=S.cues.find(c=>win.startsWith(c[0]));if(c)setTimeout(()=>{if(run===S.run)hot(c[1],1200)},Math.max(0,j.wtimes[i]+40-(j.t0||0)*1000))})}
+ $('#tLat').textContent=`last sentence ready in ${j.ms} ms (${j.hit?'from cache':'newly generated'}), ${j.visemes.length} mouth shapes`})}
+const L2V={a:'aa',e:'E',i:'I',y:'I',o:'O',u:'U',w:'U',m:'PP',b:'PP',p:'PP',f:'FF',v:'FF',s:'SS',z:'SS',c:'kk',k:'kk',g:'kk',q:'kk',x:'kk',n:'nn',l:'nn',r:'RR',t:'DD',d:'DD',j:'CH'};
+function estimate(s){const tl={visemes:[],vtimes:[],vdurations:[],wstart:[]};let t=90,m;const re=/[A-Za-z0-9']+|[,;:]/g;
+ while((m=re.exec(s))){const w=m[0].toLowerCase();if(/[,;:]/.test(w)){t+=190/S.rate;continue}
+  const vs=[];for(let i=0;i<w.length;i++){const two=w.substr(i,2);let v;if(two==='th'){v='TH';i++}else if(two==='sh'||two==='ch'){v='CH';i++}else v=/\d/.test(w[i])?'aa':L2V[w[i]];if(v&&v!==vs[vs.length-1])vs.push(v)}
+  const d=Math.max(170,w.length*68)/S.rate;tl.wstart.push([m.index,t]);vs.forEach((v,i)=>{tl.visemes.push(v);tl.vtimes.push(t+i*d/vs.length);tl.vdurations.push(d/vs.length)});t+=d+45/S.rate}
+ tl.total=t;return tl}
+function browserVoice(){if(!synthU)return null;const f=gender()==='f',sc=v=>(/en[-_]IN/i.test(v.lang)?4:0)+((f?/female|neerja|heera|veena|zira|samantha|sonia|libby|jenny|aria/i:/\bmale|ravi|prabhat|hemant|david|mark|george|rishi|guy|ryan/i).test(v.name)?3:0);
+ return synthU.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>sc(b)-sc(a))[0]||null}
+function sayBrowser(s){return new Promise(res=>{const cm=cap(s);const tl=estimate(s);cm.forEach(c=>hot(c[1],tl.total));let off=0,t0=performance.now(),done=false,guard;
+ const fin=()=>{if(done)return;done=true;clearTimeout(guard);AV.stop();res()},go=()=>{t0=performance.now();AV.speak(tl,()=>performance.now()-t0+off)};
+ const v=browserVoice();if(!v){go();guard=setTimeout(fin,tl.total+300);return}
+ const u=new SpeechSynthesisUtterance(s);u.voice=v;u.lang=v.lang;u.rate=S.rate;u.onstart=go;
+ u.onboundary=e=>{if(e.name&&e.name!=='word')return;const w=tl.wstart.find(x=>x[0]>=e.charIndex);if(w){off=w[1]-(performance.now()-t0);AV.ti=0}};
+ u.onend=fin;u.onerror=fin;guard=setTimeout(fin,tl.total*2+4000);synthU.speak(u)})}
+function stopSpeech(){S.run++;try{srcNode&&srcNode.stop()}catch(e){}srcNode=null;if(synthU)synthU.cancel();AV.stop()}
+
+/* ============ CHALKBOARD ============ */
+const board=$('#board'),arm={classList:{add(){S.writing=true;AV.look=0.6;AV.setScene('board')},remove(){S.writing=false;if(!S.pointing){AV.look=0;AV.setScene('talk')}}}};
+const B={
+ clear(){board.innerHTML=''},
+ async title(o,run,fast){await type('title',o.text,run,fast)},
+ async write(o,run,fast){await type('line',o.text,run,fast)},
+ async eq(o,run,fast){await type('eq',o.text,run,fast)},
+ async fig(o,run,fast){const d=document.createElement('div');d.innerHTML=o.svg;const svg=d.firstChild;board.appendChild(svg);board.scrollTop=board.scrollHeight;
+  for(const el of svg.children){if(el.tagName==='text'){el.classList.add('on');if(!fast)await sleep(250)}
+   else if(el.getTotalLength&&!fast){const len=el.getTotalLength();el.style.strokeDasharray=len;el.style.strokeDashoffset=len;el.getBoundingClientRect();
+    el.style.transition='stroke-dashoffset .55s ease';el.style.strokeDashoffset=0;await sleep(420)}
+   if(run!==S.run&&!fast)return}}
+};
+async function type(cls,text,run,fast){const d=document.createElement('div');d.className=cls;board.appendChild(d);
+ if(fast){d.textContent=text;return}
+ for(let i=1;i<=text.length;i++){if(run!==S.run){d.textContent=text;return}d.textContent=text.slice(0,i);board.scrollTop=board.scrollHeight;await sleep(34)}
+ await sleep(250)}
+async function doBoard(ops,run,fast){if(!ops)return;if(!fast){await sleep(500);arm.classList.add('point')}
+ for(const o of ops){if(run!==S.run&&!fast)break;await B[o.t](o,run,fast)}
+ arm.classList.remove('point')}
+async function rebuildBoard(upto){board.innerHTML='';for(let i=0;i<upto;i++)await doBoard(S.L.steps[i].board,S.run,true)}
+
+/* ============ CLASS FLOW ============ */
+function choose(opts){return new Promise(res=>{const c=$('#choices');c.innerHTML='';
+ opts.forEach(([val,label])=>{const b=document.createElement('button');b.type='button';b.textContent=label;b.onclick=()=>{c.innerHTML='';res(val)};c.appendChild(b)})})}
+const hideChoices=()=>$('#choices').innerHTML='';
+function setPaused(p){S.paused=p;$('#btnPause').textContent=p?'Resume':'Pause'}
+
+async function play(from,intro){stopSpeech();const run=S.run,L=S.L;S.idx=from;hideChoices();setPaused(false);
+ if(intro&&!(await say(intro,run)))return;
+ for(;S.idx<L.steps.length;S.idx++){if(run!==S.run)return;const st=L.steps[S.idx];$('#prog').value=S.idx/L.steps.length;prefetch(S.idx+1,1);prefetch(S.idx+2,1);S.cues=st.hl||[];
+  if(st.level!==undefined&&st.level!==S.level)continue;
+  if(st.joke){AV.mood.smile=.8;const ok=await say(pick(PH.jokepre)+' '+st.joke+' '+pick(PH.jokepost),run);AV.mood.smile=.35;if(!ok)return;continue}
+  if(st.say){await Promise.all([say(st.say,run),doBoard(st.board,run)]);if(run!==S.run)return;await sleep(400)}
+  if(st.check&&!(await check(st,run)))return;
+  if(st.quiz&&!(await quiz(st.quiz,run)))return}
+ if(run!==S.run)return;$('#prog').value=1;
+ if(L.ideas&&!(await teachBack(L,run)))return;
+ await say(pick(PH.bye),run);if(run!==S.run)return;
+ {const box=$('#src');box.textContent='Want to learn more? ';[['Read about it',`https://simple.wikipedia.org/wiki/Special:Search?search=${encodeURIComponent(L.title)}`],['Watch videos',`https://www.youtube.com/results?search_query=${encodeURIComponent(L.title+' '+L.meta+' explained')}`]].forEach(([t,u],i)=>{const l=document.createElement('a');l.href=u;l.target='_blank';l.rel='noopener';l.textContent=t;if(i)box.append(' · ');box.append(l)})}
+ const c=await choose([['again','Take this class again'],['home','Choose another lesson']]);if(run!==S.run)return;
+ c==='again'?(board.innerHTML='',play(0)):goHome()}
+
+/* teach-back: the student explains in their own words; we check which key ideas they covered (keyword rules, no AI) */
+async function teachBack(L,run){if(!(await say("One last thing, and this is my favourite part. Now you be the teacher! Explain "+L.title+" to me in your own words. Type it in the box below, or press skip.",run)))return false;
+ const txt=await new Promise(res=>{S.teach=res;choose([['skip','Skip']]).then(()=>res(''))});S.teach=null;hideChoices();if(run!==S.run)return false;
+ if(!txt.trim())return say("No problem. We will try that next time.",run);
+ const t=' '+txt.toLowerCase()+' ',got=L.ideas.filter(i=>i[1].some(w=>t.includes(w))),miss=L.ideas.filter(i=>!got.includes(i));log('Teach-back: '+txt,'covered '+got.length+' of '+L.ideas.length);
+ let m=got.length?"You explained "+got.map(i=>i[0]).join(', ')+". "+(miss.length?"Good!":"That is everything. Excellent, you can teach this class!"):"Thank you for trying.";
+ if(miss.length)m+=" You left out "+miss.map(i=>i[0]).join(', ')+". Remember this. "+miss.map(i=>i[2]).join(' ');
+ return say(m,run)}
+async function check(st,run){if(S.level===0&&st.simpler&&!(await say("Let me also put that in the simplest way. "+st.simpler,run)))return false;
+ for(;;){if(!(await say(pick(PH.checkq),run)))return false;
+ const c=await choose([['yes','Yes, got it'],['again','Explain again'],['ex','Give an example']].concat(st.story?[['story','Tell it as a story']]:[],st.lateral?[['lat','Think of it another way']]:[],st.activity?[['try','Something to try myself']]:[],[['ask','I have a doubt']]));if(run!==S.run)return false;
+ S.cues=c==='ex'&&st.exHl?st.exHl:(st.hl||[]);
+ if(c==='try'){if(!(await say("Here is something you can do with your own hands. "+st.activity+" Try it and see!",run)))return false;continue}
+ if(c==='lat'){if(!(await say(pick(PH.lat)+' '+st.lateral,run)))return false;continue}
+ if(c==='story'){if(!(await say("Okay, story time. "+st.story,run)))return false;continue}
+ if(c==='yes')return say(pick(PH.ok),run);
+ if(c==='again'){if(!(await say(pick(PH.again)+' '+st.simpler,run)))return false}
+ else if(c==='ex'){const r=await Promise.all([say(pick(PH.ex)+' '+st.example,run),st.exampleBoard?doBoard(st.exampleBoard,run):0]);if(!r[0])return false}
+ else{S.idx++;await say("Sure, tell me. Type your doubt in the box below.",run);$('#q').focus();return false}}}
+
+/* question types: multiple choice (also true/false, yes/no), one-word answer (typed or spoken), tap-on-the-picture */
+function getAnswer(q){
+ if(q.tap)return new Promise(res=>{const d=document.createElement('div');d.innerHTML=q.tap.svg;const svg=d.firstChild;board.appendChild(svg);board.scrollTop=board.scrollHeight;svg.querySelectorAll('text').forEach(t=>t.classList.add('on'));
+  svg.addEventListener('click',e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){hot(k,1500);hideChoices();res(k===q.tap.answer)}});choose([['x','Show me the answer']]).then(()=>res(null))});
+ if(q.accept)return new Promise(res=>{S.answer=t=>{S.answer=null;hideChoices();const x=t.toLowerCase().replace(/[^a-z]/g,'');res(q.accept.some(a=>x.includes(a)))};$('#q').placeholder='Type or say your answer…';$('#q').focus();choose([['x',"I don't know"]]).then(()=>{S.answer=null;res(null)})});
+ return choose(q.options.map((o,i)=>[i,o])).then(c=>c===q.answer)}
+async function quiz(q,run){if(!(await say(pick(PH.quiz)+' '+q.q,run)))return false;
+ const ans=q.reveal||q.options[q.answer];
+ for(let n=0;;n++){const ok=await getAnswer(q);$('#q').placeholder='Raise your hand: type any doubt here…';if(run!==S.run)return false;
+  if(q.tap&&ok!==true)hot(q.tap.answer,4000);
+  if(ok===true)return say(pick(PH.right)+' '+q.why,run);
+  if(ok===null||n>=1)return say("That's okay, this is how we learn. The answer is "+ans+". "+q.why,run);
+  if(!(await say(pick(PH.wrong)+' '+q.hint,run)))return false}}
+
+/* ============ ANSWERING DOUBTS: keyword search over the notes (no AI) ============ */
+const STOP=new Set('a an the is are was were what why how when where which who whom does do did can could will would shall should i you me my we it its of in on at to for and or but that this these those there tell about please mam madam miss teacher explain mean meaning means say called know want understand doubt'.split(' '));
+const stem=w=>w.length>4?w.replace(/(ing|es|ed|s)$/,''):w;
+const toks=s=>s.toLowerCase().replace(/[^a-z0-9√\s-]/g,' ').split(/\s+/).filter(w=>w&&!STOP.has(w)).map(stem);
+function answer(text){const t=text.toLowerCase();
+ if(/\b(robot|ai|human|real person|computer|machine)\b/.test(t)&&/\byou\b/.test(t))return{ok:1,text:"Honest answer? I'm {teacher}, a computer teacher. A program made to explain your lessons. I'm not a human, but I'm here any time you want to learn, and I never get tired of doubts!"};
+ if(/your name|who are you/.test(t))return{ok:1,text:"I'm {teacher} teacher. I take your smart classes here."};
+ if(/thank/.test(t))return{ok:1,text:"You're most welcome, {name}. That's what I'm here for."};
+ if(/^(hi|hello|hey|good (morning|afternoon|evening))\b/.test(t))return{ok:1,text:"Hello hello! Nice to see you, {name}."};
+ if(/slow|too fast/.test(t)){S.rate=Math.max(.7,S.rate-.1);$('#rate').value=S.rate;return{ok:1,text:"Sorry about that. I will speak a little slower now."}}
+ const q=toks(text);let best=null,bs=0;
+ for(const L of LESSONS)for(const e of L.qa){const ks=e.k.split(' ').map(stem);let s=q.filter(w=>ks.includes(w)).length;if(s&&L===S.L)s+=.5;if(s>bs){bs=s;best=e}}
+ if(best)return{ok:1,pre:pick(PH.qpre),text:best.a};
+ // fall back to the lesson script itself
+ let sb=null,ss=1;const sents=S.L.steps.flatMap(st=>st.say?sentences(st.say):[]);
+ sents.forEach((s,i)=>{const ws=toks(s);const sc=q.filter(w=>ws.includes(w)).length;if(sc>ss){ss=sc;sb=i}});
+ if(sb!==null)return{ok:1,pre:"Let me go back to that part.",text:sents[sb]+' '+(sents[sb+1]||'')};
+ return{ok:0,text:"Hmm, that's an interesting one, {name}, but it's not in my notes yet. I have written it down so it can be added. Meanwhile, do ask your class teacher too."}}
+
+async function onQuestion(text){text=text.trim();if(!text||!S.L)return;stopSpeech();const run=S.run;hideChoices();arm.classList.remove('point');
+ let a=answer(text);$('#src').textContent='';
+ if(!a.ok){S.miss.push(text);$('#tMiss').textContent=S.miss.join(' | ');
+  const wp=fetch('/api/lookup?q='+encodeURIComponent(text)).then(r=>r.ok?r.json():null).catch(()=>null);
+  if(!(await say(pick(PH.look),run)))return;const w=await wp;if(run!==S.run)return;
+  if(w){a={ok:1,text:"Here is what the encyclopedia says about "+w.title+". "+w.extract+" That is from Wikipedia. I will add it to our notes properly."};
+   const l=document.createElement('a');l.href=w.url;l.target='_blank';l.rel='noopener';l.textContent='Source: Wikipedia – '+w.title;$('#src').append(l)}}
+ log(text,fill(a.text));
+ if(!(await say((a.pre?a.pre+' ':'')+a.text,run)))return;
+ if(S.idx>=S.L.steps.length)return;
+ if(!(await say(pick(PH.cont),run)))return;
+ const c=await choose([['go','Yes, continue'],['more','One more doubt']]);if(run!==S.run)return;
+ if(c==='go'){await rebuildBoard(S.idx);play(S.idx,pick(PH.back))}else{say("Go ahead, I'm listening.",run);$('#q').focus()}}
+function log(q,a){const d=document.createElement('div');d.innerHTML='<b>Q:</b> ';d.append(q,' → ',a);$('#log').appendChild(d)}
+
+/* ============ UI WIRING ============ */
+/* typed or spoken input: an answer to a question, a spoken choice, a teach-back, or a new doubt */
+function route(v){v=(v||'').trim();if(!v)return;if(S.answer)return S.answer(v);if(S.teach)return S.teach(v);
+ const t=v.toLowerCase().replace(/[^a-z0-9 ]/g,''),bs=[...document.querySelectorAll('#choices button')];
+ if(bs.length&&t.split(' ').length<=6){const b=bs.find(b=>{const l=b.textContent.toLowerCase().replace(/[^a-z0-9 ]/g,'');return l===t||l.startsWith(t)||t.includes(l)||(/^(yes|yeah|ok|okay|got it|understood)/.test(t)&&/^yes/.test(l))||(/again|repeat|once more/.test(t)&&/again/.test(l))||(/example/.test(t)&&/example/.test(l))||(/story/.test(t)&&/story/.test(l))});if(b)return b.click()}
+ onQuestion(v)}
+$('#askForm').onsubmit=e=>{e.preventDefault();const v=$('#q').value;$('#q').value='';route(v)};
+$('#btnPause').onclick=()=>{if(!S.L)return;if(S.paused){rebuildBoard(S.idx).then(()=>play(S.idx))}else{stopSpeech();hideChoices();arm.classList.remove('point');setPaused(true);$('#caption').textContent='Paused. Press Resume when you are ready.'}};
+$('#btnRepeat').onclick=()=>{if(!S.L)return;let i=Math.min(S.idx,S.L.steps.length-1);while(i>0&&!S.L.steps[i].say)i--;rebuildBoard(i).then(()=>play(i,"Sure, once more."))};
+$('#btnHome').onclick=goHome;
+function goHome(){stopSpeech();hideChoices();$('#src').textContent='';S.L=null;$('#class').style.display='none';$('#start').style.display='';$('#btnHome').style.display='none'}
+function greet(){const h=new Date().getHours();return h<12?'Good morning':h<16?'Good afternoon':'Good evening'}
+function startLesson(L){S.level=+$('#level').value;S.student=$('#inStudent').value.trim();S.teacher=$('#inTeacher').value.trim()||'Malar';store.set('mt_student',S.student);store.set('mt_teacher',S.teacher);
+ $('#hTeacher').textContent=$('#plate').textContent=S.teacher;S.L=L;board.innerHTML='';
+ $('#start').style.display='none';$('#class').style.display='block';$('#btnHome').style.display='';
+ ready().then(()=>{if(S.L===L){play(0,greet()+", {name}! "+pick(PH.intro));setTimeout(()=>{const n=L.steps.length;for(let i=0;i<3;i++)prefetch(i,1);prefetchPhrases();for(let i=3;i<n;i++)prefetch(i,1);for(let i=0;i<n;i++)prefetch(i)},400)}})}
+$('#inStudent').value=store.get('mt_student','');$('#inTeacher').value=store.get('mt_teacher','Malar');
+loadTeacher(S.avatar);
+LESSONS.forEach(L=>{const b=document.createElement('button');b.className='lesson';b.dataset.id=L.id;b.innerHTML=`<b>${L.title}</b><span>${L.meta}</span>`;b.onclick=()=>startLesson(L);$('#lessonList').appendChild(b)});
+
+/* ============ PREPARE A LESSON: make all of its speech once, ahead of class ============ */
+/* every sentence the teacher can say in a lesson, for the teacher, voice, speed and student name chosen on this screen */
+function lessonTexts(L){const out=new Set(),PHr=Object.assign({},P,PERSONA[S.avatar]||{});
+ const add=t=>{if(t)sentences(fill(t)).forEach(x=>out.add(x))};
+ /* a spoken line is often phrase + content (+ phrase); sentences are cut after joining, so we join the same way for every phrase */
+ const pre=(list,t)=>{if(t)list.forEach(a=>add(a+' '+t))},post=(t,list)=>{if(t)list.forEach(a=>add(t+' '+a))};
+ Object.values(PHr).forEach(l=>l.forEach(add));
+ ['Good morning','Good afternoon','Good evening'].forEach(g=>PHr.intro.forEach(i=>add(g+', {name}! '+i)));
+ L.steps.forEach(st=>{add(st.say);
+  if(st.joke){pre(PHr.jokepre,st.joke);post(st.joke,PHr.jokepost)}
+  if(st.simpler){add("Let me also put that in the simplest way. "+st.simpler);pre(PHr.again,st.simpler)}
+  pre(PHr.ex,st.example);pre(PHr.lat,st.lateral);
+  if(st.story)add("Okay, story time. "+st.story);
+  if(st.activity)add("Here is something you can do with your own hands. "+st.activity+" Try it and see!");
+  if(st.quiz){const q=st.quiz;pre(PHr.quiz,q.q);pre(PHr.right,q.why);pre(PHr.wrong,q.hint);add("That's okay, this is how we learn. The answer is "+(q.reveal||(q.options&&q.options[q.answer]))+". "+q.why)}});
+ if(L.ideas)add("One last thing, and this is my favourite part. Now you be the teacher! Explain "+L.title+" to me in your own words. Type it in the box below, or press skip.");
+ ["No problem. We will try that next time.","Sure, tell me. Type your doubt in the box below.","Sure, once more.","Go ahead, I'm listening."].forEach(add);
+ return [...out]}
+window.lessonTexts=lessonTexts;
+{const sel=$('#prepLesson'),msg=$('#prepMsg'),bar=$('#prepBar'),go=$('#prepGo'),all=$('#prepAll'),stop=$('#prepStop');let working=false,stopNow=false;
+ LESSONS.forEach(L=>opt(sel,L.id,L.title));
+ const grab=()=>{S.student=$('#inStudent').value.trim();S.teacher=$('#inTeacher').value.trim()||'Malar'};
+ const call=(L,extra)=>fetch('/api/prepare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({texts:lessonTexts(L),voice:S.voiceId,speed:S.rate},extra||{}))}).then(async r=>{const j=await r.json();if(!r.ok)throw new Error(j.error||'error');return j});
+ const mins=s=>s<90?Math.round(s)+' seconds':Math.round(s/60)+' minutes';
+ const mark=(L,r)=>{const b=document.querySelector('.lesson[data-id="'+L.id+'"]');if(!b)return;let t=b.querySelector('.tick');if(!t){t=document.createElement('span');t.className='tick';b.appendChild(t)}
+  t.textContent=r.missing?'':'✓ Prepared: plays without waiting';t.style.display=r.missing?'none':''};
+ /* look only: which lessons are already prepared for the current choices */
+ async function refresh(){if(working)return;grab();try{let cur=null;for(const L of LESSONS){const r=await call(L);mark(L,r);if(L.id===sel.value)cur=r}
+   msg.textContent=!cur?'':cur.missing?`Not prepared yet: ${cur.missing} of ${cur.total} sentences still have to be made (roughly ${mins(cur.missing*6)} on this laptop). You can leave it running and come back.`:`Ready. All ${cur.total} sentences of this lesson are prepared for this voice, speed and name.`;
+   go.disabled=!cur||!cur.missing}catch(e){msg.textContent='The speech server is not running. Start it with "Start Malar Teacher.bat", then reload this page.';go.disabled=all.disabled=true}}
+ async function run(list){working=true;stopNow=false;grab();go.disabled=all.disabled=true;stop.style.display='';bar.style.display='';
+  try{for(const L of list){let r=await call(L),tries=0;
+     while(!r.engine&&r.missing&&!stopNow&&tries++<100){msg.textContent='The voice engine is warming up…';await sleep(3000);r=await call(L)}
+     if(!r.missing){mark(L,r);continue}
+     const first=r.missing,t0=performance.now();r=await call(L,{start:true});
+     while(r.missing&&!stopNow){bar.value=1-r.missing/r.total;const made=first-r.missing,eta=made>1?(performance.now()-t0)/1000/made*r.missing:r.missing*6;
+      msg.textContent=`Preparing "${L.title}": ${r.ready} of ${r.total} sentences ready, about ${mins(eta)} left. You can keep this page open and do other things.`;
+      if(!r.busy&&!r.queued){msg.textContent=`Stopped: ${r.missing} sentences of "${L.title}" could not be made. Press the button to try again; if it repeats, send server.log to Claude.`;working=false;return}
+      await sleep(2000);r=await call(L)}
+     if(stopNow){await call(L,{cancel:true});msg.textContent='Stopped. What was already made is kept; press the button to continue later.';break}
+     bar.value=1;mark(L,r)}
+   if(!stopNow){working=false;await refresh();if(list.length>1)msg.textContent='Ready. All lessons are prepared for this voice, speed and name.'}}
+  catch(e){msg.textContent='Could not prepare: '+e.message+'. Check that the black Malar Teacher window is open.'}
+  finally{working=false;stop.style.display='none';bar.style.display='none';all.disabled=false}}
+ go.onclick=()=>run([LESSONS.find(L=>L.id===sel.value)]);all.onclick=()=>run(LESSONS);stop.onclick=()=>{stopNow=true};
+ sel.onchange=refresh;['#voice','#grade','#rate','#selAvatar','#inStudent','#inTeacher'].forEach(q=>$(q).addEventListener('change',()=>setTimeout(refresh,300)));
+ setTimeout(refresh,800);window.prepRefresh=refresh}
+
+/* student's rough-work board */
+{const pad=$('#pad'),pc=pad.getContext('2d');let down=false,erase=false;
+ const fit=()=>{const r=pad.getBoundingClientRect();if(r.width&&pad.width!==Math.round(r.width)){pad.width=Math.round(r.width);pad.height=220}};
+ const pos=e=>{const r=pad.getBoundingClientRect();return[e.clientX-r.left,e.clientY-r.top]};
+ pad.onpointerdown=e=>{fit();down=true;pad.setPointerCapture(e.pointerId);pc.beginPath();pc.moveTo(...pos(e))};
+ pad.onpointermove=e=>{if(!down)return;pc.lineWidth=erase?18:2.5;pc.lineCap='round';pc.strokeStyle=erase?'#fff':'#1c3d6e';pc.lineTo(...pos(e));pc.stroke()};
+ pad.onpointerup=pad.onpointercancel=()=>down=false;
+ $('#padPen').onclick=()=>erase=false;$('#padErase').onclick=()=>erase=true;$('#padClear').onclick=()=>pc.clearRect(0,0,pad.width,pad.height)}
+
+/* optional: spoken doubts, where the browser and page allow the microphone */
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SR&&window.self===window.top){const mic=$('#mic');mic.style.display='';mic.onclick=()=>{try{if(!S.answer&&!S.teach&&!document.querySelector('#choices button'))stopSpeech();else{try{srcNode&&srcNode.stop()}catch(e){}}const r=new SR();r.lang='en-IN';
+ r.onresult=e=>route(e.results[0][0].transcript);r.onerror=()=>{$('#caption').textContent='I could not hear you. Please type your doubt.'};
+ $('#caption').textContent='Listening…';r.start()}catch(e){mic.style.display='none'}}}
+</script>
+</body>
+</html>

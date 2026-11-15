@@ -13,7 +13,7 @@ import { fileURLToPath } from 'node:url';
 
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT || 8080), TTS_PORT = Number(process.env.TTS_PORT || 8882);
-const PUB = path.join(ROOT, 'public'), CACHE = path.join(ROOT, 'cache'), VOICEDIR = path.join(ROOT, 'voices');
+const PUB = path.join(ROOT, process.env.PUBLIC_DIR || 'public'), CACHE = path.join(ROOT, 'cache'), VOICEDIR = path.join(ROOT, 'voices');
 const HT = path.join(ROOT, 'node_modules', '@met4citizen', 'headtts');
 const VOICES = ['af_heart', 'af_bella', 'af_nicole', 'bf_emma', 'bf_isabella', 'hf_alpha', 'hf_beta', 'am_michael', 'am_fenrir', 'bm_george', 'bm_lewis', 'hm_omega', 'hm_psi'];
 const VOICE_URL = 'https://huggingface.co/onnx-community/Kokoro-82M-v1.0-ONNX/resolve/main/voices/';

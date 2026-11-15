@@ -1,6 +1,6 @@
 // Usage: pnpm --filter @studysmart/api audio:build [-- --server http://localhost:8080] [--lang en] [--force] [--prune]
 // Needs the Malar Teacher speech server running (Start Malar Teacher.bat). No internet or keys needed.
-import { audioDir, lessonsDir, questionsDir } from "../server-paths.js";
+import { audioDir, classroomDir, lessonsDir, questionsDir } from "../server-paths.js";
 import { buildAudio, type Speak } from "../modules/audio/build.js";
 import type { Lang } from "../modules/audio/manifest.js";
 
@@ -18,6 +18,6 @@ const speak: Speak = async (text, voice, speed) => {
   if (!r.ok) throw new Error(`speech server answered ${r.status}`);
   return r.json();
 };
-const report = await buildAudio({ lessonsDir, questionsDir, audioDir, speak, langs: lang ? [lang] : undefined, force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
+const report = await buildAudio({ lessonsDir, questionsDir, classroomDir, audioDir, speak, langs: lang ? [lang] : undefined, force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
 console.log(`\nSentences wanted ${report.wanted}: generated ${report.generated}, already done ${report.reused}${report.pruned ? `, removed ${report.pruned} unused` : ""}.`);
 for (const s of report.skipped) console.log("  skipped:", s);

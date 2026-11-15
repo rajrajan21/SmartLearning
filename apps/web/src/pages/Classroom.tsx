@@ -1,0 +1,235 @@
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { Link, useParams } from "wouter";
+import { estimateDurationMs, sceneAt, type PublicClassroom } from "@studysmart/shared";
+import { useSettings } from "../lib/settings";
+import { ui } from "../lib/i18n";
+import { useRetry } from "../lib/curriculum";
+import { useClassroom, useClassroomIndex } from "../lib/classroom";
+import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
+import { ErrorBox, Loading, NotFound } from "../components/bits";
+
+type Phase = "idle" | "playing" | "paused" | "gap" | "check" | "feedback" | "done";
+const reduced = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
+const hasSpeech = () => typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined";
+
+export function ClassroomHub() {
+  const s = useSettings();
+  const on = s.get("feature.classroom") === true;
+  const [attempt, retry] = useRetry();
+  const idx = useClassroomIndex(on, attempt);
+  if (!on) return <NotFound />;
+  if (idx.status === "loading") return <Loading />;
+  if (idx.status === "error") return <ErrorBox onRetry={retry} />;
+  return (
+    <div className="paper">
+      <h1>{ui("classroomTitle", s.lang)}</h1>
+      <p className="lead">{ui("classroomIntro", s.lang)}</p>
+      {idx.data.items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : (
+        <ul className="class-list">
+          {idx.data.items.map((i) => (
+            <li key={`${i.subject}/${i.chapter}/${i.topic}`}>
+              <Link className="class-card" href={`/classroom/${i.board.toLowerCase()}/${i.classLevel}/${i.subject}/${i.chapter}/${i.topic}`}>
+                <b>{s.name(i.title)}</b>
+                <span>{ui("classWord", s.lang)} {i.classLevel} · {i.subject} · {i.steps} {ui("classroomSteps", s.lang)}</span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+export function ClassroomPage() {
+  const s = useSettings();
+  const { board = "", cls = "", subject = "", chapter = "", topic = "" } = useParams<{ board: string; cls: string; subject: string; chapter: string; topic: string }>();
+  const on = s.get("feature.classroom") === true;
+  const [attempt, retry] = useRetry();
+  const st = useClassroom(board, cls, subject, chapter, topic, on, attempt);
+  if (!on) return <NotFound />;
+  if (st.status === "loading") return <Loading />;
+  if (st.status === "error") return <ErrorBox onRetry={retry} />;
+  if (!st.data) return <NotFound />;
+  return <Player lesson={st.data} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
+}
+
+function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
+  const s = useSettings();
+  const { lang } = s;
+  const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
+  const autoAdvance = s.get("classroom.autoAdvance") === true, pauseMs = s.get<number>("classroom.stepPauseMs");
+  const captions = s.get("classroom.showCaptions") === true, show3d = s.get("classroom.show3d") === true;
+  const style = s.get<string>("classroom.boardStyle") as BoardStyle, browserVoice = s.get("classroom.browserVoice") === true;
+  const instant = useMemo(reduced, []);
+
+  const [step, setStep] = useState(0);
+  const [phase, setPhase] = useState<Phase>("idle");
+  const [t, setT] = useState(0);
+  const [rate, setRate] = useState(Number(s.get<string>("classroom.speed")) || 1);
+  const [mute, setMute] = useState(false);
+  const [yaw, setYaw] = useState(0);
+  const [clock, setClock] = useState(0);
+  const [wordIdx, setWordIdx] = useState(-1);
+  const [picked, setPicked] = useState<string | null>(null);
+  const [wrongNote, setWrongNote] = useState<string | null>(null);
+
+  const cur = lesson.steps[step]!;
+  const text = cur.narration[lang] ?? cur.narration.en;
+  const rec = mute ? undefined : cur.audio?.[lang] ?? (lang !== "en" ? undefined : cur.audio?.en);
+  const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en) / rate;
+  const words = rec?.words;
+
+  // refs so the animation loop never sees stale values
+  const R = useRef({ phase, step, rate, mute, durMs, rec, lesson, autoAdvance, pauseMs, browserVoice });
+  R.current = { phase, step, rate, mute, durMs, rec, lesson, autoAdvance, pauseMs, browserVoice };
+  const audioEl = useRef<HTMLAudioElement | null>(null);
+  const tRef = useRef(0);
+  const run = useRef(0);
+  const speechDone = useRef(true);
+  const timer = useRef<number | null>(null);
+
+  const stopVoice = useCallback(() => {
+    if (audioEl.current) { audioEl.current.pause(); audioEl.current.onended = null; audioEl.current = null; }
+    if (hasSpeech()) speechSynthesis.cancel();
+    speechDone.current = true;
+  }, []);
+  const clearTimer = () => { if (timer.current !== null) { clearTimeout(timer.current); timer.current = null; } };
+
+  /** plays a recording, or the device voice when allowed and there is no recording */
+  const say = useCallback((ref: { url: string } | undefined, fallbackText: string | undefined, onEnd?: () => void) => {
+    const { mute: m, rate: r, browserVoice: bv } = R.current;
+    if (m) { onEnd?.(); return; }
+    if (ref) { const a = new Audio(ref.url); a.playbackRate = r; a.onended = () => onEnd?.(); a.onerror = () => onEnd?.(); audioEl.current = a; void a.play().catch(() => onEnd?.()); return; }
+    if (bv && hasSpeech() && fallbackText) { const u = new SpeechSynthesisUtterance(fallbackText); u.lang = "en-IN"; u.rate = r; u.onend = () => onEnd?.(); u.onerror = () => onEnd?.(); speechSynthesis.speak(u); return; }
+    onEnd?.();
+  }, []);
+
+  const begin = useCallback((i: number) => {
+    run.current++; stopVoice(); clearTimer();
+    const stp = R.current.lesson.steps[i]!;
+    tRef.current = 0; setT(0); setStep(i); setPicked(null); setWrongNote(null); setWordIdx(-1); setPhase("playing");
+    const rr = R.current.mute ? undefined : stp.audio?.[lang] ?? stp.audio?.en;
+    speechDone.current = !(!rr && R.current.browserVoice && hasSpeech() && !R.current.mute);
+    const id = run.current;
+    if (rr) { const a = new Audio(rr.url); a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { /* blocked: the virtual clock still runs */ }); }
+    else if (!speechDone.current) { const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate; u.onend = () => { if (run.current === id) speechDone.current = true; }; u.onerror = u.onend; speechSynthesis.speak(u); }
+  }, [lang, stopVoice]);
+
+  const finishStep = useCallback(() => {
+    const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
+    if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[lang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
+    if (i + 1 >= ls.steps.length) { setPhase("done"); return; }
+    if (!R.current.autoAdvance) { setPhase("paused"); return; }
+    setPhase("gap");
+    const id = run.current;
+    timer.current = window.setTimeout(() => { if (run.current === id) begin(i + 1); }, R.current.pauseMs);
+  }, [begin, lang, say]);
+
+  // the clock: audio position when a recording plays, otherwise a virtual clock
+  useEffect(() => {
+    if (phase !== "playing") return;
+    let raf = 0, last = performance.now();
+    const tick = (now: number) => {
+      const dt = now - last; last = now;
+      const a = audioEl.current, r = R.current;
+      let ms: number;
+      if (a && r.rec) ms = a.currentTime * 1000; else { tRef.current += dt * r.rate; ms = tRef.current; }
+      tRef.current = ms; setT(ms); setClock((c) => c + dt / 1000);
+      if (a && r.rec) { const w = r.rec.words; let k = -1; for (let n = 0; n < w.length; n++) if (w[n]!.t <= ms) k = n; setWordIdx(k); }
+      else if (!speechDone.current && ms > r.durMs * 2.5) speechDone.current = true;
+      const over = a && r.rec ? a.ended || ms >= r.durMs + 50 : ms >= r.durMs && speechDone.current;
+      if (over) { setT(r.durMs); finishStep(); return; }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [phase, step, finishStep]);
+
+  useEffect(() => () => { run.current++; stopVoice(); clearTimer(); }, [stopVoice]);
+
+  const play = () => {
+    if (phase === "idle" || phase === "done") { begin(0); return; }
+    if (phase === "paused") {
+      if (tRef.current >= durMs - 30) { if (step + 1 < lesson.steps.length) begin(step + 1); else setPhase("done"); return; }
+      setPhase("playing"); void audioEl.current?.play().catch(() => {}); if (hasSpeech()) speechSynthesis.resume(); return;
+    }
+  };
+  const pause = () => { if (phase !== "playing") return; audioEl.current?.pause(); if (hasSpeech()) speechSynthesis.pause(); setPhase("paused"); };
+  const go = (i: number) => begin(Math.max(0, Math.min(lesson.steps.length - 1, i)));
+  const toggleMute = () => { const m = !mute; setMute(m); if (m) stopVoice(); };
+
+  const choose = (id: string) => {
+    if (!cur.check || phase !== "check") return;
+    const o = cur.check.options.find((x) => x.id === id)!;
+    stopVoice(); setPicked(id);
+    if (o.correct) { setPhase("feedback"); setWrongNote(null); say(cur.checkAudio?.explanation?.[lang] ?? cur.checkAudio?.explanation?.en, cur.check.explanation.en); }
+    else { setWrongNote(s.name(o.whyWrong ?? { en: "" })); say(undefined, o.whyWrong?.en); }
+  };
+  const proceed = () => { stopVoice(); if (step + 1 >= lesson.steps.length) setPhase("done"); else begin(step + 1); };
+
+  useEffect(() => { // keyboard: space plays or pauses
+    const h = (e: KeyboardEvent) => {
+      if ((e.target as HTMLElement).closest("button, select, input, textarea, a")) return;
+      if (e.key === " ") { e.preventDefault(); if (R.current.phase === "playing") pause(); else play(); }
+      if (e.key === "ArrowRight") go(R.current.step + 1);
+      if (e.key === "ArrowLeft") go(R.current.step - 1);
+    };
+    window.addEventListener("keydown", h); return () => window.removeEventListener("keydown", h);
+  });
+
+  const shownT = phase === "idle" ? 0 : Math.min(t, durMs);
+  const scene = useMemo(() => sceneAt(lesson, step, phase === "idle" ? 0 : shownT, { durMs, words, instant, lang: "en" }), [lesson, step, shownT, durMs, words, instant, phase]);
+  const tokens = text.split(/\s+/);
+  const wordsMatch = !!words && words.length === tokens.length;
+  const playing = phase === "playing", started = phase !== "idle";
+
+  return (
+    <div className="paper classroom">
+      <p className="small"><Link href={back}>← {L("backToTopic")}</Link></p>
+      <h1>{s.name(lesson.title)}</h1>
+      <div className="class-stage">
+        <ClassBoard objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
+        {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
+        {phase === "done" && (
+          <div className="class-done" role="status"><b>{L("classroomDone")}</b>
+            <div className="chips-row"><button type="button" className="btn" onClick={() => begin(0)}>{L("classroomAgain")}</button><Link className="btn ghost" href={back}>{L("classroomBack")}</Link></div></div>
+        )}
+      </div>
+
+      <div className="class-controls" role="group" aria-label={L("classroomControls")}>
+        {playing ? <button type="button" className="btn" onClick={pause}>⏸ {L("classroomPause")}</button> : <button type="button" className="btn" onClick={play} disabled={phase === "check" || phase === "feedback"}>▶ {started ? L("classroomResume") : L("classroomStart")}</button>}
+        <button type="button" className="btn ghost" onClick={() => begin(step)} disabled={!started}>↺ {L("classroomReplay")}</button>
+        <button type="button" className="btn ghost" onClick={() => go(step - 1)} disabled={!started || step === 0}>← {L("back")}</button>
+        <button type="button" className="btn ghost" onClick={() => go(step + 1)} disabled={!started || step + 1 >= lesson.steps.length}>{L("next")} →</button>
+        <button type="button" className="btn ghost" onClick={() => go(0)} disabled={!started}>⟲ {L("classroomRestart")}</button>
+        <label className="class-rate">{L("classroomSpeed")}
+          <select value={rate} onChange={(e) => { const r = Number(e.target.value); setRate(r); if (audioEl.current) audioEl.current.playbackRate = r; }}>
+            <option value={0.75}>0.75×</option><option value={1}>1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
+          </select>
+        </label>
+        <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
+      </div>
+      <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
+
+      {captions && started && (
+        <p className="class-caption" aria-live="off">{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
+      )}
+
+      {cur.check && (phase === "check" || phase === "feedback") && (
+        <section className="class-check" aria-label={L("classroomQuestion")}>
+          <h2>{L("classroomQuestion")}</h2>
+          <p><b>{s.name(cur.check.stem)}</b></p>
+          <ul className="options">
+            {cur.check.options.map((o) => {
+              const right = phase === "feedback" && o.correct, bad = picked === o.id && !o.correct;
+              return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{s.name(o.text)}</button></li>;
+            })}
+          </ul>
+          {wrongNote && <p className="notice" role="alert">{L("classroomTryAgain")} {wrongNote}</p>}
+          {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {s.name(cur.check.explanation)}</p>
+            <button type="button" className="btn" onClick={proceed}>{step + 1 >= lesson.steps.length ? L("finish") : L("classroomContinue")}</button></div>)}
+        </section>
+      )}
+    </div>
+  );
+}

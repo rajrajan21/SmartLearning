@@ -1,0 +1,330 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "maths",
+ "chapter": "fun-with-shapes",
+ "topic": "sides-and-corners",
+ "status": "published",
+ "title": {
+  "en": "Solid shapes you can hold",
+  "ta": "கையில் பிடிக்கக்கூடிய திண்ம வடிவங்கள்"
+ },
+ "objects": [
+  {
+   "kind": "solid",
+   "id": "cube",
+   "shape": "cube",
+   "x": 260,
+   "y": 265,
+   "size": 270,
+   "color": "water"
+  },
+  {
+   "kind": "text",
+   "id": "t0",
+   "x": 260,
+   "y": 60,
+   "text": "A solid shape",
+   "size": 40,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tFaces",
+   "x": 660,
+   "y": 150,
+   "text": "6 faces",
+   "size": 56,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tEdges",
+   "x": 660,
+   "y": 260,
+   "text": "12 edges",
+   "size": 56,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tCorners",
+   "x": 660,
+   "y": 370,
+   "text": "8 corners",
+   "size": 56,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "solid",
+   "id": "cyl",
+   "shape": "cylinder",
+   "x": 170,
+   "y": 250,
+   "size": 210,
+   "color": "warm"
+  },
+  {
+   "kind": "solid",
+   "id": "cone",
+   "shape": "cone",
+   "x": 450,
+   "y": 250,
+   "size": 210,
+   "color": "good"
+  },
+  {
+   "kind": "solid",
+   "id": "ball",
+   "shape": "sphere",
+   "x": 730,
+   "y": 250,
+   "size": 210,
+   "color": "accent"
+  },
+  {
+   "kind": "text",
+   "id": "tCyl",
+   "x": 170,
+   "y": 440,
+   "text": "cylinder",
+   "size": 38,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tCone",
+   "x": 450,
+   "y": 440,
+   "text": "cone",
+   "size": 38,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tBall",
+   "x": 730,
+   "y": 440,
+   "text": "sphere",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "solid",
+   "narration": {
+    "en": "Some shapes are not flat. They are solid, and you can hold them in your hand."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "cube",
+     "at": 0,
+     "ms": 800
+    },
+    {
+     "do": "spin",
+     "target": "cube",
+     "at": 0.1,
+     "rate": 28
+    },
+    {
+     "do": "write",
+     "target": "t0",
+     "on": "solid"
+    }
+   ]
+  },
+  {
+   "id": "faces",
+   "narration": {
+    "en": "This is a cube. Look at its flat sides. They are called faces. A cube has six faces."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "cube",
+     "on": "faces",
+     "mode": "faces"
+    },
+    {
+     "do": "write",
+     "target": "tFaces",
+     "on": "six faces",
+     "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "edges",
+   "narration": {
+    "en": "Where two faces meet, we get an edge. A cube has twelve edges."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "cube",
+     "at": 0,
+     "mode": "edges"
+    },
+    {
+     "do": "write",
+     "target": "tEdges",
+     "on": "twelve edges",
+     "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "corners",
+   "narration": {
+    "en": "The pointed places are called corners. A cube has eight corners."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "cube",
+     "at": 0,
+     "mode": "corners"
+    },
+    {
+     "do": "write",
+     "target": "tCorners",
+     "on": "eight corners",
+     "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "recall",
+   "narration": {
+    "en": "Look at the cube again and think about what you saw."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "cube",
+     "at": 0,
+     "mode": "faces"
+    },
+    {
+     "do": "pulse",
+     "target": "cube",
+     "at": 0.3,
+     "color": "accent"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "How many faces does a cube have?"
+    },
+    "explanation": {
+     "en": "A cube has six faces, twelve edges and eight corners."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "4"
+      },
+      "whyWrong": {
+       "en": "A cube has more than four. Count the flat sides again, including the top and the bottom."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "6"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "8"
+      },
+      "whyWrong": {
+       "en": "Eight is the number of corners, not faces."
+      }
+     },
+     {
+      "id": "d",
+      "text": {
+       "en": "12"
+      },
+      "whyWrong": {
+       "en": "Twelve is the number of edges, not faces."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "others",
+   "narration": {
+    "en": "Now meet some other solid shapes. A cylinder can roll and stand. A cone has one pointed tip. A sphere is round like a ball."
+   },
+   "actions": [
+    {
+     "do": "clear"
+    },
+    {
+     "do": "show",
+     "target": "cyl",
+     "on": "cylinder"
+    },
+    {
+     "do": "write",
+     "target": "tCyl",
+     "on": "cylinder"
+    },
+    {
+     "do": "show",
+     "target": "cone",
+     "on": "cone"
+    },
+    {
+     "do": "write",
+     "target": "tCone",
+     "on": "cone"
+    },
+    {
+     "do": "show",
+     "target": "ball",
+     "on": "sphere"
+    },
+    {
+     "do": "write",
+     "target": "tBall",
+     "on": "sphere"
+    },
+    {
+     "do": "spin",
+     "target": "cyl",
+     "on": "cylinder",
+     "rate": 30
+    },
+    {
+     "do": "spin",
+     "target": "cone",
+     "on": "cone",
+     "rate": 30
+    },
+    {
+     "do": "spin",
+     "target": "ball",
+     "on": "sphere",
+     "rate": 30
+    }
+   ]
+  }
+ ]
+}

@@ -65,3 +65,9 @@ Give this file to Claude if a new conversation is started: "Read PROJECT_NOTES.m
 - Owner agreed: face with FLUX.1 [schnell] (Apache-2.0), animate with open-source talking-avatar/lip-sync models, human Indian voice.
 - notebooks/kaggle_render_DRAFT.py (UNTESTED, no GPU here): FLUX schnell (SDXL fallback) -> 4 candidate faces; Indic Parler-TTS voices (ta/hi/en); SadTalker and Sonic renders; contact sheet. Hallo2/EchoMimicV3/LongCat left as stubs. Sonic licence is research/non-commercial - comparison only.
 - Needs owner: Kaggle account (phone verified), Internet ON, GPU on.
+
+## 14 Nov (evening) - v2 = original 3D teacher restored for testing
+- public_v2/ is a frozen copy of the 3D teacher player (six MakeHuman avatars, 5 lessons: Photosynthesis, Pythagoras, Fractions, Water Cycle, Nouns and Verbs, Prepare-a-lesson panel). Start it with "Start Malar Teacher v2.bat" (sets PUBLIC_DIR=public_v2; same speech cache, so the prepared Photosynthesis audio plays at once). server.mjs now reads PUBLIC_DIR (default public). Backup: _backup/server_before_v2.mjs.
+- Run only one start file at a time (both use ports 8080 and 8882). Realistic-video (Kaggle/SadTalker) work stays separate in notebooks/ and D:\Malar Teacher Clips.
+- Kaggle sample clips A_sadtalker_en.mp4 / A_sadtalker_ta.mp4 are in the project folder (English and Tamil, SadTalker, placeholder MMS voice).
+- 14 Nov (evening): v2 stopped after a few sentences because sentences not yet prepared (e.g. teacher Kavitha, voice af_bella) take 9-19 s each on the CPU engine and say() waited for each. public_v2/index.html say() now waits max 2 s for our voice, otherwise that sentence is spoken by the browser voice (lesson never stalls). Fully natural voice needs "Prepare this lesson" for the chosen teacher/voice/speed/name first (about 30 min per lesson).

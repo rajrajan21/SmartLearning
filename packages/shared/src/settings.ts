@@ -31,7 +31,7 @@ export type SettingDef = Base &
     | { type: "numberlist"; default: number[]; options: number[] }
   );
 
-export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor" | "parent" | "tests" | "pages";
+export type PanelId = "features" | "lessons" | "practice" | "theme" | "home" | "languages" | "catalog" | "site" | "accounts" | "mastery" | "tutor" | "parent" | "tests" | "pages" | "classroom";
 export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "features", label: "Features", help: "Switch whole parts of the site on or off." },
   { id: "lessons", label: "Lessons", help: "How lessons play, save progress and reveal." },
@@ -44,6 +44,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
   { id: "tutor", label: "Ask the teacher", help: "The question helper: where it appears, daily limits and safety." },
   { id: "parent", label: "Parent dashboard", help: "What parents can see about their children and download." },
+  { id: "classroom", label: "Classroom boards", help: "Animated board lessons: the teacher talks while the board draws, writes and turns 3D shapes step by step." },
   { id: "tests", label: "Tests, worksheets and games", help: "Timed chapter tests, printable worksheets and quick games built from the practice questions." },
   { id: "pages", label: "Privacy, terms and about", help: "The text of the privacy, terms and about pages, and the links in the footer." },
   { id: "site", label: "Site and performance", help: "Maintenance mode, caching and search limits." },
@@ -76,7 +77,19 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.sitePages", "features", "Reliability", "Privacy, terms and about pages", true, { help: "Pages and footer links for the privacy notice, terms of use and about text. Edit the wording in the \"Privacy, terms and about\" panel." }),
   bool("feature.worksheets", "features", "Learning", "Printable worksheets", true, { help: "A chapter worksheet to print or write on, with an answer key for signed-in parents." }),
   bool("feature.games", "features", "Learning", "Quick games", true, { help: "Quick Fire and Three Lives games made from a chapter's practice questions." }),
+  bool("feature.classroom", "features", "Learning", "Classroom board lessons", true, { help: "Animated board lessons with the teacher's voice, step-by-step writing and 3D shapes." }),
   planned("feature.adminEmails", "Admin e-mail notifications", "Off by default; added with accounts."),
+
+  // ---------------- Classroom ----------------
+  bool("classroom.autoAdvance", "classroom", "Playing", "Move on to the next step by itself", true, { dependsOn: "feature.classroom", help: "When off, students press Next after each step." }),
+  { key: "classroom.stepPauseMs", panel: "classroom", section: "Playing", label: "Pause between steps", public: true, type: "number", default: 900, min: 0, max: 5000, step: 100, unit: "ms", dependsOn: "classroom.autoAdvance" },
+  { key: "classroom.speed", panel: "classroom", section: "Playing", label: "Starting speed", public: true, type: "select", default: "1", dependsOn: "feature.classroom",
+    options: [{ value: "0.75", label: "Slower" }, { value: "1", label: "Normal" }, { value: "1.25", label: "Faster" }] },
+  bool("classroom.showCaptions", "classroom", "Playing", "Show the teacher's words as captions", true, { dependsOn: "feature.classroom" }),
+  bool("classroom.show3d", "classroom", "Board", "Show 3D shapes", true, { dependsOn: "feature.classroom", help: "Drawn by the site itself. Turn off for very old phones; flat drawings are shown instead." }),
+  { key: "classroom.boardStyle", panel: "classroom", section: "Board", label: "Board look", public: true, type: "select", default: "chalk", dependsOn: "feature.classroom",
+    options: [{ value: "chalk", label: "Green chalkboard" }, { value: "white", label: "Whiteboard" }] },
+  bool("classroom.browserVoice", "classroom", "Voice", "Use the browser voice when no recording exists", true, { dependsOn: "feature.classroom", help: "Lets a lesson be heard before its recordings are made. Recorded Malar Teacher audio is always used first." }),
 
   // ---------------- Lessons ----------------
   { key: "lesson.mode", panel: "lessons", section: "Playing", label: "How a lesson is shown", public: true, type: "select", default: "steps", dependsOn: "feature.lessons",

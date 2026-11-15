@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { Mp3Encoder } from "@breezystack/lamejs";
-import { LessonImport, PhraseSet, QuestionImport } from "@studysmart/shared";
+import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson } from "@studysmart/shared";
 import { audioKey, emptyManifest, LANGS, Manifest, speechText, VoiceMap, type Lang } from "./manifest.js";
 
 /** What the Malar Teacher speech API returns for one sentence (HeadTTS format). */
@@ -12,6 +12,8 @@ export interface BuildOptions {
   lessonsDir: string; audioDir: string; speak: Speak;
   /** content/questions: questions and their feedback are spoken too (optional) */
   questionsDir?: string;
+  /** content/classroom: board-lesson narration and questions are spoken too (optional) */
+  classroomDir?: string;
   langs?: Lang[]; force?: boolean; prune?: boolean; log?: (m: string) => void;
 }
 export interface BuildReport { wanted: number; generated: number; reused: number; skipped: string[]; pruned: number; bytes: number }
@@ -84,7 +86,7 @@ const jsonFiles = (dir?: string) => (dir && existsSync(dir) ? readdirSync(dir).f
 interface Job { where: string; teacher: string; lang: Lang; text: string }
 
 /** Everything the teacher says: lesson sentences, question stems and feedback, and stock phrases. */
-export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "audioDir">, langs: Lang[]): Job[] {
+export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "audioDir">, langs: Lang[]): Job[] {
   const jobs: Job[] = [];
   const add = (where: string, teacher: string, t: { en?: string; ta?: string } | undefined) => { for (const lang of langs) { const text = t?.[lang]?.trim(); if (text) jobs.push({ where, teacher, lang, text }); } };
   for (const f of jsonFiles(o.lessonsDir)) {
@@ -98,6 +100,17 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
       add(`${w} stem`, "malar", q.stem); add(`${w} explanation`, "malar", q.explanation);
       if (q.type === "mcq") for (const op of q.options) add(`${w} why-wrong`, "malar", op.whyWrong);
       if (q.type === "number" || q.type === "short") for (const wa of q.wrongAnswers) add(`${w} why-wrong`, "malar", wa.why);
+    }
+  }
+  for (const f of jsonFiles(o.classroomDir)) {
+    const cl = ClassroomLesson.parse(readJson(join(o.classroomDir!, f)));
+    if (cl.status !== "published") continue;
+    for (const st of cl.steps) {
+      add(`${f} ${st.id}`, "malar", st.narration);
+      if (st.check) {
+        add(`${f} ${st.id} check`, "malar", st.check.stem); add(`${f} ${st.id} explanation`, "malar", st.check.explanation);
+        for (const op of st.check.options) add(`${f} ${st.id} why-wrong`, "malar", op.whyWrong);
+      }
     }
   }
   const phrases = join(o.audioDir, "phrases.json");

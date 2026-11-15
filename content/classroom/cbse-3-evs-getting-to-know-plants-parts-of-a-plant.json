@@ -1,0 +1,373 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "evs",
+ "chapter": "getting-to-know-plants",
+ "topic": "parts-of-a-plant",
+ "status": "published",
+ "title": {
+  "en": "How water travels in a plant",
+  "ta": "செடியில் தண்ணீர் எப்படிப் பயணிக்கிறது"
+ },
+ "objects": [
+  {
+   "kind": "rect",
+   "id": "soil",
+   "x": 0,
+   "y": 380,
+   "w": 900,
+   "h": 120,
+   "stroke": "earth",
+   "fill": "earth",
+   "width": 2
+  },
+  {
+   "kind": "circle",
+   "id": "sun",
+   "cx": 790,
+   "cy": 85,
+   "r": 42,
+   "stroke": "sun",
+   "fill": "sun",
+   "width": 4
+  },
+  {
+   "kind": "path",
+   "id": "rootL",
+   "d": "M450 380 Q420 430 340 465",
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "path",
+   "id": "rootM",
+   "d": "M450 380 L450 485",
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "path",
+   "id": "rootR",
+   "d": "M450 380 Q480 430 560 465",
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "path",
+   "id": "stem",
+   "d": "M450 380 L450 150",
+   "stroke": "good",
+   "width": 14
+  },
+  {
+   "kind": "path",
+   "id": "leafL",
+   "d": "M450 250 Q340 190 310 250 Q370 305 450 250 Z",
+   "stroke": "good",
+   "fill": "good",
+   "width": 4
+  },
+  {
+   "kind": "path",
+   "id": "leafR",
+   "d": "M450 200 Q560 140 590 200 Q530 255 450 200 Z",
+   "stroke": "good",
+   "fill": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "wRoot",
+   "x1": 330,
+   "y1": 462,
+   "x2": 425,
+   "y2": 400,
+   "stroke": "water",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "wUp",
+   "x1": 450,
+   "y1": 372,
+   "x2": 450,
+   "y2": 262,
+   "stroke": "water",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "wL",
+   "x1": 450,
+   "y1": 262,
+   "x2": 385,
+   "y2": 250,
+   "stroke": "water",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "wR",
+   "x1": 450,
+   "y1": 232,
+   "x2": 515,
+   "y2": 205,
+   "stroke": "water",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "tRoot",
+   "x": 250,
+   "y": 450,
+   "text": "Roots",
+   "size": 40,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "tStem",
+   "x": 500,
+   "y": 330,
+   "text": "Stem",
+   "size": 40,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "tLeaf",
+   "x": 630,
+   "y": 185,
+   "text": "Leaves",
+   "size": 40,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "tFood",
+   "x": 640,
+   "y": 270,
+   "text": "food",
+   "size": 36,
+   "color": "accent",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "meet",
+   "narration": {
+    "en": "Look at this plant. It has roots, a stem and leaves."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "soil",
+     "at": 0
+    },
+    {
+     "do": "draw",
+     "target": "rootL",
+     "on": "roots",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "rootM",
+     "on": "roots",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "rootR",
+     "on": "roots",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "stem",
+     "on": "stem",
+     "ms": 900
+    },
+    {
+     "do": "show",
+     "target": "leafL",
+     "on": "leaves"
+    },
+    {
+     "do": "show",
+     "target": "leafR",
+     "on": "leaves"
+    }
+   ]
+  },
+  {
+   "id": "roots",
+   "narration": {
+    "en": "The roots grow under the soil. They hold the plant firmly and drink water."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "tRoot",
+     "on": "roots"
+    },
+    {
+     "do": "pulse",
+     "target": "rootL",
+     "on": "roots",
+     "color": "warm"
+    },
+    {
+     "do": "pulse",
+     "target": "rootM",
+     "on": "roots",
+     "color": "warm"
+    },
+    {
+     "do": "pulse",
+     "target": "rootR",
+     "on": "roots",
+     "color": "warm"
+    },
+    {
+     "do": "draw",
+     "target": "wRoot",
+     "on": "drink water",
+     "ms": 1200
+    }
+   ]
+  },
+  {
+   "id": "stem",
+   "narration": {
+    "en": "The stem is like a long straw. It carries the water up to the leaves."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "tStem",
+     "on": "stem"
+    },
+    {
+     "do": "pulse",
+     "target": "stem",
+     "on": "long straw",
+     "color": "accent"
+    },
+    {
+     "do": "draw",
+     "target": "wUp",
+     "on": "carries",
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "leaves",
+   "narration": {
+    "en": "The leaves use the water and the sunlight to make food for the plant."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "tLeaf",
+     "at": 0
+    },
+    {
+     "do": "draw",
+     "target": "wL",
+     "at": 0,
+     "ms": 800
+    },
+    {
+     "do": "draw",
+     "target": "wR",
+     "at": 0.05,
+     "ms": 800
+    },
+    {
+     "do": "show",
+     "target": "sun",
+     "on": "sunlight",
+     "ms": 900
+    },
+    {
+     "do": "pulse",
+     "target": "leafL",
+     "on": "make food",
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "leafR",
+     "on": "make food",
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "tFood",
+     "on": "food"
+    }
+   ]
+  },
+  {
+   "id": "think",
+   "narration": {
+    "en": "Now think about how the water travels. It starts in the soil and ends in the leaves."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "wRoot",
+     "on": "soil",
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "wUp",
+     "at": 0.5,
+     "color": "accent"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "Which part takes in water from the soil?"
+    },
+    "explanation": {
+     "en": "The roots drink water from the soil. Then the stem carries it up to the leaves."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Root"
+      },
+      "correct": true
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Stem"
+      },
+      "whyWrong": {
+       "en": "The stem carries water up. It does not take water in from the soil."
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Leaf"
+      },
+      "whyWrong": {
+       "en": "The leaves are high up in the air, far from the soil."
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

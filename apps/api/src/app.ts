@@ -9,6 +9,8 @@ import { audioRoutes } from "./modules/audio/routes.js";
 import type { AudioStore } from "./modules/audio/manifest.js";
 import { lessonRoutes } from "./modules/lessons/routes.js";
 import type { LessonService } from "./modules/lessons/service.js";
+import { classroomRoutes } from "./modules/classroom/routes.js";
+import type { ClassroomService } from "./modules/classroom/service.js";
 import { tutorRoutes } from "./modules/tutor/routes.js";
 import type { createTutorService } from "./modules/tutor/service.js";
 import { accountRoutes, readCookie } from "./modules/accounts/routes.js";
@@ -27,6 +29,8 @@ export interface AppDeps {
   tutor?: ReturnType<typeof createTutorService>;
   /** set the Secure flag on the session cookie (true in production behind HTTPS) */
   secureCookie?: boolean;
+  /** board lessons; omit to leave them off */
+  classroom?: ClassroomService;
   /** recorded teacher speech; omit to disable the audio route */
   audio?: AudioStore;
   /** folder with the built web app (apps/web/dist); when set, this server also serves the site itself */
@@ -46,7 +50,7 @@ export function createApp(deps: AppDeps) {
   app.use("/api/v1/admin", adminSettingsRoutes(deps.settings, deps.adminKey));
 
   // Maintenance mode: public data routes answer 503 with a clear message (admin and settings stay available).
-  app.use(["/api/v1/curriculum", "/api/v1/lessons", "/api/v1/audio", "/api/v1/practice", "/api/v1/account", "/api/v1/tutor"], async (_req, res, next) => {
+  app.use(["/api/v1/curriculum", "/api/v1/lessons", "/api/v1/classroom", "/api/v1/audio", "/api/v1/practice", "/api/v1/account", "/api/v1/tutor"], async (_req, res, next) => {
     const v = await deps.settings.all();
     if (v["site.maintenance.enabled"] === true) {
       return void res.status(503).set("Retry-After", "600").json({ error: { code: "maintenance", message: (v["site.maintenance.message"] as { en: string }).en } });
@@ -56,6 +60,8 @@ export function createApp(deps: AppDeps) {
   app.use("/api/v1/curriculum", curriculumRoutes(deps.curriculum, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
 
   app.use("/api/v1/lessons", lessonRoutes(deps.lessons, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
+
+  if (deps.classroom) app.use("/api/v1/classroom", classroomRoutes(deps.classroom, async () => (await deps.settings.all())["feature.classroom"] === true, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
 
   app.use("/api/v1/practice", practiceRoutes(deps.practice, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"]), async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null), async (req) => {
     if (!deps.accounts) return false;

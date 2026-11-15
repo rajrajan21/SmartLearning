@@ -120,5 +120,7 @@ export const AnswerFeedback = z.object({
 export type AnswerFeedback = z.infer<typeof AnswerFeedback>;
 
 /** Spoken stock phrases (praise, encouragement) so feedback sounds varied and human. Served by /api/v1/audio/phrases. */
-export const PhraseSet = z.record(z.string(), z.array(z.object({ text: LocalizedText, audio: LangAudio.optional() })));
+/** A phrase may be written plainly as {"en": "...", "ta": "..."}; it is read as {text: {...}}. */
+const Phrase = z.preprocess((v) => (v && typeof v === "object" && !("text" in v) ? { text: v } : v), z.object({ text: LocalizedText, audio: LangAudio.optional() }));
+export const PhraseSet = z.record(z.string(), z.array(Phrase));
 export type PhraseSet = z.infer<typeof PhraseSet>;

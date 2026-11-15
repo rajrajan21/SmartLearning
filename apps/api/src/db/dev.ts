@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { PGlite } from "@electric-sql/pglite";
 import { drizzle } from "drizzle-orm/pglite";
@@ -15,6 +15,7 @@ const migrationsFolder = join(import.meta.dirname, "../../drizzle");
 
 /** Embedded PostgreSQL (PGlite): no Docker or install needed. dataDir omitted = in memory (tests). */
 export async function createPgliteDb(dataDir?: string): Promise<Db> {
+  if (dataDir) mkdirSync(dataDir, { recursive: true }); // PGlite creates only the last folder, so make the parents too
   const db = drizzle(new PGlite(dataDir), { schema });
   await migrate(db, { migrationsFolder });
   return db as unknown as Db;

@@ -1,0 +1,214 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "maths",
+ "chapter": "time-goes-on",
+ "topic": "reading-the-clock",
+ "status": "published",
+ "title": {
+  "en": "Reading the clock",
+  "ta": "கடிகாரத்தைப் படித்தல்"
+ },
+ "objects": [
+  {
+   "kind": "clock",
+   "id": "clk",
+   "cx": 260,
+   "cy": 255,
+   "r": 185
+  },
+  {
+   "kind": "text",
+   "id": "tHour",
+   "x": 650,
+   "y": 120,
+   "text": "short hand = hour",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tMin",
+   "x": 650,
+   "y": 200,
+   "text": "long hand = minutes",
+   "size": 38,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tOclock",
+   "x": 650,
+   "y": 310,
+   "text": "3 o'clock",
+   "size": 60,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tHalf",
+   "x": 650,
+   "y": 410,
+   "text": "half past 3  (3:30)",
+   "size": 48,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "face",
+   "narration": {
+    "en": "This is a clock. It tells us the time. Look, it has twelve numbers."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "clk",
+     "at": 0,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "hour",
+   "narration": {
+    "en": "The short hand is the hour hand. It tells us the hour."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "clk",
+     "on": "hour hand",
+     "part": "hour",
+     "color": "accent",
+     "ms": 1800
+    },
+    {
+     "do": "write",
+     "target": "tHour",
+     "on": "It tells"
+    }
+   ]
+  },
+  {
+   "id": "minute",
+   "narration": {
+    "en": "The long hand is the minute hand. It tells us the minutes."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "clk",
+     "on": "minute hand",
+     "part": "minute",
+     "color": "warm",
+     "ms": 1800
+    },
+    {
+     "do": "write",
+     "target": "tMin",
+     "on": "It tells"
+    }
+   ]
+  },
+  {
+   "id": "oclock",
+   "narration": {
+    "en": "When the minute hand points to twelve and the hour hand points to three, it is three o'clock."
+   },
+   "actions": [
+    {
+     "do": "time",
+     "target": "clk",
+     "at": 0,
+     "hour": 3,
+     "minute": 0,
+     "ms": 2600
+    },
+    {
+     "do": "write",
+     "target": "tOclock",
+     "on": "three o'clock",
+     "ms": 900
+    }
+   ]
+  },
+  {
+   "id": "half",
+   "narration": {
+    "en": "Now watch. The minute hand goes half way round the clock. That is thirty minutes. It is half past three."
+   },
+   "actions": [
+    {
+     "do": "time",
+     "target": "clk",
+     "on": "minute hand",
+     "hour": 3,
+     "minute": 30,
+     "ms": 3000
+    },
+    {
+     "do": "write",
+     "target": "tHalf",
+     "on": "half past three",
+     "ms": 1200
+    }
+   ]
+  },
+  {
+   "id": "ask",
+   "narration": {
+    "en": "Look at the clock carefully before you answer."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "clk",
+     "at": 0.4,
+     "part": "minute",
+     "color": "warm",
+     "ms": 1200
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "What time does the clock show?"
+    },
+    "explanation": {
+     "en": "The minute hand is on six and the hour hand is just past three, so it is half past three."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Three o'clock"
+      },
+      "whyWrong": {
+       "en": "At three o'clock the minute hand points to twelve. Here it points to six."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Half past three"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Half past four"
+      },
+      "whyWrong": {
+       "en": "The hour hand is just after three, so the hour is still three."
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

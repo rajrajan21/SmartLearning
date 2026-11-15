@@ -4,6 +4,7 @@ import { ui } from "../lib/i18n";
 import { SearchBox } from "../components/SearchBox";
 import { useBoard, useRetry } from "../lib/curriculum";
 import { useDueCount } from "../lib/revision";
+import { useClassroomIndex } from "../lib/classroom";
 import { Loading, ErrorBox } from "../components/bits";
 
 const COMING_BOARDS = [
@@ -19,6 +20,9 @@ export function Home() {
   const open = new Set(s.get<number[]>("catalog.openClasses"));
   const due = useDueCount();
   const mastery = s.get("feature.mastery") === true;
+  const classOn = s.get("feature.classroom") === true;
+  const classIdx = useClassroomIndex(classOn);
+  const classCount = classIdx.status === "ready" ? classIdx.data.items.length : 0;
   return (
     <div className="paper">
       {s.get("home.hero.show") && (
@@ -31,6 +35,12 @@ export function Home() {
         <section className="revise-card" aria-label={ui("reviseToday", s.lang)}>
           <div><h2>{ui("reviseToday", s.lang)}</h2><p>{due} {ui("reviseCount", s.lang)}</p></div>
           <Link className="btn" href="/revise">{ui("reviseStart", s.lang)}</Link>
+        </section>
+      )}
+      {classOn && classCount > 0 && (
+        <section className="revise-card" aria-label={ui("classroomTitle", s.lang)}>
+          <div><h2>🎓 {ui("classroomTitle", s.lang)}</h2><p>{ui("classroomIntro", s.lang)}</p></div>
+          <Link className="btn" href="/classroom">{ui("classroomStart", s.lang)}</Link>
         </section>
       )}
       {s.get("home.search.show") && s.get("feature.search") && <SearchBox board={board} />}

@@ -74,3 +74,5 @@ Question helper with safety screening, daily limits, lesson-only answers, option
 - Still open: Tamil review, more content (rest of Class 3, Classes 4-7, TN boards), real e-mail password reset (needs a free mail service), audio generation run by owner, legal read of privacy text.
 - Content: 10 Class 3 topics now (5 maths, 5 EVS), English; Tamil text, chapter-fit check and audio pending.
 - Content: 13 Class 3 topics (8 maths, 5 EVS).
+
+- Classroom board lessons (animated, voiced, 3D shapes, pause-for-answer): BUILT (4 review samples). Needs Generate-Lesson-Audio.bat for the teacher voice; Tamil narration later.

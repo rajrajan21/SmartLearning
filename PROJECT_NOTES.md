@@ -75,3 +75,6 @@ pnpm --filter web dev      # http://localhost:5173
 
 ## Module 11 - Site pages, deployment pack, content batch (done)
 Privacy/terms/about pages (settings-driven), `deploy/` pack + API serves web build (`WEB_DIR`), `account:reset-password` tool, 4 new Class 3 maths topics (tools/author_class3.py). Tests: shared 24, API 101, web 61. Test fixtures no longer depend on how much content exists (helpers.seedFile keeps only the shapes topics).
+
+## Module 12: Classroom board lessons
+Programmatic animated lessons (no video): JSON steps with narration + board actions, audio-position-driven sync, 3D solids drawn by our own SVG engine, pause-for-answer questions. See docs/16-classroom.md. 4 Class 3 samples in content/classroom (author with tools/author_classroom.py). Audio build includes classroom narration. Route /classroom. Setting panel "Classroom boards".

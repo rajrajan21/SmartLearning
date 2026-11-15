@@ -5,3 +5,4 @@ export const curriculumDir = resolve(dirname(fileURLToPath(import.meta.url)), ".
 export const lessonsDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/lessons");
 export const audioDir = process.env.AUDIO_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/audio");
 export const questionsDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/questions");
+export const classroomDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/classroom");

@@ -1,3 +1,4 @@
+import { dayNumber } from "@studysmart/shared";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen, cleanup } from "@testing-library/react";
 import { Router } from "wouter";
@@ -8,7 +9,7 @@ import { Layout } from "./components/Layout";
 import { Routes } from "./App";
 
 const id1 = "00000000-0000-4000-8000-000000000001";
-const day = Math.floor(Date.now() / 86_400_000);
+const day = dayNumber(); // local calendar day, same as the app
 const me = { user: { id: "u1", email: "mum@example.com" }, profiles: [{ id: id1, nickname: "Riya", classLevel: 3, avatar: "fox", language: "en" }], activeProfileId: id1 };
 const report = (over: Record<string, unknown> = {}) => ({
   children: [{

@@ -1,0 +1,334 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "maths",
+ "chapter": "fair-share",
+ "topic": "halves-and-quarters",
+ "status": "published",
+ "title": {
+  "en": "Halves and quarters",
+  "ta": "பாதிகளும் கால்பங்குகளும்"
+ },
+ "objects": [
+  {
+   "kind": "circle",
+   "id": "whole",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "sector",
+   "id": "half",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "from": 0,
+   "to": 180,
+   "stroke": "ink"
+  },
+  {
+   "kind": "line",
+   "id": "cutV",
+   "x1": 250,
+   "y1": 110,
+   "x2": 250,
+   "y2": 430,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "cutH",
+   "x1": 90,
+   "y1": 270,
+   "x2": 410,
+   "y2": 270,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "sector",
+   "id": "q1",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "from": 0,
+   "to": 90,
+   "stroke": "ink"
+  },
+  {
+   "kind": "sector",
+   "id": "q2",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "from": 90,
+   "to": 180,
+   "stroke": "ink"
+  },
+  {
+   "kind": "sector",
+   "id": "q3",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "from": 180,
+   "to": 270,
+   "stroke": "ink"
+  },
+  {
+   "kind": "sector",
+   "id": "q4",
+   "cx": 250,
+   "cy": 270,
+   "r": 160,
+   "from": 270,
+   "to": 360,
+   "stroke": "ink"
+  },
+  {
+   "kind": "text",
+   "id": "tWhole",
+   "x": 670,
+   "y": 110,
+   "text": "1 whole",
+   "size": 48,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tHalf",
+   "x": 670,
+   "y": 230,
+   "text": "½",
+   "size": 90,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tQuarter",
+   "x": 670,
+   "y": 230,
+   "text": "¼",
+   "size": 90,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tSum",
+   "x": 670,
+   "y": 350,
+   "text": "¼ + ¼ = 2/4 = ½",
+   "size": 42,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tCount",
+   "x": 670,
+   "y": 440,
+   "text": "4 quarters = ?",
+   "size": 44,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "whole",
+   "narration": {
+    "en": "This round roti is one whole. Let us share it fairly."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "whole",
+     "at": 0,
+     "ms": 1400
+    },
+    {
+     "do": "write",
+     "target": "tWhole",
+     "on": "one whole"
+    }
+   ]
+  },
+  {
+   "id": "half",
+   "narration": {
+    "en": "Cut it down the middle into two equal parts. Each part is called one half."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "cutV",
+     "on": "Cut it",
+     "ms": 900
+    },
+    {
+     "do": "fill",
+     "target": "half",
+     "on": "Each part",
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "tHalf",
+     "on": "one half",
+     "ms": 500
+    },
+    {
+     "do": "pulse",
+     "target": "half",
+     "on": "one half",
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "quarter",
+   "narration": {
+    "en": "Now cut each half again. We get four equal parts. Each part is one quarter."
+   },
+   "actions": [
+    {
+     "do": "hide",
+     "target": "half",
+     "at": 0
+    },
+    {
+     "do": "hide",
+     "target": "tHalf",
+     "at": 0
+    },
+    {
+     "do": "draw",
+     "target": "cutH",
+     "on": "cut each half",
+     "ms": 900
+    },
+    {
+     "do": "fill",
+     "target": "q1",
+     "on": "one quarter",
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "tQuarter",
+     "on": "one quarter",
+     "ms": 500
+    },
+    {
+     "do": "pulse",
+     "target": "q1",
+     "on": "one quarter",
+     "color": "warm"
+    }
+   ]
+  },
+  {
+   "id": "two",
+   "narration": {
+    "en": "Shade another quarter next to it. One quarter plus one quarter makes two quarters. Two quarters make one half."
+   },
+   "actions": [
+    {
+     "do": "fill",
+     "target": "q2",
+     "on": "Shade",
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "tSum",
+     "on": "makes two quarters",
+     "ms": 1800
+    },
+    {
+     "do": "pulse",
+     "target": "q2",
+     "on": "Two quarters make",
+     "color": "warm"
+    }
+   ]
+  },
+  {
+   "id": "count",
+   "narration": {
+    "en": "Colour the last two parts too. Count all the equal parts in the whole circle. Now it is your turn to think."
+   },
+   "actions": [
+    {
+     "do": "fill",
+     "target": "q3",
+     "at": 0.1,
+     "color": "warm"
+    },
+    {
+     "do": "fill",
+     "target": "q4",
+     "at": 0.3,
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "tCount",
+     "at": 0.6,
+     "ms": 800
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "How many quarters make one whole?"
+    },
+    "explanation": {
+     "en": "Four quarters make one whole. That is why we call each part a quarter."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "2"
+      },
+      "whyWrong": {
+       "en": "Two quarters make only one half."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "3"
+      },
+      "whyWrong": {
+       "en": "Three quarters is not the whole circle yet. One more part is left."
+      }
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "4"
+      },
+      "correct": true
+     },
+     {
+      "id": "d",
+      "text": {
+       "en": "8"
+      },
+      "whyWrong": {
+       "en": "Eight is too many. Look at the circle again and count the parts."
+      }
+     }
+    ]
+   }
+  }
+ ]
+}
