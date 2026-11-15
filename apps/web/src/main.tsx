@@ -6,6 +6,7 @@ import "@fontsource/mukta-malar/400.css";
 import "@fontsource/mukta-malar/700.css";
 import { App } from "./App";
 import "./styles.css";
+import "./themes.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

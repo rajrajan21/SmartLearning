@@ -4,17 +4,22 @@ import type { ContentBlock, PublicQuestion, TopicLesson } from "@studysmart/shar
 import { AskTeacher } from "./AskTeacher";
 import { QuestionCard } from "./QuestionCard";
 import { useSettings } from "../lib/settings";
-import { ui } from "../lib/i18n";
+import { ui, type UiKey } from "../lib/i18n";
 import { Board } from "./Board";
 import { boardAt, hasBoard } from "../lib/board";
 import { useDeviceVoice, useNarrator } from "../lib/narrator";
+import { toggleNote, useNotebook } from "../lib/tier2";
+import { StepDots } from "./StepDots";
+import { ScrollySections, type ScrollyPic } from "./Scrolly";
 import { getProgress, saveProgress, clearProgress } from "../lib/progress";
 
-export interface PlayerLinks { chapterHref: string; nextHref: string | null; nextLabel: string | null }
+const KIND: Record<ContentBlock["type"], UiKey> = { story: "kindStory", explanation: "kindIdea", worked_example: "kindExample", image: "kindPicture", diagram: "kindPicture", teacher_narration: "kindTeacher", quiz: "kindCheck", teach_back: "kindExplain", summary: "kindSummary" };
+export interface BarListen { playing: boolean; toggle: () => void }
+export interface PlayerLinks { chapterHref: string; nextHref: string | null; nextLabel: string | null; note?: { href: string; subject: { en: string; ta?: string } } }
 
 const paragraphs = (t: string) => t.split("\n").filter((p) => p.trim().length > 0);
 
-function Narration({ block }: { block: Extract<ContentBlock, { type: "teacher_narration" }> }) {
+function Narration({ block, register }: { block: Extract<ContentBlock, { type: "teacher_narration" }>; register?: (c: BarListen | null) => void }) {
   const s = useSettings();
   const { lang } = s;
   const voiceOn = s.get("feature.teacherNarration");
@@ -25,13 +30,16 @@ function Narration({ block }: { block: Extract<ContentBlock, { type: "teacher_na
   const highlight = s.get("narration.highlight");
   const textVisible = s.get("lesson.narration.showText") || !canSpeak;
   const board = boardAt(block.sentences, n.playing || n.index > 0 ? n.index : block.sentences.length - 1);
+  const latest = useRef(n); latest.current = n;
+  useEffect(() => { if (register && canSpeak) register({ playing: n.playing, toggle: () => (latest.current.playing ? latest.current.pause() : latest.current.play()) }); }, [register, canSpeak, n.playing]);
+  useEffect(() => () => register?.(null), [register]);
   const rates = [["0.8", "slow"], ["1", "normal"], ["1.2", "fast"]] as const;
   return (
     <article className="blk narration">
       <h2>{s.text("narration.teacherName")}</h2>
       {canSpeak && (
-        <div className="narr-controls">
-          <button type="button" className="btn" onClick={() => (n.playing ? n.pause() : n.play())} aria-pressed={n.playing}>{n.playing ? `❚❚ ${ui("pause", lang)}` : `▶ ${ui("listen", lang)}`}</button>
+        <div className={s.get("lesson.listen.stable") === true ? "narr-controls stable" : "narr-controls"}>
+          <button type="button" className="btn listen-btn" onClick={() => (n.playing ? n.pause() : n.play())} aria-pressed={n.playing}>{n.playing ? `❚❚ ${ui("pause", lang)}` : `▶ ${ui("listen", lang)}`}</button>
           <button type="button" className="btn ghost" onClick={n.restart}>{ui("listenAgain", lang)}</button>
           {s.get("narration.speedControl") && (
             <label className="rate">{ui("speed", lang)}
@@ -76,7 +84,7 @@ function Checkpoint({ questions }: { questions: PublicQuestion[] }) {
   );
 }
 
-function Block({ block, questions }: { block: ContentBlock; questions: PublicQuestion[] }) {
+function Block({ block, questions, pictures, register }: { block: ContentBlock; questions: PublicQuestion[]; pictures: ScrollyPic[]; register?: (c: BarListen | null) => void }) {
   const s = useSettings();
   const { lang } = s;
   const [shown, setShown] = useState(() => (s.get("lesson.example.stepByStep") ? 1 : 99));
@@ -85,8 +93,10 @@ function Block({ block, questions }: { block: ContentBlock; questions: PublicQue
   switch (block.type) {
     case "story":
       return (<article className="blk story"><h2>{s.name(block.title)}</h2>{paragraphs(s.name(block.text)).map((p, i) => <p key={i}>{p}</p>)}</article>);
-    case "explanation":
-      return (<article className="blk">{paragraphs(s.name(block.text)).map((p, i) => <p key={i}>{p}</p>)}</article>);
+    case "explanation": {
+      const paras = paragraphs(s.name(block.text));
+      return (<article className="blk">{s.get("lesson.scrolly.enabled") === true ? <ScrollySections paras={paras} pictures={pictures} min={s.get<number>("lesson.scrolly.minParagraphs")} /> : paras.map((p, i) => <p key={i}>{p}</p>)}</article>);
+    }
     case "worked_example": {
       const total = block.steps.length;
       return (
@@ -105,7 +115,7 @@ function Block({ block, questions }: { block: ContentBlock; questions: PublicQue
     case "diagram":
       return (<figure className="blk"><img src={`/assets/lessons/${block.assetKey}`} alt={s.name(block.altText)} />{block.caption && <figcaption>{s.name(block.caption)}</figcaption>}</figure>);
     case "teacher_narration":
-      return <Narration block={block} />;
+      return <Narration block={block} register={register} />;
     case "quiz": {
       const mine = s.get("feature.practice") && s.get("practice.lessonCheckpoints") ? block.questionIds.map((k) => questions.find((q) => q.key === k)).filter((q): q is PublicQuestion => !!q) : [];
       return mine.length > 0 ? <Checkpoint questions={mine} /> : (<article className="blk soon-note"><p>{ui("quizSoon", lang)}</p></article>);
@@ -151,6 +161,12 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
   const [resumed, setResumed] = useState(() => step > 0);
   const [done, setDone] = useState(false);
   const head = useRef<HTMLHeadingElement>(null);
+  const notes = useNotebook();
+  const [listen, setListen] = useState<BarListen | null>(null);
+  const register = useCallback((c: BarListen | null) => setListen((prev) => (c === null ? (prev === null ? prev : null) : prev && prev.playing === c.playing ? prev : c)), []);
+  const pictures = useMemo<ScrollyPic[]>(() => lesson.blocks.filter((b): b is Extract<ContentBlock, { type: "image" | "diagram" }> => b.type === "image" || b.type === "diagram").map((b) => ({ src: `/assets/lessons/${b.assetKey}`, alt: s.name(b.altText) })), [lesson, s]);
+  const noteOn = s.get("notebook.enabled") === true && !!links.note;
+  const saved = !!notes[lesson.topicId];
 
   useEffect(() => { if (save && !done) saveProgress(lesson.topicId, { step, total, done: false }); }, [save, step, total, done, lesson.topicId]);
   useEffect(() => { head.current?.focus({ preventScroll: false }); }, [step, done]);
@@ -186,10 +202,14 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
   const last = step === total - 1;
   const ask = s.get("feature.aiTutor") === true && s.get("tutor.inLessons") === true ? <AskTeacher topicId={lesson.topicId} about={s.name(lesson.title)} /> : null;
   const pct = Math.round(((scroll ? total : step + 1) / total) * 100);
+  const readable = s.get("lesson.readable") === true, bigNext = s.get("lesson.nextButton.big") === true;
+  const split = s.get("lesson.split.enabled") === true && !scroll;
+  const barListen = s.get("lesson.listen.inBar") === true && s.get("feature.teacherNarration") === true && blocks.some((b) => b.type === "teacher_narration");
   return (
-    <div className="paper lesson">
+    <div className={`paper lesson${barListen ? " has-bar-listen" : ""}${readable ? " readable" : ""}${split ? " split" : ""}`}>
       <div className="lesson-bar">
         <Link className="link" href={links.chapterHref}>← {ui("exitLesson", lang)}</Link>
+        {noteOn && <button type="button" className="link heart" aria-pressed={saved} onClick={() => toggleNote({ id: lesson.topicId, href: links.note!.href, title: lesson.title, subject: links.note!.subject })}><span aria-hidden="true">{saved ? "❤️" : "🤍"}</span> {saved ? ui("nbSaved", lang) : ui("nbSave", lang)}</button>}
         {save && step > 0 && <button type="button" className="link" onClick={() => { clearProgress(lesson.topicId); setStep(0); setResumed(false); }}>{ui("startOver", lang)}</button>}
       </div>
       <h1 ref={head} tabIndex={-1}>{s.name(lesson.title)}</h1>
@@ -198,23 +218,46 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
           <span style={{ width: `${pct}%` }} />
         </div>
       )}
+      {!scroll && s.get("lesson.dots.show") === true && <StepDots total={total} step={step} lang={lang} />}
       {resumed && <p className="small" role="status">{ui("resumed", lang)}</p>}
       {scroll ? (
         <>
-          {blocks.map((b) => <Block key={b.id} block={b} questions={questions} />)}
+          {blocks.map((b) => <Block key={b.id} block={b} questions={questions} pictures={pictures} />)}
           {ask}
           <div className="lesson-nav"><span /><button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button></div>
         </>
       ) : (
-        <>
+        <div className={split ? "lesson-grid" : undefined}>
+         <div className="lesson-main">
           <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>
-          <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} />
-          {ask}
-          <div className="lesson-nav">
-            <button type="button" className="btn ghost" onClick={() => go(-1)} disabled={step === 0}>← {ui("back", lang)}</button>
-            {last ? <button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button> : <button type="button" className="btn" onClick={() => go(1)}>{ui("next", lang)} →</button>}
+          <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} pictures={pictures} register={register} />
+          {!split && ask}
+          <div className={bigNext ? "lesson-nav big-next" : "lesson-nav"}>
+            <button type="button" className="btn ghost back-btn" onClick={() => go(-1)} disabled={step === 0}>← {ui("back", lang)}</button>
+            {barListen && (
+              <span className="bar-slot">
+                <button type="button" className="btn bar-listen" disabled={!listen} aria-hidden={!listen} tabIndex={listen ? 0 : -1} aria-pressed={listen?.playing ?? false} onClick={() => listen?.toggle()} aria-label={listen?.playing ? ui("pause", lang) : ui("listen", lang)}>
+                  <span aria-hidden="true">{listen?.playing ? "❚❚" : "▶"}</span><span className="bl-txt">{listen?.playing ? ui("pause", lang) : ui("listen", lang)}</span>
+                </button>
+              </span>
+            )}
+            {last ? <button type="button" className={bigNext ? "btn big" : "btn"} onClick={finish}>{ui("finish", lang)}</button> : <button type="button" className={bigNext ? "btn big" : "btn"} onClick={() => go(1)}>{bigNext ? ui("nextStep", lang) : ui("next", lang)} →</button>}
           </div>
-        </>
+         </div>
+         {split && (
+           <aside className="lesson-side" aria-label={ui("outlineTitle", lang)}>
+             <h2>{ui("outlineTitle", lang)}</h2>
+             <ol className="outline">
+               {blocks.map((b, i) => (
+                 <li key={b.id}><button type="button" className={i === step ? "on" : i < step ? "past" : ""} aria-current={i === step ? "step" : undefined} onClick={() => { setResumed(false); setStep(i); }}>
+                   <span className="o-n" aria-hidden="true">{i < step ? "✔" : i + 1}</span> {ui(KIND[b.type], lang)}
+                 </button></li>
+               ))}
+             </ol>
+             {ask}
+           </aside>
+         )}
+        </div>
       )}
     </div>
   );

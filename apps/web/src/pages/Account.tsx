@@ -5,6 +5,8 @@ import { useSettings } from "../lib/settings";
 import { useAccount, type ChildInput, type Result } from "../lib/account";
 import { ui } from "../lib/i18n";
 import { NotFound } from "../components/bits";
+import { MeSettings } from "../components/MeSettings";
+import { useApp } from "../lib/useApp";
 
 export const AVATAR_EMOJI: Record<string, string> = { owl: "🦉", fox: "🦊", panda: "🐼", lion: "🦁", rabbit: "🐰", turtle: "🐢", parrot: "🦜", elephant: "🐘" };
 
@@ -151,7 +153,9 @@ function SignedIn() {
 export function AccountPage() {
   const s = useSettings();
   const acct = useAccount();
-  if (s.get("feature.accounts") !== true) return <NotFound />;
+  const { app } = useApp();
+  const me = <div className="paper me-page"><h1>{ui("appMe", s.lang)}</h1><MeSettings /></div>;
+  if (s.get("feature.accounts") !== true) return app ? me : <NotFound />;
   if (acct.me === undefined) return <div className="paper" aria-busy="true"><p>{ui("loading", s.lang)}…</p></div>;
-  return acct.me ? <SignedIn /> : <SignedOut />;
+  return <>{me}{acct.me ? <SignedIn /> : <SignedOut />}</>;
 }

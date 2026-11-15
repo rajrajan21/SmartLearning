@@ -1,7 +1,7 @@
 # Review of the ChatGPT specification, and what we change
 
 Source: `Student_Learning_Platform_Master_Product_and_Technical_Specification.docx` (v1.0, 14 Nov 2026) plus the two earlier ChatGPT briefs.
-Rule for this project: **every feature must have a ₹0 path.** A paid item is allowed only if it is under ₹500–1000 one-time and clearly key (the domain `studysmart.in` is the expected one).
+Rule for this project: **every feature must have a ₹0 path.** A paid item is allowed only if it is under ₹500–1000 one-time and clearly key (the domain `sharpstudy.in` is the expected one).
 
 ## What we keep from the spec (it is good)
 

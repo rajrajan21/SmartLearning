@@ -9,6 +9,7 @@ import { createTutorService } from "../src/modules/tutor/service.js";
 import type { ModelCall } from "../src/modules/tutor/provider.js";
 import { createPracticeService } from "../src/modules/practice/service.js";
 import { createSettingsService } from "../src/modules/settings/service.js";
+import { createAccessService } from "../src/modules/access/service.js";
 import { curriculumDir } from "../src/server-paths.js";
 
 /** The real curriculum, but with only the shapes chapter's topics kept, so these tests do not change when more lessons are authored. */
@@ -38,5 +39,5 @@ export async function makeRepo(data: unknown = authoredFixture(), ai: ModelCall 
   const db = await createPgliteDb(); // in-memory real PostgreSQL
   await importCurriculum(db, data);
   const repo = createDbCurriculumRepository(db);
-  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo), practice: createPracticeService(db, repo), accounts: createAccountService(db), tutor: createTutorService(db, createLessonService(db, repo), ai) };
+  return { db, repo, settings: createSettingsService(db), lessons: createLessonService(db, repo), practice: createPracticeService(db, repo), accounts: createAccountService(db), access: createAccessService(db, "test-access-secret-0123456789"), tutor: createTutorService(db, createLessonService(db, repo), ai) };
 }

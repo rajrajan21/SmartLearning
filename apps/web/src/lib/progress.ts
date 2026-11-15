@@ -34,3 +34,6 @@ export function useTopicProgress(topicId: string | undefined): [Progress | null,
 export const readAllProgress = (): All => readAll();
 export function replaceAllProgress(all: All): void { store.setJson(KEY, all); listeners.forEach((l) => l()); }
 export function onProgressChange(l: () => void): () => void { listeners.add(l); return () => { listeners.delete(l); }; }
+
+/** Pull-to-refresh: re-read local progress and tell every screen. */
+export function refreshProgress(): void { listeners.forEach((l) => l()); }

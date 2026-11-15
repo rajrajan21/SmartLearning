@@ -101,7 +101,7 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
   r.get("/export", needSession, guard(async (req, res) => {
     const v = await settings.all();
     if (v["feature.parentDashboard"] !== true || v["parent.export"] !== true) return err(res, 404, "not_found", "Downloads are switched off");
-    res.set("Content-Disposition", 'attachment; filename="studysmart-data.json"').json(await svc.exportData(auth(res).session));
+    res.set("Content-Disposition", 'attachment; filename="sharpstudy-data.json"').json(await svc.exportData(auth(res).session));
   }));
 
   r.get("/sync", needSession, guard(async (req, res) => void res.json(await svc.getSync(auth(res).session))));

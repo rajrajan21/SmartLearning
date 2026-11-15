@@ -11,4 +11,4 @@ sudo -E -u studysmart env DATABASE_URL="$DATABASE_URL" pnpm --filter @studysmart
 sudo -E -u studysmart env DATABASE_URL="$DATABASE_URL" pnpm --filter @studysmart/api db:seed
 sudo systemctl restart studysmart
 sleep 3
-curl -fsS "http://127.0.0.1:${PORT:-3100}/health" && echo && echo "StudySmart is running."
+curl -fsS "http://127.0.0.1:${PORT:-3100}/health" && echo && echo "SharpStudy is running."

@@ -7,6 +7,7 @@ import { dueIds, readAllRevision } from "../lib/revision";
 import { shuffled } from "../lib/practice";
 import { QuestionCard } from "../components/QuestionCard";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
+import { Groups } from "../components/TryIt";
 
 export function RevisePage() {
   const s = useSettings();
@@ -49,6 +50,7 @@ export function RevisePage() {
       <h1>{ui("reviseToday", lang)}</h1>
       <p className="small step-count">{ui("questionOf", lang)} {i + 1} {ui("ofWord", lang)} {qs.length}</p>
       <div className="meter" role="progressbar" aria-valuemin={0} aria-valuemax={qs.length} aria-valuenow={i}><span style={{ width: `${(i / qs.length) * 100}%` }} /></div>
+      {s.get("explore.tryIt.show") === true && i === 0 && <details className="small explorer"><summary>{ui("explorerTitle", lang)}</summary><Groups /></details>}
       <QuestionCard key={qs[i]!.id} q={qs[i]!} nextLabel={i === qs.length - 1 ? ui("seeResults", lang) : undefined} onDone={(r) => { if (r.correct) setRight((n) => n + 1); setI((n) => n + 1); }} />
     </div>
   );

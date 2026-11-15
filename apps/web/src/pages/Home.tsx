@@ -6,6 +6,16 @@ import { useBoard, useRetry } from "../lib/curriculum";
 import { useDueCount } from "../lib/revision";
 import { useClassroomIndex } from "../lib/classroom";
 import { Loading, ErrorBox } from "../components/bits";
+import { useAllProgress } from "../lib/progress";
+import { useRewards } from "../lib/streak";
+import { findContinue } from "../lib/browseStats";
+import { Title } from "../components/bits";
+import { BoardPath } from "../components/Tier1";
+import { continueId, firstLessonHref, lessonsToday, pathNodes, recentLessons } from "../lib/round2";
+import { useLessonTopicIds } from "../lib/curriculum";
+import { useApp } from "../lib/useApp";
+import { AppFeed, DidYouKnow } from "../components/AppFeed";
+import { WaterCycle } from "../components/TryIt";
 
 const COMING_BOARDS = [
   { code: "TNSB", en: "Tamil Nadu State Board", ta: "தமிழ்நாடு மாநிலப் பாடத்திட்டம்" },
@@ -23,14 +33,90 @@ export function Home() {
   const classOn = s.get("feature.classroom") === true;
   const classIdx = useClassroomIndex(classOn);
   const classCount = classIdx.status === "ready" ? classIdx.data.items.length : 0;
+  const progress = useAllProgress();
+  const rewards = useRewards(s.get<number>("rewards.streak.graceDays"));
+  const cont = s.get("home.continue.show") === true && s.get("feature.lessons") === true && state.status === "ready" ? findContinue(state.data as never, progress, board) : null;
+  const lessonIds = useLessonTopicIds(s.get("feature.lessons") === true);
+  const tree = state.status === "ready" ? (state.data as never) : null;
+  const openList = [...open];
+  const tryHref = s.get("home.tryLesson.show") === true && tree ? firstLessonHref(tree, board, lessonIds, openList) : null;
+  const recent = s.get("home.continue.show") === true && tree ? recentLessons(tree, progress, board, s.get<number>("home.recent.count"), continueId(tree, progress, board)) : [];
+  const path = s.get("home.path.show") === true && s.get("feature.lessons") === true && tree ? pathNodes(tree, progress, board, openList, s.get<number>("home.path.length")) : [];
+  const goalOn = s.get("rewards.dailyGoal.enabled") === true && s.get("rewards.streak.enabled") === true;
+  const goal = s.get<number>("rewards.dailyGoal.lessons"), doneToday = lessonsToday(progress);
+  const streakOn = s.get("rewards.streak.enabled") === true;
+  const maxStreak = s.get<number>("rewards.streak.maxShown");
+  const { app } = useApp();
+  const firstClass = Math.min(...(open.size ? [...open] : [3]));
+  const quick: { href: string; icon: string; label: string }[] = [{ href: `/${board.toLowerCase()}/${firstClass}`, icon: "📚", label: ui("navSubjects", s.lang) }];
+  if (classOn && classCount > 0) quick.push({ href: "/classroom", icon: "🎓", label: ui("classroomTitle", s.lang) });
+  if (mastery && s.get("mastery.revision.enabled") === true) quick.push({ href: "/revise", icon: "🔁", label: ui("navRevise", s.lang) });
+  if (mastery && s.get("mastery.progressPage") === true) quick.push({ href: "/progress", icon: "⭐", label: ui("myProgress", s.lang) });
+  if (s.get("browse.explore.enabled") === true) quick.push({ href: "/explore", icon: "🎨", label: ui("navExplore", s.lang) });
+  if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) quick.push({ href: "/notebook", icon: "📓", label: ui("navNotebook", s.lang) });
+  if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} />;
   return (
-    <div className="paper">
+    <div className="paper home">
+      <div className="home-top">
       {s.get("home.hero.show") && (
         <section className="hero">
           <h1>{s.text("home.hero.title")}</h1>
           <p className="lead">{s.text("home.hero.subtitle")}</p>
+          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {ui("tryLesson", s.lang)}</Link><span className="small">{ui("tryLessonHelp", s.lang)}</span></p>}
         </section>
       )}
+        <div className="home-side">
+      {cont && (
+        <section className="continue-card" aria-label={ui("continueTitle", s.lang)}>
+          <div>
+            <h2>{ui("continueTitle", s.lang)}</h2>
+            <p><b><Title name={cont.topic} /></b> · <Title name={cont.subject} /> · {ui("continueStep", s.lang)} {cont.step}/{cont.total}</p>
+          </div>
+          <Link className="btn" href={cont.href}>{ui("continueGo", s.lang)}</Link>
+        </section>
+      )}
+      {goalOn && (
+        <p className={doneToday >= goal ? "goal-chip met" : "goal-chip"} role="status">
+          <span aria-hidden="true">{doneToday >= goal ? "✔" : "🎯"}</span> {ui("goalChip", s.lang)}: {Math.min(doneToday, goal)}/{goal} {ui("goalLessons", s.lang)}{doneToday >= goal ? ` · ${ui("goalMet", s.lang)}` : ""}
+        </p>
+      )}
+        </div>
+      </div>
+      {recent.length > 0 && (
+        <section className="recent-row" aria-label={ui("recentTitle", s.lang)}>
+          <h2>{ui("recentTitle", s.lang)}</h2>
+          <ul>
+            {recent.map((r) => (
+              <li key={r.id}><Link href={r.href} className="recent-item">
+                <b><Title name={r.topic} /></b><span className="small"><Title name={r.subject} /></span>
+                <span className="meter" aria-hidden="true"><span style={{ width: `${r.done ? 100 : r.total ? Math.round(((r.step + 1) / r.total) * 100) : 0}%` }} /></span>
+                <span className="small">{r.done ? `✔ ${ui("pathDone", s.lang)}` : `${ui("continueStep", s.lang)} ${r.step}/${r.total}`}</span>
+              </Link></li>
+            ))}
+          </ul>
+        </section>
+      )}
+      <BoardPath nodes={path} streak={streakOn ? rewards.streak : 0} />
+      {s.get("home.rewards.show") === true && (streakOn || rewards.stars > 0) && (
+        <section className="rewards" aria-label={ui("rewardsTitle", s.lang)}>
+          {streakOn && (
+            <div className="reward">
+              <b className="reward-n">🔥 {Math.min(rewards.streak, maxStreak)}</b>
+              <span>{ui("streakDays", s.lang)}</span>
+              <ol className="week" aria-hidden="true">{rewards.week.map((on, i) => <li key={i} className={on ? "on" : ""} />)}</ol>
+              <span className="small">{rewards.activeToday ? ui("streakToday", s.lang) : rewards.streak > 0 ? ui("streakKeep", s.lang) : ui("streakStart", s.lang)}</span>
+            </div>
+          )}
+          <div className="reward"><b className="reward-n">⭐ {rewards.stars}</b><span>{ui("starsEarned", s.lang)}</span></div>
+        </section>
+      )}
+      {s.get("home.quickLinks.show") === true && quick.length > 1 && (
+        <nav className="quick" aria-label={ui("quickLinks", s.lang)}>
+          {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
+        </nav>
+      )}
+      {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
+      {s.get("explore.tryIt.show") === true && <section className="paper-block"><WaterCycle /></section>}
       {mastery && s.get("mastery.homeCard") === true && s.get("mastery.revision.enabled") === true && due > 0 && (
         <section className="revise-card" aria-label={ui("reviseToday", s.lang)}>
           <div><h2>{ui("reviseToday", s.lang)}</h2><p>{due} {ui("reviseCount", s.lang)}</p></div>

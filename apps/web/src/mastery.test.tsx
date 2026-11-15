@@ -93,7 +93,7 @@ describe("mastery", () => {
     await screen.findByText("Strong");
     cleanup();
     mount("/cbse/3/maths/shapes", { "mastery.badges": false });
-    await screen.findByText("Sides and corners");
+    await screen.findAllByText("Sides and corners");
     expect(screen.queryByText("Strong")).toBeNull();
   });
 

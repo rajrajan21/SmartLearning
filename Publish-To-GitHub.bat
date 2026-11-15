@@ -1,13 +1,13 @@
 @echo off
 setlocal
-title StudySmart - Publish to GitHub
+title SharpStudy - Publish to GitHub
 cd /d "%~dp0"
 set "LOG=%~dp0publish-github-report.txt"
 set "REMOTE=https://github.com/rajrajan21/SmartLearning.git"
 
-echo StudySmart publish started %date% %time% > "%LOG%"
+echo SharpStudy publish started %date% %time% > "%LOG%"
 echo.
-echo  === StudySmart: save and push to GitHub (rajrajan21/SmartLearning) ===
+echo  === SharpStudy: save and push to GitHub (rajrajan21/SmartLearning) ===
 echo.
 
 where git >nul 2>&1
@@ -35,10 +35,11 @@ git config user.email >nul 2>&1 || git config user.email "itsme.rajrajan@gmail.c
 git branch -M main >> "%LOG%" 2>&1
 
 rem Refresh the Malar Teacher copy (source only: no node_modules, cache, big asset zips or videos)
-set "MALAR_SRC=%USERPROFILE%\Documents\Malar Teacher"
+set "MALAR_SRC=%~dp0Malar Teacher"
+if not exist "%MALAR_SRC%\server.mjs" set "MALAR_SRC=%USERPROFILE%\Documents\Malar Teacher"
 if exist "%MALAR_SRC%\server.mjs" (
   echo Updating Malar Teacher copy from %MALAR_SRC% ...
-  robocopy "%MALAR_SRC%" "%~dp0malar-teacher" /E /XD node_modules cache clips _backup _build screenshots voices .git /XF *.zip *.mp4 *.bin *.log /NFL /NDL /NJH /NJS /NP >> "%LOG%" 2>&1
+  robocopy "%MALAR_SRC%" "%~dp0malar-teacher" /E /XD node_modules cache clips _backup _build screenshots voices .git /XF *.bat *.zip *.mp4 *.bin *.log /NFL /NDL /NJH /NJS /NP >> "%LOG%" 2>&1
   if errorlevel 8 (
     echo WARNING: could not copy Malar Teacher. See publish-github-report.txt
   )
@@ -46,11 +47,13 @@ if exist "%MALAR_SRC%\server.mjs" (
   echo Malar Teacher folder not found at %MALAR_SRC% - skipping it.
 )
 
+echo Removing hand-over archives from git (they are too big to push)...
+git rm -r --cached -q --ignore-unmatch ".transfer" "sync*.tgz" "*__pycache__*" "*.pyc" >> "%LOG%" 2>&1
 echo Adding changes...
 git add -A >> "%LOG%" 2>&1
 
 set "MSG=%~1"
-if "%MSG%"=="" set "MSG=StudySmart update %date% %time%"
+if "%MSG%"=="" set "MSG=SharpStudy update %date% %time%"
 git diff --cached --quiet
 if errorlevel 1 (
   git commit -m "%MSG%" >> "%LOG%" 2>&1

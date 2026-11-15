@@ -4,7 +4,7 @@ Status key: ✅ confirmed free · 🔎 must re-verify current free limits before
 
 | Need | Primary (free) | Fallback (free) | Notes |
 |---|---|---|---|
-| Domain `studysmart.in` | You already chose it. `.in` is ~₹600–800/yr 💰 | Free subdomain on Cloudflare Pages / `*.pages.dev` until the domain is bought | The only expected spend. |
+| Domain `sharpstudy.in` | You already chose it. `.in` is ~₹600–800/yr 💰 | Free subdomain on Cloudflare Pages / `*.pages.dev` until the domain is bought | The only expected spend. |
 | Source control + CI | GitHub repo `SmartLearning` + GitHub Actions (free for public repos; 2000 min/month private) ✅ | | |
 | Web hosting (static + PWA) | Cloudflare Pages ✅ | Same Oracle server behind Caddy | |
 | API + DB hosting | Oracle Always Free Ampere A1 (2 OCPU / 12 GB you already have) ✅ | Local laptop during development | Shares with chennaideals.in; we cap memory (Postgres ~1 GB, API ~512 MB). |

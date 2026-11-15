@@ -56,8 +56,8 @@ describe("timeline", () => {
   });
   it("uses the recorded word times when they are available", () => {
     const words = "Shade one quarter, then write it.".split(" ").map((w, i) => ({ w, t: i * 1000 }));
-    expect(startMs({ do: "fill", on: "quarter" }, "Shade one quarter, then write it.", 6000, words)).toBe(2000);
-    expect(startMs({ do: "fill", on: "quarter" }, "Shade one quarter, then write it.", 6000)).toBeCloseTo((10 / 33) * 6000, 0);
+    expect(startMs({ do: "fill", on: "quarter" }, "Shade one quarter, then write it.", 6000, words)).toBe(2250);
+    expect(startMs({ do: "fill", on: "quarter" }, "Shade one quarter, then write it.", 6000)).toBeCloseTo(Math.min(5700, (10 / 33) * 6000 + 250), 0);
   });
   it("moves a clock forward and never backwards", () => {
     const l = lesson();

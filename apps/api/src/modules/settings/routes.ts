@@ -19,9 +19,9 @@ export function publicSettingsRoutes(svc: SettingsService): Router {
   return r;
 }
 
-export function adminSettingsRoutes(svc: SettingsService, adminKey: string | null): Router {
+export function adminSettingsRoutes(svc: SettingsService, adminKey: string | null, adminUserId?: string): Router {
   const r = Router();
-  r.use(requireAdmin(adminKey));
+  r.use(requireAdmin(adminKey, adminUserId));
   r.get("/session", (_req, res) => void res.json({ ok: true }));
 
   r.get("/settings", async (_req, res) => {
@@ -41,7 +41,7 @@ export function adminSettingsRoutes(svc: SettingsService, adminKey: string | nul
   });
 
   r.get("/settings/export", async (_req, res) => {
-    res.set("Content-Disposition", 'attachment; filename="studysmart-settings.json"').json(await svc.exportAll());
+    res.set("Content-Disposition", 'attachment; filename="sharpstudy-settings.json"').json(await svc.exportAll());
   });
 
   r.post("/settings/import", async (req, res) => {

@@ -1,49 +1,60 @@
-import { SETTINGS_BY_KEY, contrastRatio, type SettingValue } from "@studysmart/shared";
+import { SETTINGS_BY_KEY, resolveLook, readableOn as readable, type SettingValue } from "@studysmart/shared";
 
 type Values = Record<string, SettingValue>;
 const str = (v: Values, k: string) => String(v[k] ?? SETTINGS_BY_KEY.get(k)?.default);
 
 const RADIUS = { sharp: 4, soft: 12, round: 22 } as const;
 const DENSITY = { compact: 0.8, comfortable: 1, roomy: 1.25 } as const;
+const HEADING = {
+  rounded: '"Baloo Thambi 2", "Mukta Malar", system-ui, sans-serif',
+  system: 'system-ui, -apple-system, "Segoe UI", Roboto, "Mukta Malar", sans-serif',
+  serif: 'Georgia, "Iowan Old Style", "Palatino Linotype", "Mukta Malar", serif',
+} as const;
 
 /** Pick whichever of two colours reads better on a background (used for text on admin-chosen colours). */
-export function readableOn(bg: string, light = "#FFFFFF", dark = "#101828"): string {
-  return contrastRatio(bg, light) >= contrastRatio(bg, dark) ? light : dark;
-}
+export const readableOn = readable;
 
 export function resolveMode(mode: string, prefersDark: boolean): "light" | "dark" {
   return mode === "dark" ? "dark" : mode === "auto" ? (prefersDark ? "dark" : "light") : "light";
 }
 
+/** Corner radius in px: an explicit admin choice wins, otherwise the theme decides. */
+export function radiusFor(choice: string, themeRadius: number): number {
+  return RADIUS[choice as keyof typeof RADIUS] ?? themeRadius;
+}
+export function headingFont(choice: string, themeHeading: keyof typeof HEADING): string {
+  return choice === "baloo" ? HEADING.rounded : choice === "system" ? HEADING.system : HEADING[themeHeading];
+}
+
 /** Turns settings into CSS custom properties. Pure, so it can be tested and used for live admin preview. */
 export function themeVars(v: Values, prefersDark: boolean): { vars: Record<string, string>; attrs: Record<string, string> } {
-  const mode = resolveMode(str(v, "theme.mode"), prefersDark);
-  const dark = mode === "dark";
+  const look = resolveLook(v, prefersDark);
+  const c = look.colors;
+  const notebook = look.themeId === "notebook";
   const vars: Record<string, string> = {
-    "--paper": dark ? str(v, "theme.dark.paper") : str(v, "theme.color.paper"),
-    "--surface": dark ? str(v, "theme.dark.surface") : str(v, "theme.color.surface"),
-    "--ink": dark ? str(v, "theme.dark.ink") : str(v, "theme.color.ink"),
-    "--muted": dark ? str(v, "theme.dark.ink") : str(v, "theme.color.muted"),
-    "--brand": str(v, "theme.color.brand"),
-    "--margin": str(v, "theme.color.margin"),
-    "--rule": dark ? "rgba(255,255,255,0.08)" : str(v, "theme.color.rule"),
-    "--success": str(v, "theme.color.success"),
-    "--warning": str(v, "theme.color.warning"),
-    "--radius": `${RADIUS[str(v, "theme.radius") as keyof typeof RADIUS] ?? 12}px`,
+    "--paper": c.paper, "--surface": c.surface, "--ink": c.ink, "--muted": c.muted, "--brand": c.brand, "--on-brand": c.onBrand, "--on-success": readable(c.success),
+    "--accent": c.accent, "--margin": c.margin, "--rule": c.rule, "--success": c.success, "--warning": c.warning,
+    "--radius": `${radiusFor(str(v, "theme.radius"), look.theme.radius)}px`,
     "--density": String(DENSITY[str(v, "theme.density") as keyof typeof DENSITY] ?? 1),
     "--text-scale": str(v, "theme.font.scale"),
-    "--font-heading": str(v, "theme.font.heading") === "baloo" ? '"Baloo Thambi 2", "Mukta Malar", system-ui, sans-serif' : "system-ui, sans-serif",
+    "--font-heading": headingFont(str(v, "theme.font.heading"), look.theme.heading),
     "--font-body": str(v, "theme.font.body") === "mukta" ? '"Mukta Malar", system-ui, sans-serif' : "system-ui, sans-serif",
-    "--on-brand": readableOn(str(v, "theme.color.brand")),
   };
-  for (const s of ["maths", "evs", "english", "tamil", "science", "social", "other"]) vars[`--subject-${s}`] = str(v, `theme.subject.${s}`);
+  for (const s of ["maths", "evs", "english", "tamil", "science", "social", "other"] as const) vars[`--subject-${s}`] = c.subjects[s];
   return {
     vars,
     attrs: {
-      "data-mode": mode,
-      "data-rules": String(v["theme.paper.rules"] !== false),
-      "data-margin": String(v["theme.paper.margin"] !== false),
+      "data-mode": look.mode,
+      "data-theme": look.themeId,
+      "data-palette": look.paletteId,
+      // ruled lines and the red margin belong to the Notebook theme only
+      "data-rules": String(notebook && v["theme.paper.rules"] !== false),
+      "data-margin": String(notebook && v["theme.paper.margin"] !== false),
       "data-motion": str(v, "theme.motion"),
+      "data-transition": v["ui.pageTransition"] === false ? "off" : "on",
+      "data-focus": v["a11y.focus.strong"] === false ? "normal" : "strong",
+      "data-targets": v["a11y.targets.large"] === false ? "normal" : "large",
+      "data-mobile": String(v["ui.mobile.polish"] !== false),
     },
   };
 }

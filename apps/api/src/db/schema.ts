@@ -211,3 +211,16 @@ export const questionAttempts = pgTable("question_attempts", {
   hintsUsed: integer("hints_used").notNull().default(0),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index("qa_question_idx").on(t.questionId), index("qa_anon_idx").on(t.anonId)]);
+
+// ---------- Site access (invite-only mode) ----------
+/** Invite codes. `code` is stored without dashes, upper case (shown to people as SHARP-XXXX-XXXX). maxUses null = unlimited. */
+export const inviteCodes = pgTable("invite_codes", {
+  id: id(),
+  code: text("code").notNull(),
+  label: text("label"),
+  maxUses: integer("max_uses"),
+  uses: integer("uses").notNull().default(0),
+  expiresAt: timestamp("expires_at", { withTimezone: true }),
+  revokedAt: timestamp("revoked_at", { withTimezone: true }),
+  createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
+}, (t) => [uniqueIndex("invite_codes_code_uq").on(t.code)]);

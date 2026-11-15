@@ -8,7 +8,7 @@ import { createClassroomService } from "../src/modules/classroom/service.js";
 import { collectJobs } from "../src/modules/audio/build.js";
 import { createApp } from "../src/app.js";
 import { makeRepo, seedFile } from "./helpers.js";
-import { lessonsDir } from "../src/server-paths.js";
+import { lessonsDir, questionsDir } from "../src/server-paths.js";
 import { mkdtempSync } from "node:fs";
 import { tmpdir } from "node:os";
 const audioDir = mkdtempSync(join(tmpdir(), "aud-")); // no phrases file: only the lesson narration is counted
@@ -34,23 +34,26 @@ describe("shipped classroom lessons", () => {
   });
   it("adds the classroom narration to the audio jobs", () => {
     const jobs = collectJobs({ lessonsDir, classroomDir, audioDir }, ["en"]);
-    expect(jobs.some((j) => j.where.includes("halves-and-quarters") && j.text.includes("one whole"))).toBe(true);
+    expect(jobs.some((j) => j.where.startsWith("classroom-3-maths-halves") || j.where.includes("halves-and-quarters"))).toBe(true);
+    expect(jobs.some((j) => j.where.endsWith("question"))).toBe(true);
     expect(jobs.some((j) => j.where.includes("explanation"))).toBe(true);
   });
 });
 
 describe("classroom API", () => {
-  const svc = createClassroomService(classroomDir);
+  const svc = createClassroomService({ lessonsDir, questionsDir, classroomDir });
   it("lists and fetches lessons (board name in any case)", () => {
-    expect(svc.index().items.length).toBe(files.length);
-    expect(svc.get("cbse", 3, "maths", "fair-share", "halves-and-quarters")?.steps.length).toBeGreaterThan(3);
+    expect(svc.index().items.length).toBeGreaterThanOrEqual(13);
+    const l = svc.get("cbse", 3, "maths", "fair-share", "halves-and-quarters");
+    expect(l?.steps.length).toBeGreaterThan(20);
+    expect(l?.steps.some((s) => s.section === "Picture it")).toBe(true); // the hand-made picture page is included
     expect(svc.get("CBSE", 3, "maths", "fair-share", "nope")).toBeNull();
   });
   it("is served over HTTP and can be switched off", async () => {
     const m = await makeRepo(seedFile());
     const settings = m.settings;
     const app = createApp({ curriculum: m.repo, settings, lessons: m.lessons, practice: m.practice, classroom: svc, adminKey: null });
-    expect((await request(app).get("/api/v1/classroom/index")).body.items.length).toBe(files.length);
+    expect((await request(app).get("/api/v1/classroom/index")).body.items.length).toBeGreaterThanOrEqual(13);
     expect((await request(app).get("/api/v1/classroom/CBSE/3/maths/fair-share/halves-and-quarters")).status).toBe(200);
     expect((await request(app).get("/api/v1/classroom/CBSE/3/maths/fair-share/zzz")).status).toBe(404);
     expect((await request(app).get("/api/v1/classroom/CBSE/x/maths/a/b")).status).toBe(400);

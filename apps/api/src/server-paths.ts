@@ -6,3 +6,4 @@ export const lessonsDir = resolve(dirname(fileURLToPath(import.meta.url)), "../.
 export const audioDir = process.env.AUDIO_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/audio");
 export const questionsDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/questions");
 export const classroomDir = resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/classroom");
+export const booksDir = process.env.BOOKS_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../content/books");

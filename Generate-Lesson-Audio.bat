@@ -1,8 +1,8 @@
 @echo off
 cd /d "%~dp0"
-title StudySmart - generate teacher audio
+title SharpStudy - generate teacher audio
 set REPORT=generate-audio-report.txt
-echo === StudySmart: generate Malar Teacher audio for lessons === > %REPORT%
+echo === SharpStudy: generate Malar Teacher audio for lessons === > %REPORT%
 echo.
 where node >nul 2>nul || (echo Node.js was not found. Install the LTS version from nodejs.org. & pause & exit /b)
 where pnpm >nul 2>nul || (echo Installing pnpm... & call npm install -g pnpm)
@@ -10,7 +10,7 @@ if not exist node_modules (echo Installing project packages, please wait... & ca
 curl -s -m 5 http://localhost:8080/api/health >nul 2>nul
 if errorlevel 1 (
   echo The Malar Teacher speech server is not running.
-  echo Start "Start Malar Teacher.bat" in the Malar Teacher folder, wait until it says the voice engine is ready, then run this file again.
+  echo Start "Start Malar Teacher.bat" in the Malar Teacher folder (D:\Smart Learning Website\Malar Teacher), wait until it says the voice engine is ready, then run this file again.
   echo Speech server not running >> %REPORT%
   pause & exit /b
 )

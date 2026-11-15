@@ -33,6 +33,8 @@ export const ClassAction = z.object({
   target: Id.optional(),
   /** starts when the teacher says this phrase (it must appear in the narration) */
   on: z.string().min(1).max(80).optional(),
+  /** which occurrence of the phrase (1 = first); for a list such as 5, 10, 15 where the same number can appear twice */
+  nth: z.number().int().min(1).max(40).optional(),
   /** or starts at this fraction (0 to 1) of the narration */
   at: z.number().min(0).max(1).optional(),
   ms: z.number().int().min(0).max(8000).optional(),
@@ -53,6 +55,8 @@ export const ClassroomCheck = z.object({
 
 export const ClassroomStep = z.object({
   id: z.string().regex(/^[a-z][a-z0-9-]{0,30}$/),
+  /** the part of the lesson this step belongs to (shown in the lesson rail), e.g. "Story" */
+  section: z.string().max(30).optional(),
   narration: LocalizedText,
   actions: z.array(ClassAction).max(30).default([]),
   check: ClassroomCheck.optional(),
@@ -64,9 +68,12 @@ const ClassroomShape = z.object({
   board: z.string().min(1).max(30), classLevel: z.number().int().min(1).max(12), subject: Slug, chapter: Slug, topic: Slug,
   status: ContentStatus.default("published"),
   title: LocalizedText,
-  objects: z.array(BoardObject).max(80),
-  steps: z.array(ClassroomStep).min(1).max(40),
+  objects: z.array(BoardObject).max(700),
+  steps: z.array(ClassroomStep).min(1).max(160),
 });
+
+export const VoiceInfo = z.object({ id: z.string(), label: z.string(), gender: z.enum(["female", "male"]), accent: z.enum(["us", "uk", "in"]), langs: z.array(z.enum(["en", "ta"])), ready: z.boolean() });
+export type VoiceInfo = z.infer<typeof VoiceInfo>;
 
 const needs: Record<z.infer<typeof ActionKind>, string[] | "any" | "none"> = {
   draw: ["circle", "line", "arrow", "rect", "sector", "poly", "path", "clock"],
@@ -108,7 +115,7 @@ export const PublicClassroom = ClassroomShape.extend({
   steps: z.array(ClassroomStep.extend({ audio: LangAudio.optional(), checkAudio: z.object({ stem: LangAudio.optional(), explanation: LangAudio.optional() }).optional() })),
 });
 export type PublicClassroom = z.infer<typeof PublicClassroom>;
-export const ClassroomIndex = z.object({ items: z.array(z.object({ board: z.string(), classLevel: z.number(), subject: z.string(), chapter: z.string(), topic: z.string(), title: LocalizedText, steps: z.number() })) });
+export const ClassroomIndex = z.object({ voices: z.array(VoiceInfo).default([]), defaultVoice: z.string().default("malar"), items: z.array(z.object({ board: z.string(), classLevel: z.number(), subject: z.string(), chapter: z.string(), topic: z.string(), title: LocalizedText, steps: z.number(), minutes: z.number().optional() })) });
 export type ClassroomIndex = z.infer<typeof ClassroomIndex>;
 
 /* ------------------------------------------------------------------ timeline ----
@@ -138,12 +145,26 @@ export interface WordTime { w: string; t: number; d?: number }
 export function startMs(a: ClassAction, narration: string, durMs: number, words?: WordTime[]): number {
   if (a.at !== undefined) return a.at * durMs;
   if (a.on) {
-    const idx = narration.toLowerCase().indexOf(a.on.toLowerCase());
+    const hay = narration.toLowerCase(), needle = a.on.toLowerCase(), nth = a.nth ?? 1;
+    let idx = -1;
+    for (let n = 0, from = 0; n < nth; n++) { idx = hay.indexOf(needle, from); if (idx < 0) break; from = idx + 1; }
     if (idx < 0) return 0;
+    const LAG = 250; // the picture lands a moment AFTER the word is heard, never before it
     const tokens = narration.trim().split(/\s+/).length, before = narration.slice(0, idx).trim();
     const k = before ? before.split(/\s+/).length : 0;
-    if (words && words.length > 0 && Math.abs(words.length - tokens) <= 2 && words[Math.min(k, words.length - 1)]) return words[Math.min(k, words.length - 1)]!.t;
-    return (idx / Math.max(1, narration.length)) * durMs;
+    if (words && words.length > 0) {
+      // find the spoken words themselves (not just the position), so a small difference in how the voice split the words cannot shift the picture
+      const norm = (x: string) => x.toLowerCase().replace(/[^\p{L}\p{N}]/gu, "");
+      const want = a.on.split(/\s+/).map(norm).filter(Boolean), have = words.map((w) => norm(w.w));
+      const hits: number[] = [];
+      for (let i = 0; want.length > 0 && i <= have.length - want.length; i++) if (want.every((x, j) => have[i + j] === x)) hits.push(i);
+      if (hits.length > 0) {
+        const pick = a.nth !== undefined ? hits[Math.min(a.nth, hits.length) - 1]! : hits.reduce((m, h) => (Math.abs(h - k) < Math.abs(m - k) ? h : m), hits[0]!);
+        return words[pick]!.t + LAG;
+      }
+      if (Math.abs(words.length - tokens) <= 2 && words[Math.min(k, words.length - 1)]) return words[Math.min(k, words.length - 1)]!.t + LAG;
+    }
+    return Math.min(durMs * 0.95, (idx / Math.max(1, narration.length)) * durMs + LAG);
   }
   return 0;
 }

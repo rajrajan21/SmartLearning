@@ -15,7 +15,12 @@ import { ProgressPage } from "./pages/Progress";
 import { AccountPage } from "./pages/Account";
 import { AccountProvider } from "./lib/account";
 import { PracticePage } from "./pages/Practice";
+import { AccessGuard } from "./components/AccessGate";
 import { AdminApp } from "./admin/AdminApp";
+
+import { ExplorePage } from "./pages/Explore";
+import { NotebookPage } from "./pages/Notebook";
+import { BookReaderPage, BooksPage } from "./pages/Books";
 
 export function Routes() {
   return (
@@ -33,6 +38,9 @@ export function Routes() {
       <Route path="/parent" component={ParentPage} />
       <Route path="/revise" component={RevisePage} />
       <Route path="/progress" component={ProgressPage} />
+      <Route path="/explore" component={ExplorePage} />
+      <Route path="/notebook" component={NotebookPage} />
+      <Route path="/books" component={BooksPage} />
       <Route path="/:board/:cls" component={ClassPage} />
       <Route path="/:board/:cls/:subject" component={SubjectPage} />
       <Route path="/:board/:cls/:subject/:chapter" component={ChapterPage} />
@@ -44,6 +52,17 @@ export function Routes() {
   );
 }
 
+/** The whole site: the book reader fills the screen by itself, every other page sits inside the normal layout. */
+export function Site() {
+  return (
+    <Switch>
+      <Route path="/books/:cls/:file" component={BookReaderPage} />
+      <Route path="/books/:cls/:file/:chapter" component={BookReaderPage} />
+      <Route><Layout><Routes /></Layout></Route>
+    </Switch>
+  );
+}
+
 export function App({ ssrPath }: { ssrPath?: string }) {
   void ssrPath;
   return (
@@ -51,11 +70,13 @@ export function App({ ssrPath }: { ssrPath?: string }) {
       <Switch>
         <Route path="/admin" nest><AdminApp /></Route>
         <Route>
+          <AccessGuard>
           <SettingsProvider>
             <AccountProvider>
-              <Layout><Routes /></Layout>
+              <Site />
             </AccountProvider>
           </SettingsProvider>
+          </AccessGuard>
         </Route>
       </Switch>
     </Router>

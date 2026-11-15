@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState, t
 import { defaults, publicSettings, type SettingValue } from "@studysmart/shared";
 import { store } from "./storage";
 import { applyTheme } from "./theme";
+import { useThemePref } from "./appview";
 import type { Lang, Named } from "./i18n";
 import { pickName } from "./i18n";
 
@@ -50,7 +51,8 @@ export function SettingsProvider({ children, override }: { children: ReactNode; 
   }, []);
 
   const values = useMemo(() => ({ ...fetched, ...(override ?? {}) }), [fetched, override]);
-  useEffect(() => { applyTheme(values, prefersDark); }, [values, prefersDark]);
+  const themePref = useThemePref();
+  useEffect(() => { applyTheme(themePref && values["app.theme.control"] !== false ? { ...values, "theme.mode": themePref } : values, prefersDark); }, [values, prefersDark, themePref]);
 
   const tamilOn = values["lang.tamil.enabled"] !== false;
   const effectiveLang: Lang = !tamilOn ? "en" : (lang ?? (values["lang.default"] === "ta" ? "ta" : "en"));

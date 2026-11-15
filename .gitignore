@@ -7,3 +7,28 @@ dist
 .DS_Store
 coverage
 .data
+
+# downloaded textbooks (large; kept on this PC)
+content/books/pdf/
+content/books/manifest.json
+
+# hand-over archives and python caches (never commit)
+sync*.tgz
+.transfer/
+__pycache__/
+*.pyc
+
+# Malar Teacher voice server: models, assets and zips stay on this PC
+Malar Teacher/*.zip
+Malar Teacher/_build/
+Malar Teacher/node_modules/
+Malar Teacher/voices/
+Malar Teacher/cache/
+Malar Teacher/_backup/
+Malar Teacher/_old-bats/
+Malar Teacher/screenshots/
+Malar Teacher/notebooks/
+Malar Teacher/*.mp4
+Malar Teacher/server.log
+*.zip
+Malar Teacher/

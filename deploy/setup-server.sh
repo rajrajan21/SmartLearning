@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# One-time setup of StudySmart on the Oracle Ubuntu server. Run as a normal user with sudo:  bash setup-server.sh
+# One-time setup of SharpStudy on the Oracle Ubuntu server. Run as a normal user with sudo:  bash setup-server.sh
 # Safe to re-run. It does NOT touch chennaideals.in (its own Caddy block, its own port 3100, its own database).
 set -euo pipefail
 REPO="${REPO:-https://github.com/rajrajan21/SmartLearning.git}"

@@ -1,17 +1,20 @@
+import { SITE } from "@studysmart/shared";
 import { createApp } from "./app.js";
 import { createPgliteDb, seedAll } from "./db/dev.js";
 import type { Db } from "./db/client.js";
 import { createDbCurriculumRepository } from "./modules/curriculum/db-repository.js";
 import { createAudioStore } from "./modules/audio/manifest.js";
 import { createClassroomService } from "./modules/classroom/service.js";
-import { audioDir, classroomDir } from "./server-paths.js";
+import { audioDir, booksDir, classroomDir, lessonsDir, questionsDir } from "./server-paths.js";
+import { createBookStore } from "./modules/books/store.js";
 import { createTutorService } from "./modules/tutor/service.js";
 import { modelFromEnv } from "./modules/tutor/provider.js";
 import { createAccountService } from "./modules/accounts/service.js";
 import { createPracticeService } from "./modules/practice/service.js";
 import { createLessonService } from "./modules/lessons/service.js";
 import { resolve } from "node:path";
-import { resolveAdminKey } from "./modules/settings/admin-auth.js";
+import { resolveAdminKey, resolveAdminUserId } from "./modules/settings/admin-auth.js";
+import { createAccessService, resolveAccessSecret } from "./modules/access/service.js";
 import { createSettingsService } from "./modules/settings/service.js";
 
 async function connect(): Promise<Db> {
@@ -28,10 +31,11 @@ async function connect(): Promise<Db> {
   return db;
 }
 
+const adminKey = resolveAdminKey(process.env);
 const port = Number(process.env.PORT ?? 3000);
 const db = await connect();
 const curriculum = createDbCurriculumRepository(db);
 const audio = createAudioStore({ manifestPath: `${audioDir}/manifest.json`, voicesPath: `${audioDir}/voices.json`, phrasesPath: `${audioDir}/phrases.json`, filesDir: `${audioDir}/files` });
 const lessonSvc = createLessonService(db, curriculum, audio);
-const app = createApp({ classroom: createClassroomService(classroomDir, audio), curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: createSettingsService(db), adminKey: resolveAdminKey(process.env), webDir: process.env.WEB_DIR ? resolve(process.env.WEB_DIR) : undefined });
-app.listen(port, () => console.log(`StudySmart API listening on :${port}`));
+const app = createApp({ books: createBookStore(booksDir), classroom: createClassroomService({ lessonsDir, questionsDir, classroomDir }, audio), curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: createSettingsService(db), access: createAccessService(db, resolveAccessSecret(process.env, adminKey)), adminKey, adminUserId: resolveAdminUserId(process.env), webDir: process.env.WEB_DIR ? resolve(process.env.WEB_DIR) : undefined });
+app.listen(port, () => console.log(`${SITE.name} API listening on :${port}`));

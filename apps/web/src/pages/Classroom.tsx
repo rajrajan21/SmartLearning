@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "wouter";
-import { estimateDurationMs, sceneAt, type PublicClassroom } from "@studysmart/shared";
+import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useRetry } from "../lib/curriculum";
 import { useClassroom, useClassroomIndex } from "../lib/classroom";
 import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
+import { store } from "../lib/storage";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
 type Phase = "idle" | "playing" | "paused" | "gap" | "check" | "feedback" | "done";
@@ -45,15 +46,19 @@ export function ClassroomPage() {
   const { board = "", cls = "", subject = "", chapter = "", topic = "" } = useParams<{ board: string; cls: string; subject: string; chapter: string; topic: string }>();
   const on = s.get("feature.classroom") === true;
   const [attempt, retry] = useRetry();
-  const st = useClassroom(board, cls, subject, chapter, topic, on, attempt);
+  const idx = useClassroomIndex(on);
+  const voices = idx.status === "ready" ? idx.data.voices : [];
+  const [voice, setVoice] = useState(() => store.get("ss_class_voice") ?? "");
+  const chosen = voices.find((v) => v.id === voice && v.ready) ? voice : idx.status === "ready" ? idx.data.defaultVoice : "";
+  const st = useClassroom(board, cls, subject, chapter, topic, on && idx.status !== "loading", attempt, chosen);
   if (!on) return <NotFound />;
   if (st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
-  return <Player lesson={st.data} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
+  return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); store.set("ss_class_voice", v); }} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
 }
 
-function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
+function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassroom; back: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
   const s = useSettings();
   const { lang } = s;
   const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
@@ -72,6 +77,10 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
   const [wordIdx, setWordIdx] = useState(-1);
   const [picked, setPicked] = useState<string | null>(null);
   const [wrongNote, setWrongNote] = useState<string | null>(null);
+  const [both, setBoth] = useState(s.get<string>("classroom.language") === "both");
+  const [talking, setTalking] = useState(false);
+  const bothRef = useRef(both); bothRef.current = both;
+  const info = voices.find((v) => v.id === voice);
 
   const cur = lesson.steps[step]!;
   const text = cur.narration[lang] ?? cur.narration.en;
@@ -86,6 +95,8 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
   const tRef = useRef(0);
   const run = useRef(0);
   const speechDone = useRef(true);
+  const bound = useRef<{ t: number; at: number } | null>(null); // where the device voice has reached (word boundaries)
+  const pre = useRef(new Map<string, HTMLAudioElement>()); // recordings of the next steps, loaded before they are needed
   const timer = useRef<number | null>(null);
 
   const stopVoice = useCallback(() => {
@@ -98,10 +109,11 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
   /** plays a recording, or the device voice when allowed and there is no recording */
   const say = useCallback((ref: { url: string } | undefined, fallbackText: string | undefined, onEnd?: () => void) => {
     const { mute: m, rate: r, browserVoice: bv } = R.current;
-    if (m) { onEnd?.(); return; }
-    if (ref) { const a = new Audio(ref.url); a.playbackRate = r; a.onended = () => onEnd?.(); a.onerror = () => onEnd?.(); audioEl.current = a; void a.play().catch(() => onEnd?.()); return; }
-    if (bv && hasSpeech() && fallbackText) { const u = new SpeechSynthesisUtterance(fallbackText); u.lang = "en-IN"; u.rate = r; u.onend = () => onEnd?.(); u.onerror = () => onEnd?.(); speechSynthesis.speak(u); return; }
-    onEnd?.();
+    const end = () => { setTalking(false); onEnd?.(); };
+    if (m) { end(); return; }
+    if (ref) { const a = new Audio(ref.url); a.playbackRate = r; a.onended = end; a.onerror = end; audioEl.current = a; setTalking(true); void a.play().catch(end); return; }
+    if (bv && hasSpeech() && fallbackText) { const u = new SpeechSynthesisUtterance(fallbackText); u.lang = "en-IN"; u.rate = r; u.onend = end; u.onerror = end; setTalking(true); speechSynthesis.speak(u); return; }
+    end();
   }, []);
 
   const begin = useCallback((i: number) => {
@@ -111,11 +123,22 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
     const rr = R.current.mute ? undefined : stp.audio?.[lang] ?? stp.audio?.en;
     speechDone.current = !(!rr && R.current.browserVoice && hasSpeech() && !R.current.mute);
     const id = run.current;
-    if (rr) { const a = new Audio(rr.url); a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { /* blocked: the virtual clock still runs */ }); }
-    else if (!speechDone.current) { const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate; u.onend = () => { if (run.current === id) speechDone.current = true; }; u.onerror = u.onend; speechSynthesis.speak(u); }
+    bound.current = null;
+    if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); try { a.currentTime = 0; } catch { /* not loaded yet */ } a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { /* blocked: the virtual clock still runs */ }); }
+    else if (!speechDone.current) {
+      const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate;
+      const total = stp.narration.en.length, dur = estimateDurationMs(stp.narration.en) / R.current.rate;
+      u.onboundary = (e) => { if (run.current === id) bound.current = { t: (e.charIndex / Math.max(1, total)) * dur, at: performance.now() }; };
+      u.onend = () => { if (run.current === id) speechDone.current = true; }; u.onerror = u.onend; speechSynthesis.speak(u);
+    }
+    // load the recordings of the next steps now, so there is no wait between scenes
+    for (let n = i + 1; n <= i + 2 && n < R.current.lesson.steps.length; n++) {
+      const nx = R.current.lesson.steps[n]!, ref = nx.audio?.[lang] ?? nx.audio?.en;
+      if (ref && !pre.current.has(ref.url)) { const pa = new Audio(); pa.preload = "auto"; pa.src = ref.url; pre.current.set(ref.url, pa); }
+    }
   }, [lang, stopVoice]);
 
-  const finishStep = useCallback(() => {
+  const afterNarration = useCallback(() => {
     const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
     if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[lang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
     if (i + 1 >= ls.steps.length) { setPhase("done"); return; }
@@ -124,6 +147,11 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
     const id = run.current;
     timer.current = window.setTimeout(() => { if (run.current === id) begin(i + 1); }, R.current.pauseMs);
   }, [begin, lang, say]);
+  const finishStep = useCallback(() => {
+    const stp = R.current.lesson.steps[R.current.step]!, ta = stp.audio?.ta;
+    if (bothRef.current && ta && !R.current.mute) { setPhase("gap"); const id = run.current; say(ta, undefined, () => { if (run.current === id) afterNarration(); }); return; }
+    afterNarration();
+  }, [afterNarration, say]);
 
   // the clock: audio position when a recording plays, otherwise a virtual clock
   useEffect(() => {
@@ -133,11 +161,14 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
       const dt = now - last; last = now;
       const a = audioEl.current, r = R.current;
       let ms: number;
-      if (a && r.rec) ms = a.currentTime * 1000; else { tRef.current += dt * r.rate; ms = tRef.current; }
+      if (a && r.rec) ms = a.currentTime * 1000;
+      else if (!speechDone.current && bound.current) ms = Math.max(tRef.current, bound.current.t + Math.min(now - bound.current.at, 320));
+      else if (!speechDone.current && R.current.browserVoice && tRef.current < 1) ms = tRef.current; // the device voice has not started yet
+      else { tRef.current += dt * r.rate; ms = tRef.current; }
       tRef.current = ms; setT(ms); setClock((c) => c + dt / 1000);
       if (a && r.rec) { const w = r.rec.words; let k = -1; for (let n = 0; n < w.length; n++) if (w[n]!.t <= ms) k = n; setWordIdx(k); }
       else if (!speechDone.current && ms > r.durMs * 2.5) speechDone.current = true;
-      const over = a && r.rec ? a.ended || ms >= r.durMs + 50 : ms >= r.durMs && speechDone.current;
+      const over = a && r.rec ? a.ended || ms >= r.durMs + 50 : speechDone.current && (bound.current !== null || ms >= r.durMs);
       if (over) { setT(r.durMs); finishStep(); return; }
       raf = requestAnimationFrame(tick);
     };
@@ -182,17 +213,52 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
   const tokens = text.split(/\s+/);
   const wordsMatch = !!words && words.length === tokens.length;
   const playing = phase === "playing", started = phase !== "idle";
+  const speaking = (playing && !mute) || talking;
+  const sections = lesson.steps.reduce<{ name: string; first: number }[]>((acc, st, i) => { const n = st.section ?? ""; if (n && acc[acc.length - 1]?.name !== n) acc.push({ name: n, first: i }); return acc; }, []);
+  const curSection = lesson.steps[step]?.section;
 
   return (
     <div className="paper classroom">
       <p className="small"><Link href={back}>← {L("backToTopic")}</Link></p>
       <h1>{s.name(lesson.title)}</h1>
-      <div className="class-stage">
-        <ClassBoard objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
-        {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
-        {phase === "done" && (
-          <div className="class-done" role="status"><b>{L("classroomDone")}</b>
-            <div className="chips-row"><button type="button" className="btn" onClick={() => begin(0)}>{L("classroomAgain")}</button><Link className="btn ghost" href={back}>{L("classroomBack")}</Link></div></div>
+      {sections.length > 1 && (
+        <nav className="class-rail" aria-label={L("classroomParts")}>
+          {sections.map((x) => <button type="button" key={x.first} className={x.name === curSection ? "on" : undefined} aria-current={x.name === curSection ? "step" : undefined} onClick={() => go(x.first)}>{x.name}</button>)}
+        </nav>
+      )}
+      <div className={`class-room${cur.check && (phase === "check" || phase === "feedback") ? " has-check" : ""}`}>
+        {cur.check && (phase === "check" || phase === "feedback") && (
+        <section className="class-check" aria-label={L("classroomQuestion")}>
+          <h2>{L("classroomQuestion")}</h2>
+          <p><b>{s.name(cur.check.stem)}</b></p>
+          <ul className="options">
+            {cur.check.options.map((o) => {
+              const right = phase === "feedback" && o.correct, bad = picked === o.id && !o.correct;
+              return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{s.name(o.text)}</button></li>;
+            })}
+          </ul>
+          {wrongNote && <p className="notice" role="alert">{L("classroomTryAgain")} {wrongNote}</p>}
+          {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {s.name(cur.check.explanation)}</p>
+            <button type="button" className="btn" onClick={proceed}>{step + 1 >= lesson.steps.length ? L("finish") : L("classroomContinue")}</button></div>)}
+        </section>
+      )}
+
+        <div className="class-stage">
+          <ClassBoard objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
+          {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
+          {phase === "done" && (
+            <div className="class-done" role="status"><b>{L("classroomDone")}</b>
+              <div className="chips-row"><button type="button" className="btn" onClick={() => begin(0)}>{L("classroomAgain")}</button><Link className="btn ghost" href={back}>{L("classroomBack")}</Link></div></div>
+          )}
+        </div>
+        {captions && (
+          <aside className={`class-subs${speaking ? " speaking" : ""}`} aria-label={L("classroomSubtitles")} aria-live="off">
+            {started && !mute && !rec && !browserVoice && <p className="class-caption small" role="note">{L("classroomNoRecording")}</p>}
+            {started ? (<>
+              <p className="class-caption">{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
+              {both && cur.narration.ta && <p className="class-caption ta" lang="ta">{cur.narration.ta}</p>}
+            </>) : <p className="class-caption small">{L("classroomSubtitlesHint")}</p>}
+          </aside>
         )}
       </div>
 
@@ -208,28 +274,21 @@ function Player({ lesson, back }: { lesson: PublicClassroom; back: string }) {
           </select>
         </label>
         <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
+        {voices.length > 1 && s.get("classroom.voicePicker") === true && (
+          <label className="class-rate">{L("classroomTeacher")}
+            <select value={voice} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
+              {voices.map((v) => <option key={v.id} value={v.id} disabled={!v.ready}>{v.label}{v.ready ? "" : ` – ${L("classroomNotRecorded")}`}</option>)}
+            </select>
+          </label>
+        )}
+        <label className="class-rate">{L("classroomLanguage")}
+          <select value={both ? "both" : "en"} onChange={(e) => setBoth(e.target.value === "both")}>
+            <option value="en">English</option><option value="both">English + தமிழ்</option>
+          </select>
+        </label>
       </div>
       <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
 
-      {captions && started && (
-        <p className="class-caption" aria-live="off">{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
-      )}
-
-      {cur.check && (phase === "check" || phase === "feedback") && (
-        <section className="class-check" aria-label={L("classroomQuestion")}>
-          <h2>{L("classroomQuestion")}</h2>
-          <p><b>{s.name(cur.check.stem)}</b></p>
-          <ul className="options">
-            {cur.check.options.map((o) => {
-              const right = phase === "feedback" && o.correct, bad = picked === o.id && !o.correct;
-              return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{s.name(o.text)}</button></li>;
-            })}
-          </ul>
-          {wrongNote && <p className="notice" role="alert">{L("classroomTryAgain")} {wrongNote}</p>}
-          {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {s.name(cur.check.explanation)}</p>
-            <button type="button" className="btn" onClick={proceed}>{step + 1 >= lesson.steps.length ? L("finish") : L("classroomContinue")}</button></div>)}
-        </section>
-      )}
     </div>
   );
 }

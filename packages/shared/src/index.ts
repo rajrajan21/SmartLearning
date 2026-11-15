@@ -7,3 +7,8 @@ export * from "./mastery.js";
 export * from "./tutor.js";
 export * from "./parent.js";
 export * from "./classroom.js";
+export * from "./composeClassroom.js";
+export * from "./illustrate.js";
+export * from "./site.js";
+export * from "./look.js";
+export { mixHex, fitColor, readableOn } from "./color.js";

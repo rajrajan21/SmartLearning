@@ -1,7 +1,7 @@
 @echo off
 cd /d "%~dp0"
-title StudySmart - local test site
-echo === StudySmart local test site ===
+title SharpStudy - local test site
+echo === SharpStudy local test site ===
 where node >nul 2>nul || (echo Node.js was not found. Install the LTS version from nodejs.org. & pause & exit /b)
 where pnpm >nul 2>nul || (echo Installing pnpm... & call npm install -g pnpm)
 if not exist node_modules (echo Installing project packages, please wait... & call pnpm install)

@@ -22,7 +22,7 @@ for (const d of [CACHE, VOICEDIR, path.join(ROOT, 'node_modules', '@huggingface'
 const logFile = fs.createWriteStream(path.join(ROOT, 'server.log'), { flags: 'w' });
 const log = (...a) => { const s = `[${new Date().toISOString().slice(11, 19)}] ${a.join(' ')}`; console.log(s); logFile.write(s + '\n'); };
 
-let ttsReady = false, tts = null, have = [];
+let ttsReady = false, have = [];
 // Engine setting. Measured on the laptop (13 Nov 2026): cpu / fp32 is the fastest; 'webgpu' (graphics chip) and the lighter 'q8' model were both much slower.
 // So cpu / fp32 is the default. TTS_DEVICE / TTS_DTYPE can still override it for a different machine.
 const PROFILES = [[process.env.TTS_DEVICE || 'cpu', process.env.TTS_DTYPE || 'fp32']];
@@ -42,34 +42,42 @@ async function fetchVoices() {
   have = VOICES.filter(hasVoice);
 }
 
-function startTTS() {
-  if (!fs.existsSync(HT)) { log('Voice engine is not installed (node_modules missing). Run "Start Malar Teacher.bat".'); return; }
-  if (!have.length) { log('No voices available, the voice engine was not started.'); return; }
-  const cfg = path.join(ROOT, 'headtts.config.json');
+// Several engine copies run side by side (TTS_WORKERS, default 3): one engine uses only part of the CPU, so
+// making clips in parallel is much faster. Engine 0 starts first (it may download the model), the rest follow.
+const NW = Math.max(1, Number(process.env.TTS_WORKERS || 3));
+const THREADS = Math.max(1, Math.min(Number(process.env.TTS_THREADS || 4), Math.floor(os.cpus().length / NW) || 1));
+const engines = [];
+function startEngine(i) {
+  const port = TTS_PORT + i, cfg = path.join(ROOT, i ? `headtts.config.${i}.json` : 'headtts.config.json');
   fs.writeFileSync(cfg, JSON.stringify({
-    server: { port: TTS_PORT, websocket: false, rest: true, corsOrigin: null },
-    tts: { threads: Math.max(1, Math.min(Number(process.env.TTS_THREADS || 4), os.cpus().length)), device: PROFILES[prof][0], dtype: PROFILES[prof][1], languages: ['en-us'],
+    server: { port, websocket: false, rest: true, corsOrigin: null },
+    tts: { threads: THREADS, device: PROFILES[prof][0], dtype: PROFILES[prof][1], languages: ['en-us'],
       dictionaryPath: fwd(path.join(HT, 'dictionaries')), voicePath: fwd(VOICEDIR), voices: have.slice(0, 1),
       defaults: { voice: have[0], language: 'en-us', speed: 1, audioEncoding: 'wav' } },
     trace: 0 }, null, 1));
-  log('Starting the voice engine. The first start downloads the voice model (about 330 MB), please wait...');
-  tts = spawn(process.execPath, [path.join(HT, 'modules', 'headtts-node.mjs'), '--config', cfg], { cwd: HT, stdio: ['ignore', 'pipe', 'pipe'] }); // cwd must be the engine's own folder: it loads its worker file relative to it
-  tts.stdout.on('data', d => log('[tts]', String(d).trim()));
-  tts.stderr.on('data', d => { const m = String(d).trim(); log('[tts!]', m);
-    if (/Loading models failed/.test(m) && prof < PROFILES.length - 1 && !ttsReady) { prof++; log('That engine setting could not be loaded. Trying: ' + PROFILES[prof].join(' / ')); try { tts.kill(); } catch {} setTimeout(startTTS, 1500); } });
-  tts.on('exit', c => { ttsReady = false; log('Voice engine stopped, code', c); });
-  waitReady();
-}
-let tries = 0, polling = false;
-function waitReady() {
-  const poll = setInterval(async () => {
-    if (ttsReady || polling) return; polling = true;
-    try { await synth({ text: 'Hello.', voice: have[0], speed: 1 }); ttsReady = true; clearInterval(poll); log('Voice engine is ready (' + PROFILES[prof].join(' / ') + ').'); } catch (e) { if (++tries % 10 === 0) log('Voice engine not ready yet (' + tries * 3 + 's): ' + e.message); } finally { polling = false; }
+  const e = engines[i] = { port, ready: false, busy: false, proc: null, tries: 0, polling: false };
+  e.proc = spawn(process.execPath, [path.join(HT, 'modules', 'headtts-node.mjs'), '--config', cfg], { cwd: HT, stdio: ['ignore', 'pipe', 'pipe'] }); // cwd must be the engine's own folder: it loads its worker file relative to it
+  e.proc.stdout.on('data', d => log(`[tts${i}]`, String(d).trim()));
+  e.proc.stderr.on('data', d => { const m = String(d).trim(); log(`[tts${i}!]`, m); });
+  e.proc.on('exit', c => { e.ready = false; ttsReady = engines.some(x => x.ready); log(`Voice engine ${i} stopped, code`, c); });
+  e.poll = setInterval(async () => {
+    if (e.ready || e.polling) return; e.polling = true;
+    try { await synth({ text: 'Hello.', voice: have[0], speed: 1 }, e.port); e.ready = true; ttsReady = true; clearInterval(e.poll);
+      log(`Voice engine ${i} is ready (${PROFILES[prof].join(' / ')}, ${THREADS} threads).`);
+      if (i === 0) for (let k = 1; k < NW; k++) startEngine(k);
+      pump(); }
+    catch (err) { if (++e.tries % 10 === 0) log(`Voice engine ${i} not ready yet (${e.tries * 3}s): ${err.message}`); } finally { e.polling = false; }
   }, 3000);
 }
+function startTTS() {
+  if (!fs.existsSync(HT)) { log('Voice engine is not installed (node_modules missing). Run "Start Malar Teacher.bat".'); return; }
+  if (!have.length) { log('No voices available, the voice engine was not started.'); return; }
+  log(`Starting ${NW} voice engine(s). The first start downloads the voice model (about 330 MB), please wait...`);
+  startEngine(0);
+}
 
-async function synth({ text, voice, speed }) {
-  const r = await fetch(`http://127.0.0.1:${TTS_PORT}/v1/synthesize`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
+async function synth({ text, voice, speed }, port = TTS_PORT) {
+  const r = await fetch(`http://127.0.0.1:${port}/v1/synthesize`, { method: 'POST', headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ input: text, voice, language: 'en-us', speed, audioEncoding: 'wav' }) });
   const j = await r.json();
   if (!r.ok || j.error || !j.audio) throw new Error(j.error || 'synthesis failed');
@@ -77,7 +85,7 @@ async function synth({ text, voice, speed }) {
 }
 
 // Speech jobs: urgent sentences (being spoken now) jump ahead of background prefetch (the next minute of the lesson).
-const jobs = new Map(), hi = [], lo = []; let busy = false;
+const jobs = new Map(), hi = [], lo = []; 
 function enqueue(key, params, high) {
   let j = jobs.get(key);
   if (j) { if (high && !j.started && !j.high) { j.high = true; lo.splice(lo.indexOf(j), 1); hi.push(j); } return j.promise; }
@@ -85,12 +93,15 @@ function enqueue(key, params, high) {
   j.promise = new Promise((res, rej) => { j.res = res; j.rej = rej; }); j.promise.catch(() => {});
   jobs.set(key, j); (high ? hi : lo).push(j); pump(); return j.promise;
 }
-async function pump() {
-  if (busy) return; const j = hi.shift() || lo.shift(); if (!j) return;
-  busy = true; j.started = true; const t0 = Date.now();
-  try { const data = Buffer.from(JSON.stringify(await synth(j.params))); fs.writeFileSync(path.join(CACHE, j.key + '.json'), data);
-    log(`speak ${j.high ? 'now ' : 'next'} ${j.params.voice} ${Date.now() - t0}ms "${j.params.text.slice(0, 40)}"`); j.res(data); }
-  catch (e) { j.rej(e); } finally { jobs.delete(j.key); busy = false; pump(); }
+function pump() {
+  for (;;) {
+    const e = engines.find(x => x && x.ready && !x.busy); if (!e) return;
+    const j = hi.shift() || lo.shift(); if (!j) return;
+    e.busy = true; j.started = true; const t0 = Date.now();
+    synth(j.params, e.port).then(r => { const data = Buffer.from(JSON.stringify(r)); fs.writeFileSync(path.join(CACHE, j.key + '.json'), data);
+      log(`speak ${j.high ? 'now ' : 'next'} ${j.params.voice} ${Date.now() - t0}ms (engine ${engines.indexOf(e)}) "${j.params.text.slice(0, 40)}"`); j.res(data); },
+      err => j.rej(err)).finally(() => { jobs.delete(j.key); e.busy = false; pump(); });
+  }
 }
 // one place decides how a request is cleaned up and which cache file it maps to (used by /api/speak and /api/prepare)
 const norm = b => ({ text: String(b.text || '').trim().slice(0, 480), voice: have.includes(b.voice) ? b.voice : have[0], speed: Math.min(1.5, Math.max(0.6, Number(b.speed) || 1)) });
@@ -124,7 +135,7 @@ function prepare(body) {
     log(`prepare: ${items.length} sentences, ${missing.length} to generate (${missing[0].p.voice}, speed ${missing[0].p.speed})`);
     for (const i of missing) enqueue(i.key, i.p, false).then(() => {}, e => { if (e.message !== 'cancelled') prepFailed++; }).finally(() => { if (--left === 0) log(`prepare: finished in ${Math.round((Date.now() - t0) / 1000)} s, ${prepFailed} failed`); });
   }
-  return { total: items.length, ready: items.length - missing.length, missing: missing.length, queued: hi.length + lo.length, busy, failed: prepFailed, engine: ttsReady };
+  return { total: items.length, ready: items.length - missing.length, missing: missing.length, queued: hi.length + lo.length, busy: engines.some(x => x && x.busy), failed: prepFailed, workers: engines.filter(x => x && x.ready).length, engine: ttsReady };
 }
 
 // Online lookup for doubts that are not in the lesson notes: plain encyclopedia search (Simple English Wikipedia first). No AI.
@@ -177,7 +188,7 @@ http.createServer(async (req, res) => {
   log(`Malar Teacher is running: http://localhost:${PORT}  (keep this window open; close it to stop)`);
   if (process.platform === 'win32' && !process.env.NO_OPEN) spawn('cmd', ['/c', 'start', '', `http://localhost:${PORT}`], { stdio: 'ignore', detached: true });
 });
-process.on('exit', () => { try { tts && tts.kill(); } catch {} });
+process.on('exit', () => { for (const e of engines) try { e && e.proc.kill(); } catch {} });
 process.on('SIGINT', () => process.exit());
 // NO_TTS=1: do not start the engine here, use one already running on TTS_PORT (for testing or a separate speech server)
-if (!process.env.NO_TTS) fetchVoices().then(startTTS); else { have = VOICES.slice(); waitReady(); }
+if (!process.env.NO_TTS) fetchVoices().then(startTTS); else { have = VOICES.slice(); engines[0] = { port: TTS_PORT, ready: true, busy: false, proc: { kill() {} } }; ttsReady = true; }

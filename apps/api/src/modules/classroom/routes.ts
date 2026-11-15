@@ -17,7 +17,8 @@ export function classroomRoutes(svc: ClassroomService, enabled: () => Promise<bo
   r.get("/:board/:classLevel/:subject/:chapter/:topic", (req, res) => {
     const q = z.object({ board: code, classLevel: z.coerce.number().int().min(1).max(12), subject: slug, chapter: slug, topic: slug }).safeParse(req.params);
     if (!q.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid path" } });
-    const l = svc.get(q.data.board, q.data.classLevel, q.data.subject, q.data.chapter, q.data.topic);
+    const v = typeof req.query.voice === "string" && /^[a-z0-9-]{1,20}$/.test(req.query.voice) ? req.query.voice : undefined;
+    const l = svc.get(q.data.board, q.data.classLevel, q.data.subject, q.data.chapter, q.data.topic, v);
     if (!l) return void res.status(404).json({ error: { code: "not_found", message: "Classroom lesson not found" } });
     res.json(l);
   });

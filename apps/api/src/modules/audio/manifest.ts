@@ -8,7 +8,7 @@ export type Lang = "en" | "ta";
 export const LANGS: Lang[] = ["en", "ta"];
 
 /** Teacher id (used in lesson files) -> the speech-engine voice per language. Edit content/audio/voices.json to add teachers. */
-export const VoiceMap = z.record(z.string(), z.object({ en: z.object({ voice: z.string(), speed: z.number().default(1) }).optional(), ta: z.object({ voice: z.string(), speed: z.number().default(1) }).optional() }));
+export const VoiceMap = z.record(z.string(), z.object({ label: z.string().optional(), gender: z.enum(["female", "male"]).optional(), accent: z.enum(["us", "uk", "in"]).optional(), en: z.object({ voice: z.string(), speed: z.number().default(1) }).optional(), ta: z.object({ voice: z.string(), speed: z.number().default(1) }).optional() }));
 export type VoiceMap = z.infer<typeof VoiceMap>;
 
 export const ManifestEntry = z.object({
@@ -51,6 +51,8 @@ export interface AudioStore {
   ref(teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined;
   refs(teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
   phrases(): PhraseSet;
+  /** The teacher voices that can be chosen (from voices.json). */
+  teachers(): { id: string; label: string; gender: "female" | "male"; accent: "us" | "uk" | "in"; langs: Lang[] }[];
   /** Adds `audio` to every narration sentence that has a recording. Never changes the stored lesson. */
   enrich(lesson: TopicLesson): TopicLesson;
   filePath(file: string): string | null;
@@ -87,6 +89,7 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
   return {
     ref: lookup,
     refs,
+    teachers() { fresh(); return Object.entries(voices).map(([id, v]) => ({ id, label: v.label ?? id, gender: v.gender ?? "female", accent: v.accent ?? "us", langs: LANGS.filter((l) => v[l]) })); },
     phrases() {
       fresh();
       if (!existsSync(opts.phrasesPath)) return {};

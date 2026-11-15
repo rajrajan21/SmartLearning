@@ -1,9 +1,9 @@
-# Putting StudySmart online (free, on your Oracle server)
+# Putting SharpStudy online (free, on your Oracle server)
 
-This runs StudySmart next to chennaideals.in on the same Oracle Always Free machine. It uses its own port (3100), its own PostgreSQL database and its own Caddy block, so it does not touch the other site. Total cost: Rs 0 (you already pay only for the domain).
+This runs SharpStudy next to chennaideals.in on the same Oracle Always Free machine. It uses its own port (3100), its own PostgreSQL database and its own Caddy block, so it does not touch the other site. Total cost: Rs 0 (you already pay only for the domain).
 
 ## Before you start
-1. Domain `studysmart.in`: in your domain's DNS add an **A record** for `studysmart.in` and `www` pointing to your Oracle server's public IP (the same IP chennaideals.in uses).
+1. Domain `sharpstudy.in`: in your domain's DNS add an **A record** for `sharpstudy.in` and `www` pointing to your Oracle server's public IP (the same IP chennaideals.in uses).
 2. Your code must be on GitHub (run `Publish-To-GitHub.bat`). If the repository is private, make it public or add a deploy key; the simplest free choice is a public repository (it holds no secrets: keys live only in `/etc/studysmart.env`).
 3. Log in to the server with SSH (the same way you do for chennaideals.in).
 
@@ -18,7 +18,7 @@ Then edit the settings file:
 ```
 sudo nano /etc/studysmart.env
 ```
-Put the database password into `DATABASE_URL`, and set `ADMIN_KEY` to a long random text (make one with `openssl rand -base64 36`). Keep that text safe: it is your password for the admin page at `studysmart.in/admin`.
+Put the database password into `DATABASE_URL`, and set `ADMIN_KEY` to a long random text (make one with `openssl rand -base64 36`). Keep that text safe: it is your password for the admin page at `sharpstudy.in/admin`.
 
 Build and start it:
 ```
@@ -30,7 +30,7 @@ Last, add the block from `deploy/Caddyfile` to the Caddyfile you already use, th
 ```
 sudo systemctl reload caddy
 ```
-Visit https://studysmart.in. Caddy gets the HTTPS certificate by itself.
+Visit https://sharpstudy.in. Caddy gets the HTTPS certificate by itself.
 
 ## Every time you change something
 1. On your laptop: run `Publish-To-GitHub.bat`.

@@ -19,13 +19,13 @@ Legend: ⬜ not started · 🟨 designed / in progress · ✅ built and tested
 | Parent dashboard | ⬜ | Module 9 |
 | Exams, worksheets, games | ⬜ | Module 10 |
 | Admin CMS | ⬜ | Module 11 |
-| Pilot, DPDP review, launch on studysmart.in | ⬜ | Module 12 |
+| Pilot, DPDP review, launch on sharpstudy.in | ⬜ | Module 12 |
 | Video / lip-sync teachers, 3D | ⬜ | Deferred by decision |
 
 ## Only you can do
 
 - Confirm GitHub account/username and give this PC access to push to the `SmartLearning` repo (see PROJECT_NOTES.md).
-- Own/register `studysmart.in` (~₹600–800/yr, only expected spend) and point DNS to Cloudflare (free).
+- Own/register `sharpstudy.in` (~₹600–800/yr, only expected spend) and point DNS to Cloudflare (free).
 - Free sign-ups when their module starts: Cloudflare, (later) Brevo, an LLM free-tier key.
 - Subject-teacher review of lessons before public release.
 - Parent/student pilot recruitment.

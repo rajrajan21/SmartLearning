@@ -1,8 +1,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { THEME_PRESETS, SETTINGS, type PanelId, type SettingDef, type SettingValue } from "@studysmart/shared";
-import { admin, adminKey, AdminError, type AdminData, type AuditEntry, type Values } from "./api";
+import { DEFAULT_ADMIN_USER_ID, THEME_PRESETS, SETTINGS, type PanelId, type SettingDef, type SettingValue } from "@studysmart/shared";
+import { admin, adminKey, adminUser, AdminError, type AdminData, type AuditEntry, type Values } from "./api";
 import { Field } from "./Field";
 import { Preview } from "./Preview";
+import { LookPicker } from "./LookPicker";
+import { AccessCodes } from "./AccessCodes";
 
 type Tab = PanelId | "log" | "backup";
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
@@ -11,34 +13,37 @@ export function AdminApp() {
   const [authed, setAuthed] = useState<"checking" | "yes" | "no">(adminKey.get() ? "checking" : "no");
   useEffect(() => {
     if (!adminKey.get()) return;
-    admin.session().then(() => setAuthed("yes")).catch(() => { adminKey.clear(); setAuthed("no"); });
+    admin.session().then(() => setAuthed("yes")).catch(() => { adminKey.clear(); adminUser.clear(); setAuthed("no"); });
   }, []);
   if (authed === "checking") return <div className="admin"><p className="loading" role="status">Checking…</p></div>;
   if (authed === "no") return <Gate onOk={() => setAuthed("yes")} />;
-  return <Console onSignOut={() => { adminKey.clear(); setAuthed("no"); }} />;
+  return <Console onSignOut={() => { adminKey.clear(); adminUser.clear(); setAuthed("no"); }} />;
 }
 
 function Gate({ onOk }: { onOk: () => void }) {
+  const [user, setUser] = useState(() => adminUser.get() || DEFAULT_ADMIN_USER_ID);
   const [key, setKey] = useState("");
   const [err, setErr] = useState("");
   const [busy, setBusy] = useState(false);
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setBusy(true); setErr(""); adminKey.set(key.trim());
+    setBusy(true); setErr(""); adminKey.set(key.trim()); adminUser.set(user.trim());
     try { await admin.session(); onOk(); } catch (x) {
       adminKey.clear();
-      setErr(x instanceof AdminError && x.status === 429 ? "Too many wrong tries. Wait ten minutes and try again." : x instanceof AdminError && x.status === 401 ? "That key is not correct." : "Could not reach the server.");
+      setErr(x instanceof AdminError && x.status === 429 ? "Too many wrong tries. Wait ten minutes and try again." : x instanceof AdminError && x.status === 401 ? "That user id or key is not correct." : "Could not reach the server.");
     } finally { setBusy(false); }
   };
   return (
     <div className="admin gate">
       <form onSubmit={submit} className="gate-card">
         <h1>Site settings</h1>
-        <p>Enter the admin key to continue.</p>
+        <p>Sign in with your user id and the admin key.</p>
+        <label htmlFor="au">User id</label>
+        <input id="au" type="text" inputMode="email" autoComplete="username" autoCapitalize="none" spellCheck={false} value={user} onChange={(e) => setUser(e.target.value)} />
         <label htmlFor="ak">Admin key</label>
         <input id="ak" type="password" autoComplete="current-password" value={key} onChange={(e) => setKey(e.target.value)} />
         {err && <p className="err" role="alert">{err}</p>}
-        <button className="btn" disabled={busy || key.trim().length === 0}>{busy ? "Checking…" : "Sign in"}</button>
+        <button className="btn" disabled={busy || key.trim().length === 0 || user.trim().length === 0}>{busy ? "Checking…" : "Sign in"}</button>
       </form>
     </div>
   );
@@ -92,13 +97,14 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
     const p = THEME_PRESETS.find((x) => x.id === id); if (!p) return;
     const base: Values = {};
     for (const d of defs) if (d.panel === "theme") base[d.key] = d.default;
-    setMsg(null); setDraft((d) => ({ ...d, ...base, ...p.values }));
+    // quick styles set individual colours, so they use the Custom palette on the Notebook theme
+    setMsg(null); setDraft((d) => ({ ...d, ...base, "theme.preset": "notebook", "theme.palette": "custom", ...p.values }));
   };
   const doExport = async () => {
     try {
       const out = await admin.exportAll();
       const url = URL.createObjectURL(new Blob([JSON.stringify(out, null, 2)], { type: "application/json" }));
-      const a = document.createElement("a"); a.href = url; a.download = "studysmart-settings.json"; a.click(); URL.revokeObjectURL(url);
+      const a = document.createElement("a"); a.href = url; a.download = "sharpstudy-settings.json"; a.click(); URL.revokeObjectURL(url);
     } catch { setMsg({ kind: "err", text: "Could not export." }); }
   };
   const doImport = async (file: File) => {
@@ -140,18 +146,23 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
               <div className="a-head"><div><h2>{panel.label}</h2><p>{panel.help}</p></div>
                 <button type="button" className="btn ghost sm" disabled={busy || !panelDefs.some((d) => overridden.has(d.key))} onClick={() => resetKeys(panelDefs.filter((d) => overridden.has(d.key)).map((d) => d.key), `all ${panel.label.toLowerCase()} settings`)}>Reset this section</button>
               </div>
+              {panel.id === "theme" && <LookPicker values={draft} onChange={(c) => { setMsg(null); setDraft((d) => ({ ...d, ...c })); }} />}
               {panel.id === "theme" && (
-                <div className="presets" role="group" aria-label="Style presets">
-                  {data.presets.map((p) => <button key={p.id} type="button" className="preset" onClick={() => applyPreset(p.id)}><b>{p.label}</b><span>{p.description}</span></button>)}
-                </div>
+                <>
+                  <h3 className="look-h">Quick styles <span>(old one-click styles: they use your own custom colours)</span></h3>
+                  <div className="presets" role="group" aria-label="Style presets">
+                    {data.presets.map((p) => <button key={p.id} type="button" className="preset" onClick={() => applyPreset(p.id)}><b>{p.label}</b><span>{p.description}</span></button>)}
+                  </div>
+                </>
               )}
-              {sections.map((sec) => (
+              {sections.filter((sec) => !(panel.id === "theme" && sec.startsWith("Custom colours") && draft["theme.palette"] !== "custom")).map((sec) => (
                 <fieldset key={sec} className="group"><legend>{sec}</legend>
                   {panelDefs.filter((d) => d.section === sec).map((d) => (
                     <Field key={d.key} def={d} value={draft[d.key]!} values={draft} changed={!same(draft[d.key], saved[d.key])} disabled={isOff(d)} onChange={(v) => set(d.key, v)} onReset={() => set(d.key, saved[d.key]!)} />
                   ))}
                 </fieldset>
               ))}
+              {panel.id === "access" && <AccessCodes defaultMaxUses={Number(saved["access.newCode.maxUses"] ?? 10)} defaultExpiryDays={Number(saved["access.newCode.expiryDays"] ?? 0)} mode={String(saved["access.mode"])} />}
             </>
           )}
           {tab === "log" && (

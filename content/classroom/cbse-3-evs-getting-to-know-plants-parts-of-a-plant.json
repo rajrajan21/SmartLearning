@@ -6,365 +6,1097 @@
  "topic": "parts-of-a-plant",
  "status": "published",
  "title": {
-  "en": "How water travels in a plant",
-  "ta": "செடியில் தண்ணீர் எப்படிப் பயணிக்கிறது"
+  "en": "Parts of a plant",
+  "ta": "செடியின் பகுதிகள்"
  },
  "objects": [
   {
    "kind": "rect",
-   "id": "soil",
    "x": 0,
-   "y": 380,
+   "y": 0,
    "w": 900,
-   "h": 120,
-   "stroke": "earth",
-   "fill": "earth",
-   "width": 2
+   "h": 500,
+   "rx": 0,
+   "fill": "#EAF6FF",
+   "id": "sky"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     119.1,
+     80.0
+    ],
+    [
+     139.0,
+     87.7
+    ],
+    [
+     117.8,
+     90.1
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o2"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     113.9,
+     99.5
+    ],
+    [
+     127.2,
+     116.2
+    ],
+    [
+     107.7,
+     107.6
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o3"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     99.6,
+     113.9
+    ],
+    [
+     102.8,
+     135.0
+    ],
+    [
+     90.2,
+     117.7
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o4"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     80.0,
+     119.1
+    ],
+    [
+     72.3,
+     139.0
+    ],
+    [
+     69.9,
+     117.8
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o5"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     60.5,
+     113.9
+    ],
+    [
+     43.8,
+     127.2
+    ],
+    [
+     52.4,
+     107.7
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o6"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     46.1,
+     99.5
+    ],
+    [
+     25.0,
+     102.8
+    ],
+    [
+     42.3,
+     90.2
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o7"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     40.9,
+     80.0
+    ],
+    [
+     21.0,
+     72.3
+    ],
+    [
+     42.2,
+     69.9
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o8"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     46.1,
+     60.5
+    ],
+    [
+     32.8,
+     43.8
+    ],
+    [
+     52.3,
+     52.4
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o9"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     60.4,
+     46.1
+    ],
+    [
+     57.2,
+     25.0
+    ],
+    [
+     69.8,
+     42.3
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o10"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     80.0,
+     40.9
+    ],
+    [
+     87.7,
+     21.0
+    ],
+    [
+     90.1,
+     42.2
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o11"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     99.6,
+     46.1
+    ],
+    [
+     116.2,
+     32.8
+    ],
+    [
+     107.6,
+     52.3
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o12"
+  },
+  {
+   "kind": "poly",
+   "points": [
+    [
+     113.9,
+     60.4
+    ],
+    [
+     135.0,
+     57.2
+    ],
+    [
+     117.7,
+     69.8
+    ]
+   ],
+   "fill": "#FFC83D",
+   "id": "o13"
   },
   {
    "kind": "circle",
-   "id": "sun",
-   "cx": 790,
-   "cy": 85,
-   "r": 42,
-   "stroke": "sun",
-   "fill": "sun",
-   "width": 4
+   "cx": 80,
+   "cy": 80,
+   "r": 34,
+   "fill": "#FFD93B",
+   "stroke": "#F4A300",
+   "width": 4,
+   "id": "o14"
+  },
+  {
+   "kind": "rect",
+   "x": 0,
+   "y": 335,
+   "w": 900,
+   "h": 165,
+   "rx": 0,
+   "fill": "#B98A5A",
+   "id": "ground"
+  },
+  {
+   "kind": "rect",
+   "x": 0,
+   "y": 335,
+   "w": 900,
+   "h": 22,
+   "rx": 0,
+   "fill": "#8D6238",
+   "id": "topsoil"
   },
   {
    "kind": "path",
-   "id": "rootL",
-   "d": "M450 380 Q420 430 340 465",
-   "stroke": "ink",
-   "width": 8
+   "d": "M330 352 C320 400 290 420 250 450",
+   "stroke": "#7A4B22",
+   "width": 7,
+   "id": "o17"
   },
   {
    "kind": "path",
-   "id": "rootM",
-   "d": "M450 380 L450 485",
-   "stroke": "ink",
-   "width": 8
+   "d": "M330 352 C335 410 345 440 350 480",
+   "stroke": "#7A4B22",
+   "width": 7,
+   "id": "o18"
   },
   {
    "kind": "path",
-   "id": "rootR",
-   "d": "M450 380 Q480 430 560 465",
-   "stroke": "ink",
-   "width": 8
+   "d": "M330 352 C350 395 400 415 440 440",
+   "stroke": "#7A4B22",
+   "width": 7,
+   "id": "o19"
   },
   {
    "kind": "path",
-   "id": "stem",
-   "d": "M450 380 L450 150",
-   "stroke": "good",
-   "width": 14
+   "d": "M320 380 C290 385 260 380 235 385",
+   "stroke": "#7A4B22",
+   "width": 5,
+   "id": "o20"
+  },
+  {
+   "kind": "circle",
+   "cx": 235,
+   "cy": 430,
+   "r": 7,
+   "fill": "#4FA8EE",
+   "id": "o21"
+  },
+  {
+   "kind": "circle",
+   "cx": 460,
+   "cy": 455,
+   "r": 7,
+   "fill": "#4FA8EE",
+   "id": "o22"
+  },
+  {
+   "kind": "circle",
+   "cx": 270,
+   "cy": 470,
+   "r": 7,
+   "fill": "#4FA8EE",
+   "id": "o23"
+  },
+  {
+   "kind": "rect",
+   "x": 322,
+   "y": 160,
+   "w": 16,
+   "h": 190,
+   "rx": 6,
+   "fill": "#4CAF50",
+   "stroke": "#2E7D32",
+   "width": 3,
+   "id": "stem"
   },
   {
    "kind": "path",
-   "id": "leafL",
-   "d": "M450 250 Q340 190 310 250 Q370 305 450 250 Z",
-   "stroke": "good",
-   "fill": "good",
-   "width": 4
+   "d": "M322 260 C289.0 210 234.0 210 212 255.0 C234.0 285.0 289.0 285.0 322 260 Z",
+   "fill": "#43A047",
+   "stroke": "#2E7D32",
+   "width": 3,
+   "id": "o25"
   },
   {
    "kind": "path",
-   "id": "leafR",
-   "d": "M450 200 Q560 140 590 200 Q530 255 450 200 Z",
-   "stroke": "good",
-   "fill": "good",
-   "width": 4
+   "d": "M338 225 C371.0 175 426.0 175 448 220.0 C426.0 250.0 371.0 250.0 338 225 Z",
+   "fill": "#43A047",
+   "stroke": "#2E7D32",
+   "width": 3,
+   "id": "o26"
   },
   {
-   "kind": "arrow",
-   "id": "wRoot",
-   "x1": 330,
-   "y1": 462,
-   "x2": 425,
-   "y2": 400,
-   "stroke": "water",
-   "width": 6
+   "kind": "circle",
+   "cx": 355.0,
+   "cy": 125.0,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o27"
   },
   {
-   "kind": "arrow",
-   "id": "wUp",
-   "x1": 450,
-   "y1": 372,
-   "x2": 450,
-   "y2": 262,
-   "stroke": "water",
-   "width": 6
+   "kind": "circle",
+   "cx": 342.5,
+   "cy": 146.65063509461095,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o28"
   },
   {
-   "kind": "arrow",
-   "id": "wL",
-   "x1": 450,
-   "y1": 262,
-   "x2": 385,
-   "y2": 250,
-   "stroke": "water",
-   "width": 6
+   "kind": "circle",
+   "cx": 317.5,
+   "cy": 146.65063509461098,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o29"
   },
   {
-   "kind": "arrow",
-   "id": "wR",
-   "x1": 450,
-   "y1": 232,
-   "x2": 515,
-   "y2": 205,
-   "stroke": "water",
-   "width": 6
+   "kind": "circle",
+   "cx": 305.0,
+   "cy": 125.0,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o30"
+  },
+  {
+   "kind": "circle",
+   "cx": 317.5,
+   "cy": 103.34936490538904,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o31"
+  },
+  {
+   "kind": "circle",
+   "cx": 342.5,
+   "cy": 103.34936490538904,
+   "r": 16.0,
+   "fill": "#F06292",
+   "stroke": "#C2185B",
+   "width": 2,
+   "id": "o32"
+  },
+  {
+   "kind": "circle",
+   "cx": 330,
+   "cy": 125,
+   "r": 15.0,
+   "fill": "#FFD54F",
+   "stroke": "#F9A825",
+   "width": 3,
+   "id": "o33"
+  },
+  {
+   "kind": "rect",
+   "x": 560,
+   "y": 40,
+   "w": 300,
+   "h": 74,
+   "rx": 16,
+   "fill": "#FCE4EC",
+   "stroke": "#E91E63",
+   "width": 4,
+   "id": "o34"
   },
   {
    "kind": "text",
-   "id": "tRoot",
-   "x": 250,
-   "y": 450,
-   "text": "Roots",
-   "size": 40,
-   "color": "warm",
-   "anchor": "end"
+   "x": 710.0,
+   "y": 70,
+   "text": "Flower",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle",
+   "id": "o35"
   },
   {
    "kind": "text",
-   "id": "tStem",
-   "x": 500,
-   "y": 330,
-   "text": "Stem",
-   "size": 40,
-   "color": "good",
-   "anchor": "start"
+   "x": 710.0,
+   "y": 96,
+   "text": "Makes seeds and fruit",
+   "size": 19,
+   "color": "soft",
+   "anchor": "middle",
+   "id": "o36"
+  },
+  {
+   "kind": "line",
+   "x1": 560,
+   "y1": 77,
+   "x2": 372,
+   "y2": 125,
+   "stroke": "#E91E63",
+   "width": 4,
+   "id": "o37"
+  },
+  {
+   "kind": "rect",
+   "x": 560,
+   "y": 130,
+   "w": 300,
+   "h": 74,
+   "rx": 16,
+   "fill": "#E8F5E9",
+   "stroke": "#43A047",
+   "width": 4,
+   "id": "o38"
   },
   {
    "kind": "text",
-   "id": "tLeaf",
-   "x": 630,
-   "y": 185,
+   "x": 710.0,
+   "y": 160,
    "text": "Leaves",
-   "size": 40,
-   "color": "good",
-   "anchor": "start"
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle",
+   "id": "o39"
   },
   {
    "kind": "text",
-   "id": "tFood",
-   "x": 640,
-   "y": 270,
-   "text": "food",
-   "size": 36,
-   "color": "accent",
-   "anchor": "start"
+   "x": 710.0,
+   "y": 186,
+   "text": "Make food from sunlight",
+   "size": 19,
+   "color": "soft",
+   "anchor": "middle",
+   "id": "o40"
+  },
+  {
+   "kind": "line",
+   "x1": 560,
+   "y1": 167,
+   "x2": 448,
+   "y2": 225,
+   "stroke": "#43A047",
+   "width": 4,
+   "id": "o41"
+  },
+  {
+   "kind": "rect",
+   "x": 560,
+   "y": 220,
+   "w": 300,
+   "h": 74,
+   "rx": 16,
+   "fill": "#F1F8E9",
+   "stroke": "#7CB342",
+   "width": 4,
+   "id": "o42"
+  },
+  {
+   "kind": "text",
+   "x": 710.0,
+   "y": 250,
+   "text": "Stem",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle",
+   "id": "o43"
+  },
+  {
+   "kind": "text",
+   "x": 710.0,
+   "y": 276,
+   "text": "Carries water up",
+   "size": 19,
+   "color": "soft",
+   "anchor": "middle",
+   "id": "o44"
+  },
+  {
+   "kind": "line",
+   "x1": 560,
+   "y1": 257,
+   "x2": 340,
+   "y2": 260,
+   "stroke": "#7CB342",
+   "width": 4,
+   "id": "o45"
+  },
+  {
+   "kind": "rect",
+   "x": 560,
+   "y": 380,
+   "w": 300,
+   "h": 74,
+   "rx": 16,
+   "fill": "#FFF3E0",
+   "stroke": "#EF6C00",
+   "width": 4,
+   "id": "o46"
+  },
+  {
+   "kind": "text",
+   "x": 710.0,
+   "y": 410,
+   "text": "Roots",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle",
+   "id": "o47"
+  },
+  {
+   "kind": "text",
+   "x": 710.0,
+   "y": 436,
+   "text": "Drink water from soil",
+   "size": 19,
+   "color": "soft",
+   "anchor": "middle",
+   "id": "o48"
+  },
+  {
+   "kind": "line",
+   "x1": 560,
+   "y1": 417,
+   "x2": 400,
+   "y2": 420,
+   "stroke": "#EF6C00",
+   "width": 4,
+   "id": "o49"
+  },
+  {
+   "kind": "text",
+   "x": 330,
+   "y": 38,
+   "text": "A plant has parts",
+   "size": 34,
+   "color": "#1E3FAE",
+   "anchor": "middle",
+   "id": "title"
   }
  ],
  "steps": [
   {
-   "id": "meet",
+   "id": "pl-intro",
+   "section": "Picture it",
    "narration": {
-    "en": "Look at this plant. It has roots, a stem and leaves."
+    "en": "Here is a plant growing in the soil. Every part of a plant has its own special job. Let us meet the parts one by one.",
+    "ta": "மண்ணுல வளருற ஒரு செடி இங்க இருக்கு. செடியோட ஒவ்வொரு பகுதிக்கும் ஒரு தனி வேலை இருக்கு. ஒவ்வொண்ணாப் பார்க்கலாம் வாங்க."
    },
    "actions": [
     {
-     "do": "show",
-     "target": "soil",
+     "do": "clear",
      "at": 0
     },
     {
-     "do": "draw",
-     "target": "rootL",
-     "on": "roots",
-     "ms": 700
+     "do": "show",
+     "target": "sky",
+     "at": 0.02,
+     "ms": 300
     },
     {
-     "do": "draw",
-     "target": "rootM",
-     "on": "roots",
-     "ms": 700
+     "do": "show",
+     "target": "ground",
+     "at": 0.02,
+     "ms": 300
     },
     {
-     "do": "draw",
-     "target": "rootR",
-     "on": "roots",
-     "ms": 700
+     "do": "show",
+     "target": "topsoil",
+     "at": 0.02,
+     "ms": 300
     },
     {
-     "do": "draw",
+     "do": "show",
+     "target": "o2",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o3",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o4",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o5",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o6",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o7",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o8",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o9",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o10",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o11",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o12",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o13",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o14",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
      "target": "stem",
-     "on": "stem",
-     "ms": 900
+     "at": 0.02,
+     "ms": 300
     },
     {
      "do": "show",
-     "target": "leafL",
-     "on": "leaves"
+     "target": "o17",
+     "at": 0.02,
+     "ms": 300
     },
     {
      "do": "show",
-     "target": "leafR",
-     "on": "leaves"
+     "target": "o18",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o19",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "o20",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "write",
+     "target": "title",
+     "on": "special job",
+     "ms": 700
     }
    ]
   },
   {
-   "id": "roots",
+   "id": "pl-roots",
+   "section": "Picture it",
    "narration": {
-    "en": "The roots grow under the soil. They hold the plant firmly and drink water."
+    "en": "Under the ground are the roots. The roots hold the plant tightly in the soil. They also drink water from the soil.",
+    "ta": "மண்ணுக்கு அடியில வேர்கள் இருக்கு. வேர்கள் செடியை மண்ணுல இறுக்கமாப் பிடிச்சுக்குது. மண்ணுல இருந்து தண்ணீரையும் குடிக்குது."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "tRoot",
-     "on": "roots"
-    },
-    {
-     "do": "pulse",
-     "target": "rootL",
-     "on": "roots",
-     "color": "warm"
-    },
-    {
-     "do": "pulse",
-     "target": "rootM",
-     "on": "roots",
-     "color": "warm"
-    },
-    {
-     "do": "pulse",
-     "target": "rootR",
-     "on": "roots",
-     "color": "warm"
+     "do": "draw",
+     "target": "o17",
+     "on": "Under the ground",
+     "ms": 900
     },
     {
      "do": "draw",
-     "target": "wRoot",
+     "target": "o18",
+     "on": "Under the ground",
+     "ms": 900
+    },
+    {
+     "do": "draw",
+     "target": "o19",
+     "on": "Under the ground",
+     "ms": 900
+    },
+    {
+     "do": "draw",
+     "target": "o20",
+     "on": "Under the ground",
+     "ms": 900
+    },
+    {
+     "do": "show",
+     "target": "o21",
      "on": "drink water",
-     "ms": 1200
-    }
-   ]
-  },
-  {
-   "id": "stem",
-   "narration": {
-    "en": "The stem is like a long straw. It carries the water up to the leaves."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "tStem",
-     "on": "stem"
-    },
-    {
-     "do": "pulse",
-     "target": "stem",
-     "on": "long straw",
-     "color": "accent"
-    },
-    {
-     "do": "draw",
-     "target": "wUp",
-     "on": "carries",
-     "ms": 1800
-    }
-   ]
-  },
-  {
-   "id": "leaves",
-   "narration": {
-    "en": "The leaves use the water and the sunlight to make food for the plant."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "tLeaf",
-     "at": 0
-    },
-    {
-     "do": "draw",
-     "target": "wL",
-     "at": 0,
-     "ms": 800
-    },
-    {
-     "do": "draw",
-     "target": "wR",
-     "at": 0.05,
-     "ms": 800
+     "ms": 500
     },
     {
      "do": "show",
-     "target": "sun",
-     "on": "sunlight",
-     "ms": 900
+     "target": "o22",
+     "on": "drink water",
+     "ms": 500
     },
     {
-     "do": "pulse",
-     "target": "leafL",
-     "on": "make food",
-     "color": "accent"
+     "do": "show",
+     "target": "o23",
+     "on": "drink water",
+     "ms": 500
     },
     {
-     "do": "pulse",
-     "target": "leafR",
-     "on": "make food",
-     "color": "accent"
+     "do": "show",
+     "target": "o46",
+     "on": "hold the plant",
+     "ms": 500
     },
     {
-     "do": "write",
-     "target": "tFood",
-     "on": "food"
+     "do": "show",
+     "target": "o47",
+     "on": "hold the plant",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o48",
+     "on": "hold the plant",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o49",
+     "on": "hold the plant",
+     "ms": 500
     }
    ]
   },
   {
-   "id": "think",
+   "id": "pl-stem",
+   "section": "Picture it",
    "narration": {
-    "en": "Now think about how the water travels. It starts in the soil and ends in the leaves."
+    "en": "The stem stands tall above the ground. It carries the water from the roots up to every part of the plant.",
+    "ta": "தண்டு தரைக்கு மேல உயரமா நிக்குது. வேர்கள் குடிச்ச தண்ணீரைச் செடியோட எல்லாப் பகுதிக்கும் மேல கொண்டு போகுது."
    },
    "actions": [
     {
      "do": "pulse",
-     "target": "wRoot",
-     "on": "soil",
-     "color": "accent"
+     "target": "stem",
+     "on": "stands tall",
+     "ms": 1200,
+     "color": "#2E7D32"
     },
     {
+     "do": "show",
+     "target": "o42",
+     "on": "carries the water",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o43",
+     "on": "carries the water",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o44",
+     "on": "carries the water",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o45",
+     "on": "carries the water",
+     "ms": 500
+    }
+   ]
+  },
+  {
+   "id": "pl-leaves",
+   "section": "Picture it",
+   "narration": {
+    "en": "The green leaves catch sunlight. With sunlight, air and water, the leaves make food for the plant.",
+    "ta": "பச்சை இலைகள் சூரிய ஒளியைப் பிடிக்குது. சூரிய ஒளி, காத்து, தண்ணீர் மூலமா இலைகள் செடிக்கான உணவைத் தயாரிக்குது."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "o25",
+     "on": "green leaves",
+     "ms": 900
+    },
+    {
+     "do": "draw",
+     "target": "o26",
+     "on": "green leaves",
+     "ms": 900
+    },
+    {
+     "do": "show",
+     "target": "o38",
+     "on": "make food",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o39",
+     "on": "make food",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o40",
+     "on": "make food",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o41",
+     "on": "make food",
+     "ms": 500
+    }
+   ]
+  },
+  {
+   "id": "pl-flower",
+   "section": "Picture it",
+   "narration": {
+    "en": "At the top, many plants have a flower. The flower later makes seeds and fruit. New plants grow from those seeds.",
+    "ta": "மேல பல செடிகள்ல பூ இருக்கும். பூ பிற்பாடு விதைகளையும் பழத்தையும் உருவாக்குது. அந்த விதைகளிலிருந்து புதுச் செடிகள் வளருது."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "o27",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o28",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o29",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o30",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o31",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o32",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o33",
+     "on": "a flower",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o34",
+     "on": "seeds and fruit",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o35",
+     "on": "seeds and fruit",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o36",
+     "on": "seeds and fruit",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o37",
+     "on": "seeds and fruit",
+     "ms": 500
+    }
+   ]
+  },
+  {
+   "id": "pl-q1",
+   "section": "Picture it",
+   "narration": {
+    "en": "Question time. Which part of the plant drinks water from the soil?",
+    "ta": "கேள்வி நேரம். மண்ணுல இருந்து தண்ணீர் குடிக்கிற செடியோட பகுதி எது?"
+   },
+   "actions": [
+    {
      "do": "pulse",
-     "target": "wUp",
-     "at": 0.5,
-     "color": "accent"
+     "target": "ground",
+     "on": "Which part",
+     "ms": 1200,
+     "color": "#EF6C00"
     }
    ],
    "check": {
     "stem": {
-     "en": "Which part takes in water from the soil?"
+     "en": "Which part of the plant drinks water from the soil?",
+     "ta": "மண்ணுல இருந்து தண்ணீர் குடிக்கிற பகுதி எது?"
     },
     "explanation": {
-     "en": "The roots drink water from the soil. Then the stem carries it up to the leaves."
+     "en": "Roots drink water from the soil.",
+     "ta": "வேர்கள்தான் மண்ணுல இருந்து தண்ணீர் குடிக்குது."
     },
     "options": [
      {
       "id": "a",
       "text": {
-       "en": "Root"
+       "en": "The flower"
       },
-      "correct": true
+      "whyWrong": {
+       "en": "The flower makes seeds. It does not drink water from the soil."
+      }
      },
      {
       "id": "b",
       "text": {
-       "en": "Stem"
+       "en": "The roots"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "The leaves"
       },
       "whyWrong": {
-       "en": "The stem carries water up. It does not take water in from the soil."
+       "en": "Leaves make food. Roots drink the water."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "pl-q2",
+   "section": "Picture it",
+   "narration": {
+    "en": "One more. Which part makes food using sunlight?",
+    "ta": "இன்னொண்ணு. சூரிய ஒளியைப் பயன்படுத்தி உணவு தயாரிக்கிற பகுதி எது?"
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "o25",
+     "on": "Which part",
+     "ms": 1200,
+     "color": "#2E7D32"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "Which part makes food using sunlight?",
+     "ta": "சூரிய ஒளியால உணவு தயாரிக்கிற பகுதி எது?"
+    },
+    "explanation": {
+     "en": "Leaves make food from sunlight, air and water.",
+     "ta": "இலைகள் சூரிய ஒளி, காத்து, தண்ணீரால உணவு தயாரிக்குது."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "The roots"
+      },
+      "whyWrong": {
+       "en": "Roots hold the plant and drink water."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "The stem"
+      },
+      "whyWrong": {
+       "en": "The stem carries water up."
       }
      },
      {
       "id": "c",
       "text": {
-       "en": "Leaf"
+       "en": "The leaves"
       },
-      "whyWrong": {
-       "en": "The leaves are high up in the air, far from the soil."
-      }
+      "correct": true
      }
     ]
    }

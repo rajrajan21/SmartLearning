@@ -25,6 +25,39 @@ describe("public settings", () => {
   });
 });
 
+describe("admin sign-in with a user id", () => {
+  const USER = "itsme.rajrajan@gmail.com";
+  let guarded: ReturnType<typeof createApp>;
+  beforeEach(async () => {
+    const m = await makeRepo();
+    guarded = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: KEY, adminUserId: USER });
+  });
+  const go = (r: request.Test, user?: string, key: string = KEY) => { let q = r.set("x-admin-key", key); if (user !== undefined) q = q.set("x-admin-user", user); return q; };
+  it("needs the right user id and the right key; the id ignores upper/lower case and spaces", async () => {
+    expect((await go(request(guarded).get("/api/v1/admin/session"), USER)).status).toBe(200);
+    expect((await go(request(guarded).get("/api/v1/admin/session"), "  ItsMe.RajRajan@Gmail.com ")).status).toBe(200);
+    expect((await go(request(guarded).get("/api/v1/admin/session"), encodeURIComponent(USER))).status).toBe(200);
+    expect((await go(request(guarded).get("/api/v1/admin/session"))).status).toBe(401); // key alone is no longer enough
+    expect((await go(request(guarded).get("/api/v1/admin/session"), "someone@else.com")).status).toBe(401);
+    expect((await go(request(guarded).get("/api/v1/admin/session"), USER, "wrong")).status).toBe(401);
+    const bad = await go(request(guarded).get("/api/v1/admin/session"), "someone@else.com");
+    expect(bad.body.error.message).toMatch(/user id or admin key/); // does not say which one was wrong
+  });
+  it("a wrong user id counts towards the same lockout", async () => {
+    for (let i = 0; i < 8; i++) await go(request(guarded).get("/api/v1/admin/session"), "nobody@x.com");
+    expect((await go(request(guarded).get("/api/v1/admin/session"), USER)).status).toBe(429);
+  });
+  it("also protects the other admin routes", async () => {
+    expect((await go(request(guarded).get("/api/v1/admin/settings"))).status).toBe(401);
+    expect((await go(request(guarded).get("/api/v1/admin/settings"), USER)).status).toBe(200);
+  });
+  it("resolveAdminUserId uses ADMIN_USER_ID or the owner's default", async () => {
+    const { resolveAdminUserId } = await import("../src/modules/settings/admin-auth.js");
+    expect(resolveAdminUserId({} as NodeJS.ProcessEnv)).toBe("itsme.rajrajan@gmail.com");
+    expect(resolveAdminUserId({ ADMIN_USER_ID: " boss@school.in " } as unknown as NodeJS.ProcessEnv)).toBe("boss@school.in");
+  });
+});
+
 describe("admin access", () => {
   it("rejects missing or wrong key, and is disabled when no key is configured", async () => {
     expect((await request(app).get("/api/v1/admin/settings")).status).toBe(401);

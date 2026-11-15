@@ -2,6 +2,7 @@ import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, unlinkSyn
 import { join } from "node:path";
 import { Mp3Encoder } from "@breezystack/lamejs";
 import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson } from "@studysmart/shared";
+import { composeAll } from "../classroom/compose-all.js";
 import { audioKey, emptyManifest, LANGS, Manifest, speechText, VoiceMap, type Lang } from "./manifest.js";
 
 /** What the Malar Teacher speech API returns for one sentence (HeadTTS format). */
@@ -14,9 +15,13 @@ export interface BuildOptions {
   questionsDir?: string;
   /** content/classroom: board-lesson narration and questions are spoken too (optional) */
   classroomDir?: string;
+  /** record every "malar" line in each of these voices too (ids from voices.json); default: just malar */
+  teachers?: string[];
   langs?: Lang[]; force?: boolean; prune?: boolean; log?: (m: string) => void;
+  /** clips made at the same time (the speech server runs several engines); default 3 */
+  concurrency?: number;
 }
-export interface BuildReport { wanted: number; generated: number; reused: number; skipped: string[]; pruned: number; bytes: number }
+export interface BuildReport { wanted: number; generated: number; reused: number; skipped: string[]; pruned: number; bytes: number; audioMs: number; elapsedMs: number }
 
 const MAX_CHARS = 480; // the speech API cuts text longer than this
 const BITRATE = 64; // kbps mono: clear consonants for young listeners, about 8 KB per second
@@ -102,13 +107,12 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
       if (q.type === "number" || q.type === "short") for (const wa of q.wrongAnswers) add(`${w} why-wrong`, "malar", wa.why);
     }
   }
-  for (const f of jsonFiles(o.classroomDir)) {
-    const cl = ClassroomLesson.parse(readJson(join(o.classroomDir!, f)));
-    if (cl.status !== "published") continue;
+  for (const cl of o.classroomDir ? composeAll({ lessonsDir: o.lessonsDir, questionsDir: o.questionsDir, classroomDir: o.classroomDir }) : []) {
+    const f = `classroom-${cl.classLevel}-${cl.subject}-${cl.topic}`;
     for (const st of cl.steps) {
       add(`${f} ${st.id}`, "malar", st.narration);
       if (st.check) {
-        add(`${f} ${st.id} check`, "malar", st.check.stem); add(`${f} ${st.id} explanation`, "malar", st.check.explanation);
+        add(`${f} ${st.id} question`, "malar", st.check.stem); add(`${f} ${st.id} explanation`, "malar", st.check.explanation);
         for (const op of st.check.options) add(`${f} ${st.id} why-wrong`, "malar", op.whyWrong);
       }
     }
@@ -125,10 +129,15 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
   mkdirSync(filesDir, { recursive: true });
   const voices = VoiceMap.parse(readJson(join(o.audioDir, "voices.json")));
   const manifest = existsSync(manifestPath) ? Manifest.parse(readJson(manifestPath)) : emptyManifest();
-  const report: BuildReport = { wanted: 0, generated: 0, reused: 0, skipped: [], pruned: 0, bytes: 0 };
+  const report: BuildReport = { wanted: 0, generated: 0, reused: 0, skipped: [], pruned: 0, bytes: 0, audioMs: 0, elapsedMs: 0 };
+  const t0 = Date.now();
   const used = new Set<string>();
 
-  for (const job of collectJobs(o, o.langs ?? LANGS)) {
+  const all = collectJobs(o, o.langs ?? LANGS);
+  const jobs = o.teachers?.length ? all.flatMap((j) => (j.teacher === "malar" ? o.teachers!.map((t) => ({ ...j, teacher: t })) : [j])) : all;
+  // 1) work out what is missing, 2) make it with several clips in flight at once (the speech server has several engines)
+  const todo: { job: typeof jobs[number]; cfg: { voice: string; speed: number }; text: string; key: string }[] = [];
+  for (const job of jobs) {
     const cfg = voices[job.teacher]?.[job.lang];
     if (!cfg) { report.skipped.push(`${job.where}: no ${job.lang} voice for teacher "${job.teacher}"`); continue; }
     const text = speechText(job.text, job.lang);
@@ -138,21 +147,39 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
     used.add(key); report.wanted++;
     const have = manifest.entries[key];
     if (!o.force && have && existsSync(join(filesDir, have.file))) { report.reused++; continue; }
-    const r = await o.speak(text, cfg.voice, cfg.speed);
-    const { mp3, durationMs, headTrimMs } = wavToMp3(Buffer.from(r.audio, "base64"));
-    const file = `${key}.mp3`;
-    writeFileSync(join(filesDir, file), mp3);
-    const words = (r.words ?? []).map((w, i) => ({ w: w.trim(), t: Math.max(0, Math.round((r.wtimes?.[i] ?? 0) - headTrimMs)), d: Math.round(r.wdurations?.[i] ?? 0) }));
-    manifest.entries[key] = { file, durationMs, bytes: mp3.length, voice: cfg.voice, lang: job.lang, text, words };
-    report.generated++; report.bytes += mp3.length;
-    log(`${job.lang} ${job.where}: ${durationMs} ms, ${mp3.length} bytes`);
-    writeManifest(manifestPath, manifest); // save as we go so an interrupted run loses nothing
+    todo.push({ job, cfg, text, key });
   }
+  const retry = async (t: typeof todo[number]) => {
+    for (let n = 1; ; n++) {
+      try { return await o.speak(t.text, t.cfg.voice, t.cfg.speed); }
+      catch (e) { if (n >= 4) throw e; await new Promise((r) => setTimeout(r, 4000 * n)); } // server busy or restarting: wait and try again
+    }
+  };
+  let next = 0, done = 0, failed = 0;
+  const worker = async () => {
+    for (;;) {
+      const t = todo[next++]; if (!t) return;
+      try {
+        const r = await retry(t);
+        const { mp3, durationMs, headTrimMs } = wavToMp3(Buffer.from(r.audio, "base64"));
+        const file = `${t.key}.mp3`;
+        writeFileSync(join(filesDir, file), mp3);
+        const words = (r.words ?? []).map((w, i) => ({ w: w.trim(), t: Math.max(0, Math.round((r.wtimes?.[i] ?? 0) - headTrimMs)), d: Math.round(r.wdurations?.[i] ?? 0) }));
+        manifest.entries[t.key] = { file, durationMs, bytes: mp3.length, voice: t.cfg.voice, lang: t.job.lang, text: t.text, words };
+        report.generated++; report.bytes += mp3.length; report.audioMs += durationMs; done++;
+        const el = Date.now() - t0, left = Math.round((el / done) * (todo.length - done - failed) / 60000);
+        log(`[${done + failed}/${todo.length}] ${t.job.lang} ${t.job.where}: ${durationMs} ms speech${left > 0 ? ` (about ${left} min left)` : ""}`);
+        writeManifest(manifestPath, manifest); // save as we go so an interrupted run loses nothing
+      } catch (e) { failed++; report.skipped.push(`${t.job.where}: ${(e as Error).message} (run again to finish it)`); }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.max(1, o.concurrency ?? 3) }, worker));
   if (o.prune) {
     for (const [k, e] of Object.entries(manifest.entries)) if (!used.has(k)) { delete manifest.entries[k]; try { unlinkSync(join(filesDir, e.file)); } catch { /* already gone */ } report.pruned++; }
   }
   writeManifest(manifestPath, manifest);
   report.skipped = [...new Set(report.skipped)];
+  report.elapsedMs = Date.now() - t0;
   return report;
 }
 

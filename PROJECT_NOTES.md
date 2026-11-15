@@ -1,4 +1,4 @@
-# StudySmart (studysmart.in) – project notes for resuming
+# SharpStudy (sharpstudy.in) – project notes for resuming
 
 **Goal:** free, original, AI-assisted learning site for Indian school students (start CBSE Classes 3–7; TN State Board and Matriculation next). Philosophy: Understand → Explore → Practise → Explain → Master.
 
@@ -78,3 +78,6 @@ Privacy/terms/about pages (settings-driven), `deploy/` pack + API serves web bui
 
 ## Module 12: Classroom board lessons
 Programmatic animated lessons (no video): JSON steps with narration + board actions, audio-position-driven sync, 3D solids drawn by our own SVG engine, pause-for-answer questions. See docs/16-classroom.md. 4 Class 3 samples in content/classroom (author with tools/author_classroom.py). Audio build includes classroom narration. Route /classroom. Setting panel "Classroom boards".
+
+## Module 12b - full-lesson classroom (sync17)
+Whole-lesson board, voice for every step, voice picker, English/English+Tamil. Perplexity collaboration pending (Chrome tab froze on first attempt).

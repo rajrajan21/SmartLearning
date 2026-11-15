@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { SETTINGS, SETTINGS_BY_KEY, THEME_PRESETS, contrastRatio, defaults, parseSetting, publicSettings, resolveSettings } from "../src/index.js";
+import { PANELS, SETTINGS, SETTINGS_BY_KEY, THEME_PRESETS, contrastRatio, defaults, parseSetting, publicSettings, resolveSettings } from "../src/index.js";
 
 describe("settings registry", () => {
   it("has unique keys and every default passes its own validation (live settings)", () => {
@@ -49,5 +49,41 @@ describe("settings registry", () => {
       expect(contrastRatio(merged["theme.color.ink"]!, merged["theme.color.paper"]!), p.id).toBeGreaterThanOrEqual(4.5);
       expect(contrastRatio(merged["theme.dark.ink"]!, merged["theme.dark.paper"]!), p.id).toBeGreaterThanOrEqual(4.5);
     }
+  });
+});
+
+describe("textbook reader settings", () => {
+  it("has its own admin panel with helpful text on every setting", () => {
+    expect(PANELS.some((p) => p.id === "textbooks" && p.label === "Textbooks")).toBe(true);
+    const defs = SETTINGS.filter((d) => d.panel === "textbooks");
+    expect(defs.map((d) => d.key).sort()).toEqual(["reader.allowStylePicker", "reader.autoTurn", "reader.defaultSpeed", "reader.readAloud", "reader.showDownload", "reader.showPrint", "reader.style", "reader.tamilVoiceHelp", "reader.voiceLang"]);
+    for (const d of [...defs, SETTINGS_BY_KEY.get("feature.textbooks")!]) { expect(d.public, d.key).toBe(true); expect((d.help ?? "").length, d.key).toBeGreaterThan(20); }
+  });
+  it("defaults: feature on, style C (Library) with all three styles offered, picker on, read aloud at 0.9 with an Indian English voice", () => {
+    const v = defaults();
+    expect(v["feature.textbooks"]).toBe(true);
+    expect(v["reader.style"]).toBe("c");
+    const style = SETTINGS_BY_KEY.get("reader.style")!;
+    expect(style.type === "select" && style.options.map((o) => o.value)).toEqual(["a", "b", "c"]);
+    expect(style.type === "select" && style.options.map((o) => o.label.slice(0, 11))).toEqual(["A Hardcover", "B Digital (", "C Library ("]);
+    expect(v["reader.allowStylePicker"]).toBe(true);
+    expect(v["reader.readAloud"]).toBe(true);
+    expect(v["reader.voiceLang"]).toBe("en-IN");
+    expect(v["reader.tamilVoiceHelp"]).toBe(true);
+    expect(v["reader.showDownload"]).toBe(true);
+    expect(v["reader.showPrint"]).toBe(true);
+    expect(v["reader.autoTurn"]).toBe(true);
+    expect(v["reader.defaultSpeed"]).toBe(0.9);
+  });
+  it("validates values and sends them to every browser", () => {
+    expect(parseSetting("reader.style", "a")).toBe("a");
+    expect(() => parseSetting("reader.style", "d")).toThrow(/options/);
+    expect(() => parseSetting("reader.defaultSpeed", 3)).toThrow(/between/);
+    expect(parseSetting("reader.voiceLang", "ta-IN")).toBe("ta-IN");
+    expect(() => parseSetting("reader.voiceLang", "fr-FR")).toThrow();
+    const pub = publicSettings(resolveSettings({ "reader.style": "b", "feature.textbooks": false }));
+    expect(pub["reader.style"]).toBe("b");
+    expect(pub["feature.textbooks"]).toBe(false);
+    expect(pub["reader.defaultSpeed"]).toBe(0.9);
   });
 });

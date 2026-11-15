@@ -61,9 +61,9 @@ export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, l
             break;
           }
           case "text": {
-            const n = Math.ceil(st.chars * o.text.length);
+            const glyphs = Array.from(o.text); const n = Math.ceil(st.chars * glyphs.length);
             if (n <= 0) return null;
-            body = <text x={o.x} y={o.y} fontSize={(o.size ?? 34) * (1 + pulse * 0.18)} textAnchor={o.anchor ?? "middle"} fill={pulse > 0 ? pc : C(o.color)} fontFamily="'Mukta Malar', system-ui, sans-serif" fontWeight={700}>{o.text.slice(0, n)}</text>;
+            body = <text x={o.x} y={o.y} fontSize={(o.size ?? 34) * (1 + pulse * 0.18)} textAnchor={o.anchor ?? "middle"} fill={pulse > 0 ? pc : C(o.color)} fontFamily="'Mukta Malar', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', system-ui, sans-serif" fontWeight={700}>{glyphs.slice(0, n).join("")}</text>;
             break;
           }
           case "clock": {

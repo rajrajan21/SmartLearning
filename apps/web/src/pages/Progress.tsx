@@ -6,6 +6,9 @@ import { useBoard, useRetry } from "../lib/curriculum";
 import { useMastery } from "../lib/mastery";
 import { useDueCount } from "../lib/revision";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
+import { MasteryBar } from "../components/Tier1";
+import { LevelCard } from "../components/RewardsPanel";
+import { Badges, NextSuggestion, WeekCalendar } from "../components/RewardsPanel";
 
 export const LEVEL_KEY: Record<MasteryLevel, UiKey> = { new: "lvlNew", learning: "lvlLearning", practising: "lvlPractising", strong: "lvlStrong", mastered: "lvlMastered" };
 export function MasteryTag({ m }: { m: Mastery }) {
@@ -32,6 +35,10 @@ export function ProgressPage() {
       <h1>{ui("myProgress", lang)}</h1>
       <p className="lead">{ui("progressIntro", lang)}</p>
       {s.get("mastery.revision.enabled") === true && due > 0 && <p className="actions"><Link className="btn" href="/revise">{ui("reviseToday", lang)} ({due})</Link></p>}
+      {(s.get("rewards.level.show") === true || s.get("rewards.certificate.show") === true) && <LevelCard level={s.get("rewards.level.show") === true} cert={s.get("rewards.certificate.show") === true} />}
+      {s.get("progress.nextSuggestion.show") === true && <NextSuggestion tree={state.data as never} board={board} />}
+      {s.get("rewards.weekCalendar.show") === true && <WeekCalendar />}
+      {s.get("rewards.badges.enabled") === true && <Badges />}
       {classes.map((c) => (
         <section key={c.classLevel}>
           <h2>{ui("classWord", lang)} {c.classLevel}</h2>
@@ -50,6 +57,7 @@ export function ProgressPage() {
                         <Link href={`/${board.toLowerCase()}/${c.classLevel}/${sub.slug}/${ch.slug}`}>{s.name(ch.name)}</Link>
                         <div className="meter" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label={s.name(ch.name)}><span style={{ width: `${pct}%` }} /></div>
                         <span className="small">{pct}% · <MasteryTag m={{ level: best, pct }} /></span>
+                        {s.get("rewards.masteryBar.show") === true && <MasteryBar list={ms} label={ui("mbTitle", lang)} />}
                       </li>
                     );
                   })}

@@ -1,3 +1,4 @@
+import { buzz } from "../lib/appview";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { AnswerFeedback, AnswerResponse, LangAudio, PublicQuestion } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
@@ -70,6 +71,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
     try {
       const f = await sendAnswer(q.id, attemptId.current, hints, response);
       setFb(f);
+      if (f.correct && s.get("app.vibrate") === true) buzz();
       if (s.get("feature.mastery") === true && s.get("mastery.revision.enabled") === true) recordReview(q.id, f.correct, s.get<number[]>("mastery.revision.intervals"));
       if (voiceFb) {
         const list = f.correct ? phrases.praise : phrases.tryAgain;

@@ -14,7 +14,7 @@
 | 9 | Parent dashboard + reports | Progress, weak concepts, weekly email | Access boundaries tested |
 | 10 | Exams, worksheets, games | Timed tests, printable worksheets, challenges | |
 | 11 | Admin CMS + review workflow | Authoring UI, versions, approvals | |
-| 12 | Pilot + launch | 20–30 students, DPDP review, performance and accessibility audit, studysmart.in live | Pilot targets met |
+| 12 | Pilot + launch | 20–30 students, DPDP review, performance and accessibility audit, sharpstudy.in live | Pilot targets met |
 | Later | Video lip-sync teachers, 3D, TN State Board, Matriculation, Classes 8–12 | | |
 
 ## Definition of done (per module)

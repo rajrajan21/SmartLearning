@@ -57,10 +57,36 @@ describe("web app", () => {
 });
 
 describe("theme", () => {
-  it("turns settings into css variables", () => {
-    const { vars, attrs } = themeVars({ ...defaults(), "theme.radius": "round", "theme.mode": "dark" }, false);
+  const custom = { ...defaults(), "theme.palette": "custom", "theme.preset": "notebook" };
+  it("turns settings into css variables (Custom palette passes the individual colours straight through)", () => {
+    const { vars, attrs } = themeVars({ ...custom, "theme.radius": "round", "theme.mode": "dark" }, false);
     expect(vars["--radius"]).toBe("22px");
     expect(attrs["data-mode"]).toBe("dark");
     expect(vars["--paper"]).toBe(defaults()["theme.dark.paper"]);
+    expect(vars["--brand"]).toBe(defaults()["theme.color.brand"]);
+    const light = themeVars({ ...custom, "theme.color.brand": "#AA0000", "theme.color.margin": "#00AA00" }, false);
+    expect(light.vars["--brand"]).toBe("#AA0000");
+    expect(light.vars["--margin"]).toBe("#00AA00");
+    expect(light.attrs["data-rules"]).toBe("true");
+  });
+  it("a palette sets the colours and a theme sets structure; the default is the recommended pair", () => {
+    const d = themeVars(defaults(), false);
+    expect(d.attrs["data-theme"]).toBe("playful");
+    expect(d.attrs["data-palette"]).toBe("indigo-dawn");
+    expect(d.attrs["data-rules"]).toBe("false"); // notebook-only decoration
+    expect(d.vars["--radius"]).toBe("18px");
+    const mint = themeVars({ ...defaults(), "theme.palette": "mint-fresh", "theme.preset": "brutalist" }, false);
+    expect(mint.attrs["data-theme"]).toBe("brutalist");
+    expect(mint.vars["--brand"]).not.toBe(d.vars["--brand"]);
+    expect(mint.vars["--radius"]).toBe("6px");
+    expect(themeVars({ ...defaults(), "theme.radius": "sharp" }, false).vars["--radius"]).toBe("4px");
+    expect(themeVars({ ...defaults(), "theme.font.heading": "system" }, false).vars["--font-heading"]).toMatch(/^system-ui/);
+  });
+  it("the Notebook theme keeps ruled lines and the margin line", () => {
+    const n = themeVars({ ...defaults(), "theme.preset": "notebook", "theme.palette": "notebook-blue" }, false);
+    expect(n.attrs["data-rules"]).toBe("true");
+    expect(n.attrs["data-margin"]).toBe("true");
+    expect(n.vars["--brand"]).toBe("#1F4FD1");
+    expect(n.vars["--paper"]).toBe("#F4F8FC");
   });
 });

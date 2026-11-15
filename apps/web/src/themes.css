@@ -1,0 +1,262 @@
+/*
+ * Whole-site themes. The Notebook theme is the original look in styles.css and is not touched here.
+ * Every other theme is "hooks + a little decoration": a block of custom properties per theme (page background, panels,
+ * borders, shadows, buttons, headings) consumed by the shared rules below. Colours always come from the palette
+ * variables (--paper, --surface, --ink, --brand, --accent ...), so any theme works with any palette, in light and dark.
+ * Selectors start at [data-theme] (not html) so the admin live preview can show a theme inside a small box.
+ */
+
+/* ---------- hook defaults (a clean, flat look; themes override what they need) ---------- */
+:where([data-theme]:not([data-theme="notebook"])) {
+  --line-strong: color-mix(in srgb, var(--ink) 48%, var(--surface));
+  --bg-image: none; --bg-size: auto; --bg-repeat: no-repeat; --bg-pos: 0 0;
+  --top-bg: var(--surface); --top-bd: 1px solid var(--rule); --top-shadow: none; --top-blur: none; --top-top: 0 solid transparent;
+  --bar-bg: var(--surface); --bar-line: 1px solid var(--rule);
+  --card-bg: var(--surface); --card-bw: 1px; --card-bd: var(--rule); --card-shadow: none; --card-radius: var(--radius); --card-blur: none;
+  --paper-bg: var(--surface); --paper-bw: 1px; --paper-bd: var(--rule); --paper-shadow: none; --paper-pad-l: clamp(1rem, 4vw, 2rem);
+  --btn-bw: 2px; --btn-shadow: none; --btn-press: none; --btn-radius: var(--radius); --btn-case: none; --btn-ls: 0; --btn-weight: 700; --btn-ghost-bg: transparent; --btn-ghost-shadow: none; --btn-edge: var(--brand);
+  --h-weight: 700; --h-ls: 0; --h-case: none;
+  --cover-sheen: none; --cover-shadow: 0 6px 14px -8px rgba(0, 0, 0, .5); --cover-radius: var(--radius); --spine: none; --cover-bd: none;
+  --tab-on-shadow: none; --foot-bd: 1px solid var(--rule);
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .25 0 0 0 0 .2 0 0 0 0 .15 0 0 0 .16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+:where([data-theme][data-mode="dark"]:not([data-theme="notebook"])) {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- shared structure ---------- */
+:where([data-theme]:not([data-theme="notebook"])) body { background-color: var(--paper); background-image: var(--bg-image); background-size: var(--bg-size); background-repeat: var(--bg-repeat); background-position: var(--bg-pos); }
+.p-site:where([data-theme]:not([data-theme="notebook"])) { background-color: var(--paper); background-image: var(--bg-image); background-size: var(--bg-size); background-repeat: var(--bg-repeat); background-position: var(--bg-pos); }
+:where([data-theme]:not([data-theme="notebook"])) :is(h1, h2, h3) { font-weight: var(--h-weight); letter-spacing: var(--h-ls); text-transform: var(--h-case); }
+:where([data-theme]:not([data-theme="notebook"])) .top { background: var(--top-bg); border-bottom: var(--top-bd); border-top: var(--top-top); box-shadow: var(--top-shadow); -webkit-backdrop-filter: var(--top-blur); backdrop-filter: var(--top-blur); }
+html[data-theme]:not([data-theme="notebook"]) .tabbar, html[data-theme]:not([data-theme="notebook"])[data-app] .tabbar { background: var(--bar-bg); border-top: var(--bar-line); -webkit-backdrop-filter: var(--top-blur); backdrop-filter: var(--top-blur); }
+:where([data-theme]:not([data-theme="notebook"])) .foot { border-top: var(--foot-bd); }
+:where([data-theme]:not([data-theme="notebook"])) .paper { background: var(--paper-bg); border: var(--paper-bw) solid var(--paper-bd); box-shadow: var(--paper-shadow); border-radius: var(--card-radius); padding-left: var(--paper-pad-l); -webkit-backdrop-filter: var(--card-blur); backdrop-filter: var(--card-blur); }
+:where([data-theme]:not([data-theme="notebook"])) .notice { background: var(--card-bg); border-color: var(--line-strong); }
+:where([data-theme]:not([data-theme="notebook"])) :is(.round, .class-card, .quick-tile, .reward, .recent-item, .stats li, .kid, .badges .badge, .week-cal li, .ask, .class-tab, .continue-card, .next-card, .revise-card, .boardpath, .week-summary, .hits) {
+  background: var(--card-bg); border-width: var(--card-bw); border-style: solid; border-color: var(--card-bd); box-shadow: var(--card-shadow); border-radius: var(--card-radius);
+}
+:where([data-theme]:not([data-theme="notebook"])) :is(.continue-card, .next-card, .revise-card, .week-summary) { border-color: color-mix(in srgb, var(--brand) 55%, var(--card-bd)); background: color-mix(in srgb, var(--brand) 7%, var(--card-bg)); }
+:where([data-theme]:not([data-theme="notebook"])) .chip { background: var(--card-bg); border-color: var(--card-bd); }
+:where([data-theme]:not([data-theme="notebook"])) .class-tab.on { box-shadow: var(--tab-on-shadow); background: color-mix(in srgb, var(--brand) 10%, var(--card-bg)); }
+:where([data-theme]:not([data-theme="notebook"])) .class-tab.on:hover { transform: none; }
+/* controls people type into or tap get a border that is visible enough (3:1) */
+:where([data-theme]:not([data-theme="notebook"])) :is(.search input, .typed input, .ask-form input, .acct-form input:not([type=radio]):not([type=checkbox]), .acct-form select, .opt, .rate select, .class-rail button, .tab, .teachback textarea) { border-color: var(--line-strong); }
+:where([data-theme]:not([data-theme="notebook"])) .opt { border-radius: var(--card-radius); box-shadow: var(--tab-on-shadow); }
+:where([data-theme]:not([data-theme="notebook"])) .opt.on { border-color: var(--brand); }
+:where([data-theme]:not([data-theme="notebook"])) .btn { border-width: var(--btn-bw); border-radius: var(--btn-radius); box-shadow: var(--btn-shadow); text-transform: var(--btn-case); letter-spacing: var(--btn-ls); font-weight: var(--btn-weight); }
+:where([data-theme]:not([data-theme="notebook"])) .btn.ghost { background: var(--btn-ghost-bg); box-shadow: var(--btn-ghost-shadow); }
+:where([data-theme]:not([data-theme="notebook"])) .btn:active:not(:disabled) { transform: translate(var(--press-x, 0), var(--press-y, 0)); box-shadow: var(--btn-press); }
+:where([data-theme]:not([data-theme="notebook"])) .btn.danger { box-shadow: none; }
+/* subject books */
+:where([data-theme]:not([data-theme="notebook"])) .notebook { border-radius: var(--cover-radius); box-shadow: var(--cover-shadow); background-color: var(--cover, var(--subject-other)); background-image: var(--cover-sheen); border: var(--cover-bd); }
+:where([data-theme]:not([data-theme="notebook"])) .notebook::before { display: var(--spine, none); }
+:where([data-theme]:not([data-theme="notebook"])) .chapters a:hover { background: color-mix(in srgb, var(--cover, var(--brand)) 9%, transparent); }
+:where([data-theme]:not([data-theme="notebook"])) .lead, :where([data-theme]:not([data-theme="notebook"])) .small { color: var(--muted); }
+@media (max-width: 720px) { :where([data-theme]:not([data-theme="notebook"])) .paper { padding-left: 1rem; } }
+
+/* ---------- 1. Playful Pop (Duolingo-style) ---------- */
+[data-theme="playful"] {
+  --bg-image: radial-gradient(circle at 14px 14px, color-mix(in srgb, var(--brand) 12%, transparent) 2.5px, transparent 3px), radial-gradient(520px 340px at 100% 0, color-mix(in srgb, var(--accent) 17%, transparent), transparent 70%), radial-gradient(520px 380px at 0 40%, color-mix(in srgb, var(--brand) 9%, transparent), transparent 70%);
+  --bg-size: 44px 44px, auto, auto; --bg-repeat: repeat, no-repeat, no-repeat;
+  --top-bd: 2px solid var(--rule);
+  --card-bw: 2px; --card-bd: var(--rule); --card-shadow: 0 4px 0 var(--rule); --tab-on-shadow: 0 4px 0 color-mix(in srgb, var(--brand) 70%, #000);
+  --paper-bw: 2px; --paper-shadow: 0 4px 0 var(--rule);
+  --btn-edge: color-mix(in srgb, var(--brand) 62%, #000); --btn-shadow: 0 4px 0 var(--btn-edge); --btn-press: 0 0 0 var(--btn-edge); --press-y: 4px;
+  --btn-ghost-bg: var(--surface); --btn-ghost-shadow: 0 4px 0 var(--line-strong);
+  --btn-case: none; --btn-ls: .01em; --btn-weight: 800;
+  --h-weight: 800; --cover-radius: 18px; --cover-shadow: 0 5px 0 color-mix(in srgb, var(--cover, #000) 55%, #000);
+  --cover-sheen: radial-gradient(circle at 85% 12%, rgba(255, 255, 255, .22) 0 34px, transparent 35px);
+}
+[data-theme="playful"] .btn { min-height: 48px; font-size: 1rem; }
+[data-theme="playful"] .btn.sm, [data-theme="playful"] .textsize .btn { font-size: .85rem; }
+[data-theme="playful"] .btn.ghost:active:not(:disabled) { box-shadow: 0 0 0 var(--line-strong); }
+[data-theme="playful"] .btn:disabled { box-shadow: none; }
+[data-theme="playful"] .class-start, [data-theme="playful"] .btn.big { text-transform: none; }
+[data-theme="playful"] .opt { box-shadow: 0 3px 0 var(--line-strong); }
+[data-theme="playful"] .opt.on { box-shadow: 0 3px 0 var(--brand); }
+[data-theme="playful"][data-mode="dark"] { --card-shadow: 0 4px 0 rgba(0, 0, 0, .45); --paper-shadow: 0 4px 0 rgba(0, 0, 0, .45); }
+
+/* ---------- 2. Calm Classroom (Khan-style) ---------- */
+[data-theme="calm"] {
+  --bg-image: linear-gradient(to bottom, var(--surface), transparent 360px); --bg-repeat: no-repeat;
+  --top-top: 4px solid var(--brand); --top-bd: 1px solid var(--rule); --top-shadow: 0 1px 2px rgba(10, 30, 60, .05);
+  --card-shadow: 0 1px 2px rgba(10, 30, 60, .06); --paper-shadow: 0 1px 3px rgba(10, 30, 60, .08);
+  --btn-bw: 1px; --btn-weight: 700; --h-weight: 700;
+  --cover-radius: 10px; --cover-shadow: 0 1px 3px rgba(10, 30, 60, .2);
+  --cover-sheen: linear-gradient(to bottom, rgba(255, 255, 255, .1), transparent 60%);
+}
+[data-theme="calm"] .class-tab.on { border-color: var(--brand); }
+[data-theme="calm"][data-mode="dark"] { --bg-image: linear-gradient(to bottom, var(--surface), transparent 320px); --card-shadow: none; --paper-shadow: none; }
+
+/* ---------- 3. Code Lab (Codecademy-style) ---------- */
+[data-theme="code-navy"] {
+  --bg-image: radial-gradient(color-mix(in srgb, var(--ink) 16%, transparent) 1px, transparent 1.2px); --bg-size: 22px 22px; --bg-repeat: repeat;
+  --top-bd: 2px solid var(--accent); --bar-line: 2px solid var(--accent);
+  --card-bw: 1px; --card-bd: color-mix(in srgb, var(--ink) 22%, var(--surface)); --card-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 14%, transparent);
+  --paper-bd: color-mix(in srgb, var(--ink) 22%, var(--surface)); --paper-shadow: 4px 4px 0 color-mix(in srgb, var(--accent) 55%, transparent);
+  --tab-on-shadow: 3px 3px 0 var(--accent);
+  --btn-bw: 2px; --btn-weight: 800; --btn-shadow: 3px 3px 0 var(--accent); --btn-press: 0 0 0 var(--accent); --press-x: 3px; --press-y: 3px; --btn-ghost-shadow: 3px 3px 0 color-mix(in srgb, var(--ink) 25%, transparent);
+  --h-weight: 800; --h-ls: -.01em; --cover-radius: 6px; --cover-shadow: 4px 4px 0 var(--accent); --cover-sheen: linear-gradient(135deg, rgba(255, 255, 255, .12), transparent 50%);
+}
+[data-theme="code-navy"] .btn:disabled { box-shadow: none; }
+[data-theme="code-navy"] h1::before { content: "> "; color: var(--accent); }
+[data-theme="code-navy"]:not([data-mode="dark"]) { --btn-shadow: 3px 3px 0 var(--accent); }
+[data-theme="code-navy"] .p-site h1::before, [data-theme="code-navy"] .lesson h1::before { content: none; }
+
+/* ---------- 4. Friendly Mesh (Code.org-style) ---------- */
+[data-theme="friendly-mesh"] {
+  --bg-image: radial-gradient(640px 440px at 6% -4%, color-mix(in srgb, var(--brand) 17%, transparent), transparent 72%), radial-gradient(600px 440px at 100% 6%, color-mix(in srgb, var(--accent) 19%, transparent), transparent 72%), radial-gradient(760px 520px at 55% 108%, color-mix(in srgb, var(--brand) 9%, transparent), transparent 70%);
+  --bg-repeat: no-repeat; --top-bd: 1px solid var(--rule); --top-bg: color-mix(in srgb, var(--surface) 86%, transparent); --top-blur: blur(10px);
+  --bar-bg: color-mix(in srgb, var(--surface) 94%, transparent);
+  --card-bw: 2px; --card-bd: color-mix(in srgb, var(--brand) 16%, var(--rule)); --card-shadow: 0 10px 26px -16px color-mix(in srgb, var(--brand) 55%, transparent); --paper-bw: 2px; --paper-bd: color-mix(in srgb, var(--brand) 16%, var(--rule)); --paper-shadow: 0 14px 34px -20px color-mix(in srgb, var(--brand) 60%, transparent);
+  --btn-bw: 2px; --btn-shadow: 0 6px 14px -8px color-mix(in srgb, var(--brand) 70%, transparent); --btn-radius: 999px; --btn-ghost-bg: var(--surface);
+  --h-weight: 700; --cover-radius: 16px; --cover-shadow: 0 12px 22px -14px color-mix(in srgb, var(--cover, #000) 80%, #000); --cover-sheen: radial-gradient(circle at 100% 0, rgba(255, 255, 255, .28), transparent 55%);
+}
+
+/* ---------- 5. Cinematic Gold (MasterClass-style) ---------- */
+[data-theme="cinematic"] {
+  --bg-image: radial-gradient(900px 520px at 50% -12%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 72%), radial-gradient(1200px 700px at 50% 120%, color-mix(in srgb, var(--ink) 7%, transparent), transparent 70%); --bg-repeat: no-repeat;
+  --top-bd: 1px solid color-mix(in srgb, var(--accent) 60%, var(--rule)); --bar-line: 1px solid color-mix(in srgb, var(--accent) 60%, var(--rule));
+  --card-bw: 1px; --card-bd: color-mix(in srgb, var(--accent) 42%, var(--rule)); --card-shadow: none; --card-radius: 3px;
+  --paper-bd: color-mix(in srgb, var(--accent) 50%, var(--rule)); --paper-shadow: 0 0 0 4px var(--surface), 0 0 0 5px color-mix(in srgb, var(--accent) 35%, transparent); --paper-pad-l: clamp(1.1rem, 4vw, 2.2rem);
+  --btn-bw: 1px; --btn-radius: 2px; --btn-case: uppercase; --btn-ls: .12em; --btn-weight: 700; --btn-ghost-bg: transparent;
+  --h-weight: 600; --h-ls: .01em; --cover-radius: 3px; --cover-shadow: 0 14px 24px -14px #000; --cover-bd: 1px solid color-mix(in srgb, var(--accent) 70%, transparent);
+  --cover-sheen: linear-gradient(160deg, rgba(255, 255, 255, .16), transparent 45%, rgba(0, 0, 0, .25));
+}
+[data-theme="cinematic"] .btn { font-size: .88rem; }
+[data-theme="cinematic"] .btn.big, [data-theme="cinematic"] .class-start { font-size: 1.05rem; }
+[data-theme="cinematic"] h1 { font-weight: 500; }
+[data-theme="cinematic"][data-mode="dark"] { --bg-image: radial-gradient(900px 520px at 50% -14%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 72%); }
+
+/* ---------- 6. Vivid Clean (Skillshare-style) ---------- */
+[data-theme="vivid-clean"] {
+  --bg-image: radial-gradient(520px 360px at 104% -4%, color-mix(in srgb, var(--accent) 26%, transparent), transparent 70%), radial-gradient(420px 300px at -6% 28%, color-mix(in srgb, var(--brand) 9%, transparent), transparent 70%); --bg-repeat: no-repeat;
+  --top-bd: 0 solid transparent; --top-shadow: 0 1px 0 var(--rule), 0 8px 24px -18px rgba(0, 0, 0, .4); --bar-line: 0 solid transparent;
+  --card-bw: 0px; --card-bd: transparent; --card-shadow: 0 1px 0 var(--rule), 0 12px 30px -20px rgba(15, 31, 23, .45); --card-radius: var(--radius);
+  --paper-bw: 0px; --paper-shadow: 0 1px 0 var(--rule), 0 18px 40px -26px rgba(15, 31, 23, .5);
+  --btn-bw: 2px; --btn-radius: 999px; --btn-weight: 800; --btn-ghost-bg: var(--surface);
+  --h-weight: 800; --h-ls: -.015em; --cover-radius: 20px; --cover-shadow: 0 16px 26px -18px color-mix(in srgb, var(--cover, #000) 90%, #000); --cover-sheen: radial-gradient(circle at 100% 100%, rgba(255, 255, 255, .22), transparent 55%);
+}
+[data-theme="vivid-clean"] .chip, [data-theme="vivid-clean"] .class-tab, [data-theme="vivid-clean"] .opt { border-width: 2px; }
+[data-theme="vivid-clean"] .class-tab, [data-theme="vivid-clean"] .opt { border-color: var(--line-strong); }
+[data-theme="vivid-clean"] .class-tab.on { border-color: var(--brand); }
+[data-theme="vivid-clean"] h1 { font-size: clamp(2rem, 5vw, 3rem); }
+[data-theme="vivid-clean"][data-mode="dark"] { --card-shadow: 0 0 0 1px var(--rule); --paper-shadow: 0 0 0 1px var(--rule); --top-shadow: 0 1px 0 var(--rule); }
+
+/* ---------- 7. Trusted Blue (Coursera-style) ---------- */
+[data-theme="trusted"] {
+  --bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--brand) 11%, var(--paper)), var(--paper) 300px); --bg-repeat: no-repeat;
+  --top-bd: 1px solid var(--rule); --top-shadow: 0 2px 10px -4px rgba(15, 31, 61, .18);
+  --card-bw: 1px; --card-bd: color-mix(in srgb, var(--ink) 13%, var(--surface)); --card-shadow: 0 2px 6px rgba(15, 31, 61, .08); --card-radius: var(--radius);
+  --paper-bd: color-mix(in srgb, var(--ink) 13%, var(--surface)); --paper-shadow: 0 4px 14px -6px rgba(15, 31, 61, .18);
+  --btn-bw: 1px; --btn-weight: 700; --h-weight: 700; --cover-radius: 8px; --cover-shadow: 0 2px 8px rgba(15, 31, 61, .25); --cover-sheen: linear-gradient(to bottom, rgba(255, 255, 255, .12), transparent 55%);
+}
+[data-theme="trusted"][data-mode="dark"] { --bg-image: linear-gradient(to bottom, color-mix(in srgb, var(--brand) 16%, var(--paper)), var(--paper) 280px); --card-shadow: none; --paper-shadow: none; }
+
+/* ---------- 8. Crisp Utility (Canvas-style) ---------- */
+[data-theme="utility"] {
+  --top-top: 4px solid var(--brand); --top-bd: 1px solid var(--line-strong); --bar-line: 1px solid var(--line-strong);
+  --card-bw: 1px; --card-bd: var(--line-strong); --card-shadow: none; --card-radius: var(--radius);
+  --paper-bd: var(--line-strong); --paper-shadow: none; --paper-bw: 1px;
+  --btn-bw: 1px; --btn-weight: 700; --btn-radius: var(--radius);
+  --h-weight: 700; --h-ls: 0; --cover-radius: 4px; --cover-shadow: none; --cover-bd: 1px solid rgba(0, 0, 0, .25); --foot-bd: 1px solid var(--line-strong);
+}
+[data-theme="utility"] .paper { border-left: 4px solid var(--brand); }
+[data-theme="utility"] .chapters li + li a { border-top: 1px solid var(--rule); border-radius: 0; }
+[data-theme="utility"] .btn { font-size: .95rem; }
+
+/* ---------- 9. Aurora Glass ---------- */
+[data-theme="aurora"] {
+  --bg-image: radial-gradient(760px 520px at 8% 0, color-mix(in srgb, var(--brand) 30%, transparent), transparent 70%), radial-gradient(700px 520px at 98% 8%, color-mix(in srgb, var(--accent) 30%, transparent), transparent 70%), radial-gradient(800px 600px at 60% 105%, color-mix(in srgb, var(--success) 22%, transparent), transparent 70%), radial-gradient(520px 420px at 0 70%, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%); --bg-repeat: no-repeat;
+  --top-bg: color-mix(in srgb, var(--surface) 70%, transparent); --top-blur: blur(14px) saturate(1.4); --top-bd: 1px solid color-mix(in srgb, var(--surface) 70%, var(--rule));
+  --bar-bg: color-mix(in srgb, var(--surface) 90%, transparent);
+  --card-bg: color-mix(in srgb, var(--surface) 80%, transparent); --card-bw: 1px; --card-bd: color-mix(in srgb, var(--surface) 55%, var(--rule)); --card-shadow: 0 10px 30px -18px rgba(20, 20, 60, .45), inset 0 1px 0 rgba(255, 255, 255, .55); --card-radius: var(--radius); --card-blur: blur(14px) saturate(1.3);
+  --paper-bg: color-mix(in srgb, var(--surface) 82%, transparent); --paper-bd: color-mix(in srgb, var(--surface) 55%, var(--rule)); --paper-shadow: 0 18px 44px -24px rgba(20, 20, 60, .5), inset 0 1px 0 rgba(255, 255, 255, .6);
+  --btn-bw: 1px; --btn-radius: 999px; --btn-shadow: 0 8px 18px -10px color-mix(in srgb, var(--brand) 80%, transparent), inset 0 1px 0 rgba(255, 255, 255, .35); --btn-ghost-bg: color-mix(in srgb, var(--surface) 75%, transparent);
+  --h-weight: 700; --cover-radius: 20px; --cover-shadow: 0 14px 28px -16px rgba(20, 20, 60, .6), inset 0 1px 0 rgba(255, 255, 255, .35); --cover-sheen: linear-gradient(135deg, rgba(255, 255, 255, .3), transparent 55%);
+}
+[data-theme="aurora"][data-mode="dark"] { --card-shadow: 0 10px 30px -18px #000, inset 0 1px 0 rgba(255, 255, 255, .08); --paper-shadow: 0 18px 44px -24px #000, inset 0 1px 0 rgba(255, 255, 255, .1); --card-bg: color-mix(in srgb, var(--surface) 78%, transparent); }
+
+/* ---------- 10. Bold Blocks (neo-brutalist) ---------- */
+[data-theme="brutalist"] {
+  --bg-image: linear-gradient(color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1px); --bg-size: 32px 32px; --bg-repeat: repeat;
+  --top-bd: 3px solid var(--ink); --bar-line: 3px solid var(--ink); --top-bg: color-mix(in srgb, var(--accent) 32%, var(--surface));
+  --card-bw: 3px; --card-bd: var(--ink); --card-shadow: 4px 4px 0 var(--ink); --card-radius: var(--radius); --tab-on-shadow: 4px 4px 0 var(--brand);
+  --paper-bw: 3px; --paper-bd: var(--ink); --paper-shadow: 6px 6px 0 var(--ink);
+  --btn-bw: 3px; --btn-shadow: 4px 4px 0 var(--ink); --btn-press: 0 0 0 var(--ink); --press-x: 4px; --press-y: 4px; --btn-ghost-bg: var(--surface); --btn-ghost-shadow: 4px 4px 0 var(--ink);
+  --h-weight: 900; --h-ls: -.02em; --cover-radius: 6px; --cover-shadow: 5px 5px 0 var(--ink); --cover-bd: 3px solid var(--ink); --foot-bd: 3px solid var(--ink); --line-strong: var(--ink);
+}
+[data-theme="brutalist"] .btn:not(.ghost) { border-color: var(--ink); }
+[data-theme="brutalist"] .chip, [data-theme="brutalist"] .class-tab, [data-theme="brutalist"] .opt { border-color: var(--ink); border-width: 2px; }
+[data-theme="brutalist"] .class-tab.on, [data-theme="brutalist"] .opt.on { border-color: var(--ink); background: color-mix(in srgb, var(--accent) 38%, var(--surface)); }
+[data-theme="brutalist"] .btn:disabled { box-shadow: none; }
+[data-theme="brutalist"] .top .btn.ghost { background: var(--surface); }
+[data-theme="brutalist"] .top .brand-mark { border: 3px solid var(--ink); }
+[data-theme="brutalist"] .opt, [data-theme="brutalist"] .opt.on { box-shadow: 3px 3px 0 var(--ink); }
+
+/* ---------- 11. Quiet Paper (Notion-like) ---------- */
+[data-theme="paper-grain"] {
+  --bg-image: var(--grain); --bg-size: 180px 180px; --bg-repeat: repeat;
+  --top-bg: transparent; --top-bd: 1px solid var(--rule); --bar-bg: var(--paper); --bar-line: 1px solid var(--rule);
+  --card-bg: color-mix(in srgb, var(--surface) 70%, transparent); --card-bw: 1px; --card-bd: color-mix(in srgb, var(--ink) 14%, var(--paper)); --card-shadow: none; --card-radius: var(--radius);
+  --paper-bg: color-mix(in srgb, var(--surface) 82%, transparent); --paper-bd: color-mix(in srgb, var(--ink) 12%, var(--paper)); --paper-shadow: 0 1px 2px rgba(60, 50, 30, .05);
+  --btn-bw: 1px; --btn-weight: 700; --btn-radius: var(--radius); --h-weight: 600; --h-ls: -.005em;
+  --cover-radius: 6px; --cover-shadow: 0 1px 2px rgba(0, 0, 0, .25); --cover-sheen: var(--grain);
+}
+[data-theme="paper-grain"] h2, [data-theme="paper-grain"] h3 { font-weight: 600; }
+[data-theme="paper-grain"] .chapters a:hover, [data-theme="paper-grain"] .quick-tile:hover { background: color-mix(in srgb, var(--ink) 5%, transparent); }
+
+/* ---------- 12. Hardcover Desk (reader style A) ---------- */
+[data-theme="hardcover"] {
+  --bg-image: radial-gradient(1100px 600px at 50% -10%, rgba(255, 255, 255, .22), transparent 70%), repeating-linear-gradient(90deg, rgba(60, 30, 10, .06) 0 2px, transparent 2px 9px), repeating-linear-gradient(90deg, rgba(255, 255, 255, .06) 0 1px, transparent 1px 31px), linear-gradient(to bottom, transparent, rgba(60, 30, 10, .10)), var(--grain);
+  --bg-size: auto, auto, auto, auto, 180px 180px; --bg-repeat: no-repeat, repeat, repeat, no-repeat, repeat;
+  --top-bd: 3px solid var(--accent); --top-shadow: 0 6px 14px -8px rgba(43, 26, 16, .6); --bar-line: 3px solid var(--accent);
+  --card-bw: 1px; --card-bd: color-mix(in srgb, var(--accent) 60%, var(--ink)); --card-shadow: 0 3px 8px -4px rgba(43, 26, 16, .5), inset 0 0 0 3px var(--surface), inset 0 0 0 4px color-mix(in srgb, var(--accent) 50%, transparent); --card-radius: 4px;
+  --paper-bw: 1px; --paper-bd: color-mix(in srgb, var(--accent) 60%, var(--ink)); --paper-shadow: 0 14px 28px -14px rgba(43, 26, 16, .7), inset 0 0 0 5px var(--surface), inset 0 0 0 6px color-mix(in srgb, var(--accent) 55%, transparent); --paper-pad-l: clamp(1.4rem, 4vw, 2.4rem);
+  --btn-bw: 1px; --btn-radius: 4px; --btn-shadow: inset 0 0 0 2px color-mix(in srgb, var(--accent) 70%, transparent), 0 2px 5px -1px rgba(43, 26, 16, .5); --btn-weight: 700; --btn-ghost-bg: var(--surface);
+  --h-weight: 700; --cover-radius: 3px 8px 8px 3px; --spine: block; --cover-bd: 1px solid rgba(0, 0, 0, .35);
+  --cover-shadow: 0 12px 18px -10px rgba(20, 10, 5, .8), inset -2px 0 0 rgba(255, 255, 255, .12);
+  --cover-sheen: linear-gradient(100deg, rgba(0, 0, 0, .28) 0, rgba(0, 0, 0, .28) 7px, rgba(255, 255, 255, .12) 8px, transparent 22px), linear-gradient(to bottom, rgba(255, 255, 255, .1), rgba(0, 0, 0, .12));
+  --foot-bd: 3px double color-mix(in srgb, var(--accent) 70%, var(--ink));
+}
+[data-theme="hardcover"] .notebook::before { background: repeating-linear-gradient(to bottom, color-mix(in srgb, var(--accent) 85%, #fff) 0 3px, transparent 3px 9px); width: 3px; inset: 8px auto 8px .55rem; }
+[data-theme="hardcover"] .notebook { padding-left: 1.5rem; }
+[data-theme="hardcover"][data-mode="dark"] { --bg-image: radial-gradient(1100px 600px at 50% -10%, rgba(255, 220, 160, .08), transparent 70%), repeating-linear-gradient(90deg, rgba(255, 220, 160, .035) 0 2px, transparent 2px 9px), var(--grain); --bg-size: auto, auto, 180px 180px; --bg-repeat: no-repeat, repeat, repeat; }
+
+/* ---------- 13. Pastel Digital (reader style B) ---------- */
+[data-theme="pastel"] {
+  --bg-image: radial-gradient(380px 300px at 8% 4%, color-mix(in srgb, #7cc4ff 30%, transparent), transparent 72%), radial-gradient(360px 300px at 96% 14%, color-mix(in srgb, var(--accent) 28%, transparent), transparent 72%), radial-gradient(420px 320px at 70% 98%, color-mix(in srgb, #7fe0b5 24%, transparent), transparent 72%), radial-gradient(300px 240px at 4% 80%, color-mix(in srgb, #ffd966 24%, transparent), transparent 72%); --bg-repeat: no-repeat;
+  --top-bd: 0 solid transparent; --top-bg: color-mix(in srgb, var(--surface) 90%, transparent); --top-shadow: 0 8px 20px -16px color-mix(in srgb, var(--brand) 70%, transparent);
+  --bar-line: 0 solid transparent;
+  --card-bw: 2px; --card-bd: color-mix(in srgb, var(--brand) 14%, var(--surface)); --card-shadow: 0 8px 20px -14px color-mix(in srgb, var(--brand) 55%, transparent);
+  --paper-bw: 2px; --paper-bd: color-mix(in srgb, var(--brand) 12%, var(--surface)); --paper-shadow: 0 16px 36px -22px color-mix(in srgb, var(--brand) 60%, transparent);
+  --btn-bw: 2px; --btn-radius: 999px; --btn-shadow: 0 6px 14px -8px color-mix(in srgb, var(--brand) 75%, transparent); --btn-ghost-bg: var(--surface); --btn-weight: 700;
+  --h-weight: 700; --cover-radius: 22px; --cover-shadow: 0 12px 22px -14px color-mix(in srgb, var(--cover, #000) 85%, #000); --cover-sheen: linear-gradient(160deg, rgba(255, 255, 255, .28), transparent 50%);
+}
+
+/* ---------- 14. Sage Library (reader style C) ---------- */
+[data-theme="library"] {
+  --bg-image: repeating-linear-gradient(90deg, color-mix(in srgb, var(--ink) 4%, transparent) 0 2px, transparent 2px 56px), linear-gradient(to bottom, color-mix(in srgb, var(--surface) 35%, transparent), transparent 240px), radial-gradient(520px 340px at 88% -60px, color-mix(in srgb, var(--accent) 16%, transparent), transparent 70%);
+  --bg-repeat: repeat, no-repeat, no-repeat;
+  --top-bd: 4px double color-mix(in srgb, var(--ink) 40%, var(--surface)); --bar-line: 4px double color-mix(in srgb, var(--ink) 40%, var(--surface));
+  --card-bw: 1px; --card-bd: color-mix(in srgb, var(--ink) 22%, var(--surface)); --card-shadow: 0 2px 0 color-mix(in srgb, var(--ink) 14%, transparent), 0 8px 14px -10px rgba(30, 50, 40, .5); --card-radius: var(--radius);
+  --paper-bd: color-mix(in srgb, var(--ink) 25%, var(--surface)); --paper-shadow: 0 2px 0 color-mix(in srgb, var(--ink) 16%, transparent), 0 14px 24px -16px rgba(30, 50, 40, .6); --paper-pad-l: clamp(1.2rem, 4vw, 2.2rem);
+  --btn-bw: 2px; --btn-radius: 6px; --btn-weight: 700; --btn-shadow: 0 3px 0 color-mix(in srgb, var(--brand) 55%, #000); --btn-press: 0 0 0 transparent; --press-y: 3px; --btn-ghost-bg: var(--surface); --btn-ghost-shadow: 0 3px 0 color-mix(in srgb, var(--ink) 25%, transparent);
+  --h-weight: 700; --cover-radius: 3px 8px 8px 3px; --spine: block; --cover-shadow: 0 8px 12px -8px rgba(20, 30, 25, .7); --cover-bd: 1px solid rgba(0, 0, 0, .3);
+  --cover-sheen: linear-gradient(to right, rgba(0, 0, 0, .22) 0, rgba(0, 0, 0, .22) 8px, transparent 9px), linear-gradient(to bottom, rgba(255, 255, 255, .12), transparent 60%);
+}
+[data-theme="library"] .paper::after { content: ""; position: absolute; top: -1px; right: 1.4rem; width: 18px; height: 44px; background: var(--accent); clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 78%, 0 100%); pointer-events: none; }
+[data-theme="library"] .notebook::before { background: repeating-linear-gradient(to bottom, rgba(255, 255, 255, .5) 0 4px, transparent 4px 10px); width: 3px; }
+[data-theme="library"] .btn:disabled { box-shadow: none; }
+[data-theme="library"][data-mode="dark"] { --bg-image: radial-gradient(560px 360px at 82% -80px, rgba(255, 222, 150, .20), transparent 70%), repeating-linear-gradient(90deg, rgba(255, 255, 255, .03) 0 2px, transparent 2px 56px); --bg-repeat: no-repeat, repeat; }
+
+/* ---------- accessibility: high contrast switches every decoration off ---------- */
+html[data-contrast="high"][data-theme] { --bg-image: none; --card-bg: var(--surface); --card-bd: var(--ink); --card-bw: 2px; --card-shadow: none; --paper-bg: var(--surface); --paper-bd: var(--ink); --paper-bw: 2px; --paper-shadow: none; --btn-shadow: none; --btn-ghost-shadow: none; --btn-press: none; --cover-sheen: none; --top-bg: var(--surface); --top-blur: none; --card-blur: none; --bar-bg: var(--surface); --top-bd: 3px solid var(--ink); --bar-line: 3px solid var(--ink); --tab-on-shadow: none; --line-strong: var(--ink); }
+html[data-contrast="high"][data-theme] .paper::after { display: none; }
+@media (forced-colors: active) { [data-theme] { --bg-image: none; } [data-theme] .btn { border: 2px solid ButtonText; } }
+@media print { [data-theme] body { background: #fff !important; } [data-theme] .paper { box-shadow: none !important; background: none !important; } .paper::after { display: none; } }
+
+/* classroom panels that were written with a white background: follow the palette in dark mode (CSS only) */
+[data-mode="dark"] .class-subs, [data-mode="dark"] .class-done { background: var(--surface); color: var(--ink); }
+[data-mode="dark"] .class-subs .ta { color: var(--muted); }
