@@ -156,3 +156,8 @@ The three approved prototypes (A Hardcover, B Digital, C Library) are now one pr
 **Admin sign-in.** `/admin` now asks for a User id (pre-filled `itsme.rajrajan@gmail.com`) and the existing ADMIN_KEY. Env `ADMIN_USER_ID` (default as above; in `.env.example` and `deploy/studysmart.env.example`). The server checks both in constant time (SHA-256 digests, `timingSafeEqual`), the id ignoring upper/lower case; a wrong id or key gives the same message and counts towards the same per-IP lockout (8 tries / 10 minutes). Headers: `x-admin-user` (URL-encoded) and `x-admin-key`. `createApp` only enforces the id when given `adminUserId` (server.ts always does), so older tests that use only the key still pass; new tests cover the id.
 
 **How to preview locally.** Start `Start-StudySmart-Local.bat` (PORT 3000, its own local test key; the key is not repeated here). Students' view: http://localhost:3000/ ; admin: http://localhost:3000/admin (user id is pre-filled, paste the key from the bat). In Look and feel pick a theme and palette, watch the live preview, press Save changes, then refresh the user view (visitors see changes within a minute because of caching).
+
+## Reader v2 and classroom question mode
+- Reader: pages prefetch 3 spreads ahead with a quick small picture first, bigger chunk requests; book fills the stage; the centre grey shading was removed in all three styles.
+- Classroom: on question steps the board hides all text and keeps solids turning (`quiet`); new animated `flow` object (water); tap scene and question added to the Saving water lesson; irrelevant wrong options replaced in 10 questions.
+- Standards for all future lessons: docs/18-lesson-authoring-standards.md.

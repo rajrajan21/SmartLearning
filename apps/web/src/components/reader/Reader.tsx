@@ -452,9 +452,12 @@ export function Reader({ book, open }: Props) {
   useEffect(() => {
     if (!doc || !(pageW > 0)) return;
     const n = doc.numPages;
-    const want = (p: number, pr: number) => { for (const x of visiblePages(p, n, single)) doc.image(x, pageW, pr).catch(() => { /* shown blank */ }); };
-    want(page, 0);
-    const id = setTimeout(() => { want(stepTarget(page, 1, n, single), 2); want(stepTarget(page, -1, n, single), 3); }, 120);
+    // a quick small picture first (shows at once), then the sharp one; then several pages ahead so turning never waits
+    const want = (p: number, pr: number, quick = false) => { for (const x of visiblePages(p, n, single)) { if (quick && pageW > 900) doc.image(x, 600, pr - 1).catch(() => { /* shown blank */ }); doc.image(x, pageW, pr).catch(() => { /* shown blank */ }); } };
+    want(page, 0, true);
+    const ahead = [1, 2, 3].map((k) => { let q = page; for (let i = 0; i < k; i++) q = stepTarget(q, 1, n, single); return q; });
+    const behind = stepTarget(page, -1, n, single);
+    const id = setTimeout(() => { want(ahead[0]!, 2, true); want(behind, 3, true); want(ahead[1]!, 4); want(ahead[2]!, 5); }, 120);
     return () => clearTimeout(id);
   }, [doc, page, single, pageW]);
 

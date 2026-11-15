@@ -244,7 +244,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
       )}
 
         <div className="class-stage">
-          <ClassBoard objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
+          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
           {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
           {phase === "done" && (
             <div className="class-done" role="status"><b>{L("classroomDone")}</b>

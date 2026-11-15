@@ -685,18 +685,174 @@
    "id": "o49"
   },
   {
-   "kind": "path",
-   "d": "M650 190 L645 204 M673 190 L668 204 M697 190 L692 204 M720 190 L715 204 M743 190 L738 204 M767 190 L762 204 M662 227 L657 241 M685 227 L680 241 M708 227 L703 241 M732 227 L727 241 M755 227 L750 241 M778 227 L773 241 M650 263 L645 277 M673 263 L668 277 M697 263 L692 277 M720 263 L715 277 M743 263 L738 277 M767 263 L762 277 M662 300 L657 314 M685 300 L680 314 M708 300 L703 314 M732 300 L727 314 M755 300 L750 314 M778 300 L773 314",
-   "stroke": "#2F8FE8",
-   "width": 5,
+   "kind": "flow",
+   "x": 655,
+   "y": 195,
+   "len": 120,
+   "count": 5,
+   "speed": 0.8,
+   "spread": 15,
+   "size": 8,
+   "color": "#2F8FE8",
    "id": "o50"
+  },
+  {
+   "kind": "flow",
+   "x": 700,
+   "y": 200,
+   "len": 110,
+   "count": 5,
+   "speed": 1.0,
+   "spread": 15,
+   "size": 8,
+   "color": "#2F8FE8",
+   "id": "o51"
+  },
+  {
+   "kind": "flow",
+   "x": 745,
+   "y": 195,
+   "len": 120,
+   "count": 5,
+   "speed": 0.9,
+   "spread": 15,
+   "size": 8,
+   "color": "#2F8FE8",
+   "id": "o52"
+  },
+  {
+   "kind": "rect",
+   "x": 0,
+   "y": 0,
+   "w": 900,
+   "h": 500,
+   "rx": 0,
+   "fill": "#E6F0F7",
+   "id": "twall"
+  },
+  {
+   "kind": "rect",
+   "x": 0,
+   "y": 380,
+   "w": 900,
+   "h": 120,
+   "rx": 0,
+   "fill": "#CFDDE8",
+   "id": "ttile"
+  },
+  {
+   "kind": "path",
+   "d": "M250 400 L650 400 L610 480 L290 480 Z",
+   "fill": "#FFFFFF",
+   "stroke": "#9BB0C4",
+   "width": 5,
+   "id": "tbasin"
+  },
+  {
+   "kind": "rect",
+   "x": 430,
+   "y": 90,
+   "w": 40,
+   "h": 120,
+   "rx": 6,
+   "fill": "#B0BEC5",
+   "stroke": "#78909C",
+   "width": 4,
+   "id": "tpipe"
+  },
+  {
+   "kind": "path",
+   "d": "M450 90 L450 70 L560 70 L560 130 L535 130 L535 95 L470 95 Z",
+   "fill": "#B0BEC5",
+   "stroke": "#78909C",
+   "width": 4,
+   "id": "tspout"
+  },
+  {
+   "kind": "rect",
+   "x": 405,
+   "y": 52,
+   "w": 90,
+   "h": 16,
+   "rx": 6,
+   "fill": "#E53935",
+   "stroke": "#B71C1C",
+   "width": 3,
+   "id": "thandle"
+  },
+  {
+   "kind": "flow",
+   "x": 547,
+   "y": 135,
+   "len": 255,
+   "count": 9,
+   "speed": 1.4,
+   "spread": 10,
+   "size": 9,
+   "color": "#2F8FE8",
+   "id": "tflow"
+  },
+  {
+   "kind": "flow",
+   "x": 547,
+   "y": 140,
+   "len": 150,
+   "count": 1,
+   "speed": 0.35,
+   "spread": 0,
+   "size": 8,
+   "color": "#2F8FE8",
+   "id": "tdrip"
+  },
+  {
+   "kind": "path",
+   "d": "M300 470 C380 450 520 450 600 470 Z",
+   "fill": "#6EC6FF",
+   "id": "tpool"
+  },
+  {
+   "kind": "text",
+   "x": 450,
+   "y": 36,
+   "text": "Water from a tap",
+   "size": 34,
+   "color": "#1E3FAE",
+   "anchor": "middle",
+   "id": "ttitle"
+  },
+  {
+   "kind": "text",
+   "x": 450,
+   "y": 450,
+   "text": "Close the tap. Save every drop!",
+   "size": 32,
+   "color": "#17785A",
+   "anchor": "middle",
+   "id": "tsave"
+  },
+  {
+   "kind": "circle",
+   "cx": 760,
+   "cy": 120,
+   "r": 44,
+   "fill": "#43A047",
+   "stroke": "#2E7D32",
+   "width": 4,
+   "id": "ttick"
+  },
+  {
+   "kind": "path",
+   "d": "M738 120 L755 140 L788 98",
+   "stroke": "#FFFFFF",
+   "width": 10,
+   "id": "ttick2"
   },
   {
    "kind": "path",
    "d": "M650 440 Q610 470 520 460",
    "stroke": "#1E3FAE",
    "width": 8,
-   "id": "o51"
+   "id": "o66"
   },
   {
    "kind": "poly",
@@ -715,14 +871,14 @@
     ]
    ],
    "fill": "#1E3FAE",
-   "id": "o52"
+   "id": "o67"
   },
   {
    "kind": "path",
    "d": "M420 470 Q320 478 240 440",
    "stroke": "#1E3FAE",
    "width": 8,
-   "id": "o53"
+   "id": "o68"
   },
   {
    "kind": "poly",
@@ -741,7 +897,7 @@
     ]
    ],
    "fill": "#1E3FAE",
-   "id": "o54"
+   "id": "o69"
   },
   {
    "kind": "rect",
@@ -753,7 +909,7 @@
    "fill": "#FFF1D6",
    "stroke": "#F2A93B",
    "width": 4,
-   "id": "o55"
+   "id": "o70"
   },
   {
    "kind": "text",
@@ -763,7 +919,7 @@
    "size": 27,
    "color": "ink",
    "anchor": "middle",
-   "id": "o56"
+   "id": "o71"
   },
   {
    "kind": "text",
@@ -773,7 +929,7 @@
    "size": 19,
    "color": "soft",
    "anchor": "middle",
-   "id": "o57"
+   "id": "o72"
   },
   {
    "kind": "rect",
@@ -785,7 +941,7 @@
    "fill": "#E3F3FF",
    "stroke": "#4AA3E8",
    "width": 4,
-   "id": "o58"
+   "id": "o73"
   },
   {
    "kind": "text",
@@ -795,7 +951,7 @@
    "size": 27,
    "color": "ink",
    "anchor": "middle",
-   "id": "o59"
+   "id": "o74"
   },
   {
    "kind": "text",
@@ -805,7 +961,7 @@
    "size": 19,
    "color": "soft",
    "anchor": "middle",
-   "id": "o60"
+   "id": "o75"
   },
   {
    "kind": "rect",
@@ -817,7 +973,7 @@
    "fill": "#EFE2FF",
    "stroke": "#9B6BE0",
    "width": 4,
-   "id": "o61"
+   "id": "o76"
   },
   {
    "kind": "text",
@@ -827,7 +983,7 @@
    "size": 27,
    "color": "ink",
    "anchor": "middle",
-   "id": "o62"
+   "id": "o77"
   },
   {
    "kind": "text",
@@ -837,7 +993,7 @@
    "size": 19,
    "color": "soft",
    "anchor": "middle",
-   "id": "o63"
+   "id": "o78"
   },
   {
    "kind": "rect",
@@ -849,7 +1005,7 @@
    "fill": "#E3F8DD",
    "stroke": "#4DB04A",
    "width": 4,
-   "id": "o64"
+   "id": "o79"
   },
   {
    "kind": "text",
@@ -859,7 +1015,7 @@
    "size": 27,
    "color": "ink",
    "anchor": "middle",
-   "id": "o65"
+   "id": "o80"
   },
   {
    "kind": "text",
@@ -869,7 +1025,7 @@
    "size": 19,
    "color": "soft",
    "anchor": "middle",
-   "id": "o66"
+   "id": "o81"
   },
   {
    "kind": "rect",
@@ -881,7 +1037,7 @@
    "fill": "#FFE3EE",
    "stroke": "#E0608F",
    "width": 4,
-   "id": "o67"
+   "id": "o82"
   },
   {
    "kind": "text",
@@ -891,7 +1047,7 @@
    "size": 27,
    "color": "ink",
    "anchor": "middle",
-   "id": "o68"
+   "id": "o83"
   },
   {
    "kind": "text",
@@ -901,7 +1057,7 @@
    "size": 19,
    "color": "soft",
    "anchor": "middle",
-   "id": "o69"
+   "id": "o84"
   },
   {
    "kind": "text",
@@ -1171,19 +1327,19 @@
     },
     {
      "do": "show",
-     "target": "o55",
+     "target": "o70",
      "on": "called evaporation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o56",
+     "target": "o71",
      "on": "called evaporation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o57",
+     "target": "o72",
      "on": "called evaporation",
      "ms": 500
     }
@@ -1241,19 +1397,19 @@
     },
     {
      "do": "show",
-     "target": "o58",
+     "target": "o73",
      "on": "called condensation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o59",
+     "target": "o74",
      "on": "called condensation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o60",
+     "target": "o75",
      "on": "called condensation",
      "ms": 500
     }
@@ -1317,19 +1473,31 @@
     },
     {
      "do": "show",
-     "target": "o61",
+     "target": "o51",
+     "on": "fall down as rain",
+     "ms": 900
+    },
+    {
+     "do": "show",
+     "target": "o52",
+     "on": "fall down as rain",
+     "ms": 900
+    },
+    {
+     "do": "show",
+     "target": "o76",
      "on": "called precipitation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o62",
+     "target": "o77",
      "on": "called precipitation",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o63",
+     "target": "o78",
      "on": "called precipitation",
      "ms": 500
     }
@@ -1352,31 +1520,31 @@
     },
     {
      "do": "draw",
-     "target": "o51",
+     "target": "o66",
      "on": "into the sea",
      "ms": 900
     },
     {
      "do": "draw",
-     "target": "o52",
+     "target": "o67",
      "on": "into the sea",
      "ms": 900
     },
     {
      "do": "show",
-     "target": "o64",
+     "target": "o79",
      "on": "called collection",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o65",
+     "target": "o80",
      "on": "called collection",
      "ms": 500
     },
     {
      "do": "show",
-     "target": "o66",
+     "target": "o81",
      "on": "called collection",
      "ms": 500
     }
@@ -1392,31 +1560,31 @@
    "actions": [
     {
      "do": "draw",
-     "target": "o53",
+     "target": "o68",
      "on": "journey starts over",
      "ms": 900
     },
     {
      "do": "draw",
-     "target": "o54",
+     "target": "o69",
      "on": "journey starts over",
      "ms": 900
     },
     {
      "do": "show",
-     "target": "o67",
+     "target": "o82",
      "on": "journey starts over",
      "ms": 600
     },
     {
      "do": "show",
-     "target": "o68",
+     "target": "o83",
      "on": "journey starts over",
      "ms": 600
     },
     {
      "do": "show",
-     "target": "o69",
+     "target": "o84",
      "on": "journey starts over",
      "ms": 600
     },
@@ -1531,6 +1699,175 @@
        "en": "Rain, snow or hail"
       },
       "correct": true
+     }
+    ]
+   }
+  },
+  {
+   "id": "wc-tap1",
+   "section": "Save water",
+   "narration": {
+    "en": "Now look at a tap at home. When the tap is open, clean water keeps flowing out. If we leave it open while we brush our teeth, a lot of water is wasted.",
+    "ta": "இப்போ வீட்டுல இருக்கிற ஒரு குழாயைப் பாருங்க. குழாயைத் திறந்தா சுத்தமான தண்ணீர் ஓடிக்கிட்டே இருக்கும். பல் தேய்க்கும்போது திறந்து விட்டா நிறைய தண்ணீர் வீணாகும்."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "twall",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "ttile",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "tbasin",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "tpipe",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "tspout",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "show",
+     "target": "thandle",
+     "at": 0.02,
+     "ms": 300
+    },
+    {
+     "do": "write",
+     "target": "ttitle",
+     "on": "tap at home",
+     "ms": 800
+    },
+    {
+     "do": "show",
+     "target": "tpool",
+     "on": "clean water",
+     "ms": 600
+    },
+    {
+     "do": "show",
+     "target": "tflow",
+     "on": "keeps flowing",
+     "ms": 500
+    },
+    {
+     "do": "pulse",
+     "target": "thandle",
+     "on": "open",
+     "ms": 1200,
+     "color": "#E53935"
+    }
+   ]
+  },
+  {
+   "id": "wc-tap2",
+   "section": "Save water",
+   "narration": {
+    "en": "Turn the tap off when you are not using it. Even one slow drip, drip, drip wastes water all day. Close the tap. Save every drop!",
+    "ta": "பயன்படுத்தாதப்போ குழாயை மூடுங்க. மெதுவா சொட்டுச் சொட்டா விழுந்தாலும் நாள் முழுக்க தண்ணீர் வீணாகும். குழாயை மூடுங்க. ஒவ்வொரு துளியையும் சேமிங்க!"
+   },
+   "actions": [
+    {
+     "do": "hide",
+     "target": "tflow",
+     "on": "Turn the tap off",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "tdrip",
+     "on": "drip, drip",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "ttick",
+     "on": "Close the tap",
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "ttick2",
+     "on": "Close the tap",
+     "ms": 700
+    },
+    {
+     "do": "write",
+     "target": "tsave",
+     "on": "Save every drop",
+     "ms": 1000
+    }
+   ]
+  },
+  {
+   "id": "wc-q3",
+   "section": "Save water",
+   "narration": {
+    "en": "Question time. What should we do with a tap we are not using?",
+    "ta": "கேள்வி நேரம். பயன்படுத்தாத குழாயை என்ன செய்யணும்?"
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "thandle",
+     "on": "Question time",
+     "ms": 1200,
+     "color": "#E53935"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "What should we do with a tap we are not using?",
+     "ta": "பயன்படுத்தாத குழாயை என்ன செய்யணும்?"
+    },
+    "explanation": {
+     "en": "Close it, so that no water is wasted.",
+     "ta": "மூடிடணும், அப்போ தண்ணீர் வீணாகாது."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Leave it open"
+      },
+      "whyWrong": {
+       "en": "An open tap keeps wasting clean water."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Close it properly"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "Open it a little more"
+      },
+      "whyWrong": {
+       "en": "Opening it more wastes even more water."
+      }
      }
     ]
    }

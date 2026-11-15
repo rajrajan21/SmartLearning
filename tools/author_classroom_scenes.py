@@ -43,6 +43,7 @@ class Scene:
                 x = x0 + (x1 - x0) * (c + (r % 2) * .5) / cols; y = y0 + (y1 - y0) * r / max(1, rows - 1)
                 d.append(f"M{x:.0f} {y:.0f} L{x - 5:.0f} {y + 14:.0f}")
         return [s.path(" ".join(d), None, "#2F8FE8", 5)]
+    def flow(s, x, y, ln, count=7, speed=.9, spread=0, size=7, color="#2F8FE8", name=None): return s.add({"kind": "flow", "x": x, "y": y, "len": ln, "count": count, "speed": speed, "spread": spread, "size": size, "color": color}, name)
     def curved_arrow(s, p0, p1, p2, color="#1E3FAE", w=8):
         (x0, y0), (cx, cy), (x1, y1) = p0, p1, p2
         a = math.atan2(y1 - cy, x1 - cx)
@@ -73,7 +74,16 @@ def water_cycle():
     c2 = s.curved_arrow((195, 195), (240, 150), (350, 140))
     rain = s.cloud(715, 135, 1.35, "#6B7685", "#4C5561")
     c3 = s.curved_arrow((540, 135), (595, 120), (635, 160))
-    drops = s.drops(650, 190, 790, 300, 6, 4)
+    drops = [s.flow(655, 195, 120, 5, .8, 15, 8, "#2F8FE8"), s.flow(700, 200, 110, 5, 1.0, 15, 8, "#2F8FE8"), s.flow(745, 195, 120, 5, .9, 15, 8, "#2F8FE8")]
+    # tap at home (animated flowing water)
+    twall = s.rect(0, 0, 900, 500, "#E6F0F7", name="twall"); ttile = s.rect(0, 380, 900, 120, "#CFDDE8", name="ttile")
+    tbasin = s.path("M250 400 L650 400 L610 480 L290 480 Z", "#FFFFFF", "#9BB0C4", 5, name="tbasin")
+    tpipe = s.rect(430, 90, 40, 120, "#B0BEC5", "#78909C", 6, 4, name="tpipe"); tspout = s.path("M450 90 L450 70 L560 70 L560 130 L535 130 L535 95 L470 95 Z", "#B0BEC5", "#78909C", 4, name="tspout")
+    thandle = s.rect(405, 52, 90, 16, "#E53935", "#B71C1C", 6, 3, name="thandle")
+    tflow = s.flow(547, 135, 255, 9, 1.4, 10, 9, "#2F8FE8", name="tflow"); tdrip = s.flow(547, 140, 150, 1, .35, 0, 8, "#2F8FE8", name="tdrip")
+    tpool = s.path("M300 470 C380 450 520 450 600 470 Z", "#6EC6FF", None, 3, name="tpool")
+    ttitle = s.text(450, 36, "Water from a tap", 34, "#1E3FAE", name="ttitle"); tsave = s.text(450, 450, "Close the tap. Save every drop!", 32, "#17785A", name="tsave")
+    ttick = s.circle(760, 120, 44, "#43A047", "#2E7D32", 4, name="ttick"); ttick2 = s.path("M738 120 L755 140 L788 98", None, "#FFFFFF", 10, name="ttick2")
     c4 = s.curved_arrow((650, 440), (610, 470), (520, 460))
     c5 = s.curved_arrow((420, 470), (320, 478), (240, 440))
     b1 = s.label(20, 175, 200, "1. Evaporation", "Sun heats water", "#FFF1D6", "#F2A93B")
@@ -107,6 +117,19 @@ def water_cycle():
        "check": {"stem": T("What falls from the clouds?", "மேகத்திலிருந்து என்ன விழுது?"), "explanation": T("Rain, snow and hail all fall from clouds.", "மழை, பனி, ஆலங்கட்டி எல்லாமே மேகத்திலிருந்து விழும்."),
          "options": [{"id": "a", "text": T("Only snow"), "whyWrong": T("Snow is one kind, but rain falls too.")}, {"id": "b", "text": T("Only rain"), "whyWrong": T("Rain is one kind, but snow and hail fall too.")}, {"id": "c", "text": T("Rain, snow or hail"), "correct": True}]}},
     ]
+
+    tap = [twall, ttile, tbasin, tpipe, tspout, thandle]
+    steps += [
+      {"id": "wc-tap1", "section": "Save water", "narration": T("Now look at a tap at home. When the tap is open, clean water keeps flowing out. If we leave it open while we brush our teeth, a lot of water is wasted.", "இப்போ வீட்டுல இருக்கிற ஒரு குழாயைப் பாருங்க. குழாயைத் திறந்தா சுத்தமான தண்ணீர் ஓடிக்கிட்டே இருக்கும். பல் தேய்க்கும்போது திறந்து விட்டா நிறைய தண்ணீர் வீணாகும்."),
+       "actions": [act("clear", at=0)] + [act("show", i, at=0.02, ms=300) for i in tap] + [act("write", "ttitle", on="tap at home", ms=800), act("show", "tpool", on="clean water", ms=600), act("show", "tflow", on="keeps flowing", ms=500), act("pulse", "thandle", on="open", ms=1200, color="#E53935")]},
+      {"id": "wc-tap2", "section": "Save water", "narration": T("Turn the tap off when you are not using it. Even one slow drip, drip, drip wastes water all day. Close the tap. Save every drop!", "பயன்படுத்தாதப்போ குழாயை மூடுங்க. மெதுவா சொட்டுச் சொட்டா விழுந்தாலும் நாள் முழுக்க தண்ணீர் வீணாகும். குழாயை மூடுங்க. ஒவ்வொரு துளியையும் சேமிங்க!"),
+       "actions": [act("hide", "tflow", on="Turn the tap off", ms=500), act("show", "tdrip", on="drip, drip", ms=500), act("show", "ttick", on="Close the tap", ms=500), act("draw", "ttick2", on="Close the tap", ms=700), act("write", "tsave", on="Save every drop", ms=1000)]},
+      {"id": "wc-q3", "section": "Save water", "narration": T("Question time. What should we do with a tap we are not using?", "கேள்வி நேரம். பயன்படுத்தாத குழாயை என்ன செய்யணும்?"),
+       "actions": [act("pulse", "thandle", on="Question time", ms=1200, color="#E53935")],
+       "check": {"stem": T("What should we do with a tap we are not using?", "பயன்படுத்தாத குழாயை என்ன செய்யணும்?"), "explanation": T("Close it, so that no water is wasted.", "மூடிடணும், அப்போ தண்ணீர் வீணாகாது."),
+         "options": [{"id": "a", "text": T("Leave it open"), "whyWrong": T("An open tap keeps wasting clean water.")}, {"id": "b", "text": T("Close it properly"), "correct": True}, {"id": "c", "text": T("Open it a little more"), "whyWrong": T("Opening it more wastes even more water.")}]}},
+    ]
+    obj = s.objs
     return obj, steps
 
 

@@ -41,7 +41,7 @@ export async function openBook(url: string): Promise<PdfBook> {
     iccUrl: `${ASSETS}iccs/`,
     disableAutoFetch: true, // big textbooks: fetch only the parts needed for the pages being read
     disableStream: true,
-    rangeChunkSize: 262144,
+    rangeChunkSize: 2097152,
     enableXfa: false,
   });
   const doc = await task.promise;

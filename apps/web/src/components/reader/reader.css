@@ -545,3 +545,16 @@
   body.rd-body > .rd-print-area img { display: block; width: 50%; max-height: 185mm; object-fit: contain; }
   body.rd-body > .rd-print-area img:only-child { width: auto; height: 185mm; }
 }
+
+/* v2: bigger book, no grey gutter (all three styles) */
+.rd-a .rd-stage { padding:14px 22px 14px }
+.rd-b .rd-stage { padding:10px 22px }
+.rd-c .rd-stage { padding:10px 18px 10px }
+.rd-c .rd-book.rd-at-front { transform:translateX(-25%) rotate(-1deg) }
+.rd-c .rd-book.rd-at-back { transform:translateX(25%) rotate(.8deg) }
+.rd-a .rd-pg.rd-l::after, .rd-a .rd-face.rd-back::after { background:linear-gradient(270deg,rgba(60,35,10,.07),transparent 2.5%) }
+.rd-a .rd-pg.rd-r::after, .rd-a .rd-face.rd-front::after { background:linear-gradient(90deg,rgba(60,35,10,.07),transparent 2.5%) }
+.rd-c .rd-pg.rd-l::after, .rd-c .rd-face.rd-back::after { background:linear-gradient(270deg,rgba(29,58,48,.06),transparent 2.5%) }
+.rd-c .rd-pg.rd-r::after, .rd-c .rd-face.rd-front::after { background:linear-gradient(90deg,rgba(29,58,48,.06),transparent 2.5%) }
+.rd-b .rd-pg.rd-l::after, .rd-b .rd-pg.rd-r::after, .rd-b .rd-face::after { background:none }
+@media (max-width:900px){ .rd-a .rd-stage,.rd-b .rd-stage,.rd-c .rd-stage { padding:6px } }

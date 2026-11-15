@@ -24,9 +24,11 @@ interface Props {
   objects: BoardObject[]; scene: Record<string, ObjState>; style: BoardStyle; show3d: boolean;
   /** seconds, drives the slow turning of solids */
   clock: number; yaw: number; onYaw?: (d: number) => void; label: string;
+  /** a question is showing: hide the writing (it could give the answer away) and keep solids turning */
+  quiet?: boolean;
 }
 
-export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, label }: Props) {
+export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, label, quiet }: Props) {
   const drag = useRef<number | null>(null);
   const C = (c?: string, f = "ink") => col(style, c, f);
   return (
@@ -61,6 +63,7 @@ export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, l
             break;
           }
           case "text": {
+            if (quiet) return null;
             const glyphs = Array.from(o.text); const n = Math.ceil(st.chars * glyphs.length);
             if (n <= 0) return null;
             body = <text x={o.x} y={o.y} fontSize={(o.size ?? 34) * (1 + pulse * 0.18)} textAnchor={o.anchor ?? "middle"} fill={pulse > 0 ? pc : C(o.color)} fontFamily="'Mukta Malar', 'Segoe UI Emoji', 'Apple Color Emoji', 'Noto Color Emoji', system-ui, sans-serif" fontWeight={700}>{glyphs.slice(0, n).join("")}</text>;
@@ -79,12 +82,21 @@ export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, l
             );
             break;
           }
+          case "flow": { // animated water: drops falling from (x, y) down `len`, driven by the clock
+            const n = o.count ?? 7, len = o.len, w = o.spread ?? 0, c = C(o.color, "water");
+            body = (<g fill={c} stroke="none">{Array.from({ length: n }, (_, i) => {
+              const ph = ((clock * (o.speed ?? 0.9) + i / n) % 1), yy = o.y + ph * len, xx = o.x + (((i * 37) % 11) / 11 - 0.5) * w;
+              const r = (o.size ?? 7) * (0.7 + 0.5 * (1 - ph)), fade = ph < 0.1 ? ph * 10 : ph > 0.85 ? (1 - ph) / 0.15 : 1;
+              return <path key={i} opacity={fade * 0.95} d={`M ${xx} ${yy - r * 1.7} C ${xx + r * 1.1} ${yy - r * 0.2} ${xx + r} ${yy + r} ${xx} ${yy + r} C ${xx - r} ${yy + r} ${xx - r * 1.1} ${yy - r * 0.2} ${xx} ${yy - r * 1.7} Z`} />;
+            })}</g>);
+            break;
+          }
           case "solid": {
-            const hex = hexOf(style, o.color), spinning = show3d && st.spin !== 0;
-            const ang = show3d ? 28 + yaw + (spinning ? clock * st.spin : 0) : 24, pitch = show3d ? 22 : 12;
+            const hex = hexOf(style, o.color), spin = quiet ? 36 : st.spin, spinning = show3d && spin !== 0;
+            const ang = show3d ? 28 + yaw + (spinning ? clock * spin : 0) : 24, pitch = show3d ? 22 : 12;
             const scene3 = project(o.shape as SolidShape, o.x, o.y, o.size, ang, pitch);
             const polyhedron = o.shape === "cube" || o.shape === "cuboid" || o.shape === "pyramid";
-            const marks = st.mark;
+            const marks = quiet ? undefined : st.mark;
             body = (
               <g strokeLinejoin="round">
                 {scene3.faces.map((f, i) => {
