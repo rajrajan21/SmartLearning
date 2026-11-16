@@ -10,7 +10,7 @@ import "./themes.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <App waitForLatest />
   </StrictMode>,
 );
 

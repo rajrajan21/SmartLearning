@@ -1,0 +1,647 @@
+{
+ "id": "cbse-3-maths-house-of-hundreds-1-hundreds-tens-ones",
+ "class": 3,
+ "subject": "maths",
+ "chapter": "house-of-hundreds-1",
+ "topic": "hundreds-tens-ones",
+ "title": [
+  "Hundreds, tens and ones",
+  "நூறுகள், பத்துகள், ஒன்றுகள்"
+ ],
+ "bg": "#F4FAFF",
+ "titleColor": "#1E5FA8",
+ "parts": [
+  [
+   "placevalue",
+   "pv",
+   {
+    "h": 2,
+    "t": 4,
+    "o": 7,
+    "y": 120
+   }
+  ],
+  [
+   "placevalue",
+   "pw",
+   {
+    "h": 1,
+    "t": 10,
+    "o": 0,
+    "y": 120
+   }
+  ],
+  [
+   "label",
+   "tSum",
+   {
+    "text": "200 + 40 + 7 = 247",
+    "y": 455,
+    "size": 42,
+    "color": "#1E5FA8"
+   }
+  ],
+  [
+   "label",
+   "tA",
+   {
+    "text": "In 247, the 4 is worth 40",
+    "y": 420,
+    "size": 30,
+    "color": "#2E7D32"
+   }
+  ],
+  [
+   "label",
+   "tB",
+   {
+    "text": "In 472, the 4 is worth 400",
+    "y": 465,
+    "size": 30,
+    "color": "#1E88E5"
+   }
+  ],
+  [
+   "label",
+   "tTen",
+   {
+    "text": "10 tens = 1 hundred",
+    "y": 455,
+    "size": 42,
+    "color": "#1E5FA8"
+   }
+  ]
+ ],
+ "steps": [
+  {
+   "id": "hh-story",
+   "section": "Story",
+   "say": [
+    "Kabir has lots of marbles. He keeps them in big bags of one hundred, boxes of ten, and some loose ones. Let us count them together.",
+    "கபீரிடம் நிறைய கோலிகள் இருக்கின்றன. அவற்றை நூறு கோலி கொண்ட பெரிய பைகளிலும், பத்து கோலி கொண்ட பெட்டிகளிலும், சில தனிக் கோலிகளாகவும் வைத்திருக்கிறான். சேர்ந்து எண்ணலாம்."
+   ],
+   "do": [
+    [
+     "show",
+     "pv:hHead",
+     "big bags",
+     {
+      "ms": 500
+     }
+    ],
+    [
+     "show",
+     "pv:tHead",
+     "boxes of ten",
+     {
+      "ms": 500
+     }
+    ],
+    [
+     "show",
+     "pv:oHead",
+     "loose ones",
+     {
+      "ms": 500
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-hundreds",
+   "section": "Story",
+   "say": [
+    "Here are the big bags. Each bag holds one hundred. Kabir has two bags. Two hundreds make two hundred.",
+    "இவை பெரிய பைகள். ஒவ்வொரு பையிலும் நூறு கோலிகள். கபீரிடம் இரண்டு பைகள் உள்ளன. இரண்டு நூறு என்பது இருநூறு."
+   ],
+   "do": [
+    [
+     "show",
+     "pv:h1",
+     "Here are the big bags",
+     {
+      "ms": 400
+     }
+    ],
+    [
+     "show",
+     "pv:h2",
+     "Kabir has two bags",
+     {
+      "ms": 400
+     }
+    ],
+    [
+     "write",
+     "pv:hVal",
+     "Two hundreds make two hundred",
+     {
+      "ms": 600
+     }
+    ],
+    [
+     "pulse",
+     "pv:h1",
+     "Each bag",
+     {
+      "color": "#1E88E5"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-tens",
+   "section": "Story",
+   "say": [
+    "Here are the boxes. Each box holds ten marbles. Kabir has four boxes. Four tens make forty.",
+    "இவை பெட்டிகள். ஒவ்வொரு பெட்டியிலும் பத்து கோலிகள். கபீரிடம் நான்கு பெட்டிகள் உள்ளன. நான்கு பத்து என்பது நாற்பது."
+   ],
+   "do": [
+    [
+     "show",
+     "pv:t1",
+     0.2,
+     {
+      "ms": 350
+     }
+    ],
+    [
+     "show",
+     "pv:t2",
+     0.3,
+     {
+      "ms": 350
+     }
+    ],
+    [
+     "show",
+     "pv:t3",
+     0.4,
+     {
+      "ms": 350
+     }
+    ],
+    [
+     "show",
+     "pv:t4",
+     0.5,
+     {
+      "ms": 350
+     }
+    ],
+    [
+     "write",
+     "pv:tVal",
+     "Four tens make forty",
+     {
+      "ms": 600
+     }
+    ],
+    [
+     "pulse",
+     "pv:t1",
+     "Each box",
+     {
+      "color": "#2E7D32"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-ones",
+   "section": "Story",
+   "say": [
+    "These are the loose marbles. Count them: one, two, three, four, five, six, seven. Seven ones make seven.",
+    "இவை தனிக் கோலிகள். எண்ணுங்கள்: ஒன்று, இரண்டு, மூன்று, நான்கு, ஐந்து, ஆறு, ஏழு. ஏழு ஒன்றுகள் என்பது ஏழு."
+   ],
+   "do": [
+    [
+     "show",
+     "pv:o1",
+     0.18,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o2",
+     0.265,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o3",
+     0.35,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o4",
+     0.435,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o5",
+     0.52,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o6",
+     0.605,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "pv:o7",
+     0.69,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "write",
+     "pv:oVal",
+     "Seven ones make seven",
+     {
+      "ms": 600
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-together",
+   "section": "Story",
+   "say": [
+    "Now put them together. Two hundred, plus forty, plus seven. Kabir has two hundred and forty-seven marbles.",
+    "இப்போது எல்லாவற்றையும் சேர்ப்போம். இருநூறு, நாற்பது, ஏழு. கபீரிடம் இருநூற்று நாற்பத்தேழு கோலிகள் உள்ளன."
+   ],
+   "do": [
+    [
+     "pulse",
+     "pv:hVal",
+     "Two hundred",
+     {
+      "color": "#1E88E5"
+     }
+    ],
+    [
+     "pulse",
+     "pv:tVal",
+     "plus forty",
+     {
+      "color": "#2E7D32"
+     }
+    ],
+    [
+     "pulse",
+     "pv:oVal",
+     "plus seven",
+     {
+      "color": "#B7791F"
+     }
+    ],
+    [
+     "write",
+     "tSum",
+     "two hundred and forty-seven",
+     {
+      "ms": 900
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-q1",
+   "section": "Think",
+   "say": [
+    "Question time. Look at the number two hundred and forty-seven. Which digit is in the tens place?",
+    "கேள்வி நேரம். இருநூற்று நாற்பத்தேழு என்ற எண்ணைப் பாருங்கள். பத்தாம் இடத்தில் எந்த இலக்கம் இருக்கிறது?"
+   ],
+   "do": [
+    [
+     "pulse",
+     "pv:tHead",
+     "Question time",
+     {
+      "color": "#F4A300",
+      "ms": 1200
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "In 247, which digit is in the tens place?",
+     "247 இல் பத்தாம் இடத்தில் உள்ள இலக்கம் எது?"
+    ],
+    "ok": 1,
+    "o": [
+     [
+      "2",
+      "2",
+      "The 2 is in the hundreds place. The tens place is the middle digit.",
+      "2 நூறாம் இடத்தில் உள்ளது. பத்தாம் இடம் நடுவில் உள்ள இலக்கம்."
+     ],
+     [
+      "4",
+      "4"
+     ],
+     [
+      "7",
+      "7",
+      "The 7 is in the ones place, the last digit.",
+      "7 ஒன்றாம் இடத்தில் உள்ளது, அது கடைசி இலக்கம்."
+     ]
+    ],
+    "e": [
+     "The tens place is the middle digit. In 247 it is the 4, and 4 tens make 40.",
+     "பத்தாம் இடம் நடுவில் உள்ள இலக்கம். 247 இல் அது 4. நான்கு பத்து என்பது 40."
+    ]
+   }
+  },
+  {
+   "id": "hh-place",
+   "section": "Story",
+   "say": [
+    "The place decides what a digit is worth. In 247, the 4 is in the tens place, so it is worth forty. In 472, the 4 is in the hundreds place, so it is worth four hundred.",
+    "இடம்தான் ஓர் இலக்கத்தின் மதிப்பைத் தீர்மானிக்கிறது. 247 இல் 4 பத்தாம் இடத்தில் இருப்பதால் அதன் மதிப்பு நாற்பது. 472 இல் 4 நூறாம் இடத்தில் இருப்பதால் அதன் மதிப்பு நானூறு."
+   ],
+   "do": [
+    [
+     "hide",
+     "tSum",
+     0
+    ],
+    [
+     "write",
+     "tA",
+     "the 4 is in the tens place",
+     {
+      "ms": 800
+     }
+    ],
+    [
+     "pulse",
+     "pv:tVal",
+     "worth forty",
+     {
+      "color": "#2E7D32"
+     }
+    ],
+    [
+     "write",
+     "tB",
+     "In 472",
+     {
+      "ms": 800
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-q2",
+   "section": "Think",
+   "say": [
+    "Another one. In the number four hundred and seventy-two, what is the digit 4 worth?",
+    "இன்னொன்று. நானூற்று எழுபத்திரண்டு என்ற எண்ணில் 4 என்ற இலக்கத்தின் மதிப்பு என்ன?"
+   ],
+   "do": [
+    [
+     "pulse",
+     "pv:hVal",
+     "Another one",
+     {
+      "color": "#F4A300",
+      "ms": 1200
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "In 472, what is the 4 worth?",
+     "472 இல் 4 இன் மதிப்பு என்ன?"
+    ],
+    "ok": 2,
+    "o": [
+     [
+      "4",
+      "4",
+      "4 is the digit itself. Its place is the hundreds place, so it is worth more than 4.",
+      "4 என்பது இலக்கம் மட்டுமே. அது நூறாம் இடத்தில் இருப்பதால் அதன் மதிப்பு 4 ஐ விட அதிகம்."
+     ],
+     [
+      "40",
+      "40",
+      "40 is what a 4 is worth in the tens place. Here the 4 is in the hundreds place.",
+      "பத்தாம் இடத்தில் 4 இன் மதிப்பு 40. இங்கே 4 நூறாம் இடத்தில் உள்ளது."
+     ],
+     [
+      "400",
+      "400"
+     ],
+     [
+      "4000",
+      "4000",
+      "4000 needs four digits. In 472 the 4 is only in the hundreds place.",
+      "4000 க்கு நான்கு இலக்கங்கள் வேண்டும். 472 இல் 4 நூறாம் இடத்தில் மட்டுமே உள்ளது."
+     ]
+    ],
+    "e": [
+     "The 4 is in the hundreds place, so it is worth 400.",
+     "4 நூறாம் இடத்தில் இருப்பதால் அதன் மதிப்பு 400."
+    ]
+   }
+  },
+  {
+   "id": "hh-tenten",
+   "section": "Story",
+   "say": [
+    "Look at ten rods of ten. Ten tens make one hundred. And ten hundreds make one thousand.",
+    "பத்து பத்துகள் உள்ள இந்தக் குச்சிகளைப் பாருங்கள். பத்து பத்து சேர்ந்தால் ஒரு நூறு. பத்து நூறு சேர்ந்தால் ஓர் ஆயிரம்."
+   ],
+   "do": [
+    [
+     "clear"
+    ],
+    [
+     "show",
+     "pw:hHead",
+     0.02,
+     {
+      "ms": 300
+     }
+    ],
+    [
+     "show",
+     "pw:tHead",
+     0.05,
+     {
+      "ms": 300
+     }
+    ],
+    [
+     "show",
+     "pw:t1",
+     0.1,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t2",
+     0.145,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t3",
+     0.19,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t4",
+     0.235,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t5",
+     0.28,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t6",
+     0.325,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t7",
+     0.37,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t8",
+     0.415,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t9",
+     0.46,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:t10",
+     0.505,
+     {
+      "ms": 200
+     }
+    ],
+    [
+     "show",
+     "pw:h1",
+     "one hundred",
+     {
+      "ms": 500
+     }
+    ],
+    [
+     "write",
+     "tTen",
+     "Ten tens make one hundred",
+     {
+      "ms": 900
+     }
+    ]
+   ]
+  },
+  {
+   "id": "hh-q3",
+   "section": "Think",
+   "say": [
+    "Last question. How many tens make one hundred?",
+    "கடைசிக் கேள்வி. எத்தனை பத்துகள் சேர்ந்தால் ஒரு நூறு?"
+   ],
+   "do": [
+    [
+     "pulse",
+     "pw:h1",
+     "Last question",
+     {
+      "color": "#F4A300",
+      "ms": 1200
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "How many tens make one hundred?",
+     "எத்தனை பத்துகள் சேர்ந்தால் ஒரு நூறு?"
+    ],
+    "ok": 0,
+    "o": [
+     [
+      "10",
+      "10"
+     ],
+     [
+      "100",
+      "100",
+      "100 is the number of ones in one hundred. We are counting tens.",
+      "100 என்பது ஒரு நூறில் உள்ள ஒன்றுகளின் எண்ணிக்கை. நாம் பத்துகளை எண்ணுகிறோம்."
+     ],
+     [
+      "5",
+      "5",
+      "Five tens make only fifty.",
+      "ஐந்து பத்து என்பது ஐம்பது மட்டுமே."
+     ],
+     [
+      "20",
+      "20",
+      "Twenty tens make two hundred, which is too many.",
+      "இருபது பத்து என்பது இருநூறு. அது மிக அதிகம்."
+     ]
+    ],
+    "e": [
+     "Ten tens make one hundred, just like ten ones make one ten.",
+     "பத்து ஒன்றுகள் சேர்ந்து ஒரு பத்து ஆவது போல, பத்து பத்துகள் சேர்ந்து ஒரு நூறு ஆகும்."
+    ]
+   }
+  }
+ ]
+}

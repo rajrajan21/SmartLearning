@@ -1,0 +1,330 @@
+{
+ "id": "cbse-3-maths-fair-share-halves-and-quarters",
+ "class": 3,
+ "subject": "maths",
+ "chapter": "fair-share",
+ "topic": "halves-and-quarters",
+ "title": [
+  "Halves and quarters",
+  "பாதிகளும் கால்பங்குகளும்"
+ ],
+ "parts": [
+  [
+   "pie",
+   "p",
+   {
+    "n": 4,
+    "cx": 290,
+    "cy": 285,
+    "r": 160,
+    "wholeFill": "#F6D7A0",
+    "wholeStroke": "#C58B3C"
+   }
+  ],
+  [
+   "raw",
+   "half",
+   {
+    "kind": "sector",
+    "cx": 290,
+    "cy": 285,
+    "r": 160,
+    "from": 0,
+    "to": 180,
+    "stroke": "#FFFFFF",
+    "width": 4
+   }
+  ],
+  [
+   "label",
+   "tWhole",
+   {
+    "text": "One whole",
+    "x": 520,
+    "y": 170,
+    "anchor": "start",
+    "size": 26
+   }
+  ],
+  [
+   "label",
+   "tHalf",
+   {
+    "text": "One half",
+    "x": 520,
+    "y": 230,
+    "anchor": "start",
+    "size": 26
+   }
+  ],
+  [
+   "label",
+   "tQuarter",
+   {
+    "text": "One quarter",
+    "x": 520,
+    "y": 290,
+    "anchor": "start",
+    "size": 26
+   }
+  ],
+  [
+   "label",
+   "tSum",
+   {
+    "text": "2 quarters = 1 half",
+    "x": 520,
+    "y": 350,
+    "anchor": "start",
+    "size": 26
+   }
+  ],
+  [
+   "label",
+   "tCount",
+   {
+    "text": "4 quarters = 1 whole",
+    "x": 520,
+    "y": 410,
+    "anchor": "start",
+    "size": 26
+   }
+  ]
+ ],
+ "steps": [
+  {
+   "id": "whole",
+   "say": [
+    "This round roti is one whole. Let us share it fairly.",
+    "இந்த உருண்டை ரொட்டி ஒரு முழுமை. இதை நியாயமாகப் பகிர்ந்துகொள்வோம்."
+   ],
+   "do": [
+    [
+     "draw",
+     "p:whole",
+     0,
+     {
+      "ms": 1400
+     }
+    ],
+    [
+     "write",
+     "tWhole",
+     "one whole",
+     {
+      "ms": 700
+     }
+    ]
+   ]
+  },
+  {
+   "id": "half",
+   "say": [
+    "Cut it down the middle into two equal parts. Each part is called one half.",
+    "நடுவில் வெட்டி இரண்டு சம பாகங்களாக்குங்கள். ஒவ்வொரு பாகமும் ஒரு பாதி."
+   ],
+   "do": [
+    [
+     "draw",
+     "p:c1",
+     "Cut it",
+     {
+      "ms": 900
+     }
+    ],
+    [
+     "draw",
+     "p:c3",
+     "Cut it",
+     {
+      "ms": 900
+     }
+    ],
+    [
+     "fill",
+     "half",
+     "Each part",
+     {
+      "color": "accent"
+     }
+    ],
+    [
+     "write",
+     "tHalf",
+     "one half",
+     {
+      "ms": 500
+     }
+    ],
+    [
+     "pulse",
+     "half",
+     "one half",
+     {
+      "color": "accent"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "quarter",
+   "say": [
+    "Now cut each half again. We get four equal parts. Each part is one quarter.",
+    "இப்போது ஒவ்வொரு பாதியையும் மீண்டும் வெட்டுங்கள். நான்கு சம பாகங்கள் கிடைக்கும். ஒவ்வொன்றும் ஒரு கால்பங்கு."
+   ],
+   "do": [
+    [
+     "hide",
+     "half",
+     0
+    ],
+    [
+     "hide",
+     "tHalf",
+     0
+    ],
+    [
+     "draw",
+     "p:c2",
+     "cut each half",
+     {
+      "ms": 900
+     }
+    ],
+    [
+     "draw",
+     "p:c4",
+     "cut each half",
+     {
+      "ms": 900
+     }
+    ],
+    [
+     "fill",
+     "p:s1",
+     "one quarter",
+     {
+      "color": "#FF8A65"
+     }
+    ],
+    [
+     "write",
+     "tQuarter",
+     "one quarter",
+     {
+      "ms": 500
+     }
+    ],
+    [
+     "pulse",
+     "p:s1",
+     "one quarter",
+     {
+      "color": "#FF8A65"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "two",
+   "say": [
+    "Shade another quarter next to it. One quarter plus one quarter makes two quarters. Two quarters make one half.",
+    "அதன் பக்கத்தில் இன்னொரு கால்பங்கை நிரப்புங்கள். ஒரு கால் பங்கும் ஒரு கால் பங்கும் சேர்ந்தால் இரண்டு கால் பங்கு. இரண்டு கால் பங்கு ஒரு பாதி."
+   ],
+   "do": [
+    [
+     "fill",
+     "p:s2",
+     "Shade another quarter",
+     {
+      "color": "#FFD166"
+     }
+    ],
+    [
+     "write",
+     "tSum",
+     "Two quarters make one half",
+     {
+      "ms": 700
+     }
+    ],
+    [
+     "pulse",
+     "p:s2",
+     "One quarter plus",
+     {
+      "color": "#FFD166"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "count",
+   "say": [
+    "Colour the last two parts too. Count all the equal parts in the whole circle. Now it is your turn to think.",
+    "மீதி இரண்டு பாகங்களையும் நிரப்புங்கள். முழு வட்டத்தில் உள்ள சம பாகங்களை எண்ணுங்கள். இப்போது நீங்கள் யோசிக்க வேண்டிய நேரம்."
+   ],
+   "do": [
+    [
+     "fill",
+     "p:s3",
+     0.1,
+     {
+      "color": "#7BE0AD"
+     }
+    ],
+    [
+     "fill",
+     "p:s4",
+     0.3,
+     {
+      "color": "#6EC6FF"
+     }
+    ],
+    [
+     "write",
+     "tCount",
+     0.6,
+     {
+      "ms": 800
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "How many quarters make one whole?",
+     "எத்தனை கால்பங்குகள் சேர்ந்தால் ஒரு முழுமை?"
+    ],
+    "ok": 2,
+    "o": [
+     [
+      "2",
+      "2",
+      "Two quarters make only one half.",
+      "இரண்டு கால்பங்கு என்பது ஒரு பாதி மட்டுமே."
+     ],
+     [
+      "3",
+      "3",
+      "Three quarters is not the whole circle yet. One more part is left.",
+      "மூன்று கால்பங்கு இன்னும் முழு வட்டம் ஆகவில்லை. இன்னொரு பாகம் மீதி இருக்கிறது."
+     ],
+     [
+      "4",
+      "4"
+     ],
+     [
+      "8",
+      "8",
+      "Eight is too many. Look at the circle again and count the parts.",
+      "எட்டு மிக அதிகம். வட்டத்தை மீண்டும் பார்த்து பாகங்களை எண்ணுங்கள்."
+     ]
+    ],
+    "e": [
+     "Four quarters make one whole. That is why we call each part a quarter.",
+     "நான்கு கால்பங்குகள் சேர்ந்தால் ஒரு முழுமை. அதனால்தான் ஒவ்வொரு பாகத்தையும் கால்பங்கு என்கிறோம்."
+    ]
+   }
+  }
+ ]
+}

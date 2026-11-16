@@ -5,6 +5,8 @@ import { Field } from "./Field";
 import { Preview } from "./Preview";
 import { LookPicker } from "./LookPicker";
 import { AccessCodes } from "./AccessCodes";
+import { Reports } from "./Reports";
+import { Branding } from "./Branding";
 
 type Tab = PanelId | "log" | "backup";
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
@@ -162,6 +164,8 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
                   ))}
                 </fieldset>
               ))}
+              {panel.id === "site" && <Branding values={draft} onVersion={(k, v) => set(k, v)} />}
+              {panel.id === "reports" && <Reports />}
               {panel.id === "access" && <AccessCodes defaultMaxUses={Number(saved["access.newCode.maxUses"] ?? 10)} defaultExpiryDays={Number(saved["access.newCode.expiryDays"] ?? 0)} mode={String(saved["access.mode"])} />}
             </>
           )}

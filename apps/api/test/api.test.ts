@@ -40,7 +40,7 @@ describe("API", () => {
     expect((await request(app).get(`${base}/boards/cbse/search?q=${"a".repeat(81)}`)).status).toBe(400);
   });
   it("coverage and diff", async () => {
-    expect((await request(app).get(`${base}/boards/cbse/coverage`)).body.totals.chapters).toBe(26);
+    expect((await request(app).get(`${base}/boards/cbse/coverage`)).body.totals.chapters).toBe(62);
     expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27`)).status).toBe(400);
     expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27&to=2030-31`)).status).toBe(404);
   });

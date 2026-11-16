@@ -38,6 +38,7 @@ export function themeVars(v: Values, prefersDark: boolean): { vars: Record<strin
     "--density": String(DENSITY[str(v, "theme.density") as keyof typeof DENSITY] ?? 1),
     "--text-scale": str(v, "theme.font.scale"),
     "--font-heading": headingFont(str(v, "theme.font.heading"), look.theme.heading),
+    "--hl1": str(v, "text.accent.c1") || "#E8590C", "--hl2": str(v, "text.accent.c2") || "#7C3AED", "--hl3": str(v, "text.accent.c3") || "#0EA5A4", "--h-weight": str(v, "text.heading.weight") || "800",
     "--font-body": str(v, "theme.font.body") === "mukta" ? '"Mukta Malar", system-ui, sans-serif' : "system-ui, sans-serif",
   };
   for (const s of ["maths", "evs", "english", "tamil", "science", "social", "other"] as const) vars[`--subject-${s}`] = c.subjects[s];
@@ -55,6 +56,11 @@ export function themeVars(v: Values, prefersDark: boolean): { vars: Record<strin
       "data-focus": v["a11y.focus.strong"] === false ? "normal" : "strong",
       "data-targets": v["a11y.targets.large"] === false ? "normal" : "large",
       "data-mobile": String(v["ui.mobile.polish"] !== false),
+      "data-accent": str(v, "text.accent.style") || "gradient",
+      "data-headings": str(v, "text.heading.style") || "colourful",
+      "data-layout": str(v, "layout.style") || "grand",
+      "data-width": str(v, "layout.width") || "wide",
+      "data-picker": str(v, "layout.picker") || "left",
     },
   };
 }

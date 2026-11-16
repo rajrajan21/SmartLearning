@@ -10,7 +10,7 @@ def act(do, target=None, **k): return {"do": do, **({"target": target} if target
 class Scene:
     def __init__(s): s.objs = []; s.n = 0
     def add(s, o, name=None):
-        s.n += 1; o["id"] = name or f"o{s.n}"; s.objs.append(o); return o["id"]
+        s.n += 1; o = {k: v for k, v in o.items() if v is not None}; o["id"] = name or f"o{s.n}"; s.objs.append(o); return o["id"]
     def poly(s, pts, fill, stroke=None, w=3, name=None): return s.add({"kind": "poly", "points": [[round(x, 1), round(y, 1)] for x, y in pts], "fill": fill, **({"stroke": stroke, "width": w} if stroke else {})}, name)
     def circle(s, cx, cy, r, fill, stroke=None, w=3, name=None): return s.add({"kind": "circle", "cx": cx, "cy": cy, "r": r, "fill": fill, **({"stroke": stroke, "width": w} if stroke else {})}, name)
     def path(s, d, fill=None, stroke=None, w=4, name=None): return s.add({"kind": "path", "d": d, **({"fill": fill} if fill else {}), **({"stroke": stroke, "width": w} if stroke else {})}, name)
@@ -43,7 +43,7 @@ class Scene:
                 x = x0 + (x1 - x0) * (c + (r % 2) * .5) / cols; y = y0 + (y1 - y0) * r / max(1, rows - 1)
                 d.append(f"M{x:.0f} {y:.0f} L{x - 5:.0f} {y + 14:.0f}")
         return [s.path(" ".join(d), None, "#2F8FE8", 5)]
-    def flow(s, x, y, ln, count=7, speed=.9, spread=0, size=7, color="#2F8FE8", name=None): return s.add({"kind": "flow", "x": x, "y": y, "len": ln, "count": count, "speed": speed, "spread": spread, "size": size, "color": color}, name)
+    def flow(s, x, y, ln, count=7, speed=.9, spread=0, size=7, color="#2F8FE8", name=None, up=False): return s.add({"kind": "flow", "x": x, "y": y, "len": ln, "count": count, "speed": speed, "spread": spread, "size": size, "color": color, **({"up": True} if up else {})}, name)
     def curved_arrow(s, p0, p1, p2, color="#1E3FAE", w=8):
         (x0, y0), (cx, cy), (x1, y1) = p0, p1, p2
         a = math.atan2(y1 - cy, x1 - cx)

@@ -21,7 +21,7 @@ const speak: Speak = async (text, voice, speed) => {
   if (!r.ok) throw new Error(`speech server answered ${r.status}`);
   return r.json();
 };
-const report = await buildAudio({ lessonsDir, questionsDir, classroomDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? 3), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
+const report = await buildAudio({ lessonsDir, questionsDir, classroomDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? process.env.AUDIO_JOBS ?? 1), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
 const mins = (ms: number) => (ms / 60000).toFixed(1);
 console.log(`\nSentences wanted ${report.wanted}: generated ${report.generated}, already done ${report.reused}${report.pruned ? `, removed ${report.pruned} unused` : ""}.`);
 for (const s of report.skipped) console.log("  skipped:", s);

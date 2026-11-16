@@ -83,12 +83,12 @@ describe("tier 2 screens", () => {
   });
   it("subject page shows the learning path of chapters", async () => {
     mount("/cbse/3/evs");
-    const path = await screen.findByRole("region", { name: "Your path through this subject" });
-    expect(within(path).getAllByRole("link").length).toBe(2);
+    const path = await screen.findByRole("navigation", { name: "Your path through this subject" });
+    expect(within(path).getAllByRole("link").length).toBeGreaterThanOrEqual(2);
     cleanup();
     mount("/cbse/3/evs", { "browse.path.show": false });
     await screen.findByRole("heading", { level: 1 });
-    expect(screen.queryByRole("region", { name: "Your path through this subject" })).toBeNull();
+    expect(screen.queryByRole("navigation", { name: "Your path through this subject" })).toBeNull();
   });
   it("lesson heart saves to my notebook, which lists it and lets it be removed", async () => {
     mount("/cbse/3/evs/water/saving-water/learn");

@@ -56,7 +56,7 @@ describe("textbook reader settings", () => {
   it("has its own admin panel with helpful text on every setting", () => {
     expect(PANELS.some((p) => p.id === "textbooks" && p.label === "Textbooks")).toBe(true);
     const defs = SETTINGS.filter((d) => d.panel === "textbooks");
-    expect(defs.map((d) => d.key).sort()).toEqual(["reader.allowStylePicker", "reader.autoTurn", "reader.defaultSpeed", "reader.readAloud", "reader.showDownload", "reader.showPrint", "reader.style", "reader.tamilVoiceHelp", "reader.voiceLang"]);
+    expect(defs.map((d) => d.key).sort()).toEqual(["reader.allowStylePicker", "reader.autoTurn", "reader.defaultSpeed", "reader.disclaimer.show", "reader.disclaimer.text", "reader.fastPages", "reader.readAloud", "reader.showDownload", "reader.showPrint", "reader.style", "reader.tamilVoiceHelp", "reader.toc.show", "reader.voiceLang"]);
     for (const d of [...defs, SETTINGS_BY_KEY.get("feature.textbooks")!]) { expect(d.public, d.key).toBe(true); expect((d.help ?? "").length, d.key).toBeGreaterThan(20); }
   });
   it("defaults: feature on, style C (Library) with all three styles offered, picker on, read aloud at 0.9 with an Indian English voice", () => {

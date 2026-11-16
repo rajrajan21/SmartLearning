@@ -7,14 +7,19 @@ import { onRevisionChange, readAllRevision, replaceAllRevision } from "./revisio
 import { onResultsChange, readAllResults, replaceAllResults } from "./practice";
 
 export type Result = { ok: true } | { ok: false; message: string };
-export interface ChildInput { nickname: string; classLevel: number; avatar: string; language: "en" | "ta" }
+export interface ChildInput { nickname: string; classLevel: number; extraClasses?: number[]; avatar: string; language: "en" | "ta"; pin?: string; secretQuestion?: string; secretAnswer?: string }
+export interface Contacts { fatherEmail?: string; motherEmail?: string }
 export type SyncState = "idle" | "syncing" | "saved" | "offline";
 interface Ctx {
   /** undefined while loading, null when signed out */
   me: Me | null | undefined;
   active: PublicProfile | null;
   sync: SyncState;
-  register(email: string, password: string, child: ChildInput): Promise<Result>;
+  register(email: string, password: string, child: ChildInput, contacts?: Contacts): Promise<Result>;
+  social(provider: "google" | "facebook", token: string): Promise<Result>;
+  childLogin(email: string, nickname: string, secret: { pin?: string; answer?: string }): Promise<Result>;
+  childQuestion(email: string, nickname: string): Promise<string | null>;
+  setContacts(c: Contacts): Promise<Result>;
   login(email: string, password: string): Promise<Result>;
   logout(): Promise<void>;
   addChild(c: ChildInput): Promise<Result>;
@@ -104,7 +109,11 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     me,
     active: me?.profiles.find((p) => p.id === activeId) ?? null,
     sync,
-    register: async (email, password, child) => accept(await call("POST", "/register", { email, password, consent: true, child })),
+    register: async (email, password, child, contacts) => accept(await call("POST", "/register", { email, password, consent: true, child, ...contacts })),
+    social: async (provider, token) => accept(await call("POST", "/social", { provider, token })),
+    childLogin: async (email, nickname, secret) => accept(await call("POST", "/child-login", { email, nickname, ...secret })),
+    childQuestion: async (email, nickname) => { const r = await call("POST", "/child-question", { email, nickname }); return r.ok ? ((r.data as { question: string | null }).question ?? null) : null; },
+    setContacts: async (c) => accept(await call("PUT", "/contacts", { fatherEmail: c.fatherEmail ?? "", motherEmail: c.motherEmail ?? "" })),
     login: async (email, password) => accept(await call("POST", "/login", { email, password })),
     logout: async () => { await call("POST", "/logout", {}); clearDevice(); setMe(null); }, // progress stays safe in the account; the shared device starts clean
     addChild: async (c) => accept(await call("POST", "/children", c)),

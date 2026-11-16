@@ -1,0 +1,418 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "social-science",
+ "chapter": "locating-places-on-the-earth",
+ "topic": "latitudes-and-longitudes",
+ "status": "published",
+ "title": {
+  "en": "Latitudes and longitudes",
+  "ta": "அட்சக்கோடுகள், தீர்க்கக்கோடுகள்"
+ },
+ "objects": [
+  {
+   "kind": "rect",
+   "x": 0,
+   "y": 0,
+   "w": 900,
+   "h": 500,
+   "rx": 0,
+   "fill": "#EAF4FF",
+   "id": "bg"
+  },
+  {
+   "kind": "text",
+   "x": 450,
+   "y": 46,
+   "text": "Locating places on the Earth",
+   "size": 36,
+   "color": "#1E3FAE",
+   "anchor": "middle",
+   "id": "title"
+  },
+  {
+   "kind": "circle",
+   "cx": 450,
+   "cy": 270,
+   "r": 190,
+   "fill": "#8EC9EE",
+   "stroke": "#1E3FAE",
+   "width": 5,
+   "id": "ball"
+  },
+  {
+   "kind": "path",
+   "d": "M360 180 C390 150 440 170 430 210 C420 250 380 250 360 230 Z",
+   "fill": "#6DBE6A",
+   "id": "o4"
+  },
+  {
+   "kind": "path",
+   "d": "M470 290 C510 260 560 290 540 340 C520 380 480 370 470 330 Z",
+   "fill": "#6DBE6A",
+   "id": "o5"
+  },
+  {
+   "kind": "line",
+   "x1": 260,
+   "y1": 270,
+   "x2": 640,
+   "y2": 270,
+   "stroke": "#D9531E",
+   "width": 6,
+   "id": "eq"
+  },
+  {
+   "kind": "line",
+   "x1": 290,
+   "y1": 175,
+   "x2": 610,
+   "y2": 175,
+   "stroke": "#7B4DD6",
+   "width": 4,
+   "id": "o7"
+  },
+  {
+   "kind": "line",
+   "x1": 290,
+   "y1": 365,
+   "x2": 610,
+   "y2": 365,
+   "stroke": "#7B4DD6",
+   "width": 4,
+   "id": "o8"
+  },
+  {
+   "kind": "path",
+   "d": "M450 80 C340 170 340 370 450 460",
+   "stroke": "#17785A",
+   "width": 4,
+   "id": "o9"
+  },
+  {
+   "kind": "path",
+   "d": "M450 80 C450 170 450 370 450 460",
+   "stroke": "#17785A",
+   "width": 4,
+   "id": "o10"
+  },
+  {
+   "kind": "path",
+   "d": "M450 80 C560 170 560 370 450 460",
+   "stroke": "#17785A",
+   "width": 4,
+   "id": "o11"
+  },
+  {
+   "kind": "path",
+   "d": "M450 80 L450 460",
+   "stroke": "#17785A",
+   "width": 6,
+   "id": "pm"
+  },
+  {
+   "kind": "circle",
+   "cx": 570,
+   "cy": 215,
+   "r": 11,
+   "fill": "#E53935",
+   "stroke": "#7F1D1D",
+   "width": 3,
+   "id": "pt"
+  },
+  {
+   "kind": "text",
+   "x": 700,
+   "y": 278,
+   "text": "Equator 0°",
+   "size": 28,
+   "color": "#D9531E",
+   "anchor": "middle",
+   "id": "l1"
+  },
+  {
+   "kind": "text",
+   "x": 700,
+   "y": 175,
+   "text": "Parallels of latitude",
+   "size": 24,
+   "color": "#7B4DD6",
+   "anchor": "middle",
+   "id": "l2"
+  },
+  {
+   "kind": "text",
+   "x": 200,
+   "y": 140,
+   "text": "Meridians of longitude",
+   "size": 24,
+   "color": "#17785A",
+   "anchor": "middle",
+   "id": "l3"
+  }
+ ],
+ "steps": [
+  {
+   "id": "gl-intro",
+   "section": "Picture it",
+   "narration": {
+    "en": "This is a globe, a small model of the Earth. To find any place on it, we draw imaginary lines. These lines make a net of squares over the globe.",
+    "ta": "இது ஒரு உருண்டை, பூமியோட சின்ன மாதிரி. இதுல எந்த இடத்தையும் கண்டுபிடிக்க கற்பனைக் கோடுகளை வரைவோம். இந்தக் கோடுகள் உருண்டை மேல ஒரு வலை மாதிரி அமையும்."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "bg",
+     "at": 0.01,
+     "ms": 200
+    },
+    {
+     "do": "write",
+     "target": "title",
+     "on": "a globe",
+     "ms": 700
+    },
+    {
+     "do": "show",
+     "target": "ball",
+     "on": "a globe",
+     "ms": 800
+    },
+    {
+     "do": "show",
+     "target": "o4",
+     "on": "small model",
+     "ms": 500
+    },
+    {
+     "do": "show",
+     "target": "o5",
+     "on": "small model",
+     "ms": 500
+    }
+   ]
+  },
+  {
+   "id": "gl-eq",
+   "section": "Picture it",
+   "narration": {
+    "en": "The line around the middle of the Earth is the Equator. It divides the Earth into two equal halves. Its value is zero degrees.",
+    "ta": "பூமியோட நடுவுல சுத்தி வர்ற கோடு நிலநடுக்கோடு. அது பூமியை ரெண்டு சம பாதியா பிரிக்குது. அதோட மதிப்பு பூஜ்ய டிகிரி."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "eq",
+     "on": "middle of the Earth",
+     "ms": 1100
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "on": "Equator",
+     "ms": 700
+    },
+    {
+     "do": "pulse",
+     "target": "eq",
+     "on": "zero degrees",
+     "ms": 900,
+     "color": "#D9531E"
+    }
+   ]
+  },
+  {
+   "id": "gl-lat",
+   "section": "Picture it",
+   "narration": {
+    "en": "Lines parallel to the Equator are called parallels of latitude. They tell us how far a place is north or south of the Equator.",
+    "ta": "நிலநடுக்கோட்டுக்கு இணையா இருக்கிற கோடுகள் அட்சக்கோடுகள். ஒரு இடம் நிலநடுக்கோட்டுக்கு வடக்கா தெற்கான்னு எவ்வளவு தூரம்னு அவை சொல்லும்."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "o7",
+     "on": "parallel to the Equator",
+     "ms": 900
+    },
+    {
+     "do": "draw",
+     "target": "o8",
+     "on": "parallel to the Equator",
+     "ms": 900
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "on": "parallels of latitude",
+     "ms": 800
+    }
+   ]
+  },
+  {
+   "id": "gl-long",
+   "section": "Picture it",
+   "narration": {
+    "en": "Lines that run from the North Pole to the South Pole are called meridians of longitude. The Prime Meridian is the line of zero degrees longitude. It tells us how far a place is east or west.",
+    "ta": "வடதுருவத்துல இருந்து தென்துருவம் வரை போற கோடுகள் தீர்க்கக்கோடுகள். முதன்மைத் தீர்க்கக்கோடு பூஜ்ய டிகிரி. ஒரு இடம் கிழக்கா மேற்கான்னு அது சொல்லும்."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "o9",
+     "on": "North Pole to the South Pole",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "o10",
+     "on": "North Pole to the South Pole",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "o11",
+     "on": "North Pole to the South Pole",
+     "ms": 700
+    },
+    {
+     "do": "draw",
+     "target": "pm",
+     "on": "Prime Meridian",
+     "ms": 900
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "on": "meridians of longitude",
+     "ms": 800
+    },
+    {
+     "do": "show",
+     "target": "pt",
+     "on": "how far a place",
+     "ms": 600
+    },
+    {
+     "do": "pulse",
+     "target": "pt",
+     "on": "east or west",
+     "ms": 1000,
+     "color": "#E53935"
+    }
+   ]
+  },
+  {
+   "id": "gl-q1",
+   "section": "Picture it",
+   "narration": {
+    "en": "Question time. Which line divides the Earth into two equal halves?",
+    "ta": "கேள்வி நேரம். பூமியை ரெண்டு சம பாதியாப் பிரிக்கிற கோடு எது?"
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "eq",
+     "on": "Question time",
+     "ms": 1200,
+     "color": "#D9531E"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "The line that divides the Earth into two equal halves is the…",
+     "ta": "பூமியை ரெண்டு சம பாதியாப் பிரிக்கும் கோடு…"
+    },
+    "explanation": {
+     "en": "The Equator divides the Earth into the Northern and Southern Hemispheres.",
+     "ta": "நிலநடுக்கோடு பூமியை வடக்கு, தெற்கு அரைக்கோளங்களா பிரிக்கும்."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "Prime Meridian"
+      },
+      "whyWrong": {
+       "en": "The Prime Meridian runs from pole to pole, dividing the Earth into east and west."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "Equator"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "a meridian of longitude"
+      },
+      "whyWrong": {
+       "en": "Meridians run from pole to pole."
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "gl-q2",
+   "section": "Picture it",
+   "narration": {
+    "en": "One more. Lines of latitude tell us how far a place is in which directions?",
+    "ta": "இன்னொண்ணு. அட்சக்கோடுகள் ஒரு இடம் எந்தத் திசையில எவ்வளவு தூரம்னு சொல்லும்?"
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "o7",
+     "on": "One more",
+     "ms": 1200,
+     "color": "#7B4DD6"
+    }
+   ],
+   "check": {
+    "stem": {
+     "en": "Latitude tells us how far a place is…",
+     "ta": "அட்சக்கோடு சொல்வது…"
+    },
+    "explanation": {
+     "en": "Latitude measures distance north or south of the Equator.",
+     "ta": "அட்சக்கோடு நிலநடுக்கோட்டுக்கு வடக்கா தெற்கா தூரத்தை அளக்கும்."
+    },
+    "options": [
+     {
+      "id": "a",
+      "text": {
+       "en": "east or west of the Prime Meridian"
+      },
+      "whyWrong": {
+       "en": "That is longitude."
+      }
+     },
+     {
+      "id": "b",
+      "text": {
+       "en": "north or south of the Equator"
+      },
+      "correct": true
+     },
+     {
+      "id": "c",
+      "text": {
+       "en": "above the sea"
+      },
+      "whyWrong": {
+       "en": "That is height above sea level, not latitude."
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

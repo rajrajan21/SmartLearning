@@ -23,7 +23,7 @@ const PathO = z.object({ kind: z.literal("path"), ...common, d: z.string().max(6
 const TextO = z.object({ kind: z.literal("text"), id: Id, x: N, y: N, text: z.string().min(1).max(120), size: z.number().min(10).max(120).optional(), anchor: z.enum(["start", "middle", "end"]).optional(), color: Colour.optional() });
 const ClockO = z.object({ kind: z.literal("clock"), id: Id, cx: N, cy: N, r: z.number().min(40).max(250) });
 /** a 3D solid drawn by the site itself (no 3D library, no outside website) */
-const FlowO = z.object({ kind: z.literal("flow"), id: Id, x: N, y: N, len: z.number().min(20).max(500), count: z.number().int().min(1).max(20).optional(), speed: z.number().min(0.1).max(3).optional(), spread: z.number().min(0).max(200).optional(), size: z.number().min(3).max(20).optional(), color: Colour.optional() });
+const FlowO = z.object({ kind: z.literal("flow"), id: Id, x: N, y: N, len: z.number().min(20).max(500), count: z.number().int().min(1).max(20).optional(), speed: z.number().min(0.1).max(3).optional(), spread: z.number().min(0).max(200).optional(), size: z.number().min(3).max(20).optional(), up: z.boolean().optional(), color: Colour.optional() });
 const SolidO = z.object({ kind: z.literal("solid"), id: Id, shape: z.enum(["cube", "cuboid", "cylinder", "cone", "sphere", "pyramid"]), x: N, y: N, size: z.number().min(60).max(420), color: Colour.optional() });
 export const BoardObject = z.discriminatedUnion("kind", [CircleO, LineO, ArrowO, RectO, SectorO, PolyO, PathO, TextO, ClockO, SolidO, FlowO]);
 export type BoardObject = z.infer<typeof BoardObject>;
@@ -59,7 +59,7 @@ export const ClassroomStep = z.object({
   /** the part of the lesson this step belongs to (shown in the lesson rail), e.g. "Story" */
   section: z.string().max(30).optional(),
   narration: LocalizedText,
-  actions: z.array(ClassAction).max(30).default([]),
+  actions: z.array(ClassAction).max(80).default([]),
   check: ClassroomCheck.optional(),
 });
 export type ClassroomStep = z.infer<typeof ClassroomStep>;

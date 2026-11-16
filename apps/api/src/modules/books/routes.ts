@@ -34,6 +34,11 @@ export function bookRoutes(store: BookStore, enabled: () => Promise<boolean>): R
       notFound(res);
     });
   };
+  r.get("/pages/:cls/:book/:file", (req, res) => {
+    const p = store.pagePath(String(req.params.cls), String(req.params.book), String(req.params.file));
+    if (!p) return notFound(res);
+    res.sendFile(p, { dotfiles: "deny", headers: { "Content-Type": "image/webp", "Cache-Control": "public, max-age=604800, immutable", "X-Content-Type-Options": "nosniff" } }, (err) => { if (err && !res.headersSent) notFound(res); });
+  });
   r.get("/file/:cls/:name", (req, res) => send(req, res, store.filePath(String(req.params.cls), String(req.params.name)), String(req.params.name)));
   r.get("/file/:cls/:book/:chapter", (req, res) => send(req, res, store.filePath(String(req.params.cls), String(req.params.book), String(req.params.chapter)), `${String(req.params.book)}-${String(req.params.chapter)}`));
   return r;

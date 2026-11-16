@@ -12,7 +12,7 @@ export function publicSettingsRoutes(svc: SettingsService): Router {
   const r = Router();
   r.get("/public", async (req, res) => {
     const { values, version } = await svc.getPublic();
-    res.set("ETag", `"${version}"`).set("Cache-Control", "public, max-age=60, stale-while-revalidate=600");
+    res.set("ETag", `"${version}"`).set("Cache-Control", "no-cache");
     if (req.header("if-none-match") === `"${version}"`) return void res.status(304).end();
     res.json({ version, values });
   });

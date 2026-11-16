@@ -85,7 +85,7 @@ export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, l
           case "flow": { // animated water: drops falling from (x, y) down `len`, driven by the clock
             const n = o.count ?? 7, len = o.len, w = o.spread ?? 0, c = C(o.color, "water");
             body = (<g fill={c} stroke="none">{Array.from({ length: n }, (_, i) => {
-              const ph = ((clock * (o.speed ?? 0.9) + i / n) % 1), yy = o.y + ph * len, xx = o.x + (((i * 37) % 11) / 11 - 0.5) * w;
+              const ph = ((clock * (o.speed ?? 0.9) + i / n) % 1), yy = o.up ? o.y - ph * len : o.y + ph * len, xx = o.x + (((i * 37) % 11) / 11 - 0.5) * w;
               const r = (o.size ?? 7) * (0.7 + 0.5 * (1 - ph)), fade = ph < 0.1 ? ph * 10 : ph > 0.85 ? (1 - ph) / 0.15 : 1;
               return <path key={i} opacity={fade * 0.95} d={`M ${xx} ${yy - r * 1.7} C ${xx + r * 1.1} ${yy - r * 0.2} ${xx + r} ${yy + r} ${xx} ${yy + r} C ${xx - r} ${yy + r} ${xx - r * 1.1} ${yy - r * 0.2} ${xx} ${yy - r * 1.7} Z`} />;
             })}</g>);

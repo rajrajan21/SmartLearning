@@ -1,0 +1,323 @@
+{
+ "id": "cbse-6-maths-the-other-side-of-zero-numbers-on-a-number-line",
+ "class": 6,
+ "subject": "maths",
+ "chapter": "the-other-side-of-zero",
+ "topic": "numbers-on-a-number-line",
+ "title": [
+  "Numbers on a number line",
+  "எண் கோட்டில் எண்கள்"
+ ],
+ "bg": "#F3FAFF",
+ "titleColor": "#1E3FAE",
+ "parts": [
+  [
+   "numberline",
+   "nl",
+   {
+    "from": -5,
+    "to": 5,
+    "y": 300,
+    "x1": 90,
+    "x2": 810
+   }
+  ],
+  [
+   "raw",
+   "right",
+   {
+    "kind": "arrow",
+    "x1": 450,
+    "y1": 200,
+    "x2": 666,
+    "y2": 200,
+    "stroke": "#17785A",
+    "width": 8
+   }
+  ],
+  [
+   "raw",
+   "left",
+   {
+    "kind": "arrow",
+    "x1": 450,
+    "y1": 200,
+    "x2": 306,
+    "y2": 200,
+    "stroke": "#D9531E",
+    "width": 8
+   }
+  ],
+  [
+   "label",
+   "pl",
+   {
+    "text": "+3",
+    "x": 558,
+    "y": 160,
+    "size": 40,
+    "color": "#17785A"
+   }
+  ],
+  [
+   "label",
+   "mi",
+   {
+    "text": "−2",
+    "x": 378,
+    "y": 160,
+    "size": 40,
+    "color": "#D9531E"
+   }
+  ],
+  [
+   "label",
+   "pos",
+   {
+    "text": "Positive numbers",
+    "x": 666,
+    "y": 415,
+    "size": 28,
+    "color": "#17785A"
+   }
+  ],
+  [
+   "label",
+   "neg",
+   {
+    "text": "Negative numbers",
+    "x": 234,
+    "y": 415,
+    "size": 28,
+    "color": "#D9531E"
+   }
+  ]
+ ],
+ "steps": [
+  {
+   "id": "ng-intro",
+   "section": "Picture it",
+   "say": [
+    "Here is a number line. Zero is in the middle. Numbers to the right of zero are bigger and numbers to the left are smaller.",
+    "இது ஒரு எண் கோடு. நடுவுல பூஜ்யம் இருக்கு. பூஜ்யத்துக்கு வலப்பக்கம் இருக்கிற எண்கள் பெரியவை. இடப்பக்கம் இருக்கிறவை சின்னவை."
+   ],
+   "do": [
+    [
+     "draw",
+     "nl:axis",
+     "number line",
+     {
+      "ms": 900
+     }
+    ],
+    [
+     "show",
+     "nl:*",
+     0.25,
+     {
+      "ms": 250
+     }
+    ],
+    [
+     "show",
+     "nl:zero",
+     "Zero is in the middle",
+     {
+      "ms": 500
+     }
+    ]
+   ]
+  },
+  {
+   "id": "ng-pos",
+   "section": "Picture it",
+   "say": [
+    "Start at zero and jump three steps to the right. We land on plus three. Numbers on the right side are positive numbers.",
+    "பூஜ்யத்துல இருந்து வலப்பக்கம் மூணு படி தாவுங்க. நாம போய் நிக்கிறது பிளஸ் மூணு. வலப்பக்க எண்கள் நேர் எண்கள்."
+   ],
+   "do": [
+    [
+     "draw",
+     "right",
+     "jump three steps",
+     {
+      "ms": 1100
+     }
+    ],
+    [
+     "write",
+     "pl",
+     "plus three",
+     {
+      "ms": 700
+     }
+    ],
+    [
+     "write",
+     "pos",
+     "positive numbers",
+     {
+      "ms": 800
+     }
+    ],
+    [
+     "pulse",
+     "nl:n3",
+     "plus three",
+     {
+      "ms": 1000,
+      "color": "#17785A"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "ng-neg",
+   "section": "Picture it",
+   "say": [
+    "Now start at zero and jump two steps to the left. We land on minus two. Numbers on the left side are negative numbers. They are smaller than zero.",
+    "இப்போ பூஜ்யத்துல இருந்து இடப்பக்கம் ரெண்டு படி தாவுங்க. நாம போய் நிக்கிறது மைனஸ் ரெண்டு. இடப்பக்க எண்கள் எதிர் எண்கள். இவை பூஜ்யத்தை விடச் சின்னவை."
+   ],
+   "do": [
+    [
+     "draw",
+     "left",
+     "two steps to the left",
+     {
+      "ms": 1100
+     }
+    ],
+    [
+     "write",
+     "mi",
+     "minus two",
+     {
+      "ms": 700
+     }
+    ],
+    [
+     "write",
+     "neg",
+     "negative numbers",
+     {
+      "ms": 800
+     }
+    ],
+    [
+     "pulse",
+     "nl:nm2",
+     "minus two",
+     {
+      "ms": 1000,
+      "color": "#D9531E"
+     }
+    ]
+   ]
+  },
+  {
+   "id": "ng-q1",
+   "section": "Picture it",
+   "say": [
+    "Question time. Which of these numbers is smaller than zero?",
+    "கேள்வி நேரம். இதுல எந்த எண் பூஜ்யத்தை விடச் சின்னது?"
+   ],
+   "do": [
+    [
+     "pulse",
+     "nl:zero",
+     "Question time",
+     {
+      "ms": 1200,
+      "color": "#F4A300"
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "Which number is smaller than zero?",
+     "பூஜ்யத்தை விடச் சின்ன எண் எது?"
+    ],
+    "ok": 1,
+    "o": [
+     [
+      "3",
+      "3",
+      "3 is on the right of zero, so it is bigger than zero.",
+      "3 பூஜ்யத்துக்கு வலப்பக்கம் இருக்கு, அதனால் அது பூஜ்யத்தை விடப் பெரியது."
+     ],
+     [
+      "−3",
+      "−3"
+     ],
+     [
+      "5",
+      "5",
+      "5 is far to the right of zero, so it is bigger than zero.",
+      "5 பூஜ்யத்துக்கு ரொம்ப வலப்பக்கம் இருக்கு, அதனால் அது பூஜ்யத்தை விடப் பெரியது."
+     ]
+    ],
+    "e": [
+     "Numbers to the left of zero, like −3, are smaller than zero.",
+     "பூஜ்யத்துக்கு இடப்பக்கம் இருக்கிற −3 போன்ற எண்கள் சின்னவை."
+    ]
+   }
+  },
+  {
+   "id": "ng-q2",
+   "section": "Picture it",
+   "say": [
+    "One more. Which is smaller, minus four or minus one?",
+    "இன்னொண்ணு. மைனஸ் நாலு, மைனஸ் ஒண்ணு இதுல எது சின்னது?"
+   ],
+   "do": [
+    [
+     "pulse",
+     "nl:nm4",
+     "minus four",
+     {
+      "ms": 900,
+      "color": "#D9531E"
+     }
+    ],
+    [
+     "pulse",
+     "nl:nm1",
+     "minus one",
+     {
+      "ms": 900,
+      "color": "#D9531E"
+     }
+    ]
+   ],
+   "q": {
+    "s": [
+     "Which is smaller?",
+     "எது சின்னது?"
+    ],
+    "ok": 1,
+    "o": [
+     [
+      "−1",
+      "−1",
+      "−1 is closer to zero, so it is the bigger of the two.",
+      "−1 பூஜ்யத்துக்கு பக்கத்துல இருக்கு, அதனால் அது இரண்டில் பெரியது."
+     ],
+     [
+      "−4",
+      "−4"
+     ],
+     [
+      "0",
+      "0",
+      "0 is bigger than both minus numbers, because minus numbers are left of zero.",
+      "0 இரண்டு மைனஸ் எண்களையும் விடப் பெரியது, ஏன்னா மைனஸ் எண்கள் பூஜ்யத்துக்கு இடப்பக்கம்."
+     ]
+    ],
+    "e": [
+     "Further left means smaller, so −4 is smaller than −1.",
+     "−4 அதிக இடப்பக்கம் இருக்கு, அதனால் அது −1ஐ விடச் சின்னது."
+    ]
+   }
+  }
+ ]
+}

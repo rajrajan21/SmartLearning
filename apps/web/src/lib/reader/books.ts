@@ -3,7 +3,7 @@ import { store } from "../storage";
 
 /** One textbook as GET /api/books lists it. */
 export interface BookChapter { file: string; bytes: number; url: string }
-export interface Book { id: string; classLevel: number; subject: string; title: string; language: string; file: string; bytes: number; pages: number | null; url: string | null; chapters?: BookChapter[] }
+export interface Book { id: string; classLevel: number; subject: string; title: string; language: string; file: string; bytes: number; pages: number | null; url: string | null; chapters?: BookChapter[]; fast?: { pages: number; ratio: number; base: string } | null; toc?: { title: string; page: number; level: number }[] }
 export interface BooksState { status: "loading" | "ready"; books: Book[] }
 
 const TTL = 60_000;

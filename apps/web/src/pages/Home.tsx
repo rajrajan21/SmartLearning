@@ -15,6 +15,7 @@ import { continueId, firstLessonHref, lessonsToday, pathNodes, recentLessons } f
 import { useLessonTopicIds } from "../lib/curriculum";
 import { useApp } from "../lib/useApp";
 import { AppFeed, DidYouKnow } from "../components/AppFeed";
+import { Rich } from "../components/Rich";
 import { WaterCycle } from "../components/TryIt";
 
 const COMING_BOARDS = [
@@ -55,14 +56,17 @@ export function Home() {
   if (s.get("browse.explore.enabled") === true) quick.push({ href: "/explore", icon: "🎨", label: ui("navExplore", s.lang) });
   if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) quick.push({ href: "/notebook", icon: "📓", label: ui("navNotebook", s.lang) });
   if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} />;
+  const lead = s.text("home.hero.lead").trim(), l1 = s.text("home.hero.line1").trim(), l2 = s.text("home.hero.line2").trim();
+  const heroTitle = l1 || l2 ? `${lead ? `${lead}||` : ""}${l1}${l1 && l2 ? "|" : ""}${l2}` : s.text("home.hero.title");
   return (
     <div className="paper home">
       <div className="home-top">
+      {s.get("home.banner.show") === true && Number(s.get("brand.bannerVersion") ?? 0) > 0 && <img className="site-banner" src={`/uploads/banner?v=${Number(s.get("brand.bannerVersion"))}`} alt={s.get<string>("site.name")} style={{ height: Number(s.get("brand.bannerHeight") ?? 200) }} />}
       {s.get("home.hero.show") && (
         <section className="hero">
-          <h1>{s.text("home.hero.title")}</h1>
-          <p className="lead">{s.text("home.hero.subtitle")}</p>
-          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {ui("tryLesson", s.lang)}</Link><span className="small">{ui("tryLessonHelp", s.lang)}</span></p>}
+          <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={heroTitle} /></h1>
+          <p className="lead"><Rich text={s.text("home.hero.subtitle")} /></p>
+          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small"><Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
         </section>
       )}
         <div className="home-side">

@@ -43,5 +43,14 @@ export const admin = {
   codes: () => call<{ codes: InviteCode[] }>("GET", "/access/codes"),
   createCode: (b: NewInviteCode) => call<{ code: InviteCode }>("POST", "/access/codes", b),
   revokeCode: (id: string) => call<{ ok: true }>("POST", `/access/codes/${id}/revoke`, {}),
+  stats: (days: number) => call<StatsReport>("GET", `/stats?days=${days}`),
+  upload: async (kind: "logo" | "banner", file: File) => {
+    const res = await fetch(`/api/v1/admin/upload/${kind}`, { method: "PUT", headers: { "x-admin-key": adminKey.get(), "x-admin-user": encodeURIComponent(adminUser.get()), "content-type": file.type }, body: file });
+    if (!res.ok) { let m = "Could not upload the picture."; try { m = (await res.json()).error?.message ?? m; } catch { /* keep */ } throw new AdminError(m, res.status); }
+    return (await res.json()) as { version: number };
+  },
+  removeUpload: async (kind: "logo" | "banner") => { await fetch(`/api/v1/admin/upload/${kind}`, { method: "DELETE", headers: { "x-admin-key": adminKey.get(), "x-admin-user": encodeURIComponent(adminUser.get()) } }); },
   audit: () => call<{ entries: AuditEntry[] }>("GET", "/settings/audit?limit=50"),
 };
+
+export interface StatsReport { generatedAt: string; days: { date: string; views: number; visitors: number; signups: number; logins: number; questions: number }[]; totals: { views: number; visitors: number; signups: number; logins: number; questions: number }; topPages: { path: string; views: number }[]; server: { startedAt: string; uptimeSeconds: number; memoryMb: number; node: string; requests: number; errors: number; platform: string } }

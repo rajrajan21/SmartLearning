@@ -59,7 +59,7 @@ describe("tier 1 screens", () => {
   it("home: free lesson button, path, recent row and goal chip", async () => {
     localStorage.setItem("ss_progress_v1", JSON.stringify({ a: prog(true, NOW), b: prog(false, NOW - 1000), c: prog(false, NOW - 5000) }));
     mount("/");
-    const tryBtn = await screen.findByRole("link", { name: /Try a free lesson now/ });
+    const tryBtn = await screen.findByRole("link", { name: /Try a sample lesson now/ });
     expect(tryBtn.getAttribute("href")).toBe("/cbse/3/maths/shapes/b/learn");
     expect(screen.getByRole("region", { name: "Your learning path" })).toBeTruthy();
     expect(screen.getByRole("region", { name: "Pick up where you left off" })).toBeTruthy();

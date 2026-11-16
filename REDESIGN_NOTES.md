@@ -161,3 +161,21 @@ The three approved prototypes (A Hardcover, B Digital, C Library) are now one pr
 - Reader: pages prefetch 3 spreads ahead with a quick small picture first, bigger chunk requests; book fills the stage; the centre grey shading was removed in all three styles.
 - Classroom: on question steps the board hides all text and keeps solids turning (`quiet`); new animated `flow` object (water); tap scene and question added to the Saving water lesson; irrelevant wrong options replaced in 10 questions.
 - Standards for all future lessons: docs/18-lesson-authoring-standards.md.
+
+## Class 6 (work in progress, saved mid-way)
+- Curriculum: Class 6 added (Ganita Prakash 10 chapters, Curiosity 12, Exploring Society 14) from NCERT chapter lists.
+- tools/author_class6.py builds 7 picture classroom lessons: types of angles, fractions, number line, states of water, magnets, sun-earth-moon, latitude and longitude. Tamil lines are drafts for native review.
+- Next: run tests, run Generate-Lesson-Audio.bat, then per-lesson Quiz/Practice/Worksheet tabs and term papers (docs/18).
+
+## Layout v3 (Nov 15)
+- Board/Class/Subject/Chapter rail (components/BoardRail.tsx), placed by admin setting `layout.picker` (left/right/bottom).
+- `layout.width` (standard/wide/full) widens the main area; `layout.style` picks classic/grand/royal/vibrant/aurora/gallery.
+- Not yet checked in a real browser.
+
+- Logo, rich footer + Disclaimer/Grievance/FAQ/Guidelines/Contact pages, Reports admin panel (visitors, sign-ups, server) added.
+
+- Admin: upload logo/banner (Site panel), grievance name editable, home wording updated.
+
+- Sign-in options: parent e-mail/Google/Facebook (admin keys), father/mother e-mails, several classes per child, child sign-in with 6-digit PIN or secret answer (migration 0006). Colourful *starred* words + heading styles (Admin > Look and feel). Mobile OTP not built (needs SMS provider).
+
+- Textbook speed: Build-Book-Pages.bat makes WebP page pictures + contents list (content/books/pages, not in git); reader uses them (admin Textbooks > Speed/Contents/Notice).

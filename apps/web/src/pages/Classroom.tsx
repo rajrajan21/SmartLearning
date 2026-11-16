@@ -5,6 +5,7 @@ import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useRetry } from "../lib/curriculum";
 import { useClassroom, useClassroomIndex } from "../lib/classroom";
+import { usePhrases } from "../lib/practice";
 import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
 import { store } from "../lib/storage";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
@@ -76,6 +77,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
   const [clock, setClock] = useState(0);
   const [wordIdx, setWordIdx] = useState(-1);
   const [picked, setPicked] = useState<string | null>(null);
+  const phrases = usePhrases(true);
   const [wrongNote, setWrongNote] = useState<string | null>(null);
   const [both, setBoth] = useState(s.get<string>("classroom.language") === "both");
   const [talking, setTalking] = useState(false);
@@ -193,8 +195,10 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
     if (!cur.check || phase !== "check") return;
     const o = cur.check.options.find((x) => x.id === id)!;
     stopVoice(); setPicked(id);
-    if (o.correct) { setPhase("feedback"); setWrongNote(null); say(cur.checkAudio?.explanation?.[lang] ?? cur.checkAudio?.explanation?.en, cur.check.explanation.en); }
-    else { setWrongNote(s.name(o.whyWrong ?? { en: "" })); say(undefined, o.whyWrong?.en); }
+    const pick = (list: typeof phrases.praise) => (list && list.length ? list[Math.floor(Math.random() * list.length)] : undefined);
+    const sayPhrase = (ph: ReturnType<typeof pick>, then: () => void) => { if (!ph) return then(); say(ph.audio?.[lang] ?? ph.audio?.en, s.name(ph.text), then); };
+    if (o.correct) { setPhase("feedback"); setWrongNote(null); sayPhrase(pick(phrases.praise), () => say(cur.checkAudio?.explanation?.[lang] ?? cur.checkAudio?.explanation?.en, cur.check!.explanation.en)); }
+    else { setWrongNote(s.name(o.whyWrong ?? { en: "" })); sayPhrase(pick(phrases.tryAgain), () => say(undefined, o.whyWrong?.en)); }
   };
   const proceed = () => { stopVoice(); if (step + 1 >= lesson.steps.length) setPhase("done"); else begin(step + 1); };
 
@@ -216,6 +220,18 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
   const speaking = (playing && !mute) || talking;
   const sections = lesson.steps.reduce<{ name: string; first: number }[]>((acc, st, i) => { const n = st.section ?? ""; if (n && acc[acc.length - 1]?.name !== n) acc.push({ name: n, first: i }); return acc; }, []);
   const curSection = lesson.steps[step]?.section;
+  const resume = s.get("classroom.resume") === true, saveKey = `ss.class.${lesson.title.en}`;
+  const [seen, setSeen] = useState<{ last: number; done: string[] }>(() => { try { return JSON.parse(localStorage.getItem(saveKey) ?? "") as { last: number; done: string[] }; } catch { return { last: 0, done: [] }; } });
+  useEffect(() => {
+    if (!resume || !started) return;
+    const idx = sections.findIndex((x) => x.name === curSection);
+    const done = [...seen.done]; const prev = idx > 0 ? sections[idx - 1]!.name : ""; if (prev && !done.includes(prev)) done.push(prev);
+    if (done.length === seen.done.length && seen.last === step) return;
+    const next = { last: step, done }; setSeen(next); try { localStorage.setItem(saveKey, JSON.stringify(next)); } catch { /* storage may be blocked */ }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [step, resume, started]);
+  const nextPart = sections.find((x) => x.first > step);
+  const savedSection = lesson.steps[seen.last]?.section;
 
   return (
     <div className="paper classroom">
@@ -223,9 +239,11 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
       <h1>{s.name(lesson.title)}</h1>
       {sections.length > 1 && (
         <nav className="class-rail" aria-label={L("classroomParts")}>
-          {sections.map((x) => <button type="button" key={x.first} className={x.name === curSection ? "on" : undefined} aria-current={x.name === curSection ? "step" : undefined} onClick={() => go(x.first)}>{x.name}</button>)}
+          {sections.map((x) => <button type="button" key={x.first} className={x.name === curSection ? "on" : undefined} aria-current={x.name === curSection ? "step" : undefined} onClick={() => go(x.first)}>{resume && seen.done.includes(x.name) ? "✓ " : ""}{x.name}</button>)}
+          {resume && nextPart && started && <button type="button" className="next-part" onClick={() => go(nextPart.first)}>{L("classroomNextPart")}</button>}
         </nav>
       )}
+      {resume && !started && seen.last > 0 && savedSection && <p><button type="button" className="btn" onClick={() => go(seen.last)}>{L("classroomResumeAt")}{savedSection}</button></p>}
       <div className={`class-room${cur.check && (phase === "check" || phase === "feedback") ? " has-check" : ""}`}>
         {cur.check && (phase === "check" || phase === "feedback") && (
         <section className="class-check" aria-label={L("classroomQuestion")}>

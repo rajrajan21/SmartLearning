@@ -30,3 +30,8 @@ For each subject, each chapter and each lesson we build, add question papers for
 
 ## 5. Before a lesson is called done
 Check list: classroom steps animated, no board writing during questions, relevant options, quiz + practice + worksheet + term papers present, Tamil text present, audio generated, tests pass.
+
+## 6. Spoken feedback on questions (applies to every lesson, quiz and practice)
+- When a child answers correctly, the teacher's voice first says a short praise line ("Correct!", "Good!", "Very good!", "Well done!") and then the explanation.
+- When the answer is wrong, the voice says a friendly "that is not correct" line ("That is not correct, but good try", "Oops, let's learn why") and then explains why that option is wrong. Never harsh, never silent.
+- The lines live in `content/audio/phrases.json` (praise, tryAgain) in English and Tamil, and need audio from Generate-Lesson-Audio.bat. Add more variety there, not in each lesson.

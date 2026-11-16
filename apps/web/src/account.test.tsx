@@ -58,7 +58,7 @@ describe("accounts", () => {
     fireEvent.change(screen.getByLabelText("Child's nickname"), { target: { value: "Riya" } });
     const submit = screen.getAllByRole("button", { name: "Create a parent account" }).at(-1) as HTMLButtonElement;
     expect(submit.disabled).toBe(true);
-    fireEvent.click(screen.getByRole("checkbox"));
+    fireEvent.click(screen.getByRole("checkbox", { name: /I am the parent/ }));
     expect(submit.disabled).toBe(false);
     fireEvent.click(submit);
     await screen.findByText("Who is learning?");

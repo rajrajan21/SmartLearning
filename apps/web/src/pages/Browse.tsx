@@ -11,6 +11,7 @@ import { LessonPlayer } from "../components/LessonPlayer";
 import { subjectVar } from "../lib/theme";
 import { chapterFrac, subjectFrac, subjectIcon } from "../lib/browseStats";
 import { BoardPath, MasteryBar } from "../components/Tier1";
+import { CourseMap } from "../components/CourseMap";
 import { roughMinutes, THEMES } from "../lib/tier2";
 import { BottomSheet } from "../components/BottomSheet";
 import { useApp } from "../lib/useApp";
@@ -77,6 +78,8 @@ export function SubjectPage() {
   const masteryOf = useMastery(s.get("feature.mastery") === true);
   const [preview, setPreview] = useState<string | null>(null);
   const progress = useAllProgress();
+  const lessonIds = useLessonTopicIds(s.get("feature.lessons"));
+  const mapOn = s.get("browse.path.show") === true && s.get<string>("browse.path.style") !== "zigzag";
   const { subject = "" } = useParams<{ subject: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
   if (state.status === "loading") return <Loading />;
@@ -88,13 +91,14 @@ export function SubjectPage() {
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: `/${board}/${level}`, label: `${ui("classWord", s.lang)} ${level}` }, { label: s.name(sub.name) }]} />
       <h1 className="cover-title"><Title name={sub.name} /></h1>
       {s.get("home.footer.showSources") && sub.textbook && <p className="small">{ui("textbook", s.lang)}: {sub.textbook.title}{sub.textbook.publisher ? ` (${sub.textbook.publisher})` : ""}</p>}
-      {s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
+      {mapOn && <CourseMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} showTopics={s.get("browse.path.topics") === true} onPreview={app && s.get("app.learn.chapterSheet.show") === true ? setPreview : undefined} />}
+      {!mapOn && s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
         const fr = sub.chapters.map((c) => chapterFrac(c.topics, progress));
         const nowIdx = fr.findIndex((x, i) => sub.chapters[i]!.topics.length > 0 && x.pct < 100);
         const nodes = sub.chapters.map((c, i) => ({ id: c.id, href: `/${board}/${level}/${sub.slug}/${c.slug}`, name: c.name, subject: sub.name, state: (c.topics.length > 0 && fr[i]!.pct === 100 ? "done" : i === nowIdx ? "now" : "todo") as "done" | "now" | "todo" }));
         return <BoardPath nodes={nodes} streak={0} title="pathSubject" />;
       })()}
-      <ol className="chapters">
+      {!mapOn && <ol className="chapters">
         {sub.chapters.map((ch) => (
           <li key={ch.id}>
             <Link href={`/${board}/${level}/${sub.slug}/${ch.slug}`}>
@@ -111,7 +115,7 @@ export function SubjectPage() {
             )}
           </li>
         ))}
-      </ol>
+      </ol>}
       {sub.chapters.filter((c) => c.id === preview).map((ch) => (
         <BottomSheet key={ch.id} open onClose={() => setPreview(null)} title={s.name(ch.name)}>
           <p className="syl-meta"><b>{ui("syllabusTopics", s.lang).replace("{n}", String(ch.topics.length))}</b> · {ui("syllabusMinutes", s.lang).replace("{n}", String(roughMinutes(ch.topics.length)))}</p>

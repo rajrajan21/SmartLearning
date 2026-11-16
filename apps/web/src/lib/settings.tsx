@@ -22,18 +22,25 @@ export const useSettings = () => { const c = useContext(SettingsContext); if (!c
 
 const CACHE_KEY = "ss_settings_v1";
 
-export function SettingsProvider({ children, override }: { children: ReactNode; override?: Values }) {
+export function SettingsProvider({ children, override, waitForLatest }: { children: ReactNode; override?: Values; /** the real site: show nothing until the latest settings arrive (or 1.2 s), so old wording never flashes */ waitForLatest?: boolean }) {
   const [fetched, setFetched] = useState<Values>(() => ({ ...publicSettings(defaults()), ...(store.getJson<Values>(CACHE_KEY) ?? {}) }));
   const [lang, setLangState] = useState<Lang | null>(() => { const l = store.get("ss_lang"); return l === "ta" || l === "en" ? l : null; });
   const [prefersDark, setPrefersDark] = useState(() => typeof matchMedia === "function" && matchMedia("(prefers-color-scheme: dark)").matches);
   const [online, setOnline] = useState(() => typeof navigator === "undefined" || navigator.onLine !== false);
 
+  // Wait (briefly) for the latest settings before showing the page, so the old wording never flashes up first.
+  const [settled, setSettled] = useState(() => !!override || !waitForLatest);
+  useEffect(() => {
+    const t = setTimeout(() => setSettled(true), 1200);
+    return () => clearTimeout(t);
+  }, []);
   useEffect(() => {
     let alive = true;
-    fetch("/api/v1/settings/public")
+    fetch("/api/v1/settings/public", { cache: "no-cache" })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
       .then((d: { values: Values }) => { if (alive) { setFetched((cur) => ({ ...cur, ...d.values })); store.setJson(CACHE_KEY, d.values); } })
-      .catch(() => { /* keep cached or default settings */ });
+      .catch(() => { /* keep cached or default settings */ })
+      .finally(() => { if (alive) setSettled(true); });
     return () => { alive = false; };
   }, []);
 
@@ -67,5 +74,5 @@ export function SettingsProvider({ children, override }: { children: ReactNode; 
   const name = useCallback((n: Named) => pickName(n, effectiveLang, values["lang.fallbackToEnglish"] !== false), [effectiveLang, values]);
 
   const ctx = useMemo<Ctx>(() => ({ values, get, lang: effectiveLang, setLang, text, name, online }), [values, get, effectiveLang, setLang, text, name, online]);
-  return <SettingsContext.Provider value={ctx}>{children}</SettingsContext.Provider>;
+  return <SettingsContext.Provider value={ctx}>{settled ? children : null}</SettingsContext.Provider>;
 }

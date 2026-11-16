@@ -47,15 +47,26 @@ export function mergeSync(a: SyncData, b: SyncData): SyncData {
 export const AVATARS = ["owl", "fox", "panda", "lion", "rabbit", "turtle", "parrot", "elephant"] as const;
 export type Avatar = (typeof AVATARS)[number];
 
+const optEmail = z.preprocess((v) => (typeof v === "string" && v.trim() === "" ? undefined : v), z.string().trim().toLowerCase().email().max(120).optional());
+const Pin = z.string().regex(/^\d{6}$/, "The PIN must be exactly 6 digits");
+/** What a parent sets so a child can sign in without a password. */
+export const ChildSecrets = { pin: Pin.optional(), secretQuestion: z.string().trim().min(3).max(100).optional(), secretAnswer: z.string().trim().min(2).max(60).optional() };
+export const ChildInput = z.object({
+  nickname: z.string().trim().min(1).max(20), classLevel: z.number().int().min(1).max(12), extraClasses: z.array(z.number().int().min(1).max(12)).max(6).default([]),
+  avatar: z.enum(AVATARS).default("owl"), language: z.enum(["en", "ta"]).default("en"), ...ChildSecrets,
+});
 export const Register = z.object({
   email: z.string().trim().toLowerCase().email().max(120),
   password: z.string().min(1).max(200), // length rule comes from the admin setting
   consent: z.literal(true), // a parent or guardian agrees to keep the child's learning progress
-  child: z.object({ nickname: z.string().trim().min(1).max(20), classLevel: z.number().int().min(1).max(12), avatar: z.enum(AVATARS).default("owl"), language: z.enum(["en", "ta"]).default("en") }),
+  fatherEmail: optEmail, motherEmail: optEmail,
+  child: ChildInput,
 });
+export const SocialLogin = z.object({ provider: z.enum(["google", "facebook"]), token: z.string().min(10).max(4000), consent: z.boolean().optional() });
+export const ChildLogin = z.object({ email: z.string().trim().toLowerCase().email().max(120), nickname: z.string().trim().min(1).max(20), pin: Pin.optional(), answer: z.string().trim().min(1).max(60).optional() });
+export const ParentContacts = z.object({ fatherEmail: optEmail, motherEmail: optEmail });
 export const Login = z.object({ email: z.string().trim().toLowerCase().email().max(120), password: z.string().min(1).max(200) });
-export const ChildInput = z.object({ nickname: z.string().trim().min(1).max(20), classLevel: z.number().int().min(1).max(12), avatar: z.enum(AVATARS).default("owl"), language: z.enum(["en", "ta"]).default("en") });
-export const PublicProfile = z.object({ id: z.string(), nickname: z.string(), classLevel: z.number(), avatar: z.string(), language: z.string() });
-export const Me = z.object({ user: z.object({ id: z.string(), email: z.string() }), profiles: z.array(PublicProfile), activeProfileId: z.string().nullable() });
+export const PublicProfile = z.object({ id: z.string(), nickname: z.string(), classLevel: z.number(), classes: z.array(z.number()).default([]), avatar: z.string(), language: z.string(), hasPin: z.boolean().default(false), secretQuestion: z.string().nullable().default(null) });
+export const Me = z.object({ user: z.object({ id: z.string(), email: z.string(), fatherEmail: z.string().nullable().default(null), motherEmail: z.string().nullable().default(null), provider: z.string().default("email") }), profiles: z.array(PublicProfile), activeProfileId: z.string().nullable(), childMode: z.boolean().default(false) });
 export type Me = z.infer<typeof Me>;
 export type PublicProfile = z.infer<typeof PublicProfile>;

@@ -19,12 +19,18 @@ export interface Book {
   /** where the PDF is served from; null for a book that only exists as separate chapter files */
   url: string | null;
   chapters?: BookChapter[];
+  /** ready-made page pictures (built by books:pages); the reader uses them instead of opening the PDF */
+  fast?: { pages: number; ratio: number; base: string } | null;
+  /** chapters and sub-chapters with the page they start on */
+  toc?: { title: string; page: number; level: number }[];
 }
 export interface BookList { books: Book[]; classes: { classLevel: number; subjects: { subject: string; books: Book[] }[] }[] }
 export interface BookStore {
   list(): BookList;
   /** absolute path of a servable PDF, or null (unknown, unsafe or missing) */
   filePath(classLevel: string, name: string, chapter?: string): string | null;
+  /** absolute path of a ready-made page picture, or null */
+  pagePath(classLevel: string, book: string, file: string): string | null;
 }
 
 const CLASS = /^(?:[1-9]|1[0-2])$/;
@@ -80,7 +86,15 @@ export function createBookStore(dir: string): BookStore {
         const id = `${level}/${name}`;
         if (seen.has(id)) continue;
         seen.add(id);
-        books.push({ id, ...base, file: name, bytes, url: `/api/books/file/${level}/${encodeURIComponent(name)}` });
+        const stem = name.replace(/\.pdf$/i, "");
+        const pdir = join(dir, "pages", `class-${level}`, stem);
+        let fast: Book["fast"] = null, toc: Book["toc"];
+        try {
+          const m = JSON.parse(readFileSync(join(pdir, "meta.json"), "utf8")) as { pages?: number; ratio?: number };
+          if (m.pages && existsSync(join(pdir, `${m.pages}-l.webp`))) fast = { pages: m.pages, ratio: Number(m.ratio) || 0.75, base: `/api/books/pages/${level}/${encodeURIComponent(stem)}/` };
+        } catch { /* not built yet */ }
+        try { const t = JSON.parse(readFileSync(join(pdir, "toc.json"), "utf8")); if (Array.isArray(t)) toc = t.filter((e) => e && typeof e.title === "string" && Number.isInteger(e.page) && e.page > 0).map((e) => ({ title: String(e.title).slice(0, 120), page: e.page, level: e.level === 1 || e.level === 2 ? e.level : 0 })); } catch { /* no contents list */ }
+        books.push({ id, ...base, file: name, bytes, url: `/api/books/file/${level}/${encodeURIComponent(name)}`, fast, ...(toc && toc.length ? { toc } : {}) });
       } else {
         const folder = basename(relPath) || (typeof r.file === "string" ? r.file : "");
         if (!isDirName(folder)) continue;
@@ -118,6 +132,12 @@ export function createBookStore(dir: string): BookStore {
       // re-read when the manifest changes, and at least every 30 seconds (files may be added or removed by hand)
       if (!cache || cache.mtimeMs !== mtimeMs || Date.now() - cache.at > 30_000) cache = { mtimeMs, at: Date.now(), list: mtimeMs < 0 || !existsSync(root) ? { books: [], classes: [] } : read() };
       return cache.list;
+    },
+    pagePath(classLevel, book, file) {
+      if (!CLASS.test(classLevel) || !isDirName(book) || !/^\d{1,4}-[tsl]\.webp$/.test(file)) return null;
+      const p = resolve(dir, "pages", `class-${classLevel}`, book, file);
+      const base = resolve(dir, "pages") + sep;
+      return p.startsWith(base) && existsSync(p) ? p : null;
     },
     filePath(classLevel, name, chapter) {
       if (!CLASS.test(classLevel)) return null;

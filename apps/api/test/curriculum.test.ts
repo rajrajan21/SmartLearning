@@ -22,8 +22,8 @@ describe("seed file", () => {
 describe("importer", () => {
   it("is idempotent", async () => {
     await importCurriculum(db, authoredFixture());
-    expect(await db.select().from(schema.chapters)).toHaveLength(26);
-    expect(await db.select().from(schema.textbooks)).toHaveLength(2);
+    expect(await db.select().from(schema.chapters)).toHaveLength(62);
+    expect(await db.select().from(schema.textbooks)).toHaveLength(5);
     expect(await db.select().from(schema.topics)).toHaveLength(3);
     expect(await db.select().from(schema.objectives)).toHaveLength(2);
     expect(await db.select().from(schema.topicPrerequisites)).toHaveLength(2);
@@ -81,14 +81,14 @@ describe("repository", () => {
   it("search finds English and Tamil, ranks prefix matches first, handles multiple words", async () => {
     expect((await repo.search("CBSE", "toy"))[0]!.name.en).toBe("Toy Joy"); // prefix match before "Counting toys"
     expect((await repo.search("CBSE", "toy")).map((h) => h.kind)).toContain("topic");
-    expect((await repo.search("cbse", "கணிதம்")).map((h) => h.kind)).toEqual(["subject"]);
+    expect((await repo.search("cbse", "கணிதம்")).map((h) => h.kind)).toEqual(["subject", "subject"]); // Class 3 and Class 6 maths
     expect((await repo.search("cbse", "house hundreds")).length).toBe(2);
     expect(await repo.search("cbse", "zzzz")).toEqual([]);
     expect(await repo.search("nope", "toy")).toEqual([]);
   });
   it("coverage shows what still needs authoring", async () => {
     const c = await repo.coverage("cbse");
-    expect(c!.totals).toMatchObject({ chapters: 26, chaptersWithTopics: 2, topics: 3, topicsWithObjectives: 1, chaptersWithTamil: 0 });
+    expect(c!.totals).toMatchObject({ chapters: 62, chaptersWithTopics: 2, topics: 3, topicsWithObjectives: 1, chaptersWithTamil: 0 });
   });
   it("serves the current year, keeps old years, and diffs them", async () => {
     const next = seedFile();

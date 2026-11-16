@@ -29,13 +29,13 @@ beforeEach(() => { cleanup(); localStorage.clear(); });
 describe("web app", () => {
   it("home shows open class and coming-soon classes", async () => {
     mount("/");
-    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/Understand every chapter/);
+    expect(screen.getByRole("heading", { level: 1 }).textContent).toMatch(/Students,\s*Get Sharp knowledge of every Chapter/);
     await waitFor(() => expect(document.querySelector("a.class-tab.on")?.textContent).toContain("3"));
     expect(document.querySelectorAll(".class-tab.off").length).toBeGreaterThan(0);
   });
   it("lists chapters of a subject", async () => {
     mount("/cbse/3/maths");
-    await waitFor(() => expect(screen.getByText("Toy Joy")).toBeTruthy());
+    await waitFor(() => expect(screen.getAllByText("Toy Joy")[0]).toBeTruthy());
     expect(screen.getByText(/Maths Mela/)).toBeTruthy();
   });
   it("closed class gives not-found", async () => {

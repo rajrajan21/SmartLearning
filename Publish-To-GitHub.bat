@@ -47,8 +47,14 @@ if exist "%MALAR_SRC%\server.mjs" (
   echo Malar Teacher folder not found at %MALAR_SRC% - skipping it.
 )
 
-echo Removing hand-over archives from git (they are too big to push)...
-git rm -r --cached -q --ignore-unmatch ".transfer" "sync*.tgz" "*__pycache__*" "*.pyc" >> "%LOG%" 2>&1
+echo Keeping big local-only files out of git (voice cache, archives)...
+for %%P in ("Malar Teacher/" "*.tgz" "__pycache__/" "*.pyc" ".transfer/" "malar-teacher/cache/") do (
+  findstr /x /c:%%P .gitignore >nul 2>&1 || echo %%~P>> .gitignore
+)
+git config http.postBuffer 524288000
+rem If an earlier unpushed commit swallowed big files, redo it on top of the last pushed state (no force push)
+git rev-parse --verify -q origin/main >nul 2>&1 && git reset --soft origin/main >> "%LOG%" 2>&1
+git rm -r --cached -q --ignore-unmatch ".transfer" "sync*.tgz" "*__pycache__*" "*.pyc" "Malar Teacher" "malar-teacher/cache" >> "%LOG%" 2>&1
 echo Adding changes...
 git add -A >> "%LOG%" 2>&1
 

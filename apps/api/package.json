@@ -13,7 +13,9 @@
     "db:seed": "tsx src/db/cli.ts seed",
     "audio:build": "tsx src/tools/build-audio.ts",
     "account:reset-password": "tsx src/tools/reset-password.ts",
-    "curriculum:check": "tsx src/db/cli.ts check"
+    "curriculum:check": "tsx src/db/cli.ts check",
+    "books:pages": "node src/tools/build-book-pages.mjs",
+    "lessons:build": "tsx src/tools/lessonkit/cli.ts"
   },
   "dependencies": {
     "@studysmart/shared": "workspace:*",
@@ -33,6 +35,8 @@
     "supertest": "^7.0.0",
     "tsx": "^4.19.0",
     "typescript": "^5.6.0",
-    "vitest": "^2.1.0"
+    "vitest": "^2.1.0",
+    "pdfjs-dist": "^6.5.438",
+    "@napi-rs/canvas": "^1.1.1"
   }
 }

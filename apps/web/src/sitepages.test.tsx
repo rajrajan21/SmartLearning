@@ -19,7 +19,7 @@ describe("site pages", () => {
     await screen.findByRole("heading", { name: "Privacy" });
     expect(screen.getByText("First part.")).toBeTruthy();
     expect(screen.getByText("Second part.")).toBeTruthy();
-    expect(screen.getByRole("link", { name: "help@sharpstudy.in" })).toBeTruthy();
+    expect(screen.getAllByRole("link", { name: "help@sharpstudy.in" }).length).toBeGreaterThan(0);
   });
   it("the footer links to the three pages and can be hidden", async () => {
     mount("/about");

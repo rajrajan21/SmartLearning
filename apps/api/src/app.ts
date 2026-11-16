@@ -22,6 +22,9 @@ import { accessGate, accessRoutes, adminAccessRoutes, isGated } from "./modules/
 import type { AccessService } from "./modules/access/service.js";
 import { bookRoutes } from "./modules/books/routes.js";
 import type { BookStore } from "./modules/books/store.js";
+import type { StatsService } from "./modules/stats/service.js";
+import { adminStatsRoutes, statsBeacon } from "./modules/stats/routes.js";
+import { uploadRoutes } from "./modules/stats/uploads.js";
 
 export interface AppDeps {
   curriculum: CurriculumRepository;
@@ -50,6 +53,12 @@ export interface AppDeps {
   adminKey: string | null;
   /** When set, admin sign-in also needs this user id (x-admin-user header, case-insensitive). server.ts always sets it. */
   adminUserId?: string;
+  /** visitor / sign-up / server counters; omit to leave reports off */
+  stats?: StatsService;
+  /** for tests: replaces fetch when checking Google/Facebook tokens */
+  fetcher?: import("./modules/accounts/social.js").Fetcher;
+  /** where admin-uploaded logo and banner pictures are kept; omit to leave uploads off */
+  uploadsDir?: string;
 }
 
 export function createApp(deps: AppDeps) {
@@ -57,6 +66,23 @@ export function createApp(deps: AppDeps) {
   app.disable("x-powered-by");
   app.set("trust proxy", 1); // behind Caddy / Cloudflare: use the real client IP for rate limits
   app.use(express.json({ limit: "200kb" }));
+  if (deps.uploadsDir) { const u = uploadRoutes(deps.uploadsDir, deps.adminKey, deps.adminUserId); app.use("/uploads", u.pub); app.use("/api/v1/admin/upload", u.adm); }
+  if (deps.stats) {
+    const st = deps.stats;
+    app.use((req, res, next) => {
+      res.on("finish", async () => {
+        if (!req.path.startsWith("/api/")) return;
+        st.count("requests"); if (res.statusCode >= 500) st.count("errors");
+        if (req.method !== "POST") return;
+        if (req.originalUrl.startsWith("/api/v1/account/register") && res.statusCode === 201) st.count("signups");
+        else if (req.originalUrl.startsWith("/api/v1/account/login") && res.statusCode === 200) st.count("logins");
+        else if (/^\/api\/v1\/practice\/answers/.test(req.originalUrl) && res.statusCode < 300) st.count("questions");
+      });
+      next();
+    });
+    app.use("/api/v1/track", statsBeacon(st, deps.settings));
+    app.use("/api/v1/admin/stats", adminStatsRoutes(st, deps.adminKey, deps.adminUserId));
+  }
 
   app.get("/health", (_req, res) => void res.json({ status: "ok", service: "studysmart-api" }));
 
@@ -99,7 +125,7 @@ export function createApp(deps: AppDeps) {
     const v = await deps.settings.all();
     return v["feature.worksheets"] === true && v["worksheets.answerKey"] === true && (await deps.accounts.session(readCookie(req))) !== null;
   }));
-  if (deps.accounts) app.use("/api/v1/account", accountRoutes(deps.accounts, deps.settings, deps.secureCookie ?? false));
+  if (deps.accounts) app.use("/api/v1/account", accountRoutes(deps.accounts, deps.settings, deps.secureCookie ?? false, deps.fetcher));
   if (deps.tutor) app.use("/api/v1/tutor", tutorRoutes(deps.tutor, deps.settings, async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null)));
   if (deps.audio) app.use("/api/v1/audio", audioRoutes(deps.audio));
   if (deps.books) app.use("/api/books", bookRoutes(deps.books, async () => (await deps.settings.all())["feature.textbooks"] === true));

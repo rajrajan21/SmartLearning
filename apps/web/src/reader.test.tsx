@@ -198,26 +198,26 @@ describe("class page: the Textbooks entry", () => {
   });
   it("is hidden, and the server is not even asked, when the feature is switched off", async () => {
     mount("/cbse/3", { "feature.textbooks": false });
-    await screen.findByText("Mathematics");
+    (await screen.findAllByText("Mathematics"))[0];
     await act(async () => { await Promise.resolve(); });
     expect(screen.queryByTestId("textbook-entry")).toBeNull();
     expect(asked).not.toContain("/api/books");
   });
   it("is hidden when no book of this class was downloaded, or the list cannot be read", async () => {
     mount("/cbse/3", {}, BOOKS.filter((b) => b.classLevel !== 3));
-    await screen.findByText("Mathematics");
+    (await screen.findAllByText("Mathematics"))[0];
     await waitFor(() => expect(asked).toContain("/api/books"));
     await act(async () => { await Promise.resolve(); });
     expect(screen.queryByTestId("textbook-entry")).toBeNull();
     cleanup(); resetBooksCache();
     mount("/cbse/3", {}, 404);
-    await screen.findByText("Mathematics");
+    (await screen.findAllByText("Mathematics"))[0];
     await waitFor(() => expect(asked).toContain("/api/books"));
     await act(async () => { await Promise.resolve(); });
     expect(screen.queryByTestId("textbook-entry")).toBeNull();
     cleanup(); resetBooksCache();
     mount("/cbse/3", {}, []);
-    await screen.findByText("Mathematics");
+    (await screen.findAllByText("Mathematics"))[0];
     await act(async () => { await Promise.resolve(); });
     expect(screen.queryByTestId("textbook-entry")).toBeNull();
   });

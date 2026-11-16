@@ -21,11 +21,12 @@ function BookCover({ book }: { book: Book }) {
     const io = new IntersectionObserver((entries) => {
       if (!entries.some((e) => e.isIntersecting)) return;
       io.disconnect();
+      if (book.fast) { setSrc(`${book.fast.base}1-s.webp`); return; }
       void import("../lib/reader/pdf").then((m) => m.coverOf(url)).then((u) => { if (alive) setSrc(u); }, () => { /* keep the plain cover */ });
     }, { rootMargin: "200px" });
     io.observe(el);
     return () => { alive = false; io.disconnect(); };
-  }, [url]);
+  }, [url, book.fast]);
   return (
     <span className="bk-cover" ref={ref} style={{ ["--cover" as string]: subjectVar(slugOf(book.subject)) }}>
       {src ? <img src={src} alt="" /> : <span className="bk-plain" aria-hidden="true"><b>{book.title}</b><i>{book.subject}</i></span>}
@@ -102,7 +103,7 @@ export function BookReaderPage() {
   const sub = [book.subject, `${ui("classWord", s.lang)} ${book.classLevel}`, ch && book.chapters ? `${ui("booksPart", s.lang)} ${at + 1} / ${book.chapters.length}` : ""].filter(Boolean).join(", ");
   return (
     <Suspense fallback={<div className="paper"><Loading /></div>}>
-      <Reader key={url} book={{ id: ch ? `${book.id}${ch.file}` : book.id, title: book.title, subtitle: sub, url, fileName: ch ? `${book.file}-${ch.file}` : book.file, language: book.language, subject: book.subject, backHref: shelfHref(book.classLevel) }} />
+      <Reader key={url} book={{ id: ch ? `${book.id}${ch.file}` : book.id, title: book.title, subtitle: sub, url, fileName: ch ? `${book.file}-${ch.file}` : book.file, language: book.language, subject: book.subject, backHref: shelfHref(book.classLevel), fast: ch ? null : book.fast ?? null, toc: ch ? undefined : book.toc }} />
     </Suspense>
   );
 }

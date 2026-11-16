@@ -35,6 +35,11 @@ export function Routes() {
       <Route path="/privacy">{() => <SitePage kind="privacy" />}</Route>
       <Route path="/terms">{() => <SitePage kind="terms" />}</Route>
       <Route path="/about">{() => <SitePage kind="about" />}</Route>
+      <Route path="/disclaimer">{() => <SitePage kind="disclaimer" />}</Route>
+      <Route path="/grievance">{() => <SitePage kind="grievance" />}</Route>
+      <Route path="/faq">{() => <SitePage kind="faq" />}</Route>
+      <Route path="/guidelines">{() => <SitePage kind="guidelines" />}</Route>
+      <Route path="/contact">{() => <SitePage kind="contact" />}</Route>
       <Route path="/parent" component={ParentPage} />
       <Route path="/revise" component={RevisePage} />
       <Route path="/progress" component={ProgressPage} />
@@ -63,7 +68,7 @@ export function Site() {
   );
 }
 
-export function App({ ssrPath }: { ssrPath?: string }) {
+export function App({ ssrPath, waitForLatest }: { ssrPath?: string; waitForLatest?: boolean }) {
   void ssrPath;
   return (
     <Router>
@@ -71,7 +76,7 @@ export function App({ ssrPath }: { ssrPath?: string }) {
         <Route path="/admin" nest><AdminApp /></Route>
         <Route>
           <AccessGuard>
-          <SettingsProvider>
+          <SettingsProvider waitForLatest={waitForLatest}>
             <AccountProvider>
               <Site />
             </AccountProvider>

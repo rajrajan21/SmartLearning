@@ -114,6 +114,11 @@ export const users = pgTable("users", {
   email: text("email").notNull(),
   role: userRole("role").notNull().default("parent"),
   passwordHash: text("password_hash"), // scrypt, format s1$salt$hash; never leaves the server
+  fatherEmail: text("father_email"),
+  motherEmail: text("mother_email"),
+  mobile: text("mobile"),
+  provider: text("provider").notNull().default("email"), // email | google | facebook
+  providerId: text("provider_id"),
   ...timestamps,
 }, (t) => [uniqueIndex("users_email_uq").on(t.email)]);
 
@@ -125,6 +130,9 @@ export const studentProfiles = pgTable("student_profiles", {
   language: text("language").notNull().default("en"),
   avatar: text("avatar").notNull().default("owl"),
   pinHash: text("pin_hash"),
+  extraClasses: text("extra_classes").notNull().default("[]"), // JSON array of more classes the child studies
+  secretQuestion: text("secret_question"),
+  secretAnswerHash: text("secret_answer_hash"),
   ...timestamps,
 });
 
@@ -148,6 +156,7 @@ export const sessions = pgTable("sessions", {
   tokenHash: text("token_hash").primaryKey(),
   userId: uuid("user_id").notNull().references(() => users.id, { onDelete: "cascade" }),
   studentId: uuid("student_id").references(() => studentProfiles.id, { onDelete: "set null" }), // the child currently learning
+  child: boolean("child").notNull().default(false), // signed in by the child with a PIN: no parent-only pages
   expiresAt: timestamp("expires_at", { withTimezone: true }).notNull(),
   createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
 }, (t) => [index("sessions_user_idx").on(t.userId)]);
