@@ -53,7 +53,7 @@ export function ClassroomPage() {
   const idx = useClassroomIndex(on);
   const voices = idx.status === "ready" ? idx.data.voices : [];
   const [voice, setVoice] = useState(() => store.get("ss_class_voice") ?? "");
-  const chosen = voices.find((v) => v.id === voice && v.ready) ? voice : idx.status === "ready" ? idx.data.defaultVoice : "";
+  const chosen = voices.some((v) => v.id === voice && v.ready) ? voice : "";
   const st = useClassroom(board, cls, subject, chapter, topic, on && idx.status !== "loading", attempt, chosen);
   if (!on) return <NotFound />;
   if (st.status === "loading") return <Loading />;
@@ -87,7 +87,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
   const [both, setBoth] = useState(s.get<string>("classroom.language") === "both");
   const [talking, setTalking] = useState(false);
   const bothRef = useRef(both); bothRef.current = both;
-  const info = voices.find((v) => v.id === voice);
+  const info = voices.find((v) => v.id === (lessonIn.voiceUsed ?? voice));
   const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
 
   const cur = lesson.steps[step]!;

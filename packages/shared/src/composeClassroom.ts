@@ -72,7 +72,16 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
       row++;
     });
     extra(actions);
-    steps.push({ id: `s${steps.length + 1}`, section, narration: { en: narration }, actions, ...(o.check ? { check: o.check } : {}) });
+    const spokenParts = narration.length > 440 ? chunks(narration) : [narration];
+    spokenParts.forEach((part, index) => {
+      steps.push({
+        id: `s${steps.length + 1}`,
+        section,
+        narration: { en: part },
+        actions: index === 0 ? actions : [],
+        ...(o.check && index === spokenParts.length - 1 ? { check: o.check } : {}),
+      });
+    });
   };
 
 

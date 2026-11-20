@@ -30,6 +30,12 @@ function mount(path: string) {
 beforeEach(() => { cleanup(); localStorage.clear(); settings = { "classroom.browserVoice": false }; vi.stubGlobal("matchMedia", (q: string) => ({ matches: q.includes("reduce"), addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} })); });
 
 describe("classroom", () => {
+  it("lets the server choose the lesson voice when no preference is saved", async () => {
+    const path = "/classroom/cbse/3/maths/fair-share/halves-and-quarters";
+    mount(path);
+    await screen.findByText("Halves and quarters");
+    expect(fetch).toHaveBeenCalledWith(`/api/v1${path}`);
+  });
   it("lists the lessons on the hub", async () => {
     mount("/classroom");
     expect(await screen.findByText("Halves and quarters")).toBeTruthy();

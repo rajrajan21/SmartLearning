@@ -74,7 +74,7 @@ export function computeCoverage(opts: { voices?: string[]; checkFiles: boolean }
     });
     if (anyMissing && row.missing.length < 3) row.missing.push(`${j.lang}: ${j.text.slice(0, 90)}`);
   }
-  const out: CoverageRow[] = [...rows.values()].map(({ _seen: _s, ...r }) => {
+  const out = [...rows.values()].map<CoverageRow>(({ _seen: _s, ...r }) => {
     const best = Math.max(...r.have, 0), worst = Math.min(...r.have, r.total);
     return { ...r, status: r.total > 0 && worst >= r.total ? "complete" : best > 0 ? "partial" : "none" };
   }).sort((a, b) => a.kind.localeCompare(b.kind) || (a.cls ?? 99) - (b.cls ?? 99) || a.item.localeCompare(b.item));

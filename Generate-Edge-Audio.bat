@@ -17,8 +17,7 @@ for %%P in (%FIRST%) do (
   echo === Priority: %%P === >> %REPORT%
   call pnpm --filter @studysmart/api audio:build --lang en --only "%%P" --jobs %JOBS% --voices "%VOICES%" >> %REPORT% 2>&1
 )
-echo === Everything else === >> %REPORT%
-call pnpm --filter @studysmart/api audio:build --lang en --jobs %JOBS% --voices "%VOICES%" >> %REPORT% 2>&1
+echo === PC priorities complete. Remaining CBSE classes are assigned to Oracle. === >> %REPORT%
 echo.
 echo Finished. Details are in %REPORT%. Look at the last lines for "Sentences wanted ... generated ...".
 :end
