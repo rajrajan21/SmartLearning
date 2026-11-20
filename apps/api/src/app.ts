@@ -1,3 +1,4 @@
+import { monitorRoutes, type MonitorPaths } from "./modules/monitor/routes.js";
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import express, { type NextFunction, type Request, type Response } from "express";
@@ -92,6 +93,7 @@ export interface AppDeps {
   adminUserId?: string;
   /** speed: where the start-up 'already loaded' marks are kept (shown on Admin > Site and performance) */
   perf?: { seedStateFile?: string };
+  monitor?: { paths: MonitorPaths; jobToken?: string };
   /** visitor / sign-up / server counters; omit to leave reports off */
   stats?: StatsService;
   reports?: ReportsService;
@@ -115,6 +117,16 @@ export function createApp(deps: AppDeps) {
   app.use(perfConfigMiddleware(deps.settings)); // copies the admin "perf.*" settings into the speed config
   app.use(compressJson()); // smaller answers on the wire (Admin > Site and performance > Speed)
   if (deps.uploadsDir) { const u = uploadRoutes(deps.uploadsDir, deps.adminKey, deps.adminUserId); app.use("/uploads", u.pub); app.use("/api/v1/admin/upload", u.adm); }
+  let coverage: { recordings: number; complete: number; partial: number; missing: number; generatedAt: string } | null = null;
+  if (deps.monitor) {
+    const monitor = monitorRoutes({ ...deps.monitor, db: deps.db, stats: deps.stats, reports: deps.reports,
+      adminKey: deps.adminKey, adminUserId: deps.adminUserId, coverage: () => coverage });
+    app.use((req, res, next) => {
+      if (req.path.startsWith("/api/")) res.on("finish", () => monitor.record(res.statusCode));
+      next();
+    });
+    app.use("/api/v1/admin/monitor", monitor.router);
+  }
   if (deps.stats) {
     const st = deps.stats;
     app.use((req, res, next) => {
@@ -159,7 +171,15 @@ export function createApp(deps: AppDeps) {
   app.use("/api/v1/settings", publicSettingsRoutes(deps.settings));
   if (deps.papers) app.use("/api/v1/admin/papers", adminPaperRoutes(deps.papers, deps.papersDir ?? "", deps.settings, deps.adminKey, deps.adminUserId));
   if (deps.social) app.use("/api/v1/admin/social", adminSocialRoutes(deps.social.service, deps.social.store, deps.adminKey, deps.adminUserId));
-  app.use("/api/v1/admin/audio-coverage", adminAudioCoverageRoutes(deps.settings, deps.adminKey, deps.adminUserId));
+  app.use("/api/v1/admin/audio-coverage", adminAudioCoverageRoutes(deps.settings, deps.adminKey, deps.adminUserId, (data) => {
+    if (coverage?.generatedAt === data.generatedAt) return;
+    coverage = { recordings: data.manifestClips, complete: 0, partial: 0, missing: 0, generatedAt: data.generatedAt };
+    for (const row of data.rows) {
+      if (row.status === "complete") coverage.complete++;
+      else if (row.status === "partial") coverage.partial++;
+      else coverage.missing++;
+    }
+  }));
   app.use("/api/v1/admin/perf", adminPerfRoutes({ classroom: deps.classroom, curriculum: deps.curriculum, seedStateFile: deps.perf?.seedStateFile }, deps.adminKey, deps.adminUserId));
   app.use("/api/v1/admin", adminSettingsRoutes(deps.settings, deps.adminKey, deps.adminUserId));
 
@@ -219,7 +239,7 @@ export function createApp(deps: AppDeps) {
     const msg = err instanceof Error ? err.message : "unknown";
     console.error("unhandled_error", msg);
     // the admin's error log: one short line per server error (no stack, no request data), when the setting is on
-    if (deps.reports) void deps.settings.all().then((all) => { if (all["reports.logServerErrors"] === true) deps.reports!.add({ kind: "other", about: `server ${req.method} ${String(req.path).slice(0, 120)}`, text: msg.slice(0, 300) || "unknown" }, Number(all["reports.maxKept"]) || 500); }).catch(() => undefined);
+    if (deps.reports) void deps.settings.all().then((all) => { if (all["reports.logServerErrors"] === true) deps.reports!.add({ kind: "other", about: "Server error", text: "An API request failed. See the server log for diagnostic details." }, Number(all["reports.maxKept"]) || 500); }).catch(() => undefined);
     res.status(500).json({ error: { code: "internal", message: "Something went wrong" } });
   });
   return app;

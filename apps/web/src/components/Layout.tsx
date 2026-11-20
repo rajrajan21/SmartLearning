@@ -1,3 +1,5 @@
+import { PresetContext, previewFrame, useSitePreset } from "../lib/sitePresets";
+import "./sitePresets.css";
 import { useActiveBoard } from "../lib/activeBoard";
 import { SearchBox } from "./SearchBox";
 import { InstallPopup } from "./InstallPopup";
@@ -36,19 +38,21 @@ export function Layout({ children }: { children: ReactNode }) {
   const s = useSettings();
   const activeBoard = useActiveBoard();
   const { lang } = s;
+  const preset = useSitePreset();
   const site = s.get<string>("site.name");
   const maintenance = s.get("site.maintenance.enabled");
   const acct = useAccountOptional();
   const showAcct = s.get("feature.accounts") === true && s.get("accounts.showHeaderLink") === true;
   const { app, phone, pref } = useApp();
   const [loc] = useLocation();
-  useEffect(() => { if (s.get("stats.enabled") === true && !loc.startsWith("/admin")) void fetch("/api/v1/track/view", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ path: loc }), keepalive: true }).catch(() => {}); }, [loc, s]);
+  useEffect(() => { if (s.get("stats.enabled") === true && !previewFrame() && !loc.startsWith("/admin")) void fetch("/api/v1/track/view", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ path: loc }), keepalive: true }).catch(() => {}); }, [loc, s]);
   useEffect(() => { const r = document.documentElement; if (app) r.setAttribute("data-app", "true"); else r.removeAttribute("data-app"); return () => r.removeAttribute("data-app"); }, [app]);
   const picker = s.get<string>("layout.picker");
   const onLesson = loc.startsWith("/classroom/") || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
-    <div className="shell" data-route={loc.endsWith("/learn") ? "lesson" : undefined}>
+    <PresetContext.Provider value={preset}>
+    <div className="shell" data-site-preset={preset} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
       <ScrollToTop />
       <ScrollAids />
       <InstallPopup />
@@ -59,7 +63,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <Logo size={42} />
           <span>{site}</span>
         </Link>
-        <MainNav />
+        {preset !== "dashboard" && <MainNav />}
         {s.get("feature.search") === true && s.get("search.header.show") === true && !onLesson && !maintenance && <SearchBox board={activeBoard} compact />}
         <nav className="top-actions" aria-label="Site">
           <TextSize />
@@ -78,6 +82,7 @@ export function Layout({ children }: { children: ReactNode }) {
       </header>
       {banner && <div className={`banner tone-${s.get<string>("home.announcement.tone")}`} role="status">{s.text("home.announcement.text")}</div>}
       <div className="body-row" data-picker={picker}>
+        {preset === "dashboard" && <MainNav />}
         {picker === "left" && !maintenance && !onLesson && <BoardRail />}
         <main id="main" className="page" tabIndex={-1}>
           {maintenance ? (
@@ -93,5 +98,6 @@ export function Layout({ children }: { children: ReactNode }) {
       {!app && phone && pref === "site" && <button type="button" className="app-pill noprint" onClick={() => setViewPref("app")}>📱 {ui("appViewApp", lang)}</button>}
       <BottomNav />
     </div>
+    </PresetContext.Provider>
   );
 }

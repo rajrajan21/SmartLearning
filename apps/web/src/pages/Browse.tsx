@@ -293,7 +293,7 @@ export function LessonPage() {
   const base = `/${board}/${level}/${d.subject.slug}`;
   const next = d.next;
   return (
-    <div style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
+    <div className="preset-lesson" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <LessonPlayer
         key={lesson.data.topicId}
         lesson={lesson.data}

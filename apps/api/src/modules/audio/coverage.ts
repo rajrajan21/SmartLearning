@@ -85,7 +85,7 @@ export function computeCoverage(opts: { voices?: string[]; checkFiles: boolean }
 }
 
 /** Admin > Audio coverage: which lessons have recorded teacher audio and which do not. */
-export function adminAudioCoverageRoutes(settings: SettingsService, adminKey: string | null, adminUserId?: string): Router {
+export function adminAudioCoverageRoutes(settings: SettingsService, adminKey: string | null, adminUserId?: string, remember?: (data: Coverage) => void): Router {
   const r = Router();
   r.use(requireAdmin(adminKey, adminUserId));
   let cache: { at: number; sig: string; data: Coverage } | null = null;
@@ -95,6 +95,7 @@ export function adminAudioCoverageRoutes(settings: SettingsService, adminKey: st
       const voices = csv(v["audio.coverage.voices"]), checkFiles = v["audio.coverage.checkFiles"] !== false, ttl = Number(v["audio.coverage.cacheSeconds"] ?? 60) * 1000;
       const sig = `${voices.join(",")}|${checkFiles}`;
       if (!cache || req.query.refresh === "1" || cache.sig !== sig || Date.now() - cache.at > ttl) cache = { at: Date.now(), sig, data: computeCoverage({ voices, checkFiles }) };
+      remember?.(cache.data);
       res.set("Cache-Control", "no-store").json(cache.data);
     } catch (e) { next(e); }
   });

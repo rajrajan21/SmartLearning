@@ -69,7 +69,18 @@ const contribSvc = createContribService({ store: contribStore, settings: setting
 contribSvc.startSweeper();
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const classroomSvc = createClassroomService({ lessonsDir, questionsDir, classroomDir, cacheFile: process.env.CLASSROOM_CACHE ?? resolve(root, "data/cache/classroom-built.json"), codeDir: resolve(root, "packages/shared/src") }, audio);
-const app = createApp({ libraryPages, perf: { seedStateFile: process.env.DATABASE_URL ? undefined : seedStatusFile(process.env.PGLITE_DIR ?? ".data/pglite") },  tourDir: process.env.TOUR_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/tour"), social: { service: socialSvc, store: socialStore }, mail: mailSvc, db, uploadsDir: process.env.UPLOADS_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/uploads"), reports: createReportsService(process.env.REPORTS_FILE ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/reports.json")), stats: createStatsService(process.env.STATS_FILE ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/stats.json")), books: createBookStore(booksDir), papers: createPaperStore(papersDir), papersDir, gk: createGkStore(gkDir, audio), library, contrib: { svc: contribSvc, store: contribStore }, classroom: classroomSvc, curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: settingsSvc, access: createAccessService(db, resolveAccessSecret(process.env, adminKey)), adminKey, adminUserId: resolveAdminUserId(process.env), webDir: process.env.WEB_DIR ? resolve(process.env.WEB_DIR) : undefined });
+const repo = resolve(lessonsDir, "../..");
+const uploadsDir = process.env.UPLOADS_DIR ?? resolve(repo, "data/uploads");
+const app = createApp({
+  monitor: {
+    paths: {
+      content: resolve(repo, "content"), audio: resolve(audioDir), uploads: uploadsDir,
+      backups: process.env.BACKUP_DIR ?? (process.platform === "win32" ? resolve(repo, "backups") : "/var/backups/studysmart"),
+      jobState: process.env.JOB_REPORT_DIR ?? resolve(uploadsDir, "../job-reports"),
+    },
+    jobToken: process.env.JOB_REPORT_TOKEN,
+  },
+  libraryPages, perf: { seedStateFile: process.env.DATABASE_URL ? undefined : seedStatusFile(process.env.PGLITE_DIR ?? ".data/pglite") },  tourDir: process.env.TOUR_DIR ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/tour"), social: { service: socialSvc, store: socialStore }, mail: mailSvc, db, uploadsDir, reports: createReportsService(process.env.REPORTS_FILE ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/reports.json")), stats: createStatsService(process.env.STATS_FILE ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/stats.json")), books: createBookStore(booksDir), papers: createPaperStore(papersDir), papersDir, gk: createGkStore(gkDir, audio), library, contrib: { svc: contribSvc, store: contribStore }, classroom: classroomSvc, curriculum, lessons: lessonSvc, tutor: createTutorService(db, lessonSvc, modelFromEnv(process.env)), practice: createPracticeService(db, curriculum, audio), accounts: createAccountService(db), secureCookie: process.env.NODE_ENV === "production", audio, settings: settingsSvc, access: createAccessService(db, resolveAccessSecret(process.env, adminKey)), adminKey, adminUserId: resolveAdminUserId(process.env), webDir: process.env.WEB_DIR ? resolve(process.env.WEB_DIR) : undefined });
 app.listen(port, () => {
   console.log(`${SITE.name} API listening on :${port}`);
   // build the classroom boards in the background just after start so the first visitor does not wait (Admin > Site and performance > Speed)

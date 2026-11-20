@@ -151,3 +151,6 @@ Class 5 built (sync 154). Then textbook gaps closed where verifiable: titles of 
 - 2026-11-18: Class 4 depth upgrade done in sandbox and synced (sync-cbse4-1..4): 9 thin chapters rebuilt to 30+ sentences (Maths Data Handling, Symmetry, Clocks, Transport Museum, Cleanest Village, Hide and Seek, Patterns; EVS Different Lands, How Things Are Made), 7 English units topped up, tools/c34/GAPS.md rewritten. No audio, no catalog change.
 
 - 2026-11-20: Owner moved the project to ChatGPT. Decisions: Edge voices as Kani/Arul; Classroom + Study path layouts and Today widgets (rail/tabs/drawer); admin redesign with monitor, stats, reports, server health and storage sizes; live audio not playing is the top issue.
+
+## 2026-11-20 · SharpStudy admin and layout implementation
+The owner requested a separate SharpStudy dashboard, grouped settings, host and visitor metrics, Oracle and PC job status, admin-wide search, six public layouts and one featured Kani Classroom sample. Classic is the initial site layout. The flagship sample selected was Class 6 Science, Magnetic and non-magnetic things.

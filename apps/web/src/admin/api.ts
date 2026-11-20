@@ -34,6 +34,8 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
   return data as T;
 }
 export const admin = {
+  monitor: () => call<MonitorData>("GET", "/monitor"),
+  jobs: () => call<Record<"oracle" | "windows", JobUpdate | null>>("GET", "/monitor/jobs"),
   session: () => call<{ ok: true }>("GET", "/session"),
   load: () => call<AdminData>("GET", "/settings"),
   save: (changes: Values) => call<{ values: Values; overridden: string[] }>("PUT", "/settings", { changes }),
@@ -72,3 +74,22 @@ export interface PapersJob { startedAt?: string; finishedAt?: string; added?: nu
 export interface AudioCoverageRow { kind: string; item: string; board: string; cls: number | null; subject: string; total: number; have: number[]; status: "complete" | "partial" | "none"; missing: string[] }
 export interface AudioCoverage { generatedAt: string; voices: string[]; voiceLabels: Record<string, string>; checkedFiles: boolean; manifestClips: number; manifestMissingFiles: number; skippedNoVoice: string[]; rows: AudioCoverageRow[] }
 export interface PapersStatus { total: number; visible: number; updated: string; byBoard: [string, number][]; byClass: [string, number][]; bySubject: [string, number][]; byKind: [string, number][]; bySite: [string, number][]; questions: number; withAnswers: number; hiddenIds: string[]; job: PapersJob | null; sites: PapersSiteRow[]; config: { disabledSites: string; enabledSites: string; hiddenSites: string; siteCaps: string }; papers: { id: string; title: string; board: string; cls: number; subject: string; kind: string; questions: number; keyed: number; site: string; added: string; hidden: boolean }[] }
+
+type MeasuredSize = { bytes: number; files: number; complete: boolean; recentBackups: { at: string; bytes: number }[] };
+export interface JobUpdate {
+  phase: string | null; status: "running" | "complete" | "partial" | "failed" | "unknown";
+  completed: number | null; total: number | null; updatedAt: string; stale: boolean;
+  error: "speech" | "process" | "skipped" | null;
+}
+export interface MonitorData {
+  service: string; uptime: number; hostUptime: number; cpu: number | null; load: number[] | null;
+  memory: { free: number; total: number; process: number };
+  disk: { free: number; total: number } | null;
+  content: MeasuredSize | null; audio: MeasuredSize | null; uploads: MeasuredSize | null; backups: MeasuredSize | null;
+  lessons: MeasuredSize | null; questions: MeasuredSize | null; classrooms: MeasuredSize | null;
+  database: number | null; measuredAt: string;
+  traffic: (StatsReport["totals"] & { requests: number; errors: number; days: StatsReport["days"] }) | null;
+  reports: { total: number; open: number } | null;
+  recentErrors: { at: string; status: number }[];
+  coverage: { recordings: number; complete: number; partial: number; missing: number; generatedAt: string } | null;
+}

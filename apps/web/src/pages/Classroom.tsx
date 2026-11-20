@@ -6,6 +6,7 @@ import { useSettings } from "../lib/settings";
 import { visualsPolicy, withoutGeneratedSteps, withoutVisualSteps } from "../lib/visuals";
 import { ui } from "../lib/i18n";
 import { useRetry } from "../lib/curriculum";
+import { matchesSample, sample } from "../lib/sampleLesson";
 import { useClassroom, useClassroomIndex } from "../lib/classroom";
 import { usePhrases } from "../lib/practice";
 import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
@@ -52,19 +53,22 @@ export function ClassroomPage() {
   const [attempt, retry] = useRetry();
   const idx = useClassroomIndex(on);
   const voices = idx.status === "ready" ? idx.data.voices : [];
-  const [voice, setVoice] = useState(() => store.get("ss_class_voice") ?? "");
+  const demo = typeof window !== "undefined" && new URLSearchParams(window.location.search).has("sample")
+    && matchesSample({ board, classLevel: Number(cls), subject, chapter, topic });
+  const [voice, setVoice] = useState(() => demo ? "kani" : store.get("ss_class_voice") ?? "");
   const chosen = voices.some((v) => v.id === voice && v.ready) ? voice : "";
   const st = useClassroom(board, cls, subject, chapter, topic, on && idx.status !== "loading", attempt, chosen);
   if (!on) return <NotFound />;
   if (st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
-  return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); store.set("ss_class_voice", v); }} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
+  return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
 }
 
-function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: PublicClassroom; back: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
+function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
   const s = useSettings();
   const { lang } = s;
+  const narrationLang = related ? "en" : lang;
   const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
   const vp = visualsPolicy(s, lessonIn, reduced());
   const lesson = useMemo(() => (vp.animations ? (vp.generated ? lessonIn : withoutGeneratedSteps(lessonIn)) : withoutVisualSteps(lessonIn)), [lessonIn, vp.animations, vp.generated]);
@@ -91,8 +95,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
   const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
 
   const cur = lesson.steps[step]!;
-  const text = cur.narration[lang] ?? cur.narration.en;
-  const rec = mute ? undefined : cur.audio?.[lang] ?? (lang !== "en" ? undefined : cur.audio?.en);
+  const text = cur.narration[narrationLang] ?? cur.narration.en;
+  const rec = mute ? undefined : cur.audio?.[narrationLang] ?? (narrationLang !== "en" ? undefined : cur.audio?.en);
   const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en) / rate;
   const words = rec?.words;
 
@@ -128,7 +132,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
     run.current++; stopVoice(); clearTimer();
     const stp = R.current.lesson.steps[i]!;
     tRef.current = 0; setT(0); setStep(i); setPicked(null); setWrongNote(null); setWordIdx(-1); setPhase("playing");
-    const rr = R.current.mute ? undefined : stp.audio?.[lang] ?? stp.audio?.en;
+    const rr = R.current.mute ? undefined : stp.audio?.[narrationLang] ?? stp.audio?.en;
     speechDone.current = !(!rr && R.current.browserVoice && hasSpeech() && !R.current.mute);
     const id = run.current;
     bound.current = null;
@@ -141,20 +145,20 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
     }
     // load the recordings of the next steps now, so there is no wait between scenes
     for (let n = i + 1; n <= i + 2 && n < R.current.lesson.steps.length; n++) {
-      const nx = R.current.lesson.steps[n]!, ref = nx.audio?.[lang] ?? nx.audio?.en;
+      const nx = R.current.lesson.steps[n]!, ref = nx.audio?.[narrationLang] ?? nx.audio?.en;
       if (ref && !pre.current.has(ref.url)) { const pa = new Audio(); pa.preload = "auto"; pa.src = ref.url; pre.current.set(ref.url, pa); }
     }
-  }, [lang, stopVoice]);
+  }, [narrationLang, stopVoice]);
 
   const afterNarration = useCallback(() => {
     const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
-    if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[lang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
+    if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[narrationLang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
     if (i + 1 >= ls.steps.length) { setPhase("done"); return; }
     if (!R.current.autoAdvance || (!vp.autoplay && ls.steps[i + 1]?.id.startsWith("v-") && !stp.id.startsWith("v-"))) { setPhase("paused"); return; }
     setPhase("gap");
     const id = run.current;
     timer.current = window.setTimeout(() => { if (run.current === id) begin(i + 1); }, R.current.pauseMs);
-  }, [begin, lang, say]);
+  }, [begin, narrationLang, say]);
   const finishStep = useCallback(() => {
     const stp = R.current.lesson.steps[R.current.step]!, ta = stp.audio?.ta;
     if (bothRef.current && ta && !R.current.mute) { setPhase("gap"); const id = run.current; say(ta, undefined, () => { if (run.current === id) afterNarration(); }); return; }
@@ -202,8 +206,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
     const o = cur.check.options.find((x) => x.id === id)!;
     stopVoice(); setPicked(id);
     const pick = (list: typeof phrases.praise) => (list && list.length ? list[Math.floor(Math.random() * list.length)] : undefined);
-    const sayPhrase = (ph: ReturnType<typeof pick>, then: () => void) => { if (!ph) return then(); say(ph.audio?.[lang] ?? ph.audio?.en, s.name(ph.text), then); };
-    if (o.correct) { setPhase("feedback"); setWrongNote(null); sayPhrase(pick(phrases.praise), () => say(cur.checkAudio?.explanation?.[lang] ?? cur.checkAudio?.explanation?.en, cur.check!.explanation.en)); }
+    const sayPhrase = (ph: ReturnType<typeof pick>, then: () => void) => { if (!ph) return then(); say(ph.audio?.[narrationLang] ?? ph.audio?.en, s.name(ph.text), then); };
+    if (o.correct) { setPhase("feedback"); setWrongNote(null); sayPhrase(pick(phrases.praise), () => say(cur.checkAudio?.explanation?.[narrationLang] ?? cur.checkAudio?.explanation?.en, cur.check!.explanation.en)); }
     else { setWrongNote(s.name(o.whyWrong ?? { en: "" })); sayPhrase(pick(phrases.tryAgain), () => say(undefined, o.whyWrong?.en)); }
   };
   const proceed = () => { stopVoice(); if (step + 1 >= lesson.steps.length) setPhase("done"); else begin(step + 1); };
@@ -219,7 +223,13 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
   });
 
   const shownT = phase === "idle" ? 0 : Math.min(t, durMs);
-  const scene = useMemo(() => sceneAt(lesson, step, phase === "idle" ? 0 : shownT, { durMs, words, instant, lang: "en" }), [lesson, step, shownT, durMs, words, instant, phase]);
+  const samplePoster = related && vp.animations ? lesson.steps.findIndex((item) => item.id === "v-mg-intro") : -1;
+  const scene = useMemo(() => {
+    if (phase === "idle" && samplePoster >= 0) {
+      return sceneAt(lesson, samplePoster, 4000, { durMs: 4000, instant: true });
+    }
+    return sceneAt(lesson, step, phase === "idle" ? 0 : shownT, { durMs, words, instant, lang: "en" });
+  }, [lesson, step, shownT, durMs, words, instant, phase, samplePoster]);
   const tokens = text.split(/\s+/);
   const wordsMatch = !!words && words.length === tokens.length;
   const playing = phase === "playing", started = phase !== "idle";
@@ -242,9 +252,10 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
   const savedSection = lesson.steps[seen.last]?.section;
 
   return (
-    <div className="paper classroom">
+    <div className="paper classroom" data-sample={related ? "true" : undefined}>
       <p className="small"><Link href={back}>← {L("backToTopic")}</Link>{noteOn && <> <button type="button" className="link heart" aria-pressed={noteSaved} onClick={() => toggleNote({ id: noteId, href: `/classroom${back}`, title: lesson.title, subject: { en: subjectSlug.replace(/-/g, " ") } })}><span aria-hidden="true">{noteSaved ? "❤️" : "🤍"}</span> {noteSaved ? L("nbSaved") : L("nbSave")}</button></>}</p>
-      <h1>{s.name(lesson.title)}</h1>
+      <h1>{s.name(related ? sample.title : lesson.title)}</h1>
+      {related && <p className="sample-intro">{lang === "ta" ? "காந்தம் எதை ஈர்க்கும்? பலகையில் பார்த்து, விடையைச் சோதித்துப் பாருங்கள்." : "What will a magnet pick up? Watch the board, make a prediction and check your answer."}</p>}
       {sections.length > 1 && (
         <nav className="class-rail" aria-label={L("classroomParts")}>
           {sections.map((x) => <button type="button" key={x.first} className={x.name === curSection ? "on" : undefined} aria-current={x.name === curSection ? "step" : undefined} onClick={() => go(x.first)}>{resume && seen.done.includes(x.name) ? "✓ " : ""}{x.name}</button>)}
@@ -270,7 +281,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
       )}
 
         <div className="class-stage">
-          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
+          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(related ? sample.title : lesson.title)} />
           {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
           {phase === "done" && (
             <div className="class-done" role="status"><b>{L("classroomDone")}</b>
@@ -282,7 +293,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
             {started && !mute && !rec && !browserVoice && <p className="class-caption small" role="note">{L("classroomNoRecording")}</p>}
             {started ? (<>
               <p className="class-caption">{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
-              {both && cur.narration.ta && <p className="class-caption ta" lang="ta">{cur.narration.ta}</p>}
+              {(both || (related && lang === "ta")) && cur.narration.ta && <p className="class-caption ta" lang="ta">{cur.narration.ta}</p>}
             </>) : <p className="class-caption small">{L("classroomSubtitlesHint")}</p>}
           </aside>
         )}
@@ -313,6 +324,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
           </select>
         </label>
       </div>
+      {related && <p className="actions"><Link className="btn ghost" href={related}>{lang === "ta" ? "காந்தங்கள் பற்றிய பிற பாடங்கள்" : "Explore more lessons about magnets"} →</Link></p>}
       <ReportProblem kind="lesson" about={back} where="onLessons" />
       <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
 

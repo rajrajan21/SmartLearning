@@ -395,3 +395,6 @@ Cost INR 0; no external runtime APIs; every feature gets deep admin settings and
 
 ### F. Change log (append)
 - 2026-11-20: GitHub publish fixed (index.lock, ignore rules); Caddy + DNS + HTTPS for sharpstudy.in live; Edge voices Kani/Arul added (apply-edge-voices); per-lesson voice list shows only recorded voices; institutional theme patch delivered; Go-Live.bat delivered; Kani audio generation in progress (see B); live audio not playing (P0 item 1); admin redesign, monitor/health, site-settings dropdown, layout pack (Classroom, Study path, Today widgets) requested and not yet built.
+
+## Admin dashboard and site layouts (2026-11-20)
+Implemented the SharpStudy admin overview, separate Site settings dropdown, search, site monitor and Kani Jobs view. Layout gallery has six selectable layouts and a Classic default. The public sample CTA opens the Class 6 magnets Classroom lesson when available. See docs/admin-dashboard.md for preview, monitoring and reporter configuration.

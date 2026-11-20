@@ -1,3 +1,5 @@
+import { sample, matchesSample } from "../lib/sampleLesson";
+import { usePreset } from "../lib/sitePresets";
 import { Link } from "wouter";
 import { useActiveBoard } from "../lib/activeBoard";
 import { BoardChips } from "../components/BoardChips";
@@ -36,6 +38,7 @@ const COMING_BOARDS = [
 
 export function Home() {
   const s = useSettings();
+  const preset = usePreset();
   const board = useActiveBoard();
   const [attempt, retry] = useRetry();
   const state = useBoard(board, attempt);
@@ -51,7 +54,9 @@ export function Home() {
   const lessonIds = useLessonTopicIds(s.get("feature.lessons") === true);
   const tree = state.status === "ready" ? (state.data as never) : null;
   const openList = [...open];
-  const tryHref = s.get("home.tryLesson.show") === true && tree ? firstLessonHref(tree, board, lessonIds, openList) : null;
+  const sampleReady = s.get("home.tryLesson.show") === true && classOn && open.has(sample.classLevel)
+    && s.get("home.tryLesson.classroom") !== false && classIdx.status === "ready" && classIdx.data.items.some(matchesSample);
+  const tryHref = sampleReady ? sample.href : s.get("home.tryLesson.show") === true && tree ? firstLessonHref(tree, board, lessonIds, openList) : null;
   const recent = s.get("home.continue.show") === true && tree ? recentLessons(tree, progress, board, s.get<number>("home.recent.count"), continueId(tree, progress, board)) : [];
   const path = s.get("home.path.show") === true && s.get("feature.lessons") === true && tree ? pathNodes(tree, progress, board, openList, s.get<number>("home.path.length")) : [];
   const goalOn = s.get("rewards.dailyGoal.enabled") === true && s.get("rewards.streak.enabled") === true;
@@ -69,9 +74,21 @@ export function Home() {
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) quick.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang) });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) quick.push({ href: "/library", icon: "📖", label: lt("title", s.lang) });
   if (s.get("feature.papers") === true && s.get("papers.home.show") !== false) quick.push({ href: "/papers", icon: "📝", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers" });
-  if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} />;
+  if (preset === "classic" && app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} />;
   const lead = s.text("home.hero.lead").trim(), l1 = s.text("home.hero.line1").trim(), l2 = s.text("home.hero.line2").trim();
   const heroTitle = l1 || l2 ? `${lead ? `${lead}||` : ""}${l1}${l1 && l2 ? "|" : ""}${l2}` : s.text("home.hero.title");
+  const today = (
+    <details className="preset-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
+          <summary>{s.lang === "ta" ? "இன்றைய செயல்பாடுகள்" : "Today's activities"}</summary>
+          <div className="today-items">
+              <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
+              {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
+              <PuzzleOfDay />
+              <ProjectOfWeek />
+              {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
+          </div>
+        </details>
+  );
   return (
     <div className="paper home">
       <div className="home-top">
@@ -80,7 +97,7 @@ export function Home() {
         <section className="hero">
           <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={heroTitle} /></h1>
           <p className="lead"><Rich text={s.text("home.hero.subtitle")} /></p>
-          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small"><Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
+          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small">{sampleReady && <><b>{s.name(sample.title)}</b><br /></>}<Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
         </section>
       )}
         <div className="home-side">
@@ -115,6 +132,7 @@ export function Home() {
           </ul>
         </section>
       )}
+      {preset === "activity" && today}
       <BoardPath nodes={path} streak={streakOn ? rewards.streak : 0} />
       {s.get("home.rewards.show") === true && (streakOn || rewards.stars > 0) && (
         <section className="rewards" aria-label={ui("rewardsTitle", s.lang)}>
@@ -134,6 +152,7 @@ export function Home() {
           {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
         </nav>
       )}
+      {preset === "classic" ? <>
       <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
       <Reminder goalMet={doneToday >= goal} />
       {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
@@ -141,6 +160,11 @@ export function Home() {
       <ProjectOfWeek />
       <TourSection where="section" />
       {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
+      </> : <>
+        {preset !== "activity" && today}
+        <Reminder goalMet={doneToday >= goal} />
+        <TourSection where="section" />
+      </>}
       {s.get("explore.tryIt.show") === true && <section className="paper-block"><WaterCycle /></section>}
       {mastery && s.get("mastery.homeCard") === true && s.get("mastery.revision.enabled") === true && due > 0 && (
         <section className="revise-card" aria-label={ui("reviseToday", s.lang)}>
@@ -156,13 +180,13 @@ export function Home() {
       )}
       {s.get("home.search.show") && s.get("feature.search") && <SearchBox board={board} />}
       {s.get("home.boardPicker.show") && (
-        <section aria-labelledby="boards-h">
+        <section className={preset === "classic" ? undefined : "preset-boards"} aria-labelledby="boards-h">
           <h2 id="boards-h">{ui("board", s.lang)}</h2>
           <BoardChips />
         </section>
       )}
       {s.get("home.classPicker.show") && (
-        <section aria-labelledby="classes-h">
+        <section className={preset === "classic" ? undefined : "preset-classes"} aria-labelledby="classes-h">
           <h2 id="classes-h">{ui("classWord", s.lang)}</h2>
           {state.status === "loading" && <Loading />}
           {state.status === "error" && <ErrorBox onRetry={retry} />}

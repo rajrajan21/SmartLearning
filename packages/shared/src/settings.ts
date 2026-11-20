@@ -431,6 +431,7 @@ export const SETTINGS: SettingDef[] = [
   { key: "layout.width", panel: "theme", section: "Layout style", label: "Page width", public: true, type: "select", default: "wide",
     help: "How much of a wide screen the main content uses. Wide or Full use the empty space on the right.",
     options: [{ value: "standard", label: "Standard (narrow)" }, { value: "wide", label: "Wide - recommended" }, { value: "full", label: "Full (uses most of the screen)" }] },
+  { key: "layout.sitePreset", panel: "layout", section: "Site-wide layout", label: "Active layout", public: true, type: "select", default: "classic", options: [{"value": "classic", "label": "Classic"}, {"value": "classroom", "label": "Classroom"}, {"value": "path", "label": "Study Path"}, {"value": "explorer", "label": "Subject Explorer"}, {"value": "dashboard", "label": "Student Dashboard"}, {"value": "activity", "label": "Activity Hub"}, {"value": "reading", "label": "Reading Room"}] },
   { key: "layout.picker", panel: "theme", section: "Layout style", label: "Board and class chooser", public: true, type: "select", default: "left",
     help: "Where the Board, Class and Subject chooser panel sits on wide screens. Bottom keeps only the in-page chooser and the phone tab bar.",
     options: [{ value: "left", label: "Left side - recommended" }, { value: "right", label: "Right side" }, { value: "bottom", label: "Bottom only (no side panel)" }] },
@@ -515,6 +516,7 @@ export const SETTINGS: SettingDef[] = [
   bool("a11y.highContrast.default", "layout", "Accessibility", "High contrast on by default for new visitors", false, { dependsOn: "a11y.highContrast.control" }),
   bool("ui.mobile.polish", "layout", "Phones", "Extra tidy layout for very small phones (360 pixels wide)", true, { help: "Smaller header, two-column tiles and tighter spacing on Home and Browse." }),
   // ---- Round 2b: richer home, browse, lesson, progress, notebook ----
+  bool("home.tryLesson.classroom", "layout", "Home dashboard", "Showcase the interactive magnets sample", true, { public: true, dependsOn: "home.tryLesson.show", help: "Uses the narrated Classroom sample when it is available. Otherwise the home page offers an available lesson." }),
   bool("home.tryLesson.show", "layout", "Home dashboard", "'Try a free lesson now' button (no sign-in)", true, { dependsOn: "feature.lessons", help: "Opens a sample lesson straight away. Lessons never need an account." }),
   bool("home.path.show", "layout", "Home dashboard", "Game-board learning path on the home page", true, { dependsOn: "feature.lessons", help: "A winding path of the next topics, in order, coloured by progress." }),
   { key: "home.path.length", panel: "layout", section: "Home dashboard", label: "Steps shown on the home path", public: true, type: "number", default: 7, min: 3, max: 12, step: 1, dependsOn: "home.path.show" },

@@ -12,6 +12,7 @@ beforeEach(() => {
     const key = h?.["x-admin-key"];
     const user = decodeURIComponent(h?.["x-admin-user"] ?? "");
     if (key !== "good-key" || (user !== "" && user.toLowerCase() !== "itsme.rajrajan@gmail.com")) return new Response(JSON.stringify({ error: { message: "no" } }), { status: 401 });
+    if (url.endsWith("/monitor/jobs")) return new Response(JSON.stringify({ oracle: null, windows: null }), { status: 200 });
     if (url.endsWith("/session")) return new Response("{}", { status: 200 });
     if (url.endsWith("/settings") && init?.method === "PUT") { saved = JSON.parse(String(init.body)).changes; return new Response(JSON.stringify({ values: { ...defaults(), ...saved }, overridden: Object.keys(saved!) }), { status: 200 }); }
     if (url.endsWith("/settings")) return new Response(JSON.stringify({ panels: PANELS, definitions: SETTINGS, presets: THEME_PRESETS, values: defaults(), overridden: [] }), { status: 200 });
@@ -23,14 +24,14 @@ describe("admin console", () => {
   it("finds a setting from any section by a search word, and clears back", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
-    await waitFor(() => expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy());
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Overview" })).toBeTruthy());
     fireEvent.change(screen.getByLabelText("Search settings"), { target: { value: "journey road" } });
     expect(screen.getByRole("heading", { name: "Search results" })).toBeTruthy();
-    expect(screen.getByText(/Journey road above the chapter list/)).toBeTruthy();
+    expect(screen.getByRole("button", { name: /Journey road above the chapter list/ })).toBeTruthy();
     fireEvent.change(screen.getByLabelText("Search settings"), { target: { value: "zzzqqq" } });
-    expect(screen.getByText(/No settings match/)).toBeTruthy();
+    expect(screen.getByText("0 results")).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Clear search" }));
-    expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy();
+    expect(screen.getByRole("heading", { name: "Overview" })).toBeTruthy();
   });
   it("rejects a wrong key and accepts the right one", async () => {
     render(<AdminApp />);
@@ -45,11 +46,13 @@ describe("admin console", () => {
     fireEvent.change(screen.getByLabelText("User id"), { target: { value: "ItsMe.RajRajan@gmail.com" } });
     fireEvent.change(screen.getByLabelText("Admin key"), { target: { value: "good-key" } });
     fireEvent.click(screen.getByRole("button", { name: "Sign in" }));
-    await waitFor(() => expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy());
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Overview" })).toBeTruthy());
   });
   it("toggles a feature and saves only the change; planned features are locked", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
+    fireEvent.click(await screen.findByText("Site settings"));
+    fireEvent.click(await screen.findByRole("button", { name: "Features" }));
     const sw = await screen.findByRole("switch", { name: /^Search$/i, checked: true });
     fireEvent.click(sw);
     expect(screen.getByText(/1 unsaved change/)).toBeTruthy();
@@ -61,6 +64,7 @@ describe("admin console", () => {
   it("applies a style preset to the draft and warns about low contrast", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
+    fireEvent.click(await screen.findByText("Site settings"));
     fireEvent.click(await screen.findByRole("button", { name: "Look and feel" }));
     fireEvent.click(screen.getByRole("button", { name: /Sunrise/ }));
     expect(screen.getByText(/unsaved change/)).toBeTruthy();
@@ -74,6 +78,7 @@ describe("look and feel panel", () => {
   it("shows theme and palette selects with previews, labels the recommended default and resets to it", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
+    fireEvent.click(await screen.findByText("Site settings"));
     fireEvent.click(await screen.findByRole("button", { name: "Look and feel" }));
     expect(screen.getByRole("radiogroup", { name: "Theme" }).querySelectorAll("[role=radio]").length).toBe(THEMES.length);
     expect(screen.getByRole("radiogroup", { name: "Colour palette" }).querySelectorAll("[role=radio]").length).toBe(PALETTES.length + 1);

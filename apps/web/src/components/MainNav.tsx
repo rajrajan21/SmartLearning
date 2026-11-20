@@ -1,3 +1,4 @@
+import { usePreset } from "../lib/sitePresets";
 import { useActiveBoard } from "../lib/activeBoard";
 import { Link, useLocation } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -8,6 +9,7 @@ import { lt } from "../lib/library";
 /** Clear top menu for wide screens. On phones the bottom tab bar does this job. */
 export function MainNav() {
   const s = useSettings();
+  const preset = usePreset();
   const [loc] = useLocation();
   const board = useActiveBoard().toLowerCase();
   const open = s.get<number[]>("catalog.openClasses");
@@ -22,9 +24,23 @@ export function MainNav() {
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) items.push({ href: "/library", label: lt("title", s.lang), on: loc.startsWith("/library") });
   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
-  return (
-    <nav className="main-nav hide-sm" aria-label={ui("navTop", s.lang)}>
-      {items.map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}>{i.label}</Link>)}
+  const priorities: string[] = {
+    classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],
+    dashboard: ["/", "/progress", "/revise"], activity: ["/gk", "/explore"], reading: ["/library", "/notebook"],
+  }[preset];
+  if (preset === "classroom" && s.get("feature.classroom") === true) items.push({
+    href: "/classroom", label: ui("classroomTitle", s.lang), on: loc.startsWith("/classroom"),
+  });
+  const rank = (href: string) => priorities.includes(href) ? priorities.indexOf(href) : priorities.length;
+  const nav = (
+    <nav className={preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
+      {items.sort((a, b) => rank(a.href) - rank(b.href)).map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}
+        onClick={(event) => {
+          if (typeof matchMedia === "function" && matchMedia("(max-width: 849px)").matches) event.currentTarget.closest("details")?.removeAttribute("open");
+        }}>{i.label}</Link>)}
     </nav>
   );
+  return preset === "classic" ? nav : <details className="preset-menu" open={preset !== "reading" && typeof matchMedia === "function" && matchMedia("(min-width: 850px)").matches}>
+    <summary>{s.lang === "ta" ? "பக்கங்கள்" : "Menu"}</summary>{nav}
+  </details>;
 }

@@ -10,8 +10,8 @@ export function BottomNav() {
   const s = useSettings();
   const [loc] = useLocation();
   const { app } = useApp();
-  if (s.get("ui.bottomNav.enabled") !== true && !app) return null;
   const board = useActiveBoard().toLowerCase();
+  if (s.get("ui.bottomNav.enabled") !== true && !app) return null;
   const open = s.get<number[]>("catalog.openClasses");
   const cls = open.length ? Math.min(...open) : 3;
   const mastery = s.get("feature.mastery") === true;

@@ -1,3 +1,4 @@
+import { sample } from "../lib/sampleLesson";
 import { useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -54,7 +55,7 @@ function QuickQuestion() {
 }
 
 /** Home for phones: one bite-sized card per screen, swipe up for the next (CSS scroll-snap). */
-export function AppFeed({ tree, board }: { tree: TreeLike | null; board: string }) {
+export function AppFeed({ tree, board, sampleHref }: { tree: TreeLike | null; board: string; sampleHref?: string }) {
   const s = useSettings();
   const open = s.get<number[]>("catalog.openClasses");
   const [cls, setCls] = useState(() => chosenClass(open));
@@ -104,6 +105,7 @@ export function AppFeed({ tree, board }: { tree: TreeLike | null; board: string 
               <Link className="btn big" href={next.href}>{started ? ui("feedContinue", s.lang) : ui("feedStart", s.lang)} →</Link>
             </>
           ) : <p className="fc-title">{ui("nextAllDone", s.lang)}</p>}
+          {sampleHref && <p><Link className="btn ghost" href={sampleHref}>{s.text("home.cta.label") || ui("tryLesson", s.lang)} · {s.name(sample.title)}</Link></p>}
           <p className="swipe-hint small" aria-hidden="true">⌃ {ui("feedSwipe", s.lang)}</p>
         </section>
         {path.length > 0 && <section className="fcard"><BoardPath nodes={path} streak={0} /></section>}

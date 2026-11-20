@@ -42,7 +42,7 @@ S = []
 S += [Paragraph("SharpStudy - admin settings and setup guide", H1),
       Paragraph(f"{len(settings)} settings in {len(panels)} panels. Generated from <b>packages/shared/src/settings.ts</b> by <b>tools/make_admin_settings_pdf.py</b>. Regenerate after adding or changing any setting.", B), Spacer(1, 8)]
 S += [Paragraph("How the admin area works", H2),
-      Paragraph("Open <b>/admin</b> on the site (local: http://localhost:3000/admin). Sign in with the user id in the server variable <b>ADMIN_USER_ID</b> and the secret <b>ADMIN_KEY</b>. Eight wrong tries lock the sign-in for 10 minutes. Change a setting, then press Save. A search box at the top finds any setting by word. Settings marked <b>public</b> are sent to visitors' browsers (never put secrets in them). A setting with <b>depends on</b> is only active while its parent switch is On. Every new site feature must have its own on/off setting here (owner rule).", B)]
+      Paragraph("Open <b>/admin</b> on the site (local: http://localhost:3000/admin). Sign in with the user id in the server variable <b>ADMIN_USER_ID</b> and the secret <b>ADMIN_KEY</b>. Eight wrong tries lock the sign-in for 10 minutes. Change a setting, then press Save. The top search finds settings, tools and layouts. Use Layout gallery to preview Home, Subject and Lesson and then save a site-wide layout. Overview links to Site monitor and Jobs. Settings marked <b>public</b> are sent to visitors' browsers (never put secrets in them). A setting with <b>depends on</b> is only active while its parent switch is On. Every new site feature must have its own on/off setting here (owner rule).", B)]
 S += [Paragraph("Server setup values (environment, not in the admin screen)", H2)]
 env = [["Name", "Meaning"],
  ["NODE_ENV, PORT", "production / port (3100 on Oracle)"], ["DATABASE_URL", "PostgreSQL connection (local dev uses PGlite folder PGLITE_DIR)"],
@@ -50,7 +50,8 @@ env = [["Name", "Meaning"],
  ["TUTOR_API_URL / KEY / MODEL", "Optional free OpenAI-compatible model for Ask the teacher; empty = lesson text only"], ["ACCESS_COOKIE_SECRET", "Optional secret for the invited cookie"],
  ["AUDIO_DIR, BOOKS_DIR, UPLOADS_DIR, STATS_FILE, REPORTS_FILE, MAIL_STATE_FILE", "Where audio, textbooks, uploads, view counts, reports and mail state are kept"],
  ["MALAR_URL, PARLER_URL, AUDIO_JOBS", "Speech servers (default http://localhost:8080 and :8090) and parallel audio jobs"],
- ["BACKUP_DIR, BACKUP_ROOT, BACKUP_KEEP", "Backup folder and number kept"]]
+ ["BACKUP_DIR, BACKUP_ROOT, BACKUP_KEEP", "Backup folder and number kept"],
+ ["JOB_REPORT_TOKEN, JOB_REPORT_DIR", "Optional job reporter credential and private storage directory. See docs/admin-dashboard.md for setup."]]
 t = Table([[Paragraph(escape(a), B), Paragraph(escape(b), B)] for a, b in env], colWidths=[250, 540])
 t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), .3, colors.grey), ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey), ("VALIGN", (0, 0), (-1, -1), "TOP")]))
 S += [t, Paragraph("Owner-only setup: create Google/Facebook sign-in keys, SMTP mail details, Oracle server, DNS for sharpstudy.in. See deploy/README-DEPLOY.md.", B), PageBreak()]
@@ -66,7 +67,7 @@ for p in panels:
         for s in items:
             rows.append([Paragraph(escape(s["label"]), C), Paragraph(escape(s["key"]), C), Paragraph(escape(rng(s)), C), Paragraph(escape(val(s.get("default", ""))[:60]), C),
                          Paragraph("yes" if s.get("public") else "", C), Paragraph(escape(s.get("dependsOn", "") or ""), C), Paragraph(escape(s.get("help", "") or ""), C)])
-        t = Table(rows, colWidths=[150, 120, 90, 80, 30, 100, 220], repeatRows=1)
+        t = Table(rows, colWidths=[150, 120, 90, 80, 42, 100, 208], repeatRows=1)
         t.setStyle(TableStyle([("GRID", (0, 0), (-1, -1), .25, colors.grey), ("BACKGROUND", (0, 0), (-1, 0), colors.lightgrey), ("VALIGN", (0, 0), (-1, -1), "TOP")]))
         S.append(t)
     S.append(PageBreak())
