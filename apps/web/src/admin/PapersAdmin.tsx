@@ -12,6 +12,7 @@ const Tally = ({ title, rows }: { title: string; rows: [string, number][] }) => 
 export function PapersAdmin() {
   const [st, setSt] = useState<PapersStatus | null>(null);
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
+  const [reportId, setReportId] = useState("");
   const [q, setQ] = useState("");
   const [pick, setPick] = useState<Set<string>>(new Set());
   const load = useCallback(async () => {
@@ -24,7 +25,8 @@ export function PapersAdmin() {
   };
   const toggle = (id: string) => setPick((s) => { const n = new Set(s); if (n.has(id)) n.delete(id); else n.add(id); return n; });
   if (!st) return <p>{msg?.text ?? "Loading…"}</p>;
-  const job = st.job;
+  const history = st.history ?? [];
+  const job = history.find((entry) => entry.startedAt === reportId) ?? st.job;
   const cfg = st.config;
   const siteOn = (s: PapersSiteRow) => !ids(cfg.disabledSites).includes(s.id) && (s.defaultOn || ids(cfg.enabledSites).includes(s.id));
   const siteHidden = (s: PapersSiteRow) => ids(cfg.hiddenSites.toLowerCase()).includes(s.hideKey.toLowerCase());
@@ -52,16 +54,19 @@ export function PapersAdmin() {
       <p>
         <b>{st.total}</b> papers ({st.visible} shown to students), <b>{st.questions}</b> questions, <b>{st.withAnswers}</b> with an answer key. Last change: {when(st.updated)}.
       </p>
-      <h4>Collector (runs on your PC)</h4>
+      <h4>Collector run reports</h4>
+      {history.length > 0 && <label>Run <select value={reportId} onChange={(e) => setReportId(e.target.value)}><option value="">Latest run</option>{history.map((entry) => <option key={entry.startedAt} value={entry.startedAt}>{when(entry.startedAt)}</option>)}</select></label>}
       {job ? (
         <>
-          <p>Last run: {when(job.startedAt)} to {when(job.finishedAt)}. Added {job.added ?? 0}, skipped {job.skipped ?? 0}, failed {job.failed ?? 0}. Settings read from: {job.configSource ?? "unknown"}. {job.storageMB != null && <>Storage: {job.storageMB} MB.</>}</p>
+          <p>{when(job.startedAt)} to {when(job.finishedAt)}. Added {job.added ?? 0} papers and {job.questions ?? 0} questions. Skipped {job.skipped ?? 0}, blocked {job.blocked ?? 0}, failed {job.failed ?? 0}. {job.note} Settings read from: {job.configSource ?? "unknown"}. {job.storageMB != null && <>Storage: {job.storageMB} MB.</>}</p>
           {job.sites && job.sites.length > 0 && (
-            <table><thead><tr><th>Site</th><th>Status</th><th>Added</th><th>Note</th></tr></thead>
-              <tbody>{job.sites.map((s, i) => <tr key={s.id ?? i}><td>{s.name ?? s.id}</td><td>{s.status}</td><td>{s.added ?? 0}</td><td>{s.note}</td></tr>)}</tbody></table>
+            <table><thead><tr><th>Site</th><th>Status</th><th>Added</th><th>Details and examples</th></tr></thead>
+              <tbody>{job.sites.map((s, i) => <tr key={s.id ?? i}><td>{s.name ?? s.id}</td><td>{s.status}</td><td>{s.added ?? 0}</td><td>{s.note}{s.issues && s.issues.length > 0 && <ul>{s.issues.map((issue) => <li key={issue.reason}>
+                <strong>{issue.reason} ({issue.count})</strong> {issue.detail} {/^https?:\/\//i.test(issue.url) && <a href={issue.url} target="_blank" rel="noreferrer">Open source</a>}
+              </li>)}</ul>}</td></tr>)}</tbody></table>
           )}
         </>
-      ) : <p>The collector has not reported yet. On your PC run Harvest-Question-Papers.bat, then publish with Go-Live.bat.</p>}
+      ) : <p>The collector has not reported yet.</p>}
       <p>
         <button type="button" className="btn ghost sm" onClick={() => { if (confirm("Make the collector forget which papers it has seen? It will re-check every site next run (duplicates are still skipped by content).")) void run(admin.papersResetCollector, "Collector memory will be cleared on its next run."); }}>Reset collector memory</button>{" "}
         <button type="button" className="btn ghost sm" onClick={() => void load()}>Refresh</button>

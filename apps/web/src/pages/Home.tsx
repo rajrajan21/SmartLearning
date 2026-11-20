@@ -77,25 +77,27 @@ export function Home() {
   if (preset === "classic" && app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} />;
   const lead = s.text("home.hero.lead").trim(), l1 = s.text("home.hero.line1").trim(), l2 = s.text("home.hero.line2").trim();
   const heroTitle = l1 || l2 ? `${lead ? `${lead}||` : ""}${l1}${l1 && l2 ? "|" : ""}${l2}` : s.text("home.hero.title");
+  const challenge = <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />;
+  const gk = s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>;
+  const fact = s.get("home.didYouKnow.show") === true && <DidYouKnow />;
   const today = (
     <details className="preset-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
-          <summary>{s.lang === "ta" ? "இன்றைய செயல்பாடுகள்" : "Today's activities"}</summary>
-          <div className="today-items">
-              <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
-              {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
-              <PuzzleOfDay />
-              <ProjectOfWeek />
-              {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
-          </div>
-        </details>
+      <summary>{s.lang === "ta" ? "இன்றைய செயல்பாடுகள்" : "Today's activities"}</summary>
+      {preset === "activity" ? <div className="today-items activity-stacks">
+        <div className="activity-stack">{challenge}<ProjectOfWeek /><PuzzleOfDay />{fact}</div>
+        <div className="activity-stack">{gk}</div>
+      </div> : <div className="today-items">{challenge}{gk}<PuzzleOfDay /><ProjectOfWeek />{fact}</div>}
+    </details>
   );
+  const headline = <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={heroTitle} /></h1>;
   return (
     <div className="paper home">
       <div className="home-top">
       {s.get("home.banner.show") === true && Number(s.get("brand.bannerVersion") ?? 0) > 0 && <img className="site-banner" src={`/uploads/banner?v=${Number(s.get("brand.bannerVersion"))}`} alt={s.get<string>("site.name")} style={{ height: Number(s.get("brand.bannerHeight") ?? 200) }} />}
+      {preset === "activity" && s.get("home.hero.show") && <div className="activity-headline">{headline}</div>}
       {s.get("home.hero.show") && (
         <section className="hero">
-          <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={heroTitle} /></h1>
+          {preset !== "activity" && headline}
           <p className="lead"><Rich text={s.text("home.hero.subtitle")} /></p>
           {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small">{sampleReady && <><b>{s.name(sample.title)}</b><br /></>}<Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
         </section>

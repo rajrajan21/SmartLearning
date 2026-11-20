@@ -87,12 +87,12 @@ export async function ingest(item, site, { fetcher, matcherFor, dir, text, cfg =
   const m = item.meta; const board = site.board;
   const match = matcherFor ? matcherFor(m.cls, m.subject) : () => undefined;
   for (const s of parsed.sections) for (const q of s.questions) { const ch = match(q.text + " " + (q.options ?? []).join(" ")); if (ch) q.chapter = ch; }
-  const norm = parsed.sections.flatMap((s) => s.questions.map((q) => q.text.toLowerCase().replace(/\W+/g, ""))).join("|");
+  const norm = parsed.sections.flatMap((s) => s.questions.map((q) => q.text.normalize("NFC").toLowerCase().replace(/[^\p{L}\p{M}\p{N}]+/gu, ""))).join("|");
   const hash = sha(norm);
   const title = `${BOARD_NAME[board]} Class ${m.cls} ${m.subject} ${m.term ? TERM_NAME[m.term] + " " + KIND_NAME[m.kind].toLowerCase() : KIND_NAME[m.kind]}${m.year ? " " + m.year : ""}`;
   const paper = { v: 1, id: slug(`${board}-${m.cls}-${m.subject}-${m.kind}-${m.year ?? "na"}`) + "-" + hash.slice(0, 6), title, board, cls: m.cls, subject: m.subject, ...(m.year ? { year: m.year } : {}), ...(m.term ? { term: m.term } : {}), kind: m.kind, ...(parsed.meta.maxMarks ? { maxMarks: parsed.meta.maxMarks } : {}), ...(parsed.meta.minutes ? { minutes: parsed.meta.minutes } : {}), source: { site: site.name, url: item.drive ? (item.pageUrl ?? item.url) : item.url, ...(item.pageUrl && !item.drive && item.pageUrl !== item.url ? { page: item.pageUrl } : {}), ...(site.license ? { license: site.license.slice(0, 300) } : {}) }, hash, sections: parsed.sections };
   const r = savePaper(paper, dir);
-  if (r === "saved") return { result: "saved", detail: `${paper.id}: ${n} questions, ${keyed} with answers`, id: paper.id, hash };
+  if (r === "saved") return { result: "saved", detail: `${paper.id}: ${n} questions, ${keyed} with answers`, id: paper.id, hash, questions: n };
   if (r === "duplicate") return { result: "duplicate", detail: paper.id, hash };
   return { result: "invalid", detail: r.join(", ") };
 }

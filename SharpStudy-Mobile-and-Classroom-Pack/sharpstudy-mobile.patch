@@ -1,0 +1,418 @@
+--- a/apps/web/src/classroom.test.tsx
++++ b/apps/web/src/classroom.test.tsx
+@@ -40,6 +40,38 @@
+     mount("/classroom");
+     expect(await screen.findByText("Halves and quarters")).toBeTruthy();
+   });
++  it("combines Classroom filters and restores results when cleared", async () => {
++    mount("/classroom");
++    await screen.findByText("Halves and quarters");
++    fireEvent.change(screen.getByRole("combobox", { name: "Class" }), { target: { value: "3" } });
++    fireEvent.change(screen.getByRole("combobox", { name: "Subject" }), { target: { value: "maths" } });
++    const search = screen.getByRole("searchbox", { name: "Find a Classroom lesson" });
++    fireEvent.change(search, { target: { value: "fair share" } });
++    expect(screen.getByText("Halves and quarters")).toBeTruthy();
++    fireEvent.change(search, { target: { value: "magnet" } });
++    expect(screen.queryByText("Halves and quarters")).toBeNull();
++    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
++    expect(screen.getByText("Halves and quarters")).toBeTruthy();
++  });
++  it("keeps chapter search visible when Activity Hub navigation is collapsed", async () => {
++    settings = { ...settings, "layout.sitePreset": "activity", "search.header.show": true, "feature.search": true };
++    mount("/classroom");
++    const menu = await screen.findByRole("button", { name: /Menu/ });
++    expect(menu.getAttribute("aria-expanded")).toBe("true");
++    fireEvent.click(menu);
++    expect(menu.getAttribute("aria-expanded")).toBe("false");
++    expect(screen.getByRole("searchbox", { name: "Search chapters and topics" })).toBeTruthy();
++    fireEvent.click(menu);
++    expect(menu.getAttribute("aria-expanded")).toBe("true");
++  });
++  it("opens browser install and bookmark help even without a native prompt", async () => {
++    settings = { ...settings, "app.install.show": true };
++    mount("/classroom");
++    fireEvent.click(await screen.findByRole("button", { name: "Install app" }));
++    expect(screen.getByText(/bookmark this page/)).toBeTruthy();
++    fireEvent.keyDown(window, { key: "Escape" });
++    expect(screen.queryByText(/bookmark this page/)).toBeNull();
++  });
+   it("has its own heart: save, un-save, and it can be switched off", async () => {
+     mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
+     await screen.findByText("Halves and quarters");
+--- a/apps/web/src/components/AppBar.tsx
++++ b/apps/web/src/components/AppBar.tsx
+@@ -1,8 +1,12 @@
+ import { useState } from "react";
+-import { useLocation } from "wouter";
++import { Link, useLocation } from "wouter";
+ import { useSettings } from "../lib/settings";
+ import { ui, type UiKey } from "../lib/i18n";
+ import { BottomSheet } from "./BottomSheet";
++import { Logo } from "./Logo";
++import { MainNav } from "./MainNav";
++import { SearchBox } from "./SearchBox";
++import { useActiveBoard } from "../lib/activeBoard";
+ import { MeSettings } from "./MeSettings";
+ 
+ const TITLES: [string, UiKey][] = [["/progress", "myProgress"], ["/revise", "navRevise"], ["/explore", "navExplore"], ["/notebook", "navNotebook"], ["/account", "appMe"], ["/parent", "parentArea"], ["/classroom", "classroomTitle"]];
+@@ -12,15 +16,23 @@
+ export function AppBar() {
+   const s = useSettings();
+   const [loc] = useLocation();
++  const board = useActiveBoard();
+   const [sheet, setSheet] = useState(false);
+   const root = isTabRoot(loc);
+   const t = TITLES.find(([p]) => loc.startsWith(p))?.[1];
+   return (
+     <div className="appbar" role="banner">
+       {root ? <span className="appbar-spacer" /> : <button type="button" className="appbar-back" onClick={() => history.back()} aria-label={ui("appBack", s.lang)}>←</button>}
++      <Link href="/" className="appbar-brand" aria-label={ui("home", s.lang)}><Logo size={30} /></Link>
+       <p className="appbar-title">{t ? ui(t, s.lang) : s.get<string>("site.name")}</p>
+       <button type="button" className="appbar-gear" onClick={() => setSheet(true)} aria-label={ui("appQuickSettings", s.lang)} aria-haspopup="dialog">⚙︎</button>
+-      <BottomSheet open={sheet} onClose={() => setSheet(false)} title={ui("appQuickSettings", s.lang)}><MeSettings compact /></BottomSheet>
++      <BottomSheet open={sheet} onClose={() => setSheet(false)} title={ui("appQuickSettings", s.lang)}>
++        <div onClick={(event) => { if ((event.target as HTMLElement).closest("a,.install-trigger")) setSheet(false); }}>
++          {s.get("feature.search") === true && s.get("search.header.show") === true && <SearchBox compact board={board} />}
++          <div className="appbar-links"><MainNav bare /></div>
++          <MeSettings compact />
++        </div>
++      </BottomSheet>
+     </div>
+   );
+ }
+--- a/apps/web/src/components/InstallPopup.tsx
++++ b/apps/web/src/components/InstallPopup.tsx
+@@ -7,6 +7,15 @@
+ let saved: InstallEvent | null = null;
+ // the browser can fire this before any component is on screen, so it is caught once, here
+ if (typeof window !== "undefined") window.addEventListener("beforeinstallprompt", (e) => { e.preventDefault(); saved = e as InstallEvent; });
++
++const OPEN_INSTALL = "ss-open-install";
++export function InstallTrigger() {
++  const s = useSettings();
++  if (s.get("app.install.show") !== true || isStandalone()) return null;
++  return <button type="button" className="btn ghost install-trigger" onClick={() => window.dispatchEvent(new Event(OPEN_INSTALL))}>
++    {s.lang === "ta" ? "செயலியைச் சேர்" : "Install app"}
++  </button>;
++}
+ 
+ const KEY = "ss_install_v1";
+ export interface InstallMemory { until?: number; never?: boolean }
+@@ -20,13 +29,18 @@
+   const s = useSettings();
+   const [evt, setEvt] = useState<InstallEvent | null>(saved);
+   const [open, setOpen] = useState(false);
++  const [manual, setManual] = useState(false);
+   const on = s.get("app.install.popup.show") === true;
+   const delay = s.get<number>("app.install.popup.delaySeconds");
+   useEffect(() => {
+     const h = (e: Event) => { e.preventDefault(); saved = e as InstallEvent; setEvt(saved); };
+-    const d = () => setOpen(false);
++    const d = () => { saved = null; setEvt(null); setOpen(false); setManual(false); };
++    const request = () => { if (!isStandalone()) setManual(true); };
++    const escape = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); setManual(false); } };
++    window.addEventListener("keydown", escape);
++    window.addEventListener(OPEN_INSTALL, request);
+     window.addEventListener("beforeinstallprompt", h); window.addEventListener("appinstalled", d);
+-    return () => { window.removeEventListener("beforeinstallprompt", h); window.removeEventListener("appinstalled", d); };
++    return () => { window.removeEventListener("beforeinstallprompt", h); window.removeEventListener("appinstalled", d); window.removeEventListener(OPEN_INSTALL, request); window.removeEventListener("keydown", escape); };
+   }, []);
+   useEffect(() => {
+     if (!on || isStandalone()) return;
+@@ -38,9 +52,10 @@
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+   }, [on, delay]);
+   const ios = isIos();
+-  if (!open || !on || (!evt && !(ios && s.get("app.install.popup.ios") === true))) return null;
+-  const later = () => { store.setJson(KEY, { until: Date.now() + s.get<number>("app.install.popup.snoozeDays") * 86400000 } satisfies InstallMemory); setOpen(false); };
+-  const never = () => { store.setJson(KEY, { never: true } satisfies InstallMemory); setOpen(false); };
++  if (!manual && (!open || !on || (!evt && !(ios && s.get("app.install.popup.ios") === true)))) return null;
++  const close = () => { setManual(false); setOpen(false); };
++  const later = () => { store.setJson(KEY, { until: Date.now() + s.get<number>("app.install.popup.snoozeDays") * 86400000 } satisfies InstallMemory); close(); };
++  const never = () => { store.setJson(KEY, { never: true } satisfies InstallMemory); close(); };
+   return (
+     <aside className="install-pop" role="dialog" aria-label={ui("installPopupTitle", s.lang)}>
+       <img src="/icon-192.png" alt="" width="48" height="48" />
+@@ -49,16 +64,17 @@
+         <p className="small">{ui("installPopupText", s.lang)}</p>
+         {evt ? (
+           <div className="q-actions">
+-            <button type="button" className="btn sm" onClick={() => { void evt.prompt(); saved = null; setEvt(null); setOpen(false); }}>{ui("installBtn", s.lang)}</button>
++            <button type="button" className="btn sm" onClick={() => { void evt.prompt().catch(() => setManual(true)); saved = null; setEvt(null); close(); }}>{ui("installBtn", s.lang)}</button>
+             <button type="button" className="btn ghost sm" onClick={later}>{ui("installNotNow", s.lang)}</button>
+           </div>
+         ) : (
+           <>
+-            <ol className="ios-steps"><li>{ui("installIos1", s.lang)}</li><li>{ui("installIos2", s.lang)}</li><li>{ui("installIos3", s.lang)}</li></ol>
++            {ios ? <ol className="ios-steps"><li>{ui("installIos1", s.lang)}</li><li>{ui("installIos2", s.lang)}</li><li>{ui("installIos3", s.lang)}</li></ol>
++              : <p className="small">{s.lang === "ta" ? "உலாவிப் பட்டியலில் ‘முகப்புத் திரையில் சேர்’ என்பதைத் தேர்ந்தெடுக்கவும். அது இல்லையெனில் இந்தப் பக்கத்தைப் புக்மார்க் செய்யவும்." : "Open your browser menu and choose Install app or Add to Home screen. If these are unavailable, bookmark this page."}</p>}
+             <div className="q-actions"><button type="button" className="btn ghost sm" onClick={later}>{ui("installNotNow", s.lang)}</button></div>
+           </>
+         )}
+-        <button type="button" className="link small" onClick={never}>{ui("installNever", s.lang)}</button>
++        {!manual && <button type="button" className="link small" onClick={never}>{ui("installNever", s.lang)}</button>}
+       </div>
+     </aside>
+   );
+--- a/apps/web/src/components/Layout.tsx
++++ b/apps/web/src/components/Layout.tsx
+@@ -2,9 +2,9 @@
+ import "./sitePresets.css";
+ import { useActiveBoard } from "../lib/activeBoard";
+ import { SearchBox } from "./SearchBox";
+-import { InstallPopup } from "./InstallPopup";
++import { InstallPopup, InstallTrigger } from "./InstallPopup";
+ import { ScrollAids } from "./ScrollAids";
+-import { type ReactNode } from "react";
++import { useId, useState, type ReactNode } from "react";
+ import { Link } from "wouter";
+ import { useSettings } from "../lib/settings";
+ import { ui } from "../lib/i18n";
+@@ -44,6 +44,9 @@
+   const acct = useAccountOptional();
+   const showAcct = s.get("feature.accounts") === true && s.get("accounts.showHeaderLink") === true;
+   const { app, phone, pref } = useApp();
++  const activity = preset === "activity";
++  const [menuOpen, setMenuOpen] = useState(true);
++  const menuId = useId();
+   const [loc] = useLocation();
+   useEffect(() => { if (s.get("stats.enabled") === true && !previewFrame() && !loc.startsWith("/admin")) void fetch("/api/v1/track/view", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ path: loc }), keepalive: true }).catch(() => {}); }, [loc, s]);
+   useEffect(() => { const r = document.documentElement; if (app) r.setAttribute("data-app", "true"); else r.removeAttribute("data-app"); return () => r.removeAttribute("data-app"); }, [app]);
+@@ -58,14 +61,18 @@
+       <InstallPopup />
+       <a className="skip" href="#main">{ui("skip", lang)}</a>
+       {app && <AppBar />}
+-      <header className="top">
++      <header className={activity ? "top activity-header" : "top"}>
+         <Link href="/" className="brand" aria-label={`${site} – ${ui("home", lang)}`}>
+           <Logo size={42} />
+           <span>{site}</span>
+         </Link>
+-        {preset !== "dashboard" && <MainNav />}
++        {activity && <button type="button" className="btn ghost activity-menu" aria-controls={menuId} aria-expanded={menuOpen}
++          onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "▾" : "▸"} {lang === "ta" ? "பட்டியல்" : "Menu"}</button>}
++        {preset !== "dashboard" && !activity && <MainNav />}
+         {s.get("feature.search") === true && s.get("search.header.show") === true && !onLesson && !maintenance && <SearchBox board={activeBoard} compact />}
++        {activity && s.get("feature.classroom") === true && <Link className="btn ghost activity-classroom" href="/classroom">{lang === "ta" ? "வகுப்பறை" : "View Classroom"}</Link>}
+         <nav className="top-actions" aria-label="Site">
++          <InstallTrigger />
+           <TextSize />
+           <HighContrast />
+           {s.get("feature.languageToggle") && s.get("lang.tamil.enabled") && (
+@@ -79,6 +86,7 @@
+             </Link>
+           )}
+         </nav>
++        {activity && <div className="activity-nav" id={menuId} hidden={!menuOpen}><MainNav bare /></div>}
+       </header>
+       {banner && <div className={`banner tone-${s.get<string>("home.announcement.tone")}`} role="status">{s.text("home.announcement.text")}</div>}
+       <div className="body-row" data-picker={picker}>
+--- a/apps/web/src/components/Logo.tsx
++++ b/apps/web/src/components/Logo.tsx
+@@ -1,15 +1,17 @@
++import { useId } from "react";
+ import { useSettings } from "../lib/settings";
+ 
+ /** SharpStudy mark: an open book with a sharpened pencil rising from it and a spark. Draws in the brand colours. */
+ export function Logo({ size = 40 }: { size?: number }) {
++  const gradient = useId();
+   const st = useSettings(); const v = Number(st.get("brand.logoVersion") ?? 0);
+   if (v > 0) return <img className="logo" src={`/uploads/logo?v=${v}`} alt={st.get<string>("site.name")} height={size} style={{ height: size, width: "auto", maxWidth: size * 4, objectFit: "contain" }} />;
+   return (
+     <svg className="logo" width={size} height={size} viewBox="0 0 64 64" role="img" aria-label="SharpStudy logo">
+-      <defs><linearGradient id="lg-b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="var(--brand)" /><stop offset="1" stopColor="var(--accent)" /></linearGradient></defs>
+-      <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#lg-b)" />
++      <defs><linearGradient id={gradient} x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="var(--brand)" /><stop offset="1" stopColor="var(--accent)" /></linearGradient></defs>
++      <rect x="2" y="2" width="60" height="60" rx="16" fill={"url(#" + gradient + ")"} />
+       <path d="M10 40 C20 35 27 36 32 41 C37 36 44 35 54 40 L54 49 C44 44 37 45 32 50 C27 45 20 44 10 49 Z" fill="#fff" />
+-      <path d="M32 41 V50" stroke="url(#lg-b)" strokeWidth="1.6" />
++      <path d="M32 41 V50" stroke={"url(#" + gradient + ")"} strokeWidth="1.6" />
+       <g transform="rotate(32 32 24)"><rect x="29" y="8" width="6" height="22" rx="1.2" fill="#FFD54F" /><path d="M29 30 H35 L32 37 Z" fill="#FFE9C7" /><path d="M31 34.6 H33 L32 37 Z" fill="#37474F" /><rect x="29" y="8" width="6" height="4" rx="1.2" fill="#F48FB1" /></g>
+       <path d="M50 10 l1.8 4.2 4.2 1.8 -4.2 1.8 -1.8 4.2 -1.8 -4.2 -4.2 -1.8 4.2 -1.8 z" fill="#fff" />
+     </svg>
+--- a/apps/web/src/components/MainNav.tsx
++++ b/apps/web/src/components/MainNav.tsx
+@@ -7,7 +7,7 @@
+ import { lt } from "../lib/library";
+ 
+ /** Clear top menu for wide screens. On phones the bottom tab bar does this job. */
+-export function MainNav() {
++export function MainNav({ bare = false }: { bare?: boolean }) {
+   const s = useSettings();
+   const preset = usePreset();
+   const [loc] = useLocation();
+@@ -26,21 +26,21 @@
+   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
+   const priorities: string[] = {
+     classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],
+-    dashboard: ["/", "/progress", "/revise"], activity: ["/gk", "/explore"], reading: ["/library", "/notebook"],
++    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/papers", "/tour", "/gk", "/explore", "/library"], reading: ["/library", "/notebook"],
+   }[preset];
+-  if (preset === "classroom" && s.get("feature.classroom") === true) items.push({
++  if ((bare || preset === "classroom") && s.get("feature.classroom") === true) items.push({
+     href: "/classroom", label: ui("classroomTitle", s.lang), on: loc.startsWith("/classroom"),
+   });
+   const rank = (href: string) => priorities.includes(href) ? priorities.indexOf(href) : priorities.length;
+   const nav = (
+-    <nav className={preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
++    <nav className={bare ? "main-nav preset-nav bare-nav" : preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
+       {items.sort((a, b) => rank(a.href) - rank(b.href)).map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}
+         onClick={(event) => {
+           if (typeof matchMedia === "function" && matchMedia("(max-width: 849px)").matches) event.currentTarget.closest("details")?.removeAttribute("open");
+         }}>{i.label}</Link>)}
+     </nav>
+   );
+-  return preset === "classic" ? nav : <details className="preset-menu" open={preset !== "reading" && typeof matchMedia === "function" && matchMedia("(min-width: 850px)").matches}>
++  return bare || preset === "classic" ? nav : <details className="preset-menu" open={preset !== "reading" && typeof matchMedia === "function" && matchMedia("(min-width: 850px)").matches}>
+     <summary>{s.lang === "ta" ? "பக்கங்கள்" : "Menu"}</summary>{nav}
+   </details>;
+ }
+--- a/apps/web/src/components/MeSettings.tsx
++++ b/apps/web/src/components/MeSettings.tsx
+@@ -1,4 +1,3 @@
+-import { useEffect, useState } from "react";
+ import { useSettings } from "../lib/settings";
+ import { ui } from "../lib/i18n";
+ import { detectPhone, resolveApp, setThemePref, setViewPref, useThemePref, useViewPref, type ThemePref } from "../lib/appview";
+@@ -6,33 +5,17 @@
+ import { Link } from "wouter";
+ import { useNotebook } from "../lib/tier2";
+ 
+-interface InstallEvent extends Event { prompt: () => Promise<void> }
+-const isIos = () => typeof navigator !== "undefined" && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+-const isMobileDevice = () => typeof navigator !== "undefined" && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+-const isStandalone = () => typeof matchMedia === "function" && matchMedia("(display-mode: standalone)").matches;
++import { InstallTrigger } from "./InstallPopup";
+ 
+-/** Install: Android/Chrome shows the real install prompt; iPhone gets the three Safari steps. */
+ export function InstallCard() {
+   const s = useSettings();
+-  const [evt, setEvt] = useState<InstallEvent | null>(null);
+-  const [done, setDone] = useState(isStandalone());
+-  useEffect(() => {
+-    const h = (e: Event) => { e.preventDefault(); setEvt(e as InstallEvent); };
+-    const d = () => setDone(true);
+-    addEventListener("beforeinstallprompt", h); addEventListener("appinstalled", d);
+-    return () => { removeEventListener("beforeinstallprompt", h); removeEventListener("appinstalled", d); };
+-  }, []);
+   if (s.get("app.install.show") !== true) return null;
+-  return (
+-    <section className="me-block install-card" aria-label={ui("installTitle", s.lang)}>
+-      <h3>{ui("installTitle", s.lang)}</h3>
+-      {done ? <p>{ui("installDone", s.lang)}</p> : evt ? (
+-        <button type="button" className="btn" onClick={() => { void evt.prompt(); setEvt(null); }}>{ui("installBtn", s.lang)}</button>
+-      ) : isIos() ? (
+-        <ol className="ios-steps"><li>{ui("installIos1", s.lang)}</li><li>{ui("installIos2", s.lang)}</li><li>{ui("installIos3", s.lang)}</li></ol>
+-      ) : <p className="small">{s.text(isMobileDevice() ? "app.install.otherText" : "app.install.desktopText")}</p>}
+-    </section>
+-  );
++  const mobile = typeof navigator !== "undefined" && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
++  return <section className="me-block install-card" aria-label={ui("installTitle", s.lang)}>
++    <h3>{ui("installTitle", s.lang)}</h3>
++    <InstallTrigger />
++    <p className="small">{s.text(mobile ? "app.install.otherText" : "app.install.desktopText")}</p>
++  </section>;
+ }
+ 
+ /** Colours (Light / Dark / Auto), text size, language and the app / full-website switch. */
+@@ -73,7 +56,7 @@
+           {s.get("feature.accounts") === true && s.get("feature.parentDashboard") === true && <li><Link href="/parent" className="btn ghost">👪 {ui("meParentLink", s.lang)}</Link></li>}
+         </ul>
+       )}
+-      {!compact && <InstallCard />}
++      {compact ? <InstallTrigger /> : <InstallCard />}
+     </div>
+   );
+ }
+--- a/apps/web/src/components/sitePresets.css
++++ b/apps/web/src/components/sitePresets.css
+@@ -79,3 +79,41 @@
+ [data-site-preset="classroom"] .classroom .class-stage { border: .3rem solid #31726b; }
+ .classroom[data-sample="true"] .sample-intro { color: var(--muted); max-width: 52ch; }
+ .classroom[data-sample="true"] .class-stage { border-color: #31726b; }
++
++/* Activity Hub keeps the menu in a separate, single-line navigation row. */
++.shell .activity-header.top { display: grid; grid-template-columns: max-content max-content minmax(12rem, 24rem) max-content minmax(0, 1fr); gap: .65rem 1rem; align-items: center; }
++.activity-header > * { order: initial !important; }
++.activity-header > .search.compact { grid-column: 3; width: 100%; min-width: 0; max-width: none; }
++.activity-header .brand { white-space: nowrap; }
++.activity-header .activity-classroom { grid-column: 4; }
++.activity-header .top-actions { grid-column: 5; justify-content: end; flex-wrap: wrap; }
++.activity-nav { grid-column: 1 / -1; min-width: 0; }
++.activity-nav[hidden] { display: none; }
++.activity-header .bare-nav { display: flex; justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; margin: 0; padding: .15rem .25rem .3rem; }
++.activity-header .bare-nav a { flex: none; white-space: nowrap; }
++.appbar-brand { display: grid; place-items: center; min-width: 44px; min-height: 44px; }
++[data-app] .appbar-links .bare-nav { display: grid !important; margin: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); }
++.appbar-links .bare-nav a { white-space: normal; }
++.classroom-filters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: .65rem; align-items: end; padding: .8rem; border: 1px solid var(--rule); border-radius: .85rem; background: color-mix(in srgb, var(--brand) 7%, var(--surface)); }
++.classroom-filters label { display: grid; gap: .25rem; min-width: 0; font-weight: 700; }
++.classroom-query { grid-column: 1 / -1; }
++.classroom-filters :is(input,select) { min-height: 44px; width: 100%; min-width: 0; border: 1px solid var(--line-strong, var(--muted)); border-radius: .6rem; padding: .45rem .65rem; font: inherit; background: var(--surface); color: var(--ink); }
++@media (max-width: 1230px) {
++  .shell .activity-header.top { grid-template-columns: max-content max-content minmax(0, 1fr) max-content; }
++  .activity-header .top-actions { grid-column: 1 / -1; margin-inline-start: 0; }
++}
++@media (max-width: 720px) {
++  .shell .activity-header.top { grid-template-columns: minmax(0, 1fr) max-content; }
++  .activity-header > .search.compact, .activity-header .activity-classroom { grid-column: 1 / -1; }
++  .activity-header .activity-classroom { justify-self: start; }
++  .activity-header .top-actions { justify-content: start; }
++  .classroom-filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
++  .shell .appbar { padding-left: max(.4rem, env(safe-area-inset-left)); padding-right: max(.4rem, env(safe-area-inset-right)); }
++  .shell .appbar-title { font-size: clamp(1rem, 4vw, 1.2rem); overflow-wrap: anywhere; }
++  .shell .appbar-spacer { display: none; }
++  .shell .install-pop { bottom: calc(var(--tabbar-h) + .6rem + env(safe-area-inset-bottom, 0px)); }
++}
++@media (max-width: 360px) {
++  .activity-header .brand { font-size: 1rem; }
++  .classroom-filters { grid-template-columns: 1fr; }
++}
+--- a/apps/web/src/pages/Classroom.tsx
++++ b/apps/web/src/pages/Classroom.tsx
+@@ -23,17 +23,42 @@
+   const on = s.get("feature.classroom") === true;
+   const [attempt, retry] = useRetry();
+   const idx = useClassroomIndex(on, attempt);
++  const [query, setQuery] = useState("");
++  const [board, setBoard] = useState("");
++  const [grade, setGrade] = useState("");
++  const [subject, setSubject] = useState("");
+   if (!on) return <NotFound />;
+   if (idx.status === "loading") return <Loading />;
+   if (idx.status === "error") return <ErrorBox onRetry={retry} />;
++  const ta = s.lang === "ta";
++  const items = idx.data.items;
++  const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
++  const matches = items.filter((item) => {
++    const text = [item.title.en, item.title.ta, item.chapter, item.topic, item.board, item.classLevel, item.subject].join(" ").toLowerCase().replace(/-/g, " ");
++    return (!board || item.board === board) && (!grade || String(item.classLevel) === grade)
++      && (!subject || item.subject === subject) && words.every((word) => text.includes(word));
++  });
++  const boards = [...new Set(items.map((item) => item.board))].sort();
++  const grades = [...new Set(items.map((item) => item.classLevel))].sort((a, b) => a - b);
++  const subjects = [...new Set(items.map((item) => item.subject))].sort();
+   return (
+     <div className="paper">
+       <h1>{ui("classroomTitle", s.lang)}</h1>
+       <p className="lead">{ui("classroomIntro", s.lang)}</p>
+-      {idx.data.items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : (
++      {items.length > 0 && <>
++        <div className="classroom-filters" role="group" aria-label={ta ? "பாட வடிகட்டிகள்" : "Lesson filters"}>
++          <label className="classroom-query">{ta ? "வகுப்பறைப் பாடத்தைத் தேடுங்கள்" : "Find a Classroom lesson"}<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={ta ? "பாடம் அல்லது தலைப்பு" : "Try magnets, fractions, or English"} /></label>
++          <label>{ta ? "பாடத்திட்டம்" : "Board"}<select value={board} onChange={(event) => setBoard(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All boards"}</option>{boards.map((value) => <option key={value}>{value}</option>)}</select></label>
++          <label>{ta ? "வகுப்பு" : "Class"}<select value={grade} onChange={(event) => setGrade(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All classes"}</option>{grades.map((value) => <option key={value} value={value}>{ui("classWord", s.lang)} {value}</option>)}</select></label>
++          <label>{ta ? "பாடம்" : "Subject"}<select value={subject} onChange={(event) => setSubject(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All subjects"}</option>{subjects.map((value) => <option key={value} value={value}>{value.replace(/-/g, " ")}</option>)}</select></label>
++          <button type="button" className="btn ghost" onClick={() => { setQuery(""); setBoard(""); setGrade(""); setSubject(""); }}>{ta ? "அழி" : "Clear filters"}</button>
++        </div>
++        <p className="small" role="status">{matches.length} {ta ? "பாடங்கள்" : matches.length === 1 ? "lesson" : "lessons"}</p>
++      </>}
++      {items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : matches.length === 0 ? <p>{ta ? "பொருந்தும் பாடங்கள் இல்லை." : "No matching lessons. Try another search or clear the filters."}</p> : (
+         <ul className="class-list">
+-          {idx.data.items.map((i) => (
+-            <li key={`${i.subject}/${i.chapter}/${i.topic}`}>
++          {matches.map((i) => (
++            <li key={[i.board, i.classLevel, i.subject, i.chapter, i.topic].join("/")}>
+               <Link className="class-card" href={`/classroom/${i.board.toLowerCase()}/${i.classLevel}/${i.subject}/${i.chapter}/${i.topic}`}>
+                 <b>{s.name(i.title)}</b>
+                 <span>{ui("classWord", s.lang)} {i.classLevel} · {i.subject} · {i.steps} {ui("classroomSteps", s.lang)}</span>

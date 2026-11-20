@@ -117,3 +117,21 @@
   .activity-header .brand { font-size: 1rem; }
   .classroom-filters { grid-template-columns: 1fr; }
 }
+
+.activity-headline { grid-column: 1 / -1; min-width: 0; }
+.activity-headline h1 { margin-block: 0 .35em; }
+.activity-stack { display: grid; align-content: start; gap: .65rem; min-width: 0; }
+.activity-stack:empty { display: none; }
+[data-site-preset="activity"] .today-items.activity-stacks { align-items: start; }
+[data-site-preset="activity"] .activity-stacks:not(:has(.activity-stack > *)) { display: none; }
+[data-site-preset="activity"] .preset-today:not(:has(.activity-stack > *)) { display: none; }
+[data-site-preset="activity"] .activity-stack > * { margin-block: .3rem; }
+@media (min-width: 900px) {
+  .shell[data-site-preset="activity"] .home-top { container-type: inline-size; }
+  .activity-headline h1 { font-size: min(2.2rem, 3.25cqi) !important; line-height: 1.2; text-wrap: wrap; }
+  .activity-headline h1[data-size="s"] { font-size: min(1.9rem, 3cqi) !important; }
+  .activity-headline h1[data-size="l"] { font-size: min(2.7rem, 3.35cqi) !important; }
+}
+@media (max-width: 899px) {
+  .activity-headline h1:has(> .h-lead) { display: block; }
+}

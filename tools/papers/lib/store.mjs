@@ -36,7 +36,8 @@ export function validate(p) {
 }
 /** "hi" when most of the letters in the paper are Devanagari (Hindi), otherwise "en". Used for the Hindi question papers tab. */
 export function detectLang(p) {
-  const text = [p.title, ...p.sections.flatMap((s) => s.questions.flatMap((q) => [q.text, ...(q.options ?? [])]))].join(" ");
+  if (/\bhindi\b|हिन्दी|हिंदी/i.test(p.subject ?? "")) return "hi";
+  const text = p.sections.flatMap((s) => s.questions.flatMap((q) => [q.text, ...(q.options ?? [])])).join(" ");
   const dev = (text.match(/[\u0900-\u097F]/g) ?? []).length, lat = (text.match(/[A-Za-z]/g) ?? []).length;
   return dev > 20 && dev > lat * 0.4 ? "hi" : "en";
 }

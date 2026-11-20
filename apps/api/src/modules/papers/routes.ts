@@ -62,6 +62,8 @@ export function adminPaperRoutes(store: PaperStore, dir: string, settings: Setti
       const v = await settings.all(); const idx = store.list();
       let job: unknown = null;
       try { job = JSON.parse(readFileSync(join(dir, "job-status.json"), "utf8")); } catch { /* the collector has not run yet */ }
+      let history: unknown[] = [];
+      try { const data: unknown = JSON.parse(readFileSync(join(dir, "job-reports.json"), "utf8")); if (Array.isArray(data)) history = data.slice(0, 28); } catch { /* older collector */ }
       const hiddenIds = csv(v["papers.hiddenIds"]);
       let sites: unknown[] = [];
       try { sites = (JSON.parse(readFileSync(join(dir, "sites-list.json"), "utf8")) as { sites?: unknown[] }).sites ?? []; } catch { /* the collector has not listed its websites yet */ }
@@ -70,7 +72,7 @@ export function adminPaperRoutes(store: PaperStore, dir: string, settings: Setti
         total: idx.papers.length, visible: idx.papers.filter((e) => isVisible(e, v)).length, updated: idx.updated,
         byBoard: tally(idx.papers.map((p) => p.board)), byClass: tally(idx.papers.map((p) => `Class ${p.cls}`)), bySubject: tally(idx.papers.map((p) => p.subject)).slice(0, 30), byLanguage: tally(idx.papers.map((p) => ((p as { lang?: string }).lang ?? "en") === "hi" ? "Hindi" : "English")), byKind: tally(idx.papers.map((p) => p.kind)), bySite: tally(idx.papers.map((p) => p.source.site)),
         questions: idx.papers.reduce((a, p) => a + p.questions, 0), withAnswers: idx.papers.filter((p) => p.keyed > 0).length,
-        hiddenIds, job, sites, config, papers: idx.papers.slice().sort((a, b) => b.added.localeCompare(a.added)).slice(0, 400).map((p) => ({ id: p.id, title: p.title, board: p.board, cls: p.cls, subject: p.subject, kind: p.kind, questions: p.questions, keyed: p.keyed, site: p.source.site, added: p.added, hidden: hiddenIds.includes(p.id) })),
+        hiddenIds, job, history, sites, config, papers: idx.papers.slice().sort((a, b) => b.added.localeCompare(a.added)).slice(0, 400).map((p) => ({ id: p.id, title: p.title, board: p.board, cls: p.cls, subject: p.subject, kind: p.kind, questions: p.questions, keyed: p.keyed, site: p.source.site, added: p.added, hidden: hiddenIds.includes(p.id) })),
       });
     } catch (e) { next(e); }
   });
