@@ -426,6 +426,8 @@ export const SETTINGS: SettingDef[] = [
   { key: "layout.style", panel: "theme", section: "Layout style", label: "Layout style (look of the whole site)", public: true, type: "select", default: "grand",
     help: "How rich the page layout feels: banners, cards, headings and spacing. Works with any theme and palette.",
     options: [{ value: "classic", label: "Classic (simple, as before)" }, { value: "grand", label: "Grand (rich banner, deep cards) - recommended" }, { value: "royal", label: "Royal (serif headings, gold touches)" }, { value: "vibrant", label: "Vibrant (colourful tiles, big rounded cards)" }, { value: "aurora", label: "Aurora (glass panels on a soft glow)" }, { value: "gallery", label: "Gallery (airy, large clean cards)" }] },
+  bool("layout.scrollBar", "theme", "Scrolling", "Show a reading-progress line at the top", true, { help: "A thin line that fills as the page is scrolled." }),
+  bool("layout.backToTop", "theme", "Scrolling", "Show a back-to-top button", true, { help: "Appears after scrolling down a little." }),
   { key: "layout.width", panel: "theme", section: "Layout style", label: "Page width", public: true, type: "select", default: "wide",
     help: "How much of a wide screen the main content uses. Wide or Full use the empty space on the right.",
     options: [{ value: "standard", label: "Standard (narrow)" }, { value: "wide", label: "Wide - recommended" }, { value: "full", label: "Full (uses most of the screen)" }] },

@@ -260,3 +260,14 @@ html[data-contrast="high"][data-theme] .paper::after { display: none; }
 /* classroom panels that were written with a white background: follow the palette in dark mode (CSS only) */
 [data-mode="dark"] .class-subs, [data-mode="dark"] .class-done { background: var(--surface); color: var(--ink); }
 [data-mode="dark"] .class-subs .ta { color: var(--muted); }
+
+/* ---------- Official Editorial (institutional look) ---------- */
+[data-theme="editorial"] {
+  --bg-image: none; --top-bd: 1px solid var(--rule); --top-shadow: 0 1px 0 color-mix(in srgb, var(--brand) 18%, transparent);
+  --card-bd: var(--rule); --card-shadow: none; --paper-bd: var(--rule); --paper-shadow: 0 1px 3px rgba(15, 23, 42, .05);
+  --btn-bw: 1px; --btn-weight: 600; --btn-shadow: none; --btn-ghost-shadow: none;
+  --h-weight: 700; --h-ls: -.01em; --cover-radius: 10px; --cover-shadow: 0 1px 3px rgba(15, 23, 42, .18); --cover-sheen: none;
+}
+[data-theme="editorial"] .class-tab.on { border-color: var(--brand); background: color-mix(in srgb, var(--brand) 8%, var(--surface)); }
+[data-theme="editorial"] .chapters a:hover { background: color-mix(in srgb, var(--brand) 7%, transparent); }
+[data-theme="editorial"][data-mode="dark"] { --paper-shadow: none; }

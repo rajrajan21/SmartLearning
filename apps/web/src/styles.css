@@ -1187,3 +1187,12 @@ html .home-top .hero .lead, .hero .lead { max-width: none; }
   header.top .main-nav { order: 4; flex: 1 1 100%; justify-content: flex-start; flex-wrap: wrap; min-width: 0; }
 }
 @media (min-width: 1760px) { header.top .main-nav { justify-content: flex-start; } }
+
+/* scroll-aids: reading progress line and back-to-top button */
+.scroll-track { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 60; pointer-events: none; }
+.scroll-fill { height: 100%; width: 0; background: var(--brand); transition: width .12s linear; }
+.scroll-top-fab { position: fixed; right: clamp(1rem, 3vw, 2rem); bottom: calc(var(--tabbar-h, 0px) + 1.2rem); z-index: 55; min-height: 40px; padding: 0 .9rem; border-radius: 999px; border: 1px solid var(--rule); background: var(--surface); color: var(--ink); font: 700 .85rem var(--font-body); box-shadow: 0 6px 18px rgba(15, 23, 42, .14); cursor: pointer; opacity: 0; transform: translateY(10px); pointer-events: none; transition: opacity .2s ease, transform .2s ease; }
+.scroll-top-fab.visible { opacity: 1; transform: none; pointer-events: auto; }
+.scroll-top-fab:hover, .scroll-top-fab:focus-visible { border-color: var(--brand); color: var(--brand); }
+@media (prefers-reduced-motion: reduce) { .scroll-fill, .scroll-top-fab { transition: none; } }
+@media print { .scroll-track, .scroll-top-fab { display: none !important; } }

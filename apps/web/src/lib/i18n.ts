@@ -356,6 +356,7 @@ export const UI = {
   classroomParts: { en: "Parts of the lesson", ta: "பாடத்தின் பகுதிகள்" },
   classroomTeacher: { en: "Teacher", ta: "ஆசிரியர்" },
   classroomLanguage: { en: "Language", ta: "மொழி" },
+  backToTop: { en: "Top", ta: "மேலே" },
   classroomNotRecorded: { en: "not recorded yet", ta: "இன்னும் பதிவாகவில்லை" },
   classroomOpen: { en: "Watch in the classroom", ta: "வகுப்பறையில் பார்" },
   backToTopic: { en: "Back to the topic", ta: "தலைப்புக்குத் திரும்பு" },

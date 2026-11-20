@@ -34,6 +34,7 @@ export const THEMES: ThemeDef[] = [
   { id: "hardcover", label: "Hardcover Desk", description: "A wood desk with cream book pages, brass edges and cloth-bound subject books.", inspiredBy: "Textbook reader style A", palette: "walnut-cream", mode: "light", radius: 6, heading: "serif" },
   { id: "pastel", label: "Pastel Digital", description: "Soft lilac page, pastel tiles and rounded pill buttons.", inspiredBy: "Textbook reader style B", palette: "pastel-digital", mode: "light", radius: 20, heading: "rounded" },
   { id: "library", label: "Sage Library", description: "Sage-green wall, card-catalogue panels and ribbon accents; night mode is a lamp-lit library.", inspiredBy: "Textbook reader style C", palette: "sage-library", mode: "light", radius: 8, heading: "serif" },
+  { id: "editorial", label: "Official Editorial", description: "Clean institutional look: white panels, hairline borders, serif headings and a quiet accent line. Pairs with Indigo & Gold.", palette: "inst-gold", mode: "light", radius: 10, heading: "serif" },
 ];
 export const DEFAULT_THEME = "playful";
 
@@ -135,6 +136,24 @@ const SEEDS: Seed[] = [
     brand: "#E4002B", accent: "#0B874B", paper: "#F5F5F5", surface: "#FFFFFF", ink: "#2D3B45", dark: { brand: "#FF8A9B", paper: "#161B20", surface: "#212A31", ink: "#F1F4F6" } },
   { id: "soft-ink", label: "Soft Ink", description: "Warm off-white with charcoal text and a calm blue.", subjects: "earthy",
     brand: "#2383E2", accent: "#EB5757", paper: "#FBFBFA", surface: "#FFFFFF", ink: "#37352F", dark: { brand: "#6CB4FF", paper: "#191919", surface: "#252525", ink: "#EDEDEB" } },
+  { id: "inst-navy", label: "Navy & Slate", description: "Formal navy on cool white with slate text.", subjects: "deep",
+    brand: "#1E3A8A", accent: "#0369A1", paper: "#F8FAFC", surface: "#FFFFFF", ink: "#0F172A", muted: "#475569", rule: "#E2E8F0", dark: { brand: "#93B4FF", paper: "#0B1220", surface: "#131C2E", ink: "#EAF0FA" } },
+  { id: "inst-amber", label: "Amber & Stone", description: "Burnt amber on warm stone white.", subjects: "deep",
+    brand: "#9A3412", accent: "#57534E", paper: "#FAFAF9", surface: "#FFFFFF", ink: "#1C1917", muted: "#57534E", rule: "#E7E5E4", dark: { brand: "#FDBA74", paper: "#1A1512", surface: "#262019", ink: "#F5EFE8" } },
+  { id: "inst-teal", label: "Teal & Alabaster", description: "Deep teal on alabaster.", subjects: "deep",
+    brand: "#0F766E", accent: "#0369A1", paper: "#F8FAFC", surface: "#FFFFFF", ink: "#0F172A", muted: "#475569", rule: "#E2E8F0", dark: { brand: "#5EEAD4", paper: "#0A1A1C", surface: "#10282B", ink: "#E6F6F5" } },
+  { id: "inst-crimson", label: "Crimson University", description: "Collegiate crimson with graphite text.", subjects: "deep",
+    brand: "#881337", accent: "#52525B", paper: "#FAF9F9", surface: "#FFFFFF", ink: "#18181B", muted: "#52525B", rule: "#E4E4E7", dark: { brand: "#FDA4AF", paper: "#1A0F13", surface: "#27161C", ink: "#F8ECEF" } },
+  { id: "inst-forest", label: "Forest Academy", description: "Academy green on pale sage.", subjects: "deep",
+    brand: "#166534", accent: "#4A5D54", paper: "#F7F9F8", surface: "#FFFFFF", ink: "#14221C", muted: "#4A5D54", rule: "#DCE3DF", dark: { brand: "#86EFAC", paper: "#0C1711", surface: "#14261C", ink: "#E8F4EC" } },
+  { id: "inst-midnight", label: "Midnight Slate", description: "Slate and sky blue; a deep night look in dark mode.", subjects: "deep",
+    brand: "#0369A1", accent: "#38BDF8", paper: "#F1F5F9", surface: "#FFFFFF", ink: "#0F172A", muted: "#475569", rule: "#E2E8F0", dark: { brand: "#38BDF8", paper: "#0B1120", surface: "#111827", ink: "#F8FAFC" } },
+  { id: "inst-gold", label: "Indigo & Gold", description: "Deep indigo text with an amber-gold accent. The official look.", subjects: "deep",
+    brand: "#B45309", accent: "#4338CA", paper: "#F8F9FC", surface: "#FFFFFF", ink: "#1E1B4B", muted: "#4338CA", rule: "#E0E7FF", dark: { brand: "#FBBF24", paper: "#0F0E24", surface: "#1A1840", ink: "#EEF0FF" } },
+  { id: "inst-violet", label: "Royal Violet", description: "Royal violet on soft lavender white.", subjects: "deep",
+    brand: "#6D28D9", accent: "#5B4B7A", paper: "#FAF9FF", surface: "#FFFFFF", ink: "#1E1035", muted: "#5B4B7A", rule: "#E9D5FF", dark: { brand: "#C4A6FF", paper: "#150C26", surface: "#211339", ink: "#F3EBFF" } },
+  { id: "inst-terracotta", label: "Terracotta & Slate", description: "Terracotta accents with slate text.", subjects: "deep",
+    brand: "#C2410C", accent: "#475569", paper: "#F8FAFC", surface: "#FFFFFF", ink: "#0F172A", muted: "#475569", rule: "#E2E8F0", dark: { brand: "#FDBA74", paper: "#101826", surface: "#192336", ink: "#EEF2F7" } },
 ];
 export const PALETTES: PaletteDef[] = SEEDS.map((s) => ({ id: s.id, label: s.label, description: s.description, light: build(s, false), dark: build(s, true) }));
 export const DEFAULT_PALETTE = "indigo-dawn";

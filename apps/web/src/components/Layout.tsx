@@ -1,6 +1,7 @@
 import { useActiveBoard } from "../lib/activeBoard";
 import { SearchBox } from "./SearchBox";
 import { InstallPopup } from "./InstallPopup";
+import { ScrollAids } from "./ScrollAids";
 import { type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -49,6 +50,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <div className="shell" data-route={loc.endsWith("/learn") ? "lesson" : undefined}>
       <ScrollToTop />
+      <ScrollAids />
       <InstallPopup />
       <a className="skip" href="#main">{ui("skip", lang)}</a>
       {app && <AppBar />}
