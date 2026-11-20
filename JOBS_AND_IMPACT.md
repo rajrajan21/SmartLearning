@@ -224,3 +224,5 @@ When you add, rename, change or remove a job, edit sections 1–4 above in the s
 - 2026-11-18 (E-Library fork): library books open in the Book Reader with pre-rendered WebP pages (library/pages.ts, tools/build-library-pages.mjs, Build-Library-Pages.bat; settings library.pages.*; admin card "Book Reader pictures"); Contribute "Fetch details" button (contrib/pagefetch.ts, POST /library/contribute/fetch-details, settings contrib.fetch.*). Restart site once. See ADMIN_SETTINGS_LIBRARY.pdf.
 
 - 2026-11-18: Class 4 depth upgrade done in sandbox and synced (sync-cbse4-1..4): 9 thin chapters rebuilt to 30+ sentences (Maths Data Handling, Symmetry, Clocks, Transport Museum, Cleanest Village, Hide and Seek, Patterns; EVS Different Lands, How Things Are Made), 7 English units topped up, tools/c34/GAPS.md rewritten. No audio, no catalog change.
+
+- 2026-11-20: Kani audio run (Generate-Edge-Audio.bat, JOBS=6, re-run until generated 0); Go-Live.bat for GitHub + server + audio copy. See HANDOVER.md section "HANDOVER TO CHATGPT" for the full open-work list.

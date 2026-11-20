@@ -1,0 +1,52 @@
+/* ================= Model 2.0 Daylight Whiteboard & Controls ================= */
+.m2-stage-wrap {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  color: #16253f;
+}
+.m2-board {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 76vh;
+  background: #ffffff;
+}
+.m2-scrubber-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.45rem 0.9rem;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  font-size: 0.88rem;
+  color: #334155;
+}
+.m2-scrubber-bar input[type="range"] {
+  flex: 1 1 auto;
+  min-height: 28px;
+  accent-color: var(--brand);
+  cursor: pointer;
+}
+.m2-extra-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+.m2-voice-select {
+  min-height: 40px;
+  padding: 0 0.6rem;
+  border: 2px solid var(--rule);
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--ink);
+  font: 600 0.92rem var(--font-body);
+}
+[data-contrast="high"] .m2-board {
+  background: #ffffff;
+}
+[data-contrast="high"][data-mode="dark"] .m2-stage-wrap,
+[data-contrast="high"][data-mode="dark"] .m2-board {
+  background: #000000;
+}
