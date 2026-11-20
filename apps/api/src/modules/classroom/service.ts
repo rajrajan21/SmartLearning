@@ -103,8 +103,9 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       load();
       const l = byKey.get(key({ board, classLevel, subject, chapter, topic }));
       if (!l) return null;
-      const ok = (audio?.teachers() ?? []).some((t) => t.id === voice);
-      return withAudio(l, ok ? voice! : DEFAULT_VOICE);
+      const ready = (audio?.teachers() ?? []).filter((t) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))).map((t) => t.id);
+      const use = voice && ready.includes(voice) ? voice : ((["kani", DEFAULT_VOICE].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
+      return { ...withAudio(l, use), voicesReady: ready, voiceUsed: use };
     },
     warm() {
       const t0 = Date.now(); stamp = ""; const before = Object.keys(compose.lessons).length; load();

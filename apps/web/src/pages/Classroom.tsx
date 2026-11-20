@@ -88,6 +88,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
   const [talking, setTalking] = useState(false);
   const bothRef = useRef(both); bothRef.current = both;
   const info = voices.find((v) => v.id === voice);
+  const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
 
   const cur = lesson.steps[step]!;
   const text = cur.narration[lang] ?? cur.narration.en;
@@ -299,10 +300,10 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: Pu
           </select>
         </label>
         <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
-        {voices.length > 1 && s.get("classroom.voicePicker") === true && (
+        {pickable.length > 1 && s.get("classroom.voicePicker") === true && (
           <label className="class-rate">{L("classroomTeacher")}
-            <select value={voice} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
-              {voices.map((v) => <option key={v.id} value={v.id} disabled={!v.ready}>{v.label}{v.ready ? "" : ` – ${L("classroomNotRecorded")}`}</option>)}
+            <select value={lessonIn.voiceUsed ?? voice} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
+              {pickable.map((v) => <option key={v.id} value={v.id}>{v.label}</option>)}
             </select>
           </label>
         )}

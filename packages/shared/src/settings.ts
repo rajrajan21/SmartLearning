@@ -215,6 +215,7 @@ export const SETTINGS: SettingDef[] = [
   bool("classroom.show3d", "classroom", "Board", "Show 3D shapes", true, { dependsOn: "feature.classroom", help: "Drawn by the site itself. Turn off for very old phones; flat drawings are shown instead." }),
   { key: "classroom.boardStyle", panel: "classroom", section: "Board", label: "Board look", public: true, type: "select", default: "white", dependsOn: "feature.classroom",
     options: [{ value: "chalk", label: "Green chalkboard" }, { value: "white", label: "Whiteboard" }] },
+  bool("classroom.voicePicker.onlyRecorded", "classroom", "Voice", "Show only the voices that have audio for this lesson", true, { dependsOn: "classroom.voicePicker", help: "On: the teacher list on a lesson shows only voices that are recorded for that lesson (nothing greyed out). Off: shows every voice, greying out the ones not recorded yet." }),
   bool("classroom.voicePicker", "classroom", "Voice", "Let students choose the teacher voice", true, { dependsOn: "feature.classroom", help: "Shows a list of teacher voices (woman or man, American, British or Indian accent). Voices that have not been recorded yet are greyed out." }),
   { key: "classroom.language", panel: "classroom", section: "Voice", label: "Language", public: true, type: "select", default: "en", dependsOn: "feature.classroom",
     options: [{ value: "en", label: "English only" }, { value: "both", label: "English, then Tamil (where Tamil is recorded)" }] },
