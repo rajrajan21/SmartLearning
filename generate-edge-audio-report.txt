@@ -1,2 +1,314 @@
 === SharpStudy: generate kani audio === 
 === Priority: cbse-6- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "cbse-6-" "--jobs" "6" "--voices" "kani"
+
+[1/2] en cbse-6-social-science-grassroots-democracy-part-3-local-government-in-urban-areas-wards-mayor-and-urban-services.json r4-war127 stem: 3166 ms speech
+[2/2] en cbse-6-maths-fractions-equivalent-fractions-and-comparing-parts.json r2-equ832 stem: 2501 ms speech
+
+Sentences wanted 5982: generated 2, already done 5980.
+
+TIMING: made 2 clips = 0.1 min of speech in 0.5 min (4.99x the speech length; 14.1 s per clip).
+=== Priority: classroom-6- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "classroom-6-" "--jobs" "6" "--voices" "kani"
+
+
+Sentences wanted 10511: generated 0, already done 10511.
+  skipped: classroom-6-maths-parts-of-a-whole f6-compare (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole f6-lowest (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole f7-common (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole f7-steps (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole f8-method (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole f8-sub2 (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole h-names (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole h-egypt (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-parts-of-a-whole h-puzzle (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-perimeter-and-area m10-area (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-perimeter-and-area pm-grid (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-compass-and-ruler-constructions c13-house (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-compass-and-ruler-constructions c14-eyes (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-compass-and-ruler-constructions c15-person (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-factors-and-primes p18-puzzle (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-6-maths-factors-and-primes p19-summary (en): longer than 480 characters, split it into two sentences
+=== Priority: cbse-3- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "cbse-3-" "--jobs" "6" "--voices" "kani"
+
+[1/6] en cbse-3-maths-fun-with-shapes-drawing-shapes-and-making-pictures.json r2-dra943 stem: 2138 ms speech (about 1 min left)
+[2/6] en cbse-3-maths-double-century-skip-counting-and-number-line-to-200.json r2-ski732 explanation: 1047 ms speech
+[3/6] en cbse-3-evs-water-a-precious-gift-uses-of-water-and-saving-it.json r2-use583 stem: 2961 ms speech
+[6/6] en cbse-3-evs-water-a-precious-gift-uses-of-water-and-saving-it.json r2-use582 stem: 1076 ms speech
+
+Sentences wanted 6004: generated 4, already done 5998.
+  skipped: cbse-3-evs-going-to-the-mela-a-visit-to-a-village-fair.json t4: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 81: surrogates not allowed (run again to finish it)
+  skipped: cbse-3-maths-filling-and-lifting-whole-chapter.json c3ma-fal-7 why-wrong: edge voice failed: ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x000001C9BC820050> [The specified network name is no longer available] (run again to finish it)
+
+TIMING: made 4 clips = 0.1 min of speech in 0.7 min (5.45x the speech length; 9.8 s per clip).
+=== Priority: classroom-3- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "classroom-3-" "--jobs" "6" "--voices" "kani"
+
+[1/16] en classroom-3-english-whole-chapter s69: 1913 ms speech (about 3 min left)
+[2/16] en classroom-3-evs-healthy-food s34: 1971 ms speech (about 1 min left)
+[3/16] en classroom-3-evs-parts-of-a-plant s7: 12127 ms speech (about 1 min left)
+[4/16] en classroom-3-english-sweets-and-festivals-the-big-laddoo s25: 2175 ms speech (about 1 min left)
+[5/16] en classroom-3-evs-festival-foods-and-clothes v-d3: 1637 ms speech (about 1 min left)
+[6/16] en classroom-3-evs-a-visit-to-a-village-fair s6: 9741 ms speech (about 1 min left)
+[7/16] en classroom-3-evs-whole-chapter s74: 2168 ms speech (about 1 min left)
+[11/16] en classroom-3-maths-whole-chapter s94: 3652 ms speech
+
+Sentences wanted 7600: generated 8, already done 7584.
+  skipped: classroom-3-evs-healthy-eating-and-food-groups s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 124: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-english-chandrayaan-and-indias-moon-mission s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 112: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-evs-a-visit-to-a-village-fair s5: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 122: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-evs-a-visit-to-a-village-fair s13: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 81: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-maths-litres-and-kilograms s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 113: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-maths-adding-three-digit-numbers s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 84: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-maths-reading-the-clock s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 102: surrogates not allowed (run again to finish it)
+  skipped: classroom-3-maths-adding-and-subtracting-two-digit-numbers s2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 101: surrogates not allowed (run again to finish it)
+
+TIMING: made 8 clips = 0.6 min of speech in 1.1 min (1.90x the speech length; 8.4 s per clip).
+=== Priority: cbse-7- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "cbse-7-" "--jobs" "6" "--voices" "kani"
+
+[1/34] en cbse-7-maths-a-peek-beyond-the-point-whole-chapter.json c7ma-apbtp-3 why-wrong: 2552 ms speech (about 6 min left)
+[2/34] en cbse-7-maths-a-peek-beyond-the-point-tenths-hundredths-and-units-of-measurement.json r2-ten633 stem: 4024 ms speech (about 3 min left)
+[3/34] en cbse-7-english-say-the-right-thing-whole-chapter.json t11: 11910 ms speech (about 2 min left)
+[4/34] en cbse-7-maths-a-tale-of-three-intersecting-lines-triangle-angle-sum-and-types.json r4-tri576 stem: 1936 ms speech (about 2 min left)
+[5/34] en cbse-7-maths-a-tale-of-three-intersecting-lines-triangles-angle-sum-and-sides.json r2-third stem: 5891 ms speech (about 1 min left)
+[6/34] en cbse-7-maths-a-peek-beyond-the-point-decimals-and-place-value.json r3-half explanation: 2484 ms speech (about 1 min left)
+[7/34] en cbse-7-maths-a-peek-beyond-the-point-tenths-hundredths-and-units-of-measurement.json r3-ten635 stem: 4955 ms speech (about 1 min left)
+[8/34] en cbse-7-maths-a-tale-of-three-intersecting-lines-whole-chapter.json c7ma-atotil-10 explanation: 4699 ms speech (about 1 min left)
+[9/34] en cbse-7-maths-a-peek-beyond-the-point-whole-chapter.json c7ma-apbtp-6 why-wrong: 2308 ms speech (about 1 min left)
+[10/34] en cbse-7-maths-finding-common-ground-lcm-through-prime-factorisation-and-patterns.json r4-lcm546 stem: 1885 ms speech (about 1 min left)
+[11/34] en cbse-7-maths-finding-common-ground-whole-chapter.json c7ma-fcg-8 why-wrong: 2613 ms speech (about 1 min left)
+[12/34] en cbse-7-maths-finding-common-ground-whole-chapter.json c7ma-fcg-10 why-wrong: 2159 ms speech (about 1 min left)
+[13/34] en cbse-7-maths-a-tale-of-three-intersecting-lines-whole-chapter.json c7ma-atotil-10 stem: 3874 ms speech (about 1 min left)
+[14/34] en cbse-7-maths-finding-common-ground-whole-chapter.json c7ma-fcg-9 explanation: 14024 ms speech (about 1 min left)
+[15/34] en cbse-7-maths-finding-the-unknown-simple-equations.json r2-3x why-wrong: 1989 ms speech (about 1 min left)
+[16/34] en cbse-7-maths-finding-common-ground-whole-chapter.json c7ma-fcg-8 why-wrong: 4514 ms speech (about 1 min left)
+[17/34] en cbse-7-maths-a-peek-beyond-the-point-decimals-and-place-value.json r2-big explanation: 3758 ms speech (about 1 min left)
+[18/34] en cbse-7-maths-finding-the-unknown-simple-equations.json r3-2x why-wrong: 1493 ms speech (about 1 min left)
+[19/34] en cbse-7-maths-finding-the-unknown-solving-equations-and-word-problems.json r2-sol532 stem: 3763 ms speech (about 1 min left)
+[20/34] en cbse-7-maths-finding-the-unknown-whole-chapter.json c7ma-ftu-7 explanation: 4000 ms speech
+[21/34] en cbse-7-maths-a-tale-of-three-intersecting-lines-types-of-triangles-and-the-exterior-angle.json r4-typ357 explanation: 1425 ms speech
+[22/34] en cbse-7-maths-finding-the-unknown-whole-chapter.json c7ma-ftu-7 why-wrong: 4061 ms speech
+[23/34] en cbse-7-maths-geometric-twins-conditions-that-guarantee-congruence.json r2-con113 stem: 2855 ms speech
+[24/34] en cbse-7-maths-finding-the-unknown-solving-equations-and-word-problems.json r4-sol537 stem: 1911 ms speech
+[25/34] en cbse-7-maths-finding-the-unknown-solving-equations-and-word-problems.json r3-sol534 stem: 3682 ms speech
+[26/34] en cbse-7-maths-finding-the-unknown-history-of-algebra-and-mending-mistakes.json r3-his114 stem: 2155 ms speech
+[27/34] en cbse-7-maths-working-with-fractions-fraction-problems-in-everyday-life.json r3-fra175 stem: 3738 ms speech
+[28/34] en cbse-7-maths-working-with-fractions-fraction-problems-in-everyday-life.json r4-fra176 stem: 2132 ms speech
+[29/34] en cbse-7-science-adolescence-a-stage-of-growth-and-change-hormones-hygiene-and-healthy-habits.json r4-hor66 stem: 2290 ms speech
+[31/34] en cbse-7-maths-working-with-fractions-whole-chapter.json c7ma-wwf-8 why-wrong: 4319 ms speech
+[32/34] en cbse-7-maths-working-with-fractions-fraction-problems-in-everyday-life.json r3-fra174 explanation: 788 ms speech
+[33/34] en cbse-7-maths-parallel-and-intersecting-lines-whole-chapter.json c7ma-pail-9 stem: 7817 ms speech
+
+Sentences wanted 6567: generated 32, already done 6533.
+  skipped: cbse-7-english-rani-abbakka-whole-chapter.json t20 (en): longer than 480 characters, split it into two sentences
+  skipped: cbse-7-english-three-days-to-see-whole-chapter.json t25 (en): longer than 480 characters, split it into two sentences
+  skipped: cbse-7-maths-finding-the-unknown-history-of-algebra-and-mending-mistakes.json r2-his113 explanation: edge voice failed: ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x0000025BC7180050> [The specified network name is no longer available] (run again to finish it)
+  skipped: cbse-7-maths-geometric-twins-congruence-and-similar-looking-shapes.json r2-con752 stem: edge voice failed: ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x000001C852D20050> [The specified network name is no longer available] (run again to finish it)
+
+TIMING: made 32 clips = 2.0 min of speech in 1.3 min (0.64x the speech length; 2.4 s per clip).
+=== Priority: classroom-7- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "classroom-7-" "--jobs" "6" "--voices" "kani"
+
+[1/62] en classroom-7-english-whole-chapter s32: 7356 ms speech (about 12 min left)
+[2/62] en classroom-7-maths-whole-chapter s19: 12446 ms speech (about 6 min left)
+[3/62] en classroom-7-maths-whole-chapter s92: 2499 ms speech (about 5 min left)
+[4/62] en classroom-7-maths-whole-chapter s26: 17274 ms speech (about 4 min left)
+[5/62] en classroom-7-english-whole-chapter s36: 10425 ms speech (about 3 min left)
+[6/62] en classroom-7-maths-whole-chapter s110: 7574 ms speech (about 3 min left)
+[7/62] en classroom-7-maths-whole-chapter s37: 6659 ms speech (about 3 min left)
+[8/62] en classroom-7-maths-types-of-triangles-and-the-exterior-angle s24: 2218 ms speech (about 2 min left)
+[9/62] en classroom-7-maths-whole-chapter s92: 10163 ms speech (about 2 min left)
+[10/62] en classroom-7-english-whole-chapter s77: 2785 ms speech (about 2 min left)
+[11/62] en classroom-7-maths-whole-chapter s112: 5508 ms speech (about 2 min left)
+[12/62] en classroom-7-maths-types-of-triangles-and-the-exterior-angle s18: 6085 ms speech (about 2 min left)
+[13/62] en classroom-7-maths-tenths-hundredths-and-units-of-measurement s24: 2679 ms speech (about 2 min left)
+[14/62] en classroom-7-maths-whole-chapter s24: 15999 ms speech (about 2 min left)
+[15/62] en classroom-7-maths-whole-chapter s39: 13151 ms speech (about 2 min left)
+[16/62] en classroom-7-maths-mean-median-and-mode s1: 6581 ms speech (about 2 min left)
+[18/62] en classroom-7-science-changes-during-adolescence s2: 9347 ms speech (about 2 min left)
+[20/62] en classroom-7-science-sea-breeze-and-heat-in-clothing s4: 7210 ms speech (about 2 min left)
+[21/62] en classroom-7-maths-whole-chapter s113: 13364 ms speech (about 2 min left)
+[22/62] en classroom-7-maths-whole-chapter s18: 13681 ms speech (about 2 min left)
+[23/62] en classroom-7-science-sea-breeze-and-heat-in-clothing s24: 2791 ms speech (about 2 min left)
+[24/62] en classroom-7-maths-whole-chapter s115: 1683 ms speech (about 2 min left)
+[25/62] en classroom-7-social-science-change-foreign-invasions-and-intellectual-life s14: 3487 ms speech (about 2 min left)
+[26/62] en classroom-7-science-whole-chapter s28: 10302 ms speech (about 2 min left)
+[27/62] en classroom-7-science-sea-breeze-and-heat-in-clothing s1: 7994 ms speech (about 2 min left)
+[28/62] en classroom-7-social-science-harsha-and-the-pallavas s5: 4380 ms speech (about 1 min left)
+[29/62] en classroom-7-social-science-the-pallavas-and-chalukyas s16: 3141 ms speech (about 1 min left)
+[30/62] en classroom-7-social-science-the-pallavas-and-chalukyas s13: 4780 ms speech (about 1 min left)
+[31/62] en classroom-7-social-science-change-foreign-invasions-and-intellectual-life s1: 8850 ms speech (about 1 min left)
+[32/62] en classroom-7-maths-whole-chapter s38: 9362 ms speech (about 1 min left)
+[33/62] en classroom-7-social-science-tripartite-struggle-pala-and-rashtrakuta v-d2: 2140 ms speech (about 1 min left)
+[34/62] en classroom-7-social-science-harsha-and-the-pallavas v-d3: 2146 ms speech (about 1 min left)
+[35/62] en classroom-7-social-science-harsha-and-the-pallavas s20: 5117 ms speech (about 1 min left)
+[36/62] en classroom-7-social-science-whole-chapter s4: 14154 ms speech (about 1 min left)
+[37/62] en classroom-7-social-science-coins-and-trade-in-history s3: 7174 ms speech (about 1 min left)
+[38/62] en classroom-7-social-science-whole-chapter s5: 9281 ms speech (about 1 min left)
+[39/62] en classroom-7-social-science-coins-and-trade-in-history s4: 8513 ms speech (about 1 min left)
+[40/62] en classroom-7-social-science-coins-and-trade-in-history s22: 1371 ms speech (about 1 min left)
+[41/62] en classroom-7-social-science-coins-and-trade-in-history s29: 3038 ms speech (about 1 min left)
+[42/62] en classroom-7-social-science-whole-chapter s5: 1371 ms speech (about 1 min left)
+[43/62] en classroom-7-social-science-whole-chapter v-d3: 2820 ms speech (about 1 min left)
+[44/62] en classroom-7-social-science-whole-chapter s13: 17365 ms speech (about 1 min left)
+[45/62] en classroom-7-social-science-whole-chapter v-d3: 17870 ms speech (about 1 min left)
+[46/62] en classroom-7-social-science-whole-chapter s14: 8782 ms speech
+[47/62] en classroom-7-social-science-whole-chapter s15: 11512 ms speech
+[48/62] en classroom-7-social-science-whole-chapter s49: 1718 ms speech
+[49/62] en classroom-7-social-science-whole-chapter s51: 2499 ms speech
+[50/62] en classroom-7-social-science-monarchy-and-democracy s19: 1405 ms speech
+[51/62] en classroom-7-social-science-monarchy-and-democracy s7: 7045 ms speech
+[52/62] en classroom-7-social-science-democracy-and-monarchy-compared s2: 7931 ms speech
+[53/62] en classroom-7-social-science-monarchy-and-democracy s18: 6233 ms speech
+[54/62] en classroom-7-social-science-monarchy-and-democracy s23: 2749 ms speech
+[55/62] en classroom-7-social-science-types-of-government-and-democratic-variations s1: 7940 ms speech
+[56/62] en classroom-7-social-science-types-of-government-and-democratic-variations s5: 6056 ms speech
+[57/62] en classroom-7-social-science-the-mauryan-empire-and-ashoka v-d3: 1834 ms speech
+[58/62] en classroom-7-social-science-magadha-and-the-legacy-of-empires s17: 3353 ms speech
+[59/62] en classroom-7-social-science-magadha-and-the-legacy-of-empires s19: 5409 ms speech
+[60/62] en classroom-7-social-science-types-of-government-and-democratic-variations s4: 16952 ms speech
+[61/62] en classroom-7-social-science-decentralisation-judiciary-and-three-tiers s25: 2277 ms speech
+[62/62] en classroom-7-social-science-decentralisation-judiciary-and-three-tiers s2: 8878 ms speech
+
+Sentences wanted 9609: generated 60, already done 9547.
+  skipped: classroom-7-english-whole-chapter s50 (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-7-english-whole-chapter s57 (en): longer than 480 characters, split it into two sentences
+  skipped: classroom-7-maths-triangle-angle-sum-and-types s13: edge voice failed: ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x0000023787690050> [The specified network name is no longer available] (run again to finish it)
+  skipped: classroom-7-maths-whole-chapter s81: edge voice failed: ClientConnectorError: Cannot connect to host speech.platform.bing.com:443 ssl:<ssl.SSLContext object at 0x0000015871580050> [The specified network name is no longer available] (run again to finish it)
+
+TIMING: made 60 clips = 7.1 min of speech in 1.6 min (0.23x the speech length; 1.6 s per clip).
+=== Priority: cbse-4- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "cbse-4-" "--jobs" "6" "--voices" "kani"
+
+[1/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-reading-time-and-finding-duration.json r3-rea225 explanation: 1322 ms speech (about 1 min left)
+[2/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-reading-time-and-finding-duration.json r2-rea222 stem: 2774 ms speech (about 1 min left)
+[3/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-time-and-calendar.json r3-k5 explanation: 948 ms speech
+[4/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-time-and-calendar.json r2-k3 explanation: 1951 ms speech
+[5/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-time-and-calendar.json n34-4m26999-2 stem: 3772 ms speech
+[6/8] en cbse-4-maths-ticking-clocks-and-turning-calendar-time-intervals-and-daily-life-problems.json r3-tim334 stem: 2677 ms speech
+
+Sentences wanted 5204: generated 6, already done 5196.
+  skipped: cbse-4-evs-exploring-our-neighbourhood-places-people-and-maps.json t2: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 49: surrogates not allowed (run again to finish it)
+  skipped: cbse-4-maths-elephants-tigers-and-leopards-whole-chapter.json c4ma-etal-4 stem: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc90' in position 34: surrogates not allowed (run again to finish it)
+
+TIMING: made 6 clips = 0.2 min of speech in 0.7 min (3.08x the speech length; 6.9 s per clip).
+=== Priority: classroom-4- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "classroom-4-" "--jobs" "6" "--voices" "kani"
+
+[1/90] en classroom-4-english-whole-chapter s88: 2916 ms speech (about 19 min left)
+[2/90] en classroom-4-english-whole-chapter s20: 4165 ms speech (about 10 min left)
+[3/90] en classroom-4-english-whole-chapter s65: 4305 ms speech (about 6 min left)
+[4/90] en classroom-4-english-whole-chapter s14: 7780 ms speech (about 5 min left)
+[5/90] en classroom-4-english-whole-chapter s85: 3785 ms speech (about 4 min left)
+[6/90] en classroom-4-english-a-town-and-its-craft v-d1: 5546 ms speech (about 3 min left)
+[7/90] en classroom-4-english-whole-chapter s9: 13927 ms speech (about 3 min left)
+[8/90] en classroom-4-evs-life-cycles-of-plants-and-animals s34: 1712 ms speech (about 3 min left)
+[9/90] en classroom-4-evs-seeds-and-how-they-travel s18: 4840 ms speech (about 3 min left)
+[10/90] en classroom-4-evs-seeds-and-how-they-travel s25: 1743 ms speech (about 3 min left)
+[11/90] en classroom-4-evs-seeds-and-how-they-travel s3: 11567 ms speech (about 2 min left)
+[12/90] en classroom-4-evs-whole-chapter s1: 6173 ms speech (about 2 min left)
+[13/90] en classroom-4-evs-whole-chapter s4: 3597 ms speech (about 2 min left)
+[14/90] en classroom-4-evs-whole-chapter s13: 12951 ms speech (about 2 min left)
+[15/90] en classroom-4-evs-whole-chapter s9: 14216 ms speech (about 2 min left)
+[16/90] en classroom-4-maths-whole-chapter s11: 18589 ms speech (about 2 min left)
+[17/90] en classroom-4-evs-whole-chapter s66: 12659 ms speech (about 2 min left)
+[18/90] en classroom-4-maths-whole-chapter s12: 11738 ms speech (about 2 min left)
+[19/90] en classroom-4-maths-whole-chapter s81: 8224 ms speech (about 2 min left)
+[20/90] en classroom-4-maths-whole-chapter s21: 10056 ms speech (about 2 min left)
+[21/90] en classroom-4-maths-whole-chapter s79: 8327 ms speech (about 2 min left)
+[22/90] en classroom-4-maths-whole-chapter s101: 8007 ms speech (about 2 min left)
+[23/90] en classroom-4-maths-whole-chapter s105: 1559 ms speech (about 2 min left)
+[24/90] en classroom-4-maths-whole-chapter s122: 5654 ms speech (about 2 min left)
+[25/90] en classroom-4-maths-division-facts-and-remainders s3: 7557 ms speech (about 2 min left)
+[26/90] en classroom-4-maths-division-facts-and-remainders s16: 4343 ms speech (about 2 min left)
+[27/90] en classroom-4-maths-division-facts-and-remainders s5: 8691 ms speech (about 2 min left)
+[28/90] en classroom-4-maths-whole-chapter s2: 12755 ms speech (about 2 min left)
+[29/90] en classroom-4-maths-whole-chapter s17: 21302 ms speech (about 2 min left)
+[30/90] en classroom-4-maths-whole-chapter s27: 14525 ms speech (about 2 min left)
+[31/90] en classroom-4-maths-whole-chapter s18: 16439 ms speech (about 1 min left)
+[32/90] en classroom-4-maths-whole-chapter s29: 18880 ms speech (about 1 min left)
+[35/90] en classroom-4-maths-whole-chapter s101: 4846 ms speech (about 1 min left)
+[36/90] en classroom-4-maths-whole-chapter s88: 2414 ms speech (about 1 min left)
+[37/90] en classroom-4-maths-whole-chapter s104: 2724 ms speech (about 1 min left)
+[38/90] en classroom-4-maths-line-symmetry s4: 4472 ms speech (about 1 min left)
+[39/90] en classroom-4-maths-line-symmetry s18: 6419 ms speech (about 1 min left)
+[40/90] en classroom-4-maths-making-symmetric-shapes-and-patterns s3: 7858 ms speech (about 1 min left)
+[41/90] en classroom-4-maths-whole-chapter s109: 13486 ms speech (about 1 min left)
+[42/90] en classroom-4-maths-making-symmetric-shapes-and-patterns s5: 6064 ms speech (about 1 min left)
+[43/90] en classroom-4-maths-rotation-and-turns v-s4: 6828 ms speech (about 1 min left)
+[44/90] en classroom-4-maths-whole-chapter s105: 15222 ms speech (about 1 min left)
+[45/90] en classroom-4-maths-rotation-and-turns s3: 9420 ms speech (about 1 min left)
+[46/90] en classroom-4-maths-rotation-and-turns s27: 1620 ms speech (about 1 min left)
+[47/90] en classroom-4-maths-top-front-and-side-views s16: 4984 ms speech (about 1 min left)
+[48/90] en classroom-4-maths-top-front-and-side-views s23: 1552 ms speech (about 1 min left)
+[49/90] en classroom-4-maths-whole-chapter s33: 9053 ms speech (about 1 min left)
+[50/90] en classroom-4-maths-whole-chapter s23: 12878 ms speech (about 1 min left)
+[51/90] en classroom-4-maths-multiplying-and-dividing-hundreds-and-thousands s26: 1883 ms speech (about 1 min left)
+[52/90] en classroom-4-maths-times-10-and-times-5-tables s3: 11248 ms speech (about 1 min left)
+[53/90] en classroom-4-maths-whole-chapter s22: 17841 ms speech (about 1 min left)
+[55/90] en classroom-4-maths-times-10-and-times-5-tables s6: 8311 ms speech (about 1 min left)
+[56/90] en classroom-4-maths-whole-chapter s7: 9122 ms speech (about 1 min left)
+[57/90] en classroom-4-maths-whole-chapter s1: 6350 ms speech (about 1 min left)
+[58/90] en classroom-4-maths-whole-chapter s14: 5780 ms speech (about 1 min left)
+[59/90] en classroom-4-maths-whole-chapter s16: 11742 ms speech (about 1 min left)
+[60/90] en classroom-4-maths-whole-chapter s35: 12911 ms speech (about 1 min left)
+[61/90] en classroom-4-maths-whole-chapter s22: 23276 ms speech (about 1 min left)
+[62/90] en classroom-4-maths-word-problems-on-distance-and-money s1: 7192 ms speech (about 1 min left)
+[63/90] en classroom-4-maths-whole-chapter s83: 10938 ms speech (about 1 min left)
+[64/90] en classroom-4-maths-whole-chapter s89: 5800 ms speech (about 1 min left)
+[65/90] en classroom-4-maths-word-problems-on-distance-and-money s4: 14737 ms speech (about 1 min left)
+[66/90] en classroom-4-maths-numbers-up-to-9999 s3: 9260 ms speech
+[67/90] en classroom-4-maths-comparing-and-ordering-4-digit-numbers s2: 7611 ms speech
+[68/90] en classroom-4-maths-whole-chapter s22: 6300 ms speech
+[69/90] en classroom-4-maths-whole-chapter s13: 16235 ms speech
+[70/90] en classroom-4-maths-whole-chapter s89: 2199 ms speech
+[71/90] en classroom-4-maths-whole-chapter s93: 3323 ms speech
+[72/90] en classroom-4-maths-whole-chapter s88: 6995 ms speech
+[73/90] en classroom-4-maths-whole-chapter s20: 13317 ms speech
+[74/90] en classroom-4-maths-whole-chapter s103: 1831 ms speech
+[75/90] en classroom-4-maths-whole-chapter s109: 6459 ms speech
+[76/90] en classroom-4-maths-reading-time-and-finding-duration s14: 7936 ms speech
+[77/90] en classroom-4-maths-time-and-calendar s4: 8406 ms speech
+[78/90] en classroom-4-maths-time-and-calendar s30: 1938 ms speech
+[79/90] en classroom-4-maths-time-intervals-and-daily-life-problems s1: 7450 ms speech
+[80/90] en classroom-4-maths-time-intervals-and-daily-life-problems s4: 11568 ms speech
+[81/90] en classroom-4-maths-time-and-calendar s7: 15904 ms speech
+[82/90] en classroom-4-maths-whole-chapter s10: 16458 ms speech
+[83/90] en classroom-4-maths-whole-chapter s17: 9429 ms speech
+[84/90] en classroom-4-maths-whole-chapter s81: 7015 ms speech
+[85/90] en classroom-4-maths-whole-chapter s25: 14514 ms speech
+[86/90] en classroom-4-maths-whole-chapter s84: 4460 ms speech
+[87/90] en classroom-4-maths-whole-chapter s96: 3756 ms speech
+[88/90] en classroom-4-maths-comparing-and-converting-units v-d1: 7210 ms speech
+[89/90] en classroom-4-maths-grams-kilograms-millilitres-and-litres s17: 5025 ms speech
+[90/90] en classroom-4-maths-grams-kilograms-millilitres-and-litres s5: 7325 ms speech
+
+Sentences wanted 6798: generated 87, already done 6708.
+  skipped: classroom-4-evs-places-people-and-maps s9: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 49: surrogates not allowed (run again to finish it)
+  skipped: classroom-4-evs-places-people-and-maps s3: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc9d' in position 102: surrogates not allowed (run again to finish it)
+  skipped: classroom-4-maths-whole-chapter s112 question: edge voice failed: UnicodeEncodeError: 'utf-8' codec can't encode character '\udc90' in position 34: surrogates not allowed (run again to finish it)
+
+TIMING: made 87 clips = 12.5 min of speech in 1.6 min (0.13x the speech length; 1.1 s per clip).
+=== Priority: tnm-10- === 
+
+> @studysmart/api@0.1.0 audio:build D:\Smart Learning Website\apps\api
+> tsx src/tools/build-audio.ts "--lang" "en" "--only" "tnm-10-" "--jobs" "6" "--voices" "kani"
+

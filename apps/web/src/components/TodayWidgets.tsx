@@ -18,7 +18,7 @@ export function TodayWidgets({ mode, items }: { mode: TodayMode; items: TodayIte
   const [tab, setTab] = useState("");
   const [open, setOpen] = useState(false);
   const title = s.text("layout.today.title") || (lang === "ta" ? "இன்று" : "Today");
-  const side = s.get("layout.today.side") === "left" ? "left" : "right";
+  const side = s.get<string>("layout.today.side") === "left" ? "left" : "right";
 
   useEffect(() => {
     const el = root.current;
