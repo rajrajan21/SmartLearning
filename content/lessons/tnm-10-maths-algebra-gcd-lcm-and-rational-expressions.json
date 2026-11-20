@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "gcd-lcm-and-rational-expressions",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "GCD, LCM and rational expressions"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Simplifying a recipe"
+        },
+        "text": {
+          "en": "A recipe for 12 people uses 6 eggs and 9 cups of flour. Dividing both by the largest common number, 3, gives the simpler ratio 2 : 3. Polynomials can be simplified in the same way."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "GCD",
+          "common factors",
+          "LCM",
+          "GCD x LCM",
+          "p(x)/q(x)",
+          "cancel factors",
+          "LCM of denominators"
+        ],
+        "text": {
+          "en": "The GCD of two polynomials is the polynomial of the highest degree that divides both exactly.\nTo find it, factorise each polynomial and multiply the common factors, taking the smallest power of each.\nThe LCM is the polynomial of the lowest degree divisible by both, found by taking every factor with its highest power.\nAs with numbers, GCD x LCM = product of the two polynomials (up to a constant).\nA rational expression is a fraction p(x)/q(x) where p and q are polynomials and q is not zero.\nTo simplify it, factorise numerator and denominator and cancel the common factors.\nTo add rational expressions, take the LCM of the denominators; to multiply, multiply numerators and denominators; to divide, multiply by the reciprocal."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The GCD of two polynomials is the polynomial of the highest degree that divides both exactly."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "GCD"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "To find it, factorise each polynomial and multiply the common factors, taking the smallest power of each."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "common factors"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The LCM is the polynomial of the lowest degree divisible by both, found by taking every factor with its highest power."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "LCM"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "As with numbers, GCD x LCM = product of the two polynomials (up to a constant)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "GCD x LCM"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A rational expression is a fraction p(x)/q(x) where p and q are polynomials and q is not zero."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "p(x)/q(x)"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "To simplify it, factorise numerator and denominator and cancel the common factors."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cancel factors"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To add rational expressions, take the LCM of the denominators; to multiply, multiply numerators and denominators; to divide, multiply by the reciprocal."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "LCM of denominators"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Simplify (x squared - 9)/(x squared + 5x + 6)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Factorise the top: x squared - 9 = (x - 3)(x + 3)."
+            },
+            "why": {
+              "en": "Difference of squares."
+            }
+          },
+          {
+            "text": {
+              "en": "Factorise the bottom: x squared + 5x + 6 = (x + 2)(x + 3)."
+            },
+            "why": {
+              "en": "Find two numbers with sum 5 and product 6."
+            }
+          },
+          {
+            "text": {
+              "en": "Cancel (x + 3): the result is (x - 3)/(x + 2), where x is not -3 and not -2."
+            },
+            "why": {
+              "en": "Never allow a zero denominator."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the GCD of two polynomials and simplify a rational expression?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Factorise both"
+          },
+          {
+            "en": "Multiply the common factors"
+          },
+          {
+            "en": "Cancel common factors in a fraction"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Cancelling terms instead of factors"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma582-1",
+          "r1-m10ma582-2",
+          "r1-m10ma582-3",
+          "r2-m10ma582-4",
+          "r2-m10ma582-5",
+          "r2-m10ma582-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "GCD: product of common factors with smallest powers; LCM: all factors with highest powers."
+          },
+          {
+            "en": "A rational expression is p(x)/q(x) with q not zero."
+          },
+          {
+            "en": "Simplify by factorising and cancelling common factors."
+          },
+          {
+            "en": "Cancel only factors, never single terms."
+          }
+        ]
+      }
+    ]
+  }
+}

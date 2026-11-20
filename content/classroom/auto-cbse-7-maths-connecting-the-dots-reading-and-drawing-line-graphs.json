@@ -1,0 +1,310 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "connecting-the-dots",
+ "topic": "reading-and-drawing-line-graphs",
+ "status": "published",
+ "title": {
+  "en": "Line graph"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A line graph",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 120,
+   "y1": 400,
+   "x2": 780,
+   "y2": 400,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "ay",
+   "x1": 120,
+   "y1": 400,
+   "x2": 120,
+   "y2": 110,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "yl",
+   "x": 70,
+   "y": 120,
+   "text": "°C",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 200,
+   "cy": 310,
+   "r": 9,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "x0",
+   "x": 200,
+   "y": 435,
+   "text": "Mon",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 330,
+   "cy": 238,
+   "r": 9,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "x1",
+   "x": 330,
+   "y": 435,
+   "text": "Tue",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "s1",
+   "x1": 200,
+   "y1": 310,
+   "x2": 330,
+   "y2": 238,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 460,
+   "cy": 130,
+   "r": 9,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "x2",
+   "x": 460,
+   "y": 435,
+   "text": "Wed",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "s2",
+   "x1": 330,
+   "y1": 238,
+   "x2": 460,
+   "y2": 130,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "p3",
+   "cx": 590,
+   "cy": 166,
+   "r": 9,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "x3",
+   "x": 590,
+   "y": 435,
+   "text": "Thu",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "s3",
+   "x1": 460,
+   "y1": 130,
+   "x2": 590,
+   "y2": 166,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "p4",
+   "cx": 720,
+   "cy": 274,
+   "r": 9,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "x4",
+   "x": 720,
+   "y": 435,
+   "text": "Fri",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "s4",
+   "x1": 590,
+   "y1": 166,
+   "x2": 720,
+   "y2": 274,
+   "stroke": "accent",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A line graph shows how something changes over time. Here we record the temperature on five days."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "ay",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "x0",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "x1",
+     "at": 0.58
+    },
+    {
+     "do": "write",
+     "target": "x2",
+     "at": 0.66
+    },
+    {
+     "do": "write",
+     "target": "x3",
+     "at": 0.74
+    },
+    {
+     "do": "write",
+     "target": "x4",
+     "at": 0.8200000000000001
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "We put a dot for each day's value and join the dots with a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "p1",
+     "at": 0.24000000000000002
+    },
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.29
+    },
+    {
+     "do": "show",
+     "target": "p2",
+     "at": 0.38
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.42999999999999994
+    },
+    {
+     "do": "show",
+     "target": "p3",
+     "at": 0.52
+    },
+    {
+     "do": "draw",
+     "target": "s3",
+     "at": 0.57
+    },
+    {
+     "do": "show",
+     "target": "p4",
+     "at": 0.66
+    },
+    {
+     "do": "draw",
+     "target": "s4",
+     "at": 0.71
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "When the line goes up, the value is rising. When it goes down, it is falling. The highest point is on Wednesday."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "p2",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

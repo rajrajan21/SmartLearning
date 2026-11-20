@@ -1,0 +1,234 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch04-quadrilaterals",
+ "topic": "quadrilaterals-rectangles-rhombus-kites",
+ "status": "published",
+ "title": {
+  "en": "rectangle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "A rectangle",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "sh",
+   "points": [
+    [
+     130,
+     170
+    ],
+    [
+     470,
+     170
+    ],
+    [
+     470,
+     370
+    ],
+    [
+     130,
+     370
+    ]
+   ],
+   "fill": "#FFF3D6",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "e0",
+   "x1": 130,
+   "y1": 170,
+   "x2": 470,
+   "y2": 170,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v0",
+   "cx": 130,
+   "cy": 170,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e1",
+   "x1": 470,
+   "y1": 170,
+   "x2": 470,
+   "y2": 370,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v1",
+   "cx": 470,
+   "cy": 170,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e2",
+   "x1": 470,
+   "y1": 370,
+   "x2": 130,
+   "y2": 370,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v2",
+   "cx": 470,
+   "cy": 370,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e3",
+   "x1": 130,
+   "y1": 370,
+   "x2": 130,
+   "y2": 170,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v3",
+   "cx": 130,
+   "cy": 370,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ns",
+   "x": 700,
+   "y": 220,
+   "text": "4 sides",
+   "size": 44,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nc",
+   "x": 700,
+   "y": 300,
+   "text": "4 corners",
+   "size": 44,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "This is a rectangle. Let us look at it carefully."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sh",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The straight lines around the shape are its sides. Count them with me. A rectangle has 4 sides."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "e0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "e1",
+     "at": 0.325
+    },
+    {
+     "do": "draw",
+     "target": "e2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "draw",
+     "target": "e3",
+     "at": 0.575
+    },
+    {
+     "do": "write",
+     "target": "ns",
+     "on": "4 sides"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The points where two sides meet are the corners. A rectangle has 4 corners too."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "v0",
+     "at": 0.2
+    },
+    {
+     "do": "show",
+     "target": "v1",
+     "at": 0.325
+    },
+    {
+     "do": "show",
+     "target": "v2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "show",
+     "target": "v3",
+     "at": 0.575
+    },
+    {
+     "do": "write",
+     "target": "nc",
+     "on": "4 corners"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-common-ground",
+ "topic": "hcf-and-lcm",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "HCF and LCM"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The tiles"
+    },
+    "text": {
+     "en": "Ria wanted to cover a floor 12 feet by 18 feet with square tiles of the same size without cutting any. \"What is the biggest tile that fits?\" she asked.\nHer father found the largest number that divides both 12 and 18. It was 6, so the tile was 6 feet by 6 feet."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "HCF",
+     "LCM",
+     "factor",
+     "multiple",
+     "prime factorisation"
+    ],
+    "text": {
+     "en": "The highest common factor (HCF) of two numbers is the largest number that divides both exactly. The factors of 12 are 1, 2, 3, 4, 6, 12 and of 18 are 1, 2, 3, 6, 9, 18. The common factors are 1, 2, 3, 6, so the HCF is 6.\nThe lowest common multiple (LCM) is the smallest number that is a multiple of both. The multiples of 4 are 4, 8, 12, 16 ... and of 6 are 6, 12, 18 ... The first common multiple is 12, so the LCM of 4 and 6 is 12.\nWe can find the HCF and LCM using prime factorisation. HCF takes the common prime factors with the smallest powers and LCM takes all prime factors with the largest powers. For two numbers, HCF × LCM = their product."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The HCF is the largest number that divides both numbers."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "HCF"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "The LCM is the smallest number that is a multiple of both."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "LCM"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The HCF of 12 and 18 is 6. The LCM of 4 and 6 is 12."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "examples"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "For two numbers, HCF times LCM equals their product."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "product rule"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the HCF and LCM of 12 and 18."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "12 = 2 × 2 × 3 and 18 = 2 × 3 × 3."
+      },
+      "why": {
+       "en": "Prime factorise both."
+      }
+     },
+     {
+      "text": {
+       "en": "HCF takes the common factors 2 × 3 = 6."
+      },
+      "why": {
+       "en": "LCM takes 2 × 2 × 3 × 3 = 36."
+      }
+     },
+     {
+      "text": {
+       "en": "So the HCF is 6 and the LCM is 36. Check: 6 × 36 = 216 = 12 × 18."
+      },
+      "why": {
+       "en": "The product rule works."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says the LCM of 4 and 6 is 24 because 4 × 6 = 24. How will you correct this?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "24 is a common multiple, but 12 is smaller and also a multiple of both."
+     },
+     {
+      "en": "The LCM is the smallest, which is 12."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Using the product as the LCM."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-hcf",
+     "r1-lcm"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "HCF is the largest common factor."
+     },
+     {
+      "en": "LCM is the smallest common multiple."
+     },
+     {
+      "en": "HCF × LCM = product of the two numbers."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "empirical-and-classical-probability",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Classical and empirical probability"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Tossing a coin 100 times"
+        },
+        "text": {
+          "en": "Toss a coin 100 times and you may get 52 heads - close to half. Probability is about how likely things are, and it can be worked out in two ways: by reasoning and by experiment."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sample space",
+          "classical",
+          "empirical",
+          "0 to 1",
+          "die examples",
+          "many trials",
+          "cards"
+        ],
+        "text": {
+          "en": "An experiment with several possible outcomes is a trial; the set of all outcomes is the sample space.\nClassical probability: P(E) = number of favourable outcomes / total number of equally likely outcomes.\nEmpirical probability: P(E) = number of times E occurred / total number of trials.\nProbability is always between 0 and 1, with 0 for an impossible and 1 for a sure event.\nFor one die, P(even) = 3/6 = 1/2 and P(prime) = 3/6 since 2, 3 and 5 are prime.\nThe more trials we perform, the closer the empirical probability comes to the classical probability.\nA card drawn from 52: P(king) = 4/52 = 1/13."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An experiment with several possible outcomes is a trial; the set of all outcomes is the sample space."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sample space"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Classical probability: P(E) = number of favourable outcomes / total number of equally likely outcomes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "classical"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Empirical probability: P(E) = number of times E occurred / total number of trials."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "empirical"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Probability is always between 0 and 1, with 0 for an impossible and 1 for a sure event."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "0 to 1"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For one die, P(even) = 3/6 = 1/2 and P(prime) = 3/6 since 2, 3 and 5 are prime."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "die examples"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The more trials we perform, the closer the empirical probability comes to the classical probability."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "many trials"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "A card drawn from 52: P(king) = 4/52 = 1/13."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cards"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A bag has 3 red and 5 blue balls. One ball is drawn at random. Find P(red) and P(not red)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Total balls = 8; red balls = 3."
+            },
+            "why": {
+              "en": "Count outcomes."
+            }
+          },
+          {
+            "text": {
+              "en": "P(red) = 3/8."
+            },
+            "why": {
+              "en": "Favourable over total."
+            }
+          },
+          {
+            "text": {
+              "en": "P(not red) = 1 - 3/8 = 5/8."
+            },
+            "why": {
+              "en": "Complement rule."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What is the difference between classical and empirical probability?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Classical: equally likely outcomes"
+          },
+          {
+            "en": "Empirical: from experiment"
+          },
+          {
+            "en": "Both lie between 0 and 1"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking probability can exceed 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma920-1",
+          "r1-m9ma920-2",
+          "r1-m9ma920-3",
+          "r2-m9ma920-4",
+          "r2-m9ma920-5",
+          "r2-m9ma920-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "P(E) = favourable / total."
+          },
+          {
+            "en": "Empirical = times E happened / trials."
+          },
+          {
+            "en": "0 <= P(E) <= 1."
+          },
+          {
+            "en": "P(not E) = 1 - P(E)."
+          }
+        ]
+      }
+    ]
+  }
+}

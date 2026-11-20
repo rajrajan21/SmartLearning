@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "trigonometry",
+  "topic": "trigonometric-ratios-and-special-angles",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Trigonometric ratios and special angles (Class 9)"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Climbing a ramp"
+        },
+        "text": {
+          "en": "A ramp rises 3 m over a horizontal length of 4 m. The ratio of rise to run tells us how steep it is - and the idea of a ratio of sides is the start of trigonometry."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "opposite, adjacent, hypotenuse",
+          "sin cos tan",
+          "depend on the angle only",
+          "special angles",
+          "60 degrees",
+          "complementary",
+          "identity"
+        ],
+        "text": {
+          "en": "In a right triangle, with respect to an angle A, the sides are opposite, adjacent and hypotenuse.\nsin A = opposite / hypotenuse, cos A = adjacent / hypotenuse, tan A = opposite / adjacent.\nThe ratios depend only on the angle, not on the size of the triangle.\nSpecial angles: sin 30 = 1/2, cos 30 = root 3 / 2, tan 30 = 1/root 3; for 45 degrees sin = cos = 1/root 2 and tan = 1.\nFor 60 degrees: sin 60 = root 3 / 2, cos 60 = 1/2, tan 60 = root 3.\nComplementary angles: sin (90 - A) = cos A and cos (90 - A) = sin A.\nsin squared A + cos squared A = 1."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In a right triangle, with respect to an angle A, the sides are opposite, adjacent and hypotenuse."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "opposite, adjacent, hypotenuse"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "sin A = opposite / hypotenuse, cos A = adjacent / hypotenuse, tan A = opposite / adjacent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin cos tan"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The ratios depend only on the angle, not on the size of the triangle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "depend on the angle only"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Special angles: sin 30 = 1/2, cos 30 = root 3 / 2, tan 30 = 1/root 3; for 45 degrees sin = cos = 1/root 2 and tan = 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "special angles"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For 60 degrees: sin 60 = root 3 / 2, cos 60 = 1/2, tan 60 = root 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "60 degrees"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Complementary angles: sin (90 - A) = cos A and cos (90 - A) = sin A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complementary"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "sin squared A + cos squared A = 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "identity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In a right triangle the legs are 3 and 4. Find sin A, cos A and tan A for the angle A opposite the side 3."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Hypotenuse = root(9 + 16) = 5."
+            },
+            "why": {
+              "en": "Pythagoras."
+            }
+          },
+          {
+            "text": {
+              "en": "sin A = 3/5, cos A = 4/5."
+            },
+            "why": {
+              "en": "Opposite 3, adjacent 4."
+            }
+          },
+          {
+            "text": {
+              "en": "tan A = 3/4."
+            },
+            "why": {
+              "en": "Opposite over adjacent."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Define the three trigonometric ratios and list sin 30, sin 45, sin 60."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Opposite, adjacent, hypotenuse ratios"
+          },
+          {
+            "en": "1/2, 1/root 2, root 3/2"
+          },
+          {
+            "en": "Complementary angle rule"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing up sin and cos"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma430-1",
+          "r1-m9ma430-2",
+          "r1-m9ma430-3",
+          "r2-m9ma430-4",
+          "r2-m9ma430-5",
+          "r2-m9ma430-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "sin = opp/hyp, cos = adj/hyp, tan = opp/adj."
+          },
+          {
+            "en": "sin 30 = 1/2, sin 45 = 1/root 2, sin 60 = root 3 / 2."
+          },
+          {
+            "en": "sin (90 - A) = cos A."
+          },
+          {
+            "en": "sin^2 A + cos^2 A = 1."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,31 +1,57 @@
+const TourPage = named(() => import("./pages/Tour"), "TourPage");
 import { Route, Switch, Router } from "wouter";
+import { lazy, Suspense, type ComponentType } from "react";
+import type { ReactElement } from "react";
+/** Pages that most visitors never open are loaded the first time they are visited, so the first page opens faster. */
+function named<M extends Record<string, unknown>>(load: () => Promise<M>, name: keyof M & string) { return lazy(() => load().then((m) => ({ default: m[name] as ComponentType<any> }))); }
+const Loading = (): ReactElement => <p role="status" style={{ padding: "2rem", textAlign: "center" }}>Loading…</p>;
 import { SettingsProvider } from "./lib/settings";
 import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";
 import { Home } from "./pages/Home";
 import { ClassPage, SubjectPage, ChapterPage, TopicPage, LessonPage } from "./pages/Browse";
-import { ClassroomHub, ClassroomPage } from "./pages/Classroom";
-import { ExamPage } from "./pages/Exam";
-import { WorksheetPage } from "./pages/Worksheet";
-import { GamePage } from "./pages/Games";
+const ClassroomHub = named(() => import("./pages/Classroom"), "ClassroomHub");
+const ClassroomPage = named(() => import("./pages/Classroom"), "ClassroomPage");
+const ExamPage = named(() => import("./pages/Exam"), "ExamPage");
+const WorksheetPage = named(() => import("./pages/Worksheet"), "WorksheetPage");
+const PapersListPage = named(() => import("./pages/Papers"), "PapersListPage");
+const PaperPage = named(() => import("./pages/Papers"), "PaperPage");
+const GamePage = named(() => import("./pages/Games"), "GamePage");
 import { SitePage } from "./pages/SitePages";
-import { ParentPage } from "./pages/Parent";
-import { RevisePage } from "./pages/Revise";
-import { ProgressPage } from "./pages/Progress";
-import { AccountPage } from "./pages/Account";
+const ParentPage = named(() => import("./pages/Parent"), "ParentPage");
+const RevisePage = named(() => import("./pages/Revise"), "RevisePage");
+const GradePathPage = named(() => import("./pages/GradePath"), "GradePathPage");
+const TermPaperPage = named(() => import("./pages/TermPaper"), "TermPaperPage");
+const MistakesPage = named(() => import("./pages/Mistakes"), "MistakesPage");
+const ProgressPage = named(() => import("./pages/Progress"), "ProgressPage");
+const AccountPage = named(() => import("./pages/Account"), "AccountPage");
 import { AccountProvider } from "./lib/account";
-import { PracticePage } from "./pages/Practice";
+const PracticePage = named(() => import("./pages/Practice"), "PracticePage");
 import { AccessGuard } from "./components/AccessGate";
-import { AdminApp } from "./admin/AdminApp";
+const AdminApp = named(() => import("./admin/AdminApp"), "AdminApp");
 
-import { ExplorePage } from "./pages/Explore";
-import { NotebookPage } from "./pages/Notebook";
-import { BookReaderPage, BooksPage } from "./pages/Books";
+const ExplorePage = named(() => import("./pages/Explore"), "ExplorePage");
+const NotebookPage = named(() => import("./pages/Notebook"), "NotebookPage");
+const BookReaderPage = named(() => import("./pages/Books"), "BookReaderPage");
+const BooksPage = named(() => import("./pages/Books"), "BooksPage");
+const LibraryPage = named(() => import("./pages/Library"), "LibraryPage");
+const LibraryBookPage = named(() => import("./pages/Library"), "LibraryBookPage");
+import { ContributePage, MyContributionsPage, ContributorPage } from "./pages/Contribute";
+const GkPage = named(() => import("./pages/Gk"), "GkPage");
+const GkLessonPage = named(() => import("./pages/Gk"), "GkLessonPage");
 
 export function Routes() {
   return (
+    <Suspense fallback={<Loading />}>
     <Switch>
       <Route path="/" component={Home} />
+      <Route path="/library" component={LibraryPage} />
+      <Route path="/library/contribute" component={ContributePage} />
+      <Route path="/library/my-contributions" component={MyContributionsPage} />
+      <Route path="/library/by/:handle" component={ContributorPage} />
+      <Route path="/library/:id" component={LibraryBookPage} />
+      <Route path="/gk" component={GkPage} />
+      <Route path="/gk/:id" component={GkLessonPage} />
       <Route path="/account" component={AccountPage} />
       <Route path="/classroom" component={ClassroomHub} />
       <Route path="/classroom/:board/:cls/:subject/:chapter/:topic" component={ClassroomPage} />
@@ -42,10 +68,16 @@ export function Routes() {
       <Route path="/contact">{() => <SitePage kind="contact" />}</Route>
       <Route path="/parent" component={ParentPage} />
       <Route path="/revise" component={RevisePage} />
+      <Route path="/path/:board/:subject" component={GradePathPage} />
+      <Route path="/term/:board/:cls/:subject" component={TermPaperPage} />
+      <Route path="/mistakes" component={MistakesPage} />
       <Route path="/progress" component={ProgressPage} />
       <Route path="/explore" component={ExplorePage} />
       <Route path="/notebook" component={NotebookPage} />
       <Route path="/books" component={BooksPage} />
+      <Route path="/papers" component={PapersListPage} />
+      <Route path="/papers/:id" component={PaperPage} />
+      <Route path="/tour" component={TourPage} />
       <Route path="/:board/:cls" component={ClassPage} />
       <Route path="/:board/:cls/:subject" component={SubjectPage} />
       <Route path="/:board/:cls/:subject/:chapter" component={ChapterPage} />
@@ -54,6 +86,7 @@ export function Routes() {
       <Route path="/:board/:cls/:subject/:chapter/:topic" component={TopicPage} />
       <Route component={NotFound} />
     </Switch>
+    </Suspense>
   );
 }
 

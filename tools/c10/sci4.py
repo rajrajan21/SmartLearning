@@ -1,0 +1,26 @@
+import sys; sys.path.insert(0,'/tmp/ss-build/tools/c10')
+from engh import *
+build('science','heredity','variation-and-expression-of-traits','Variation and how traits are expressed',
+ "Why are siblings alike but not identical?",
+ "Two brothers share the same parents, yet one is taller and has curly hair. Variation arises during reproduction and genes decide how traits show.",
+ [("Reproduction gives new individuals that are similar to their parents but subtly different. These small differences are called variations.","variation"),
+  ("In asexual reproduction, variation arises only from small inaccuracies in DNA copying. A field of sugarcane shows very little variation.","asexual variation"),
+  ("In sexual reproduction, even greater diversity is created, because DNA from two parents is combined.","sexual variation"),
+  ("Variations build up over generations. Some help the organism survive, for example heat-resistant bacteria in a heat wave. Selection of variants by the environment is the basis of evolution.","selection"),
+  ("Traits are controlled by DNA in the cell. A section of DNA that provides information to make one protein is called a gene.","gene and protein"),
+  ("Proteins act as enzymes and hormones. For example, a plant is tall if its gene makes enough of the hormone for growth, so a less efficient gene gives a shorter plant.","gene to trait"),
+  ("Each cell has two copies of every gene, one from each parent, so each parent contributes equally to the DNA of the child.","two copies"),
+  ("The genes are present on separate pieces of DNA called chromosomes. Because they are separate, traits can be inherited independently, giving new combinations.","independent assortment")],
+ ("A cell has 2 copies of each gene. If a plant has 6 genes studied, how many gene copies?",[("Multiply genes by copies.","6 x 2."),("= 12 copies.","One from each parent for every gene.")]),
+ ("Explain why sexual reproduction creates more variation than asexual reproduction.",["DNA from two parents combines","New combinations of genes arise","Variation helps survival"],["Thinking all children are copies of parents"]),
+ ["Variation arises by DNA copying errors and by combining DNA of two parents.","A gene is a section of DNA that makes a protein.","Each parent gives one copy of each gene.","Environment selects useful variations."],
+ [M("hv2-1",1,"A section of DNA that provides information for one protein is called a","gene","chromosome","cell","A gene codes for a protein."),
+  tf("hv2-2",1,"Sexual reproduction produces more variation than asexual reproduction.",True,"DNA of two parents is combined."),
+  M("hv2-3",2,"Variation in asexual reproduction arises mainly from","small inaccuracies in DNA copying","two parents","environment only","DNA copying is not perfect."),
+  AR("hv2-4",2,"Heat-resistant bacteria survive a heat wave.","Environment selects useful variants.","Their variation helps them survive."),
+  short("hv2-5",2,"How many copies of each gene does a child receive from the two parents together?",["two","2"],"One copy from each parent.",[("one","Each parent gives one, so the child has two.")]),
+  tf("hv2-6",3,"Genes lie on separate pieces of DNA called chromosomes.",True,"This allows independent inheritance."),
+  M("hv2-7",3,"A tall plant is tall because","its gene makes enough growth hormone","it grows in a pot","the sun is hot","The text links tallness to the hormone."),
+  M("hv2-8",3,"Selection of variants by the environment is the basis of","evolution","reproduction","digestion","The book states this.")],
+ cname='Heredity',tname='Variation and how traits are expressed')
+print('sci4 ok')

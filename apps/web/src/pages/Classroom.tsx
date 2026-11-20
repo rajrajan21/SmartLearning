@@ -1,13 +1,16 @@
+import { ReportProblem } from "../components/ReportProblem";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "wouter";
 import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
+import { visualsPolicy, withoutGeneratedSteps, withoutVisualSteps } from "../lib/visuals";
 import { ui } from "../lib/i18n";
 import { useRetry } from "../lib/curriculum";
 import { useClassroom, useClassroomIndex } from "../lib/classroom";
 import { usePhrases } from "../lib/practice";
 import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
 import { store } from "../lib/storage";
+import { toggleNote, useNotebook } from "../lib/tier2";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
 type Phase = "idle" | "playing" | "paused" | "gap" | "check" | "feedback" | "done";
@@ -59,10 +62,12 @@ export function ClassroomPage() {
   return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); store.set("ss_class_voice", v); }} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
 }
 
-function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassroom; back: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
+function Player({ lesson: lessonIn, back, voices, voice, onVoice }: { lesson: PublicClassroom; back: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
   const s = useSettings();
   const { lang } = s;
   const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
+  const vp = visualsPolicy(s, lessonIn, reduced());
+  const lesson = useMemo(() => (vp.animations ? (vp.generated ? lessonIn : withoutGeneratedSteps(lessonIn)) : withoutVisualSteps(lessonIn)), [lessonIn, vp.animations, vp.generated]);
   const autoAdvance = s.get("classroom.autoAdvance") === true, pauseMs = s.get<number>("classroom.stepPauseMs");
   const captions = s.get("classroom.showCaptions") === true, show3d = s.get("classroom.show3d") === true;
   const style = s.get<string>("classroom.boardStyle") as BoardStyle, browserVoice = s.get("classroom.browserVoice") === true;
@@ -144,7 +149,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
     const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
     if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[lang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
     if (i + 1 >= ls.steps.length) { setPhase("done"); return; }
-    if (!R.current.autoAdvance) { setPhase("paused"); return; }
+    if (!R.current.autoAdvance || (!vp.autoplay && ls.steps[i + 1]?.id.startsWith("v-") && !stp.id.startsWith("v-"))) { setPhase("paused"); return; }
     setPhase("gap");
     const id = run.current;
     timer.current = window.setTimeout(() => { if (run.current === id) begin(i + 1); }, R.current.pauseMs);
@@ -220,6 +225,8 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
   const speaking = (playing && !mute) || talking;
   const sections = lesson.steps.reduce<{ name: string; first: number }[]>((acc, st, i) => { const n = st.section ?? ""; if (n && acc[acc.length - 1]?.name !== n) acc.push({ name: n, first: i }); return acc; }, []);
   const curSection = lesson.steps[step]?.section;
+  const notes = useNotebook(), noteOn = s.get("notebook.enabled") === true;
+  const noteId = ("cr:" + back.replace(/^\//, "").replace(/\//g, "-")).slice(0, 60), noteSaved = !!notes[noteId], subjectSlug = back.split("/")[3] ?? "";
   const resume = s.get("classroom.resume") === true, saveKey = `ss.class.${lesson.title.en}`;
   const [seen, setSeen] = useState<{ last: number; done: string[] }>(() => { try { return JSON.parse(localStorage.getItem(saveKey) ?? "") as { last: number; done: string[] }; } catch { return { last: 0, done: [] }; } });
   useEffect(() => {
@@ -235,7 +242,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
 
   return (
     <div className="paper classroom">
-      <p className="small"><Link href={back}>← {L("backToTopic")}</Link></p>
+      <p className="small"><Link href={back}>← {L("backToTopic")}</Link>{noteOn && <> <button type="button" className="link heart" aria-pressed={noteSaved} onClick={() => toggleNote({ id: noteId, href: `/classroom${back}`, title: lesson.title, subject: { en: subjectSlug.replace(/-/g, " ") } })}><span aria-hidden="true">{noteSaved ? "❤️" : "🤍"}</span> {noteSaved ? L("nbSaved") : L("nbSave")}</button></>}</p>
       <h1>{s.name(lesson.title)}</h1>
       {sections.length > 1 && (
         <nav className="class-rail" aria-label={L("classroomParts")}>
@@ -262,7 +269,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
       )}
 
         <div className="class-stage">
-          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={clock} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
+          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(lesson.title)} />
           {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
           {phase === "done" && (
             <div className="class-done" role="status"><b>{L("classroomDone")}</b>
@@ -305,6 +312,7 @@ function Player({ lesson, back, voices, voice, onVoice }: { lesson: PublicClassr
           </select>
         </label>
       </div>
+      <ReportProblem kind="lesson" about={back} where="onLessons" />
       <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
 
     </div>

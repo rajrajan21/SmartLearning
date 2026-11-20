@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "linear-equations-in-two-variables",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Linear equations in two variables and their graphs"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The two parcels"
+        },
+        "text": {
+          "en": "A courier charges Rs 10 plus Rs 5 per kg. The cost y = 5x + 10 relates weight x and cost y. Each (x, y) pair that fits is a solution; together they lie on a straight line."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "ax + by + c = 0",
+          "infinitely many solutions",
+          "plot and join",
+          "x = k, y = k",
+          "intercepts",
+          "check a point",
+          "system"
+        ],
+        "text": {
+          "en": "A linear equation in two variables has the form ax + by + c = 0 with a and b not both zero.\nIt has infinitely many solutions (x, y); each solution is a point on its graph.\nTo graph it, find at least two (better three) solutions, plot them and draw the straight line through them.\nThe line x = 0 is the y-axis and y = 0 is the x-axis; x = k is a vertical line and y = k a horizontal line.\nPutting x = 0 gives the y-intercept, and y = 0 gives the x-intercept.\nA point lies on the line only if its coordinates satisfy the equation.\nTwo such equations together make a system, and their common solution is where the two lines meet."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-9-linear-equations-in-two-variables.svg",
+        "altText": {
+          "en": "Graph of the line 2x + y = 4 through (0,4), (1,2) and (2,0)"
+        },
+        "caption": {
+          "en": "A straight line graph"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A linear equation in two variables has the form ax + by + c = 0 with a and b not both zero."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ax + by + c = 0"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "It has infinitely many solutions (x, y); each solution is a point on its graph."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "infinitely many solutions"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "To graph it, find at least two (better three) solutions, plot them and draw the straight line through them."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "plot and join"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The line x = 0 is the y-axis and y = 0 is the x-axis; x = k is a vertical line and y = k a horizontal line."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "x = k, y = k"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Putting x = 0 gives the y-intercept, and y = 0 gives the x-intercept."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "intercepts"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A point lies on the line only if its coordinates satisfy the equation."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check a point"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Two such equations together make a system, and their common solution is where the two lines meet."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "system"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Draw the graph of 2x + y = 4."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "If x = 0 then y = 4, so (0, 4) is on the line. If y = 0 then x = 2, so (2, 0) is on the line."
+            },
+            "why": {
+              "en": "Intercepts give two quick points."
+            }
+          },
+          {
+            "text": {
+              "en": "A third point: x = 1 gives y = 2, so (1, 2) lies on it too."
+            },
+            "why": {
+              "en": "A third point checks the line."
+            }
+          },
+          {
+            "text": {
+              "en": "Plot the three points; they lie on one straight line. Draw it with arrowheads."
+            },
+            "why": {
+              "en": "The line extends in both directions."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you draw the graph of a linear equation in two variables?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Find two or three solutions"
+          },
+          {
+            "en": "Plot the points"
+          },
+          {
+            "en": "Join with a straight line"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Plotting only one point"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma714-1",
+          "r1-m9ma714-2",
+          "r1-m9ma714-3",
+          "r2-m9ma714-4",
+          "r2-m9ma714-5",
+          "r2-m9ma714-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "ax + by + c = 0 has infinitely many solutions."
+          },
+          {
+            "en": "Its graph is a straight line."
+          },
+          {
+            "en": "x = 0 gives the y-intercept; y = 0 the x-intercept."
+          },
+          {
+            "en": "A point on the line satisfies the equation."
+          }
+        ]
+      }
+    ]
+  }
+}

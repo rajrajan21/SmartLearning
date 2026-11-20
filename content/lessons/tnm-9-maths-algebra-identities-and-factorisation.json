@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "identities-and-factorisation",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Algebraic identities and factorisation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The square garden"
+        },
+        "text": {
+          "en": "A square garden has side (a + b). What is its area? Splitting it into four rectangles shows (a + b) squared = a squared + 2ab + b squared - and this is an identity."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "identity",
+          "square identities",
+          "difference of squares",
+          "(x + a)(x + b)",
+          "trinomial square",
+          "sum and difference of cubes",
+          "factorise steps"
+        ],
+        "text": {
+          "en": "An identity is true for every value of the variables.\n(a + b) squared = a squared + 2ab + b squared and (a - b) squared = a squared - 2ab + b squared.\na squared - b squared = (a + b)(a - b).\n(x + a)(x + b) = x squared + (a + b)x + ab.\n(a + b + c) squared = a squared + b squared + c squared + 2ab + 2bc + 2ca.\na cubed + b cubed = (a + b)(a squared - ab + b squared) and a cubed - b cubed = (a - b)(a squared + ab + b squared).\nTo factorise, look first for a common factor, then try an identity, then split the middle term."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An identity is true for every value of the variables."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "identity"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "(a + b) squared = a squared + 2ab + b squared and (a - b) squared = a squared - 2ab + b squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "square identities"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "a squared - b squared = (a + b)(a - b)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "difference of squares"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "(x + a)(x + b) = x squared + (a + b)x + ab."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(x + a)(x + b)"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "(a + b + c) squared = a squared + b squared + c squared + 2ab + 2bc + 2ca."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "trinomial square"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "a cubed + b cubed = (a + b)(a squared - ab + b squared) and a cubed - b cubed = (a - b)(a squared + ab + b squared)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum and difference of cubes"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To factorise, look first for a common factor, then try an identity, then split the middle term."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "factorise steps"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Factorise x squared + 7x + 12 and evaluate 103 squared quickly."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Look for two numbers with product 12 and sum 7: 3 and 4."
+            },
+            "why": {
+              "en": "Split the middle term."
+            }
+          },
+          {
+            "text": {
+              "en": "x squared + 7x + 12 = (x + 3)(x + 4)."
+            },
+            "why": {
+              "en": "Check: 3 x 4 = 12, 3 + 4 = 7."
+            }
+          },
+          {
+            "text": {
+              "en": "103 squared = (100 + 3) squared = 10000 + 600 + 9 = 10609."
+            },
+            "why": {
+              "en": "Use (a + b) squared."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "List the three most common identities and how to use them to factorise."
+        },
+        "requiredIdeas": [
+          {
+            "en": "(a+b)^2, (a-b)^2, a^2 - b^2"
+          },
+          {
+            "en": "Common factor first"
+          },
+          {
+            "en": "Split the middle term"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Writing (a+b)^2 = a^2 + b^2"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma269-1",
+          "r1-m9ma269-2",
+          "r1-m9ma269-3",
+          "r2-m9ma269-4",
+          "r2-m9ma269-5",
+          "r2-m9ma269-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "(a + b)^2 = a^2 + 2ab + b^2."
+          },
+          {
+            "en": "a^2 - b^2 = (a + b)(a - b)."
+          },
+          {
+            "en": "(x + a)(x + b) = x^2 + (a+b)x + ab."
+          },
+          {
+            "en": "Factorise: common factor, identity, split the middle term."
+          }
+        ]
+      }
+    ]
+  }
+}

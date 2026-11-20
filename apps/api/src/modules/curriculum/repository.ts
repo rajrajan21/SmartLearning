@@ -10,4 +10,6 @@ export interface CurriculumRepository {
   search(boardCode: string, query: string, limit?: number): Promise<SearchHit[]>;
   diff(boardCode: string, from: string, to: string): Promise<YearDiff | null>;
   coverage(boardCode: string, year?: string): Promise<CoverageReport | null>;
+  /** forget the in-memory copy (called after content is loaded; optional so test doubles need not provide it) */
+  invalidate?(): void;
 }

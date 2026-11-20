@@ -1,0 +1,233 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "maps-and-locations",
+ "topic": "directions-and-routes-on-maps",
+ "status": "published",
+ "title": {
+  "en": "Directions"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The four directions",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "cc",
+   "cx": 450,
+   "cy": 265,
+   "r": 130,
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "n",
+   "x1": 450,
+   "y1": 265,
+   "x2": 450,
+   "y2": 120,
+   "stroke": "accent",
+   "width": 7
+  },
+  {
+   "kind": "arrow",
+   "id": "s",
+   "x1": 450,
+   "y1": 265,
+   "x2": 450,
+   "y2": 410,
+   "stroke": "warm",
+   "width": 7
+  },
+  {
+   "kind": "arrow",
+   "id": "e",
+   "x1": 450,
+   "y1": 265,
+   "x2": 600,
+   "y2": 265,
+   "stroke": "good",
+   "width": 7
+  },
+  {
+   "kind": "arrow",
+   "id": "w",
+   "x1": 450,
+   "y1": 265,
+   "x2": 300,
+   "y2": 265,
+   "stroke": "water",
+   "width": 7
+  },
+  {
+   "kind": "text",
+   "id": "tn",
+   "x": 450,
+   "y": 110,
+   "text": "North",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ts",
+   "x": 450,
+   "y": 445,
+   "text": "South",
+   "size": 32,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "te",
+   "x": 660,
+   "y": 275,
+   "text": "East",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tw",
+   "x": 240,
+   "y": 275,
+   "text": "West",
+   "size": 32,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sn",
+   "x": 790,
+   "y": 130,
+   "text": "☀️",
+   "size": 80,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sr",
+   "x": 790,
+   "y": 200,
+   "text": "Sun rises in the east",
+   "size": 20,
+   "color": "sun",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "mid",
+   "cx": 450,
+   "cy": 265,
+   "r": 10,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "To find a place, we use directions. There are four main directions."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "mid",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "cc",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The Sun rises in the east. If you stand facing the sunrise, the east is in front of you."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "sn",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "e",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "te",
+     "on": "east"
+    },
+    {
+     "do": "write",
+     "target": "sr",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The west is behind you, the north is on your left and the south is on your right. Then north, east, south and west make a full compass."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "w",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "tw",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "n",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "tn",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "s",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ts",
+     "at": 0.65
+    }
+   ]
+  }
+ ]
+}

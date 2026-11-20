@@ -1,0 +1,279 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "coordinate-geometry",
+ "topic": "section-formula",
+ "status": "published",
+ "title": {
+  "en": "The coordinate plane"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "The coordinate plane",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "xa",
+   "x1": 130,
+   "y1": 265,
+   "x2": 790,
+   "y2": 265,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ya",
+   "x1": 450,
+   "y1": 460,
+   "x2": 450,
+   "y2": 60,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "xl",
+   "x": 810,
+   "y": 273,
+   "text": "x",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "yl",
+   "x": 472,
+   "y": 70,
+   "text": "y",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "o",
+   "x": 432,
+   "y": 289,
+   "text": "O",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q1",
+   "x": 700,
+   "y": 100,
+   "text": "I (+, +)",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q2",
+   "x": 200,
+   "y": 100,
+   "text": "II (−, +)",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q3",
+   "x": 200,
+   "y": 440,
+   "text": "III (−, −)",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q4",
+   "x": 700,
+   "y": 440,
+   "text": "IV (+, −)",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "gx",
+   "x1": 630,
+   "y1": 265,
+   "x2": 630,
+   "y2": 145,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "gy",
+   "x1": 450,
+   "y1": 145,
+   "x2": 630,
+   "y2": 145,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "pt",
+   "cx": 630,
+   "cy": 145,
+   "r": 8,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lp",
+   "x": 644,
+   "y": 133,
+   "text": "P (3, 2)",
+   "size": 24,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "x3",
+   "x": 630,
+   "y": 291,
+   "text": "3",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "y2",
+   "x": 432,
+   "y": 153,
+   "text": "2",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Two number lines cross at right angles. The horizontal one is the x axis and the vertical one is the y axis. They meet at the origin, O."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "xa",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "ya",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "xl",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "yl",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "o",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The two axes divide the plane into four quadrants. Both numbers are positive in the first quadrant. The signs of x and y are different in the second and the fourth, and both are negative in the third."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "q1",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "q2",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "q3",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "q4",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A point is described by an ordered pair, x first and then y. To plot P, three units along the x axis and two units up, we write P as 3 comma 2."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "gx",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "gy",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "pt",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lp",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "x3",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "y2",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

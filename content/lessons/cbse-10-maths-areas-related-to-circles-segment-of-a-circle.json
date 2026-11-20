@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "areas-related-to-circles",
+  "topic": "segment-of-a-circle",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Area of a segment and combinations"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The bite out of a circle"
+        },
+        "text": {
+          "en": "A chord cuts a circle into two parts called segments. Finding their area needs a sector and a triangle."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "60 degrees: equilateral",
+          "annulus sector",
+          "combined figures",
+          "major segment",
+          "quadrant case",
+          "segment",
+          "segment = sector - triangle",
+          "split into parts"
+        ],
+        "text": {
+          "en": "A segment is the region between a chord and the arc it cuts off.\nArea of a minor segment = area of the sector minus area of the triangle formed by the two radii and the chord.\nFor a right angle at the centre with radius r, the sector area is pi r^2/4 and the triangle area is r^2/2.\nFor a 60 degree angle, the triangle is equilateral and its area is root 3/4 times r squared.\nFor a major segment, find the area of the circle minus the minor segment.\nMany problems combine sectors, squares and triangles: flower beds, logos, clock hands, windscreen wipers.\nFor a wiper sweep, area swept = sector of the larger radius minus sector of the smaller radius.\nDraw and label the figure first, and break it into pieces whose areas you know."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A segment is the region between a chord and the arc it cuts off."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "segment"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Area of a minor segment = area of the sector minus area of the triangle formed by the two radii and the chord."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "segment = sector - triangle"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For a right angle at the centre with radius r, the sector area is pi r^2/4 and the triangle area is r^2/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "quadrant case"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "For a 60 degree angle, the triangle is equilateral and its area is root 3/4 times r squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "60 degrees: equilateral"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For a major segment, find the area of the circle minus the minor segment."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "major segment"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Many problems combine sectors, squares and triangles: flower beds, logos, clock hands, windscreen wipers."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "combined figures"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For a wiper sweep, area swept = sector of the larger radius minus sector of the smaller radius."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "annulus sector"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Draw and label the figure first, and break it into pieces whose areas you know."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "split into parts"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area of the minor segment of a circle of radius 10 cm for a central angle of 90 degrees (pi = 3.14)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Sector = 90/360 x 3.14 x 100 = 78.5 cm^2."
+            },
+            "why": {
+              "en": "Quarter circle."
+            }
+          },
+          {
+            "text": {
+              "en": "Triangle = 1/2 x 10 x 10 = 50 cm^2."
+            },
+            "why": {
+              "en": "Right triangle of two radii."
+            }
+          },
+          {
+            "text": {
+              "en": "Segment = 78.5 - 50 = 28.5 cm^2."
+            },
+            "why": {
+              "en": "Subtract."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the area of a segment?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Sector area"
+          },
+          {
+            "en": "Minus triangle area"
+          },
+          {
+            "en": "Draw the figure"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Adding the triangle instead of subtracting"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sg1",
+          "r1-sg2",
+          "r2-sg3",
+          "r2-sg4",
+          "r2-sg5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Minor segment = sector - triangle."
+          },
+          {
+            "en": "Major segment = circle - minor segment."
+          },
+          {
+            "en": "Split combined figures into known shapes."
+          }
+        ]
+      }
+    ]
+  }
+}

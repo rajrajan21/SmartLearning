@@ -1,363 +1,464 @@
 {
-  "board": "CBSE",
-  "classLevel": 3,
-  "subject": "maths",
-  "chapter": "filling-and-lifting",
-  "topic": "litres-and-kilograms",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "maths",
+ "chapter": "filling-and-lifting",
+ "topic": "litres-and-kilograms",
+ "questions": [
+  {
+   "key": "r1-milk",
+   "type": "mcq",
+   "round": 1,
+   "stem": {
+    "en": "We measure how much milk a jug holds in…"
+   },
+   "options": [
     {
-      "key": "r1-milk",
-      "type": "mcq",
-      "round": 1,
-      "stem": {
-        "en": "We measure how much milk a jug holds in…"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "litres"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "kilograms"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Kilograms tell how heavy something is."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "metres"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Metres measure length."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Is it weight or how much it holds?"
-        }
-      ],
-      "explanation": {
-        "en": "Liquids and what a container holds are measured in litres."
-      },
-      "provenance": "original",
-      "status": "published"
+     "id": "right",
+     "text": {
+      "en": "litres"
+     },
+     "correct": true
     },
     {
-      "key": "r1-rice",
-      "type": "mcq",
-      "round": 1,
-      "stem": {
-        "en": "We measure how heavy a bag of rice is in…"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "litres"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Litres are for how much liquid a container holds."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "kilograms"
-          },
-          "correct": true
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "metres"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Metres measure length, not how heavy something is."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Is it weight or how much it holds?"
-        }
-      ],
-      "explanation": {
-        "en": "Weight is measured in kilograms."
-      },
-      "provenance": "original",
-      "status": "published"
+     "id": "o1",
+     "text": {
+      "en": "kilograms"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Kilograms tell how heavy something is."
+     }
     },
     {
-      "key": "r1-litre-half",
-      "type": "true_false",
-      "round": 1,
-      "stem": {
-        "en": "1 litre of water is more than half a litre of water."
-      },
-      "answer": true,
-      "hints": [],
-      "explanation": {
-        "en": "True. A whole litre is twice half a litre."
-      },
-      "provenance": "original",
-      "status": "published"
-    },
-    {
-      "key": "r2-kg-g",
-      "type": "number",
-      "round": 2,
-      "stem": {
-        "en": "1 kilogram is how many grams?"
-      },
-      "answer": 1000,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 100,
-          "why": {
-            "en": "100 is a tenth of it. A kilogram is 1000 grams."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Think of a thousand."
-        }
-      ],
-      "explanation": {
-        "en": "1 kg = 1000 g."
-      },
-      "provenance": "original",
-      "status": "published",
-      "unit": {
-        "en": "g"
-      }
-    },
-    {
-      "key": "r2-buckets",
-      "type": "number",
-      "round": 2,
-      "stem": {
-        "en": "A bucket holds 10 litres. How many litres do 2 such buckets hold?"
-      },
-      "answer": 20,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "hints": [
-        {
-          "en": "Add the two buckets."
-        }
-      ],
-      "explanation": {
-        "en": "10 + 10 = 20 litres."
-      },
-      "provenance": "original",
-      "status": "published",
-      "unit": {
-        "en": "L"
-      }
-    },
-    {
-      "key": "r2-cotton-iron",
-      "type": "true_false",
-      "round": 2,
-      "stem": {
-        "en": "One kilogram of cotton weighs less than one kilogram of iron."
-      },
-      "answer": false,
-      "hints": [],
-      "explanation": {
-        "en": "False. Both weigh the same: one kilogram. Cotton just takes more space."
-      },
-      "provenance": "original",
-      "status": "published"
-    },
-    {
-      "key": "r3-shopping",
-      "type": "number",
-      "round": 3,
-      "stem": {
-        "en": "Amma buys 2 kg of rice and 3 kg of sugar. How many kilograms is that altogether?"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "hints": [
-        {
-          "en": "Add the weights."
-        }
-      ],
-      "explanation": {
-        "en": "2 + 3 = 5 kg."
-      },
-      "provenance": "original",
-      "status": "published",
-      "unit": {
-        "en": "kg"
-      }
-    },
-    {
-      "key": "r3-jug",
-      "type": "number",
-      "round": 3,
-      "stem": {
-        "en": "A jug has 5 litres of water. 2 litres are poured out. How many litres are left?"
-      },
-      "answer": 3,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "Pouring out takes away; it does not add."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Take away."
-        }
-      ],
-      "explanation": {
-        "en": "5 take away 2 is 3 litres."
-      },
-      "provenance": "original",
-      "status": "published",
-      "unit": {
-        "en": "L"
-      }
-    },
-    {
-      "key": "r3-heavier",
-      "type": "mcq",
-      "round": 3,
-      "stem": {
-        "en": "Which is heavier?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1 kg of apples"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "500 g of apples"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "500 g is only half a kilogram."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "1 kg is how many grams?"
-        }
-      ],
-      "explanation": {
-        "en": "1 kg is 1000 g. That is more than 500 g."
-      },
-      "provenance": "original",
-      "status": "published"
-    },
-    {
-      "key": "r4-mugs",
-      "type": "number",
-      "round": 4,
-      "stem": {
-        "en": "A tank holds 20 litres. A mug holds 2 litres. How many mugs of water fill the tank?"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 40,
-          "why": {
-            "en": "Multiplying gives too many. Share 20 into groups of 2."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Count by twos up to 20."
-        }
-      ],
-      "explanation": {
-        "en": "20 divided into groups of 2 gives 10 mugs."
-      },
-      "provenance": "original",
-      "status": "published"
-    },
-    {
-      "key": "r4-bags",
-      "type": "number",
-      "round": 4,
-      "stem": {
-        "en": "Raju's bag weighs 3 kg. His sister's bag is 2 kg heavier. How many kilograms does his sister's bag weigh?"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 1,
-          "why": {
-            "en": "Heavier means more, so add."
-          }
-        }
-      ],
-      "hints": [
-        {
-          "en": "Heavier means add."
-        }
-      ],
-      "explanation": {
-        "en": "3 + 2 = 5 kg."
-      },
-      "provenance": "original",
-      "status": "published",
-      "unit": {
-        "en": "kg"
-      }
-    },
-    {
-      "key": "r4-watermelon",
-      "type": "short",
-      "round": 4,
-      "stem": {
-        "en": "Which unit would you use to weigh a watermelon: gram or kilogram?"
-      },
-      "accepted": [
-        "kilogram",
-        "kilograms",
-        "kg"
-      ],
-      "wrongAnswers": [],
-      "hints": [
-        {
-          "en": "Is a watermelon light or heavy?"
-        }
-      ],
-      "explanation": {
-        "en": "A watermelon is heavy, so we use kilograms."
-      },
-      "provenance": "original",
-      "status": "published"
+     "id": "o2",
+     "text": {
+      "en": "metres"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Metres measure length."
+     }
     }
-  ]
+   ],
+   "hints": [
+    {
+     "en": "Is it weight or how much it holds?"
+    }
+   ],
+   "explanation": {
+    "en": "Liquids and what a container holds are measured in litres."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r1-rice",
+   "type": "mcq",
+   "round": 1,
+   "stem": {
+    "en": "We measure how heavy a bag of rice is in…"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "litres"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Litres are for how much liquid a container holds."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "kilograms"
+     },
+     "correct": true
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "metres"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Metres measure length, not how heavy something is."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "Is it weight or how much it holds?"
+    }
+   ],
+   "explanation": {
+    "en": "Weight is measured in kilograms."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r1-litre-half",
+   "type": "true_false",
+   "round": 1,
+   "stem": {
+    "en": "1 litre of water is more than half a litre of water."
+   },
+   "answer": true,
+   "hints": [],
+   "explanation": {
+    "en": "True. A whole litre is twice half a litre."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r2-kg-g",
+   "type": "number",
+   "round": 2,
+   "stem": {
+    "en": "1 kilogram is how many grams?"
+   },
+   "answer": 1000,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 100,
+     "why": {
+      "en": "100 is a tenth of it. A kilogram is 1000 grams."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "Think of a thousand."
+    }
+   ],
+   "explanation": {
+    "en": "1 kg = 1000 g."
+   },
+   "provenance": "original",
+   "status": "published",
+   "unit": {
+    "en": "g"
+   }
+  },
+  {
+   "key": "r2-buckets",
+   "type": "number",
+   "round": 2,
+   "stem": {
+    "en": "A bucket holds 10 litres. How many litres do 2 such buckets hold?"
+   },
+   "answer": 20,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "hints": [
+    {
+     "en": "Add the two buckets."
+    }
+   ],
+   "explanation": {
+    "en": "10 + 10 = 20 litres."
+   },
+   "provenance": "original",
+   "status": "published",
+   "unit": {
+    "en": "L"
+   }
+  },
+  {
+   "key": "r2-cotton-iron",
+   "type": "true_false",
+   "round": 2,
+   "stem": {
+    "en": "One kilogram of cotton weighs less than one kilogram of iron."
+   },
+   "answer": false,
+   "hints": [],
+   "explanation": {
+    "en": "False. Both weigh the same: one kilogram. Cotton just takes more space."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r3-shopping",
+   "type": "number",
+   "round": 3,
+   "stem": {
+    "en": "Amma buys 2 kg of rice and 3 kg of sugar. How many kilograms is that altogether?"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "hints": [
+    {
+     "en": "Add the weights."
+    }
+   ],
+   "explanation": {
+    "en": "2 + 3 = 5 kg."
+   },
+   "provenance": "original",
+   "status": "published",
+   "unit": {
+    "en": "kg"
+   }
+  },
+  {
+   "key": "r3-jug",
+   "type": "number",
+   "round": 3,
+   "stem": {
+    "en": "A jug has 5 litres of water. 2 litres are poured out. How many litres are left?"
+   },
+   "answer": 3,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "Pouring out takes away; it does not add."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "Take away."
+    }
+   ],
+   "explanation": {
+    "en": "5 take away 2 is 3 litres."
+   },
+   "provenance": "original",
+   "status": "published",
+   "unit": {
+    "en": "L"
+   }
+  },
+  {
+   "key": "r3-heavier",
+   "type": "mcq",
+   "round": 3,
+   "stem": {
+    "en": "Which is heavier?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1 kg of apples"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "500 g of apples"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "500 g is only half a kilogram."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "1 kg is how many grams?"
+    }
+   ],
+   "explanation": {
+    "en": "1 kg is 1000 g. That is more than 500 g."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r4-mugs",
+   "type": "number",
+   "round": 4,
+   "stem": {
+    "en": "A tank holds 20 litres. A mug holds 2 litres. How many mugs of water fill the tank?"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 40,
+     "why": {
+      "en": "Multiplying gives too many. Share 20 into groups of 2."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "Count by twos up to 20."
+    }
+   ],
+   "explanation": {
+    "en": "20 divided into groups of 2 gives 10 mugs."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "r4-bags",
+   "type": "number",
+   "round": 4,
+   "stem": {
+    "en": "Raju's bag weighs 3 kg. His sister's bag is 2 kg heavier. How many kilograms does his sister's bag weigh?"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 1,
+     "why": {
+      "en": "Heavier means more, so add."
+     }
+    }
+   ],
+   "hints": [
+    {
+     "en": "Heavier means add."
+    }
+   ],
+   "explanation": {
+    "en": "3 + 2 = 5 kg."
+   },
+   "provenance": "original",
+   "status": "published",
+   "unit": {
+    "en": "kg"
+   }
+  },
+  {
+   "key": "r4-watermelon",
+   "type": "short",
+   "round": 4,
+   "stem": {
+    "en": "Which unit would you use to weigh a watermelon: gram or kilogram?"
+   },
+   "accepted": [
+    "kilogram",
+    "kilograms",
+    "kg"
+   ],
+   "wrongAnswers": [],
+   "hints": [
+    {
+     "en": "Is a watermelon light or heavy?"
+    }
+   ],
+   "explanation": {
+    "en": "A watermelon is heavy, so we use kilograms."
+   },
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "n34-3m47808-1",
+   "round": 1,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "We measure the capacity of milk in"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "Kilograms"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not quite. Litres are for liquids."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Metres"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not quite. Litres are for liquids."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "Litres"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Litres are for liquids."
+   }
+  },
+  {
+   "key": "n34-3m47808-2",
+   "round": 1,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Weight is measured in kilograms."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "1 kg is a standard weight."
+   }
+  },
+  {
+   "key": "n34-3m47808-3",
+   "round": 2,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A bigger glass holds"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "Less"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not quite. Bigger glass, more juice."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "The same always"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not quite. Bigger glass, more juice."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "More"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Bigger glass, more juice."
+   }
+  }
+ ]
 }

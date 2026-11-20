@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "quadratic-equations",
+  "topic": "factorisation-method",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Quadratic equations and factorisation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Splitting the middle term"
+        },
+        "text": {
+          "en": "A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "(2x - 3)(x - 1)",
+          "ax^2 + bx + c = 0",
+          "form the equation",
+          "reject impossible roots",
+          "root = zero",
+          "split the middle term",
+          "verify",
+          "x = 3/2, 1"
+        ],
+        "text": {
+          "en": "A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero.\nA number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial.\nTo factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3.\nWrite 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1).\nSet each factor to zero: x = 3/2 or x = 1. These are the two roots.\nBefore solving a word problem, write the situation as an equation in standard form, then factorise.\nAlways reject a root that does not make sense, such as a negative length or a fractional number of people.\nCheck each root by substituting it into the original equation."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ax^2 + bx + c = 0"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "root = zero"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "split the middle term"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(2x - 3)(x - 1)"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Set each factor to zero: x = 3/2 or x = 1. These are the two roots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "x = 3/2, 1"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Before solving a word problem, write the situation as an equation in standard form, then factorise."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "form the equation"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Always reject a root that does not make sense, such as a negative length or a fractional number of people."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "reject impossible roots"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Check each root by substituting it into the original equation."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "verify"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "The product of two consecutive positive integers is 306. Find the integers."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Let them be x and x + 1: x(x + 1) = 306 so x^2 + x - 306 = 0."
+            },
+            "why": {
+              "en": "Form the equation."
+            }
+          },
+          {
+            "text": {
+              "en": "Factorise: (x + 18)(x - 17) = 0, so x = -18 or 17."
+            },
+            "why": {
+              "en": "Numbers with product -306 and sum 1: 18 and -17."
+            }
+          },
+          {
+            "text": {
+              "en": "Positive integers: 17 and 18. Check: 17 x 18 = 306."
+            },
+            "why": {
+              "en": "Reject -18."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you solve a quadratic by factorisation?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Write in standard form"
+          },
+          {
+            "en": "Split the middle term"
+          },
+          {
+            "en": "Equate each factor to zero"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to reject impossible roots"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-fm1",
+          "r1-fm2",
+          "r2-fm3",
+          "r2-fm4",
+          "r2-fm5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Standard form: a x^2 + b x + c = 0 with a not zero."
+          },
+          {
+            "en": "Roots can be found by splitting the middle term and equating each factor to zero."
+          },
+          {
+            "en": "Reject roots that do not fit the situation."
+          }
+        ]
+      }
+    ]
+  }
+}

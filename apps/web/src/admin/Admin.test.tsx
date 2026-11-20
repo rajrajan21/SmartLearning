@@ -20,6 +20,18 @@ beforeEach(() => {
 });
 
 describe("admin console", () => {
+  it("finds a setting from any section by a search word, and clears back", async () => {
+    sessionStorage.setItem("ss_admin_key", "good-key");
+    render(<AdminApp />);
+    await waitFor(() => expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy());
+    fireEvent.change(screen.getByLabelText("Search settings"), { target: { value: "journey road" } });
+    expect(screen.getByRole("heading", { name: "Search results" })).toBeTruthy();
+    expect(screen.getByText(/Journey road above the chapter list/)).toBeTruthy();
+    fireEvent.change(screen.getByLabelText("Search settings"), { target: { value: "zzzqqq" } });
+    expect(screen.getByText(/No settings match/)).toBeTruthy();
+    fireEvent.click(screen.getByRole("button", { name: "Clear search" }));
+    expect(screen.getByRole("heading", { name: "Features" })).toBeTruthy();
+  });
   it("rejects a wrong key and accepts the right one", async () => {
     render(<AdminApp />);
     expect((screen.getByLabelText("User id") as HTMLInputElement).value).toBe("itsme.rajrajan@gmail.com"); // pre-filled
@@ -38,7 +50,7 @@ describe("admin console", () => {
   it("toggles a feature and saves only the change; planned features are locked", async () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
-    const sw = await screen.findByRole("switch", { name: /Search/i, checked: true });
+    const sw = await screen.findByRole("switch", { name: /^Search$/i, checked: true });
     fireEvent.click(sw);
     expect(screen.getByText(/1 unsaved change/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "Save changes" }));

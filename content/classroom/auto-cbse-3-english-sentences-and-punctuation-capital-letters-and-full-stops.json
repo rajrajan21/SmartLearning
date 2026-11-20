@@ -1,0 +1,105 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "english",
+ "chapter": "sentences-and-punctuation",
+ "topic": "capital-letters-and-full-stops",
+ "status": "published",
+ "title": {
+  "en": "Capital letters and full stops"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Capital letters and full stops",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 450,
+   "y": 170,
+   "text": "my friend ravi plays cricket",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b",
+   "x": 450,
+   "y": 300,
+   "text": "My friend Ravi plays cricket.",
+   "size": 34,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ar",
+   "x": 450,
+   "y": 235,
+   "text": "↓",
+   "size": 40,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A sentence begins with a capital letter and ends with a full stop. Look at this sentence. It has neither."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "We start the sentence with a capital letter. Names of people and places also begin with capital letters."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ar",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "b",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "At the end of a telling sentence we put a full stop."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

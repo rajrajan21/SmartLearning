@@ -13,6 +13,8 @@ export function lessonRoutes(svc: LessonService, maxAge: () => Promise<number>):
     next();
   });
   // Which topics have a published lesson (the web app matches these ids to its curriculum tree).
+  // Every board with its published-lesson counts (home page board switcher).
+  r.get("/board-summary", async (_req, res) => void res.json({ boards: await svc.boardSummary() }));
   r.get("/available", async (_req, res) => void res.json({ topicIds: await svc.publishedTopicIds() }));
 
   r.get("/boards/:board/:classLevel/:subject/:chapter/:topic", async (req, res) => {

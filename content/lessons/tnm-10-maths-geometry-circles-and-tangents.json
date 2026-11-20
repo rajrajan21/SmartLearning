@@ -1,0 +1,227 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "geometry",
+  "topic": "circles-and-tangents",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Circles and tangents"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The wheel on the road"
+        },
+        "text": {
+          "en": "A wheel touches the straight road at just one point. A line that touches a circle at exactly one point is a tangent - the road is a tangent to the wheel."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "tangent and secant",
+          "tangent perpendicular to radius",
+          "equal tangents",
+          "PA = PB",
+          "angle bisector through O",
+          "tangent length"
+        ],
+        "text": {
+          "en": "A tangent to a circle touches it at exactly one point, called the point of contact. A secant cuts it in two points.\nThe tangent at a point is perpendicular to the radius drawn to that point.\nTwo tangents drawn from an external point to a circle are equal in length.\nSo in the figure, if PA and PB are tangents from P, then PA = PB and the radii OA and OB make right angles with them.\nThe centre O lies on the bisector of the angle between the two tangents.\nThe length of the tangent from a point at distance d from the centre of a circle of radius r is the square root of (d squared - r squared)."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-circles-and-tangents.svg",
+        "altText": {
+          "en": "Circle with a tangent touching at A, radius OA perpendicular to the tangent"
+        },
+        "caption": {
+          "en": "Tangent and radius"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A tangent to a circle touches it at exactly one point, called the point of contact. A secant cuts it in two points."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "tangent and secant"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The tangent at a point is perpendicular to the radius drawn to that point."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tangent perpendicular to radius"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Two tangents drawn from an external point to a circle are equal in length."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "equal tangents"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "So in the figure, if PA and PB are tangents from P, then PA = PB and the radii OA and OB make right angles with them."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "PA = PB"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The centre O lies on the bisector of the angle between the two tangents."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle bisector through O"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The length of the tangent from a point at distance d from the centre of a circle of radius r is the square root of (d squared - r squared)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tangent length"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A point P is 13 cm from the centre O of a circle of radius 5 cm. Find the length of the tangent from P."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "The radius to the point of contact is perpendicular to the tangent, so OAP is a right triangle with OP = 13 and OA = 5."
+            },
+            "why": {
+              "en": "Tangent is perpendicular to the radius."
+            }
+          },
+          {
+            "text": {
+              "en": "PA squared = OP squared - OA squared = 169 - 25 = 144."
+            },
+            "why": {
+              "en": "Pythagoras theorem."
+            }
+          },
+          {
+            "text": {
+              "en": "PA = 12 cm."
+            },
+            "why": {
+              "en": "Square root of 144."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State two properties of tangents to a circle."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Perpendicular to radius at the point of contact"
+          },
+          {
+            "en": "Tangents from an external point are equal"
+          },
+          {
+            "en": "Touches at exactly one point"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking a tangent meets the circle twice"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma306-1",
+          "r1-m10ma306-2",
+          "r1-m10ma306-3",
+          "r2-m10ma306-4",
+          "r2-m10ma306-5",
+          "r2-m10ma306-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A tangent meets the circle at exactly one point."
+          },
+          {
+            "en": "Tangent is perpendicular to the radius at the point of contact."
+          },
+          {
+            "en": "Tangents from an external point are equal in length."
+          },
+          {
+            "en": "Tangent length = square root of (d squared - r squared)."
+          }
+        ]
+      }
+    ]
+  }
+}

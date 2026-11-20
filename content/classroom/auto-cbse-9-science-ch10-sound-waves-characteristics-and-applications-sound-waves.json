@@ -1,0 +1,159 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "ch10-sound-waves-characteristics-and-applications",
+ "topic": "sound-waves",
+ "status": "published",
+ "title": {
+  "en": "Reflection of light"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Reflection of light",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "mr",
+   "x1": 200,
+   "y1": 380,
+   "x2": 700,
+   "y2": 380,
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "line",
+   "id": "nm",
+   "x1": 450,
+   "y1": 380,
+   "x2": 450,
+   "y2": 150,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "arrow",
+   "id": "in",
+   "x1": 250,
+   "y1": 160,
+   "x2": 440,
+   "y2": 375,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "rf",
+   "x1": 460,
+   "y1": 375,
+   "x2": 650,
+   "y2": 160,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "ti",
+   "x": 270,
+   "y": 150,
+   "text": "Incident ray",
+   "size": 24,
+   "color": "sun",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tr",
+   "x": 640,
+   "y": 150,
+   "text": "Reflected ray",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tm",
+   "x": 450,
+   "y": 425,
+   "text": "Mirror",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "When light falls on a shiny surface such as a mirror, it bounces back. This is called reflection."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "mr",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "tm",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The ray that comes towards the mirror is the incident ray."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "in",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "ti",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The ray that bounces off is the reflected ray. The dotted line standing straight up from the mirror is the normal, and the two rays make equal angles with it."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nm",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "rf",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "tr",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

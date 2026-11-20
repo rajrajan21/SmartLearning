@@ -1,0 +1,248 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "relation-between-roots-and-coefficients",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Roots and coefficients of a quadratic equation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Without solving"
+        },
+        "text": {
+          "en": "Can we say the sum and product of the roots of 3x^2 + 7x - 2 = 0 without finding the roots? Yes, the coefficients tell us directly."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sum of roots",
+          "product of roots",
+          "forming an equation",
+          "sum of squares",
+          "difference of roots",
+          "sum of cubes",
+          "zero constant"
+        ],
+        "text": {
+          "en": "If alpha and beta are the roots of ax squared plus bx plus c equals 0, then alpha plus beta equals minus b over a.\nThe product alpha times beta equals c over a.\nThe quadratic equation with roots alpha and beta is x squared minus (sum) x plus (product) equals 0.\nAlpha squared plus beta squared equals (alpha plus beta) squared minus 2 alpha beta.\nAlpha minus beta equals the square root of (alpha plus beta) squared minus 4 alpha beta.\nAlpha cubed plus beta cubed equals (alpha plus beta) cubed minus 3 alpha beta (alpha plus beta).\nIf the constant term is zero, one root is zero and the other equals minus b over a."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-relation-between-roots-and-coefficients.svg",
+        "altText": {
+          "en": "Boxes showing sum and product of roots and how to form an equation"
+        },
+        "caption": {
+          "en": "Roots and coefficients"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "If alpha and beta are the roots of ax squared plus bx plus c equals 0, then alpha plus beta equals minus b over a."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sum of roots"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The product alpha times beta equals c over a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "product of roots"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The quadratic equation with roots alpha and beta is x squared minus (sum) x plus (product) equals 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "forming an equation"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Alpha squared plus beta squared equals (alpha plus beta) squared minus 2 alpha beta."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum of squares"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Alpha minus beta equals the square root of (alpha plus beta) squared minus 4 alpha beta."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "difference of roots"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Alpha cubed plus beta cubed equals (alpha plus beta) cubed minus 3 alpha beta (alpha plus beta)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum of cubes"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "If the constant term is zero, one root is zero and the other equals minus b over a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "zero constant"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If alpha, beta are the roots of x^2 + 7x + 10 = 0, find alpha^2 + beta^2 and alpha/beta + beta/alpha."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Here a = 1, b = 7, c = 10, so alpha + beta = -7 and alpha x beta = 10."
+            },
+            "why": {
+              "en": "Sum = -b/a, product = c/a."
+            }
+          },
+          {
+            "text": {
+              "en": "alpha^2 + beta^2 = (alpha + beta)^2 - 2 alpha beta = 49 - 20 = 29."
+            },
+            "why": {
+              "en": "Use the identity."
+            }
+          },
+          {
+            "text": {
+              "en": "alpha/beta + beta/alpha = (alpha^2 + beta^2) / (alpha beta) = 29/10."
+            },
+            "why": {
+              "en": "Common denominator."
+            }
+          },
+          {
+            "text": {
+              "en": "So the answers are 29 and 29/10."
+            },
+            "why": {
+              "en": "Check with the roots -2 and -5: 4 + 25 = 29."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "The difference between the roots of x^2 - 13x + k = 0 is 17. Find k."
+        },
+        "requiredIdeas": [
+          {
+            "en": "alpha + beta = 13 and alpha - beta = 17"
+          },
+          {
+            "en": "Adding: 2 alpha = 30, so alpha = 15 and beta = -2"
+          },
+          {
+            "en": "k = alpha x beta = 15 x (-2) = -30"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the wrong sign for the sum"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma428-1",
+          "r1-m10ma428-2",
+          "r1-m10ma428-3",
+          "r2-m10ma428-4",
+          "r2-m10ma428-5",
+          "r2-m10ma428-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Sum = -b/a, product = c/a."
+          },
+          {
+            "en": "Equation: x^2 - (sum)x + product = 0."
+          },
+          {
+            "en": "Express symmetric expressions through sum and product."
+          },
+          {
+            "en": "Always check with simple roots."
+          }
+        ]
+      }
+    ]
+  }
+}

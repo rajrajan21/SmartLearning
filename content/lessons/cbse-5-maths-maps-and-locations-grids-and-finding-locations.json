@@ -1,0 +1,229 @@
+{
+  "board": "CBSE",
+  "classLevel": 5,
+  "subject": "maths",
+  "chapter": "maps-and-locations",
+  "topic": "grids-and-finding-locations",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Grids: finding places on a map"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Where is the park?"
+        },
+        "text": {
+          "en": "Your friend says: meet me at the park. But on a big map, how will you tell exactly where? A grid of letters and numbers works like an address."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "C3",
+          "grid",
+          "meet",
+          "order matters",
+          "other uses",
+          "same row",
+          "school A1"
+        ],
+        "text": {
+          "en": "A map is divided into rows and columns by a grid. Columns are named with letters (A, B, C...) and rows with numbers (1, 2, 3...).\nTo locate a place, give the column letter first and then the row number, like C3.\nOn our sample map the school is at A1, the park at C3 and the well at E5.\nTo find a place: go along to the column letter, go down to the row number, and the square where they meet is the place.\nTwo places in the same row have the same number: A1 and E1. Places in the same column have the same letter: C1 and C3.\nAlways check which comes first on your map: here column letter, then row number.\n(additional, not in the textbook) The same idea is used in chess boards, spreadsheets and the index of a road atlas."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c5-map-grid.svg",
+        "altText": {
+          "en": "A 5 by 5 map grid with school at A1, park at C3 and well at E5"
+        },
+        "caption": {
+          "en": "Grid map"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A map is divided into rows and columns by a grid. Columns are named with letters (A, B, C...) and rows with numbers (1, 2, 3...)."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "grid"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "To locate a place, give the column letter first and then the row number, like C3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "C3"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "On our sample map the school is at A1, the park at C3 and the well at E5."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "school A1"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "To find a place: go along to the column letter, go down to the row number, and the square where they meet is the place."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "meet"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Two places in the same row have the same number: A1 and E1. Places in the same column have the same letter: C1 and C3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "same row"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Always check which comes first on your map: here column letter, then row number."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "order matters"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "(additional, not in the textbook) The same idea is used in chess boards, spreadsheets and the index of a road atlas."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "other uses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Which square is two columns to the right and two rows down from A1?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Moving two columns from A gives C."
+            },
+            "why": {
+              "en": "A, B, C."
+            }
+          },
+          {
+            "text": {
+              "en": "Two rows down from 1 gives 3, so C3 - where the park is."
+            },
+            "why": {
+              "en": "1, 2, 3."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you describe a place on a grid map?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Columns have letters"
+          },
+          {
+            "en": "Rows have numbers"
+          },
+          {
+            "en": "Say column letter then row number, like C3"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Swapping the order of letter and number"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-gm1",
+          "r1-gm2",
+          "r1-gm3",
+          "r2-gm4",
+          "r2-gm5",
+          "r2-gm6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Grid maps use letters for columns and numbers for rows."
+          },
+          {
+            "en": "A location is given as letter then number, like C3."
+          },
+          {
+            "en": "Places in the same row share the number."
+          }
+        ]
+      }
+    ]
+  }
+}

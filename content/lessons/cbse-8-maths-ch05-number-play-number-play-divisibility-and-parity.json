@@ -1,0 +1,261 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch05-number-play",
+ "topic": "number-play-divisibility-and-parity",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Number play: parity, divisibility tests and digits in disguise"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "Anshu's sums"
+    },
+    "text": {
+     "en": "Anshu wonders: can every natural number be written as a sum of consecutive numbers? Which numbers can be written in more than one way? Can zero be written like that?"
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "parity",
+     "divisible",
+     "multiple",
+     "digit sum",
+     "consecutive"
+    ],
+    "text": {
+     "en": "Sums of consecutive numbers show patterns: 2 + 3 = 5 and 3 + 4 + 5 = 12, and every odd number is the sum of two consecutive numbers.\nParity tells whether a number is odd or even, and parity rules say even + even = even, odd + odd = even, and odd + even = odd.\nIf we put plus and minus signs between four numbers in all 8 ways, every result has the same parity, because changing a plus to a minus changes the value by an even number.\nA number is a multiple of 2 if its units digit is even, a multiple of 5 if it ends in 0 or 5, and a multiple of 10 if it ends in 0.\nA number is divisible by 3 (or 9) if the sum of its digits is divisible by 3 (or 9).\nA number is divisible by 4 if its last two digits form a multiple of 4, and by 8 if its last three digits form a multiple of 8.\nFor 11, add the digits at odd places and the digits at even places; the number is divisible by 11 if the difference is 0 or a multiple of 11.\nWe can explain each test with algebra: for example 100a + 10b + c leaves the same remainder as a + b + c when divided by 9 or 3.\nDigits in disguise are puzzles where letters stand for digits, like AB + AB = BAB, and we solve them by logic about carries and parity.\nAlways test a guess in the whole puzzle, because a solution must satisfy every column."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Sums of consecutive numbers show patterns: 2 + 3 = 5 and 3 + 4 + 5 = 12, and every odd number is the sum of two consecutive numbers."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "5 = 2 + 3"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Parity tells whether a number is odd or even, and parity rules say even + even = even, odd + odd = even, and odd + even = odd."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "parity"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "If we put plus and minus signs between four numbers in all 8 ways, every result has the same parity, because changing a plus to a minus changes the value by an even number."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "+/− signs, same parity"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "A number is a multiple of 2 if its units digit is even, a multiple of 5 if it ends in 0 or 5, and a multiple of 10 if it ends in 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "2, 5, 10 tests"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A number is divisible by 3 (or 9) if the sum of its digits is divisible by 3 (or 9)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "digit sum: 3 and 9"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "A number is divisible by 4 if its last two digits form a multiple of 4, and by 8 if its last three digits form a multiple of 8."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "4: last 2, 8: last 3"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "For 11, add the digits at odd places and the digits at even places; the number is divisible by 11 if the difference is 0 or a multiple of 11."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "11: alternate sum"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "We can explain each test with algebra: for example 100a + 10b + c leaves the same remainder as a + b + c when divided by 9 or 3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "why it works"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Digits in disguise are puzzles where letters stand for digits, like AB + AB = BAB, and we solve them by logic about carries and parity."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cryptarithm"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Always test a guess in the whole puzzle, because a solution must satisfy every column."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "check all columns"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Is 7,128 divisible by 9 and by 8?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Digit sum 7+1+2+8 = 18, which is a multiple of 9."
+      },
+      "why": {
+       "en": "The digit-sum test for 9."
+      }
+     },
+     {
+      "text": {
+       "en": "Last three digits are 128, and 128 ÷ 8 = 16."
+      },
+      "why": {
+       "en": "The last-three-digits test for 8."
+      }
+     },
+     {
+      "text": {
+       "en": "So 7,128 is divisible by both 9 and 8."
+      },
+      "why": {
+       "en": "Both tests pass."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Explain why the digit-sum test for 3 works."
+    },
+    "requiredIdeas": [
+     {
+      "en": "Powers of 10 leave remainder 1 on division by 3."
+     },
+     {
+      "en": "So 100a + 10b + c has the same remainder as a + b + c."
+     },
+     {
+      "en": "Hence the number is divisible by 3 exactly when the digit sum is."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "A number ending in 3 is divisible by 3."
+     },
+     {
+      "en": "Odd + odd is odd."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-num930",
+     "r1-num931",
+     "r1-num932",
+     "r1-num933",
+     "r1-num934"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Parity rules: even + even = even, odd + odd = even, odd + even = odd."
+     },
+     {
+      "en": "Divisibility tests for 2, 3, 4, 5, 8, 9, 10 and 11 use digits."
+     },
+     {
+      "en": "Algebra explains why the tests work and puzzles use the same logic."
+     }
+    ]
+   }
+  ]
+ }
+}

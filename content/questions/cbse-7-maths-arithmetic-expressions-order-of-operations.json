@@ -1,0 +1,219 @@
+{
+  "board": "CBSE",
+  "classLevel": 7,
+  "subject": "maths",
+  "chapter": "arithmetic-expressions",
+  "topic": "order-of-operations",
+  "questions": [
+    {
+      "key": "r1-val",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "2 + 3 × 4 ="
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "14"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "20"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That adds first."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "24"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That multiplies the sum wrongly."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Multiply first."
+      }
+    },
+    {
+      "key": "r1-br",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Brackets are done first."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "True."
+      }
+    },
+    {
+      "key": "r2-bra",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "(2 + 3) × 4 ="
+      },
+      "options": [
+        {
+          "id": "o0",
+          "text": {
+            "en": "14"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That ignores brackets."
+          }
+        },
+        {
+          "id": "right",
+          "text": {
+            "en": "20"
+          },
+          "correct": true
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "11"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Wrong."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "5 × 4."
+      }
+    },
+    {
+      "key": "r2-lr",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "24 ÷ 4 × 2 equals 3."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "False. It is 12."
+      }
+    },
+    {
+      "key": "r3-mix",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "10 − 2 × 3 + 8 ÷ 4 ="
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "6"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "26"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Wrong order."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Wrong order."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "10 − 6 + 2 = 6."
+      }
+    },
+    {
+      "key": "r3-calc",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "Evaluate 5 + 6 × 2."
+      },
+      "accepted": [
+        "17"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "6 × 2 = 12, then 5 + 12 = 17."
+      }
+    },
+    {
+      "key": "r4-num",
+      "round": 4,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "Evaluate 20 − 3 × 4."
+      },
+      "accepted": [
+        "8"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "3 × 4 = 12; 20 − 12 = 8."
+      }
+    },
+    {
+      "key": "r4-same",
+      "round": 4,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Multiplication and division have the same rank."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "True."
+      }
+    }
+  ]
+}

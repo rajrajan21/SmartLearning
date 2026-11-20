@@ -1,0 +1,264 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "plant-physiology",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Photosynthesis"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Photosynthesis",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "sun",
+   "cx": 450,
+   "cy": 100,
+   "r": 30,
+   "fill": "#FFEE58",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "ls",
+   "x": 540,
+   "y": 108,
+   "text": "light",
+   "size": 22,
+   "color": "sun",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 150,
+   "y": 250,
+   "text": "6CO₂",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "p1",
+   "x": 230,
+   "y": 250,
+   "text": "+",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b",
+   "x": 320,
+   "y": 250,
+   "text": "6H₂O",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ar",
+   "x1": 400,
+   "y1": 250,
+   "x2": 500,
+   "y2": 250,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "c",
+   "x": 600,
+   "y": 250,
+   "text": "C₆H₁₂O₆",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "p2",
+   "x": 690,
+   "y": 250,
+   "text": "+",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d",
+   "x": 770,
+   "y": 250,
+   "text": "6O₂",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 150,
+   "y": 300,
+   "text": "carbon dioxide",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 320,
+   "y": 300,
+   "text": "water",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lc",
+   "x": 600,
+   "y": 300,
+   "text": "glucose (food)",
+   "size": 20,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 770,
+   "y": 300,
+   "text": "oxygen",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ch",
+   "x": 450,
+   "y": 380,
+   "text": "in the green chlorophyll of the leaf",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Green plants make their own food by photosynthesis. They need light from the Sun."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sun",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "ls",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The leaves take in carbon dioxide from the air, and the roots take in water from the soil."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "p1",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "b",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.55
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Using light energy, which the green pigment chlorophyll traps, the plant changes them into glucose, its food, and releases oxygen."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ar",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "c",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lc",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "p2",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "d",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ld",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "ch",
+     "at": 0.85
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,180 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "english",
+ "chapter": "unit-1",
+ "topic": "stopping-by-woods",
+ "status": "published",
+ "title": {
+  "en": "The poem, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The poem, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "First part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "Last part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 810,
+   "y": 478,
+   "text": "stanza, rhyme",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A poem can be read part by part, from the first lines to the last. Let us place this poem on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "A traveller driving a horse-drawn sleigh pauses beside a forest on the darkest evening of the year to watch snow fall. The woods belong to someone who lives in the village and will not see him stop."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "The woods are lovely, dark and deep, yet the speaker remembers his promises and the long road ahead. The repeated last line, miles to go before I sleep, can be read as duty to finish daily tasks and, for some readers, as the journey of life."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "The poem balances the pull of rest and beauty against responsibility. Frost uses simple words, a regular rhyme pattern (each stanza's third line rhymes with the next stanza) and repetition for effect."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k2",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

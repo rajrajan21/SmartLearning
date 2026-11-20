@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "real-numbers",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Real Numbers"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Meena asked her teacher, \"Is every number a fraction?\" The teacher smiled and wrote the square root of 2."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "rational number",
+     "irrational number",
+     "real number",
+     "surd",
+     "rationalisation",
+     "scientific notation"
+    ],
+    "text": {
+     "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat. Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi. Together rational and irrational numbers form the real numbers, which fill the number line.\nThe radical notation n-th root of a is written with a radical sign. A surd is an irrational root such as the square root of 3. Surds have properties, and we can add and subtract like surds and multiply any surds. Rationalisation removes the surd from the denominator by multiplying the top and bottom by a suitable surd.\nScientific notation writes a number as a x 10^n with 1 <= a < 10, which helps us write very large and very small numbers such as 5.9 x 10^24."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "rational number"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "irrational number"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Together rational and irrational numbers form the real numbers, which fill the number line."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "real number"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The radical notation n-th root of a is written with a radical sign."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "surd"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A surd is an irrational root such as the square root of 3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "rationalisation"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Surds have properties, and we can add and subtract like surds and multiply any surds."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "scientific notation"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Rationalisation removes the surd from the denominator by multiplying the top and bottom by a suitable surd."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "rational number"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Scientific notation writes a number as a x 10^n with 1 <= a < 10, which helps us write very large and very small numbers such as 5.9 x 10^24."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "irrational number"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Rationalise 1 / sqrt(2)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Multiply top and bottom by sqrt(2)."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "The denominator becomes 2."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "So 1 / sqrt(2) = sqrt(2) / 2."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says Every real number is rational. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Numbers like the square root of 2 are irrational."
+     },
+     {
+      "en": "Real numbers include both."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-rea700",
+     "r1-rea701"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Rational: p/q form."
+     },
+     {
+      "en": "Irrational decimals never end or repeat."
+     },
+     {
+      "en": "Rationalisation clears a surd in the denominator."
+     },
+     {
+      "en": "Scientific notation uses a x 10^n."
+     }
+    ]
+   }
+  ]
+ }
+}

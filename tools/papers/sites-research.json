@@ -1,0 +1,430 @@
+{
+ "note": "Research output, NOT read by the harvester. To use a site, copy its entry into tools/papers/sites.json and set enabled only when the owner approves. All entries here are disabled. Existing seeds in sites.json: cbse-academic, cbse-main, ncert-exemplar, dge-tn, tntextbooks, tnscert, kvs, careers360-tn, aglasem-tn, teachernews-tn. Researched 2026-11-17.",
+ "sites": [
+  {
+   "id": "cbse-academic-2026-27",
+   "name": "CBSE Academic Unit, sample papers 2026-27 (cbseacademic.nic.in)",
+   "board": "cbse",
+   "tier": "official",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://cbseacademic.nic.in/sqp_classx_2026-27.html",
+    "https://cbseacademic.nic.in/sqp_classxii_2026-27.html"
+   ],
+   "follow": "sqp|sample|marking|question",
+   "depth": 1,
+   "license": "Published free by CBSE for students; source credit kept on every paper.",
+   "notes": "Newest CBSE sample papers + marking schemes for Class X and XII (PDFs such as web_material/SQP/ClassX_2026_27/MathsStandard-SQP.pdf). Class X page confirmed by search; the XII page address follows the same pattern and must be confirmed by the discovery run. Add the same for IX and XI if those pages exist. Older seed 'cbse-academic' covers 2025-26.",
+   "research": {
+    "priority": 95,
+    "recommendation": "HARVEST FIRST",
+    "classes": [
+     10,
+     12
+    ],
+    "subjects": "All main subjects",
+    "paperTypes": "Sample paper + marking scheme",
+    "formats": "PDF",
+    "approxVolume": "About 80-120 PDFs per class page",
+    "loginRequired": "No",
+    "robotsAndTerms": "Official. The research fetch tool was refused by robots.txt, so the harvester must check robots itself and log 'not allowed' if it applies; if blocked use PC browser mode or skip.",
+    "blockRisk": "Low-Medium (government site, slow)",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "kv-digital-library",
+   "name": "KV Kanjikode Digital Library, question papers (digitallibrary.kvklibrary.in)",
+   "board": "cbse",
+   "tier": "institution",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://digitallibrary.kvklibrary.in/dlpages/questionpapers.php"
+   ],
+   "follow": "qps|question|paper|pdf",
+   "depth": 1,
+   "license": "Kendriya Vidyalaya library resource; source credit kept. Papers are KVS regional pre-board papers.",
+   "notes": "Hosts KVS regional pre-board/sample papers as direct PDFs (e.g. qps/12-Chemistry-2026-kvsbglr-pb.pdf). Page content not verified (page lists classes/years only when opened).",
+   "research": {
+    "priority": 70,
+    "recommendation": "Harvest second (after discovery run confirms listing and robots)",
+    "classes": [
+     10,
+     12
+    ],
+    "subjects": "Many",
+    "paperTypes": "Pre-board papers with marking schemes",
+    "formats": "PDF direct",
+    "approxVolume": "Probably 100+",
+    "loginRequired": "No (library login exists for other sections only)",
+    "robotsAndTerms": "No terms found on the page. Check robots in discovery.",
+    "blockRisk": "Low",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "kvs-regions",
+   "name": "KVS regional offices (Chennai, other regions) sample and pre-board papers",
+   "board": "cbse",
+   "tier": "official",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://kvsangathan.nic.in/"
+   ],
+   "follow": "sample|pre-board|question|paper",
+   "depth": 2,
+   "license": "Published by Kendriya Vidyalaya Sangathan for students; source credit kept.",
+   "notes": "KVS regional sites publish pre-board QP+MS. Chennai region address was NOT verified (search found only blogs/mirrors). Discovery run should locate the Chennai region site. Existing seed 'kvs' already covers the main site.",
+   "research": {
+    "priority": 60,
+    "recommendation": "Discover first",
+    "classes": [
+     10,
+     12
+    ],
+    "subjects": "Many",
+    "paperTypes": "Pre-board",
+    "formats": "PDF",
+    "approxVolume": "Seasonal (Nov-Feb)",
+    "loginRequired": "No",
+    "robotsAndTerms": "Unverified",
+    "blockRisk": "Low-Medium",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "dge-tn-sample-qb",
+   "name": "TN Directorate of Government Examinations, sample papers and question bank (dge.tn.gov.in)",
+   "board": "stateboard",
+   "tier": "official",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://dge.tn.gov.in/"
+   ],
+   "follow": "question|sample|paper|bank",
+   "depth": 2,
+   "license": "Official Tamil Nadu government site; source credit kept on every paper.",
+   "notes": "Menus confirmed: 'Sample Question papers' (Services) and 'Question Bank' (Online Applications) for HSC+1, HSC+2, SSLC/ESLC, NTSE, NMMS, TRUST. Menu links had no addresses in the fetched text; discovery must find the PDFs. Already seeded as 'dge-tn'.",
+   "research": {
+    "priority": 85,
+    "recommendation": "HARVEST FIRST (with cbse-academic)",
+    "classes": [
+     10,
+     11,
+     12
+    ],
+    "subjects": "SSLC, HSC subjects",
+    "paperTypes": "Sample papers, question bank",
+    "formats": "PDF (likely)",
+    "approxVolume": "Unknown; likely 100s",
+    "loginRequired": "No (probably)",
+    "robotsAndTerms": "Official. Terms/robots not checked.",
+    "blockRisk": "Medium (govt sites often slow or time out)",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "ncert-exemplar-2",
+   "name": "NCERT exemplar problems (ncert.nic.in)",
+   "board": "ncert",
+   "tier": "official",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://ncert.nic.in/exemplar-problems.php"
+   ],
+   "follow": "exemplar|problem",
+   "depth": 1,
+   "license": "NCERT material, shown with credit.",
+   "notes": "Fetch tool refused by robots; harvester must check itself. Practice problems (not exam papers) for classes 6-12 Maths/Science.",
+   "research": {
+    "priority": 55,
+    "recommendation": "Third",
+    "classes": [
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "subjects": "Maths, Science, some others",
+    "paperTypes": "Practice problems",
+    "formats": "PDF",
+    "approxVolume": "Dozens of chapter files",
+    "loginRequired": "No",
+    "robotsAndTerms": "robots refused for fetch tool",
+    "blockRisk": "Medium",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "tnscert-skip",
+   "name": "TN SCERT (tnscert.org)",
+   "board": "stateboard",
+   "tier": "official",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://www.tnscert.org/"
+   ],
+   "follow": "question|model|sample|paper",
+   "depth": 1,
+   "license": "Official government site.",
+   "notes": "Reported to have uploaded Class XII model papers (37 subjects) in 2019, but robots.txt forbids our fetch tool, and the files may be dated. Keep OFF unless the discovery run shows the harvester is allowed.",
+   "research": {
+    "priority": 25,
+    "recommendation": "SKIP unless discovery shows allowed",
+    "classes": [
+     12
+    ],
+    "subjects": "37 subjects (2019)",
+    "paperTypes": "Model papers",
+    "formats": "PDF",
+    "approxVolume": "Dated",
+    "loginRequired": "No",
+    "robotsAndTerms": "robots refused",
+    "blockRisk": "n/a",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "kalvikavi",
+   "name": "Kalvikavi (kalvikavi.com)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://www.kalvikavi.com/"
+   ],
+   "follow": "question-paper|half-yearly|quarterly|mid-term",
+   "depth": 1,
+   "license": "Teacher/district-made Tamil Nadu term papers collected by a blog; copyright unclear. OFF until the owner approves.",
+   "notes": "Classes 6-12 quarterly, half-yearly, mid-term papers (Tamil and English medium) with answer keys, from district teachers. Links are Google Drive files (rate-limited, may need browser mode). robots.txt allows normal pages. No terms statement.",
+   "research": {
+    "priority": 50,
+    "recommendation": "Owner decision; use only if official sources are not enough",
+    "classes": [
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "subjects": "All TN subjects",
+    "paperTypes": "Quarterly, half-yearly, mid-term, annual",
+    "formats": "PDF on Google Drive",
+    "approxVolume": "1000s",
+    "loginRequired": "No",
+    "robotsAndTerms": "robots allow posts; no licence stated",
+    "blockRisk": "Medium (Drive quota)",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "padasalai",
+   "name": "Padasalai (padasalai.net)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://www.padasalai.net/"
+   ],
+   "follow": "question-paper|mid-term|quarterly|half-yearly",
+   "depth": 1,
+   "license": "Teacher-submitted papers collected by a blog; copyright unclear. OFF until the owner approves.",
+   "notes": "Large TN archive (Classes 1-12, term papers, answer keys, book-back questions). Links go to Google Drive, padasalai.info PDFs, some bit.ly and Telegram. robots.txt could not be read by our tool.",
+   "research": {
+    "priority": 45,
+    "recommendation": "Owner decision",
+    "classes": [
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "subjects": "All TN subjects",
+    "paperTypes": "Term, public, book-back",
+    "formats": "PDF (Drive/padasalai.info)",
+    "approxVolume": "1000s",
+    "loginRequired": "No",
+    "robotsAndTerms": "No terms; robots unread; shorteners present",
+    "blockRisk": "Medium-High",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "educationobserver",
+   "name": "Education Observer (educationobserver.com)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://www.educationobserver.com/"
+   ],
+   "follow": "question-paper|half-yearly|mid-term|quarterly",
+   "depth": 1,
+   "license": "Forum-style collection; copyright unclear. OFF until the owner approves.",
+   "notes": "TN classes 6-12 term papers; forum threads. robots.txt allows article pages but blocks forum actions.",
+   "research": {
+    "priority": 30,
+    "recommendation": "Low priority",
+    "classes": [
+     6,
+     7,
+     8,
+     9,
+     10,
+     11,
+     12
+    ],
+    "subjects": "All TN",
+    "paperTypes": "Term papers",
+    "formats": "PDF",
+    "approxVolume": "100s",
+    "loginRequired": "No (check forum)",
+    "robotsAndTerms": "robots limited to non-forum paths",
+    "blockRisk": "Medium",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "careers360",
+   "name": "Careers360 (school.careers360.com)",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://school.careers360.com/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "robots.txt disallows /*.pdf$ for all crawlers; commercial site.",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "aglasem",
+   "name": "AglaSem Schools (schools.aglasem.com)",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://schools.aglasem.com/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "Commercial aggregator with TN papers; our fetch failed; terms unclear. Seeded already as aglasem-tn (OFF).",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "tiwari-academy",
+   "name": "Tiwari Academy (tiwariacademy.com)",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://www.tiwariacademy.com/sample-papers/cbse-sample-papers/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "Own papers, 'Copyright Tiwari Academy', no licence.",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "publishers",
+   "name": "Allen, PW, Vedantu, Unacademy, Oswaal, Surabooks, Selfstudys, Shaalaa, CollegeDekho, Embibe",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://allen.in/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "Publisher/commercial papers (copyrighted); some behind login or app prompts.",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "yaclass",
+   "name": "YaClass (yaclass.in)",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://yaclass.in/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "Needs sign-in for full access; chapter tests are the company's own.",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  },
+  {
+   "id": "sahodaya-blogs",
+   "name": "Chennai Sahodaya / KVS pre-board mirror blogs",
+   "board": "mixed",
+   "tier": "skip",
+   "enabled": false,
+   "status": "researched",
+   "entries": [
+    "https://manjaricentreforlearningandleadership.blogspot.com/"
+   ],
+   "follow": "",
+   "depth": 0,
+   "license": "Not shareable without permission",
+   "notes": "Re-hosted pre-board papers owned by Sahodaya/KVS regions; copyright unclear; prefer originals.",
+   "research": {
+    "priority": 0,
+    "recommendation": "SKIP",
+    "checkedOn": "2026-11-17"
+   }
+  }
+ ]
+}

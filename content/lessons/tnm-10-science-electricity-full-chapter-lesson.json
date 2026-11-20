@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "electricity",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Electricity"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju's mother pressed the mixer button and the motor hummed. \"Electric power at work,\" said his father."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "electric current",
+     "potential difference",
+     "Ohm's law",
+     "resistivity",
+     "series and parallel",
+     "Joule's law"
+    ],
+    "text": {
+     "en": "Electric current is the rate of flow of charge, I = Q / t, with the unit ampere. Potential difference between two points is the work done in moving a unit positive charge from one point to the other, and its unit is the volt. A circuit needs components like cell, switch, bulb, ammeter and voltmeter.\nOhm's law says that at constant temperature V = IR, where R is the resistance in ohms. Resistivity is the resistance of a conductor of unit length and unit cross-section, and conductance is the opposite of resistance. In series R = R1 + R2 + R3, and in parallel 1/R = 1/R1 + 1/R2 + 1/R3.\nJoule's law gives the heat produced as H = I^2 R t, used in heaters and bulbs. Electric power is P = VI with the unit watt, and electrical energy is measured in kilowatt hour. Domestic circuits use fuses and earthing, because overloading and short circuits cause danger."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Electric current is the rate of flow of charge, I = Q / t, with the unit ampere."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "electric current"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Potential difference between two points is the work done in moving a unit positive charge from one point to the other, and its unit is the volt."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "potential difference"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A circuit needs components like cell, switch, bulb, ammeter and voltmeter."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Ohm's law"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Ohm's law says that at constant temperature V = IR, where R is the resistance in ohms."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "resistivity"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Resistivity is the resistance of a conductor of unit length and unit cross-section, and conductance is the opposite of resistance."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "series and parallel"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "In series R = R1 + R2 + R3, and in parallel 1/R = 1/R1 + 1/R2 + 1/R3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Joule's law"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Joule's law gives the heat produced as H = I^2 R t, used in heaters and bulbs."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "electric current"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Electric power is P = VI with the unit watt, and electrical energy is measured in kilowatt hour."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "potential difference"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "A 4 ohm and a 6 ohm resistor are in series. Find the total resistance."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "In series, add resistances."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "4 + 6 = 10."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "Total R = 10 ohm."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says In parallel, the total resistance is more than the largest resistor. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "In parallel total resistance is less than the smallest."
+     },
+     {
+      "en": "More paths make flow easier."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-ele290",
+     "r1-ele291"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "V = IR."
+     },
+     {
+      "en": "Series: add R."
+     },
+     {
+      "en": "Parallel: add reciprocals."
+     },
+     {
+      "en": "P = VI."
+     }
+    ]
+   }
+  ]
+ }
+}

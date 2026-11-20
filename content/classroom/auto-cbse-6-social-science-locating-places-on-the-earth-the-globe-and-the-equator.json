@@ -1,0 +1,171 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "social-science",
+ "chapter": "locating-places-on-the-earth",
+ "topic": "the-globe-and-the-equator",
+ "status": "published",
+ "title": {
+  "en": "The globe"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The globe and the Equator",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "gl",
+   "cx": 330,
+   "cy": 265,
+   "r": 170,
+   "fill": "#BBDEFB",
+   "stroke": "water",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "eq",
+   "d": "M 160 265 Q 330 320 500 265 Q 330 210 160 265",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 330,
+   "y1": 70,
+   "x2": 330,
+   "y2": 460,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "nh",
+   "x": 330,
+   "y": 170,
+   "text": "Northern Hemisphere",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sh",
+   "x": 330,
+   "y": 380,
+   "text": "Southern Hemisphere",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "eqt",
+   "x": 650,
+   "y": 270,
+   "text": "Equator",
+   "size": 34,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "np",
+   "x": 330,
+   "y": 60,
+   "text": "North Pole",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sp",
+   "x": 330,
+   "y": 478,
+   "text": "South Pole",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A globe is a small model of the Earth. It turns on an imaginary line called the axis, which comes out at the North Pole and the South Pole."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "gl",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "np",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "sp",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The Equator is an imaginary circle round the middle of the Earth, the same distance from both poles."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "eq",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "eqt",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The Equator divides the Earth into two halves, the Northern Hemisphere and the Southern Hemisphere. India lies in the Northern Hemisphere."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nh",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "sh",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

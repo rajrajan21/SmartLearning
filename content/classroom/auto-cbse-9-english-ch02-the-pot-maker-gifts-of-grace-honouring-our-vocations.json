@@ -1,0 +1,195 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "english",
+ "chapter": "ch02-the-pot-maker",
+ "topic": "gifts-of-grace-honouring-our-vocations",
+ "status": "published",
+ "title": {
+  "en": "The poem, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The poem, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "First part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k0",
+   "x": 90,
+   "y": 478,
+   "text": "many vocations, the speaker…",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 450,
+   "y": 190,
+   "text": "auditory imagery",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "Last part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A poem can be read part by part, from the first lines to the last. Let us place this poem on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "Gifts of Grace: Honouring Our Vocations is an anonymous poem. The speaker hears Bharat celebrating the many vocations of its people. The poem names craftspeople, artisans with lutes, carpenters, electricians, boatmen, shoemakers, a cook, a designer."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "The poem uses auditory imagery, language that appeals to hearing, with words such as hear, humming, singing and rhythm. We seem to hear the work. Shoemakers affirm the quality of their work for the feet that walk, dance, run and jump. The poem shows."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "The poem begins and ends with the speaker hearing Bharat celebrating the varied voices. This framing gives it a feeling of completeness. The last lines say that the voice of a vocation is the voice of a person's identity. What we do is a part of who."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    }
+   ]
+  }
+ ]
+}

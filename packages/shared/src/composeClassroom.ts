@@ -17,6 +17,8 @@ export interface ComposeInput {
 }
 
 const LEAD_INS = ["Let us try a question.", "Here is another question for you.", "Now you try this one.", "One more question. Take your time."];
+/** story characters: shown for a moment while they are mentioned, then taken away */
+const BRIEF = new Set(["grandfather", "grandmother", "mother", "father", "mom", "dad", "baby", "teacher", "doctor", "farmer"]);
 const BOARD_TOP = 112, LINE_H = 44, BOARD_BOTTOM = 470;
 
 /** Splits a paragraph into sentences. */
@@ -81,7 +83,10 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
     const pics = picturesFor(text, 2).filter((p) => !shown.has(p.word)); const expr = expressionIn(text);
     const fn = ((a: ClassAction[]) => {
     const items: { emoji: string; word: string; count: number; at: string }[] = pics.length ? [...pics] : [];
-    if (!items.length && extraPics.length === 0 && !expr) return;
+    if (!items.length && extraPics.length === 0 && !expr) {
+      // nothing relevant to draw: the board is simply cleared, never a leftover or unrelated picture
+      return;
+    }
     for (const e of extraPics) items.push({ emoji: e, word: "", count: 1, at: "" });
     for (const p of pics) shown.add(p.word);
     const n = Math.min(3, items.length), cellW = 800 / Math.max(1, n), size = [0, 120, 120, 100][n] ?? 100, cy = expr ? 215 : 255;
@@ -104,12 +109,13 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         return;
       } else { const o = id("p"); ids.push(o); objects.push({ kind: "text", id: o, x: cx, y: cy + size * 0.35, text: it.emoji, size, anchor: "middle" } as BoardObject); }
       ids.forEach((o, k) => a.push({ do: "write", target: o, ...(when.on ? { on: when.on } : { at: (when.at ?? 0.1) + k * 0.02 }), ms: 350 } as ClassAction));
-      if (it.word) { const l = id("c"); objects.push({ kind: "text", id: l, x: cx, y: cy + size * 0.35 + (it.count > 1 ? 70 : 52), text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction); }
-      if (n === 1 && it.count === 1) a.push({ do: "pulse", target: ids[0]!, at: 0.7 });
+      let lab = ""; if (it.word) { const l = id("c"); lab = l; objects.push({ kind: "text", id: l, x: cx, y: cy + size * 0.35 + (it.count > 1 ? 70 : 52), text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction); }
+      if (BRIEF.has(it.word)) { for (const o of ids) a.push({ do: "hide", target: o, at: 0.62 } as ClassAction); if (lab) a.push({ do: "hide", target: lab, at: 0.62 } as ClassAction); }
+      else if (n === 1 && it.count === 1) a.push({ do: "pulse", target: ids[0]!, at: 0.7 });
     });
     if (expr) { const e = id("x"); objects.push({ kind: "text", id: e, x: 450, y: 420, text: expr, size: 64, color: "accent", anchor: "middle" }); a.push({ do: "write", target: e, at: 0.5, ms: 900 }); }
     }) as ((a: ClassAction[]) => void) & { has?: boolean };
-    fn.has = pics.length > 0 || extraPics.length > 0 || !!expr;
+    fn.has = true;
     return fn;
   };
 

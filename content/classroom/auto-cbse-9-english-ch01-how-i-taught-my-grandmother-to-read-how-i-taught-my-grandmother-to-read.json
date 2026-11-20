@@ -1,0 +1,165 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "english",
+ "chapter": "ch01-how-i-taught-my-grandmother-to-read",
+ "topic": "how-i-taught-my-grandmother-to-read",
+ "status": "published",
+ "title": {
+  "en": "The text, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The text, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "Beginning",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "End",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A text can be followed from its beginning, through the middle, to its end. Let us place this lesson on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "The narrator recalls her childhood village in north Karnataka, where the morning papers and weekly magazines reached late, carried by the bus that also brought the post. In those days the Kannada writer Triveni was very popular. Her novel Kashi."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "The narrator's grandmother, Krishtakka, whom she called Avva, had never been to school and could not read, so every Wednesday the narrator read the next episode aloud to her. When the narrator stayed a week at a wedding, the magazine came and Avva."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "That night Avva said she had lost her mother young, never went to school and wanted to be independent. She would learn the Kannada alphabet from the next day and read a novel by Saraswati Puja. The narrator first laughed at the idea, but Avva."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    }
+   ]
+  }
+ ]
+}

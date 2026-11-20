@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "electricity",
+  "topic": "series-parallel-heating-power",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Resistors in series and parallel, heating effect and power"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Fuses and home wiring"
+        },
+        "text": {
+          "en": "Why do all lights in a house work independently? Because home circuits use parallel connection. We also study how current heats wires and how power is calculated."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "1 kWh = 3.6 x 10^6 J",
+          "H = I^2 R t",
+          "P = VI",
+          "fuse",
+          "home wiring",
+          "parallel: 1/R",
+          "series: R = R1 + R2",
+          "tungsten filament"
+        ],
+        "text": {
+          "en": "Resistors in series: the same current flows through each, the total R = R1 + R2 + R3 and the voltage is divided.\nResistors in parallel: the voltage is the same across each, the current is divided and 1/R = 1/R1 + 1/R2 + 1/R3.\nParallel resistance is smaller than the smallest resistor, which is why parallel connection is used in homes: each appliance works independently.\nHeating effect of current (Joule's law): H = I squared R t. Heaters, toasters and electric irons use this effect.\nA fuse has a low melting point wire in series. If the current is too high, it melts and breaks the circuit.\nElectric power P = VI = I squared R = V squared / R. The unit is the watt.\nElectrical energy = power x time. The commercial unit is the kilowatt-hour: 1 kWh = 3.6 x 10^6 J.\nBulbs have tungsten filaments because tungsten has a high melting point."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c10-series-parallel.svg",
+        "altText": {
+          "en": "Resistors in series and in parallel"
+        },
+        "caption": {
+          "en": "Series and parallel circuits"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Resistors in series: the same current flows through each, the total R = R1 + R2 + R3 and the voltage is divided."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "series: R = R1 + R2"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Resistors in parallel: the voltage is the same across each, the current is divided and 1/R = 1/R1 + 1/R2 + 1/R3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallel: 1/R"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Parallel resistance is smaller than the smallest resistor, which is why parallel connection is used in homes: each appliance works independently."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "home wiring"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Heating effect of current (Joule's law): H = I squared R t. Heaters, toasters and electric irons use this effect."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "H = I^2 R t"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A fuse has a low melting point wire in series. If the current is too high, it melts and breaks the circuit."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "fuse"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Electric power P = VI = I squared R = V squared / R. The unit is the watt."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "P = VI"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Electrical energy = power x time. The commercial unit is the kilowatt-hour: 1 kWh = 3.6 x 10^6 J."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "1 kWh = 3.6 x 10^6 J"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Bulbs have tungsten filaments because tungsten has a high melting point."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tungsten filament"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the equivalent resistance of 6 ohm and 3 ohm in parallel."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "1/R = 1/6 + 1/3 = 1/6 + 2/6 = 3/6."
+            },
+            "why": {
+              "en": "Add the reciprocals."
+            }
+          },
+          {
+            "text": {
+              "en": "R = 6/3 = 2 ohm."
+            },
+            "why": {
+              "en": "Invert."
+            }
+          },
+          {
+            "text": {
+              "en": "2 ohm is smaller than both resistors."
+            },
+            "why": {
+              "en": "Check."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Compare series and parallel connections."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Series: same current"
+          },
+          {
+            "en": "Parallel: same voltage"
+          },
+          {
+            "en": "Power and energy formulas"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Adding reciprocals incorrectly"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sp1",
+          "r1-sp2",
+          "r2-sp3",
+          "r2-sp4",
+          "r2-sp5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Series: R = R1 + R2; parallel: 1/R = 1/R1 + 1/R2."
+          },
+          {
+            "en": "H = I^2 R t; P = VI."
+          },
+          {
+            "en": "1 kWh = 3.6 x 10^6 J."
+          }
+        ]
+      }
+    ]
+  }
+}

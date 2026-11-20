@@ -1,0 +1,238 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "weight-and-capacity",
+ "topic": "litres-and-millilitres",
+ "status": "published",
+ "title": {
+  "en": "Capacity"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Measuring capacity",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "jg",
+   "x": 330,
+   "y": 110,
+   "w": 140,
+   "h": 320,
+   "rx": 10,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "rect",
+   "id": "wt",
+   "x": 336,
+   "y": 240,
+   "w": 128,
+   "h": 184,
+   "rx": 8,
+   "fill": "#90CAF9",
+   "stroke": "water",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "m1",
+   "x1": 470,
+   "y1": 360,
+   "x2": 500,
+   "y2": 360,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 530,
+   "y": 370,
+   "text": "250 mL",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m2",
+   "x1": 470,
+   "y1": 290,
+   "x2": 500,
+   "y2": 290,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 530,
+   "y": 300,
+   "text": "500 mL",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m3",
+   "x1": 470,
+   "y1": 220,
+   "x2": 500,
+   "y2": 220,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 530,
+   "y": 230,
+   "text": "750 mL",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m4",
+   "x1": 470,
+   "y1": 150,
+   "x2": 500,
+   "y2": 150,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n4",
+   "x": 530,
+   "y": 160,
+   "text": "1000 mL",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "res",
+   "x": 700,
+   "y": 240,
+   "text": "500 mL",
+   "size": 48,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lt",
+   "x": 700,
+   "y": 320,
+   "text": "1000 mL = 1 L",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The amount of liquid a container can hold is its capacity. We measure it with a measuring jug."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "jg",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "m1",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "m2",
+     "at": 0.7
+    },
+    {
+     "do": "show",
+     "target": "m3",
+     "at": 0.8
+    },
+    {
+     "do": "show",
+     "target": "m4",
+     "at": 0.9
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "n4",
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Liquid is measured in millilitres, written mL, and in litres, written L. The water level shows how much we have. Here it is five hundred millilitres."
+   },
+   "actions": [
+    {
+     "do": "fill",
+     "target": "wt",
+     "color": "water",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "res",
+     "on": "five hundred"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "One litre is the same as one thousand millilitres. So this jug holds half a litre of water."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "lt",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

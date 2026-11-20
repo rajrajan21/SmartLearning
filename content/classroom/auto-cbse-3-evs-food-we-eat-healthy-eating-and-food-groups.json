@@ -1,0 +1,315 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "evs",
+ "chapter": "food-we-eat",
+ "topic": "healthy-eating-and-food-groups",
+ "status": "published",
+ "title": {
+  "en": "A balanced diet"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A balanced diet",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "pl",
+   "cx": 300,
+   "cy": 270,
+   "r": 190,
+   "fill": "#FFFFFF",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "sector",
+   "id": "s0",
+   "cx": 300,
+   "cy": 270,
+   "r": 180,
+   "from": 0,
+   "to": 72,
+   "fill": "#FFE082",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 364.65637775217203,
+   "y": 197.00813061875579,
+   "text": "🍚",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 545,
+   "y": 140,
+   "text": "Carbohydrates: energy",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "sector",
+   "id": "s1",
+   "cx": 300,
+   "cy": 270,
+   "r": 180,
+   "from": 72,
+   "to": 144,
+   "fill": "#EF9A9A",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 404.6162167924669,
+   "y": 319.9918693812442,
+   "text": "🥚",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 545,
+   "y": 202,
+   "text": "Proteins: growth",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "sector",
+   "id": "s2",
+   "cx": 300,
+   "cy": 270,
+   "r": 180,
+   "from": 144,
+   "to": 216,
+   "fill": "#FFCC80",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 300,
+   "y": 396,
+   "text": "🥜",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 545,
+   "y": 264,
+   "text": "Fats: stored energy",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "sector",
+   "id": "s3",
+   "cx": 300,
+   "cy": 270,
+   "r": 180,
+   "from": 216,
+   "to": 288,
+   "fill": "#A5D6A7",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 195.3837832075331,
+   "y": 319.9918693812442,
+   "text": "🥕",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 545,
+   "y": 326,
+   "text": "Vitamins & minerals: protection",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "sector",
+   "id": "s4",
+   "cx": 300,
+   "cy": 270,
+   "r": 180,
+   "from": 288,
+   "to": 360,
+   "fill": "#90CAF9",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e4",
+   "x": 235.34362224782794,
+   "y": 197.00813061875579,
+   "text": "🥬",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 545,
+   "y": 388,
+   "text": "Fibre & water: digestion",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Our body needs different kinds of food to stay healthy. A balanced diet has all of them in the right amounts."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "pl",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Carbohydrates give us energy. Proteins help us grow and repair the body. Fats give stored energy. Vitamins and minerals protect us from illness. Fibre and water help digestion."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s0",
+     "at": 0.05,
+     "ms": 400
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.07
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.21999999999999997,
+     "ms": 400
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.24000000000000002
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.27
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.38999999999999996,
+     "ms": 400
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.41000000000000003
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.43999999999999995
+    },
+    {
+     "do": "draw",
+     "target": "s3",
+     "at": 0.56,
+     "ms": 400
+    },
+    {
+     "do": "show",
+     "target": "e3",
+     "at": 0.5800000000000001
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.61
+    },
+    {
+     "do": "draw",
+     "target": "s4",
+     "at": 0.73,
+     "ms": 400
+    },
+    {
+     "do": "show",
+     "target": "e4",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.7799999999999999
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Eating a little of every group each day, with lots of water, keeps us strong and healthy."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "pl",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

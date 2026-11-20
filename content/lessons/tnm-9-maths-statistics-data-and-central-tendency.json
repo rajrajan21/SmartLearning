@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "statistics",
+  "topic": "data-and-central-tendency",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Collecting data, mean, median and mode (Class 9)"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Marks in a test"
+        },
+        "text": {
+          "en": "Ten pupils scored 6, 7, 7, 8, 9, 9, 9, 10, 4, 5 in a quiz. How do we describe the whole class with one number? The mean, median and mode each do it in their own way."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "frequency table",
+          "mean",
+          "median",
+          "mode",
+          "7.4, 7.5, 9",
+          "grouped data",
+          "which to use"
+        ],
+        "text": {
+          "en": "Statistics deals with collecting, organising and interpreting data. Raw data is arranged in a frequency table.\nThe mean is the sum of all observations divided by their number: mean = sum of x / n.\nThe median is the middle value after arranging in order; for an even number of values it is the average of the two middle ones.\nThe mode is the value that occurs most often.\nFor the marks above the sum is 74 and n = 10, so the mean is 7.4; in order they are 4, 5, 6, 7, 7, 8, 9, 9, 9, 10 so the median is (7 + 8)/2 = 7.5; the mode is 9.\nFor grouped data we use class marks (mid-points) with frequencies: mean = sum of f x / sum of f.\nChoose the mean for general use, the median when there are extreme values and the mode for the most popular item."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Statistics deals with collecting, organising and interpreting data. Raw data is arranged in a frequency table."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "frequency table"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The mean is the sum of all observations divided by their number: mean = sum of x / n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mean"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The median is the middle value after arranging in order; for an even number of values it is the average of the two middle ones."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "median"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The mode is the value that occurs most often."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mode"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For the marks above the sum is 74 and n = 10, so the mean is 7.4; in order they are 4, 5, 6, 7, 7, 8, 9, 9, 9, 10 so the median is (7 + 8)/2 = 7.5; the mode is 9."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "7.4, 7.5, 9"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For grouped data we use class marks (mid-points) with frequencies: mean = sum of f x / sum of f."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "grouped data"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Choose the mean for general use, the median when there are extreme values and the mode for the most popular item."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "which to use"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the mean, median and mode of 3, 5, 5, 6, 9."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Mean = (3 + 5 + 5 + 6 + 9)/5 = 28/5 = 5.6."
+            },
+            "why": {
+              "en": "Sum divided by number."
+            }
+          },
+          {
+            "text": {
+              "en": "Median: already in order, the middle (third) value is 5."
+            },
+            "why": {
+              "en": "Five values, so the middle is the 3rd."
+            }
+          },
+          {
+            "text": {
+              "en": "Mode = 5 because it occurs twice."
+            },
+            "why": {
+              "en": "Most frequent."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain mean, median and mode and when each is best."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Mean is the average"
+          },
+          {
+            "en": "Median is the middle value"
+          },
+          {
+            "en": "Mode is the most frequent"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to sort before finding the median"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma755-1",
+          "r1-m9ma755-2",
+          "r1-m9ma755-3",
+          "r2-m9ma755-4",
+          "r2-m9ma755-5",
+          "r2-m9ma755-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Mean = sum / number."
+          },
+          {
+            "en": "Median = middle value of the ordered data."
+          },
+          {
+            "en": "Mode = most frequent value."
+          },
+          {
+            "en": "Grouped data uses class marks."
+          }
+        ]
+      }
+    ]
+  }
+}

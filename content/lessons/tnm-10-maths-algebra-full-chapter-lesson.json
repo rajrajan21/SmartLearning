@@ -1,0 +1,220 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Algebra"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju and Asha together bought 3 pens and 2 books for 70 rupees. \"How do we find each price?\" he asked."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "simultaneous equations",
+     "rational expression",
+     "quadratic equation",
+     "discriminant",
+     "roots",
+     "matrix"
+    ],
+    "text": {
+     "en": "Simultaneous linear equations in two variables can be solved by substitution, elimination and the graphical method. A pair may have a unique solution, no solution or infinitely many, which we judge from the ratios of the coefficients.\nThe GCD and LCM of polynomials are found by factorisation, and rational expressions are simplified, added, subtracted, multiplied and divided like fractions. The square root of a polynomial is found by factorisation or by division.\nA quadratic equation ax^2 + bx + c = 0 is solved by factorisation, completing the square or the formula x = (-b +/- sqrt(b^2 - 4ac)) / 2a. The discriminant b^2 - 4ac tells the nature of the roots, and the sum and product of the roots are -b/a and c/a. Matrices are also introduced as arrays of numbers."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Simultaneous linear equations in two variables can be solved by substitution, elimination and the graphical method."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "simultaneous equations"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "A pair may have a unique solution, no solution or infinitely many, which we judge from the ratios of the coefficients."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "rational expression"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The GCD and LCM of polynomials are found by factorisation, and rational expressions are simplified, added, subtracted, multiplied and divided like fractions."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "quadratic equation"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The square root of a polynomial is found by factorisation or by division."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "discriminant"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A quadratic equation ax^2 + bx + c = 0 is solved by factorisation, completing the square or the formula x = (-b +/- sqrt(b^2 - 4ac)) / 2a."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "roots"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The discriminant b^2 - 4ac tells the nature of the roots, and the sum and product of the roots are -b/a and c/a."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "matrix"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Matrices are also introduced as arrays of numbers."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "simultaneous equations"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the discriminant of x^2 - 5x + 6 = 0."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "a = 1, b = -5, c = 6."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "b^2 - 4ac = 25 - 24."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "The discriminant is 1."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says A quadratic equation always has two real roots. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "If the discriminant is negative there are no real roots."
+     },
+     {
+      "en": "It depends on b^2 - 4ac."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-alg740",
+     "r1-alg741"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Solve by substitution or elimination."
+     },
+     {
+      "en": "Quadratic formula uses the discriminant."
+     },
+     {
+      "en": "Sum of roots = -b/a."
+     },
+     {
+      "en": "Product of roots = c/a."
+     }
+    ]
+   }
+  ]
+ }
+}

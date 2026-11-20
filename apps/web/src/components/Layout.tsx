@@ -1,3 +1,6 @@
+import { useActiveBoard } from "../lib/activeBoard";
+import { SearchBox } from "./SearchBox";
+import { InstallPopup } from "./InstallPopup";
 import { type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -17,8 +20,20 @@ import { setViewPref } from "../lib/appview";
 import { useEffect } from "react";
 import { useLocation } from "wouter";
 
+/** A new page opens at its top, not wherever the last page was scrolled to. Links to a #section are left alone. */
+function ScrollToTop() {
+  const [path] = useLocation();
+  useEffect(() => {
+    if (typeof window === "undefined" || window.location.hash) return;
+    try { window.scrollTo({ top: 0, left: 0, behavior: "auto" }); } catch { /* jsdom */ }
+    document.getElementById("main")?.scrollTo?.(0, 0);
+  }, [path]);
+  return null;
+}
+
 export function Layout({ children }: { children: ReactNode }) {
   const s = useSettings();
+  const activeBoard = useActiveBoard();
   const { lang } = s;
   const site = s.get<string>("site.name");
   const maintenance = s.get("site.maintenance.enabled");
@@ -33,6 +48,8 @@ export function Layout({ children }: { children: ReactNode }) {
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <div className="shell" data-route={loc.endsWith("/learn") ? "lesson" : undefined}>
+      <ScrollToTop />
+      <InstallPopup />
       <a className="skip" href="#main">{ui("skip", lang)}</a>
       {app && <AppBar />}
       <header className="top">
@@ -41,6 +58,7 @@ export function Layout({ children }: { children: ReactNode }) {
           <span>{site}</span>
         </Link>
         <MainNav />
+        {s.get("feature.search") === true && s.get("search.header.show") === true && !onLesson && !maintenance && <SearchBox board={activeBoard} compact />}
         <nav className="top-actions" aria-label="Site">
           <TextSize />
           <HighContrast />

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "probability-problems-with-dice-and-cards",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Probability with coins, dice and cards"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Many chances"
+        },
+        "text": {
+          "en": "Two coins, two dice, a pack of cards. Listing outcomes in a table makes probability problems easy."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "36 outcomes",
+          "52 cards",
+          "at least one head",
+          "doublet",
+          "experimental vs theoretical",
+          "sample space",
+          "sum of 7",
+          "two coins"
+        ],
+        "text": {
+          "en": "When two coins are tossed, the outcomes are HH, HT, TH and TT, four equally likely outcomes.\nP(two heads) = 1/4 and P(at least one head) = 3/4.\nWhen two dice are thrown, there are 36 equally likely outcomes.\nP(sum 7) = 6/36 = 1/6 because the pairs (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) work.\nP(doublet) = 6/36 = 1/6, and P(sum 12) = 1/36.\nA deck has 52 cards in four suits, 13 per suit, with 12 face cards and 4 aces.\nThe theoretical probability predicts. The experimental probability comes from actual trials. With many trials they come close.\nList the sample space in an orderly table so that you do not miss an outcome."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "When two coins are tossed, the outcomes are HH, HT, TH and TT, four equally likely outcomes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "two coins"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "P(two heads) = 1/4 and P(at least one head) = 3/4."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "at least one head"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "When two dice are thrown, there are 36 equally likely outcomes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "36 outcomes"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "P(sum 7) = 6/36 = 1/6 because the pairs (1,6), (2,5), (3,4), (4,3), (5,2), (6,1) work."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum of 7"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "P(doublet) = 6/36 = 1/6, and P(sum 12) = 1/36."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "doublet"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A deck has 52 cards in four suits, 13 per suit, with 12 face cards and 4 aces."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "52 cards"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The theoretical probability predicts. The experimental probability comes from actual trials. With many trials they come close."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "experimental vs theoretical"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "List the sample space in an orderly table so that you do not miss an outcome."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sample space"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Two dice are thrown. Find P(sum is 8)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Total outcomes = 36."
+            },
+            "why": {
+              "en": "All pairs."
+            }
+          },
+          {
+            "text": {
+              "en": "Pairs giving 8: (2,6), (3,5), (4,4), (5,3), (6,2) = 5."
+            },
+            "why": {
+              "en": "List them."
+            }
+          },
+          {
+            "text": {
+              "en": "P = 5/36."
+            },
+            "why": {
+              "en": "Divide."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you solve probability for dice and cards?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "List outcomes"
+          },
+          {
+            "en": "Count favourable"
+          },
+          {
+            "en": "Use the complement if easier"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Missing pairs like (4,4)"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-pd1",
+          "r1-pd2",
+          "r2-pd3",
+          "r2-pd4",
+          "r2-pd5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Two coins: 4 outcomes; two dice: 36 outcomes."
+          },
+          {
+            "en": "Make an orderly list of favourable outcomes."
+          },
+          {
+            "en": "Experimental probability approaches theoretical with more trials."
+          }
+        ]
+      }
+    ]
+  }
+}

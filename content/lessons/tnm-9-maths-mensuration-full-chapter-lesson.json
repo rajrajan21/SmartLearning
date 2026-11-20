@@ -1,0 +1,208 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "mensuration",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Mensuration"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Asha wanted to paint a box-shaped cupboard. \"How much paint?\" she asked. \"Find the surface area,\" said her teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "Heron's formula",
+     "semi-perimeter",
+     "cuboid",
+     "lateral surface area",
+     "cube",
+     "volume"
+    ],
+    "text": {
+     "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter. It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles.\nA cuboid has length l, breadth b and height h. Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h. A cube of side a has surface area 6a^2 and volume a^3.\nArea is measured in square units and volume in cubic units."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Heron's formula"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "semi-perimeter"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A cuboid has length l, breadth b and height h."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cuboid"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "lateral surface area"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A cube of side a has surface area 6a^2 and volume a^3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cube"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Area is measured in square units and volume in cubic units."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "volume"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the volume of a cube of side 4 cm."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Volume = a^3."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "4 x 4 x 4 = 64."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "The volume is 64 cubic cm."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says Volume of a cuboid is l + b + h. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Volume is the product l x b x h."
+     },
+     {
+      "en": "Adding does not give volume."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-men400",
+     "r1-men401"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Heron's formula uses s."
+     },
+     {
+      "en": "Cuboid volume = lbh."
+     },
+     {
+      "en": "Cube surface area = 6a^2."
+     },
+     {
+      "en": "Volume is in cubic units."
+     }
+    ]
+   }
+  ]
+ }
+}

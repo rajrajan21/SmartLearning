@@ -1,0 +1,180 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "set-language",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Sets and Venn diagrams"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 38,
+   "text": "Sets and Venn diagrams",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "a",
+   "cx": 340,
+   "cy": 250,
+   "r": 140,
+   "fill": "#BBDEFB",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "b",
+   "cx": 560,
+   "cy": 250,
+   "r": 140,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 250,
+   "y": 130,
+   "text": "A",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 650,
+   "y": 130,
+   "text": "B",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a1",
+   "x": 270,
+   "y": 245,
+   "text": "1, 2",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m",
+   "x": 450,
+   "y": 245,
+   "text": "3, 4",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b1",
+   "x": 630,
+   "y": 245,
+   "text": "5, 6",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "u1",
+   "x": 450,
+   "y": 430,
+   "text": "A ∩ B = {3, 4}      A ∪ B = {1, 2, 3, 4, 5, 6}",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A set is a collection of things. Here A is the set 1, 2, 3, 4, and B is the set 3, 4, 5, 6. A Venn diagram shows them as circles."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "a",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "b",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The part where the circles overlap holds the elements that are in both sets, 3 and 4. This is the intersection, A intersection B."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "m",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "b1",
+     "at": 0.55
+    },
+    {
+     "do": "pulse",
+     "target": "m",
+     "at": 0.7,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The union, A union B, has all the elements that are in A or in B or in both: 1, 2, 3, 4, 5 and 6."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "u1",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

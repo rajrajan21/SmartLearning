@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "quadratic-equations",
+  "topic": "quadratic-formula-nature-of-roots",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Quadratic formula and nature of roots"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "When factorising fails"
+        },
+        "text": {
+          "en": "Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "2x^2 - 7x + 3",
+          "D < 0",
+          "D = -4",
+          "D = 0",
+          "D = b^2 - 4ac",
+          "D > 0",
+          "quadratic formula",
+          "x = (-b ± √D)/2a"
+        ],
+        "text": {
+          "en": "Complete the square on a x squared + b x + c = 0 and we get the quadratic formula.\nThe roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a.\nThe expression b squared - 4ac is called the discriminant. We write it as D.\nIf D is greater than 0, the equation has two distinct real roots.\nIf D equals 0, the two roots are equal and real, each equal to -b by 2a.\nIf D is less than 0, there are no real roots, because the square root of a negative number is not real.\nFor 2x squared - 7x + 3 = 0, D = 49 - 24 = 25. So x = (7 plus or minus 5)/4, giving 3 and 1/2.\nFor x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "quadratic formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "x = (-b ± √D)/2a"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The expression b squared - 4ac is called the discriminant. We write it as D."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D = b^2 - 4ac"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If D is greater than 0, the equation has two distinct real roots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D > 0"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "If D equals 0, the two roots are equal and real, each equal to -b by 2a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D = 0"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "If D is less than 0, there are no real roots, because the square root of a negative number is not real."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D < 0"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For 2x squared - 7x + 3 = 0, D = 49 - 24 = 25. So x = (7 plus or minus 5)/4, giving 3 and 1/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2x^2 - 7x + 3"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D = -4"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find k for which kx(x - 2) + 6 = 0 has two equal roots."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Write kx^2 - 2kx + 6 = 0, so a = k, b = -2k, c = 6."
+            },
+            "why": {
+              "en": "Standard form."
+            }
+          },
+          {
+            "text": {
+              "en": "D = 4k^2 - 24k = 4k(k - 6) = 0 gives k = 0 or 6."
+            },
+            "why": {
+              "en": "Equal roots need D = 0."
+            }
+          },
+          {
+            "text": {
+              "en": "k = 0 makes it non-quadratic, so k = 6."
+            },
+            "why": {
+              "en": "Reject k = 0."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What does the discriminant tell us?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "D > 0 two distinct roots"
+          },
+          {
+            "en": "D = 0 equal roots"
+          },
+          {
+            "en": "D < 0 no real roots"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting -b/2a for equal roots"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-qf1",
+          "r1-qf2",
+          "r2-qf3",
+          "r2-qf4",
+          "r2-qf5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Quadratic formula: x = (-b ± √(b^2 - 4ac))/2a."
+          },
+          {
+            "en": "D > 0: two distinct real roots; D = 0: equal roots; D < 0: no real roots."
+          },
+          {
+            "en": "Use D to decide nature of roots without solving."
+          }
+        ]
+      }
+    ]
+  }
+}

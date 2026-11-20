@@ -1,0 +1,253 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch06-measuring-space-perimeter-and-area",
+  "topic": "perimeter-and-area-of-circles-and-triangles",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Perimeter and area: pi, circles, sectors and Heron's formula"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The ratio that never changes"
+        },
+        "text": {
+          "en": "Measure the distance around any wheel and divide it by the distance across. You always get a little more than 3. That constant is pi, and it has fascinated mathematicians for centuries."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "A = 1/2 x base x height",
+          "A = pi r^2",
+          "C = 2 pi r",
+          "Heron's formula",
+          "arc length",
+          "history of pi",
+          "pi",
+          "pi is irrational"
+        ],
+        "text": {
+          "en": "Pi is the constant ratio of the circumference to the diameter of any circle. It is about 22/7 or 3.14.\nThe circumference of a circle is C = 2 pi r, where r is the radius.\nThe length of an arc subtending a central angle theta is l = 2 pi r x theta / 360.\nThe area of a triangle is half the base times the height.\nHeron's formula gives the area from the three sides a, b, c: area = square root of s(s - a)(s - b)(s - c), where s = (a + b + c)/2.\nThe area of a circle is A = pi r^2, and the area of a sector with central angle theta is pi r^2 x theta / 360.\nMany people estimated pi: Archimedes, Zu Chongzhi with 355/113, Aryabhata with 3.1416 and Madhava with an infinite series.\nPi is irrational, so its decimal never ends or repeats; 22/7 is only a close fraction."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c89-circle-area.svg",
+        "altText": {
+          "en": "A circle with radius r"
+        },
+        "caption": {
+          "en": "Circumference 2 pi r and area pi r squared"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Pi is the constant ratio of the circumference to the diameter of any circle. It is about 22/7 or 3.14."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "pi"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The circumference of a circle is C = 2 pi r, where r is the radius."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "C = 2 pi r"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The length of an arc subtending a central angle theta is l = 2 pi r x theta / 360."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "arc length"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The area of a triangle is half the base times the height."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A = 1/2 x base x height"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Heron's formula gives the area from the three sides a, b, c: area = square root of s(s - a)(s - b)(s - c), where s = (a + b + c)/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Heron's formula"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The area of a circle is A = pi r^2, and the area of a sector with central angle theta is pi r^2 x theta / 360."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A = pi r^2"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Many people estimated pi: Archimedes, Zu Chongzhi with 355/113, Aryabhata with 3.1416 and Madhava with an infinite series."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "history of pi"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Pi is irrational, so its decimal never ends or repeats; 22/7 is only a close fraction."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "pi is irrational"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area of a triangle with sides 13, 14 and 15 cm."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "s = (13 + 14 + 15)/2 = 21."
+            },
+            "why": {
+              "en": "Half the perimeter."
+            }
+          },
+          {
+            "text": {
+              "en": "Area = sqrt(21 x 8 x 7 x 6) = sqrt(7056)."
+            },
+            "why": {
+              "en": "Apply Heron's formula."
+            }
+          },
+          {
+            "text": {
+              "en": "sqrt(7056) = 84, so the area is 84 square cm."
+            },
+            "why": {
+              "en": "Take the square root."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What do you need for Heron's formula and why is pi special?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "All three sides and s"
+          },
+          {
+            "en": "pi is the circumference to diameter ratio"
+          },
+          {
+            "en": "pi is irrational"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using diameter in place of radius in 2 pi r"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m6-1",
+          "m6-2",
+          "m6-3",
+          "m6-4",
+          "m6-5",
+          "m6-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "C = 2 pi r and A = pi r^2."
+          },
+          {
+            "en": "Arc length and sector area use the fraction theta/360."
+          },
+          {
+            "en": "Heron's formula finds a triangle's area from its sides."
+          },
+          {
+            "en": "Pi is irrational; 22/7 and 3.14 are approximations."
+          }
+        ]
+      }
+    ]
+  }
+}

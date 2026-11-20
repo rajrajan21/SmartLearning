@@ -1,7 +1,7 @@
 // Usage: pnpm --filter @studysmart/api audio:build [-- --server http://localhost:8080] [--lang en] [--force] [--prune] [--jobs 3]
 // Needs the Malar Teacher speech server running (Start Malar Teacher.bat). No internet or keys needed.
 import { readFileSync } from "node:fs";
-import { audioDir, classroomDir, lessonsDir, questionsDir } from "../server-paths.js";
+import { audioDir, classroomDir, gkDir, lessonsDir, questionsDir } from "../server-paths.js";
 import { buildAudio, type Speak } from "../modules/audio/build.js";
 import type { Lang } from "../modules/audio/manifest.js";
 
@@ -10,18 +10,25 @@ const opt = (n: string) => { const i = args.indexOf(`--${n}`); return i >= 0 ? a
 const server = (opt("server") ?? process.env.MALAR_URL ?? "http://localhost:8080").replace(/\/$/, "");
 const lang = opt("lang") as Lang | undefined;
 const voicesOpt = opt("voices");
+const only = opt("only");
 const teachers = args.includes("--all-voices") ? Object.keys(JSON.parse(readFileSync(`${audioDir}/voices.json`, "utf8"))) : voicesOpt ? voicesOpt.split(",") : undefined;
 
+if (teachers?.some((t) => ["jaya", "murali"].includes(t)) || args.includes("--all-voices")) {
+  const ph = await fetch(`${process.env.PARLER_URL ?? "http://localhost:8090"}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);
+  if (!ph?.tts) { console.error("The Tamil-teacher voice server (port 8090) is not running. Use Generate-Lesson-Audio.bat, which starts it."); process.exit(2); }
+}
 const health = await fetch(`${server}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);
 if (!health) { console.error(`Cannot reach the Malar Teacher speech server at ${server}. Start "Start Malar Teacher.bat" first.`); process.exit(2); }
 if (!health.tts) { console.error("The speech server is still starting its voice engine. Wait a minute and run this again."); process.exit(2); }
 
+const parler = (process.env.PARLER_URL ?? "http://localhost:8090").replace(/\/$/, "");
 const speak: Speak = async (text, voice, speed) => {
-  const r = await fetch(`${server}/api/speak`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, voice, speed, priority: "low" }) });
+  // the Tamil-teacher voices (Indic Parler-TTS) come from their own small local server
+  const r = await fetch(`${voice.startsWith("parler:") ? parler : server}/api/speak`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, voice, speed, priority: "low" }) });
   if (!r.ok) throw new Error(`speech server answered ${r.status}`);
   return r.json();
 };
-const report = await buildAudio({ lessonsDir, questionsDir, classroomDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? process.env.AUDIO_JOBS ?? 1), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
+const report = await buildAudio({ only, lessonsDir, questionsDir, classroomDir, gkDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? process.env.AUDIO_JOBS ?? 1), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
 const mins = (ms: number) => (ms / 60000).toFixed(1);
 console.log(`\nSentences wanted ${report.wanted}: generated ${report.generated}, already done ${report.reused}${report.pruned ? `, removed ${report.pruned} unused` : ""}.`);
 for (const s of report.skipped) console.log("  skipped:", s);

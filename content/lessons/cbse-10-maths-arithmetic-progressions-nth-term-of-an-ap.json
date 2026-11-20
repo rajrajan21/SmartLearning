@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "arithmetic-progressions",
+  "topic": "nth-term-of-an-ap",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Arithmetic progressions and the nth term"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Stairs with equal steps"
+        },
+        "text": {
+          "en": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "AP",
+          "a = 3, d = 5",
+          "a, a+d, a+2d",
+          "an = a + (n-1)d",
+          "check differences",
+          "common difference d",
+          "n positive integer",
+          "which term?"
+        ],
+        "text": {
+          "en": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term.\nThe fixed number d is called the common difference. It can be positive, negative or zero.\nIf the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\nTo test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value.\nThe nth term of an AP is a sub n = a + (n - 1) d.\nFor the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48.\nTo find which term equals 78, solve 3 + (n - 1) 5 = 78, so n - 1 = 15 and n = 16.\nIf a term is a fraction or a negative number there is no problem, but n must always be a positive integer."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "AP"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The fixed number d is called the common difference. It can be positive, negative or zero."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "common difference d"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a, a+d, a+2d"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check differences"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The nth term of an AP is a sub n = a + (n - 1) d."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "an = a + (n-1)d"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a = 3, d = 5"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To find which term equals 78, solve 3 + (n - 1) 5 = 78, so n - 1 = 15 and n = 16."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "which term?"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "If a term is a fraction or a negative number there is no problem, but n must always be a positive integer."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "n positive integer"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Which term of the AP 21, 18, 15, ... is -81?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "a = 21, d = -3. Use a_n = a + (n - 1)d = -81."
+            },
+            "why": {
+              "en": "Identify a and d."
+            }
+          },
+          {
+            "text": {
+              "en": "21 - 3(n - 1) = -81 so 3(n - 1) = 102 and n - 1 = 34."
+            },
+            "why": {
+              "en": "Solve for n."
+            }
+          },
+          {
+            "text": {
+              "en": "n = 35, so -81 is the 35th term."
+            },
+            "why": {
+              "en": "n is a whole number, so it is a term."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What are the key facts about an AP?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Fixed difference d"
+          },
+          {
+            "en": "an = a + (n-1)d"
+          },
+          {
+            "en": "n must be a positive integer"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing up a_n with n"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-ap1",
+          "r1-ap2",
+          "r2-ap3",
+          "r2-ap4",
+          "r2-ap5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "An AP has a constant common difference d."
+          },
+          {
+            "en": "a_n = a + (n - 1)d."
+          },
+          {
+            "en": "If the n found is not a positive integer, the number is not a term."
+          }
+        ]
+      }
+    ]
+  }
+}

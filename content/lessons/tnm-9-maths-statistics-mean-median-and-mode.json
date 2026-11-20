@@ -1,0 +1,250 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "statistics",
+ "topic": "mean-median-and-mode",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Mean, Median and Mode"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Priya scored 12, 15, 15, 18 and 20 in five tests. Her teacher wants one number that represents her marks. Three different averages can do this."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "mean",
+     "median",
+     "mode",
+     "range"
+    ],
+    "text": {
+     "en": "Data are the numbers we collect. The mean is the sum of all values divided by the number of values. For 12, 15, 15, 18, 20 the sum is 80, and 80 ÷ 5 = 16, so the mean is 16.\nThe median is the middle value when the data are arranged in order. With an odd number of values it is the middle one, here 15. With an even number of values we take the mean of the two middle values.\nThe mode is the value that occurs most often. Here 15 occurs twice, so the mode is 15. A set can have more than one mode or none.\nThe range is the largest value minus the smallest. Here 20 − 12 = 8. The mean is affected by very large or very small values, but the median is not, so it suits data with extreme values."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Data are the numbers we collect."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "mean"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "The mean is the sum of all values divided by the number of values."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "median"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "For 12, 15, 15, 18, 20 the sum is 80, and 80 ÷ 5 = 16, so the mean is 16."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "mode"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The median is the middle value when the data are arranged in order."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "range"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "With an odd number of values it is the middle one, here 15."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "mean"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "With an even number of values we take the mean of the two middle values."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "median"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "The mode is the value that occurs most often."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "mode"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Here 15 occurs twice, so the mode is 15."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "range"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A set can have more than one mode or none."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "mean"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the mean, median and mode of 3, 5, 5, 7, 10."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Mean = (3 + 5 + 5 + 7 + 10) ÷ 5 = 30 ÷ 5 = 6."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "The data are already in order and there are 5 values, so the median is the 3rd value, 5."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "5 occurs twice and the others once, so the mode is 5."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "Range = 10 − 3 = 7."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says The median is always equal to the mean. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Mean uses all values"
+     },
+     {
+      "en": "Median is only the middle value"
+     },
+     {
+      "en": "For 1, 2, 9 the mean is 4 but the median is 2"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-mea760",
+     "r1-mea761"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Mean = sum of values ÷ number of values."
+     },
+     {
+      "en": "Median is the middle value of ordered data."
+     },
+     {
+      "en": "Mode is the most frequent value."
+     }
+    ]
+   }
+  ]
+ }
+}

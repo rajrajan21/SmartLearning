@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "polynomials-and-remainder-theorem",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Polynomials, zeros and the Remainder Theorem"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The cost formula"
+        },
+        "text": {
+          "en": "A shop charges 5x squared + 3x + 2 rupees for an order of x items on a certain plan. Expressions like this are polynomials, and we often need to know when they equal zero."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "polynomial",
+          "degree and types",
+          "zero of a polynomial",
+          "-b/a",
+          "remainder = p(a)",
+          "factor theorem",
+          "test with p(a)"
+        ],
+        "text": {
+          "en": "A polynomial in x is an expression with whole-number powers of x, like 3x squared - 5x + 7. Its degree is the highest power.\nPolynomials of degree 1, 2, 3 are called linear, quadratic and cubic. With one, two or three terms they are monomial, binomial or trinomial.\nA zero of p(x) is a number a for which p(a) = 0.\nA linear polynomial ax + b has exactly one zero, x = -b/a.\nRemainder Theorem: when p(x) is divided by (x - a), the remainder is p(a).\nFactor Theorem: (x - a) is a factor of p(x) exactly when p(a) = 0.\nSo to test whether (x - 2) divides x cubed - 8, evaluate p(2) = 8 - 8 = 0, so it does."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A polynomial in x is an expression with whole-number powers of x, like 3x squared - 5x + 7. Its degree is the highest power."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Polynomials of degree 1, 2, 3 are called linear, quadratic and cubic. With one, two or three terms they are monomial, binomial or trinomial."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "degree and types"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A zero of p(x) is a number a for which p(a) = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "zero of a polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A linear polynomial ax + b has exactly one zero, x = -b/a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "-b/a"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Remainder Theorem: when p(x) is divided by (x - a), the remainder is p(a)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "remainder = p(a)"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Factor Theorem: (x - a) is a factor of p(x) exactly when p(a) = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "factor theorem"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "So to test whether (x - 2) divides x cubed - 8, evaluate p(2) = 8 - 8 = 0, so it does."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "test with p(a)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the remainder when p(x) = x cubed - 3x squared + 4x - 5 is divided by (x - 2)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By the Remainder Theorem the remainder is p(2)."
+            },
+            "why": {
+              "en": "Divisor x - 2 means a = 2."
+            }
+          },
+          {
+            "text": {
+              "en": "p(2) = 8 - 12 + 8 - 5."
+            },
+            "why": {
+              "en": "Substitute x = 2."
+            }
+          },
+          {
+            "text": {
+              "en": "Remainder = -1."
+            },
+            "why": {
+              "en": "8 - 12 = -4, then -4 + 8 = 4, then 4 - 5 = -1."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the Remainder Theorem and the Factor Theorem."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Remainder on dividing by x - a is p(a)"
+          },
+          {
+            "en": "Factor if p(a) = 0"
+          },
+          {
+            "en": "How to find zeros"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using p(-a) instead of p(a)"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma756-1",
+          "r1-m9ma756-2",
+          "r1-m9ma756-3",
+          "r2-m9ma756-4",
+          "r2-m9ma756-5",
+          "r2-m9ma756-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "The degree is the highest power of the variable."
+          },
+          {
+            "en": "Zero of ax + b is -b/a."
+          },
+          {
+            "en": "Remainder on dividing by (x - a) is p(a)."
+          },
+          {
+            "en": "(x - a) is a factor if p(a) = 0."
+          }
+        ]
+      }
+    ]
+  }
+}

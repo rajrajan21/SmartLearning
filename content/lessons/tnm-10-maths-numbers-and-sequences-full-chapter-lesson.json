@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "numbers-and-sequences",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Numbers and Sequences"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Meena saw tiles arranged in rows of 2, 4, 6, 8. \"What comes next?\" she asked."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "Euclid's division lemma",
+     "HCF",
+     "fundamental theorem of arithmetic",
+     "arithmetic progression",
+     "geometric progression",
+     "sum of n terms"
+    ],
+    "text": {
+     "en": "Euclid's division lemma says that for positive integers a and b there are unique q and r with a = bq + r and 0 <= r < b. It is used in Euclid's division algorithm to find the HCF of two numbers. The fundamental theorem of arithmetic says every composite number is a product of primes in a unique way.\nA sequence is a list of numbers in a definite order. An arithmetic progression (AP) has a constant difference d, with the n-th term a + (n - 1)d and sum S(n) = n/2 [2a + (n - 1)d]. A geometric progression (GP) has a constant ratio r, with the n-th term a r^(n-1) and sum a(r^n - 1)/(r - 1).\nSome special series are the sum of the first n natural numbers n(n + 1)/2, the sum of their squares and the sum of their cubes, which is the square of the first sum. Modular arithmetic with congruence also appears in this unit."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Euclid's division lemma says that for positive integers a and b there are unique q and r with a = bq + r and 0 <= r < b."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Euclid's division lemma"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "It is used in Euclid's division algorithm to find the HCF of two numbers."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "HCF"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The fundamental theorem of arithmetic says every composite number is a product of primes in a unique way."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "fundamental theorem of arithmetic"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "A sequence is a list of numbers in a definite order."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "arithmetic progression"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "An arithmetic progression (AP) has a constant difference d, with the n-th term a + (n - 1)d and sum S(n) = n/2 [2a + (n - 1)d]."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "geometric progression"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "A geometric progression (GP) has a constant ratio r, with the n-th term a r^(n-1) and sum a(r^n - 1)/(r - 1)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sum of n terms"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Some special series are the sum of the first n natural numbers n(n + 1)/2, the sum of their squares and the sum of their cubes, which is the square of the first sum."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Euclid's division lemma"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Modular arithmetic with congruence also appears in this unit."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "HCF"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the 10th term of the AP 2, 5, 8, ..."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Here a = 2 and d = 3."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "t10 = 2 + 9 x 3."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "t10 = 29."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says The sum of the first n natural numbers is n^2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "It is n(n + 1)/2."
+     },
+     {
+      "en": "n^2 is the sum of the first n odd numbers."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-num400",
+     "r1-num401"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "a = bq + r with 0 <= r < b."
+     },
+     {
+      "en": "AP: t(n) = a + (n - 1)d."
+     },
+     {
+      "en": "GP: t(n) = a r^(n - 1)."
+     },
+     {
+      "en": "1 + 2 + ... + n = n(n + 1)/2."
+     }
+    ]
+   }
+  ]
+ }
+}

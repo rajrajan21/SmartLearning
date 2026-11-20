@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "introduction-to-trigonometry",
+  "topic": "specific-angles-and-identities",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Ratios of 0, 30, 45, 60, 90 degrees and identities"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Values to remember"
+        },
+        "text": {
+          "en": "A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "0 and 90",
+          "30 degrees",
+          "60 degrees",
+          "sec^2 = 1 + tan^2",
+          "sin 45 = cos 45 = 1/root 2",
+          "sin(90 - A) = cos A",
+          "sin^2 A + cos^2 A = 1",
+          "sine list"
+        ],
+        "text": {
+          "en": "For 45 degrees, sin = cos = 1 by root 2 and tan = 1.\nFor 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3.\nFor 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3.\nFor 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined.\nA memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed.\nIdentity one: sin squared A + cos squared A = 1, true for every angle A.\nIdentity two: sec squared A = 1 + tan squared A, and identity three: cosec squared A = 1 + cot squared A.\nComplementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin 45 = cos 45 = 1/root 2"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "30 degrees"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "60 degrees"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "0 and 90"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sine list"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Identity one: sin squared A + cos squared A = 1, true for every angle A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin^2 A + cos^2 A = 1"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Identity two: sec squared A = 1 + tan squared A, and identity three: cosec squared A = 1 + cot squared A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sec^2 = 1 + tan^2"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin(90 - A) = cos A"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Prove that (1 + tan squared A)(1 - sin A)(1 + sin A) = 1."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "1 + tan^2 A = sec^2 A and (1 - sin A)(1 + sin A) = 1 - sin^2 A = cos^2 A."
+            },
+            "why": {
+              "en": "Use identities."
+            }
+          },
+          {
+            "text": {
+              "en": "sec^2 A x cos^2 A = (1/cos^2 A) x cos^2 A."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "= 1. Hence proved."
+            },
+            "why": {
+              "en": "LHS equals RHS."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "List the key ratio values and identities."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Values at 30, 45, 60"
+          },
+          {
+            "en": "Three identities"
+          },
+          {
+            "en": "sin(90 - A) = cos A"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Writing tan 90 as 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-si1",
+          "r1-si2",
+          "r2-si3",
+          "r2-si4",
+          "r2-si5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Standard values at 0, 30, 45, 60, 90 degrees must be known."
+          },
+          {
+            "en": "sin^2 A + cos^2 A = 1; 1 + tan^2 A = sec^2 A; 1 + cot^2 A = cosec^2 A."
+          },
+          {
+            "en": "sin(90 - A) = cos A."
+          }
+        ]
+      }
+    ]
+  }
+}

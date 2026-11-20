@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "set-language",
+  "topic": "set-operations-and-de-morgan",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Union, intersection, difference, complement and De Morgan's laws"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two clubs"
+        },
+        "text": {
+          "en": "In a class, some pupils are in the music club and some in the sports club, and some are in both. Union, intersection and difference let us talk about each group exactly."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "union",
+          "intersection",
+          "A - B",
+          "complement",
+          "disjoint sets",
+          "De Morgan",
+          "n(A U B)"
+        ],
+        "text": {
+          "en": "The union A U B contains elements that are in A or in B or in both.\nThe intersection A n B contains elements common to both A and B.\nThe difference A - B contains elements of A that are not in B.\nThe complement A' is the set of elements of the universal set U that are not in A.\nDisjoint sets have no common element, so A n B is empty.\nDe Morgan's laws: (A U B)' = A' n B' and (A n B)' = A' U B'.\nFor finite sets, n(A U B) = n(A) + n(B) - n(A n B)."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-9-set-operations-and-de-morgan.svg",
+        "altText": {
+          "en": "Venn diagram labelled with A only, both and B only"
+        },
+        "caption": {
+          "en": "Intersection and differences"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The union A U B contains elements that are in A or in B or in both."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "union"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The intersection A n B contains elements common to both A and B."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "intersection"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The difference A - B contains elements of A that are not in B."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A - B"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The complement A' is the set of elements of the universal set U that are not in A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complement"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Disjoint sets have no common element, so A n B is empty."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "disjoint sets"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "De Morgan's laws: (A U B)' = A' n B' and (A n B)' = A' U B'."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "De Morgan"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For finite sets, n(A U B) = n(A) + n(B) - n(A n B)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "n(A U B)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In a class of 40, 25 like tea, 20 like coffee and 8 like both. How many like at least one, and how many like neither?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "n(A U B) = 25 + 20 - 8."
+            },
+            "why": {
+              "en": "Use the inclusion formula."
+            }
+          },
+          {
+            "text": {
+              "en": "= 37 like at least one."
+            },
+            "why": {
+              "en": "Add and subtract."
+            }
+          },
+          {
+            "text": {
+              "en": "Neither = 40 - 37 = 3."
+            },
+            "why": {
+              "en": "Complement within the class."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State De Morgan's laws in words and the formula for n(A U B)."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Complement of union is intersection of complements"
+          },
+          {
+            "en": "Complement of intersection is union of complements"
+          },
+          {
+            "en": "n(A U B) = n(A) + n(B) - n(A n B)"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to subtract the common part"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma156-1",
+          "r1-m9ma156-2",
+          "r1-m9ma156-3",
+          "r2-m9ma156-4",
+          "r2-m9ma156-5",
+          "r2-m9ma156-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A U B: in either; A n B: in both; A - B: in A not B."
+          },
+          {
+            "en": "A' = U - A."
+          },
+          {
+            "en": "De Morgan: (A U B)' = A' n B'."
+          },
+          {
+            "en": "n(A U B) = n(A) + n(B) - n(A n B)."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -15,10 +15,10 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "Kabir's muddy hands"
+     "en": "Clean and bright"
     },
     "text": {
-     "en": "Kabir came home from cricket with muddy hands. He reached for a biscuit.\n\"Stop!\" said Amma. \"What do we do first?\"\n\"Wash my hands with soap!\" said Kabir. He had almost forgotten."
+     "en": "Did I brush my teeth? Did I take a shower? Did I comb my hair? Did I wash my hands with soap? Are my nails trimmed?"
     }
    },
    {
@@ -26,12 +26,13 @@
     "type": "explanation",
     "provenance": "original",
     "keepEnglishTerms": [
-     "germs",
+     "clean",
      "soap",
-     "brush"
+     "brush",
+     "nails"
     ],
     "text": {
-     "en": "Germs are tiny living things we cannot see. Some of them make us ill.\nWashing hands with soap and water removes germs. Wash before eating and after using the toilet or playing outside.\nBrush the teeth twice a day: in the morning and at night.\nBathe every day, cut nails, wear clean clothes, and sleep enough.\nThese habits keep us healthy and happy."
+     "en": "We must be healthy so that our bodies and minds work well.\nAsk yourself: Did I brush my teeth today? Did I take a shower? Did I comb my hair? Did I wash my hands with soap? Are my nails trimmed and clean?\nBrush twice a day, once after waking up and once before sleeping.\nRinse your mouth after eating.\nWash hands with soap after the toilet and after coming home from outdoors.\nClean habits keep diseases away."
     }
    },
    {
@@ -43,51 +44,104 @@
      {
       "id": "t1",
       "text": {
-       "en": "Germs are so small that we cannot see them. Some can make us ill."
+       "en": "We must be healthy so that our bodies and minds work well."
       },
       "board": [
        {
         "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "germs make us ill"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "Wash your hands with soap before eating and after playing or using the toilet."
+       "en": "Ask yourself: Did I brush my teeth today?"
       },
       "board": [
        {
         "op": "write",
-        "text": "wash hands: before eating"
+        "text": "brush"
        }
       ]
      },
      {
       "id": "t3",
       "text": {
-       "en": "Brush your teeth in the morning and at night. Bathe every day."
+       "en": "Did I take a shower?"
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "brush twice a day"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t4",
       "text": {
-       "en": "Clean habits keep the body healthy, and a healthy body is a happy one."
+       "en": "Did I comb my hair?"
+      },
+      "board": []
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Did I wash my hands with soap?"
       },
       "board": [
        {
         "op": "write",
-        "text": "clean = healthy = happy"
+        "text": "soap"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Are my nails trimmed and clean?"
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "clean"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Brush twice a day, once after waking up and once before sleeping."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "brush"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Rinse your mouth after eating."
+      },
+      "board": []
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Wash hands with soap after the toilet and after coming home from outdoors."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "soap"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Clean habits keep diseases away."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "clean"
        }
       ]
      }
@@ -98,31 +152,31 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Kabir's hands are muddy and he wants to eat. What should he do first, and why?"
+     "en": "Make your cleaning checklist."
     },
     "steps": [
      {
       "text": {
-       "en": "Wash his hands with soap and water."
+       "en": "Brush."
       },
       "why": {
-       "en": "Soap and water remove mud and germs."
+       "en": "Step 1."
       }
      },
      {
       "text": {
-       "en": "Rub them well, front and back, between the fingers."
+       "en": "Bathe."
       },
       "why": {
-       "en": "Germs hide in small places."
+       "en": "Step 2."
       }
      },
      {
       "text": {
-       "en": "Then dry them and eat."
+       "en": "Wash hands."
       },
       "why": {
-       "en": "Clean hands keep germs out of our mouths."
+       "en": "Step 3."
       }
      }
     ]
@@ -132,19 +186,19 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "Your younger sister says she can eat without washing hands, because the mud is dry. What will you tell her?"
+     "en": "Why wash hands?"
     },
     "requiredIdeas": [
      {
-      "en": "Germs are too small to see."
+      "en": "Remove germs"
      },
      {
-      "en": "Wash hands with soap and water before eating."
+      "en": "Stay healthy"
      }
     ],
     "commonMisconceptions": [
      {
-      "en": "Thinking hands are clean if no mud can be seen."
+      "en": "Check the lesson again before answering."
      }
     ]
    },
@@ -153,9 +207,9 @@
     "type": "quiz",
     "provenance": "original",
     "questionIds": [
-     "r1-soap",
-     "r1-teeth",
-     "r1-germs"
+     "n34-3e88611-1",
+     "n34-3e88611-2",
+     "n34-3e88611-3"
     ]
    },
    {
@@ -164,13 +218,10 @@
     "provenance": "original",
     "points": [
      {
-      "en": "Wash hands with soap before eating and after playing or using the toilet."
+      "en": "Brush twice a day."
      },
      {
-      "en": "Brush teeth twice a day, bathe every day."
-     },
-     {
-      "en": "Clean habits keep us healthy."
+      "en": "Wash hands with soap."
      }
     ]
    }

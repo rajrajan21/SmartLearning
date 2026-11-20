@@ -1,0 +1,250 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "geometry",
+ "topic": "angle-sum-of-a-triangle",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Angle Sum Property of a Triangle"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Anu cut the three corners of a paper triangle and placed them side by side. They formed a straight line. This shows a famous fact about every triangle."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "angle sum property",
+     "exterior angle",
+     "isosceles",
+     "parallel line"
+    ],
+    "text": {
+     "en": "The sum of the three angles of a triangle is 180°. This is called the angle sum property. It is true for every triangle whether it is small, big, acute or obtuse.\nTo prove it, draw a line through one vertex parallel to the opposite side. The alternate angles formed are equal to the two base angles. Together with the angle at the vertex they make a straight angle of 180°.\nWhen a side of a triangle is extended, the angle formed outside is called an exterior angle. The exterior angle is equal to the sum of the two opposite interior angles. For example if the interior angles are 50° and 60°, the exterior angle at the third vertex is 110°.\nIn an equilateral triangle each angle is 60°. In an isosceles triangle the angles opposite the equal sides are equal. In a right triangle the other two angles add up to 90°."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The sum of the three angles of a triangle is 180°."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "angle sum property"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "This is called the angle sum property."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "exterior angle"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "It is true for every triangle whether it is small, big, acute or obtuse."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "isosceles"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "To prove it, draw a line through one vertex parallel to the opposite side."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "parallel line"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "The alternate angles formed are equal to the two base angles."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "angle sum property"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Together with the angle at the vertex they make a straight angle of 180°."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "exterior angle"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "When a side of a triangle is extended, the angle formed outside is called an exterior angle."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "isosceles"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "The exterior angle is equal to the sum of the two opposite interior angles."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "parallel line"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "For example if the interior angles are 50° and 60°, the exterior angle at the third vertex is 110°."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "angle sum property"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "In triangle ABC, angle A = 50° and angle B = 60°. Find angle C and the exterior angle at C."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use the angle sum property: A + B + C = 180°."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "So C = 180° − 50° − 60° = 70°."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "The exterior angle at C equals A + B = 50° + 60° = 110°."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "Check: C + exterior angle = 70° + 110° = 180°, a straight line."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says A triangle can have two right angles. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Two right angles already add up to 180°"
+     },
+     {
+      "en": "The third angle would then be 0°"
+     },
+     {
+      "en": "So a triangle has at most one right angle"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-ang350",
+     "r1-ang351"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "The three angles of a triangle add up to 180°."
+     },
+     {
+      "en": "An exterior angle equals the sum of the two opposite interior angles."
+     },
+     {
+      "en": "A right triangle has two acute angles adding to 90°."
+     }
+    ]
+   }
+  ]
+ }
+}

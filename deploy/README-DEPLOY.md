@@ -61,3 +61,7 @@ set -a; . /etc/studysmart.env; set +a
 cd /opt/studysmart && pnpm --filter @studysmart/api account:reset-password -- parent@example.com
 ```
 It prints a temporary password once and signs the parent out everywhere. Send it to the parent privately.
+
+---
+## UPDATE 2026-11-17: dedicated SharpStudy server
+SharpStudy now has its OWN Oracle server (not shared with chennaideals). Use the bat files in the main folder: Server-First-Time-Setup.bat (once), Go-Live.bat (every update), Server-Restart.bat, Server-Status.bat, Server-Backup-Download.bat. They SSH as `ubuntu@137.23.46.97` with key `%USERPROFILE%\.ssh\sharpstudy_oracle`. Caddy is installed by deploy/first-time.sh, so ignore the "existing Caddy" notes above.

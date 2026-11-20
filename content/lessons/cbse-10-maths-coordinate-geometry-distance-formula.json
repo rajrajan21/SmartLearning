@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "distance-formula",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Distance formula"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "How far apart are two points?"
+        },
+        "text": {
+          "en": "Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "(2,3) and (4,1)",
+          "(x, y)",
+          "Pythagoras",
+          "collinear",
+          "distance formula",
+          "from the origin",
+          "type of quadrilateral",
+          "type of triangle"
+        ],
+        "text": {
+          "en": "Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis.\nThe distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared.\nThis comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1.\nThe distance of a point (x, y) from the origin is the square root of x squared + y squared.\nExample: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2.\nTo check that three points are collinear, show that the sum of two of the distances equals the third.\nTo identify a triangle: three equal sides - equilateral; two equal - isosceles; Pythagoras holds - right-angled.\nTo identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(x, y)"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "distance formula"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Pythagoras"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "from the origin"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(2,3) and (4,1)"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "To check that three points are collinear, show that the sum of two of the distances equals the third."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "collinear"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To identify a triangle: three equal sides - equilateral; two equal - isosceles; Pythagoras holds - right-angled."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "type of triangle"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "type of quadrilateral"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Check whether the points (1, 5), (2, 3) and (-2, -11) are collinear."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "AB = root(1 + 4) = root 5, BC = root(16 + 196) = root 212, AC = root(9 + 256) = root 265."
+            },
+            "why": {
+              "en": "Use the distance formula."
+            }
+          },
+          {
+            "text": {
+              "en": "Compare: root 5 + root 212 is not equal to root 265."
+            },
+            "why": {
+              "en": "No two add up to the third."
+            }
+          },
+          {
+            "text": {
+              "en": "So the points are not collinear."
+            },
+            "why": {
+              "en": "Collinear points need a sum match."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the distance between two points?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Subtract x and y coordinates"
+          },
+          {
+            "en": "Square and add"
+          },
+          {
+            "en": "Take the square root"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to square the differences"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-df1",
+          "r1-df2",
+          "r2-df3",
+          "r2-df4",
+          "r2-df5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Distance between (x1,y1) and (x2,y2) = √[(x2-x1)^2 + (y2-y1)^2]."
+          },
+          {
+            "en": "Distance from origin = √(x^2 + y^2)."
+          },
+          {
+            "en": "The formula helps identify collinear points and shapes."
+          }
+        ]
+      }
+    ]
+  }
+}

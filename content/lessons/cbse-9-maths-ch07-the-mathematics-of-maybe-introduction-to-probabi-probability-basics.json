@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch07-the-mathematics-of-maybe-introduction-to-probabi",
+  "topic": "probability-basics",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Probability: experiments, outcomes and tree diagrams"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The mathematics of maybe"
+        },
+        "text": {
+          "en": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "0 <= P(E) <= 1",
+          "P(A) = favourable / possible",
+          "P(even) = 1/2",
+          "event",
+          "experimental probability",
+          "more trials",
+          "sample space",
+          "tree diagram"
+        ],
+        "text": {
+          "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain.\nExperimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials.\nTheoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes.\nThe sample space S is the list of all possible outcomes, for example {H, T} for a coin toss.\nAn event is any outcome or group of outcomes from the sample space, such as getting an even number on a die.\nFor a fair die, the probability of an even number is 3 out of 6, which is 1/2.\nA tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT.\nWith more and more trials, the experimental probability usually comes closer to the theoretical probability."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "0 <= P(E) <= 1"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "experimental probability"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "P(A) = favourable / possible"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sample space"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "event"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For a fair die, the probability of an even number is 3 out of 6, which is 1/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "P(even) = 1/2"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tree diagram"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "With more and more trials, the experimental probability usually comes closer to the theoretical probability."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "more trials"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A bag has 3 red and 5 blue balls. Find the probability of picking a red ball."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Total outcomes = 3 + 5 = 8."
+            },
+            "why": {
+              "en": "Count all balls."
+            }
+          },
+          {
+            "text": {
+              "en": "Favourable outcomes = 3."
+            },
+            "why": {
+              "en": "Count red balls."
+            }
+          },
+          {
+            "text": {
+              "en": "P(red) = 3/8."
+            },
+            "why": {
+              "en": "Divide favourable by total."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain the difference between experimental and theoretical probability."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Experimental uses trials"
+          },
+          {
+            "en": "Theoretical uses equally likely outcomes"
+          },
+          {
+            "en": "Values lie between 0 and 1"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking probability can be greater than 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m7-1",
+          "m7-2",
+          "m7-3",
+          "m7-4",
+          "m7-5",
+          "m7-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Probability is a number from 0 to 1."
+          },
+          {
+            "en": "Theoretical P(A) = favourable outcomes / total outcomes."
+          },
+          {
+            "en": "Experimental probability uses actual trials."
+          },
+          {
+            "en": "Tree diagrams list outcomes of multi-step experiments."
+          }
+        ]
+      }
+    ]
+  }
+}

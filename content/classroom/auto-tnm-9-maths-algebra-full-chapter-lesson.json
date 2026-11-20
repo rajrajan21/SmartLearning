@@ -1,0 +1,227 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "An algebraic identity"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "(a + b)² = a² + 2ab + b²",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "s1",
+   "x": 270,
+   "y": 80,
+   "w": 190,
+   "h": 190,
+   "rx": 0,
+   "fill": "#BBDEFB",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 365,
+   "y": 185,
+   "text": "a²",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "s2",
+   "x": 460,
+   "y": 80,
+   "w": 110,
+   "h": 190,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 515,
+   "y": 185,
+   "text": "ab",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "s3",
+   "x": 270,
+   "y": 270,
+   "w": 190,
+   "h": 110,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 365,
+   "y": 335,
+   "text": "ab",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "s4",
+   "x": 460,
+   "y": 270,
+   "w": 110,
+   "h": 110,
+   "rx": 0,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t4",
+   "x": 515,
+   "y": 335,
+   "text": "b²",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 365,
+   "y": 72,
+   "text": "a",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 515,
+   "y": 72,
+   "text": "b",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 450,
+   "y": 475,
+   "text": "Check: (2 + 3)² = 25 = 4 + 12 + 9",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Take a big square whose side is a plus b. Its area is a plus b, all squared."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Cut it into four parts: a square of side a, a square of side b, and two rectangles with sides a and b."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "s3",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "s4",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "t4",
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Adding the areas of the four parts: a squared, plus two a b, plus b squared. This is the identity. For example, with a equal to 2 and b equal to 3, both sides give 25."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

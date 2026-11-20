@@ -1,0 +1,253 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "ch04-describing-motion-around-us",
+  "topic": "motion-in-a-line-and-in-a-plane",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Describing motion: velocity, acceleration and equations of motion"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "How fast, how far, how soon"
+        },
+        "text": {
+          "en": "A swimmer in a race, a car on a straight highway, a ball dropped from a tower: all move in a straight line. We describe such motion with a few numbers, and those numbers can predict where the object will be."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "a = (v - u)/t",
+          "linear motion",
+          "motion in a plane",
+          "s = (u + v)t/2",
+          "s = ut + 1/2 at^2; v^2 = u^2 + 2as",
+          "slope of graphs",
+          "speed and velocity",
+          "v = u + at"
+        ],
+        "text": {
+          "en": "Motion along a straight line is called linear motion, the simplest kind of motion.\nSpeed is distance travelled per unit time. Velocity is displacement per unit time and also has a direction.\nAcceleration is the rate of change of velocity: a = (v - u)/t, where u is initial velocity, v final velocity and t the time.\nFor constant acceleration the first equation of motion is v = u + a t.\nThe second equation gives displacement: s = u t + 1/2 a t^2, and the third is v^2 = u^2 + 2 a s.\nFrom the area of a trapezium under the velocity-time graph we also get s = (u + v)t / 2.\nGraphs help: the slope of a distance-time graph is the speed and the slope of a velocity-time graph is the acceleration.\nMotion in a plane, like a kicked ball or a satellite, needs two directions. Motion along a circle is called circular motion."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c89-position-time.svg",
+        "altText": {
+          "en": "Position-time graphs for uniform and changing velocity"
+        },
+        "caption": {
+          "en": "Reading position-time graphs"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Motion along a straight line is called linear motion, the simplest kind of motion."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "linear motion"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Speed is distance travelled per unit time. Velocity is displacement per unit time and also has a direction."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "speed and velocity"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Acceleration is the rate of change of velocity: a = (v - u)/t, where u is initial velocity, v final velocity and t the time."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a = (v - u)/t"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "For constant acceleration the first equation of motion is v = u + a t."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "v = u + at"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The second equation gives displacement: s = u t + 1/2 a t^2, and the third is v^2 = u^2 + 2 a s."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "s = ut + 1/2 at^2; v^2 = u^2 + 2as"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "From the area of a trapezium under the velocity-time graph we also get s = (u + v)t / 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "s = (u + v)t/2"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Graphs help: the slope of a distance-time graph is the speed and the slope of a velocity-time graph is the acceleration."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "slope of graphs"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Motion in a plane, like a kicked ball or a satellite, needs two directions. Motion along a circle is called circular motion."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "motion in a plane"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A car starts from rest and accelerates at 2 m/s^2 for 5 s. Find its final velocity and distance."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "u = 0, a = 2, t = 5, so v = 0 + 2 x 5 = 10 m/s."
+            },
+            "why": {
+              "en": "Use v = u + at."
+            }
+          },
+          {
+            "text": {
+              "en": "s = 0 + 1/2 x 2 x 25 = 25 m."
+            },
+            "why": {
+              "en": "Use s = ut + 1/2 at^2."
+            }
+          },
+          {
+            "text": {
+              "en": "Check: v^2 = 100 and 2as = 100."
+            },
+            "why": {
+              "en": "Third equation agrees."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the three equations of motion and what each symbol means."
+        },
+        "requiredIdeas": [
+          {
+            "en": "v = u + at"
+          },
+          {
+            "en": "s = ut + 1/2 at^2"
+          },
+          {
+            "en": "v^2 = u^2 + 2as"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing speed with velocity"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "s4-1",
+          "s4-2",
+          "s4-3",
+          "s4-4",
+          "s4-5",
+          "s4-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Velocity includes direction; acceleration is the rate of change of velocity."
+          },
+          {
+            "en": "The equations of motion apply for constant acceleration."
+          },
+          {
+            "en": "Graph slopes give speed or acceleration."
+          },
+          {
+            "en": "Motion in a plane uses two directions."
+          }
+        ]
+      }
+    ]
+  }
+}

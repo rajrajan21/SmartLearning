@@ -1,0 +1,75 @@
+{
+ "id": "puzzle-matchstick-squares",
+ "kind": "puzzle",
+ "category": "shapes",
+ "age": "8-10",
+ "title": "Matchstick Squares",
+ "summary": "Count shared sides once; each new item adds only the new parts.",
+ "emoji": "🔥",
+ "tags": [
+  "matchsticks",
+  "pattern"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Squares are made in a row from matchsticks, with neighbouring squares sharing a side.",
+    "How many matchsticks make 3 squares in a row?"
+   ],
+   "points": [
+    "Squares are made in a row from matchsticks, with neighbouring squares sharing a side."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Shared sides save sticks.",
+    "Count the first square fully and then only the new sides for each next square."
+   ],
+   "points": [
+    "Shared sides save sticks."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Count only new sides",
+   "sentences": [
+    "The first square needs 4 sticks.",
+    "Each extra square next to it shares one side and needs only 3 new sticks.",
+    "So 3 squares need 4 plus 3 plus 3."
+   ],
+   "points": [
+    "The first square needs 4 sticks."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "3 squares in a row need 10 matchsticks.",
+    "The pattern is 3 times the number of squares plus 1.",
+    "For 5 squares it is 16."
+   ],
+   "points": [
+    "3 squares in a row need 10 matchsticks."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "How many matchsticks for 5 squares in a row?",
+   "options": [
+    "16",
+    "20",
+    "15"
+   ],
+   "answer": 0,
+   "why": "3 times 5 plus 1 is 16."
+  }
+ ],
+ "method": "Count only new sides"
+}

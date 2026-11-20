@@ -1,0 +1,110 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "palindromes-supercells-and-clock-numbers",
+ "status": "published",
+ "title": {
+  "en": "Telling the time"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "Telling the time",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "clock",
+   "id": "ck",
+   "cx": 300,
+   "cy": 280,
+   "r": 170
+  },
+  {
+   "kind": "text",
+   "id": "dig",
+   "x": 710,
+   "y": 270,
+   "text": "4:15",
+   "size": 80,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tw",
+   "x": 710,
+   "y": 340,
+   "text": "quarter past 4",
+   "size": 30,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A clock has two hands. The short hand shows the hour. The long hand shows the minutes."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ck",
+     "at": 0.3
+    },
+    {
+     "do": "pulse",
+     "target": "ck",
+     "at": 0.55,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Watch the hands move. The short hand points to 4, and the long hand points to 3."
+   },
+   "actions": [
+    {
+     "do": "time",
+     "target": "ck",
+     "hour": 4,
+     "minute": 15,
+     "at": 0.1,
+     "ms": 2200
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "So the time is quarter past 4."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "dig",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "tw",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

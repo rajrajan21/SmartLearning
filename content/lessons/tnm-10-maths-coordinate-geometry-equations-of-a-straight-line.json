@@ -1,0 +1,261 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "equations-of-a-straight-line",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Equations of a straight line"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Celsius to Fahrenheit"
+        },
+        "text": {
+          "en": "The rule F = 9C/5 + 32 is the equation of a straight line with slope 1.8 and y-intercept 32. Every straight line can be written as an equation."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "general form",
+          "axes and parallel lines",
+          "slope-intercept form",
+          "point-slope form",
+          "two-point form",
+          "intercept form",
+          "reading the general form",
+          "parallel and perpendicular lines"
+        ],
+        "text": {
+          "en": "Any first degree equation ax plus by plus c equals 0, with a and b not both zero, represents a straight line.\nThe X axis is y equals 0 and the Y axis is x equals 0; a line parallel to the X axis is y equals b and parallel to the Y axis is x equals c.\nSlope-intercept form: y equals mx plus c, where m is the slope and c is the y-intercept.\nPoint-slope form: y minus y1 equals m times (x minus x1).\nTwo-point form: (y minus y1) over (y2 minus y1) equals (x minus x1) over (x2 minus x1).\nIntercept form: x over a plus y over b equals one, where a and b are the intercepts.\nIn the general form ax plus by plus c equals 0, slope is minus a over b, the x-intercept is minus c over a and the y-intercept is minus c over b.\nA line parallel to ax plus by plus c = 0 is ax plus by plus k = 0; a line perpendicular to it is bx minus ay plus k = 0."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-equations-of-a-straight-line.svg",
+        "altText": {
+          "en": "Six rows listing the forms of the equation of a straight line"
+        },
+        "caption": {
+          "en": "Forms of a line"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Any first degree equation ax plus by plus c equals 0, with a and b not both zero, represents a straight line."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "general form"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The X axis is y equals 0 and the Y axis is x equals 0; a line parallel to the X axis is y equals b and parallel to the Y axis is x equals c."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "axes and parallel lines"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Slope-intercept form: y equals mx plus c, where m is the slope and c is the y-intercept."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "slope-intercept form"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Point-slope form: y minus y1 equals m times (x minus x1)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "point-slope form"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Two-point form: (y minus y1) over (y2 minus y1) equals (x minus x1) over (x2 minus x1)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "two-point form"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Intercept form: x over a plus y over b equals one, where a and b are the intercepts."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "intercept form"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "In the general form ax plus by plus c equals 0, slope is minus a over b, the x-intercept is minus c over a and the y-intercept is minus c over b."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "reading the general form"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A line parallel to ax plus by plus c = 0 is ax plus by plus k = 0; a line perpendicular to it is bx minus ay plus k = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallel and perpendicular lines"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the equation of the line through (5,-3) and (7,-4)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Use the two point form: (y + 3)/(-4 + 3) = (x - 5)/(7 - 5)."
+            },
+            "why": {
+              "en": "(y - y1)/(y2 - y1) = (x - x1)/(x2 - x1)."
+            }
+          },
+          {
+            "text": {
+              "en": "So (y + 3)/(-1) = (x - 5)/2."
+            },
+            "why": {
+              "en": "Cross-multiply."
+            }
+          },
+          {
+            "text": {
+              "en": "2(y + 3) = -(x - 5), so 2y + 6 = -x + 5."
+            },
+            "why": {
+              "en": "Simplify."
+            }
+          },
+          {
+            "text": {
+              "en": "Hence x + 2y + 1 = 0."
+            },
+            "why": {
+              "en": "The required equation."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Find the slope and y-intercept of 8x - 7y + 6 = 0."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Rewrite as 7y = 8x + 6"
+          },
+          {
+            "en": "y = (8/7)x + 6/7"
+          },
+          {
+            "en": "Slope 8/7 and y-intercept 6/7"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing the sign of the slope"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma169-1",
+          "r1-m10ma169-2",
+          "r1-m10ma169-3",
+          "r2-m10ma169-4",
+          "r2-m10ma169-5",
+          "r2-m10ma169-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Know the five forms and when to use each."
+          },
+          {
+            "en": "General form slope = -a/b."
+          },
+          {
+            "en": "Parallel: same a, b; perpendicular: swap and change sign."
+          },
+          {
+            "en": "Intercept form uses both intercepts."
+          }
+        ]
+      }
+    ]
+  }
+}

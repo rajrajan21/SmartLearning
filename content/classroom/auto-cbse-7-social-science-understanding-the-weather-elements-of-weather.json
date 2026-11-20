@@ -1,0 +1,295 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "social-science",
+ "chapter": "understanding-the-weather",
+ "topic": "elements-of-weather",
+ "status": "published",
+ "title": {
+  "en": "Elements of weather"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Elements of weather",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c0",
+   "x": 103.33333333333334,
+   "y": 100,
+   "w": 160,
+   "h": 150,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 183.33333333333334,
+   "y": 180,
+   "text": "🌡️",
+   "size": 62,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 183.33333333333334,
+   "y": 225,
+   "text": "Temperature",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c1",
+   "x": 370,
+   "y": 100,
+   "w": 160,
+   "h": 150,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 450,
+   "y": 180,
+   "text": "🌧️",
+   "size": 62,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 450,
+   "y": 225,
+   "text": "Rainfall",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c2",
+   "x": 636.6666666666667,
+   "y": 100,
+   "w": 160,
+   "h": 150,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 716.6666666666667,
+   "y": 180,
+   "text": "💨",
+   "size": 62,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 716.6666666666667,
+   "y": 225,
+   "text": "Wind",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c3",
+   "x": 170,
+   "y": 290,
+   "w": 160,
+   "h": 150,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 250,
+   "y": 370,
+   "text": "💧",
+   "size": 62,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 250,
+   "y": 415,
+   "text": "Humidity",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c4",
+   "x": 570,
+   "y": 290,
+   "w": 160,
+   "h": 150,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e4",
+   "x": 650,
+   "y": 370,
+   "text": "🌥️",
+   "size": 62,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 650,
+   "y": 415,
+   "text": "Cloud cover",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Weather is how the air is at a place at a certain time: hot or cold, wet or dry, still or windy."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here they are, one by one: Temperature, Rainfall, Wind, Humidity, Cloud cover."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.25
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.27
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "c2",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.42
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "draw",
+     "target": "c3",
+     "at": 0.55
+    },
+    {
+     "do": "show",
+     "target": "e3",
+     "at": 0.5700000000000001
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "c4",
+     "at": 0.7
+    },
+    {
+     "do": "show",
+     "target": "e4",
+     "at": 0.72
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Weather stations measure these elements every day, and forecasters use them to tell us what the weather will be."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "c0",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

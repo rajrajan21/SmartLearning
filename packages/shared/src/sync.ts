@@ -5,18 +5,27 @@ export const LessonProgress = z.object({ step: z.number().int().min(0).max(500),
 export const RoundResult = z.object({ best: z.number().min(0).max(100), stars: z.number().int().min(0).max(3), passed: z.boolean(), tries: z.number().int().min(0).max(100000) });
 export const ReviewItem = z.object({ box: z.number().int().min(1).max(5), due: z.number().int().min(0).max(100000), updatedAt: z.number().int().min(0) });
 const topicId = z.string().min(1).max(60);
+/** A saved favourite lesson. removedAt marks an un-save so it also disappears on the other devices. */
+export const NoteEntry = z.object({ id: z.string().min(1).max(60), href: z.string().max(300), title: z.object({ en: z.string().max(200), ta: z.string().max(200).optional() }), subject: z.object({ en: z.string().max(200), ta: z.string().max(200).optional() }), savedAt: z.number().int().min(0), removedAt: z.number().int().min(0).optional() });
+/** A question the child got wrong, for the mistake notebook. removedAt marks "learned it" so it also disappears on other devices. */
+const L = z.object({ en: z.string().max(600), ta: z.string().max(600).optional() });
+export const MistakeEntry = z.object({ id: z.string().min(1).max(60), stem: L, answer: L, why: L, at: z.number().int().min(0), removedAt: z.number().int().min(0).optional() });
 export const SyncData = z.object({
   lesson: z.record(topicId, LessonProgress).default({}),
   practice: z.record(topicId, z.record(z.enum(["1", "2", "3", "4"]), RoundResult)).default({}),
   revision: z.record(topicId, ReviewItem).default({}), // keyed by question id
+  notes: z.record(topicId, NoteEntry).default({}), // saved favourite lessons (the heart button)
+  mistakes: z.record(topicId, MistakeEntry).default({}), // wrongly answered questions (mistake notebook)
 }).superRefine((d, ctx) => {
-  if (Object.keys(d.lesson).length > 2000 || Object.keys(d.practice).length > 2000 || Object.keys(d.revision).length > 20000) ctx.addIssue({ code: "custom", message: "too many topics" });
+  if (Object.keys(d.lesson).length > 2000 || Object.keys(d.practice).length > 2000 || Object.keys(d.revision).length > 20000 || Object.keys(d.notes).length > 2000 || Object.keys(d.mistakes).length > 2000) ctx.addIssue({ code: "custom", message: "too many topics" });
 });
 export type LessonProgress = z.infer<typeof LessonProgress>;
 export type RoundResult = z.infer<typeof RoundResult>;
 export type ReviewItem = z.infer<typeof ReviewItem>;
+export type NoteEntry = z.infer<typeof NoteEntry>;
+export type MistakeEntry = z.infer<typeof MistakeEntry>;
 export type SyncData = z.infer<typeof SyncData>;
-export const emptySync = (): SyncData => ({ lesson: {}, practice: {}, revision: {} });
+export const emptySync = (): SyncData => ({ lesson: {}, practice: {}, revision: {}, notes: {}, mistakes: {} });
 
 /** Finished stays finished; otherwise the most recently worked-on lesson wins. */
 export function mergeLesson(a: LessonProgress | undefined, b: LessonProgress | undefined): LessonProgress | undefined {
@@ -41,6 +50,16 @@ export function mergeSync(a: SyncData, b: SyncData): SyncData {
     const x = a.revision[id], y = b.revision[id];
     out.revision[id] = x && y ? (x.updatedAt >= y.updatedAt ? x : y) : (x ?? y)!; // the latest review wins
   }
+  for (const id of new Set([...Object.keys(a.notes), ...Object.keys(b.notes)])) {
+    const x = a.notes[id], y = b.notes[id];
+    const when = (n: NoteEntry) => Math.max(n.savedAt, n.removedAt ?? 0);
+    out.notes[id] = x && y ? (when(x) >= when(y) ? x : y) : (x ?? y)!; // the latest save or un-save wins
+  }
+  for (const id of new Set([...Object.keys(a.mistakes), ...Object.keys(b.mistakes)])) {
+    const x = a.mistakes[id], y = b.mistakes[id];
+    const when = (m: MistakeEntry) => Math.max(m.at, m.removedAt ?? 0);
+    out.mistakes[id] = x && y ? (when(x) >= when(y) ? x : y) : (x ?? y)!; // the latest miss or "learned it" wins
+  }
   return out;
 }
 
@@ -53,7 +72,7 @@ const Pin = z.string().regex(/^\d{6}$/, "The PIN must be exactly 6 digits");
 export const ChildSecrets = { pin: Pin.optional(), secretQuestion: z.string().trim().min(3).max(100).optional(), secretAnswer: z.string().trim().min(2).max(60).optional() };
 export const ChildInput = z.object({
   nickname: z.string().trim().min(1).max(20), classLevel: z.number().int().min(1).max(12), extraClasses: z.array(z.number().int().min(1).max(12)).max(6).default([]),
-  avatar: z.enum(AVATARS).default("owl"), language: z.enum(["en", "ta"]).default("en"), ...ChildSecrets,
+  avatar: z.enum(AVATARS).default("owl"), language: z.enum(["en", "ta"]).default("en"), boardCode: z.enum(["CBSE", "TNSTATE", "TNMATRIC"]).optional(), ...ChildSecrets,
 });
 export const Register = z.object({
   email: z.string().trim().toLowerCase().email().max(120),
@@ -66,7 +85,7 @@ export const SocialLogin = z.object({ provider: z.enum(["google", "facebook"]), 
 export const ChildLogin = z.object({ email: z.string().trim().toLowerCase().email().max(120), nickname: z.string().trim().min(1).max(20), pin: Pin.optional(), answer: z.string().trim().min(1).max(60).optional() });
 export const ParentContacts = z.object({ fatherEmail: optEmail, motherEmail: optEmail });
 export const Login = z.object({ email: z.string().trim().toLowerCase().email().max(120), password: z.string().min(1).max(200) });
-export const PublicProfile = z.object({ id: z.string(), nickname: z.string(), classLevel: z.number(), classes: z.array(z.number()).default([]), avatar: z.string(), language: z.string(), hasPin: z.boolean().default(false), secretQuestion: z.string().nullable().default(null) });
+export const PublicProfile = z.object({ id: z.string(), nickname: z.string(), classLevel: z.number(), classes: z.array(z.number()).default([]), avatar: z.string(), language: z.string(), hasPin: z.boolean().default(false), secretQuestion: z.string().nullable().default(null), boardCode: z.string().default("CBSE") });
 export const Me = z.object({ user: z.object({ id: z.string(), email: z.string(), fatherEmail: z.string().nullable().default(null), motherEmail: z.string().nullable().default(null), provider: z.string().default("email") }), profiles: z.array(PublicProfile), activeProfileId: z.string().nullable(), childMode: z.boolean().default(false) });
 export type Me = z.infer<typeof Me>;
 export type PublicProfile = z.infer<typeof PublicProfile>;

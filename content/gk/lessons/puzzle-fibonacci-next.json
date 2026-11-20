@@ -1,0 +1,75 @@
+{
+ "id": "puzzle-fibonacci-next",
+ "kind": "puzzle",
+ "category": "patterns",
+ "age": "11-13",
+ "title": "Add the Last Two",
+ "summary": "Test whether each term is built from the previous two.",
+ "emoji": "➕",
+ "tags": [
+  "fibonacci"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Look at 1, 1, 2, 3, 5, 8, ...",
+    "What comes next?"
+   ],
+   "points": [
+    "Look at 1, 1, 2, 3, 5, 8, ..."
+   ],
+   "visual": "fibonacci"
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "The differences are 0, 1, 1, 2, 3, which look like the sequence itself.",
+    "Try adding neighbours."
+   ],
+   "points": [
+    "The differences are 0, 1, 1, 2, 3, which look like the sequence itself."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Add the two before",
+   "sentences": [
+    "1 plus 1 is 2, 1 plus 2 is 3, 2 plus 3 is 5, 3 plus 5 is 8.",
+    "Each number is the sum of the two numbers before it.",
+    "This is the Fibonacci sequence."
+   ],
+   "points": [
+    "1 plus 1 is 2, 1 plus 2 is 3, 2 plus 3 is 5, 3 plus 5 is 8."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "5 plus 8 is 13, so the next number is 13.",
+    "Then 21 and 34 follow.",
+    "You can see this pattern in many flowers and shells."
+   ],
+   "points": [
+    "5 plus 8 is 13, so the next number is 13."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "What comes next: 2, 3, 5, 8, 13, ...?",
+   "options": [
+    "18",
+    "21",
+    "26"
+   ],
+   "answer": 1,
+   "why": "8 plus 13 is 21."
+  }
+ ],
+ "method": "Add the two before"
+}

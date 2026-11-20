@@ -1,3 +1,8 @@
+import { ShareLink } from "../components/ShareLink";
+import { ParentNote } from "../components/ParentNote";
+import { MindMap } from "../components/MindMap";
+import { TopicTabs } from "../components/TopicTabs";
+import { ReportProblem } from "../components/ReportProblem";
 import { Link, Redirect, useParams } from "wouter";
 import { useClassroomIndex } from "../lib/classroom";
 import { useSettings } from "../lib/settings";
@@ -12,10 +17,12 @@ import { subjectVar } from "../lib/theme";
 import { chapterFrac, subjectFrac, subjectIcon } from "../lib/browseStats";
 import { BoardPath, MasteryBar } from "../components/Tier1";
 import { CourseMap } from "../components/CourseMap";
-import { roughMinutes, THEMES } from "../lib/tier2";
+import { JourneyMap } from "../components/JourneyMap";
+import { roughMinutes, THEMES, toggleNote, useNotebook } from "../lib/tier2";
 import { BottomSheet } from "../components/BottomSheet";
 import { useApp } from "../lib/useApp";
 import { useState } from "react";
+import { FilterBox, matches } from "../components/SearchBox";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
 import { TextbookEntry } from "../components/reader/TextbookEntry";
 
@@ -77,6 +84,7 @@ export function SubjectPage() {
   const { app } = useApp();
   const masteryOf = useMastery(s.get("feature.mastery") === true);
   const [preview, setPreview] = useState<string | null>(null);
+  const [fq, setFq] = useState("");
   const progress = useAllProgress();
   const lessonIds = useLessonTopicIds(s.get("feature.lessons"));
   const mapOn = s.get("browse.path.show") === true && s.get<string>("browse.path.style") !== "zigzag";
@@ -91,15 +99,21 @@ export function SubjectPage() {
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: `/${board}/${level}`, label: `${ui("classWord", s.lang)} ${level}` }, { label: s.name(sub.name) }]} />
       <h1 className="cover-title"><Title name={sub.name} /></h1>
       {s.get("home.footer.showSources") && sub.textbook && <p className="small">{ui("textbook", s.lang)}: {sub.textbook.title}{sub.textbook.publisher ? ` (${sub.textbook.publisher})` : ""}</p>}
+      <ParentNote />
+      {s.get("browse.crossGrade.show") === true && sub.chapters.length > 0 && <p className="actions"><Link className="btn ghost" href={`/path/${board}/${sub.slug}`}>🧭 {ui("gradePathLink", s.lang)}</Link></p>}
+      {s.get("terms.enabled") === true && s.get("feature.practice") === true && sub.chapters.length > 0 && <p className="actions"><Link className="btn ghost" href={`/term/${board}/${level}/${sub.slug}`}>📝 {ui("termPapers", s.lang)}</Link></p>}
+      {s.get("browse.journey.show") === true && s.get("feature.lessons") === true && sub.chapters.length > 0 && <JourneyMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} />}
       {mapOn && <CourseMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} showTopics={s.get("browse.path.topics") === true} onPreview={app && s.get("app.learn.chapterSheet.show") === true ? setPreview : undefined} />}
-      {!mapOn && s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
+      {!mapOn && s.get("browse.journey.show") !== true && s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
         const fr = sub.chapters.map((c) => chapterFrac(c.topics, progress));
         const nowIdx = fr.findIndex((x, i) => sub.chapters[i]!.topics.length > 0 && x.pct < 100);
         const nodes = sub.chapters.map((c, i) => ({ id: c.id, href: `/${board}/${level}/${sub.slug}/${c.slug}`, name: c.name, subject: sub.name, state: (c.topics.length > 0 && fr[i]!.pct === 100 ? "done" : i === nowIdx ? "now" : "todo") as "done" | "now" | "todo" }));
         return <BoardPath nodes={nodes} streak={0} title="pathSubject" />;
       })()}
+      {sub.chapters.length > 3 && <FilterBox value={fq} onChange={setFq} />}
+      {!mapOn && fq && !sub.chapters.some((c) => matches(fq, c.name.en, c.name.ta, ...c.topics.flatMap((x) => [x.name.en, x.name.ta]))) && <p className="filter-none" role="status">{ui("filterNone", s.lang)}</p>}
       {!mapOn && <ol className="chapters">
-        {sub.chapters.map((ch) => (
+        {sub.chapters.filter((c) => matches(fq, c.name.en, c.name.ta, ...c.topics.flatMap((x) => [x.name.en, x.name.ta]))).map((ch) => (
           <li key={ch.id}>
             <Link href={`/${board}/${level}/${sub.slug}/${ch.slug}`}>
               <span className="num" aria-hidden="true">{s.get("browse.subjectIcons.show") === true ? subjectIcon(sub.slug) : ch.position}</span>
@@ -133,6 +147,7 @@ export function ChapterPage() {
   const progress = useAllProgress();
   const lessonIds = useLessonTopicIds(s.get("feature.lessons"));
   const masteryOf = useMastery(s.get("feature.mastery") === true);
+  const [tq, setTq] = useState("");
   const { subject = "", chapter = "" } = useParams<{ subject: string; chapter: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
   if (state.status === "loading") return <Loading />;
@@ -153,8 +168,9 @@ export function ChapterPage() {
           <h2>{ui("missionYour", s.lang)}</h2>
           <p className="syl-meta"><b>{ui("syllabusTopics", s.lang).replace("{n}", String(ch.topics.length))}</b> · {ui("syllabusMinutes", s.lang).replace("{n}", String(roughMinutes(ch.topics.length)))}</p>
           <h3>{ui("syllabusLearn", s.lang)}</h3>
+          {ch.topics.length > 4 && <FilterBox value={tq} onChange={setTq} />}
           <ol>
-            {ch.topics.map((t) => (
+            {ch.topics.filter((t) => matches(tq, t.name.en, t.name.ta)).map((t) => (
               <li key={t.id} className={progress[t.id]?.done ? "done" : ""}>
                 <span className="syl-mark" aria-hidden="true">{progress[t.id]?.done ? "✔" : ""}</span>
                 <Title name={t.name} />
@@ -164,6 +180,8 @@ export function ChapterPage() {
           </ol>
         </section>
       )}
+      <ShareLink what={`${ui("classWord", s.lang)} ${level} ${s.name(sub.name)}: ${s.name(ch.name)}`} />
+      <MindMap title={s.name(ch.name)} topics={ch.topics.map((t) => ({ id: t.id, label: s.name(t.name), href: `${base}/${ch.slug}/${t.slug}`, done: progress[t.id]?.done === true }))} />
       {s.get("feature.chapterTopics") && (
         ch.topics.length === 0 ? <p className="soon-note">{ui("lessonsPreparing", s.lang)}</p> : (
           <>
@@ -216,6 +234,7 @@ export function TopicPage() {
   const hasClass = classOn && classIdx.status === "ready" && classIdx.data.items.some((i) => i.classLevel === level && i.subject === subject && i.chapter === chapter && i.topic === topic);
   const preferClass = hasClass && s.get("lesson.preferClassroom") === true;
   const pres = usePracticeResults(practice.status === "ready" ? practice.data?.topicId : undefined);
+  const notes = useNotebook();
   if (!allowed) return <NotFound />;
   if (state.status === "loading") return <Loading />;
   if (state.status === "error") return <NotFound />;
@@ -226,6 +245,8 @@ export function TopicPage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { label: s.name(d.topic.name) }]} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
+      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="learn" has={{ learn: (lessonOn && lesson.status === "ready" && !!lesson.data) || hasClass, practice: practiceOn === true && practice.status === "ready" && !!practice.data }} />
+      {s.get("notebook.enabled") === true && <p className="actions"><button type="button" className="link heart" aria-pressed={!!notes[d.topic.id]} onClick={() => toggleNote({ id: d.topic.id.slice(0, 60), href: `${base}/${d.chapter.slug}/${d.topic.slug}`, title: d.topic.name, subject: d.subject.name })}><span aria-hidden="true">{notes[d.topic.id] ? "❤️" : "🤍"}</span> {notes[d.topic.id] ? ui("nbSaved", s.lang) : ui("nbSave", s.lang)}</button></p>}
       {hasClass && <p className="actions"><Link className="btn" href={`/classroom/${board}/${level}/${subject}/${chapter}/${topic}`}>🎓 {preferClass ? ui("startLesson", s.lang) : ui("classroomOpen", s.lang)}</Link></p>}
       {lessonOn && lesson.status === "ready" && lesson.data && (
         <p className="actions">
@@ -284,6 +305,7 @@ export function LessonPage() {
           note: { href: `${base}/${d.chapter.slug}/${d.topic.slug}/learn`, subject: d.subject.name },
         }}
       />
+      <ReportProblem kind="lesson" about={`${base}/${d.chapter.slug}/${d.topic.slug}`} where="onLessons" />
     </div>
   );
 }

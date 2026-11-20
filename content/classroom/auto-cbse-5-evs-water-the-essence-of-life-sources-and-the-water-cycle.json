@@ -1,0 +1,289 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "evs",
+ "chapter": "water-the-essence-of-life",
+ "topic": "sources-and-the-water-cycle",
+ "status": "published",
+ "title": {
+  "en": "The water cycle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The water cycle",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sun",
+   "x": 790,
+   "y": 100,
+   "text": "☀️",
+   "size": 80,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sea",
+   "x": 40,
+   "y": 380,
+   "w": 400,
+   "h": 90,
+   "rx": 6,
+   "fill": "#90CAF9",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "sl",
+   "x": 240,
+   "y": 430,
+   "text": "Sea",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "mt",
+   "points": [
+    [
+     470,
+     470
+    ],
+    [
+     640,
+     230
+    ],
+    [
+     810,
+     470
+    ]
+   ],
+   "fill": "#BCAAA4",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "cl",
+   "x": 330,
+   "y": 150,
+   "text": "☁️",
+   "size": 120,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "cl2",
+   "x": 430,
+   "y": 130,
+   "text": "☁️",
+   "size": 90,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "flow",
+   "id": "ev",
+   "x": 260,
+   "y": 370,
+   "len": 190,
+   "count": 6,
+   "speed": 0.5,
+   "spread": 140,
+   "size": 6,
+   "up": true,
+   "color": "water"
+  },
+  {
+   "kind": "flow",
+   "id": "rn",
+   "x": 340,
+   "y": 200,
+   "len": 170,
+   "count": 9,
+   "speed": 0.9,
+   "spread": 120,
+   "size": 7,
+   "color": "water"
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 140,
+   "y1": 360,
+   "x2": 220,
+   "y2": 220,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 30,
+   "y": 330,
+   "text": "Evaporation",
+   "size": 24,
+   "color": "warm",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 30,
+   "y": 70,
+   "text": "Condensation",
+   "size": 24,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 520,
+   "y": 270,
+   "text": "Rain",
+   "size": 28,
+   "color": "water",
+   "anchor": "start"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "water-cycle",
+   "alt": "A diagram of the water cycle",
+   "caption": "The water cycle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Water is always on the move. The Sun warms the sea, rivers and ponds."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "sun",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "sea",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "sl",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The warm water turns into invisible water vapour and rises into the air. This is called evaporation."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "show",
+     "target": "ev",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "on": "evaporation"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "High up, the air is cold. The vapour cools and becomes tiny drops of water that make clouds. This is called condensation."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "cl",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "cl2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "on": "condensation"
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "When the clouds hold too much water, it falls down as rain. Then the water runs back to the rivers and the sea, and the cycle begins again."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "mt",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "rn",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "on": "rain"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. A diagram of the water cycle. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

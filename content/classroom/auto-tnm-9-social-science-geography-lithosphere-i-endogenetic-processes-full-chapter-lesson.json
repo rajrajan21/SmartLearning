@@ -1,0 +1,182 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "social-science",
+ "chapter": "geography-lithosphere-i-endogenetic-processes",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Inside the Earth"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 34,
+   "text": "Layers inside the Earth",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "crust",
+   "cx": 330,
+   "cy": 265,
+   "r": 190,
+   "fill": "#D7CCC8",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "mantle",
+   "cx": 330,
+   "cy": 265,
+   "r": 160,
+   "fill": "#FFCC80",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "oc",
+   "cx": 330,
+   "cy": 265,
+   "r": 100,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "ic",
+   "cx": 330,
+   "cy": 265,
+   "r": 48,
+   "fill": "#FFEE58",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 640,
+   "y": 120,
+   "text": "Crust: the thin outer skin",
+   "size": 22,
+   "color": "earth",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 640,
+   "y": 190,
+   "text": "Mantle: hot, thick, rocky layer",
+   "size": 22,
+   "color": "warm",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 640,
+   "y": 260,
+   "text": "Outer core: liquid metal",
+   "size": 22,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 640,
+   "y": 330,
+   "text": "Inner core: solid metal",
+   "size": 22,
+   "color": "sun",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Earth is made of layers, like an onion. We cannot dig into them, but scientists study earthquake waves to learn about them."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "On the outside is the crust, a thin, hard layer. We live on it."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "crust",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Below it is the mantle, a thick layer of hot rock."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "mantle",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "At the centre is the core. The outer core is liquid metal, mostly iron and nickel, and the inner core is solid."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "oc",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "ic",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

@@ -1,7 +1,9 @@
+import { useActiveBoard } from "../lib/activeBoard";
 import { Link, useLocation } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useApp } from "../lib/useApp";
+import { gt } from "../lib/gk";
 
 /** Thumb-friendly tab bar for phones. Hidden by CSS on wide screens. */
 export function BottomNav() {
@@ -9,7 +11,7 @@ export function BottomNav() {
   const [loc] = useLocation();
   const { app } = useApp();
   if (s.get("ui.bottomNav.enabled") !== true && !app) return null;
-  const board = s.get<string>("catalog.defaultBoard").toLowerCase();
+  const board = useActiveBoard().toLowerCase();
   const open = s.get<number[]>("catalog.openClasses");
   const cls = open.length ? Math.min(...open) : 3;
   const mastery = s.get("feature.mastery") === true;
@@ -20,6 +22,7 @@ export function BottomNav() {
   ];
   if (mastery && s.get("mastery.revision.enabled") === true) items.push({ href: "/revise", icon: "🔁", label: ui("navRevise", s.lang), on: loc.startsWith("/revise") });
   if (mastery && s.get("mastery.progressPage") === true) items.push({ href: "/progress", icon: "⭐", label: ui("myProgress", s.lang), on: loc.startsWith("/progress") });
+  if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.accounts") === true) items.push({ href: "/account", icon: "🙂", label: ui("account", s.lang), on: loc.startsWith("/account") });
   if (app) {
     const practice = mastery && s.get("mastery.revision.enabled") === true ? "/revise" : `/${board}/${cls}`;

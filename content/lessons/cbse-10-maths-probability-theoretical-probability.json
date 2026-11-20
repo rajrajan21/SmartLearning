@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "theoretical-probability",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Theoretical probability"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Heads or tails?"
+        },
+        "text": {
+          "en": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "0 <= P(E) <= 1",
+          "P(E) = favourable / total",
+          "cards",
+          "complementary events",
+          "die example",
+          "experiment and event",
+          "sum = 1",
+          "sure = 1, impossible = 0"
+        ],
+        "text": {
+          "en": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes.\nProbability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely.\nFor a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.\nAn event that is sure to happen has probability 1. An impossible event has probability 0.\nSo the probability of any event lies between 0 and 1.\nThe probabilities of all elementary events of an experiment add up to 1.\nP(E) + P(not E) = 1. The event not E is the complement of E.\nFor a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "experiment and event"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "P(E) = favourable / total"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "die example"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "An event that is sure to happen has probability 1. An impossible event has probability 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sure = 1, impossible = 0"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "So the probability of any event lies between 0 and 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "0 <= P(E) <= 1"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The probabilities of all elementary events of an experiment add up to 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum = 1"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "P(E) + P(not E) = 1. The event not E is the complement of E."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complementary events"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cards"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A bag has 3 red, 5 white and 2 blue balls. One is drawn at random. Find P(white) and P(not red)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Total = 10 balls."
+            },
+            "why": {
+              "en": "Count all outcomes."
+            }
+          },
+          {
+            "text": {
+              "en": "P(white) = 5/10 = 1/2."
+            },
+            "why": {
+              "en": "Favourable = 5."
+            }
+          },
+          {
+            "text": {
+              "en": "P(not red) = 1 - 3/10 = 7/10."
+            },
+            "why": {
+              "en": "Complement rule."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What is probability and what are its limits?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Favourable by total"
+          },
+          {
+            "en": "Between 0 and 1"
+          },
+          {
+            "en": "P(E) + P(not E) = 1"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Writing probabilities greater than 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-tp1",
+          "r1-tp2",
+          "r2-tp3",
+          "r2-tp4",
+          "r2-tp5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "P(E) = favourable outcomes / all possible outcomes."
+          },
+          {
+            "en": "Sure event 1, impossible event 0, so 0 <= P(E) <= 1."
+          },
+          {
+            "en": "P(E) + P(not E) = 1."
+          }
+        ]
+      }
+    ]
+  }
+}

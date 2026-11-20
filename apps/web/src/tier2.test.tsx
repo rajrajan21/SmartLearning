@@ -100,6 +100,11 @@ describe("tier 2 screens", () => {
     fireEvent.click(screen.getByRole("button", { name: /Remove from notebook/ }));
     expect(await screen.findByText(/Nothing saved yet/)).toBeTruthy();
   });
+  it("the topic page has a heart too, so every topic can be saved", async () => {
+    mount("/cbse/3/evs/water/saving-water");
+    fireEvent.click(await screen.findByRole("button", { name: /Save to my notebook/ }));
+    expect(Object.values(readNotebook())[0]?.href).toBe("/cbse/3/evs/water/saving-water");
+  });
   it("notebook can be switched off (no heart in lessons)", async () => {
     mount("/cbse/3/evs/water/saving-water/learn", { "notebook.enabled": false });
     await screen.findByText("Close the tap.");

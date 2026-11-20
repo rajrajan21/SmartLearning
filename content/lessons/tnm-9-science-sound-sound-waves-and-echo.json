@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "sound",
+  "topic": "sound-waves-and-echo",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sound waves, frequency, speed and echo"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The temple bell"
+        },
+        "text": {
+          "en": "A temple bell rings and the sound travels outwards in all directions. Sound needs a medium and travels as waves of compressions and rarefactions."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "medium needed",
+          "longitudinal wave",
+          "frequency",
+          "v = f lambda",
+          "speeds",
+          "loudness and pitch",
+          "echo"
+        ],
+        "text": {
+          "en": "Sound is produced by vibrating bodies and needs a material medium - it cannot travel in a vacuum.\nSound waves in air are longitudinal: particles vibrate along the direction of travel, forming compressions and rarefactions.\nFrequency is the number of vibrations per second (hertz); the time period T = 1/f.\nSpeed of sound = frequency x wavelength (v = f x lambda).\nSound travels fastest in solids, slower in liquids and slowest in gases; in air at room temperature it is about 343 m/s.\nLoudness depends on amplitude; pitch depends on frequency; humans hear 20 Hz to 20 000 Hz.\nAn echo is the reflection of sound heard after at least 0.1 s, so the obstacle must be at least about 17 m away."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Sound is produced by vibrating bodies and needs a material medium - it cannot travel in a vacuum."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "medium needed"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Sound waves in air are longitudinal: particles vibrate along the direction of travel, forming compressions and rarefactions."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "longitudinal wave"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Frequency is the number of vibrations per second (hertz); the time period T = 1/f."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "frequency"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Speed of sound = frequency x wavelength (v = f x lambda)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "v = f lambda"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Sound travels fastest in solids, slower in liquids and slowest in gases; in air at room temperature it is about 343 m/s."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "speeds"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Loudness depends on amplitude; pitch depends on frequency; humans hear 20 Hz to 20 000 Hz."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "loudness and pitch"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "An echo is the reflection of sound heard after at least 0.1 s, so the obstacle must be at least about 17 m away."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "echo"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A sound has a frequency of 500 Hz and a wavelength of 0.68 m. Find its speed."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "v = f x wavelength."
+            },
+            "why": {
+              "en": "Wave equation."
+            }
+          },
+          {
+            "text": {
+              "en": "v = 500 x 0.68."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "v = 340 m/s."
+            },
+            "why": {
+              "en": "Matches the speed of sound in air."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain how sound travels and what an echo is."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Compressions and rarefactions"
+          },
+          {
+            "en": "v = f lambda"
+          },
+          {
+            "en": "Echo needs 0.1 s delay"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking sound travels in a vacuum"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9sc260-1",
+          "r1-m9sc260-2",
+          "r1-m9sc260-3",
+          "r2-m9sc260-4",
+          "r2-m9sc260-5",
+          "r2-m9sc260-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Sound needs a medium and is longitudinal."
+          },
+          {
+            "en": "v = f x wavelength."
+          },
+          {
+            "en": "Loudness: amplitude; pitch: frequency."
+          },
+          {
+            "en": "Echo: reflected sound after at least 0.1 s."
+          }
+        ]
+      }
+    ]
+  }
+}

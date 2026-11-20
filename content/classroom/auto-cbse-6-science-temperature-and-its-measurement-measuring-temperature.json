@@ -1,0 +1,288 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "science",
+ "chapter": "temperature-and-its-measurement",
+ "topic": "measuring-temperature",
+ "status": "published",
+ "title": {
+  "en": "Thermometer"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Measuring temperature",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "tb",
+   "x": 410,
+   "y": 100,
+   "w": 40,
+   "h": 280,
+   "rx": 20,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "bu",
+   "cx": 430,
+   "cy": 400,
+   "r": 40,
+   "fill": "#EF5350",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "hg",
+   "x": 421,
+   "y": 200,
+   "w": 18,
+   "h": 190,
+   "rx": 8,
+   "fill": "#EF5350",
+   "stroke": "warm",
+   "width": 1
+  },
+  {
+   "kind": "line",
+   "id": "m0",
+   "x1": 460,
+   "y1": 130,
+   "x2": 490,
+   "y2": 130,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 505,
+   "y": 138,
+   "text": "40",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m1",
+   "x1": 460,
+   "y1": 180,
+   "x2": 490,
+   "y2": 180,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 505,
+   "y": 188,
+   "text": "30",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m2",
+   "x1": 460,
+   "y1": 230,
+   "x2": 490,
+   "y2": 230,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 505,
+   "y": 238,
+   "text": "20",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m3",
+   "x1": 460,
+   "y1": 280,
+   "x2": 490,
+   "y2": 280,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 505,
+   "y": 288,
+   "text": "10",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "m4",
+   "x1": 460,
+   "y1": 330,
+   "x2": 490,
+   "y2": 330,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n4",
+   "x": 505,
+   "y": 338,
+   "text": "0",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "c",
+   "x": 600,
+   "y": 200,
+   "text": "°C",
+   "size": 40,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "rs",
+   "x": 740,
+   "y": 300,
+   "text": "Reading: 30 °C",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "We measure temperature, how hot or cold something is, with a thermometer. A thermometer has a glass tube with a bulb at the bottom, and a scale of numbers beside it."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "tb",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "bu",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "m0",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "m1",
+     "at": 0.5700000000000001
+    },
+    {
+     "do": "show",
+     "target": "m2",
+     "at": 0.64
+    },
+    {
+     "do": "show",
+     "target": "m3",
+     "at": 0.71
+    },
+    {
+     "do": "show",
+     "target": "m4",
+     "at": 0.78
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.5700000000000001
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.64
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.71
+    },
+    {
+     "do": "write",
+     "target": "n4",
+     "at": 0.78
+    },
+    {
+     "do": "write",
+     "target": "c",
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The red liquid inside rises when it gets hotter and falls when it gets colder."
+   },
+   "actions": [
+    {
+     "do": "fill",
+     "target": "hg",
+     "color": "warm",
+     "at": 0.2
+    },
+    {
+     "do": "pulse",
+     "target": "hg",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "To read it, look straight at the top of the liquid. Here it is at thirty degrees Celsius."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "rs",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

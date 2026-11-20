@@ -1,0 +1,164 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "symmetry",
+ "topic": "lines-of-symmetry",
+ "status": "published",
+ "title": {
+  "en": "Line of symmetry"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Line of symmetry",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "lf",
+   "points": [
+    [
+     450,
+     110
+    ],
+    [
+     330,
+     190
+    ],
+    [
+     300,
+     300
+    ],
+    [
+     380,
+     400
+    ],
+    [
+     450,
+     430
+    ]
+   ],
+   "fill": "#A5D6A7",
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "poly",
+   "id": "rt",
+   "points": [
+    [
+     450,
+     110
+    ],
+    [
+     570,
+     190
+    ],
+    [
+     600,
+     300
+    ],
+    [
+     520,
+     400
+    ],
+    [
+     450,
+     430
+    ]
+   ],
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 450,
+   "y1": 90,
+   "x2": 450,
+   "y2": 450,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "tx",
+   "x": 700,
+   "y": 260,
+   "text": "Both halves match",
+   "size": 30,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Look at this leaf. If we fold it down the middle, the two halves match exactly. That middle line is called a line of symmetry."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "lf",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "rt",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The left half is the mirror image of the right half. Every point on one side has a matching point on the other side, at the same distance from the line."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "lf",
+     "at": 0.2,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "rt",
+     "at": 0.5,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Many things around us are symmetrical, like butterflies, leaves and the letter A."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "tx",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

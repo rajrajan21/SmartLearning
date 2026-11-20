@@ -1,0 +1,179 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "arithmetic-expressions",
+ "topic": "order-of-operations",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Order of operations"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "Two answers"
+    },
+    "text": {
+     "en": "Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied first and got 14.\n\"Who is right?\" they asked the teacher.\n\"The one who multiplied first,\" she said. \"There is an order to follow.\""
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "expression",
+     "bracket",
+     "order of operations",
+     "evaluate"
+    ],
+    "text": {
+     "en": "When an expression has more than one operation, we follow an order: first brackets, then multiplication and division from left to right, then addition and subtraction from left to right.\nSo 2 + 3 × 4 = 2 + 12 = 14. With brackets, (2 + 3) × 4 = 5 × 4 = 20. Brackets change the order.\nOperations of the same rank, such as multiplication and division, are done from left to right. For example 24 ÷ 4 × 2 = 6 × 2 = 12."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "order"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "example 1"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "example 2"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Same-rank operations go left to right."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "left to right"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Evaluate 10 − 2 × 3 + 8 ÷ 4."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Do multiplication and division first: 2 × 3 = 6 and 8 ÷ 4 = 2."
+      },
+      "why": {
+       "en": "So the expression is 10 − 6 + 2."
+      }
+     },
+     {
+      "text": {
+       "en": "Now go left to right: 10 − 6 = 4."
+      },
+      "why": {
+       "en": "Then 4 + 2."
+      }
+     },
+     {
+      "text": {
+       "en": "4 + 2 = 6. So the answer is 6."
+      },
+      "why": {
+       "en": "Check each step."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says 6 + 4 × 2 equals 20. How will you explain the mistake?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Multiplication comes before addition: 4 × 2 = 8, then 6 + 8 = 14."
+     },
+     {
+      "en": "He added first by mistake."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Working strictly left to right."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-val",
+     "r1-br"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Brackets first, then × and ÷, then + and −."
+     },
+     {
+      "en": "Equal-rank operations go left to right."
+     },
+     {
+      "en": "Brackets can change the result."
+     }
+    ]
+   }
+  ]
+ }
+}

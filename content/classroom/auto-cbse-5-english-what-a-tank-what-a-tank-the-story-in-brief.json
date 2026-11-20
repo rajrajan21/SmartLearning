@@ -1,0 +1,210 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "english",
+ "chapter": "what-a-tank",
+ "topic": "what-a-tank-the-story-in-brief",
+ "status": "published",
+ "title": {
+  "en": "The story arc"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The story arc",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "Beginning",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k0",
+   "x": 90,
+   "y": 478,
+   "text": "water conservation",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 450,
+   "y": 190,
+   "text": "overhead tank, Punjab",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "End",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 810,
+   "y": 478,
+   "text": "Punjab, unique",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "Most stories have a beginning, a middle and an end. Let us place this story on an arc."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "Water conservation has existed for centuries. Hundreds of years ago huge water storage structures stored water, protected cities from floods, gave drinking water and brought people together."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "In Rajasthan's Thar region, Tankas are underground tanks that can store water for six to seven months. Today most homes have tanks, often on the roof, called overhead water tanks."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "A football lover may have a football tank. The tanks are made of cement."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k2",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

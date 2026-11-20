@@ -1,0 +1,85 @@
+{
+ "id": "puzzle-party-handshakes",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "11-13",
+ "title": "Handshakes at the Party",
+ "summary": "Solve a smaller version first and look for the pattern.",
+ "emoji": "🤝",
+ "tags": [
+  "counting",
+  "pairs"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Five friends meet at a party. Each person shakes hands once with every other person.",
+    "How many handshakes happen in total?"
+   ],
+   "points": [
+    "Five friends meet at a party. Each person shakes hands once with every other person."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Do not count people times people, because that counts each handshake twice.",
+    "Try a smaller party first: 2 people, then 3, then 4."
+   ],
+   "points": [
+    "Do not count people times people, because that counts each handshake twice."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Try smaller cases",
+   "sentences": [
+    "With 2 people there is 1 handshake. With 3 people there are 3. With 4 people there are 6.",
+    "Each new person shakes hands with everyone already there.",
+    "So the numbers go 1, 3, 6, 10, which add 2, then 3, then 4."
+   ],
+   "points": [
+    "With 2 people there is 1 handshake. With 3 people there are 3. With 4 people there are 6."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Five people make 10 handshakes.",
+    "A quick rule: each of the 5 people shakes 4 hands, which is 20, but every handshake was counted twice, so divide by 2.",
+    "In general, n people make n times (n minus 1) divided by 2 handshakes."
+   ],
+   "points": [
+    "Five people make 10 handshakes."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "How many handshakes among 6 people?",
+   "options": [
+    "15",
+    "12",
+    "18"
+   ],
+   "answer": 0,
+   "why": "6 times 5 is 30, divided by 2 is 15."
+  },
+  {
+   "q": "How many handshakes among 4 people?",
+   "options": [
+    "6",
+    "8",
+    "4"
+   ],
+   "answer": 0,
+   "why": "4 times 3 is 12, divided by 2 is 6."
+  }
+ ],
+ "method": "Try smaller cases"
+}

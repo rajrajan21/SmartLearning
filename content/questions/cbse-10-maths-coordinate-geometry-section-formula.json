@@ -1,0 +1,269 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "section-formula",
+  "questions": [
+    {
+      "key": "r1-sf1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Mid-point of (2, 4) and (6, 8)"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "(4, 6)"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "(8, 12)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Divide by 2."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "(2, 2)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is half the difference."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(2 + 6)/2, (4 + 8)/2."
+      }
+    },
+    {
+      "key": "r1-sf2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "x-coordinate of the mid-point of (-2, 3) and (6, 5)"
+      },
+      "answer": 2,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 4,
+          "why": {
+            "en": "Divide by 2."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(-2 + 6)/2 = 2."
+      }
+    },
+    {
+      "key": "r2-sf3",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Point dividing (0, 0) and (9, 0) in the ratio 1 : 2"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "(3, 0)"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "(6, 0)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is ratio 2 : 1."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "(4.5, 0)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is the mid-point."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(1 x 9 + 2 x 0)/3 = 3."
+      }
+    },
+    {
+      "key": "r2-sf4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Assertion (A): The mid-point of (a, b) and (c, d) is ((a + c)/2, (b + d)/2). Reason (R): It divides the segment in the ratio 1 : 1."
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "Both A and R are true and R explains A"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "A true, R false"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "R is correct."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "A false, R true"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Both are true."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "m1 = m2 = 1."
+      }
+    },
+    {
+      "key": "r2-sf5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If (2, y) is the mid-point of (1, 3) and (3, 7), y ="
+      },
+      "answer": 5,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 10,
+          "why": {
+            "en": "Halve it."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(3 + 7)/2."
+      }
+    },
+    {
+      "key": "r3-sf6",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "A diameter has ends (1, 1) and (5, 5). The x-coordinate of the centre"
+      },
+      "accepted": [
+        "3"
+      ],
+      "wrongAnswers": [
+        {
+          "text": "6",
+          "why": {
+            "en": "Halve the sum."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(1 + 5)/2."
+      }
+    },
+    {
+      "key": "r3-sf7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "In the section formula, m1 is paired with the x-coordinate of the second point."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "x = (m1x2 + m2x1)/(m1 + m2)."
+      }
+    },
+    {
+      "key": "r3-sf8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Point trisection of the segment joining (0,0) and (3,6) nearer to the origin"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "(1, 2)"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "(2, 4)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is nearer to the second point."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "(1.5, 3)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is the mid-point."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Ratio 1 : 2."
+      }
+    }
+  ]
+}

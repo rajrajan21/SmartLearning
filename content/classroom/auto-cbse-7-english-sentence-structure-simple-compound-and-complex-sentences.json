@@ -1,0 +1,197 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "english",
+ "chapter": "sentence-structure",
+ "topic": "simple-compound-and-complex-sentences",
+ "status": "published",
+ "title": {
+  "en": "Kinds of sentences"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Kinds of sentences",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h0",
+   "x": 250,
+   "y": 100,
+   "text": "Kind",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h1",
+   "x": 650,
+   "y": 100,
+   "text": "Example",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "hl",
+   "x1": 40,
+   "y1": 118,
+   "x2": 860,
+   "y2": 118,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "r00",
+   "x": 250,
+   "y": 170,
+   "text": "Simple",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r01",
+   "x": 650,
+   "y": 170,
+   "text": "The dog barked.",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r10",
+   "x": 250,
+   "y": 232,
+   "text": "Compound",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r11",
+   "x": 650,
+   "y": 232,
+   "text": "I like tea, but she likes coffee.",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r20",
+   "x": 250,
+   "y": 294,
+   "text": "Complex",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r21",
+   "x": 650,
+   "y": 294,
+   "text": "I stayed home because it was raining.",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Sentences can be built in different ways, depending on how many clauses they have."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "h0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "h1",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "hl",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A simple sentence has one clause: one subject and one verb group."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r00",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r01",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A compound sentence joins two equal clauses with a joining word such as and, but or or."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r10",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r11",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "A complex sentence has a main clause and a clause that depends on it, joined by a word such as because, when or if."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r20",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r21",
+     "at": 0.35
+    }
+   ]
+  }
+ ]
+}

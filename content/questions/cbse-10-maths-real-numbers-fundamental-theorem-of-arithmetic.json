@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "fundamental-theorem-of-arithmetic",
+  "questions": [
+    {
+      "key": "r1-fta1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The prime factorisation of 140 is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "2^2 x 5 x 7"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "2 x 5 x 14"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "14 is not a prime."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "2^3 x 5 x 7"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "2^3 x 5 x 7 = 280."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "140 = 4 x 35 = 2^2 x 5 x 7."
+      }
+    },
+    {
+      "key": "r1-fta2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Prime factorisation of a composite number is unique apart from the order of primes."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "This is the Fundamental Theorem of Arithmetic."
+      }
+    },
+    {
+      "key": "r2-fta3",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "HCF of 26 and 91 is"
+      },
+      "answer": 13,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 1,
+          "why": {
+            "en": "They share the prime 13."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
+      }
+    },
+    {
+      "key": "r2-fta4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If HCF(12, 18) = 6, find LCM(12, 18)."
+      },
+      "answer": 36,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 216,
+          "why": {
+            "en": "216 is the product, not the LCM."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "LCM = (12 x 18) / 6 = 36."
+      }
+    },
+    {
+      "key": "r2-fta5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Assertion (A): 6^n can never end in digit 0 for any natural number n. Reason (R): 6^n = 2^n x 3^n has no prime factor 5. Choose the correct option."
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "Both A and R are true and R explains A"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "Both are true but R does not explain A"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "R is exactly why A holds: a number ending in 0 needs the prime 5."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "A is true but R is false"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "R is true."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "A number ending in 0 is divisible by 10, so it needs both 2 and 5. 6^n has no 5."
+      }
+    },
+    {
+      "key": "r3-fta6",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "Write the LCM of 6 and 20."
+      },
+      "accepted": [
+        "60"
+      ],
+      "wrongAnswers": [
+        {
+          "text": "120",
+          "why": {
+            "en": "120 is a common multiple but not the least."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "6 = 2 x 3, 20 = 2^2 x 5, LCM = 2^2 x 3 x 5 = 60."
+      }
+    },
+    {
+      "key": "r3-fta7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Two bells ring every 12 and 18 minutes. After how many minutes do they ring together again?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "36"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "6"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "6 is the HCF."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "216"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "216 is the product, not the LCM."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "LCM of 12 and 18 is 36."
+      }
+    },
+    {
+      "key": "r3-fta8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "The HCF of two numbers is always a factor of their LCM."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "HCF divides both numbers and so divides their LCM."
+      }
+    }
+  ]
+}

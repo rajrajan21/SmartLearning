@@ -23,7 +23,8 @@ describe("shipped classroom lessons", () => {
   });
   it("belongs to topics that exist in the curriculum", () => {
     const cur = JSON.parse(readFileSync(join(curriculumDir, "cbse-2026-27.json"), "utf8"));
-    for (const f of files) {
+    // auto-* pages are generated from the shipped lessons (all boards), so the lesson set itself is the check for them
+    for (const f of files.filter((x) => !x.startsWith("auto-"))) {
       const l = load(f), ch = cur.classes.find((c: { classLevel: number }) => c.classLevel === l.classLevel)?.subjects.find((s: { slug: string }) => s.slug === l.subject)?.chapters.find((c: { slug: string }) => c.slug === l.chapter);
       expect(ch, f).toBeTruthy();
       expect(ch.topics.some((t: { slug: string }) => t.slug === l.topic), `${f} topic`).toBe(true);
@@ -67,5 +68,18 @@ describe("the real phrases file", () => {
     const { audioDir: real } = await import("../src/server-paths.js");
     const jobs = collectJobs({ lessonsDir, classroomDir, audioDir: real }, ["en"]);
     expect(jobs.some((j) => j.where.startsWith("phrases praise"))).toBe(true);
+  });
+});
+
+describe("voice list 'recorded' flag", () => {
+  it("marks a voice ready when ANY lesson has it, not only the first lesson", () => {
+    const plain = createClassroomService({ lessonsDir, questionsDir, classroomDir });
+    const items = plain.index().items;
+    const last = items[items.length - 1]!;
+    const target = plain.get(last.board, last.classLevel, last.subject, last.chapter, last.topic)!.steps[0]!.narration.en;
+    const fake = { teachers: () => [{ id: "priya", label: "Priya" }, { id: "ghost", label: "Ghost" }], refs: (t: string, text: { en?: string } | undefined) => (t === "priya" && text?.en === target ? { en: { url: "x", durationMs: 1 } } : undefined) };
+    const v = createClassroomService({ lessonsDir, questionsDir, classroomDir }, fake as never).index().voices;
+    expect(v.find((x) => x.id === "priya")!.ready).toBe(true);
+    expect(v.find((x) => x.id === "ghost")!.ready).toBe(false);
   });
 });

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "section-formula",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Section formula and mid-point"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Splitting a line in a ratio"
+        },
+        "text": {
+          "en": "A flag is to be fixed one-third of the way from one corner of a field to the other. Coordinates and the section formula tell us the exact point."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "(7, 3)",
+          "centre = mid-point",
+          "internal division only",
+          "m1 with B",
+          "mid-point",
+          "ratio m1 : m2",
+          "section formula",
+          "unknown ratio"
+        ],
+        "text": {
+          "en": "Suppose a point P divides the segment joining A(x1, y1) and B(x2, y2) internally in the ratio m1 : m2.\nThen the coordinates of P are (m1 x2 + m2 x1) by (m1 + m2), and (m1 y2 + m2 y1) by (m1 + m2).\nHere AP : PB = m1 : m2. Be careful: m1 goes with the coordinates of B.\nThe mid-point is the special case with ratio 1 : 1, so it is ((x1 + x2)/2, (y1 + y2)/2).\nFind the point dividing (4, -3) and (8, 5) in the ratio 3 : 1. x = (3 x 8 + 1 x 4)/4 = 7 and y = (3 x 5 + 1 x (-3))/4 = 3.\nTo find the ratio, let P divide in k : 1 and use the formula to solve for k.\nThe centre of a circle is the mid-point of a diameter, a useful special case.\nExternal division is not in this syllabus; it is met in higher classes."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Suppose a point P divides the segment joining A(x1, y1) and B(x2, y2) internally in the ratio m1 : m2."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ratio m1 : m2"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Then the coordinates of P are (m1 x2 + m2 x1) by (m1 + m2), and (m1 y2 + m2 y1) by (m1 + m2)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "section formula"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Here AP : PB = m1 : m2. Be careful: m1 goes with the coordinates of B."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "m1 with B"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The mid-point is the special case with ratio 1 : 1, so it is ((x1 + x2)/2, (y1 + y2)/2)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mid-point"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Find the point dividing (4, -3) and (8, 5) in the ratio 3 : 1. x = (3 x 8 + 1 x 4)/4 = 7 and y = (3 x 5 + 1 x (-3))/4 = 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(7, 3)"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "To find the ratio, let P divide in k : 1 and use the formula to solve for k."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "unknown ratio"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The centre of a circle is the mid-point of a diameter, a useful special case."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "centre = mid-point"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "External division is not in this syllabus; it is met in higher classes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "internal division only"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the ratio in which the point (-1, 6) divides (-3, 10) and (6, -8)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Let the ratio be k : 1. x = (6k - 3)/(k + 1) = -1."
+            },
+            "why": {
+              "en": "Use the x coordinate."
+            }
+          },
+          {
+            "text": {
+              "en": "6k - 3 = -k - 1, so 7k = 2 and k = 2/7."
+            },
+            "why": {
+              "en": "Solve."
+            }
+          },
+          {
+            "text": {
+              "en": "Ratio is 2 : 7. Check with y: (-8(2) + 10(7))/9 = 6."
+            },
+            "why": {
+              "en": "Verify with y."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the section formula and mid-point formula."
+        },
+        "requiredIdeas": [
+          {
+            "en": "(m1x2 + m2x1)/(m1 + m2)"
+          },
+          {
+            "en": "Same pattern for y"
+          },
+          {
+            "en": "Mid-point: ratio 1 : 1"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Swapping m1 and m2"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sf1",
+          "r1-sf2",
+          "r2-sf3",
+          "r2-sf4",
+          "r2-sf5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Internal division in m1 : m2: ((m1x2 + m2x1)/(m1+m2), (m1y2 + m2y1)/(m1+m2))."
+          },
+          {
+            "en": "Mid-point = ((x1 + x2)/2, (y1 + y2)/2)."
+          },
+          {
+            "en": "m1 goes with the second point."
+          }
+        ]
+      }
+    ]
+  }
+}

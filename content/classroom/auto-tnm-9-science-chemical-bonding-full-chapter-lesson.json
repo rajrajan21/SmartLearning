@@ -1,0 +1,192 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "chemical-bonding",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Chemical bonding"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Chemical bonding",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c0",
+   "x": 125,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 240,
+   "y": 238,
+   "text": "🧂",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 240,
+   "y": 282,
+   "text": "Ionic bond",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g0x0",
+   "x": 240,
+   "y": 310,
+   "text": "Na⁺ and Cl⁻ attract",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c1",
+   "x": 545,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 660,
+   "y": 238,
+   "text": "💧",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 660,
+   "y": 282,
+   "text": "Covalent bond",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g1x0",
+   "x": 660,
+   "y": 310,
+   "text": "H + H share a pair",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Atoms join together by forming bonds, so that each atom gets a full outer shell of electrons."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "In an ionic bond, one atom gives electrons to another. Sodium gives one electron to chlorine, so they become the ions sodium plus and chloride minus, which attract each other. This makes sodium chloride, common salt."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g0x0",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "In a covalent bond, atoms share electrons. Two hydrogen atoms share a pair of electrons to make a hydrogen molecule, H two."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g1x0",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "Atoms form ionic bonds by giving and taking electrons, and covalent bonds by sharing them."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "c0",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

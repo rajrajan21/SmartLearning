@@ -30,8 +30,12 @@ export interface ReaderBook {
   fast?: { pages: number; ratio: number; base: string } | null;
   /** chapters and sub-chapters with the page they start on */
   toc?: TocEntry[];
+  /** false hides the Download button for this book (E-Library books follow their licence); default follows the reader setting */
+  download?: boolean;
+  /** pages drawn ahead of the one being read (0 to 8, default 3) */
+  prefetch?: number;
 }
-interface Props { book: ReaderBook; /** for tests: how a PDF is opened */ open?: (url: string) => Promise<PdfBook> }
+interface Props { book: ReaderBook; /** for tests: how a PDF is opened */ open?: (url: string) => Promise<PdfBook>; /** called when the book could not be opened (the caller may show another view) */ onFail?: () => void }
 export interface TocEntry { title: string; page: number; level: number }
 
 const SINGLE_BELOW = 760;
@@ -109,7 +113,7 @@ interface GoOpts { instant?: boolean; keepReading?: boolean; done?: () => void }
 interface Spoken extends Sentence { page: number }
 type TtsState = "idle" | "playing" | "paused";
 
-export function Reader({ book, open }: Props) {
+export function Reader({ book, open, onFail }: Props) {
   const s = useSettings();
   const lang = s.lang;
   const t = useCallback((k: UiKey, v?: Record<string, string | number>) => fmt(ui(k, lang), v), [lang]);
@@ -120,10 +124,12 @@ export function Reader({ book, open }: Props) {
   const [pickedStyle, setPickedStyle] = useState<ReaderStyle | null>(() => readerStore.style());
   const style: ReaderStyle = allowPicker && pickedStyle ? pickedStyle : adminStyle;
   const aloudOn = s.get("reader.readAloud") !== false;
-  const showDownload = s.get("reader.showDownload") !== false;
+  const showDownload = s.get("reader.showDownload") !== false && book.download !== false;
   const showPrint = s.get("reader.showPrint") !== false;
   const useFast = s.get("reader.fastPages") !== false;
   const showToc = s.get("reader.toc.show") !== false;
+  const [narrow, setNarrow] = useState(() => typeof window !== "undefined" && typeof window.matchMedia === "function" && window.matchMedia("(max-width: 640px)").matches);
+  useEffect(() => { if (typeof window === "undefined" || typeof window.matchMedia !== "function") return; const mq = window.matchMedia("(max-width: 640px)"); const f = () => setNarrow(mq.matches); mq.addEventListener("change", f); return () => mq.removeEventListener("change", f); }, []);
   const [tocOpen, setTocOpen] = useState(false);
   const [discOpen, setDiscOpen] = useState(true);
   const discText = s.get("reader.disclaimer.show") !== false ? s.text("reader.disclaimer.text") : "";
@@ -168,7 +174,7 @@ export function Reader({ book, open }: Props) {
         const start = clampPage(readerStore.page(book.id) || 1, b.numPages);
         live.current.page = start; setPage(start); setDoc(b);
       },
-      () => { if (alive) setFailed(true); },
+      () => { if (alive) { setFailed(true); onFail?.(); } },
     );
     return () => { alive = false; mine?.destroy(); };
   }, [book.url, book.id, open, attempt, useFast]);
@@ -466,11 +472,12 @@ export function Reader({ book, open }: Props) {
     // a quick small picture first (shows at once), then the sharp one; then several pages ahead so turning never waits
     const want = (p: number, pr: number, quick = false) => { for (const x of visiblePages(p, n, single)) { if (quick && pageW > 900) doc.image(x, 600, pr - 1).catch(() => { /* shown blank */ }); doc.image(x, pageW, pr).catch(() => { /* shown blank */ }); } };
     want(page, 0, true);
-    const ahead = [1, 2, 3].map((k) => { let q = page; for (let i = 0; i < k; i++) q = stepTarget(q, 1, n, single); return q; });
+    const nAhead = Math.max(0, Math.min(8, Math.round(book.prefetch ?? 3)));
+    const ahead = Array.from({ length: nAhead }, (_, k) => { let q = page; for (let i = 0; i <= k; i++) q = stepTarget(q, 1, n, single); return q; });
     const behind = stepTarget(page, -1, n, single);
-    const id = setTimeout(() => { want(ahead[0]!, 2, true); want(behind, 3, true); want(ahead[1]!, 4); want(ahead[2]!, 5); }, 120);
+    const id = setTimeout(() => { ahead.forEach((a, i) => want(a, i === 0 ? 2 : i + 3, i === 0)); want(behind, 3, true); }, 120);
     return () => clearTimeout(id);
-  }, [doc, page, single, pageW]);
+  }, [doc, page, single, pageW, book.prefetch]);
 
   // film strip: keep the current page in view
   useEffect(() => {
@@ -564,21 +571,22 @@ export function Reader({ book, open }: Props) {
   const cls = style === "a" ? { btn: "rd-plate", primary: "rd-plate rd-go", solid: "rd-plate" } : style === "b" ? { btn: "rd-pill", primary: "rd-pill rd-solid", solid: "rd-pill rd-solid" } : { btn: "rd-btn", primary: "rd-btn rd-fill", solid: "rd-btn rd-fill" };
   const fill = (v: number) => ({ ["--fill" as string]: `${v}%` }) as CSSProperties;
 
-  const backLink = (c: string) => <Link href={book.backHref} className={`${c} rd-sq rd-backlink`} aria-label={t("rdBack")} title={t("rdBack")}><Ic id="shelf" /></Link>;
+  const backLink = (c: string) => <Link href={book.backHref} className={`${c} rd-sq rd-backlink`} aria-label={t("rdBack")} title={t("rdBack")}><Ic id="shelf" /><span className="rd-sl">{t("rdSBooks")}</span></Link>;
   const stylePick = allowPicker ? (
     <label className="rd-stylepick" title={t("rdStyle")}>
       <span className="rd-vh">{t("rdStyle")}</span>
+      <span className="rd-sl">{t("rdSStyle")}</span>
       <select value={style} onChange={(e) => chooseStyle(e.target.value)} data-r="style">
-        <option value="a">{t("rdStyleA")}</option><option value="b">{t("rdStyleB")}</option><option value="c">{t("rdStyleC")}</option>
+        <option value="a">{narrow ? "A" : t("rdStyleA")}</option><option value="b">{narrow ? "B" : t("rdStyleB")}</option><option value="c">{narrow ? "C" : t("rdStyleC")}</option>
       </select>
     </label>
   ) : null;
-  const download = (c: string) => showDownload ? <a className={c} data-r="download" href={`${book.url}${book.url.includes("?") ? "&" : "?"}download=1`} download={book.fileName}><Ic id="down" /><span className="rd-lbl">{t("rdDownload")}</span></a> : null;
-  const printBtn = (c: string, text: string, tool = false) => showPrint ? <button className={c} type="button" data-act="print" aria-haspopup="dialog" aria-label={tool ? undefined : t("rdPrintPages")} disabled={!doc} onClick={() => setPrintOpen(true)}><Ic id="print" />{tool ? text : <span className="rd-lbl">{text}</span>}</button> : null;
-  const fullBtn = (c: string) => canFullscreen ? <button className={c} type="button" data-act="fullscreen" aria-pressed={fullscreen} aria-label={fullscreen ? t("rdFullExit") : t("rdFull")} onClick={toggleFullscreen}><Ic id="full" /><span className="rd-lbl">{fullscreen ? t("rdFullExit") : t("rdFull")}</span></button> : null;
+  const download = (c: string) => showDownload ? <a className={c} data-r="download" href={`${book.url}${book.url.includes("?") ? "&" : "?"}download=1`} download={book.fileName}><Ic id="down" /><span className="rd-lbl">{t("rdDownload")}</span><span className="rd-sl">{t("rdSPdf")}</span></a> : null;
+  const printBtn = (c: string, text: string, tool = false) => showPrint ? <button className={c} type="button" data-act="print" aria-haspopup="dialog" aria-label={tool ? undefined : t("rdPrintPages")} disabled={!doc} onClick={() => setPrintOpen(true)}><Ic id="print" />{tool ? text : <><span className="rd-lbl">{text}</span><span className="rd-sl">{t("rdSPrint")}</span></>}</button> : null;
+  const fullBtn = (c: string) => canFullscreen ? <button className={c} type="button" data-act="fullscreen" aria-pressed={fullscreen} aria-label={fullscreen ? t("rdFullExit") : t("rdFull")} onClick={toggleFullscreen}><Ic id="full" /><span className="rd-lbl">{fullscreen ? t("rdFullExit") : t("rdFull")}</span><span className="rd-sl">{t("rdSFull")}</span></button> : null;
   const tocList = book.toc ?? [];
   const curChapter = [...tocList].reverse().find((e) => e.page <= Math.max(1, page));
-  const tocBtn = (c: string) => showToc ? <button className={c} type="button" data-act="contents" aria-expanded={tocOpen} aria-controls="rd-toc" disabled={!doc} onClick={() => setTocOpen((o) => !o)}><span className="rd-lbl">☰ {t("rdContents")}</span></button> : null;
+  const tocBtn = (c: string) => showToc ? <button className={c} type="button" data-act="contents" aria-expanded={tocOpen} aria-controls="rd-toc" disabled={!doc} onClick={() => setTocOpen((o) => !o)}><span className="rd-lbl">☰ {t("rdContents")}</span><span className="rd-sl">☰ {t("rdSContents")}</span></button> : null;
   const tocPanel = (
     <>
       {showToc && tocOpen && (
@@ -774,7 +782,7 @@ export function Reader({ book, open }: Props) {
           {heading}
           {stylePick}
           {tocBtn("rd-btn")}
-          <button className="rd-btn" type="button" data-act="night" aria-pressed={night} onClick={toggleNight}><Ic id="moon" /><span className="rd-lbl">{night ? t("rdDay") : t("rdNight")}</span></button>
+          <button className="rd-btn" type="button" data-act="night" aria-pressed={night} onClick={toggleNight}><Ic id="moon" /><span className="rd-lbl">{night ? t("rdDay") : t("rdNight")}</span><span className="rd-sl">{night ? t("rdSDay") : t("rdSNight")}</span></button>
           {download("rd-btn")}
         </header>
         <aside className="rd-rail" aria-label={t("rdTools")}>

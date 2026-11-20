@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "areas-related-to-circles",
+  "topic": "arc-length-and-sector-area",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Length of an arc and area of a sector"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A slice of pizza"
+        },
+        "text": {
+          "en": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "2 pi r and pi r^2",
+          "360 - theta",
+          "6 pi cm^2",
+          "arc = theta/360 x 2 pi r",
+          "area = theta/360 x pi r^2",
+          "minor and major sector",
+          "pi = 22/7",
+          "sector, angle theta"
+        ],
+        "text": {
+          "en": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius.\nA sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees.\nA sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.\nThe length of its arc is theta/360 times 2 pi r.\nExample: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared.\nThe smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees.\nFor a major sector, use 360 minus theta as its angle, or subtract the minor sector from the whole circle.\nUse pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c10-sector.svg",
+        "altText": {
+          "en": "A sector of a circle with angle theta"
+        },
+        "caption": {
+          "en": "Area and arc of a sector"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "2 pi r and pi r^2"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sector, angle theta"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "area = theta/360 x pi r^2"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The length of its arc is theta/360 times 2 pi r."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "arc = theta/360 x 2 pi r"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "6 pi cm^2"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "minor and major sector"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For a major sector, use 360 minus theta as its angle, or subtract the minor sector from the whole circle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "360 - theta"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "pi = 22/7"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area of a sector of angle 90 degrees in a circle of radius 14 cm."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Area = 90/360 x 22/7 x 14 x 14."
+            },
+            "why": {
+              "en": "Quarter of the circle."
+            }
+          },
+          {
+            "text": {
+              "en": "= 1/4 x 22/7 x 196 = 1/4 x 616."
+            },
+            "why": {
+              "en": "Simplify."
+            }
+          },
+          {
+            "text": {
+              "en": "= 154 cm squared."
+            },
+            "why": {
+              "en": "Final answer with the unit."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the area and arc length of a sector?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Fraction theta/360"
+          },
+          {
+            "en": "Area uses pi r^2"
+          },
+          {
+            "en": "Arc uses 2 pi r"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the area formula for arc length"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-as1",
+          "r1-as2",
+          "r2-as3",
+          "r2-as4",
+          "r2-as5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Arc length = (theta/360) x 2 pi r."
+          },
+          {
+            "en": "Area of sector = (theta/360) x pi r^2."
+          },
+          {
+            "en": "Major sector uses 360 - theta."
+          }
+        ]
+      }
+    ]
+  }
+}

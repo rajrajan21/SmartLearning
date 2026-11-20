@@ -146,3 +146,13 @@ describe("natural-sounding polish and full coverage", () => {
     expect(r.generated).toBe(r.wanted);
   });
 });
+
+import { onlyJobs } from "../src/modules/audio/build.js";
+describe("onlyJobs", () => {
+  it("keeps one chapter, ignoring case, or everything when empty", () => {
+    const jobs = [{ where: "cbse-6-science-magnets.json t1" }, { where: "cbse-6-maths-primes.json t1" }];
+    expect(onlyJobs(jobs, "MAGNETS")).toHaveLength(1);
+    expect(onlyJobs(jobs, "")).toHaveLength(2);
+    expect(onlyJobs(jobs, undefined)).toHaveLength(2);
+  });
+});

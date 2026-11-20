@@ -34,7 +34,7 @@ export function RevisePage() {
   if (!on) return <NotFound />;
   if (qs === null) return <Loading />;
   if (qs === "error") return <ErrorBox onRetry={() => setTries((n) => n + 1)} />;
-  if (qs.length === 0) return <div className="paper"><h1>{ui("reviseToday", lang)}</h1><p className="soon-note">{ui("reviseNone", lang)}</p><p><Link className="btn" href="/progress">{ui("myProgress", lang)}</Link></p></div>;
+  if (qs.length === 0) return <div className="paper"><h1>{ui("reviseToday", lang)}</h1>{s.get("mistakes.enabled") === true && s.get("mistakes.homeLink.show") === true && <p><Link href="/mistakes">{ui("mistakesOpen", lang)}</Link></p>}<p className="soon-note">{ui("reviseNone", lang)}</p><p><Link className="btn" href="/progress">{ui("myProgress", lang)}</Link></p></div>;
   if (i >= qs.length) {
     return (
       <div className="paper roundend" aria-live="polite">
@@ -48,6 +48,7 @@ export function RevisePage() {
   return (
     <div className="paper">
       <h1>{ui("reviseToday", lang)}</h1>
+      {s.get("mistakes.enabled") === true && s.get("mistakes.homeLink.show") === true && <p><Link href="/mistakes">{ui("mistakesOpen", lang)}</Link></p>}
       <p className="small step-count">{ui("questionOf", lang)} {i + 1} {ui("ofWord", lang)} {qs.length}</p>
       <div className="meter" role="progressbar" aria-valuemin={0} aria-valuemax={qs.length} aria-valuenow={i}><span style={{ width: `${(i / qs.length) * 100}%` }} /></div>
       {s.get("explore.tryIt.show") === true && i === 0 && <details className="small explorer"><summary>{ui("explorerTitle", lang)}</summary><Groups /></details>}

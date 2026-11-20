@@ -1,0 +1,35 @@
+from lib import *
+C=10;S='social-science';CH='civics-india-s-international-relations'
+nb=svg(560,300,'<text x="280" y="22" text-anchor="middle" font-weight="bold">India and its neighbours: key links</text>'
+ +''.join(f'<rect x="15" y="{36+i*32}" width="530" height="28" rx="6" fill="{c}" stroke="#333"/><text x="23" y="{55+i*32}" font-size="12" font-weight="bold">{a}</text><text x="130" y="{55+i*32}" font-size="12">{b}</text>' for i,(c,a,b) in enumerate([('#d6eaf8','Afghanistan','Strategic Partnership Agreement, Salma Dam'),('#d5f5e3','Bangladesh','4096.7 km border, Farakka 1977, Teen Bigha'),('#fcf3cf','Bhutan','1968 ties, Chukha, Kurichchu and Tala projects'),('#fadbd8','China','McMahon Line 1914, SCO and SAARC observers'),('#ebdef0','Nepal','buffer state, Pancheshwar 5600 MW'),('#fdebd0','Myanmar','Kaladan project, gateway to Southeast Asia'),('#d6eaf8','Sri Lanka','Palk Strait, Nalanda University project'),('#d5f5e3','Pakistan','Shimla Agreement, Lahore Declaration')])))
+lesson(C,S,CH,'india-and-its-neighbours',"India and its neighbours","A bad neighbour is a misfortune",
+"The Greek poet Hesiod said a bad neighbour is as great a misfortune as a good one is a blessing. India has more neighbours than most nations, and it has worked hard to turn them into friends.",
+["India has Pakistan and Afghanistan to the northwest, China, Nepal and Bhutan to the north, Bangladesh to the east and Myanmar to the far east. @ neighbours",
+ "Sri Lanka and the Maldives lie close across the Indian Ocean. @ Sri Lanka, Maldives",
+ "With Afghanistan, the Strategic Partnership Agreement helps rebuild infrastructure, and India helped build the Salma Dam in Herat and the Kandahar cricket stadium. @ Afghanistan",
+ "India was the first nation to recognise Bangladesh and shares its longest land border, 4096.7 kilometres. @ Bangladesh",
+ "The Farakka accord of 1977 shares Ganga waters, the two share 54 rivers, and the Teen Bigha Corridor was leased to Bangladesh in 2011. @ Farakka, Teen Bigha",
+ "A 130-kilometre friendship pipeline links Siliguri and Parbatipur, and the BBIN motor vehicle agreement gives India road transit. @ pipeline, BBIN",
+ "Bhutan, a landlocked Himalayan kingdom, has had diplomatic ties since 1968, and India built the Chukha, Kurichchu and Tala hydroelectric projects. @ Bhutan",
+ "India and China are comparable in size and population, and both share views at the WTO and on climate change. @ China",
+ "The McMahon Line, fixed at a 1914 conference, is the boundary between India, China and east of Bhutan. @ McMahon Line",
+ "China granted India observer status at the Shanghai Cooperation Organisation, while SAARC granted observer status to China. @ observer status",
+ "Nepal is a buffer between India and China, depends on India for transit, and shares borders with five Indian states. @ Nepal",
+ "India built the Mahendra Raj Marg, took up the 5600 MW Pancheshwar project, and put the Nepali language in the Eighth Schedule. @ Nepal links",
+ "Myanmar is India's gateway to Southeast Asia, with the Kaladan multi-modal project linking Kolkata to Sittwe and a Guwahati to Mandalay road. @ Myanmar",
+ "India and Sri Lanka, separated by the Palk Strait, are friendly except for the Tamil ethnic problem, and India and Pakistan have strained ties with terrorism a core concern, tackled through the Shimla Agreement and the Lahore Declaration. @ Sri Lanka, Pakistan"],
+("Describe India's relations with Bangladesh.",[("India was the first nation to recognise Bangladesh as independent.","They share the longest land border of 4096.7 km."),("The Farakka accord of 1977 shares the Ganga waters.","They share 54 rivers with a Joint River Commission."),("Connectivity includes rail Agartala-Akhaura, the friendship pipeline and the Teen Bigha Corridor.","India also gives scholarships through ICCR.")]),
+("Why is Nepal important to India?",["Buffer between India and China","Landlocked, depends on India for transit","Shared hydropower, pilgrimages and culture"],["Confusing Nepal with Bhutan's hydropower projects"]),
+["Neighbours: Pakistan, Afghanistan, China, Nepal, Bhutan, Bangladesh, Myanmar, with Sri Lanka and the Maldives across the sea.","Bangladesh: longest border, Farakka 1977.","Bhutan: Chukha, Kurichchu, Tala; Nepal: Pancheshwar.","Pakistan: Shimla Agreement and Lahore Declaration."],
+["n|Year of the Farakka accord on sharing Ganga waters|1977|Between India and Bangladesh.",
+ "n|Length in km of the India-Bangladesh land border|4096.7|The longest land border India has.",
+ "m|The McMahon Line was determined in|1914|1954~Panchsheel;1971~Indo-Soviet treaty;1985~SAARC|At a conference with Tibet and China.",
+ "m|The Salma Dam is in|Herat Province, Afghanistan|Kandahar~Stadium location;Kabul~No;Dhaka~Bangladesh|India helped build it.",
+ "t|Bhutan is a landlocked country.|True|It depends on India for access to the sea.",
+ "t|India was the second nation to recognise Bangladesh.|False|It was the first.",
+ "m|The Kaladan project links Kolkata to|Sittwe in Myanmar|Dhaka~No;Colombo~No;Kathmandu~No|A road-river-port transport project.",
+ "m|Which pair of agreements aimed to improve India-Pakistan relations|Shimla Agreement and Lahore Declaration|Panchsheel and Bandung~With China and Asia;Farakka and Teen Bigha~Bangladesh;Kaladan and Salma~Projects|Bilateral agreements.",
+ "s|The strait separating India and Sri Lanka is the ____ Strait.|Palk|A narrow expanse of sea.",
+ "s|India built the ____ Raj Marg to link Kathmandu and India.|Mahendra|A road in Nepal."],
+svg=(nb,"A table of India's eight neighbours with key links","India and its neighbours"))
+print('ok')

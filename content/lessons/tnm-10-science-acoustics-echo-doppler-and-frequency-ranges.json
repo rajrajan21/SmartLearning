@@ -1,0 +1,223 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "acoustics",
+  "topic": "echo-doppler-and-frequency-ranges",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sound waves, echo and the Doppler effect"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Shouting into a valley"
+        },
+        "text": {
+          "en": "Shout towards a distant cliff and a moment later your own voice comes back. That is an echo. This lesson ties together sound as a vibration, its frequency ranges and the way echoes measure distance."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sound needs a medium",
+          "frequency ranges",
+          "examples",
+          "v = f lambda",
+          "echo",
+          "echo distance",
+          "Doppler effect"
+        ],
+        "text": {
+          "en": "Sound is produced by vibrations and needs a material medium such as air, water or steel to travel; it cannot travel through a vacuum such as on the Moon.\nAudible waves have frequencies between 20 Hz and 20,000 Hz; infrasonic waves are below 20 Hz and ultrasonic waves are above 20 kHz.\nInfrasonic waves are produced by earthquakes, ocean waves and whales; bats, dogs and dolphins can detect ultrasonic waves.\nSpeed of sound v = frequency times wavelength (v = f x lambda), and the speed is different in solids, liquids and gases.\nReflection of sound at a hard surface produces an echo; the reflected sound must reach the ear at least 0.1 second after the original to be heard separately.\nUsing an echo, distance d = v x t / 2 because the sound travels to the reflector and back.\nThe Doppler effect is the apparent change in frequency when the source and listener move relative to each other."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Sound is produced by vibrations and needs a material medium such as air, water or steel to travel; it cannot travel through a vacuum such as on the Moon."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sound needs a medium"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Audible waves have frequencies between 20 Hz and 20,000 Hz; infrasonic waves are below 20 Hz and ultrasonic waves are above 20 kHz."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "frequency ranges"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Infrasonic waves are produced by earthquakes, ocean waves and whales; bats, dogs and dolphins can detect ultrasonic waves."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "examples"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Speed of sound v = frequency times wavelength (v = f x lambda), and the speed is different in solids, liquids and gases."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "v = f lambda"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Reflection of sound at a hard surface produces an echo; the reflected sound must reach the ear at least 0.1 second after the original to be heard separately."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "echo"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Using an echo, distance d = v x t / 2 because the sound travels to the reflector and back."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "echo distance"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The Doppler effect is the apparent change in frequency when the source and listener move relative to each other."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Doppler effect"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "You shout and hear the echo after 2 seconds. If the speed of sound is 340 m/s, how far is the cliff?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "The sound travels to the cliff and back, so total distance is 340 x 2 = 680 m."
+            },
+            "why": {
+              "en": "Total path."
+            }
+          },
+          {
+            "text": {
+              "en": "The cliff is half of that distance: 680 / 2 = 340 m."
+            },
+            "why": {
+              "en": "d = vt/2."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the three frequency categories of sound and explain how an echo is formed."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Audible 20 Hz to 20 kHz"
+          },
+          {
+            "en": "Infrasonic below 20 Hz"
+          },
+          {
+            "en": "Ultrasonic above 20 kHz"
+          },
+          {
+            "en": "Echo from reflection with delay at least 0.1 s"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Saying ultrasonic means very loud"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10sc678-1",
+          "r1-m10sc678-2",
+          "r1-m10sc678-3",
+          "r2-m10sc678-4",
+          "r2-m10sc678-5",
+          "r2-m10sc678-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Sound needs a medium and is produced by vibrations."
+          },
+          {
+            "en": "Audible 20 Hz-20 kHz; infrasonic and ultrasonic outside it."
+          },
+          {
+            "en": "v = f lambda; echo distance d = vt/2."
+          },
+          {
+            "en": "Doppler effect: apparent change in frequency."
+          }
+        ]
+      }
+    ]
+  }
+}

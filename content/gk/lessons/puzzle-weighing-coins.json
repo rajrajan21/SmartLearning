@@ -1,0 +1,75 @@
+{
+ "id": "puzzle-weighing-coins",
+ "kind": "puzzle",
+ "category": "brain",
+ "age": "14+",
+ "title": "The Odd Coin",
+ "summary": "Split into three groups, since a balance has three outcomes.",
+ "emoji": "⚖️",
+ "tags": [
+  "weighing",
+  "divide"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Nine coins look the same, but one is slightly heavier.",
+    "You have a balance scale. What is the smallest number of weighings needed to find it?"
+   ],
+   "points": [
+    "Nine coins look the same, but one is slightly heavier."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Each weighing has three results: left heavier, right heavier or equal.",
+    "So you can split the coins into three groups."
+   ],
+   "points": [
+    "Each weighing has three results: left heavier, right heavier or equal."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Split into three",
+   "sentences": [
+    "Weigh 3 coins against 3 coins.",
+    "If one side is heavier, the heavy coin is in that group, and if they balance it is among the 3 left out.",
+    "Now you have 3 coins."
+   ],
+   "points": [
+    "Weigh 3 coins against 3 coins."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Weigh 1 coin against 1 of the 3.",
+    "If one is heavier, that is it, and if they balance, it is the third coin.",
+    "So 2 weighings are enough."
+   ],
+   "points": [
+    "Weigh 1 coin against 1 of the 3."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "The odd coin is among 27. How many weighings are enough?",
+   "options": [
+    "3",
+    "9",
+    "5"
+   ],
+   "answer": 0,
+   "why": "27 to 9 to 3 to 1 needs 3 weighings."
+  }
+ ],
+ "method": "Split into three"
+}

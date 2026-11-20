@@ -1,0 +1,105 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "english",
+ "chapter": "writing-and-punctuation",
+ "topic": "commas-and-paragraphs",
+ "status": "published",
+ "title": {
+  "en": "Commas"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Commas",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 450,
+   "y": 170,
+   "text": "I bought apples bananas and mangoes.",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b",
+   "x": 450,
+   "y": 300,
+   "text": "I bought apples, bananas and mangoes.",
+   "size": 34,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ar",
+   "x": 450,
+   "y": 235,
+   "text": "↓",
+   "size": 40,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A comma is a small pause mark. We use it to separate the things in a list. Look at this sentence."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "We put a comma after each thing in the list, except before the word and."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ar",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "b",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Now the sentence is easy to read, because the commas show where each item ends."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

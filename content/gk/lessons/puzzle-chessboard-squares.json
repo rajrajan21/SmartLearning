@@ -1,0 +1,74 @@
+{
+ "id": "puzzle-chessboard-squares",
+ "kind": "puzzle",
+ "category": "shapes",
+ "age": "14+",
+ "title": "Squares on a Chessboard",
+ "summary": "Count each size separately and add them up.",
+ "emoji": "♟️",
+ "tags": [
+  "chessboard",
+  "counting"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "A chessboard has 8 by 8 small squares.",
+    "How many squares of any size can you find?"
+   ],
+   "points": [
+    "A chessboard has 8 by 8 small squares."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Do not just count the 64 small ones. Bigger squares made of several small ones count too."
+   ],
+   "points": [
+    "Do not just count the 64 small ones. Bigger squares made of several small ones count too."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Count by size",
+   "sentences": [
+    "1 by 1 squares: 8 times 8 is 64.",
+    "2 by 2 squares: 7 times 7 is 49.",
+    "3 by 3 squares: 6 times 6 is 36, and so on down to 1 big square."
+   ],
+   "points": [
+    "1 by 1 squares: 8 times 8 is 64."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "64 plus 49 plus 36 plus 25 plus 16 plus 9 plus 4 plus 1 is 204.",
+    "So there are 204 squares.",
+    "The pattern is the sum of the squares 1 to 8."
+   ],
+   "points": [
+    "64 plus 49 plus 36 plus 25 plus 16 plus 9 plus 4 plus 1 is 204."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "How many squares of any size are on a 3 by 3 grid?",
+   "options": [
+    "9",
+    "14",
+    "13"
+   ],
+   "answer": 1,
+   "why": "9 plus 4 plus 1 is 14."
+  }
+ ],
+ "method": "Count by size"
+}

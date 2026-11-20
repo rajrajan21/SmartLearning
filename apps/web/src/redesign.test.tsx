@@ -77,7 +77,7 @@ describe("redesigned pages", () => {
     expect(screen.queryByRole("navigation", { name: "Main menu" })).toBeNull();
   });
   it("text size buttons change the scale and respect the limit", async () => {
-    mount("/", { "ui.textSize.maxPercent": 110 });
+    mount("/", { "ui.textSize.control": true, "ui.textSize.maxPercent": 110 });
     const bigger = await screen.findByRole("button", { name: "Bigger text" });
     fireEvent.click(bigger);
     expect(document.documentElement.style.getPropertyValue("--user-scale")).toBe("1.1");

@@ -1,0 +1,313 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch10-proportional-reasoning-2",
+ "topic": "proportional-reasoning-ratios-maps-inverse",
+ "status": "published",
+ "title": {
+  "en": "Reading a map"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Reading a map",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "mp",
+   "x": 80,
+   "y": 100,
+   "w": 480,
+   "h": 340,
+   "rx": 6,
+   "fill": "#E8F5E9",
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "v1",
+   "x1": 200,
+   "y1": 100,
+   "x2": 200,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "v2",
+   "x1": 320,
+   "y1": 100,
+   "x2": 320,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "v3",
+   "x1": 440,
+   "y1": 100,
+   "x2": 440,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "h1",
+   "x1": 80,
+   "y1": 213,
+   "x2": 560,
+   "y2": 213,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "h2",
+   "x1": 80,
+   "y1": 326,
+   "x2": 560,
+   "y2": 326,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "lake",
+   "x": 330,
+   "y": 130,
+   "w": 130,
+   "h": 80,
+   "rx": 30,
+   "fill": "#90CAF9",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lt",
+   "x": 395,
+   "y": 178,
+   "text": "Lake",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hs",
+   "x": 170,
+   "y": 360,
+   "text": "🏫",
+   "size": 50,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hp",
+   "x": 450,
+   "y": 340,
+   "text": "🏥",
+   "size": 50,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tr",
+   "x": 270,
+   "y": 250,
+   "text": "🌳",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "rd",
+   "x1": 80,
+   "y1": 290,
+   "x2": 560,
+   "y2": 290,
+   "stroke": "earth",
+   "width": 8
+  },
+  {
+   "kind": "text",
+   "id": "kt",
+   "x": 700,
+   "y": 140,
+   "text": "Key",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 640,
+   "y": 195,
+   "text": "🏫 School",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 640,
+   "y": 245,
+   "text": "🏥 Hospital",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "k3",
+   "x": 640,
+   "y": 295,
+   "text": "🌳 Park",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "sc",
+   "x": 700,
+   "y": 400,
+   "text": "A map shows a place from above",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A map is a drawing of a place as seen from above. It uses small pictures and lines to show things."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "mp",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "rd",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "lake",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "lt",
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The key tells us what each picture means. A map has a key so that anyone can read it."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "kt",
+     "on": "key"
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "k2",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "k3",
+     "at": 0.7
+    },
+    {
+     "do": "show",
+     "target": "hs",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "hp",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "tr",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The grid lines help us find a place. We say how far across and how far down it is."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "v1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "v2",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "v3",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "h1",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "h2",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "pulse",
+     "target": "hs",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

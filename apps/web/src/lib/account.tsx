@@ -5,9 +5,11 @@ import { store } from "./storage";
 import { onProgressChange, readAllProgress, replaceAllProgress } from "./progress";
 import { onRevisionChange, readAllRevision, replaceAllRevision } from "./revision";
 import { onResultsChange, readAllResults, replaceAllResults } from "./practice";
+import { onMistakesChange, readAllMistakes, replaceAllMistakes } from "./mistakes";
+import { onNotesChange, readAllNotes, replaceAllNotes } from "./tier2";
 
 export type Result = { ok: true } | { ok: false; message: string };
-export interface ChildInput { nickname: string; classLevel: number; extraClasses?: number[]; avatar: string; language: "en" | "ta"; pin?: string; secretQuestion?: string; secretAnswer?: string }
+export interface ChildInput { boardCode?: string; nickname: string; classLevel: number; extraClasses?: number[]; avatar: string; language: "en" | "ta"; pin?: string; secretQuestion?: string; secretAnswer?: string }
 export interface Contacts { fatherEmail?: string; motherEmail?: string }
 export type SyncState = "idle" | "syncing" | "saved" | "offline";
 interface Ctx {
@@ -44,8 +46,8 @@ async function call(method: string, path: string, body?: unknown): Promise<{ ok:
 }
 const messageOf = (r: { status: number; data: unknown }): string => (r.status === 0 ? "offline" : (r.data as { error?: { message?: string } } | null)?.error?.message ?? "Something went wrong. Please try again.");
 
-const local = (): SyncData => SyncData.parse({ lesson: readAllProgress(), practice: readAllResults(), revision: readAllRevision() });
-const writeLocal = (d: SyncData) => { replaceAllProgress(d.lesson); replaceAllResults(d.practice as never); replaceAllRevision(d.revision); };
+const local = (): SyncData => SyncData.parse({ lesson: readAllProgress(), practice: readAllResults(), revision: readAllRevision(), notes: readAllNotes(), mistakes: readAllMistakes() });
+const writeLocal = (d: SyncData) => { replaceAllProgress(d.lesson); replaceAllResults(d.practice as never); replaceAllRevision(d.revision); replaceAllNotes(d.notes as never); replaceAllMistakes(d.mistakes as never); };
 
 export function AccountProvider({ children }: { children: ReactNode }) {
   const s = useSettings();
@@ -93,8 +95,8 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     if (!on || !activeId) return;
     let t: ReturnType<typeof setTimeout> | undefined;
     const changed = () => { if (adopting.current) return; clearTimeout(t); t = setTimeout(() => void push(), 1500); };
-    const a = onProgressChange(changed), b = onResultsChange(changed), c = onRevisionChange(changed);
-    return () => { clearTimeout(t); a(); b(); c(); };
+    const a = onProgressChange(changed), b = onResultsChange(changed), c = onRevisionChange(changed), d = onNotesChange(changed), e = onMistakesChange(changed);
+    return () => { clearTimeout(t); a(); b(); c(); d(); e(); };
   }, [on, activeId, push]);
 
   const accept = (r: { ok: boolean; status: number; data: unknown }): Result => {
@@ -103,7 +105,7 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     if (!parsed.success) return { ok: false, message: "Something went wrong. Please try again." };
     setMe(parsed.data); return { ok: true };
   };
-  const clearDevice = () => { replaceAllProgress({}); replaceAllResults({}); replaceAllRevision({}); store.set(OWNER, ""); setSync("idle"); };
+  const clearDevice = () => { replaceAllProgress({}); replaceAllResults({}); replaceAllRevision({}); replaceAllNotes({}); replaceAllMistakes({}); store.set(OWNER, ""); setSync("idle"); };
 
   const ctx = useMemo<Ctx>(() => ({
     me,

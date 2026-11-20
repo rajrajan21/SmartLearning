@@ -1,0 +1,242 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "atomic-structure",
+ "topic": "atomic-models-and-electron-arrangement",
+ "status": "published",
+ "title": {
+  "en": "Atomic structure"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 38,
+   "text": "A carbon atom",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "nuc",
+   "cx": 450,
+   "cy": 265,
+   "r": 34,
+   "fill": "#FFCDD2",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nt",
+   "x": 450,
+   "y": 272,
+   "text": "6p 6n",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "orbit",
+   "id": "o1",
+   "cx": 450,
+   "cy": 265,
+   "r": 90,
+   "period": 6,
+   "size": 9,
+   "color": "water",
+   "ring": true,
+   "phase": 0
+  },
+  {
+   "kind": "orbit",
+   "id": "o2",
+   "cx": 450,
+   "cy": 265,
+   "r": 90,
+   "period": 6,
+   "size": 9,
+   "color": "water",
+   "phase": 180
+  },
+  {
+   "kind": "orbit",
+   "id": "e0",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 0,
+   "ring": true
+  },
+  {
+   "kind": "orbit",
+   "id": "e1",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 90
+  },
+  {
+   "kind": "orbit",
+   "id": "e2",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 180
+  },
+  {
+   "kind": "orbit",
+   "id": "e3",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 270
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 760,
+   "y": 130,
+   "text": "nucleus: protons (+) and neutrons",
+   "size": 20,
+   "color": "accent",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 760,
+   "y": 170,
+   "text": "electrons (−) in shells",
+   "size": 20,
+   "color": "water",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 760,
+   "y": 440,
+   "text": "shells hold 2, 8, ... electrons",
+   "size": 20,
+   "color": "ink",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 150,
+   "y": 440,
+   "text": "carbon: 2 + 4 electrons",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An atom has a tiny centre, the nucleus, which holds protons and neutrons. Protons carry a positive charge and neutrons carry none. Here is a carbon atom with 6 protons and 6 neutrons."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "nuc",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "nt",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Electrons, which carry a negative charge, move around the nucleus in shells. A carbon atom has 6 electrons, the same number as protons, so the atom is neutral."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "o1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "o2",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "e0",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "e1",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "e2",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "e3",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.85
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The first shell holds up to 2 electrons and the next shell up to 8. Carbon has 2 electrons in the first shell and 4 in the second."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

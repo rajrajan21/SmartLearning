@@ -1,0 +1,248 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "area-of-triangle-and-quadrilateral",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Area of a triangle and quadrilateral from coordinates"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The floor tiles"
+        },
+        "text": {
+          "en": "A hall floor is covered by 110 identical triangular tiles. One tile has vertices at (-3, 2), (-1, -1) and (1, 2). How do we find the floor area just from coordinates?"
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "area formula",
+          "the shoe-lace arrangement",
+          "downward products",
+          "upward products",
+          "collinearity",
+          "quadrilateral",
+          "positive area"
+        ],
+        "text": {
+          "en": "The area of a triangle with vertices (x1,y1), (x2,y2), (x3,y3) is half the absolute value of the difference of two sums.\nWrite the vertices column-wise in counter-clockwise order and repeat the first column at the end.\nAdd the products going down to the right: x1 y2 plus x2 y3 plus x3 y1.\nSubtract the products going up: x2 y1 plus x3 y2 plus x1 y3, then take half and keep the answer positive.\nIf the area is zero, the three points are collinear, which lies on a single straight line.\nFor a quadrilateral, split along a diagonal into two triangles, or use the same arrangement with four columns.\nArea is never negative, so we always take the positive value in square units."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-area-of-triangle-and-quadrilateral.svg",
+        "altText": {
+          "en": "Triangle on a coordinate plane with its area formula"
+        },
+        "caption": {
+          "en": "Area of a triangle"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The area of a triangle with vertices (x1,y1), (x2,y2), (x3,y3) is half the absolute value of the difference of two sums."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "area formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Write the vertices column-wise in counter-clockwise order and repeat the first column at the end."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "the shoe-lace arrangement"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Add the products going down to the right: x1 y2 plus x2 y3 plus x3 y1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "downward products"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Subtract the products going up: x2 y1 plus x3 y2 plus x1 y3, then take half and keep the answer positive."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "upward products"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "If the area is zero, the three points are collinear, which lies on a single straight line."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "collinearity"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For a quadrilateral, split along a diagonal into two triangles, or use the same arrangement with four columns."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "quadrilateral"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Area is never negative, so we always take the positive value in square units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "positive area"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area of the triangle with vertices A(-3,5), B(5,-2), C(5,6)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Take them in counter-clockwise order: A(-3,5), B(5,-2), C(5,6)."
+            },
+            "why": {
+              "en": "x1,y1 = -3,5; x2,y2 = 5,-2; x3,y3 = 5,6."
+            }
+          },
+          {
+            "text": {
+              "en": "Downward sum: (-3)(-2) + 5(6) + 5(5) = 6 + 30 + 25 = 61."
+            },
+            "why": {
+              "en": "x1y2 + x2y3 + x3y1."
+            }
+          },
+          {
+            "text": {
+              "en": "Upward sum: 5(5) + 5(-2) + (-3)(6) = 25 - 10 - 18 = -3."
+            },
+            "why": {
+              "en": "x2y1 + x3y2 + x1y3."
+            }
+          },
+          {
+            "text": {
+              "en": "Area = 1/2 |61 - (-3)| = 1/2 x 64 = 32 sq. units."
+            },
+            "why": {
+              "en": "Check: the right side BC is 8 long and the height is 8, giving 32."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Show that P(-1.5, 3), Q(6, -2), R(-3, 4) are collinear."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Downward sum: (-1.5)(-2) + 6(4) + (-3)(3) = 3 + 24 - 9 = 18"
+          },
+          {
+            "en": "Upward sum: 6(3) + (-3)(-2) + (-1.5)(4) = 18 + 6 - 6 = 18"
+          },
+          {
+            "en": "Area = 1/2 (18 - 18) = 0, so the points are collinear"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to take vertices in a consistent order"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma750-1",
+          "r1-m10ma750-2",
+          "r1-m10ma750-3",
+          "r2-m10ma750-4",
+          "r2-m10ma750-5",
+          "r2-m10ma750-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Area of triangle = 1/2 |(x1y2+x2y3+x3y1) - (x2y1+x3y2+x1y3)|."
+          },
+          {
+            "en": "Zero area means collinear points."
+          },
+          {
+            "en": "Quadrilateral: add two triangles."
+          },
+          {
+            "en": "Area is always positive."
+          }
+        ]
+      }
+    ]
+  }
+}

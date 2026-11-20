@@ -1,0 +1,134 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "english",
+ "chapter": "adjectives-and-adverbs",
+ "topic": "adverbs-how-an-action-is-done",
+ "status": "published",
+ "title": {
+  "en": "The adverb"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 50,
+   "text": "The adverb",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "w0",
+   "x": 163.99999999999994,
+   "y": 250,
+   "text": "The",
+   "size": 52,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "w1",
+   "x": 321.29999999999995,
+   "y": 250,
+   "text": "turtle",
+   "size": 52,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "w2",
+   "x": 507.2,
+   "y": 250,
+   "text": "walks",
+   "size": 52,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "w3",
+   "x": 693.1,
+   "y": 250,
+   "text": "slowly",
+   "size": 52,
+   "color": "#8E24AA",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r3",
+   "x": 693.1,
+   "y": 305,
+   "text": "adverb",
+   "size": 24,
+   "color": "#8E24AA",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Read this sentence slowly. The turtle walks slowly"
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "w0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "w1",
+     "at": 0.275
+    },
+    {
+     "do": "write",
+     "target": "w2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "write",
+     "target": "w3",
+     "at": 0.6249999999999999
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "An adverb tells us how, when or where something is done."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "In our sentence, the adverb is slowly."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "w3",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "r3",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

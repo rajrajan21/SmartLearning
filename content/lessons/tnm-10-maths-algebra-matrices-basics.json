@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "matrices-basics",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Matrices: order, types and operations"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The school canteen"
+        },
+        "text": {
+          "en": "The canteen records how many idlis, vadas and dosas were sold on 3 days. Writing the numbers in rows and columns makes a compact table - a matrix."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "matrix",
+          "order m x n",
+          "types of matrices",
+          "equal matrices",
+          "add same order",
+          "scalar multiplication",
+          "AB defined"
+        ],
+        "text": {
+          "en": "A matrix is a rectangular arrangement of numbers in rows and columns, written in brackets.\nA matrix with m rows and n columns has order m x n, read m by n.\nSpecial types: row matrix (one row), column matrix (one column), square matrix (m = n), zero matrix, diagonal, identity (1 on the main diagonal, 0 elsewhere).\nTwo matrices are equal if they have the same order and equal corresponding entries.\nTo add or subtract matrices they must have the same order; we add or subtract corresponding entries.\nTo multiply by a scalar k, multiply every entry by k.\nTo multiply matrix A (m x n) by B (n x p), the number of columns of A must equal the number of rows of B; the product is m x p. Each entry is row times column."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A matrix is a rectangular arrangement of numbers in rows and columns, written in brackets."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "matrix"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A matrix with m rows and n columns has order m x n, read m by n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "order m x n"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Special types: row matrix (one row), column matrix (one column), square matrix (m = n), zero matrix, diagonal, identity (1 on the main diagonal, 0 elsewhere)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "types of matrices"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Two matrices are equal if they have the same order and equal corresponding entries."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "equal matrices"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To add or subtract matrices they must have the same order; we add or subtract corresponding entries."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "add same order"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "To multiply by a scalar k, multiply every entry by k."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "scalar multiplication"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To multiply matrix A (m x n) by B (n x p), the number of columns of A must equal the number of rows of B; the product is m x p. Each entry is row times column."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AB defined"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If A = [[1, 2],[3, 4]] and B = [[0, 1],[5, 2]], find A + B and 2A."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "A + B: add corresponding entries: [[1+0, 2+1],[3+5, 4+2]] = [[1, 3],[8, 6]]."
+            },
+            "why": {
+              "en": "Both are 2 x 2, so addition is allowed."
+            }
+          },
+          {
+            "text": {
+              "en": "2A: multiply every entry by 2: [[2, 4],[6, 8]]."
+            },
+            "why": {
+              "en": "Scalar multiplication."
+            }
+          },
+          {
+            "text": {
+              "en": "A + B = [[1,3],[8,6]] and 2A = [[2,4],[6,8]]."
+            },
+            "why": {
+              "en": "Order stays 2 x 2."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State when two matrices can be added and when they can be multiplied."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Same order to add"
+          },
+          {
+            "en": "Columns of A = rows of B to multiply"
+          },
+          {
+            "en": "Product has order m x p"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Multiplying entry by entry"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma730-1",
+          "r1-m10ma730-2",
+          "r1-m10ma730-3",
+          "r2-m10ma730-4",
+          "r2-m10ma730-5",
+          "r2-m10ma730-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Order m x n = m rows by n columns."
+          },
+          {
+            "en": "Add/subtract only matrices of the same order."
+          },
+          {
+            "en": "AB exists when columns of A = rows of B."
+          },
+          {
+            "en": "In general AB is not equal to BA."
+          }
+        ]
+      }
+    ]
+  }
+}

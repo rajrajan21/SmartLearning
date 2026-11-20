@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-bat-and-ball",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "11-13",
+ "title": "The Bat and the Ball",
+ "summary": "Test the answer against every fact in the puzzle.",
+ "emoji": "🏏",
+ "tags": [
+  "algebra",
+  "checking"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "A bat and a ball cost 110 rupees together.",
+    "The bat costs 100 rupees more than the ball.",
+    "How much does the ball cost?"
+   ],
+   "points": [
+    "A bat and a ball cost 110 rupees together."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "The quick answer that jumps into most heads is 10 rupees.",
+    "Slow down and test it: if the ball is 10, what would the bat cost, and what is the total?"
+   ],
+   "points": [
+    "The quick answer that jumps into most heads is 10 rupees."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Check your first answer",
+   "sentences": [
+    "If the ball is 10, the bat is 100 more, which is 110, and the total is 120, not 110.",
+    "So 10 is wrong.",
+    "Let the ball be b. Then the bat is b plus 100, and the total is 2b plus 100 equals 110."
+   ],
+   "points": [
+    "If the ball is 10, the bat is 100 more, which is 110, and the total is 120, not 110."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "2b equals 10, so the ball costs 5 rupees and the bat costs 105 rupees.",
+    "Check: 105 minus 5 is 100 more, and 105 plus 5 is 110.",
+    "The lesson is to test a fast answer before trusting it."
+   ],
+   "points": [
+    "2b equals 10, so the ball costs 5 rupees and the bat costs 105 rupees."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "A pen and a cap cost 11 rupees. The pen costs 10 more than the cap. What does the cap cost?",
+   "options": [
+    "50 paise",
+    "1 rupee",
+    "10 rupees"
+   ],
+   "answer": 0,
+   "why": "Cap c: 2c plus 10 equals 11, so c is 0.50 rupees."
+  }
+ ],
+ "method": "Check your first answer"
+}

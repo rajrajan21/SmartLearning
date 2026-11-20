@@ -1,0 +1,293 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "maths",
+ "chapter": "fun-with-symmetry",
+ "topic": "rotation-and-turns",
+ "status": "published",
+ "title": {
+  "en": "Turns and angles"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Turns and angles",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "c0",
+   "cx": 170,
+   "cy": 240,
+   "r": 90,
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "s0",
+   "cx": 170,
+   "cy": 240,
+   "r": 90,
+   "from": 0,
+   "to": 90,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 170,
+   "y1": 240,
+   "x2": 170,
+   "y2": 150,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 170,
+   "y": 380,
+   "text": "¼ turn",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d0",
+   "x": 170,
+   "y": 420,
+   "text": "90°",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "c1",
+   "cx": 450,
+   "cy": 240,
+   "r": 90,
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "s1",
+   "cx": 450,
+   "cy": 240,
+   "r": 90,
+   "from": 0,
+   "to": 180,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 450,
+   "y1": 240,
+   "x2": 450,
+   "y2": 150,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 380,
+   "text": "½ turn",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d1",
+   "x": 450,
+   "y": 420,
+   "text": "180°",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "c2",
+   "cx": 730,
+   "cy": 240,
+   "r": 90,
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "s2",
+   "cx": 730,
+   "cy": 240,
+   "r": 90,
+   "from": 0,
+   "to": 359.9,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 730,
+   "y1": 240,
+   "x2": 730,
+   "y2": 150,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 730,
+   "y": 380,
+   "text": "Full turn",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d2",
+   "x": 730,
+   "y": 420,
+   "text": "360°",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "When something turns, we can measure the turn in degrees. The arrow starts pointing up."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "c2",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A quarter turn is one fourth of a full turn. It makes a right angle, 90 degrees."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s0",
+     "at": 0.2,
+     "ms": 1200
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "d0",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A half turn is two quarter turns. It makes 180 degrees, so the arrow points the opposite way."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.2,
+     "ms": 1400
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "d1",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "A full turn brings the arrow back to where it began. It is 360 degrees."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.2,
+     "ms": 1800
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "d2",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

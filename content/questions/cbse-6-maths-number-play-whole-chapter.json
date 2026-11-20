@@ -1,0 +1,333 @@
+{
+  "board": "CBSE",
+  "classLevel": 6,
+  "subject": "maths",
+  "chapter": "number-play",
+  "topic": "whole-chapter",
+  "questions": [
+    {
+      "key": "c6ma-np-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many two-digit numbers are there?"
+      },
+      "answer": 90,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 99,
+          "why": {
+            "en": "That counts from 1, but two-digit numbers start at 10."
+          }
+        },
+        {
+          "value": 100,
+          "why": {
+            "en": "100 is a three-digit number."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
+      }
+    },
+    {
+      "key": "c6ma-np-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "What is the smallest number whose digits add up to 14?"
+      },
+      "answer": 59,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 95,
+          "why": {
+            "en": "95 is larger than 59 with the same digits."
+          }
+        },
+        {
+          "value": 77,
+          "why": {
+            "en": "7 + 7 = 14, but 77 is bigger than 59."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
+      }
+    },
+    {
+      "key": "c6ma-np-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Every 4-digit number with at least two different digits reaches which number in the Kaprekar routine?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "6174"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "495"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "495 is the number reached by 3-digit numbers."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "1111"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "1111 is a palindrome, not the Kaprekar constant."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "This is the Kaprekar constant."
+      }
+    },
+    {
+      "key": "c6ma-np-4",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Start with 68. Add its reverse 86 and keep reversing and adding. What palindrome do you reach?"
+      },
+      "answer": 1111,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 154,
+          "why": {
+            "en": "154 is not a palindrome."
+          }
+        },
+        {
+          "value": 605,
+          "why": {
+            "en": "605 is not a palindrome."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
+      }
+    },
+    {
+      "key": "c6ma-np-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many times does the digit 7 appear when writing the numbers 1 to 100?"
+      },
+      "answer": 20,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 10,
+          "why": {
+            "en": "You counted only the units digit."
+          }
+        },
+        {
+          "value": 19,
+          "why": {
+            "en": "You may have counted the numbers with a 7 and counted 77 once."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "It appears 10 times as units digit (7, 17, ..., 97) and 10 times as tens digit (70 to 79)."
+      }
+    },
+    {
+      "key": "c6ma-np-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many steps does the Collatz sequence for 6 take to reach 1?"
+      },
+      "answer": 8,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 9,
+          "why": {
+            "en": "9 is the number of terms, not steps."
+          }
+        },
+        {
+          "value": 7,
+          "why": {
+            "en": "Count the arrows again; there are 8."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
+      }
+    },
+    {
+      "key": "c6ma-np-7",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "A 5-digit palindrome is odd, its tens digit is double its units digit and its hundreds digit is double its tens digit. What is it?"
+      },
+      "answer": 12421,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 13631,
+          "why": {
+            "en": "The tens digit 3 is not double the units digit 1."
+          }
+        },
+        {
+          "value": 12321,
+          "why": {
+            "en": "The hundreds digit 3 is not double the tens digit 2."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The units digit is 1, tens 2, hundreds 4, so the number is 12421."
+      }
+    },
+    {
+      "key": "c6ma-np-8",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "In the game of 21 (add 1, 2 or 3, reach 21 to win), the first player should start by saying"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "1"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "3"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "From 3, the other player can reach 5 and then control the game."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "From 2, the other player can reach 5 and then control the game."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The winning numbers are 1, 5, 9, 13, 17 and 21."
+      }
+    },
+    {
+      "key": "c6ma-np-9",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "In the game where numbers 1 to 10 are added and the target is 99, who always wins?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "The second player"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "The first player"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "The first player cannot say 11, a multiple of 11, on the first turn."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "Neither player"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "The second player can always reach multiples of 11."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The second player aims for the multiples of 11: 11, 22, ..., 99."
+      }
+    },
+    {
+      "key": "c6ma-np-10",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Mathematicians have proved that every starting number in the Collatz sequence reaches 1."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
+      }
+    }
+  ]
+}

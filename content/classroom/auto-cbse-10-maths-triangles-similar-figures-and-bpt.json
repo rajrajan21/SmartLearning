@@ -1,0 +1,230 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "triangles",
+ "topic": "similar-figures-and-bpt",
+ "status": "published",
+ "title": {
+  "en": "Basic proportionality theorem"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Basic proportionality theorem",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "tr",
+   "points": [
+    [
+     450,
+     70
+    ],
+    [
+     210,
+     410
+    ],
+    [
+     690,
+     410
+    ]
+   ],
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "de",
+   "x1": 354,
+   "y1": 206,
+   "x2": 546,
+   "y2": 206,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 450,
+   "y": 56,
+   "text": "A",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 192,
+   "y": 418,
+   "text": "B",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lc",
+   "x": 708,
+   "y": 418,
+   "text": "C",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 332,
+   "y": 206,
+   "text": "D",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "le",
+   "x": 568,
+   "y": 206,
+   "text": "E",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "par",
+   "x": 450,
+   "y": 440,
+   "text": "DE ∥ BC",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r1",
+   "x": 30,
+   "y": 150,
+   "text": "AD/DB = AE/EC",
+   "size": 30,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "r2",
+   "x": 30,
+   "y": 195,
+   "text": "e.g. AD = 2, DB = 3",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "r3",
+   "x": 30,
+   "y": 228,
+   "text": "then AE : EC = 2 : 3",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Take a triangle ABC. Draw a line DE parallel to the side BC, cutting the other two sides at D and E."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "tr",
+     "at": 0.1,
+     "ms": 1200
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lc",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "de",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "ld",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "le",
+     "at": 0.85
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The line divides the two sides in the same ratio. A D over D B equals A E over E C. This is the basic proportionality theorem."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "par",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "r1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "So if A D is 2 and D B is 3, then A E to E C is also 2 to 3."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "r3",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,225 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "measurement-of-time-and-motion",
+ "topic": "simple-pendulum-and-measuring-time",
+ "status": "published",
+ "title": {
+  "en": "A simple pendulum"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A simple pendulum",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "sup",
+   "x1": 300,
+   "y1": 90,
+   "x2": 600,
+   "y2": 90,
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "line",
+   "id": "rest",
+   "x1": 450,
+   "y1": 90,
+   "x2": 450,
+   "y2": 360,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "left",
+   "x1": 450,
+   "y1": 90,
+   "x2": 330,
+   "y2": 345,
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "right",
+   "x1": 450,
+   "y1": 90,
+   "x2": 570,
+   "y2": 345,
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "bob",
+   "cx": 450,
+   "cy": 380,
+   "r": 24,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "bl",
+   "cx": 330,
+   "cy": 365,
+   "r": 20,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "br",
+   "cx": 570,
+   "cy": 365,
+   "r": 20,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 310,
+   "y": 410,
+   "text": "A",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b",
+   "x": 590,
+   "y": 410,
+   "text": "B",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m",
+   "x": 450,
+   "y": 430,
+   "text": "mean position",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "n",
+   "x": 450,
+   "y": 470,
+   "text": "One oscillation: A to B and back to A",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A simple pendulum is a small heavy ball, the bob, hanging from a fixed support by a thread."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sup",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "rest",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "bob",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "m",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Pull the bob to one side, to A, and let go. It swings to the other side, B, and back again."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "left",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "bl",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "right",
+     "at": 0.55
+    },
+    {
+     "do": "draw",
+     "target": "br",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "b",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The to and fro motion from A to B and back to A is one oscillation. The time taken for one oscillation is the time period of the pendulum."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "n",
+     "at": 0.3
+    },
+    {
+     "do": "pulse",
+     "target": "bob",
+     "at": 0.5,
+     "color": "accent"
+    }
+   ]
+  }
+ ]
+}

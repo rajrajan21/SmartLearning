@@ -1,0 +1,338 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "arithmetic-expressions",
+ "topic": "order-of-operations-and-brackets",
+ "status": "published",
+ "title": {
+  "en": "Order of operations"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Order of operations",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "r0",
+   "x": 90,
+   "y": 85,
+   "w": 720,
+   "h": 52,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 125,
+   "y": 120,
+   "text": "1",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a0",
+   "x": 170,
+   "y": 120,
+   "text": "Brackets",
+   "size": 26,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b0",
+   "x": 790,
+   "y": 120,
+   "text": "work out what is inside first",
+   "size": 20,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r1",
+   "x": 90,
+   "y": 147,
+   "w": 720,
+   "h": 52,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 125,
+   "y": 182,
+   "text": "2",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a1",
+   "x": 170,
+   "y": 182,
+   "text": "Orders",
+   "size": 26,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b1",
+   "x": 790,
+   "y": 182,
+   "text": "powers and roots next",
+   "size": 20,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r2",
+   "x": 90,
+   "y": 209,
+   "w": 720,
+   "h": 52,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 125,
+   "y": 244,
+   "text": "3",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a2",
+   "x": 170,
+   "y": 244,
+   "text": "Division and multiplication",
+   "size": 26,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b2",
+   "x": 790,
+   "y": 244,
+   "text": "left to right",
+   "size": 20,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r3",
+   "x": 90,
+   "y": 271,
+   "w": 720,
+   "h": 52,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 125,
+   "y": 306,
+   "text": "4",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a3",
+   "x": 170,
+   "y": 306,
+   "text": "Addition and subtraction",
+   "size": 26,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b3",
+   "x": 790,
+   "y": 306,
+   "text": "left to right",
+   "size": 20,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 450,
+   "y": 400,
+   "text": "3 + 4 × 2",
+   "size": 40,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex2",
+   "x": 450,
+   "y": 445,
+   "text": "= 3 + 8 = 11",
+   "size": 40,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "When a sum has more than one operation, we must do them in a fixed order, so that everybody gets the same answer."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "First, anything inside brackets. Next, orders, which means powers and roots. Then division and multiplication, working from left to right. Last, addition and subtraction, also from left to right."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "r0",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.07
+    },
+    {
+     "do": "write",
+     "target": "a0",
+     "at": 0.08
+    },
+    {
+     "do": "write",
+     "target": "b0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "r1",
+     "at": 0.2375
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2575
+    },
+    {
+     "do": "write",
+     "target": "a1",
+     "at": 0.2675
+    },
+    {
+     "do": "write",
+     "target": "b1",
+     "at": 0.2875
+    },
+    {
+     "do": "draw",
+     "target": "r2",
+     "at": 0.425
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.445
+    },
+    {
+     "do": "write",
+     "target": "a2",
+     "at": 0.455
+    },
+    {
+     "do": "write",
+     "target": "b2",
+     "at": 0.475
+    },
+    {
+     "do": "draw",
+     "target": "r3",
+     "at": 0.6125
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.6325000000000001
+    },
+    {
+     "do": "write",
+     "target": "a3",
+     "at": 0.6425
+    },
+    {
+     "do": "write",
+     "target": "b3",
+     "at": 0.6625
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Try 3 plus 4 times 2. Multiplication comes before addition, so 4 times 2 is 8 first, and then 3 plus 8 is 11."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.2
+    },
+    {
+     "do": "pulse",
+     "target": "r2",
+     "at": 0.4,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "ex2",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

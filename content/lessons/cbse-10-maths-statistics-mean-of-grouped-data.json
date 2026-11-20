@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "statistics",
+  "topic": "mean-of-grouped-data",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Mean of grouped data"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Marks of a whole class"
+        },
+        "text": {
+          "en": "A teacher has marks of 100 students grouped in class intervals. Listing them all is tedious; the mean of grouped data gives a quick average."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "a + (Σfu/Σf) h",
+          "a + Σfd/Σf",
+          "choose a method",
+          "class intervals",
+          "class mark",
+          "class mark assumption",
+          "make a table",
+          "mean = Σfx / Σf"
+        ],
+        "text": {
+          "en": "In grouped data, observations are put into class intervals with frequencies.\nThe class mark is the mid-point: (upper limit + lower limit) divided by 2.\nDirect method: mean = sum of f x divided by sum of f, where x is the class mark.\nAssumed mean method: pick a convenient a and let d = x - a. Then mean = a + Σfd / Σf.\nStep deviation method: with class width h, let u = (x - a)/h. Then mean = a + (Σfu/Σf) x h.\nThese assume that the frequency of each class is centred at its class mark.\nMake a table with columns for class, frequency, class mark and the product, then total the columns.\nUse the method that gives the smallest numbers to avoid arithmetic mistakes."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In grouped data, observations are put into class intervals with frequencies."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "class intervals"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The class mark is the mid-point: (upper limit + lower limit) divided by 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "class mark"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Direct method: mean = sum of f x divided by sum of f, where x is the class mark."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mean = Σfx / Σf"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Assumed mean method: pick a convenient a and let d = x - a. Then mean = a + Σfd / Σf."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a + Σfd/Σf"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Step deviation method: with class width h, let u = (x - a)/h. Then mean = a + (Σfu/Σf) x h."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a + (Σfu/Σf) h"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "These assume that the frequency of each class is centred at its class mark."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "class mark assumption"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Make a table with columns for class, frequency, class mark and the product, then total the columns."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "make a table"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Use the method that gives the smallest numbers to avoid arithmetic mistakes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "choose a method"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the mean for classes 0-10, 10-20, 20-30 with frequencies 5, 8, 7."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Class marks: 5, 15, 25. Products f x: 25, 120, 175."
+            },
+            "why": {
+              "en": "Build the table."
+            }
+          },
+          {
+            "text": {
+              "en": "Σf = 20, Σfx = 320."
+            },
+            "why": {
+              "en": "Totals."
+            }
+          },
+          {
+            "text": {
+              "en": "Mean = 320/20 = 16."
+            },
+            "why": {
+              "en": "Divide."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the mean of grouped data?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Class marks"
+          },
+          {
+            "en": "Σfx / Σf"
+          },
+          {
+            "en": "Shortcut methods"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using class limits instead of class marks"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-mg1",
+          "r1-mg2",
+          "r2-mg3",
+          "r2-mg4",
+          "r2-mg5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Class mark = (lower + upper)/2."
+          },
+          {
+            "en": "Direct, assumed mean and step deviation methods all give the same mean."
+          },
+          {
+            "en": "Frequency is assumed to be centred at the class mark."
+          }
+        ]
+      }
+    ]
+  }
+}

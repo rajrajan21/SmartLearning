@@ -1,0 +1,252 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "relations-and-functions",
+  "topic": "cartesian-product-and-relations",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Ordered pairs, Cartesian product and relations"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The seating chart"
+        },
+        "text": {
+          "en": "A class has 3 boys and 2 girls. The teacher wants to list every possible boy-girl pair for a dance. How many pairs are there, and how do we write them neatly? Mathematics has a tool for exactly this."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "ordered pair",
+          "A x B",
+          "m x n",
+          "A x B not B x A",
+          "relation",
+          "domain and range",
+          "arrow diagram"
+        ],
+        "text": {
+          "en": "An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2).\nFor two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B.\nIf A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}.\nIf A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6.\nIn general A x B is not equal to B x A, unless A = B or one of them is empty.\nA relation R from A to B is any subset of A x B. We pick the pairs that obey some rule.\nThe set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range.\nA relation from A to B can be shown by an arrow diagram, a table, a graph or as a set of ordered pairs."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-cartesian-product-and-relations.svg",
+        "altText": {
+          "en": "Arrow diagram from set A to set B showing 1 to 2 and 2 to 4"
+        },
+        "caption": {
+          "en": "An arrow diagram of a relation"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ordered pair"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A x B"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A x B"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "m x n"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "In general A x B is not equal to B x A, unless A = B or one of them is empty."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "A x B not B x A"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "relation"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "domain and range"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A relation from A to B can be shown by an arrow diagram, a table, a graph or as a set of ordered pairs."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "arrow diagram"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If A = {1, 2, 3} and B = {2, 4}, write A x B and the relation R = {(a, b): b = 2a}."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "List every pair: A x B = {(1,2),(1,4),(2,2),(2,4),(3,2),(3,4)}. That is 3 x 2 = 6 pairs."
+            },
+            "why": {
+              "en": "Take each element of A and pair it with each element of B."
+            }
+          },
+          {
+            "text": {
+              "en": "Keep the pairs where b = 2a: (1,2) works because 2 = 2 x 1, and (2,4) works because 4 = 2 x 2."
+            },
+            "why": {
+              "en": "Test each pair against the rule."
+            }
+          },
+          {
+            "text": {
+              "en": "So R = {(1,2),(2,4)}, domain = {1,2}, range = {2,4}."
+            },
+            "why": {
+              "en": "Domain is the set of first elements, range the set of second elements used."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain in your own words what a Cartesian product is and how many pairs A x B has."
+        },
+        "requiredIdeas": [
+          {
+            "en": "All ordered pairs with first from A and second from B"
+          },
+          {
+            "en": "Number of pairs is m x n"
+          },
+          {
+            "en": "A relation is a subset of A x B"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking (a,b) and (b,a) are the same"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma542-1",
+          "r1-m10ma542-2",
+          "r1-m10ma542-3",
+          "r2-m10ma542-4",
+          "r2-m10ma542-5",
+          "r2-m10ma542-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "An ordered pair cares about the order of its two entries."
+          },
+          {
+            "en": "A x B has n(A) x n(B) elements."
+          },
+          {
+            "en": "A relation is a subset of A x B; domain = first elements, range = second elements used."
+          },
+          {
+            "en": "A x B and B x A are usually different."
+          }
+        ]
+      }
+    ]
+  }
+}

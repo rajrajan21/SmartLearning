@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "circles",
+  "topic": "tangents-from-an-external-point",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Tangents from an external point"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two ropes, one pole"
+        },
+        "text": {
+          "en": "From a point outside a circle we can draw exactly two tangents, and they have a beautiful property: their lengths are equal."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "AB + CD = AD + BC",
+          "OP bisects angle",
+          "RHS congruence",
+          "angle AOB = 100",
+          "equal tangents",
+          "how many tangents",
+          "two tangents",
+          "use equal tangents"
+        ],
+        "text": {
+          "en": "From a point inside a circle there is no tangent. From a point on the circle there is one tangent.\nFrom a point outside the circle there are exactly two tangents.\nTheorem two: the lengths of the tangents drawn from an external point to a circle are equal.\nProof: join OP, OQ and OR. Triangles OPQ and OPR are right triangles with OQ = OR and a common hypotenuse OP, so they are congruent by RHS.\nHence PQ = PR. The line OP also bisects the angle between the tangents.\nExample: tangents PA and PB from P with angle APB = 80 degrees. Then angle OAP = 90 and angle AOB = 100.\nIn a circle touching all sides of a quadrilateral, the sum of the opposite sides is equal: AB + CD = AD + BC.\nUse equal tangents to set up equations in lengths and angles."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "From a point inside a circle there is no tangent. From a point on the circle there is one tangent."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "how many tangents"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "From a point outside the circle there are exactly two tangents."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "two tangents"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Theorem two: the lengths of the tangents drawn from an external point to a circle are equal."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "equal tangents"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Proof: join OP, OQ and OR. Triangles OPQ and OPR are right triangles with OQ = OR and a common hypotenuse OP, so they are congruent by RHS."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "RHS congruence"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Hence PQ = PR. The line OP also bisects the angle between the tangents."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "OP bisects angle"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Example: tangents PA and PB from P with angle APB = 80 degrees. Then angle OAP = 90 and angle AOB = 100."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle AOB = 100"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "In a circle touching all sides of a quadrilateral, the sum of the opposite sides is equal: AB + CD = AD + BC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AB + CD = AD + BC"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Use equal tangents to set up equations in lengths and angles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "use equal tangents"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Two tangents PA and PB are drawn from P to a circle with centre O. If angle APB = 70 degrees, find angle AOB."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "OA and OB are perpendicular to PA and PB, so angle OAP = angle OBP = 90."
+            },
+            "why": {
+              "en": "Tangent-radius."
+            }
+          },
+          {
+            "text": {
+              "en": "In quadrilateral OAPB, angle AOB = 360 - 90 - 90 - 70."
+            },
+            "why": {
+              "en": "Angle sum is 360."
+            }
+          },
+          {
+            "text": {
+              "en": "Angle AOB = 110 degrees."
+            },
+            "why": {
+              "en": "Compute."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the theorem about tangents from an external point."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Two tangents"
+          },
+          {
+            "en": "Equal lengths"
+          },
+          {
+            "en": "Proof by RHS"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Believing tangents from a point can be unequal"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-te1",
+          "r1-te2",
+          "r2-te3",
+          "r2-te4",
+          "r2-te5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "From an external point, two tangents can be drawn and they are equal in length."
+          },
+          {
+            "en": "The line joining the point to the centre bisects the angle between them."
+          },
+          {
+            "en": "In a quadrilateral around a circle, sums of opposite sides are equal."
+          }
+        ]
+      }
+    ]
+  }
+}

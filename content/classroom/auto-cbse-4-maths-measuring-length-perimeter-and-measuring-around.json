@@ -1,0 +1,225 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "maths",
+ "chapter": "measuring-length",
+ "topic": "perimeter-and-measuring-around",
+ "status": "published",
+ "title": {
+  "en": "Perimeter and area"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "Perimeter",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "rc",
+   "x": 80,
+   "y": 110,
+   "w": 350,
+   "h": 210,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "gv1",
+   "x1": 150,
+   "y1": 110,
+   "x2": 150,
+   "y2": 320,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "gv2",
+   "x1": 220,
+   "y1": 110,
+   "x2": 220,
+   "y2": 320,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "gv3",
+   "x1": 290,
+   "y1": 110,
+   "x2": 290,
+   "y2": 320,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "gv4",
+   "x1": 360,
+   "y1": 110,
+   "x2": 360,
+   "y2": 320,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "gh1",
+   "x1": 80,
+   "y1": 180,
+   "x2": 430,
+   "y2": 180,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "gh2",
+   "x1": 80,
+   "y1": 250,
+   "x2": 430,
+   "y2": 250,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "arrow",
+   "id": "w1",
+   "x1": 80,
+   "y1": 88,
+   "x2": 430,
+   "y2": 88,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "h1",
+   "x1": 452,
+   "y1": 110,
+   "x2": 452,
+   "y2": 320,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "wl",
+   "x": 255,
+   "y": 78,
+   "text": "5 units",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hl",
+   "x": 470,
+   "y": 215,
+   "text": "3",
+   "size": 26,
+   "color": "warm",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "pe",
+   "x": 700,
+   "y": 230,
+   "text": "P = 16",
+   "size": 52,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ar",
+   "x": 700,
+   "y": 340,
+   "text": "A = 15",
+   "size": 52,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "fa",
+   "x": 80,
+   "y": 110,
+   "w": 350,
+   "h": 210,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 2
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Here is a rectangle, 5 units long and 3 units wide."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "rc",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "w1",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "wl",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "h1",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "hl",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The perimeter is the distance all the way round the edge. Walk round: 5 plus 3 plus 5 plus 3 makes 16 units."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "rc",
+     "at": 0.1,
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "pe",
+     "on": "makes 16"
+    }
+   ]
+  }
+ ]
+}

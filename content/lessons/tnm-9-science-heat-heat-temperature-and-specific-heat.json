@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "heat",
+  "topic": "heat-temperature-and-specific-heat",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Heat, temperature, specific heat and change of state"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The kettle"
+        },
+        "text": {
+          "en": "A kettle on a flame warms the water until it boils. Heat is energy that flows because of a temperature difference."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "heat and temperature",
+          "K = C + 273",
+          "conduction, convection, radiation",
+          "Q = m c delta T",
+          "water 4200",
+          "latent heat",
+          "expansion"
+        ],
+        "text": {
+          "en": "Temperature measures how hot a body is; heat is the energy transferred between bodies because of a temperature difference.\nTemperature is measured in degrees Celsius (C) or kelvin (K): K = C + 273.\nHeat moves by conduction (in solids), convection (in liquids and gases) and radiation (no medium needed).\nSpecific heat capacity c is the heat needed to raise 1 kg of a substance by 1 K; the heat required is Q = m c delta T.\nWater has a high specific heat, about 4200 J/kg K, so it heats and cools slowly.\nLatent heat is absorbed or released during change of state at constant temperature; melting, boiling and freezing are examples.\nMost substances expand on heating; water is unusual between 0 and 4 degrees Celsius."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Temperature measures how hot a body is; heat is the energy transferred between bodies because of a temperature difference."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "heat and temperature"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Temperature is measured in degrees Celsius (C) or kelvin (K): K = C + 273."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "K = C + 273"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Heat moves by conduction (in solids), convection (in liquids and gases) and radiation (no medium needed)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conduction, convection, radiation"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Specific heat capacity c is the heat needed to raise 1 kg of a substance by 1 K; the heat required is Q = m c delta T."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Q = m c delta T"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Water has a high specific heat, about 4200 J/kg K, so it heats and cools slowly."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "water 4200"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Latent heat is absorbed or released during change of state at constant temperature; melting, boiling and freezing are examples."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "latent heat"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Most substances expand on heating; water is unusual between 0 and 4 degrees Celsius."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "expansion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "How much heat is needed to raise 2 kg of water by 10 degrees Celsius? (c = 4200 J/kg K)"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Q = m c delta T."
+            },
+            "why": {
+              "en": "Heat formula."
+            }
+          },
+          {
+            "text": {
+              "en": "Q = 2 x 4200 x 10."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "Q = 84 000 J."
+            },
+            "why": {
+              "en": "About 84 kJ."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain the three modes of heat transfer with an example each."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Conduction in solids"
+          },
+          {
+            "en": "Convection in fluids"
+          },
+          {
+            "en": "Radiation needs no medium"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Saying heat and temperature are the same"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9sc759-1",
+          "r1-m9sc759-2",
+          "r1-m9sc759-3",
+          "r2-m9sc759-4",
+          "r2-m9sc759-5",
+          "r2-m9sc759-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Heat is energy; temperature is hotness."
+          },
+          {
+            "en": "K = C + 273."
+          },
+          {
+            "en": "Q = m c delta T."
+          },
+          {
+            "en": "Heat transfer: conduction, convection, radiation."
+          }
+        ]
+      }
+    ]
+  }
+}

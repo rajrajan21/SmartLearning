@@ -1,0 +1,168 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "set-language",
+  "topic": "set-operations-and-de-morgan",
+  "questions": [
+    {
+      "key": "r1-m9ma156-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If A = {1,2,3}, B = {3,4}, how many elements does A U B have?"
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "{1,2,3,4}."
+      }
+    },
+    {
+      "key": "r1-m9ma156-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "n(A n B) for A = {1,2,3}, B = {2,3,4} is"
+      },
+      "answer": 2,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "The common elements are 2 and 3."
+      }
+    },
+    {
+      "key": "r1-m9ma156-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "A - B and B - A are always equal."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "For example {1,2} - {2} = {1} but {2} - {1,2} is empty."
+      }
+    },
+    {
+      "key": "r2-m9ma156-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "n(A) = 10, n(B) = 12, n(A n B) = 5. n(A U B) ="
+      },
+      "answer": 17,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "10 + 12 - 5."
+      }
+    },
+    {
+      "key": "r2-m9ma156-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "(A U B)' equals"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "A' n B'"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "A' U B'"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is (A n B)'"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "A n B"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Not correct"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "De Morgan's first law."
+      }
+    },
+    {
+      "key": "r2-m9ma156-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Disjoint sets have an empty intersection."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "By definition."
+      }
+    },
+    {
+      "key": "r3-m9ma156-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "In a class of 30, 18 play cricket, 15 play football, 5 play both. How many play neither?"
+      },
+      "answer": 2,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "18 + 15 - 5 = 28, and 30 - 28 = 2."
+      }
+    },
+    {
+      "key": "r3-m9ma156-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "The set of elements in A but not in B is the ____ A - B."
+      },
+      "accepted": [
+        "difference"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "Definition."
+      }
+    }
+  ]
+}

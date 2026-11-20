@@ -1,0 +1,251 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "mensuration",
+  "topic": "combined-solids",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Combined solids"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Toy making"
+        },
+        "text": {
+          "en": "Toys, tents, capsules and ice-cream cones are made by joining solids. To find their cost or capacity we split them into basic solids."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "combined solid",
+          "surface area rule",
+          "volume rule",
+          "cylinder with hemisphere",
+          "tent",
+          "funnel",
+          "cube with a hollow"
+        ],
+        "text": {
+          "en": "A combined solid is formed by joining two or more basic solids such as cylinder, cone, hemisphere and cuboid.\nFor surface area, count only the surfaces visible from outside; joined faces are not counted.\nFor volume, add the volumes of the parts.\nA cylinder surmounted by a hemisphere has total surface area pi r (2h plus 3r), where h is the cylinder height only.\nA tent made of a cylinder surmounted by a cone has volume pi r squared (h1 plus h2 over 3).\nFor a funnel, the outer surface is the curved surface of the cylinder plus the curved surface of the frustum.\nWhen a hemisphere is cut out of a cube, the new surface area is 6 times the edge squared plus pi r squared."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-combined-solids.svg",
+        "altText": {
+          "en": "Three combined solids cylinder with hemisphere cone with hemisphere and cuboid with half cylinder"
+        },
+        "caption": {
+          "en": "Combined solids"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A combined solid is formed by joining two or more basic solids such as cylinder, cone, hemisphere and cuboid."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "combined solid"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For surface area, count only the surfaces visible from outside; joined faces are not counted."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "surface area rule"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For volume, add the volumes of the parts."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "volume rule"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A cylinder surmounted by a hemisphere has total surface area pi r (2h plus 3r), where h is the cylinder height only."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cylinder with hemisphere"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A tent made of a cylinder surmounted by a cone has volume pi r squared (h1 plus h2 over 3)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tent"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For a funnel, the outer surface is the curved surface of the cylinder plus the curved surface of the frustum."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "funnel"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "When a hemisphere is cut out of a cube, the new surface area is 6 times the edge squared plus pi r squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cube with a hollow"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A toy is a cylinder surmounted by a hemisphere. Total height 25 cm and common diameter 12 cm. Find the total surface area."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Radius r = 6 cm. Height of the cylinder h = 25 - 6 = 19 cm."
+            },
+            "why": {
+              "en": "The hemisphere takes 6 cm of the height."
+            }
+          },
+          {
+            "text": {
+              "en": "TSA = CSA of cylinder + CSA of hemisphere + base of cylinder = 2 pi r h + 2 pi r^2 + pi r^2."
+            },
+            "why": {
+              "en": "= pi r (2h + 3r)."
+            }
+          },
+          {
+            "text": {
+              "en": "= 22/7 x 6 x (38 + 18) = 22/7 x 336."
+            },
+            "why": {
+              "en": "2h = 38, 3r = 18."
+            }
+          },
+          {
+            "text": {
+              "en": "TSA = 1056 sq. cm."
+            },
+            "why": {
+              "en": "The answer."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A tent for 150 people: each needs 4 sq. m of floor and 40 cu. m of air. The cylindrical part is 8 m high. Find the height of the cone."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Base area = 150 x 4 = 600 sq. m so pi r^2 = 600"
+          },
+          {
+            "en": "Volume needed = 150 x 40 = 6000 cu. m"
+          },
+          {
+            "en": "pi r^2 (h1 + h2/3) = 6000 so 8 + h2/3 = 10"
+          },
+          {
+            "en": "h2/3 = 2 so the cone height is 6 m"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Treating the tent as only a cylinder"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma732-1",
+          "r1-m10ma732-2",
+          "r1-m10ma732-3",
+          "r2-m10ma732-4",
+          "r2-m10ma732-5",
+          "r2-m10ma732-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Surface: only visible parts."
+          },
+          {
+            "en": "Volume: sum of volumes."
+          },
+          {
+            "en": "Cylinder + hemisphere: pi r (2h + 3r)."
+          },
+          {
+            "en": "Read heights carefully: total versus part."
+          }
+        ]
+      }
+    ]
+  }
+}

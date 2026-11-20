@@ -1,0 +1,253 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch11-the-world-of-algorithms",
+  "topic": "algorithms",
+  "questions": [
+    {
+      "key": "m11-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "An algorithm is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "a step-by-step procedure to solve a problem"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "a random guess"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "a single number"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "That is its definition."
+      }
+    },
+    {
+      "key": "m11-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "A step in an algorithm can be conditional."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "For example, add j only if j divides n."
+      }
+    },
+    {
+      "key": "m11-3",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "To list the divisors of n we check each j from 1 to n and"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "keep j if it divides n"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "keep every j"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "remove j if odd"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The condition is that j divides n."
+      }
+    },
+    {
+      "key": "m11-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many divisors does 12 have?"
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 4,
+          "why": {
+            "en": "You missed some divisors."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "1, 2, 3, 4, 6, 12."
+      }
+    },
+    {
+      "key": "m11-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Checking correctness of an algorithm is optional."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "We must justify it is correct."
+      }
+    },
+    {
+      "key": "m11-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Efficiency of an algorithm is judged by"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "the number of steps it needs"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "its colour"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "its name"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Fewer steps means more efficient."
+      }
+    },
+    {
+      "key": "m11-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "The result of repeating a step for each j is called a ___ (one word)"
+      },
+      "accepted": [
+        "loop"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "Repeating steps is a loop."
+      }
+    },
+    {
+      "key": "m11-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Largest of 4, 9, 7 using the algorithm is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "9"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "4"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "7"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "9 stays as the maximum."
+      }
+    }
+  ]
+}

@@ -1,0 +1,150 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "earth-moon-and-the-sun",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "Earth and Moon"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The Moon goes round the Earth",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "er",
+   "cx": 450,
+   "cy": 265,
+   "r": 60,
+   "fill": "#4FA3E0",
+   "stroke": "water",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "eT",
+   "x": 450,
+   "y": 275,
+   "text": "🌍",
+   "size": 70,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "orbit",
+   "id": "mn",
+   "cx": 450,
+   "cy": 265,
+   "r": 170,
+   "period": 10,
+   "size": 16,
+   "emoji": "🌕",
+   "tilt": 0.6
+  },
+  {
+   "kind": "text",
+   "id": "sy",
+   "x": 450,
+   "y": 460,
+   "text": "About one month for one trip",
+   "size": 26,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "full-moon",
+   "alt": "The full Moon",
+   "caption": "The Moon"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Earth is our home. It is a ball of rock, with oceans and air."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "er",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "eT",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The Moon goes round the Earth. We say the Moon is a satellite of the Earth. It takes about one month to go all the way round."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "mn",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "sy",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The Moon does not make its own light. We see it shine because it reflects the light of the Sun."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "mn",
+     "at": 0.3,
+     "color": "sun"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. The full Moon. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

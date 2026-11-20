@@ -1,0 +1,354 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "science",
+ "chapter": "beyond-earth",
+ "topic": "our-solar-system-and-the-milky-way",
+ "status": "published",
+ "title": {
+  "en": "Our Solar System"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Our Solar System",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "su",
+   "cx": 450,
+   "cy": 255,
+   "r": 28,
+   "fill": "#FFCA28",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "orbit",
+   "id": "o0",
+   "cx": 450,
+   "cy": 255,
+   "r": 64.39999999999999,
+   "period": 5,
+   "size": 5,
+   "color": "#B0A090",
+   "tilt": 0.56,
+   "phase": 0
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 30,
+   "y": 484,
+   "text": "● Mercury",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o1",
+   "cx": 450,
+   "cy": 255,
+   "r": 95.19999999999999,
+   "period": 9,
+   "size": 5.4,
+   "color": "#E8C170",
+   "tilt": 0.56,
+   "phase": 47
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 138,
+   "y": 484,
+   "text": "● Venus",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o2",
+   "cx": 450,
+   "cy": 255,
+   "r": 128.79999999999998,
+   "period": 12,
+   "size": 5.8500000000000005,
+   "color": "#4FA3E0",
+   "tilt": 0.56,
+   "phase": 94
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 246,
+   "y": 484,
+   "text": "● Earth",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o3",
+   "cx": 450,
+   "cy": 255,
+   "r": 159.6,
+   "period": 16,
+   "size": 5,
+   "color": "#E0623C",
+   "tilt": 0.56,
+   "phase": 141
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 354,
+   "y": 484,
+   "text": "● Mars",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o4",
+   "cx": 450,
+   "cy": 255,
+   "r": 212.79999999999998,
+   "period": 26,
+   "size": 11.700000000000001,
+   "color": "#D9A86C",
+   "tilt": 0.56,
+   "phase": 188
+  },
+  {
+   "kind": "text",
+   "id": "n4",
+   "x": 462,
+   "y": 484,
+   "text": "● Jupiter",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o5",
+   "cx": 450,
+   "cy": 255,
+   "r": 263.2,
+   "period": 36,
+   "size": 9.9,
+   "color": "#E6D29A",
+   "tilt": 0.56,
+   "phase": 235
+  },
+  {
+   "kind": "text",
+   "id": "n5",
+   "x": 570,
+   "y": 484,
+   "text": "● Saturn",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o6",
+   "cx": 450,
+   "cy": 255,
+   "r": 305.2,
+   "period": 48,
+   "size": 7.2,
+   "color": "#8EDCE6",
+   "tilt": 0.56,
+   "phase": 282
+  },
+  {
+   "kind": "text",
+   "id": "n6",
+   "x": 678,
+   "y": 484,
+   "text": "● Uranus",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o7",
+   "cx": 450,
+   "cy": 255,
+   "r": 344.4,
+   "period": 60,
+   "size": 7.2,
+   "color": "#4F6FE0",
+   "tilt": 0.56,
+   "phase": 329
+  },
+  {
+   "kind": "text",
+   "id": "n7",
+   "x": 786,
+   "y": 484,
+   "text": "● Neptune",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "solar-system",
+   "alt": "The planets of the Solar System",
+   "caption": "The Sun and its planets"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Sun is a star at the centre of our Solar System. It gives us light and heat."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "su",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Planets travel round the Sun in paths called orbits. The planets close to the Sun take only a short time to go round, and the far ones take very long."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "o0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "o1",
+     "at": 0.1875
+    },
+    {
+     "do": "draw",
+     "target": "o2",
+     "at": 0.275
+    },
+    {
+     "do": "draw",
+     "target": "o3",
+     "at": 0.36250000000000004
+    },
+    {
+     "do": "draw",
+     "target": "o4",
+     "at": 0.45000000000000007
+    },
+    {
+     "do": "draw",
+     "target": "o5",
+     "at": 0.5375000000000001
+    },
+    {
+     "do": "draw",
+     "target": "o6",
+     "at": 0.625
+    },
+    {
+     "do": "draw",
+     "target": "o7",
+     "at": 0.7125
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "From the Sun outwards the planets are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. Earth is the only one we know where living things are found."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.15625
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2625
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.36874999999999997
+    },
+    {
+     "do": "write",
+     "target": "n4",
+     "at": 0.475
+    },
+    {
+     "do": "write",
+     "target": "n5",
+     "at": 0.58125
+    },
+    {
+     "do": "write",
+     "target": "n6",
+     "at": 0.6875
+    },
+    {
+     "do": "write",
+     "target": "n7",
+     "at": 0.7937500000000001
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. The planets of the Solar System. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

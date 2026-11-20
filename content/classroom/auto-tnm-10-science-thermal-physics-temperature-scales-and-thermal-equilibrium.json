@@ -1,0 +1,283 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "thermal-physics",
+ "topic": "temperature-scales-and-thermal-equilibrium",
+ "status": "published",
+ "title": {
+  "en": "How heat travels"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Three ways heat travels",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sp",
+   "x": 60,
+   "y": 200,
+   "w": 230,
+   "h": 24,
+   "rx": 12,
+   "fill": "#B0BEC5",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "fl",
+   "x": 40,
+   "y": 215,
+   "text": "🔥",
+   "size": 50,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ar1",
+   "x1": 100,
+   "y1": 160,
+   "x2": 260,
+   "y2": 160,
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 175,
+   "y": 320,
+   "text": "Conduction",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t1b",
+   "x": 175,
+   "y": 355,
+   "text": "through solids",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "pot",
+   "x": 340,
+   "y": 220,
+   "w": 200,
+   "h": 120,
+   "rx": 12,
+   "fill": "#B3E5FC",
+   "stroke": "water",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "cv1",
+   "x1": 380,
+   "y1": 330,
+   "x2": 380,
+   "y2": 240,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "cv2",
+   "x1": 500,
+   "y1": 240,
+   "x2": 500,
+   "y2": 330,
+   "stroke": "water",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 440,
+   "y": 400,
+   "text": "Convection",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2b",
+   "x": 440,
+   "y": 435,
+   "text": "in liquids and gases",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sn",
+   "x": 750,
+   "y": 130,
+   "text": "☀️",
+   "size": 90,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "rd1",
+   "x1": 710,
+   "y1": 190,
+   "x2": 650,
+   "y2": 300,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "rd2",
+   "x1": 760,
+   "y1": 190,
+   "x2": 760,
+   "y2": 300,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 740,
+   "y": 400,
+   "text": "Radiation",
+   "size": 28,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t3b",
+   "x": 740,
+   "y": 435,
+   "text": "through empty space",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Heat always moves from a hotter place to a colder place. It can travel in three ways. In conduction, heat passes along a solid, like a metal spoon in hot tea, from the hot end to the cold end."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "fl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "sp",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "ar1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "t1b",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "In convection, a liquid or gas carries the heat. Hot water rises, cooler water sinks, and the water goes round and round."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "pot",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "cv1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "cv2",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "t2b",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "In radiation, heat travels as rays, even through empty space. This is how the Sun's heat reaches the Earth."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "sn",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "rd1",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "rd2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "t3b",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

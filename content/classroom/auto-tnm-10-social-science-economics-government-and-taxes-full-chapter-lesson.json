@@ -1,0 +1,192 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "social-science",
+ "chapter": "economics-government-and-taxes",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Taxes"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Taxes",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c0",
+   "x": 125,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 240,
+   "y": 238,
+   "text": "💼",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 240,
+   "y": 282,
+   "text": "Direct tax",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g0x0",
+   "x": 240,
+   "y": 310,
+   "text": "paid by the person",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c1",
+   "x": 545,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 660,
+   "y": 238,
+   "text": "🛒",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 660,
+   "y": 282,
+   "text": "Indirect tax",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g1x0",
+   "x": 660,
+   "y": 310,
+   "text": "included in the price",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Governments collect taxes to pay for roads, schools, hospitals and other public services."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A direct tax is paid directly to the government by the person or company it is charged on. Income tax is an example."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g0x0",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "An indirect tax is included in the price of goods and services. Goods and Services Tax, GST, is an example."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g1x0",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The money from taxes is spent for the good of everyone."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "c0",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

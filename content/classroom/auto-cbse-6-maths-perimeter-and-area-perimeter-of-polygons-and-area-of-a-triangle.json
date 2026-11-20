@@ -1,0 +1,186 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "perimeter-and-area",
+ "topic": "perimeter-of-polygons-and-area-of-a-triangle",
+ "status": "published",
+ "title": {
+  "en": "Area of a triangle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Area of a triangle",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "tr",
+   "points": [
+    [
+     220,
+     370
+    ],
+    [
+     680,
+     370
+    ],
+    [
+     440,
+     130
+    ]
+   ],
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "h",
+   "x1": 440,
+   "y1": 130,
+   "x2": 440,
+   "y2": 370,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "lh",
+   "x": 400,
+   "y": 255,
+   "text": "h",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 450,
+   "y": 410,
+   "text": "base b",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 450,
+   "y": 455,
+   "text": "Area = ½ × base × height",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 790,
+   "y": 250,
+   "text": "b = 8 cm",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex2",
+   "x": 790,
+   "y": 285,
+   "text": "h = 5 cm",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex3",
+   "x": 790,
+   "y": 330,
+   "text": "area = 20 cm²",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "This triangle has a base, and a height. The height is measured straight up from the base to the top corner, at a right angle."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "tr",
+     "at": 0.2,
+     "ms": 1200
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "h",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "lh",
+     "at": 0.85
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A triangle is half of a rectangle with the same base and height. So its area is half of base times height."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "For example, a base of 8 centimetres and a height of 5 centimetres give half of 8 times 5. That is 20 square centimetres."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "ex2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ex3",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

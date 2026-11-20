@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch09-propositions-and-their-converses",
+  "topic": "propositions-and-converses",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Propositions, converses and counterexamples"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "If it rains, the road is wet"
+        },
+        "text": {
+          "en": "If it rains, the road gets wet. But if the road is wet, did it rain? Maybe a tanker spilled water. Reversing a statement can change its truth."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "both false",
+          "both true",
+          "converse",
+          "counterexample",
+          "one counterexample disproves",
+          "proof needs reasoning",
+          "proposition",
+          "true but converse false"
+        ],
+        "text": {
+          "en": "A proposition is a statement that is either true or false.\nThe converse of 'if P then Q' is 'if Q then P'.\nA proposition can be true while its converse is false. 'If a number is divisible by 4 then it is even' is true, but 'if even then divisible by 4' is false.\nSometimes both are true: if two sides of a triangle are equal then the opposite angles are equal, and the converse also holds.\nSometimes both are false, so we must test each statement separately.\nA counterexample is one instance that shows a proposition is false. The number 6 is even but not divisible by 4.\nOne counterexample is enough to disprove a statement, but many examples cannot prove it for all cases.\nMathematicians prove statements with reasoning that works for every case."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A proposition is a statement that is either true or false."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "proposition"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The converse of 'if P then Q' is 'if Q then P'."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A proposition can be true while its converse is false. 'If a number is divisible by 4 then it is even' is true, but 'if even then divisible by 4' is false."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "true but converse false"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Sometimes both are true: if two sides of a triangle are equal then the opposite angles are equal, and the converse also holds."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "both true"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Sometimes both are false, so we must test each statement separately."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "both false"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A counterexample is one instance that shows a proposition is false. The number 6 is even but not divisible by 4."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "counterexample"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "One counterexample is enough to disprove a statement, but many examples cannot prove it for all cases."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one counterexample disproves"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Mathematicians prove statements with reasoning that works for every case."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "proof needs reasoning"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Write the converse of 'If a quadrilateral is a rectangle, its diagonals are equal' and test it."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Converse: if the diagonals of a quadrilateral are equal, it is a rectangle."
+            },
+            "why": {
+              "en": "Swap P and Q."
+            }
+          },
+          {
+            "text": {
+              "en": "An isosceles trapezium has equal diagonals but is not a rectangle."
+            },
+            "why": {
+              "en": "Look for a counterexample."
+            }
+          },
+          {
+            "text": {
+              "en": "So the converse is false."
+            },
+            "why": {
+              "en": "One counterexample is enough."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain converse and counterexample with an example."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Converse swaps the parts"
+          },
+          {
+            "en": "Truth may change"
+          },
+          {
+            "en": "One counterexample disproves"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Assuming the converse is always true"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m9-1",
+          "m9-2",
+          "m9-3",
+          "m9-4",
+          "m9-5",
+          "m9-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A proposition is true or false."
+          },
+          {
+            "en": "The converse of 'if P then Q' is 'if Q then P'."
+          },
+          {
+            "en": "A true proposition can have a false converse."
+          },
+          {
+            "en": "A counterexample disproves a proposition."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,250 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "factorisation-and-identities",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Algebraic Identities and Factorisation"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Ravi tried to find 102 × 98 quickly. He wrote 102 × 98 = (100 + 2)(100 − 2) = 10000 − 4 = 9996. A standard identity gave him the answer in seconds."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "identity",
+     "common factor",
+     "expansion",
+     "factorisation"
+    ],
+    "text": {
+     "en": "An identity is an equation that is true for every value of the variables. The three basic identities are (a + b)^2 = a^2 + 2ab + b^2, (a − b)^2 = a^2 − 2ab + b^2 and a^2 − b^2 = (a + b)(a − b).\nTo use (a + b)^2, write the number as a sum. For example 103^2 = (100 + 3)^2 = 10000 + 600 + 9 = 10609. For (a − b)^2 we use a difference, so 97^2 = (100 − 3)^2 = 10000 − 600 + 9 = 9409.\nFactorisation means writing an expression as a product of simpler factors. First take out the common factor. For 6x^2 + 9x the common factor is 3x, so 6x^2 + 9x = 3x(2x + 3).\nTo factorise x^2 + 5x + 6, find two numbers whose sum is 5 and whose product is 6. These are 2 and 3, so x^2 + 5x + 6 = (x + 2)(x + 3). Always multiply the factors back to check."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "An identity is an equation that is true for every value of the variables."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "identity"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "The three basic identities are (a + b)^2 = a^2 + 2ab + b^2, (a − b)^2 = a^2 − 2ab + b^2 and a^2 − b^2 = (a + b)(a − b)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "common factor"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "To use (a + b)^2, write the number as a sum."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "expansion"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "For example 103^2 = (100 + 3)^2 = 10000 + 600 + 9 = 10609."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "factorisation"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "For (a − b)^2 we use a difference, so 97^2 = (100 − 3)^2 = 10000 − 600 + 9 = 9409."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "identity"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Factorisation means writing an expression as a product of simpler factors."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "common factor"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "First take out the common factor."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "expansion"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "For 6x^2 + 9x the common factor is 3x, so 6x^2 + 9x = 3x(2x + 3)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "factorisation"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "To factorise x^2 + 5x + 6, find two numbers whose sum is 5 and whose product is 6."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "identity"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Factorise x^2 − 7x + 12."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "We need two numbers with product 12 and sum −7."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "The pair −3 and −4 gives product 12 and sum −7."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "So x^2 − 7x + 12 = (x − 3)(x − 4)."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "Check: (x − 3)(x − 4) = x^2 − 4x − 3x + 12 = x^2 − 7x + 12."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says (a + b)^2 = a^2 + b^2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "The middle term 2ab is missing"
+     },
+     {
+      "en": "Test with a = 2 and b = 3: (2+3)^2 = 25 but 4 + 9 = 13"
+     },
+     {
+      "en": "So the correct identity is a^2 + 2ab + b^2"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-fac820",
+     "r1-fac821"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "(a+b)^2 = a^2 + 2ab + b^2 and (a−b)^2 = a^2 − 2ab + b^2."
+     },
+     {
+      "en": "a^2 − b^2 = (a+b)(a−b)."
+     },
+     {
+      "en": "Take the common factor first, then look for patterns."
+     }
+    ]
+   }
+  ]
+ }
+}

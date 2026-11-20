@@ -8,6 +8,7 @@ import { useNotebook } from "../lib/tier2";
 
 interface InstallEvent extends Event { prompt: () => Promise<void> }
 const isIos = () => typeof navigator !== "undefined" && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+const isMobileDevice = () => typeof navigator !== "undefined" && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
 const isStandalone = () => typeof matchMedia === "function" && matchMedia("(display-mode: standalone)").matches;
 
 /** Install: Android/Chrome shows the real install prompt; iPhone gets the three Safari steps. */
@@ -29,7 +30,7 @@ export function InstallCard() {
         <button type="button" className="btn" onClick={() => { void evt.prompt(); setEvt(null); }}>{ui("installBtn", s.lang)}</button>
       ) : isIos() ? (
         <ol className="ios-steps"><li>{ui("installIos1", s.lang)}</li><li>{ui("installIos2", s.lang)}</li><li>{ui("installIos3", s.lang)}</li></ol>
-      ) : <p className="small">{ui("installOther", s.lang)}</p>}
+      ) : <p className="small">{s.text(isMobileDevice() ? "app.install.otherText" : "app.install.desktopText")}</p>}
     </section>
   );
 }

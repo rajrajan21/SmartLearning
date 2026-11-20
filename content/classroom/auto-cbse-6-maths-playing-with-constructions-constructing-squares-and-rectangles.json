@@ -1,0 +1,222 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "playing-with-constructions",
+ "topic": "constructing-squares-and-rectangles",
+ "status": "published",
+ "title": {
+  "en": "Squares and rectangles"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Squares and rectangles",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c0",
+   "x": 125,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 240,
+   "y": 238,
+   "text": "🟦",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 240,
+   "y": 282,
+   "text": "Square",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g0x0",
+   "x": 240,
+   "y": 310,
+   "text": "4 equal sides, 4 right",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g0x1",
+   "x": 240,
+   "y": 331.25,
+   "text": "angles",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c1",
+   "x": 545,
+   "y": 170,
+   "w": 230,
+   "h": 175,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 660,
+   "y": 238,
+   "text": "▭",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 660,
+   "y": 282,
+   "text": "Rectangle",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g1x0",
+   "x": 660,
+   "y": 310,
+   "text": "opposite sides equal, 4",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "g1x1",
+   "x": 660,
+   "y": 331.25,
+   "text": "right angles",
+   "size": 17,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Let us see what makes a square and a rectangle special before we construct them."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A square has four equal sides and four right angles. Its diagonals are equal and cross each other at a right angle."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g0x0",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "g0x1",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A rectangle has opposite sides equal and four right angles. Its two diagonals are equal in length."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.12
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.18
+    },
+    {
+     "do": "write",
+     "target": "g1x0",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "g1x1",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "To construct either one, we use these properties: the right angles and the equal sides."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "c0",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,219 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "maths",
+ "chapter": "thousands-around-us",
+ "topic": "rounding-and-expanding-numbers",
+ "status": "published",
+ "title": {
+  "en": "Rounding"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Rounding to the nearest ten",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ln",
+   "x1": 100,
+   "y1": 300,
+   "x2": 800,
+   "y2": 300,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 100,
+   "y": 350,
+   "text": "40",
+   "size": 36,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 800,
+   "y": 350,
+   "text": "50",
+   "size": 36,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ka",
+   "x1": 100,
+   "y1": 285,
+   "x2": 100,
+   "y2": 315,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "kb",
+   "x1": 800,
+   "y1": 285,
+   "x2": 800,
+   "y2": 315,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "km",
+   "x1": 450,
+   "y1": 288,
+   "x2": 450,
+   "y2": 312,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "tm",
+   "x": 450,
+   "y": 350,
+   "text": "45",
+   "size": 28,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "dt",
+   "cx": 590,
+   "cy": 300,
+   "r": 14,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "dn",
+   "x": 590,
+   "y": 255,
+   "text": "47",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "hp",
+   "x1": 590,
+   "y1": 280,
+   "x2": 780,
+   "y2": 280,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "rs",
+   "x": 450,
+   "y": 440,
+   "text": "47 is nearer to 50, so it rounds to 50",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "To round a number to the nearest ten, we see which ten it is closest to. Look at 47. It lies between 40 and 50."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ln",
+     "at": 0.2
+    },
+    {
+     "do": "show",
+     "target": "ka",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "kb",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "dt",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "dn",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The middle point is 45. A number that is 45 or more rounds up. A number below 45 rounds down."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "km",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "tm",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "47 is past the middle, so it rounds up to 50."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "hp",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "rs",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

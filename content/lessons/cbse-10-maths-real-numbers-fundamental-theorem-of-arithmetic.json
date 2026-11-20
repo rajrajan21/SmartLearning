@@ -1,0 +1,240 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "fundamental-theorem-of-arithmetic",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Fundamental Theorem of Arithmetic, HCF and LCM"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Breaking a number into building blocks"
+        },
+        "text": {
+          "en": "A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or sixes? Numbers break into smaller blocks just like boxes. Today we see that every number breaks into prime blocks in exactly one way."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "32760 = 2^3 x 3^2 x 5 x 7 x 13",
+          "4^n never ends in 0",
+          "HCF 2, LCM 60",
+          "HCF = smallest power",
+          "HCF x LCM = a x b",
+          "prime and composite",
+          "two numbers only",
+          "unique factorisation"
+        ],
+        "text": {
+          "en": "Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors.\nThe Fundamental Theorem of Arithmetic says: every composite number can be written as a product of primes, and this factorisation is unique, apart from the order of the primes.\nFor example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13.\nThe theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well.\nTo find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power.\nTake 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60.\nFor any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20.\nRemember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "prime and composite"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The Fundamental Theorem of Arithmetic says: every composite number can be written as a product of primes, and this factorisation is unique, apart from the order of the primes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "unique factorisation"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "32760 = 2^3 x 3^2 x 5 x 7 x 13"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "4^n never ends in 0"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF = smallest power"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF 2, LCM 60"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF x LCM = a x b"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "two numbers only"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the LCM and HCF of 12, 15 and 21 using prime factorisation."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "12 = 2^2 x 3, 15 = 3 x 5, 21 = 3 x 7."
+            },
+            "why": {
+              "en": "Write each number as a product of primes."
+            }
+          },
+          {
+            "text": {
+              "en": "HCF takes common primes with the smallest power: only 3 is common, so HCF = 3."
+            },
+            "why": {
+              "en": "Common to all three: 3."
+            }
+          },
+          {
+            "text": {
+              "en": "LCM takes every prime with the greatest power: 2^2 x 3 x 5 x 7 = 420."
+            },
+            "why": {
+              "en": "Include 2, 3, 5 and 7 each once with the biggest power seen."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find HCF and LCM from prime factors?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Write each number as a product of primes"
+          },
+          {
+            "en": "HCF uses common primes with smallest power"
+          },
+          {
+            "en": "LCM uses all primes with greatest power"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using HCF x LCM = product for three numbers"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-fta1",
+          "r1-fta2",
+          "r2-fta3",
+          "r2-fta4",
+          "r2-fta5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Every composite number is a unique product of primes (apart from order)."
+          },
+          {
+            "en": "HCF = product of common primes with the smallest powers; LCM = product of all primes with the greatest powers."
+          },
+          {
+            "en": "For two positive integers, HCF x LCM = product of the two numbers."
+          },
+          {
+            "en": "A number of the form 4^n cannot end in 0."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch08-predicting-what-comes-next-exploring-sequences-a",
+  "topic": "sequences-ap-and-gp",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sequences, arithmetic and geometric progressions"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Predicting what comes next"
+        },
+        "text": {
+          "en": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "AP: add d",
+          "GP: multiply by r",
+          "explicit and recursive",
+          "sequence, term",
+          "t_n = a + (n - 1)d",
+          "t_n = a r^(n - 1)",
+          "t_n = n(n + 1)/2",
+          "test: difference or ratio"
+        ],
+        "text": {
+          "en": "A sequence is an ordered list of numbers, and each number is called a term.\nAn explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms.\nThe triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers.\nIn an arithmetic progression each term is obtained by adding a fixed number d, the common difference.\nThe nth term of an AP is t_n = a + (n - 1)d, where a is the first term.\nIn a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio.\nThe nth term of a GP is t_n = a r^(n - 1). For 2, 6, 18 the ratio is 3.\nCheck which kind it is: subtract consecutive terms for an AP, divide them for a GP."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A sequence is an ordered list of numbers, and each number is called a term."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sequence, term"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "explicit and recursive"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_n = n(n + 1)/2"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In an arithmetic progression each term is obtained by adding a fixed number d, the common difference."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AP: add d"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The nth term of an AP is t_n = a + (n - 1)d, where a is the first term."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_n = a + (n - 1)d"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "In a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "GP: multiply by r"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The nth term of a GP is t_n = a r^(n - 1). For 2, 6, 18 the ratio is 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_n = a r^(n - 1)"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Check which kind it is: subtract consecutive terms for an AP, divide them for a GP."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "test: difference or ratio"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the 10th term of the AP 5, 8, 11, ..."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "a = 5 and d = 3."
+            },
+            "why": {
+              "en": "Read the first term and the common difference."
+            }
+          },
+          {
+            "text": {
+              "en": "t_10 = 5 + 9 x 3."
+            },
+            "why": {
+              "en": "Use a + (n - 1)d."
+            }
+          },
+          {
+            "text": {
+              "en": "t_10 = 32."
+            },
+            "why": {
+              "en": "Simplify."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you tell an AP from a GP and find the nth term?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "AP has a common difference"
+          },
+          {
+            "en": "GP has a common ratio"
+          },
+          {
+            "en": "Use the correct nth term formula"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using n instead of n - 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m8-1",
+          "m8-2",
+          "m8-3",
+          "m8-4",
+          "m8-5",
+          "m8-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A sequence is an ordered list of terms."
+          },
+          {
+            "en": "AP: t_n = a + (n - 1)d."
+          },
+          {
+            "en": "GP: t_n = a r^(n - 1)."
+          },
+          {
+            "en": "Triangular numbers have t_n = n(n + 1)/2."
+          }
+        ]
+      }
+    ]
+  }
+}

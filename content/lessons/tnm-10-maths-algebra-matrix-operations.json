@@ -1,0 +1,248 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "matrix-operations",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Operations on matrices"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Factory workers table"
+        },
+        "text": {
+          "en": "Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "addition and subtraction",
+          "scalar multiplication",
+          "properties of addition",
+          "condition for multiplication",
+          "row times column",
+          "non-commutative",
+          "identity and transpose"
+        ],
+        "text": {
+          "en": "Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements.\nMultiplying a matrix by a scalar k multiplies every element by k.\nMatrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse.\nMatrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p.\nThe element in row i and column j of AB is the sum of products of row i of A with column j of B.\nMultiplication is generally not commutative: AB need not equal BA.\nThe identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-matrix-operations.svg",
+        "altText": {
+          "en": "Two matrices with a row of A and a column of B highlighted and the product worked out"
+        },
+        "caption": {
+          "en": "Matrix multiplication"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "addition and subtraction"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Multiplying a matrix by a scalar k multiplies every element by k."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "scalar multiplication"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "properties of addition"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "condition for multiplication"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "row times column"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Multiplication is generally not commutative: AB need not equal BA."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "non-commutative"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "identity and transpose"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "For A = [[1,2],[3,4]] and B = [[5,6],[7,8]] find A + B, 2A, AB and BA."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "A + B adds corresponding entries: [[6,8],[10,12]]."
+            },
+            "why": {
+              "en": "1+5, 2+6, 3+7, 4+8."
+            }
+          },
+          {
+            "text": {
+              "en": "2A doubles every entry: [[2,4],[6,8]]."
+            },
+            "why": {
+              "en": "Scalar multiplication."
+            }
+          },
+          {
+            "text": {
+              "en": "AB: first row times columns gives 1x5+2x7 = 19 and 1x6+2x8 = 22; second row gives 3x5+4x7 = 43 and 3x6+4x8 = 50. So AB = [[19,22],[43,50]]."
+            },
+            "why": {
+              "en": "Row by column."
+            }
+          },
+          {
+            "text": {
+              "en": "BA: 5x1+6x3 = 23, 5x2+6x4 = 34, 7x1+8x3 = 31, 7x2+8x4 = 46. So BA = [[23,34],[31,46]]."
+            },
+            "why": {
+              "en": "Different from AB."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A is of order 2 x 3 and B of order 3 x 4. Is AB defined? What is its order?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Columns of A = 3 = rows of B, so AB is defined"
+          },
+          {
+            "en": "The order of AB is 2 x 4"
+          },
+          {
+            "en": "BA is not defined because 4 is not equal to 2"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Assuming AB = BA"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma998-1",
+          "r1-m10ma998-2",
+          "r1-m10ma998-3",
+          "r2-m10ma998-4",
+          "r2-m10ma998-5",
+          "r2-m10ma998-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Add matrices of the same order only."
+          },
+          {
+            "en": "AB needs columns of A = rows of B."
+          },
+          {
+            "en": "AB is not usually equal to BA."
+          },
+          {
+            "en": "A I = A."
+          }
+        ]
+      }
+    ]
+  }
+}

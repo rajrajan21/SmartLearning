@@ -1,0 +1,273 @@
+{
+  "board": "CBSE",
+  "classLevel": 8,
+  "subject": "maths",
+  "chapter": "ch14-area",
+  "topic": "area-of-rectangles-triangles-trapezia",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Area of rectangles, triangles, parallelograms and trapezia"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Rangoli powder"
+        },
+        "text": {
+          "en": "Two rectangles of rangoli: one 3 cm × 8 cm and one 4 cm × 7 cm. Which needs more powder if colouring evenly?"
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "area",
+          "height",
+          "base",
+          "trapezium",
+          "parallelogram"
+        ],
+        "text": {
+          "en": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28.\nPerimeter is the length of the boundary, which is not a measure of area, because different shapes with the same perimeter can have very different areas.\nA diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the rectangle: ½ × base × height.\nAny triangle with base b and height h has area ½bh, because two copies make a parallelogram.\nA parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is base × height.\nThe height is the perpendicular distance between the base and the opposite side, not the slanted side.\nA trapezium with parallel sides a and b and height h has area ½(a + b)h, the average of the parallel sides times height.\nA rhombus or kite with diagonals d₁ and d₂ has area ½d₁d₂.\nArea of a compound shape is found by splitting it into rectangles and triangles and adding.\nCompressing a shape along one direction and stretching along another by the same factor keeps its area the same."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c89-trapezium.svg",
+        "altText": {
+          "en": "Trapezium with parallel sides a and b and height h"
+        },
+        "caption": {
+          "en": "Area of a trapezium"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "area = l × w"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Perimeter is the length of the boundary, which is not a measure of area, because different shapes with the same perimeter can have very different areas."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "perimeter ≠ area"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the rectangle: ½ × base × height."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "triangle = ½ b h"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Any triangle with base b and height h has area ½bh, because two copies make a parallelogram."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2 triangles = parallelogram"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is base × height."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallelogram = b × h"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The height is the perpendicular distance between the base and the opposite side, not the slanted side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "height ⊥ base"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "A trapezium with parallel sides a and b and height h has area ½(a + b)h, the average of the parallel sides times height."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "trapezium = ½(a + b)h"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A rhombus or kite with diagonals d₁ and d₂ has area ½d₁d₂."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "½ × d₁ × d₂"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Area of a compound shape is found by splitting it into rectangles and triangles and adding."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "split and add"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Compressing a shape along one direction and stretching along another by the same factor keeps its area the same."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "compress × stretch"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A trapezium has parallel sides 8 cm and 12 cm and height 5 cm. Find its area."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Area = ½ × (a + b) × h."
+            },
+            "why": {
+              "en": "Trapezium formula."
+            }
+          },
+          {
+            "text": {
+              "en": "½ × (8 + 12) × 5 = ½ × 20 × 5."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "= 50 square cm."
+            },
+            "why": {
+              "en": "Multiply."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Why is a triangle's area ½ × base × height?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Two equal triangles make a parallelogram."
+          },
+          {
+            "en": "A parallelogram has area base × height."
+          },
+          {
+            "en": "So one triangle has half."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Area of a triangle is base × height."
+          },
+          {
+            "en": "Slanted side is the height."
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-are680",
+          "r1-are681",
+          "r1-are682",
+          "r1-are683",
+          "r1-are684"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Rectangle: l × w; triangle: ½ b h; parallelogram: b × h."
+          },
+          {
+            "en": "Trapezium: ½(a + b)h; rhombus or kite: ½ d₁d₂."
+          },
+          {
+            "en": "Perimeter is not a measure of area."
+          }
+        ]
+      }
+    ]
+  }
+}

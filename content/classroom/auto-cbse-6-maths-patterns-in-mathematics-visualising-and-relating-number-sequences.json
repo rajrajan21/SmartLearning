@@ -1,0 +1,254 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "patterns-in-mathematics",
+ "topic": "visualising-and-relating-number-sequences",
+ "status": "published",
+ "title": {
+  "en": "Patterns"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "Patterns",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "s0",
+   "cx": 100,
+   "cy": 220,
+   "r": 32,
+   "fill": "#FF8A65",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "poly",
+   "id": "s1",
+   "points": [
+    [
+     165,
+     250
+    ],
+    [
+     225,
+     250
+    ],
+    [
+     195,
+     190
+    ]
+   ],
+   "fill": "#6EC6FF",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "s2",
+   "cx": 290,
+   "cy": 220,
+   "r": 32,
+   "fill": "#FF8A65",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "poly",
+   "id": "s3",
+   "points": [
+    [
+     355,
+     250
+    ],
+    [
+     415,
+     250
+    ],
+    [
+     385,
+     190
+    ]
+   ],
+   "fill": "#6EC6FF",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "s4",
+   "cx": 480,
+   "cy": 220,
+   "r": 32,
+   "fill": "#FF8A65",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "poly",
+   "id": "s5",
+   "points": [
+    [
+     545,
+     250
+    ],
+    [
+     605,
+     250
+    ],
+    [
+     575,
+     190
+    ]
+   ],
+   "fill": "#6EC6FF",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "s6",
+   "cx": 670,
+   "cy": 220,
+   "r": 32,
+   "fill": "#FF8A65",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "poly",
+   "id": "s7",
+   "points": [
+    [
+     735,
+     250
+    ],
+    [
+     795,
+     250
+    ],
+    [
+     765,
+     190
+    ]
+   ],
+   "fill": "#6EC6FF",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "q",
+   "x": 860,
+   "y": 235,
+   "text": "?",
+   "size": 60,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "say",
+   "x": 450,
+   "y": 400,
+   "text": "circle, triangle, circle, triangle ...",
+   "size": 34,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A pattern is something that repeats again and again in the same order. Look at these shapes."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "s0",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "draw",
+     "target": "s3",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Circle, triangle, circle, triangle. The pattern repeats after every two shapes, so we can guess what comes next."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "s4",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "s5",
+     "at": 0.525
+    },
+    {
+     "do": "draw",
+     "target": "s6",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "s7",
+     "at": 0.775
+    },
+    {
+     "do": "write",
+     "target": "say",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The next shape after a triangle is a circle. Finding the rule of a pattern lets us predict what comes next."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "q",
+     "at": 0.1,
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "q",
+     "at": 0.15
+    }
+   ]
+  }
+ ]
+}

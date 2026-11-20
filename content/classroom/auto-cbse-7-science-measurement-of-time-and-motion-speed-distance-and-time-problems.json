@@ -1,0 +1,152 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "measurement-of-time-and-motion",
+ "topic": "speed-distance-and-time-problems",
+ "status": "published",
+ "title": {
+  "en": "Speed, distance and time"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Speed, distance and time",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f1",
+   "x": 450,
+   "y": 130,
+   "text": "speed = distance ÷ time",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f2",
+   "x": 450,
+   "y": 185,
+   "text": "distance = speed × time",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f3",
+   "x": 450,
+   "y": 235,
+   "text": "time = distance ÷ speed",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 450,
+   "y": 320,
+   "text": "A bus goes 60 km in 2 hours.",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r",
+   "x": 450,
+   "y": 375,
+   "text": "speed = 60 ÷ 2 = 30 km per hour",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r2",
+   "x": 450,
+   "y": 425,
+   "text": "In 3 hours it goes 30 × 3 = 90 km",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Speed tells us how much distance something covers in one unit of time. We find it by dividing the distance by the time."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "f1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "From this we also get distance, which is speed times time, and time, which is distance divided by speed."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "f2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "f3",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A bus goes 60 kilometres in 2 hours. Its speed is 60 divided by 2, which is 30 kilometres per hour."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "r",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "At the same speed, in 3 hours the bus covers 30 times 3, which is 90 kilometres."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r2",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

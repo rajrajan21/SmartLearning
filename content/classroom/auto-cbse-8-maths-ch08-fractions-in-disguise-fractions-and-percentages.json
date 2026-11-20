@@ -1,0 +1,263 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch08-fractions-in-disguise",
+ "topic": "fractions-and-percentages",
+ "status": "published",
+ "title": {
+  "en": "Fractions"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "Fractions",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "whole",
+   "cx": 330,
+   "cy": 275,
+   "r": 158,
+   "fill": "#F6D7A0",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "sector",
+   "id": "p0",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 0,
+   "to": 45,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p1",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 45,
+   "to": 90,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p2",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 90,
+   "to": 135,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p3",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 135,
+   "to": 180,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p4",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 180,
+   "to": 225,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p5",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 225,
+   "to": 270,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p6",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 270,
+   "to": 315,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "p7",
+   "cx": 330,
+   "cy": 275,
+   "r": 150,
+   "from": 315,
+   "to": 360,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "frac",
+   "x": 700,
+   "y": 255,
+   "text": "3/8",
+   "size": 110,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "bar",
+   "x1": 620,
+   "y1": 270,
+   "x2": 780,
+   "y2": 270,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "say",
+   "x": 700,
+   "y": 400,
+   "text": "3 of 8 equal parts",
+   "size": 26,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A fraction tells us how many equal parts of a whole we are talking about. Here is one whole roti."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "whole",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Now cut the roti into 8 equal parts. Each part is one eighth. All the parts must be exactly the same size."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.25,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.325,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.4,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p3",
+     "at": 0.475,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p4",
+     "at": 0.55,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p5",
+     "at": 0.625,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p6",
+     "at": 0.7,
+     "ms": 500
+    },
+    {
+     "do": "draw",
+     "target": "p7",
+     "at": 0.775,
+     "ms": 500
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Colour 3 of the 8 parts. We write this as 3 over 8. The number below the line says how many equal parts, and the number above says how many we took."
+   },
+   "actions": [
+    {
+     "do": "fill",
+     "target": "p0",
+     "color": "accent",
+     "at": 0.05
+    },
+    {
+     "do": "fill",
+     "target": "p1",
+     "color": "accent",
+     "at": 0.13333333333333333
+    },
+    {
+     "do": "fill",
+     "target": "p2",
+     "color": "accent",
+     "at": 0.21666666666666667
+    },
+    {
+     "do": "write",
+     "target": "frac",
+     "on": "3 over 8"
+    },
+    {
+     "do": "draw",
+     "target": "bar",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

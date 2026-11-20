@@ -1,0 +1,240 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "pair-of-linear-equations-in-two-variables",
+  "topic": "algebraic-methods",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Substitution and elimination methods"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Solving without a graph"
+        },
+        "text": {
+          "en": "Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "elimination",
+          "inconsistent check",
+          "s = t + 3",
+          "substitution",
+          "t = 6, s = 9",
+          "u = 1/x",
+          "verify",
+          "word problems"
+        ],
+        "text": {
+          "en": "In the substitution method, express one variable in terms of the other from one equation, then substitute into the second.\nTake s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3.\nSubstitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9.\nIn the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it.\nSolve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7.\nAlways check the final answer by putting it back in both equations.\nMany word problems reduce to a pair of linear equations: ages, money, speed in still water and against a stream, and digits of a number.\nSome equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "substitution"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "s = t + 3"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t = 6, s = 9"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "elimination"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "inconsistent check"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Always check the final answer by putting it back in both equations."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "verify"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Many word problems reduce to a pair of linear equations: ages, money, speed in still water and against a stream, and digits of a number."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "word problems"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Some equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "u = 1/x"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "The sum of two numbers is 27 and their difference is 5. Find them."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Let the numbers be x and y: x + y = 27 and x - y = 5."
+            },
+            "why": {
+              "en": "Form two equations."
+            }
+          },
+          {
+            "text": {
+              "en": "Add: 2x = 32, so x = 16."
+            },
+            "why": {
+              "en": "Elimination removes y."
+            }
+          },
+          {
+            "text": {
+              "en": "Then y = 27 - 16 = 11. Check: 16 - 11 = 5."
+            },
+            "why": {
+              "en": "Substitute and verify."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "When will you use elimination instead of substitution?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "When coefficients can be matched easily"
+          },
+          {
+            "en": "Add or subtract to remove a variable"
+          },
+          {
+            "en": "Check the answer in both equations"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to change both sides while multiplying"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-al1",
+          "r1-al2",
+          "r2-al3",
+          "r2-al4",
+          "r2-al5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Substitution: express one variable and substitute."
+          },
+          {
+            "en": "Elimination: equalise a coefficient, then add or subtract."
+          },
+          {
+            "en": "Word problems are turned into two linear equations; always verify."
+          },
+          {
+            "en": "Equations in 1/x and 1/y can be reduced to linear form."
+          }
+        ]
+      }
+    ]
+  }
+}

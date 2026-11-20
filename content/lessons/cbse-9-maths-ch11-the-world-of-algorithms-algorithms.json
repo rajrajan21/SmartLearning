@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch11-the-world-of-algorithms",
+  "topic": "algorithms",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Algorithms: steps, conditions and efficiency"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A recipe for solving problems"
+        },
+        "text": {
+          "en": "A recipe lists the steps to cook a dish. In mathematics, an algorithm is a recipe for solving a problem, and a computer can follow it exactly."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "algorithm",
+          "basic steps",
+          "conditional step",
+          "correctness",
+          "divisors of 12",
+          "efficiency",
+          "fewer steps",
+          "repeat"
+        ],
+        "text": {
+          "en": "An algorithm is a systematic procedure to solve a problem.\nIt consists of basic steps that we know how to execute.\nWe can repeat a step many times, for example for each j in 1, 2, ..., n, check whether j divides n.\nA step can be conditional: add j to the list of divisors of n only if j divides n.\nTo list the divisors of 12 we test every j from 1 to 12 and keep those that divide 12: 1, 2, 3, 4, 6, 12.\nWhen we describe an algorithm we must justify that it is correct for every input.\nWe can also count how many steps it takes in terms of the size of the input, and so judge its efficiency.\nA smarter algorithm may need fewer steps, for example testing j only up to the square root of n."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An algorithm is a systematic procedure to solve a problem."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "algorithm"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "It consists of basic steps that we know how to execute."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "basic steps"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "We can repeat a step many times, for example for each j in 1, 2, ..., n, check whether j divides n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "repeat"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A step can be conditional: add j to the list of divisors of n only if j divides n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conditional step"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To list the divisors of 12 we test every j from 1 to 12 and keep those that divide 12: 1, 2, 3, 4, 6, 12."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "divisors of 12"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "When we describe an algorithm we must justify that it is correct for every input."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "correctness"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "We can also count how many steps it takes in terms of the size of the input, and so judge its efficiency."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "efficiency"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A smarter algorithm may need fewer steps, for example testing j only up to the square root of n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "fewer steps"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Write the algorithm to find the largest of three numbers a, b, c."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Set max = a."
+            },
+            "why": {
+              "en": "Start with the first number."
+            }
+          },
+          {
+            "text": {
+              "en": "If b > max set max = b; if c > max set max = c."
+            },
+            "why": {
+              "en": "Conditional steps."
+            }
+          },
+          {
+            "text": {
+              "en": "Output max."
+            },
+            "why": {
+              "en": "Finish."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What are the features of an algorithm?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Basic steps"
+          },
+          {
+            "en": "Repeat and condition"
+          },
+          {
+            "en": "Correct and efficient"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Skipping the check of correctness"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m11-1",
+          "m11-2",
+          "m11-3",
+          "m11-4",
+          "m11-5",
+          "m11-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "An algorithm is a step-by-step procedure."
+          },
+          {
+            "en": "Steps can repeat and can be conditional."
+          },
+          {
+            "en": "We must justify correctness."
+          },
+          {
+            "en": "We can compare algorithms by the number of steps."
+          }
+        ]
+      }
+    ]
+  }
+}

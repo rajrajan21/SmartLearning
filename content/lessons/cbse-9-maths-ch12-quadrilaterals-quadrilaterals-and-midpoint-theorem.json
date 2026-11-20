@@ -1,0 +1,253 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch12-quadrilaterals",
+  "topic": "quadrilaterals-and-midpoint-theorem",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Quadrilaterals, parallelograms and the midpoint theorem"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Four points, one shape"
+        },
+        "text": {
+          "en": "Pick four points and join them: you get a four-sided shape. Which shapes become parallelograms, and what can we prove about them?"
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "centroid 2:1",
+          "converse",
+          "convex",
+          "diagonals bisect",
+          "midpoint theorem",
+          "opposite sides or angles equal",
+          "quadrilateral",
+          "sum of angles 360"
+        ],
+        "text": {
+          "en": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners.\nIt is convex when all internal angles are less than 180 degrees, equivalently when its diagonals intersect.\nA 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal.\nIt is also a parallelogram if its diagonals bisect each other, or if one pair of opposite sides is equal and parallel.\nMidpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length.\nConverse: a line through the midpoint of one side parallel to a second side bisects the third side.\nThe three medians of a triangle meet at the centroid, which divides each median in the ratio 2 : 1.\nThe angles of a quadrilateral add up to 360 degrees."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c89-midpoint-theorem.svg",
+        "altText": {
+          "en": "Triangle ABC with D and E the midpoints of AB and AC"
+        },
+        "caption": {
+          "en": "Midpoint theorem"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "quadrilateral"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "It is convex when all internal angles are less than 180 degrees, equivalently when its diagonals intersect."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "convex"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "opposite sides or angles equal"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "It is also a parallelogram if its diagonals bisect each other, or if one pair of opposite sides is equal and parallel."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "diagonals bisect"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Midpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "midpoint theorem"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Converse: a line through the midpoint of one side parallel to a second side bisects the third side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The three medians of a triangle meet at the centroid, which divides each median in the ratio 2 : 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "centroid 2:1"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "The angles of a quadrilateral add up to 360 degrees."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum of angles 360"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, D and E are midpoints of AB and AC and BC = 10 cm. Find DE."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By the midpoint theorem DE is parallel to BC."
+            },
+            "why": {
+              "en": "Join the midpoints."
+            }
+          },
+          {
+            "text": {
+              "en": "DE = half of BC."
+            },
+            "why": {
+              "en": "Midpoint theorem."
+            }
+          },
+          {
+            "text": {
+              "en": "DE = 5 cm."
+            },
+            "why": {
+              "en": "Compute."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the midpoint theorem and two tests for a parallelogram."
+        },
+        "requiredIdeas": [
+          {
+            "en": "DE parallel to BC and half of it"
+          },
+          {
+            "en": "Diagonals bisect each other"
+          },
+          {
+            "en": "One pair equal and parallel"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting the half"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m12-1",
+          "m12-2",
+          "m12-3",
+          "m12-4",
+          "m12-5",
+          "m12-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Four conditions make a 4-gon a parallelogram."
+          },
+          {
+            "en": "Midpoint theorem: parallel and half the third side."
+          },
+          {
+            "en": "Medians meet at the centroid in the ratio 2 : 1."
+          },
+          {
+            "en": "Angle sum of a quadrilateral is 360 degrees."
+          }
+        ]
+      }
+    ]
+  }
+}

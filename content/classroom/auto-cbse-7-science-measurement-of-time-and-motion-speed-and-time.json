@@ -1,0 +1,324 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "measurement-of-time-and-motion",
+ "topic": "speed-and-time",
+ "status": "published",
+ "title": {
+  "en": "Speed"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Speed",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "rd",
+   "x1": 80,
+   "y1": 300,
+   "x2": 820,
+   "y2": 300,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "c0",
+   "x": 130,
+   "y": 280,
+   "text": "🚗",
+   "size": 64,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k0",
+   "x1": 130,
+   "y1": 305,
+   "x2": 130,
+   "y2": 325,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d0",
+   "x": 130,
+   "y": 365,
+   "text": "0 m",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s0",
+   "x": 130,
+   "y": 215,
+   "text": "0 s",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "c1",
+   "x": 340,
+   "y": 280,
+   "text": "🚗",
+   "size": 64,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k1",
+   "x1": 340,
+   "y1": 305,
+   "x2": 340,
+   "y2": 325,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d1",
+   "x": 340,
+   "y": 365,
+   "text": "60 m",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s1",
+   "x": 340,
+   "y": 215,
+   "text": "1 s",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "c2",
+   "x": 550,
+   "y": 280,
+   "text": "🚗",
+   "size": 64,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k2",
+   "x1": 550,
+   "y1": 305,
+   "x2": 550,
+   "y2": 325,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d2",
+   "x": 550,
+   "y": 365,
+   "text": "120 m",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s2",
+   "x": 550,
+   "y": 215,
+   "text": "2 s",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "c3",
+   "x": 760,
+   "y": 280,
+   "text": "🚗",
+   "size": 64,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k3",
+   "x1": 760,
+   "y1": 305,
+   "x2": 760,
+   "y2": 325,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d3",
+   "x": 760,
+   "y": 365,
+   "text": "180 m",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s3",
+   "x": 760,
+   "y": 215,
+   "text": "3 s",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sp",
+   "x": 450,
+   "y": 450,
+   "text": "Speed = distance ÷ time = 60 m ÷ 1 s = 60 m/s",
+   "size": 28,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Speed tells us how fast something moves. A moving car covers some distance in some time."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "rd",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here the car is at the start, after one second it has gone sixty metres, after two seconds one hundred and twenty metres, and after three seconds one hundred and eighty metres."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "c0",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "k0",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "d0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "s0",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "c1",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "k1",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "d1",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "write",
+     "target": "s1",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "show",
+     "target": "c2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "draw",
+     "target": "k2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "write",
+     "target": "d2",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "s2",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "c3",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "k3",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "d3",
+     "at": 0.7000000000000001
+    },
+    {
+     "do": "write",
+     "target": "s3",
+     "at": 0.7000000000000001
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Speed is the distance divided by the time. Sixty metres in one second is a speed of sixty metres per second. This is an example with easy numbers."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "sp",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

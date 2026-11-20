@@ -1,0 +1,197 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "quadratic-equations-solving",
+ "status": "published",
+ "title": {
+  "en": "Quadratic equations"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Quadratic equations",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 450,
+   "y": 110,
+   "text": "ax² + bx + c = 0   (a ≠ 0)",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e",
+   "x": 450,
+   "y": 175,
+   "text": "Example: x² − 5x + 6 = 0",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 450,
+   "y": 220,
+   "text": "(x − 2)(x − 3) = 0",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 450,
+   "y": 265,
+   "text": "x = 2 or x = 3",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q",
+   "x": 450,
+   "y": 330,
+   "text": "x = (−b ± √(b² − 4ac)) ÷ 2a",
+   "size": 32,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d",
+   "x": 450,
+   "y": 380,
+   "text": "Discriminant b² − 4ac:",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d1",
+   "x": 450,
+   "y": 415,
+   "text": "more than 0: two different real roots",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d2",
+   "x": 450,
+   "y": 445,
+   "text": "equal to 0: two equal roots",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d3",
+   "x": 450,
+   "y": 475,
+   "text": "less than 0: no real roots",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A quadratic equation has the form a x squared plus b x plus c equals zero, where a is not zero."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "One way to solve it is by factorising. For x squared minus 5 x plus 6, the factors are x minus 2 and x minus 3. The product is zero when one factor is zero, so x is 2 or x is 3."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "e",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "e3",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Another way is the quadratic formula, which works for every quadratic equation."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "q",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The part under the square root, b squared minus 4 a c, is the discriminant. It tells us the kind of roots. If it is more than zero there are two different real roots, if it is zero the roots are equal, and if it is less than zero there are no real roots."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "d",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "d1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "d2",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "d3",
+     "at": 0.8
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,204 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "constructions-and-tilings",
+ "topic": "constructing-angles-and-bisectors",
+ "status": "published",
+ "title": {
+  "en": "Angle bisector"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Bisecting an angle",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "oa",
+   "x1": 230,
+   "y1": 400,
+   "x2": 560,
+   "y2": 400,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "ob",
+   "x1": 230,
+   "y1": 400,
+   "x2": 343,
+   "y2": 90,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "oc",
+   "x1": 230,
+   "y1": 400,
+   "x2": 500,
+   "y2": 211,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 578,
+   "y": 408,
+   "text": "A",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 343,
+   "y": 78,
+   "text": "B",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lc",
+   "x": 520,
+   "y": 205,
+   "text": "C",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lo",
+   "x": 210,
+   "y": 406,
+   "text": "O",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 640,
+   "y": 300,
+   "text": "35°",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 520,
+   "y": 230,
+   "text": "35°",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tt",
+   "x": 450,
+   "y": 465,
+   "text": "∠AOB = 70°, so each half is 35°",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Here is an angle AOB of 70 degrees. The two arms meet at the point O."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "oa",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "ob",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "lo",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The angle bisector is the ray that cuts the angle into two equal angles. Here the ray OC does that."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "oc",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lc",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Each of the two angles is half of the whole. Half of 70 degrees is 35 degrees."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "tt",
+     "at": 0.55
+    }
+   ]
+  }
+ ]
+}

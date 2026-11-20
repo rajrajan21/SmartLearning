@@ -1,0 +1,191 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-common-ground",
+ "topic": "prime-factorisation-hcf-and-lcm-in-problems",
+ "status": "published",
+ "title": {
+  "en": "HCF and LCM"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "HCF and LCM of 12 and 18",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f12",
+   "x": 450,
+   "y": 120,
+   "text": "Factors of 12: 1, 2, 3, 4, 6, 12",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f18",
+   "x": 450,
+   "y": 165,
+   "text": "Factors of 18: 1, 2, 3, 6, 9, 18",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "cf",
+   "x": 450,
+   "y": 215,
+   "text": "Common factors: 1, 2, 3, 6",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hcf",
+   "x": 450,
+   "y": 265,
+   "text": "HCF = 6 (the highest common factor)",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m12",
+   "x": 450,
+   "y": 335,
+   "text": "Multiples of 12: 12, 24, 36, 48 ...",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m18",
+   "x": 450,
+   "y": 380,
+   "text": "Multiples of 18: 18, 36, 54 ...",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lcm",
+   "x": 450,
+   "y": 440,
+   "text": "LCM = 36 (the lowest common multiple)",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Let us find the HCF and the LCM of 12 and 18. First list the factors of each number."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "f12",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "f18",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The factors that appear in both lists are 1, 2, 3 and 6. The highest of these is 6, so the HCF of 12 and 18 is 6."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "cf",
+     "at": 0.2
+    },
+    {
+     "do": "pulse",
+     "target": "f12",
+     "at": 0.35,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "f18",
+     "at": 0.4,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "hcf",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Now list the multiples. Multiples of 12 are 12, 24, 36 and 48. Multiples of 18 are 18, 36 and 54."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m12",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "m18",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The first number in both lists is 36. So the lowest common multiple, the LCM, is 36."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "m12",
+     "at": 0.2,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "m18",
+     "at": 0.3,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "lcm",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

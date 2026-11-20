@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "circles",
+  "topic": "tangent-to-a-circle",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Tangent to a circle"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The wheel and the road"
+        },
+        "text": {
+          "en": "A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "90 degrees",
+          "PQ = 12",
+          "one tangent",
+          "passes through centre",
+          "proof idea",
+          "secant",
+          "tangent",
+          "tangent perpendicular to radius"
+        ],
+        "text": {
+          "en": "A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact.\nA secant is a line that cuts the circle at two points.\nTheorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact.\nSo a tangent makes a right angle with the radius at the point where it touches.\nAt any point on a circle there is one and only one tangent.\nThe perpendicular to a tangent at its point of contact passes through the centre of the circle.\nExample: radius OP = 5 and OQ = 13 where PQ is a tangent at P. Then PQ = root(169 - 25) = 12.\nThe proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c10-tangent-radius.svg",
+        "altText": {
+          "en": "A circle with a tangent perpendicular to the radius at the point of contact"
+        },
+        "caption": {
+          "en": "Tangent and radius"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "tangent"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A secant is a line that cuts the circle at two points."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "secant"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tangent perpendicular to radius"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "So a tangent makes a right angle with the radius at the point where it touches."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "90 degrees"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "At any point on a circle there is one and only one tangent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one tangent"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The perpendicular to a tangent at its point of contact passes through the centre of the circle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "passes through centre"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Example: radius OP = 5 and OQ = 13 where PQ is a tangent at P. Then PQ = root(169 - 25) = 12."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "PQ = 12"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "proof idea"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A tangent PQ at point P of a circle with centre O meets OQ at Q. If OP = 3 cm and OQ = 5 cm, find PQ."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "OP is perpendicular to PQ, so triangle OPQ is right angled at P."
+            },
+            "why": {
+              "en": "Tangent is perpendicular to the radius."
+            }
+          },
+          {
+            "text": {
+              "en": "PQ^2 = OQ^2 - OP^2 = 25 - 9 = 16."
+            },
+            "why": {
+              "en": "Pythagoras."
+            }
+          },
+          {
+            "text": {
+              "en": "PQ = 4 cm."
+            },
+            "why": {
+              "en": "Square root."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What is special about a tangent and the radius?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Tangent meets circle at one point"
+          },
+          {
+            "en": "Perpendicular to the radius"
+          },
+          {
+            "en": "Pythagoras helps"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking the tangent passes through the centre"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-tc1",
+          "r1-tc2",
+          "r2-tc3",
+          "r2-tc4",
+          "r2-tc5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A tangent touches the circle at exactly one point."
+          },
+          {
+            "en": "The tangent is perpendicular to the radius at the point of contact."
+          },
+          {
+            "en": "Use Pythagoras with the radius, tangent and line from the centre."
+          }
+        ]
+      }
+    ]
+  }
+}

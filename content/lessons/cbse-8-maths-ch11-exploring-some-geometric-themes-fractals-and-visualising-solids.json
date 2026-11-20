@@ -1,0 +1,261 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch11-exploring-some-geometric-themes",
+ "topic": "fractals-and-visualising-solids",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Exploring geometric themes: fractals and visualising solids"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The fern"
+    },
+    "text": {
+     "en": "Look at a fern: each leaf looks like a small copy of the whole fern, and each small leaf has even smaller copies."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "fractal",
+     "self-similar",
+     "net",
+     "cross-section",
+     "Sierpinski carpet"
+    ],
+    "text": {
+     "en": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales.\nFerns, trees and coastlines show this repeating pattern in nature.\nThe Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square removed.\nThe same step is repeated on each of the 8 remaining squares, and so on without end.\nAt step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on.\nThe number of holes grows too: each step adds 8ⁿ⁻¹ new holes, so holes in total are 1, 9, 73 and so on.\nSolids can be visualised from different directions: top, front and side views show different faces.\nA net is a flat pattern that folds into a solid, so a cube has a net made of 6 squares.\nA cross-section is the face we get when we cut a solid with a plane, and the shape depends on the direction of the cut.\nPractising with drawings and paper models helps us imagine a solid from its views."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "self-similar"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Ferns, trees and coastlines show this repeating pattern in nature."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "nature's fractals"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square removed."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "9 squares, remove centre"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The same step is repeated on each of the 8 remaining squares, and so on without end."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "repeat on 8"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "At step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "remaining squares: 8ⁿ"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The number of holes grows too: each step adds 8ⁿ⁻¹ new holes, so holes in total are 1, 9, 73 and so on."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "holes: 1, 9, 73 ..."
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Solids can be visualised from different directions: top, front and side views show different faces."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "top, front, side"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "A net is a flat pattern that folds into a solid, so a cube has a net made of 6 squares."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "net of a cube"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A cross-section is the face we get when we cut a solid with a plane, and the shape depends on the direction of the cut."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cross-section"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Practising with drawings and paper models helps us imagine a solid from its views."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "model it"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "How many squares remain at step 3 of the Sierpinski carpet?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "At each step every square is replaced by 8 smaller squares."
+      },
+      "why": {
+       "en": "Each square keeps 8 of 9."
+      }
+     },
+     {
+      "text": {
+       "en": "Step 1: 8, step 2: 64, step 3: 512."
+      },
+      "why": {
+       "en": "Multiply by 8 each time."
+      }
+     },
+     {
+      "text": {
+       "en": "So 8³ = 512 squares remain."
+      },
+      "why": {
+       "en": "Use the power 8ⁿ."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Why is the fern a fractal?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "It is made of smaller copies of itself."
+     },
+     {
+      "en": "The copies repeat at smaller scales."
+     },
+     {
+      "en": "That is self-similarity."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "A fractal has no pattern."
+     },
+     {
+      "en": "A net is a fractal."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-fra80",
+     "r1-fra81",
+     "r1-fra82",
+     "r1-fra83",
+     "r1-fra84"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Fractals repeat the same pattern at smaller scales."
+     },
+     {
+      "en": "The Sierpinski carpet keeps 8 of 9 squares each step, giving 8ⁿ squares."
+     },
+     {
+      "en": "Nets, views and cross-sections help us visualise solids."
+     }
+    ]
+   }
+  ]
+ }
+}

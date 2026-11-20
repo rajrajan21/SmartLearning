@@ -1,0 +1,74 @@
+{
+ "id": "puzzle-monty-style-probability",
+ "kind": "puzzle",
+ "category": "brain",
+ "age": "14+",
+ "title": "Which Is More Likely?",
+ "summary": "List every outcome and count the ones you want.",
+ "emoji": "🎲",
+ "tags": [
+  "probability"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "You toss a fair coin 3 times.",
+    "Is getting 3 heads in a row less likely than getting exactly 1 head in 3 tosses?"
+   ],
+   "points": [
+    "You toss a fair coin 3 times."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "List all possible outcomes.",
+    "Then count those that match."
+   ],
+   "points": [
+    "List all possible outcomes."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: List all outcomes",
+   "sentences": [
+    "There are 8 outcomes: HHH, HHT, HTH, HTT, THH, THT, TTH, TTT.",
+    "HHH happens in only 1 of them.",
+    "Exactly 1 head happens in HTT, THT and TTH, which is 3 of them."
+   ],
+   "points": [
+    "There are 8 outcomes: HHH, HHT, HTH, HTT, THH, THT, TTH, TTT."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Three heads has a chance of 1 in 8.",
+    "Exactly one head has a chance of 3 in 8.",
+    "So exactly one head is three times as likely."
+   ],
+   "points": [
+    "Three heads has a chance of 1 in 8."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "A fair coin lands heads 4 times. What is the chance the next toss is heads?",
+   "options": [
+    "Still half",
+    "Less than half",
+    "More than half"
+   ],
+   "answer": 0,
+   "why": "Each toss is independent."
+  }
+ ],
+ "method": "List all outcomes"
+}

@@ -1,3 +1,4 @@
+import { useActiveBoard } from "../lib/activeBoard";
 import { useState } from "react";
 import { BottomSheet } from "../components/BottomSheet";
 import { Link } from "wouter";
@@ -12,7 +13,7 @@ import { TextbookEntry } from "../components/reader/TextbookEntry";
 /** Browse by colour and theme, with predictable filters (class, subject, theme). */
 export function ExplorePage() {
   const s = useSettings();
-  const board = s.get<string>("catalog.defaultBoard");
+  const board = useActiveBoard();
   const [attempt, retry] = useRetry();
   const state = useBoard(board, attempt);
   const progress = useAllProgress();

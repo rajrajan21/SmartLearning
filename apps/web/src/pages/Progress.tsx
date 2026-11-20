@@ -1,3 +1,5 @@
+import { useActiveBoard } from "../lib/activeBoard";
+import { useState } from "react";
 import { Link } from "wouter";
 import { chapterPct, type Mastery, type MasteryLevel } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
@@ -19,17 +21,24 @@ export function MasteryTag({ m }: { m: Mastery }) {
 export function ProgressPage() {
   const s = useSettings();
   const { lang } = s;
-  const board = s.get<string>("catalog.defaultBoard");
+  const board = useActiveBoard();
   const [attempt, retry] = useRetry();
   const state = useBoard(board, attempt);
   const of = useMastery(true);
   const due = useDueCount();
   const open = s.get<number[]>("catalog.openClasses");
+  const [tab, setTab] = useState<number | null>(null);
   if (s.get("feature.mastery") !== true || s.get("mastery.progressPage") !== true) return <NotFound />;
   if (state.status === "loading") return <Loading />;
   if (state.status === "error") return <ErrorBox onRetry={retry} />;
-  const classes = state.data.classes.filter((c) => open.includes(c.classLevel));
+  const allClasses = state.data.classes.filter((c) => open.includes(c.classLevel));
+  const cards = (s.get("progress.layout") as unknown) !== "list";
+  const tabs = s.get("progress.classTabs") !== false && allClasses.length > 1;
+  const cur = tab ?? allClasses[0]?.classLevel;
+  const classes = tabs ? allClasses.filter((c) => c.classLevel === cur) : allClasses;
+  const showEmpty = s.get("progress.showEmptyChapters") === true;
   let any = false;
+  const levelOf = (ms: Mastery[]): MasteryLevel => ms.every((m) => m.level === "mastered") ? "mastered" : ms.every((m) => m.level === "mastered" || m.level === "strong") ? "strong" : ms.some((m) => m.level !== "new") ? "practising" : "new";
   return (
     <div className="paper progress">
       <h1>{ui("myProgress", lang)}</h1>
@@ -39,7 +48,47 @@ export function ProgressPage() {
       {s.get("progress.nextSuggestion.show") === true && <NextSuggestion tree={state.data as never} board={board} />}
       {s.get("rewards.weekCalendar.show") === true && <WeekCalendar />}
       {s.get("rewards.badges.enabled") === true && <Badges />}
-      {classes.map((c) => (
+      {tabs && <div className="p-tabs" role="tablist">{allClasses.map((c) => <button key={c.classLevel} type="button" role="tab" aria-selected={c.classLevel === cur} className={`p-tab${c.classLevel === cur ? " on" : ""}`} onClick={() => setTab(c.classLevel)}>{ui("classWord", lang)} {c.classLevel}</button>)}</div>}
+      {cards && s.get("progress.legend.show") !== false && <ul className="p-key" aria-label="Colour key">{(["new", "learning", "practising", "strong", "mastered"] as MasteryLevel[]).map((l) => <li key={l}><i className={`m-${l}`} />{ui(LEVEL_KEY[l], lang)}</li>)}</ul>}
+      {cards && classes.map((c) => (
+        <section key={c.classLevel} className="p-class">
+          {!tabs && <h2>{ui("classWord", lang)} {c.classLevel}</h2>}
+          <div className="p-grid">
+            {c.subjects.map((sub) => {
+              const chs = sub.chapters.map((ch) => ({ ch, ms: ch.topics.map((t) => of(t.id)).filter((m): m is Mastery => m !== null) })).filter((x) => showEmpty || x.ms.length > 0);
+              if (chs.length === 0) return null;
+              any = true;
+              const pcts = chs.map(({ ms }) => (ms.length ? chapterPct(ms) : 0));
+              const avg = Math.round(pcts.reduce((a, b) => a + b, 0) / pcts.length);
+              const done = chs.filter(({ ms }) => ms.length > 0 && levelOf(ms) === "mastered").length;
+              return (
+                <article key={sub.id} className="p-card">
+                  <header className="p-card-h">
+                    {s.get("progress.subjectRing.show") !== false && <div className="p-ring" style={{ ["--p" as string]: `${avg * 3.6}deg` }} role="img" aria-label={`${avg}%`}><b>{avg}%</b></div>}
+                    <div><h3>{s.name(sub.name)}</h3><p className="small">{done} / {chs.length} {ui("progMastered", lang)}</p></div>
+                  </header>
+                  <ul className="p-tiles">
+                    {chs.map(({ ch, ms }, n) => {
+                      const pct = ms.length ? chapterPct(ms) : 0, lv = ms.length ? levelOf(ms) : "new";
+                      return (
+                        <li key={ch.id}>
+                          <Link className={`p-tile m-${lv}`} href={`/${board.toLowerCase()}/${c.classLevel}/${sub.slug}/${ch.slug}`} title={`${s.name(ch.name)} · ${pct}%`}>
+                            <span className="p-n">{n + 1}</span>
+                            <span className="p-name">{s.name(ch.name)}</span>
+                            <span className="p-pct">{pct}%</span>
+                            <span className="p-fill" role="progressbar" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct} aria-label={s.name(ch.name)} style={{ width: `${pct}%` }} />
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+      ))}
+      {!cards && classes.map((c) => (
         <section key={c.classLevel}>
           <h2>{ui("classWord", lang)} {c.classLevel}</h2>
           {c.subjects.map((sub) => {

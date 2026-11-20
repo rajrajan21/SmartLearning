@@ -7,7 +7,7 @@
  "lesson": {
   "status": "published",
   "title": {
-   "en": "Adding 3-digit numbers"
+   "en": "Reading and building three-digit numbers"
   },
   "blocks": [
    {
@@ -15,10 +15,10 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "The school library"
+     "en": "Birbal counts the crows"
     },
     "text": {
-     "en": "The school library has 245 story books and 132 picture books.\n\"How many books are there altogether?\" the librarian asked.\nRiya knew she could add the ones, then the tens, then the hundreds."
+     "en": "Akbar wanted to know how many crows were in the city. Birbal said, “Exactly 963.” “What if there are fewer?” “Some have gone on holiday.” “What if more?” “Visitors have come.” Akbar was pleased."
     }
    },
    {
@@ -26,11 +26,13 @@
     "type": "explanation",
     "provenance": "original",
     "keepEnglishTerms": [
-     "carry",
-     "add"
+     "three-digit",
+     "palindrome",
+     "twin digits",
+     "number line"
     ],
     "text": {
-     "en": "To add big numbers, line them up: ones under ones, tens under tens, hundreds under hundreds.\nAdd the ones first, then the tens, then the hundreds.\n245 + 132: ones 5 + 2 = 7, tens 4 + 3 = 7, hundreds 2 + 1 = 3. The answer is 377.\nIf the ones make 10 or more, carry 1 ten to the tens place. 38 + 27: ones 8 + 7 = 15, write 5 and carry 1 ten. Tens 3 + 2 + 1 = 6. The answer is 65.\nCheck by adding in the other order: the answer is the same."
+     "en": "Welcome to House of Hundreds Two. Akbar and Birbal were walking in a garden watching crows. Birbal said there were 963 crows in the city, and cleverly explained any difference.\nThree-digit numbers are made of hundreds, tens and ones. Draw tiles to show 832, 947, 726, 504, 620 and 700.\nLocate numbers on a number line. 530 and 540 are close, 628 lies between 620 and 660, and 696 is just before 700.\nThe Number Detective game has special numbers. 100, 200, 300 are hundreds. 123, 345 and 789 have digits going up. 876 and 321 go down.\nNumbers like 11, 22, 33 have twin digits and 111, 222, 333 have triplet digits.\nNumbers like 353 and 868 look the same from left to right and from right to left. These are called palindromes (additional, not in the textbook).\nMake numbers with paper slips marked 100, 10 and 1. With 6 slips you can make 420 with four 100s and two 10s? Check how many hundreds and tens you need.\nTo make 231 you need two slips of 100, three of 10 and one of 1."
     }
    },
    {
@@ -42,65 +44,152 @@
      {
       "id": "t1",
       "text": {
-       "en": "Write the numbers so that ones are under ones and tens under tens."
+       "en": "Welcome to House of Hundreds Two."
       },
       "board": [
        {
         "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "245"
-       },
-       {
-        "op": "write",
-        "text": "+132"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "Add the ones: five plus two is seven. Then the tens: four plus three is seven."
+       "en": "Akbar and Birbal were walking in a garden watching crows."
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "5 + 2 = 7"
-       },
-       {
-        "op": "write",
-        "text": "4 + 3 = 7"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t3",
       "text": {
-       "en": "Then the hundreds: two plus one is three. The total is 377."
+       "en": "Birbal said there were 963 crows in the city, and cleverly explained any difference."
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "2 + 1 = 3"
-       },
-       {
-        "op": "write",
-        "text": "245 + 132 = 377"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t4",
       "text": {
-       "en": "If the ones make ten or more, carry one ten to the tens. Eight plus seven is fifteen: write five, carry one."
+       "en": "Three-digit numbers are made of hundreds, tens and ones."
       },
       "board": [
        {
         "op": "write",
-        "text": "8 + 7 = 15 : write 5, carry 1"
+        "text": "three-digit"
        }
       ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Draw tiles to show 832, 947, 726, 504, 620 and 700."
+      },
+      "board": []
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Locate numbers on a number line."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "number line"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "530 and 540 are close, 628 lies between 620 and 660, and 696 is just before 700."
+      },
+      "board": []
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "The Number Detective game has special numbers."
+      },
+      "board": []
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "100, 200, 300 are hundreds."
+      },
+      "board": []
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "123, 345 and 789 have digits going up."
+      },
+      "board": []
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "876 and 321 go down."
+      },
+      "board": []
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "Numbers like 11, 22, 33 have twin digits and 111, 222, 333 have triplet digits."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "twin digits"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "Numbers like 353 and 868 look the same from left to right and from right to left."
+      },
+      "board": []
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "These are called palindromes (additional, not in the textbook)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "palindrome"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "Make numbers with paper slips marked 100, 10 and 1."
+      },
+      "board": []
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "With 6 slips you can make 420 with four 100s and two 10s?"
+      },
+      "board": []
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "Check how many hundreds and tens you need."
+      },
+      "board": []
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "To make 231 you need two slips of 100, three of 10 and one of 1."
+      },
+      "board": []
      }
     ]
    },
@@ -109,31 +198,31 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "The library has 245 story books and 132 picture books. How many books in all?"
+     "en": "Which slips make 231?"
     },
     "steps": [
      {
       "text": {
-       "en": "Ones: 5 + 2 = 7."
+       "en": "2 hundreds = 2 slips of 100."
       },
       "why": {
-       "en": "Always start with the ones."
+       "en": "Hundreds first."
       }
      },
      {
       "text": {
-       "en": "Tens: 4 + 3 = 7."
+       "en": "3 tens = 3 slips of 10."
       },
       "why": {
-       "en": "No carrying is needed here."
+       "en": "Then tens."
       }
      },
      {
       "text": {
-       "en": "Hundreds: 2 + 1 = 3. The total is 377 books."
+       "en": "1 one = 1 slip of 1."
       },
       "why": {
-       "en": "Read the digits: 3, 7, 7."
+       "en": "Ones last. Total 6 slips."
       }
      }
     ]
@@ -143,19 +232,19 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "Your friend adds 38 + 27 and gets 515. What went wrong, and how will you help?"
+     "en": "A friend says 353 reads differently backwards. What do you say?"
     },
     "requiredIdeas": [
      {
-      "en": "8 + 7 = 15, so write 5 and carry 1 ten."
+      "en": "353 reads the same backwards"
      },
      {
-      "en": "Then add the tens with the carried one: 3 + 2 + 1 = 6, so the answer is 65."
+      "en": "It is a special number"
      }
     ],
     "commonMisconceptions": [
      {
-      "en": "Writing 15 in the ones place and not carrying."
+      "en": "All numbers do"
      }
     ]
    },
@@ -164,9 +253,9 @@
     "type": "quiz",
     "provenance": "original",
     "questionIds": [
-     "r1-ones",
-     "r1-simple",
-     "r1-order"
+     "n34-3m21948-1",
+     "n34-3m21948-2",
+     "n34-3m21948-3"
     ]
    },
    {
@@ -175,13 +264,13 @@
     "provenance": "original",
     "points": [
      {
-      "en": "Line up ones, tens, hundreds; add ones first."
+      "en": "A three-digit number has hundreds, tens and ones."
      },
      {
-      "en": "Carry 1 ten when the ones make 10 or more."
+      "en": "Slips of 100, 10 and 1 can build numbers."
      },
      {
-      "en": "Check by adding in the other order."
+      "en": "Some numbers look the same both ways."
      }
     ]
    }

@@ -1,3 +1,5 @@
+import { useActiveBoard } from "../lib/activeBoard";
+import { BoardRailList } from "./BoardChips";
 import { Link, useLocation } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
@@ -10,7 +12,7 @@ const NAMES: Record<string, string> = { maths: "➗", evs: "🌱", english: "�
 export function BoardRail() {
   const s = useSettings();
   const [loc] = useLocation();
-  const board = s.get<string>("catalog.defaultBoard").toLowerCase();
+  const board = useActiveBoard().toLowerCase();
   const open = new Set(s.get<number[]>("catalog.openClasses"));
   const state = useBoard(board);
   const parts = loc.split("/").filter(Boolean);
@@ -21,10 +23,7 @@ export function BoardRail() {
   return (
     <aside className="rail hide-sm" aria-label={ui("board", s.lang) + " / " + ui("classWord", s.lang)}>
       <h2 className="rail-h">{ui("board", s.lang)}</h2>
-      <ul className="rail-boards">
-        <li><span className="rail-board on" aria-current="true">CBSE</span></li>
-        {s.get("catalog.showComingSoon") && COMING.map((b) => <li key={b.code}><span className="rail-board off" aria-disabled="true">{s.lang === "ta" ? b.ta : b.en}<small>{ui("soon", s.lang)}</small></span></li>)}
-      </ul>
+      <BoardRailList />
       <h2 className="rail-h">{ui("classWord", s.lang)}</h2>
       <ul className="rail-classes">
         {Array.from({ length: 12 }, (_, i) => i + 1).filter((n) => n <= 7 || open.has(n)).map((n) => {

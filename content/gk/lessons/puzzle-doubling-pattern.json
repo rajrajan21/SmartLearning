@@ -1,0 +1,75 @@
+{
+ "id": "puzzle-doubling-pattern",
+ "kind": "puzzle",
+ "category": "patterns",
+ "age": "8-10",
+ "title": "Doubling Up",
+ "summary": "If adding does not fit, test multiplying.",
+ "emoji": "✖️",
+ "tags": [
+  "sequence",
+  "doubling"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Look: 3, 6, 12, 24, ...",
+    "What comes next, and what is the rule?"
+   ],
+   "points": [
+    "Look: 3, 6, 12, 24, ..."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "The gaps are 3, 6, 12, which are not constant.",
+    "So try dividing instead of subtracting."
+   ],
+   "points": [
+    "The gaps are 3, 6, 12, which are not constant."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Check the ratio",
+   "sentences": [
+    "6 divided by 3 is 2. 12 divided by 6 is 2. 24 divided by 12 is 2.",
+    "Each number is double the one before it.",
+    "This is a multiplying pattern."
+   ],
+   "points": [
+    "6 divided by 3 is 2. 12 divided by 6 is 2. 24 divided by 12 is 2."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Double 24 to get 48.",
+    "So the next number is 48.",
+    "If differences do not work, try multiplying or dividing."
+   ],
+   "points": [
+    "Double 24 to get 48."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "What comes next: 2, 6, 18, 54, ...?",
+   "options": [
+    "108",
+    "162",
+    "72"
+   ],
+   "answer": 1,
+   "why": "Each is times 3, so 54 times 3 is 162."
+  }
+ ],
+ "method": "Check the ratio"
+}

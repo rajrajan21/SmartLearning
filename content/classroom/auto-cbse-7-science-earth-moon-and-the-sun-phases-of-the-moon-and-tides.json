@@ -1,0 +1,201 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "earth-moon-and-the-sun",
+ "topic": "phases-of-the-moon-and-tides",
+ "status": "published",
+ "title": {
+  "en": "Tides"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Why the sea has tides",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "moon",
+   "cx": 120,
+   "cy": 250,
+   "r": 42,
+   "fill": "#ECEFF1",
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "lm",
+   "x": 120,
+   "y": 320,
+   "text": "Moon",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "wat",
+   "d": "M 520 130 C 640 150 680 250 640 270 C 680 300 640 380 520 400 C 400 380 360 300 400 270 C 360 250 400 150 520 130",
+   "stroke": "water",
+   "width": 4,
+   "fill": "#BBDEFB"
+  },
+  {
+   "kind": "circle",
+   "id": "earth",
+   "cx": 520,
+   "cy": 265,
+   "r": 95,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "le",
+   "x": 520,
+   "y": 270,
+   "text": "Earth",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h1",
+   "x": 640,
+   "y": 270,
+   "text": "high tide",
+   "size": 22,
+   "color": "water",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "h2",
+   "x": 330,
+   "y": 270,
+   "text": "high tide",
+   "size": 22,
+   "color": "water",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "lo",
+   "x": 520,
+   "y": 455,
+   "text": "low tide on the sides in between",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "full-moon",
+   "alt": "The full Moon",
+   "caption": "The Moon"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The sea level rises and falls about twice a day. These movements are called tides."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The main cause is the pull of the Moon on the Earth's water. The water on the side facing the Moon is pulled up, making a high tide there."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "moon",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "lm",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "earth",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "le",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "wat",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "h2",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "There is a second high tide on the opposite side of the Earth. The places in between have low tide. As the Earth turns, a place goes through two high tides and two low tides each day."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "h1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lo",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. The full Moon. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

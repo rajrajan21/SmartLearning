@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "triangles",
+  "topic": "similar-figures-and-bpt",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Similar figures and the Basic Proportionality Theorem"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Same shape, different size"
+        },
+        "text": {
+          "en": "A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "2/3 = 4/EC",
+          "AD/DB = AE/EC",
+          "DE parallel to BC",
+          "angles equal, sides proportional",
+          "area ratio",
+          "check parallel",
+          "converse of BPT",
+          "similar figures"
+        ],
+        "text": {
+          "en": "Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent.\nTwo polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio.\nNow take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E.\nThe Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC.\nThe converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side.\nFor example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC.\nThe proof uses triangles that share a height, so the ratio of their areas equals the ratio of their bases.\nNever apply BPT unless you know that the line is parallel to one side."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c10-bpt.svg",
+        "altText": {
+          "en": "Triangle ABC with line DE parallel to BC"
+        },
+        "caption": {
+          "en": "Basic Proportionality Theorem"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "similar figures"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angles equal, sides proportional"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "DE parallel to BC"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AD/DB = AE/EC"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse of BPT"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2/3 = 4/EC"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The proof uses triangles that share a height, so the ratio of their areas equals the ratio of their bases."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "area ratio"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Never apply BPT unless you know that the line is parallel to one side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check parallel"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, DE is parallel to BC, AD = 1.5 cm, DB = 3 cm and AE = 1 cm. Find EC."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By BPT, AD/DB = AE/EC."
+            },
+            "why": {
+              "en": "DE is parallel to BC."
+            }
+          },
+          {
+            "text": {
+              "en": "1.5/3 = 1/EC, so EC = 3/1.5."
+            },
+            "why": {
+              "en": "Cross multiply."
+            }
+          },
+          {
+            "text": {
+              "en": "EC = 2 cm."
+            },
+            "why": {
+              "en": "Check the ratio 1/2 = 1/2."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State and use the Basic Proportionality Theorem."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Line parallel to a side"
+          },
+          {
+            "en": "Divides the other two sides in the same ratio"
+          },
+          {
+            "en": "Converse is true"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Applying it without parallel lines"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sf1",
+          "r1-sf2",
+          "r2-sf3",
+          "r2-sf4",
+          "r2-sf5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Similar figures have equal corresponding angles and proportional sides."
+          },
+          {
+            "en": "BPT: a line parallel to a side divides the other two sides in the same ratio."
+          },
+          {
+            "en": "Converse: dividing in the same ratio implies parallel."
+          }
+        ]
+      }
+    ]
+  }
+}

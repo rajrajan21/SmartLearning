@@ -201,5 +201,18 @@ const protractor: Maker = (id, p) => {
   return out;
 };
 
-export const COMPONENTS: Record<string, Maker> = { numberline, pie, fractionbar, dots, placevalue, angle, protractor, fracline, fracwall, jug, kgscale, rupees, hand, germs, bubbles };
+/** a 10-column number grid. mode "text": numbers 1..n; mode "cross": grey cells for the numbers in `list`; mode "ring": a ring round each number in `list`. Pieces c{n} / x{n} / r{n} */
+const numgrid: Maker = (id, p) => {
+  const x0 = num(p, "x0", 80), y0 = num(p, "y0", 60), cw = num(p, "cw", 74), ch = num(p, "ch", 40), n = num(p, "n", 100), mode = str(p, "mode", "text");
+  const at = (v: number) => [x0 + ((v - 1) % 10) * cw, y0 + Math.floor((v - 1) / 10) * ch] as const;
+  const list = Array.isArray(p.list) ? (p.list as number[]) : [];
+  const out: Obj[] = [];
+  if (mode === "text") for (let v = 1; v <= n; v++) { const [x, y] = at(v); out.push({ kind: "text", id: named(id, `c${v}`), x: x + cw / 2, y: y + ch / 2 + 8, text: `${v}`, size: num(p, "size", 22), anchor: "middle", color: str(p, "color", "#16253F") }); }
+  else for (const v of list) { const [x, y] = at(v); out.push(mode === "cross"
+    ? { kind: "rect", id: named(id, `x${v}`), x: x + 3, y: y + 3, w: cw - 6, h: ch - 6, fill: str(p, "fill", "#CFD8DC"), stroke: "#90A4AE", width: 2, rx: 6 }
+    : { kind: "rect", id: named(id, `r${v}`), x: x + 3, y: y + 3, w: cw - 6, h: ch - 6, fill: "#FFE0B2", stroke: str(p, "color", "#E65100"), width: 4, rx: 18 }); }
+  return out;
+};
+
+export const COMPONENTS: Record<string, Maker> = { numberline, pie, fractionbar, dots, placevalue, angle, protractor, numgrid, fracline, fracwall, jug, kgscale, rupees, hand, germs, bubbles };
 export const COMPONENT_NAMES = Object.keys(COMPONENTS);

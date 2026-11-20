@@ -164,7 +164,7 @@ export const sessions = pgTable("sessions", {
 /** Lesson progress and practice results kept per child so they follow the child across devices. */
 export const studentProgress = pgTable("student_progress", {
   studentId: uuid("student_id").notNull().references(() => studentProfiles.id, { onDelete: "cascade" }),
-  kind: text("kind").notNull(), // lesson | practice
+  kind: text("kind").notNull(), // lesson | practice | revision | note | mistake
   topicId: text("topic_id").notNull(),
   dataJson: text("data_json").notNull(),
   updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),

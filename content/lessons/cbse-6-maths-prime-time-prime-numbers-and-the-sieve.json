@@ -1,0 +1,175 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "prime-time",
+ "topic": "prime-numbers-and-the-sieve",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Prime numbers and the sieve"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju listed numbers from 1 to 30 and crossed out those with more than two factors.\n\"What is left?\" asked the teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "prime",
+     "composite",
+     "sieve"
+    ],
+    "text": {
+     "en": "A prime number has exactly two factors, 1 and itself. 2, 3, 5, 7, 11 and 13 are prime. A composite number has more than two factors. 1 is neither prime nor composite.\nThe sieve of Eratosthenes finds primes: cross out 1, keep 2 and cross out its multiples, keep 3 and cross out its multiples, and so on.\n2 is the only even prime."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A prime number has exactly two factors, 1 and itself."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "prime"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "2, 3, 5, 7, 11 and 13 are prime."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "composite"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A composite number has more than two factors."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sieve"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "1 is neither prime nor composite."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "prime"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Is 15 prime or composite?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Factors of 15 are 1, 3, 5, 15."
+      },
+      "why": {
+       "en": "List."
+      }
+     },
+     {
+      "text": {
+       "en": "It has more than two factors."
+      },
+      "why": {
+       "en": "Check."
+      }
+     },
+     {
+      "text": {
+       "en": "So 15 is composite."
+      },
+      "why": {
+       "en": "Answer."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says 1 is a prime number. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "1 has only one factor."
+     },
+     {
+      "en": "Primes have exactly two."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Counting 1 as prime."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-pri350",
+     "r1-pri351"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Prime: exactly two factors."
+     },
+     {
+      "en": "2 is the only even prime."
+     }
+    ]
+   }
+  ]
+ }
+}

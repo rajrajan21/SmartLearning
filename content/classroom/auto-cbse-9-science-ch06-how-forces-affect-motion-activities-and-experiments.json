@@ -1,0 +1,204 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "ch06-how-forces-affect-motion",
+ "topic": "activities-and-experiments",
+ "status": "published",
+ "title": {
+  "en": "Distance-time graph"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A distance-time graph",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ya",
+   "x1": 150,
+   "y1": 420,
+   "x2": 150,
+   "y2": 90,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "xa",
+   "x1": 150,
+   "y1": 420,
+   "x2": 800,
+   "y2": 420,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "yl",
+   "x": 90,
+   "y": 100,
+   "text": "Distance",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "xl",
+   "x": 790,
+   "y": 455,
+   "text": "Time",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "fast",
+   "x1": 150,
+   "y1": 420,
+   "x2": 400,
+   "y2": 150,
+   "stroke": "accent",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "lf",
+   "x": 300,
+   "y": 190,
+   "text": "fast: steep line",
+   "size": 22,
+   "color": "accent",
+   "anchor": "end"
+  },
+  {
+   "kind": "line",
+   "id": "slow",
+   "x1": 150,
+   "y1": 420,
+   "x2": 650,
+   "y2": 290,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "ls",
+   "x": 690,
+   "y": 280,
+   "text": "slow: gentle line",
+   "size": 22,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "rest",
+   "x1": 400,
+   "y1": 150,
+   "x2": 700,
+   "y2": 150,
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "lr",
+   "x": 720,
+   "y": 140,
+   "text": "stopped: flat line",
+   "size": 22,
+   "color": "warm",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A distance-time graph shows how far something has gone as time passes. Time is along the bottom and distance is up the side."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ya",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "xa",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "yl",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "xl",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A straight sloping line means the object covers equal distances in equal times, so it moves at a steady speed. A steeper line means a faster speed."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "fast",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lf",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "slow",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ls",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A flat line means the distance does not change while time passes, so the object is at rest."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "rest",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lr",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,74 @@
+{
+ "id": "puzzle-working-backwards",
+ "kind": "puzzle",
+ "category": "brain",
+ "age": "11-13",
+ "title": "Work Backwards",
+ "summary": "Undo the last step first, and go back to the start.",
+ "emoji": "⏪",
+ "tags": [
+  "backwards"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "I think of a number, double it, add 6 and get 20.",
+    "What was my number?"
+   ],
+   "points": [
+    "I think of a number, double it, add 6 and get 20."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Forwards is hard because you do not know the start.",
+    "Undo each step from the end."
+   ],
+   "points": [
+    "Forwards is hard because you do not know the start."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Reverse the steps",
+   "sentences": [
+    "The last step was add 6, so subtract 6 from 20 to get 14.",
+    "The step before was double, so halve 14 to get 7.",
+    "Check: 7 doubled is 14, plus 6 is 20."
+   ],
+   "points": [
+    "The last step was add 6, so subtract 6 from 20 to get 14."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "The number was 7.",
+    "Working backwards undoes each step in the opposite order.",
+    "It is a great way to solve many puzzles."
+   ],
+   "points": [
+    "The number was 7."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "I think of a number, add 5, then triple it, and get 24. What was the number?",
+   "options": [
+    "3",
+    "5",
+    "8"
+   ],
+   "answer": 0,
+   "why": "24 divided by 3 is 8, minus 5 is 3."
+  }
+ ],
+ "method": "Reverse the steps"
+}

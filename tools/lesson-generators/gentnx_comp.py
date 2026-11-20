@@ -1,0 +1,60 @@
+from tnx import *
+def CP(cls,ch,cn,slug,name,hook,a,b,c,terms,steps,claim,quiz):
+    TX(cls,'science',ch,cn,slug,name,hook,[a,b,c],terms,(f"Explain '{name}' step by step.",[(s,"Do this in order.") for s in steps]),claim,
+       [a.split('. ')[0].rstrip('.')+'.',"Practise the steps on a computer.","Learn the key words.","Answer the textbook exercises."],quiz)
+CH="computer-libreoffice-impress"; CN="Computer: LibreOffice Impress (Unit 25)"
+CP(9,CH,CN,"impress-basics","Impress basics: presentation, slides, text boxes and pictures",
+ "A presentation turns plain facts into a show of text, pictures and sound.",
+ "A presentation is a structured delivery of information, with graphics, movies and sound shown together on the screen. LibreOffice Impress is the software that creates presentations; it is user-friendly and supports animation, which is making an object move.",
+ "To start Impress click Start, All Programs, LibreOffice and LibreOffice Impress. To create a blank presentation click File, New, Presentation and Blank Presentation. A slide appears with two placeholders, where you click and type text. A presentation is a set of slides shown in sequence.",
+ "To add a slide use the Slide menu and choose New Slide and a layout. To insert a picture choose Insert, Image. To draw a text box choose Insert, Text Box, drag where you want it and type, then click outside the box.",
+ ["presentation","slide","placeholder","text box","LibreOffice Impress"],
+ ["Open Impress and choose Blank Presentation.","Click a placeholder and type text.","Insert a new slide, a picture or a text box."],
+ ("A presentation is only one page.",["It has many slides.","Slides run in sequence."]),
+ ["m|LibreOffice Impress is used to make|presentations|spreadsheets|letters|Presentations.","m|A presentation is made of many|slides|pages of a book|folders|Slides.","t|A blank slide appears with two placeholders.|T|Yes.","m|To insert a picture use|Insert then Image|File then Close|View then Zoom|Insert image.","s|What do you click to type text in a new slide?|placeholder|A placeholder.","t|Animation means making an object move.|T|Yes."])
+CP(9,CH,CN,"impress-media-effects","Impress: audio, video, transitions and animation",
+ "Sound, video and movement make a show more exciting.",
+ "To insert audio or video, open the slide, click the Insert menu, choose Audio or Video, then locate and select the file. By default LibreOffice also provides clips in its gallery.",
+ "Slide transitions are effects that take place when one slide gives way to the next, such as Roll down from top or Fly in from left. Open the View menu and choose Slide Transition or use the sidebar.",
+ "Animations are applied to individual elements of a slide such as a title, chart, shape or bullet point. Select the slide and the object, open Custom Animation in the sidebar and choose an effect.",
+ ["audio","video","transition","animation","Custom Animation"],
+ ["Insert audio or video from the Insert menu.","Set a slide transition.","Apply a custom animation to an object."],
+ ("Transitions and animations are the same.",["Transitions are between slides.","Animations are for objects on a slide."]),
+ ["m|Effects between slides are|transitions|animations|placeholders|Transitions.","m|Effects on one object are|animations|transitions|folders|Animations.","t|Audio can be inserted from the Insert menu.|T|Yes.","m|Custom Animation is found in|the sidebar|the printer|the keyboard|Sidebar.","s|What is the effect when one slide gives way to the next?|transition|Slide transition.","t|Animations apply to a title or bullet point.|T|Yes."])
+CP(9,CH,CN,"impress-save-show","Impress: delete, save, slide show, open and exit",
+ "Finish your presentation: delete, save, play and close it.",
+ "To delete a slide, select it, click the Slide menu and then Delete. To save, click File, Save, type a file name in the Save As box and click Save.",
+ "To view a slide show click Slide Show then From Beginning, or press the F5 key. The slides appear full screen and you click to see the next slide.",
+ "To close a presentation use File, Close; Impress asks whether to save an unsaved file (Yes, No or Cancel). To open an existing presentation use File, Open or choose it from Recent Documents. To quit, choose File, Exit LibreOffice Impress.",
+ ["slide show","F5","Save As","Recent Documents","exit"],
+ ["Delete a slide using the Slide menu.","Save using File and Save.","Press F5 to run the slide show."],
+ ("F2 starts the slide show.",["F5 starts it.","It begins from the first slide."]),
+ ["m|Which key starts a slide show?|F5|F1|Tab|F5.","m|Slides are saved from the|File menu|Slide menu|Help menu|File, Save.","t|You can choose Cancel to return to the presentation without saving.|T|Yes.","m|To open a saved file use|File then Open|File then Close|View then Zoom|File, Open.","s|What is the textbook lab work topic on festivals of which state?|Tamil Nadu|Festivals of Tamil Nadu.","t|A slide show appears in full screen.|T|Yes."])
+CH2="computer-visual-communication"; CN2="Computer: Visual Communication (Unit 23)"
+CP(10,CH2,CN2,"file-and-folder","Files and folders",
+ "A file is like a book, and a folder is the shelf that holds many books.",
+ "The output of any application is commonly called a file, and the application decides the nature of the file. A folder is a storage space that contains many files, like a library shelf that holds many books.",
+ "To create a folder, right-click, choose New and then Folder, and save your files in it. In Notepad you can type notes and save them; in Paint you draw and edit pictures.",
+ "Computers are used because they are fast and can store data. Windows and Linux are popular operating systems. To open programs click the Start button, which lists all programs.",
+ ["file","folder","Notepad","Paint","Start button"],
+ ["Right-click and choose New, Folder.","Create a file in an application.","Save the file in the folder."],
+ ("A folder and a file are the same.",["A file is one item.","A folder holds many files."]),
+ ["m|A folder stores|many files|only music|only fonts|It contains files.","m|You type notes in|Notepad|Paint|Scratch|Notepad.","t|Paint is used to draw and edit pictures.|T|Yes.","m|Windows and Linux are|operating systems|games|pictures|Operating systems.","s|Right-click, then choose New and then what?|Folder|Folder.","t|The Start button lists the programs.|T|Yes."])
+CP(10,CH2,CN2,"visual-communication-media","Visual communication: pictures, audio-visuals and animation",
+ "A picture or a video can teach a concept faster than a long description.",
+ "Pictures and audio-visual material give better understanding than only teaching and writing on the blackboard. Instead of saying once upon a time, we can see a video, which registers firmly in the mind.",
+ "Using the Paint app and other software we can make an image gallery, animations and graphics. Visual communication is explaining ideas through pictures and moving images.",
+ "The lesson introduces Scratch, an animation software for making stories, games and animations. It was developed at the MIT Media Lab to make programming easier and more fun.",
+ ["visual communication","audio-visual","animation","graphics","Scratch"],
+ ["Collect pictures and audio-visual material.","Use Paint to draw.","Use Scratch to animate."],
+ ("Only text teaches well.",["Pictures help understanding.","Videos register in the mind."]),
+ ["m|Scratch was developed at|MIT Media Lab|Google|Microsoft|MIT.","m|Visual communication uses|pictures and moving images|only words|only numbers|Visual media.","t|Videos help students remember.|T|Yes.","m|Scratch is software for|animation|typing|printing|Animation.","s|Which app do we draw in?|Paint|Paint.","t|Paint can help make graphics.|T|Yes."])
+CP(10,CH2,CN2,"scratch-basics","Scratch: stage, sprite, scripts and sound",
+ "Snap code blocks together to make a cat move and say hello.",
+ "The Scratch editor has three main parts: the stage, the sprite and the script editor. The stage is the background, usually white, whose colour can be changed. Sprites are the characters on it; a cat appears when Scratch opens.",
+ "The script editor has the script area, where scripts are built, the block menu, where block categories are chosen, and costume and sound tabs. To start, click File, New, drag a 'when green flag clicked' block from Events, add a 'go to x: 0 y: 0' block from Motion and a 'move 10 steps' block, and change 10 to 100.",
+ "To add a sound select the sprite, open the Sounds tab, pick a sound, and add a 'play sound' block from the Sound menu. To say Hello, drag 'say' from Looks and type Hello. Save from the File menu and click the green flag to run.",
+ ["stage","sprite","script area","block menu","green flag"],
+ ["Drag a when green flag clicked block.","Add Motion, Looks and Sound blocks.","Save and click the green flag."],
+ ("The sprite is the background.",["The stage is the background.","Sprites are characters."]),
+ ["m|Which is used to build scripts?|Script area|Stage|Sprite|Script area.","m|Characters in Scratch are|sprites|stages|folders|Sprites.","t|The stage is the background.|T|Yes.","m|You click what to run the program?|Green flag|Red flag|Save|Green flag.","s|Which tab adds sounds to a sprite?|Sounds|Sounds tab.","t|Scratch scripts are built from blocks.|T|Yes."])

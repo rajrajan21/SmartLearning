@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "trigonometry",
+  "topic": "heights-and-distances",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Heights and distances"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Measuring the tower"
+        },
+        "text": {
+          "en": "You stand 30 m from a tower and see its top at 60 degrees above your eye level. The angle of elevation and a right triangle give the tower's height without climbing it."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "angle of elevation",
+          "angle of depression",
+          "draw and mark",
+          "tan = height/base",
+          "30 root 3",
+          "alternate angles",
+          "add eye height"
+        ],
+        "text": {
+          "en": "The angle of elevation is the angle between the horizontal and the line of sight upwards to an object.\nThe angle of depression is the angle between the horizontal and the line of sight downwards.\nDraw a clear right triangle, mark the known side and angle, and choose the ratio that connects them.\nIf you know the base and want the height, use tan: height = base x tan of the angle.\nFor the tower: height = 30 x tan 60 = 30 x root 3, about 51.96 m.\nThe angle of elevation from A to B equals the angle of depression from B to A, because they are alternate angles.\nRemember to add your own eye height if the problem asks for the total height."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The angle of elevation is the angle between the horizontal and the line of sight upwards to an object."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "angle of elevation"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The angle of depression is the angle between the horizontal and the line of sight downwards."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle of depression"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Draw a clear right triangle, mark the known side and angle, and choose the ratio that connects them."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "draw and mark"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If you know the base and want the height, use tan: height = base x tan of the angle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tan = height/base"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For the tower: height = 30 x tan 60 = 30 x root 3, about 51.96 m."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "30 root 3"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The angle of elevation from A to B equals the angle of depression from B to A, because they are alternate angles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "alternate angles"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Remember to add your own eye height if the problem asks for the total height."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "add eye height"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A ladder 10 m long makes an angle of 30 degrees with the ground. How high does it reach?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "The ladder is the hypotenuse, the height is the side opposite the 30 degree angle."
+            },
+            "why": {
+              "en": "Draw the right triangle."
+            }
+          },
+          {
+            "text": {
+              "en": "sin 30 = height / 10, so height = 10 x 1/2."
+            },
+            "why": {
+              "en": "Use sin because we know the hypotenuse."
+            }
+          },
+          {
+            "text": {
+              "en": "Height = 5 m."
+            },
+            "why": {
+              "en": "sin 30 = 0.5."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you choose between sin, cos and tan in a height-and-distance problem?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Identify the known and unknown sides"
+          },
+          {
+            "en": "tan for opposite and adjacent"
+          },
+          {
+            "en": "sin or cos when the hypotenuse is involved"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the wrong angle"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma403-1",
+          "r1-m10ma403-2",
+          "r1-m10ma403-3",
+          "r2-m10ma403-4",
+          "r2-m10ma403-5",
+          "r2-m10ma403-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Angle of elevation is measured up from the horizontal; depression is down."
+          },
+          {
+            "en": "Draw the right triangle first."
+          },
+          {
+            "en": "tan = opposite/adjacent; sin and cos involve the hypotenuse."
+          },
+          {
+            "en": "Angle of elevation = angle of depression (alternate angles)."
+          }
+        ]
+      }
+    ]
+  }
+}

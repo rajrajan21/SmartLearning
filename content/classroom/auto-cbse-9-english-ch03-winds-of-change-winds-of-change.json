@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "english",
+ "chapter": "ch03-winds-of-change",
+ "topic": "winds-of-change",
+ "status": "published",
+ "title": {
+  "en": "The text, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The text, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "Beginning",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k0",
+   "x": 90,
+   "y": 478,
+   "text": "Ajanta",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "End",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A text can be followed from its beginning, through the middle, to its end. Let us place this lesson on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "The word pankha comes from pankh, which means the feather of a bird. Pankha is used for all fans and pankhi for a small plumed fan of ancient India. Evidence of the pankhi appears in Buddhist wall paintings at Ajanta."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "In Rajasthan and Gujarat artisans make appliqué and mirror-work fans with cross-stitch embroidery. In Bengal, delicate fans are made from sola, the milky-white spongy centre of a water plant. Palm leaf fans in Bengal are called Tal Patar Pankha and."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "Many tribes use grass, cane and palm leaves, with geometric patterns and white ink on red backgrounds. With technology, the culture of pankhas risks fading, but it has become a business that gives artisans a livelihood."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    }
+   ]
+  }
+ ]
+}

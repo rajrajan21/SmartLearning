@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { z } from "zod";
+import { perf } from "../perf/config.js";
 import { PhraseSet, type AudioRef, type LangAudio, type TopicLesson } from "@studysmart/shared";
 
 export type Lang = "en" | "ta";
@@ -53,6 +54,8 @@ export interface AudioStore {
   phrases(): PhraseSet;
   /** The teacher voices that can be chosen (from voices.json). */
   teachers(): { id: string; label: string; gender: "female" | "male"; accent: "us" | "uk" | "in"; langs: Lang[] }[];
+  /** changes whenever the recordings list or the teacher list changes (used to cache things built from them) */
+  version?(): string;
   /** Adds `audio` to every narration sentence that has a recording. Never changes the stored lesson. */
   enrich(lesson: TopicLesson): TopicLesson;
   filePath(file: string): string | null;
@@ -62,8 +65,12 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
   const base = opts.urlBase ?? "/api/v1/audio";
   let manifest = emptyManifest(), voices: VoiceMap = {};
   let mTime = -1, vTime = -1;
+  let lastCheck = 0;
   const fresh = () => {
-    // Pick up newly generated audio without restarting the server.
+    // Pick up newly generated audio without restarting the server. The files are looked at most once per "file check" interval (Admin > Site and performance).
+    const every = perf().fileCheckSeconds * 1000, now = Date.now();
+    if (every > 0 && mTime !== -1 && now - lastCheck < every) return;
+    lastCheck = now;
     if (existsSync(opts.manifestPath)) {
       const t = statSync(opts.manifestPath).mtimeMs;
       if (t !== mTime) { const r = Manifest.safeParse(JSON.parse(readFileSync(opts.manifestPath, "utf8"))); if (r.success) { manifest = r.data; mTime = t; } else console.error("invalid_audio_manifest"); }
@@ -73,12 +80,14 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
       if (t !== vTime) { const r = VoiceMap.safeParse(JSON.parse(readFileSync(opts.voicesPath, "utf8"))); if (r.success) { voices = r.data; vTime = t; } }
     }
   };
+  const present = new Set<string>(); // a recording that was seen once stays on the list (files are only ever added)
+  const hasFile = (file: string) => present.has(file) || (existsSync(join(opts.filesDir, file)) && (present.add(file), true));
   const lookup = (teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined => {
     fresh();
     const cfg = voices[teacher]?.[lang];
     if (!cfg || !text?.trim()) return undefined;
     const e = manifest.entries[audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text: speechText(text, lang) })];
-    return e && existsSync(join(opts.filesDir, e.file)) ? { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words } : undefined;
+    return e && hasFile(e.file) ? { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words } : undefined;
   };
   const refs = (teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
     if (!text) return undefined;
@@ -87,6 +96,7 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     return out.en || out.ta ? out : undefined;
   };
   return {
+    version() { fresh(); return `${mTime}:${vTime}`; },
     ref: lookup,
     refs,
     teachers() { fresh(); return Object.entries(voices).map(([id, v]) => ({ id, label: v.label ?? id, gender: v.gender ?? "female", accent: v.accent ?? "us", langs: LANGS.filter((l) => v[l]) })); },

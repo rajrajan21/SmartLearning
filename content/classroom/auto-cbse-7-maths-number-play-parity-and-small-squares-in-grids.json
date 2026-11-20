@@ -1,0 +1,271 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "parity-and-small-squares-in-grids",
+ "status": "published",
+ "title": {
+  "en": "Even and odd sums"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Even and odd sums",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h0",
+   "x": 170,
+   "y": 100,
+   "text": "Add",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h1",
+   "x": 450,
+   "y": 100,
+   "text": "Answer is",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h2",
+   "x": 730,
+   "y": 100,
+   "text": "Example",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "hl",
+   "x1": 40,
+   "y1": 118,
+   "x2": 860,
+   "y2": 118,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "r00",
+   "x": 170,
+   "y": 170,
+   "text": "even + even",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r01",
+   "x": 450,
+   "y": 170,
+   "text": "even",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r02",
+   "x": 730,
+   "y": 170,
+   "text": "4 + 6 = 10",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r10",
+   "x": 170,
+   "y": 232,
+   "text": "odd + odd",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r11",
+   "x": 450,
+   "y": 232,
+   "text": "even",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r12",
+   "x": 730,
+   "y": 232,
+   "text": "3 + 5 = 8",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r20",
+   "x": 170,
+   "y": 294,
+   "text": "even + odd",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r21",
+   "x": 450,
+   "y": 294,
+   "text": "odd",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r22",
+   "x": 730,
+   "y": 294,
+   "text": "4 + 3 = 7",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Even numbers are 2, 4, 6 and so on. Odd numbers are 1, 3, 5 and so on. What happens when we add them?"
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "h0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "h1",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "write",
+     "target": "h2",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "hl",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "An even number plus an even number is always even. For example, 4 plus 6 is 10."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r00",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r01",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "r02",
+     "at": 0.55
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "An odd number plus an odd number is also even. For example, 3 plus 5 is 8."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r10",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r11",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "r12",
+     "at": 0.55
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "An even number plus an odd number is odd. For example, 4 plus 3 is 7."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r20",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r21",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "r22",
+     "at": 0.55
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "These patterns hold for every pair of whole numbers."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "hl",
+     "at": 0.2,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

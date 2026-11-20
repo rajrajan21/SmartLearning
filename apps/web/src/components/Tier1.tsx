@@ -1,3 +1,4 @@
+import { SimplePath, type RoadStop } from "./JourneyMap";
 import { Link } from "wouter";
 import type { Mastery } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
@@ -23,21 +24,7 @@ export function MasteryBar({ list, label }: { list: Mastery[]; label: string }) 
 
 /** Game-board path: nodes in order, zig-zag, coloured by progress. Every node is a real link. */
 export function BoardPath({ nodes, streak, title }: { nodes: PathNode[]; streak: number; title?: UiKey }) {
-  const s = useSettings();
   if (nodes.length === 0) return null;
-  return (
-    <section className="boardpath" aria-label={ui(title ?? "pathTitle", s.lang)}>
-      <h2>{ui(title ?? "pathTitle", s.lang)} {streak > 0 && <span className="flame" aria-label={`${streak} ${ui("streakDays", s.lang)}`}><span aria-hidden="true">🔥</span> {streak}</span>}</h2>
-      <ol>
-        {nodes.map((n, i) => (
-          <li key={n.id} className={`pnode ${n.state} x${i % 4}`}>
-            <Link href={n.href} aria-current={n.state === "now" ? "step" : undefined}>
-              <span className="pdot" aria-hidden="true">{n.state === "done" ? "✔" : n.state === "now" ? "★" : i + 1}</span>
-              <span className="plabel"><b><Title name={n.name} /></b><span className="small">{n.state === "done" ? ui("pathDone", s.lang) : n.state === "now" ? ui("pathNow", s.lang) : ui("pathLater", s.lang)}</span></span>
-            </Link>
-          </li>
-        ))}
-      </ol>
-    </section>
-  );
+  const stops: RoadStop[] = nodes.map((n, i) => ({ id: n.id, href: n.href, name: n.name, state: n.state === "done" ? "done" : "todo", num: i + 1, here: n.state === "now" }));
+  return <SimplePath stops={stops} title={title ?? "pathTitle"} streak={streak} />;
 }

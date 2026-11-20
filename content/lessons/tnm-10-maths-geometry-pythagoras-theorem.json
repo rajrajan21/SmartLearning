@@ -1,0 +1,227 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "geometry",
+  "topic": "pythagoras-theorem",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Pythagoras theorem and its converse"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The ladder"
+        },
+        "text": {
+          "en": "A 5 m ladder leans on a wall with its foot 3 m from the wall. How high does it reach? A right-angled triangle hides inside this picture."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "hypotenuse",
+          "c^2 = a^2 + b^2",
+          "3, 4, 5",
+          "converse",
+          "triples",
+          "altitude and similarity"
+        ],
+        "text": {
+          "en": "In a right-angled triangle the side opposite the right angle is the hypotenuse, the longest side.\nPythagoras theorem: the square on the hypotenuse equals the sum of the squares on the other two sides, c squared = a squared + b squared.\nFor the ladder, height squared = 5 squared - 3 squared = 25 - 9 = 16, so the height is 4 m.\nThe converse: if c squared = a squared + b squared in a triangle, then the angle opposite c is a right angle.\nCommon Pythagorean triples are 3, 4, 5; 5, 12, 13; 8, 15, 17 and 7, 24, 25.\nIn a right triangle, the altitude to the hypotenuse makes two triangles similar to the whole, which gives another proof."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-pythagoras-theorem.svg",
+        "altText": {
+          "en": "Right triangle with sides a, b and hypotenuse c"
+        },
+        "caption": {
+          "en": "Pythagoras theorem"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In a right-angled triangle the side opposite the right angle is the hypotenuse, the longest side."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "hypotenuse"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Pythagoras theorem: the square on the hypotenuse equals the sum of the squares on the other two sides, c squared = a squared + b squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "c^2 = a^2 + b^2"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For the ladder, height squared = 5 squared - 3 squared = 25 - 9 = 16, so the height is 4 m."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "3, 4, 5"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The converse: if c squared = a squared + b squared in a triangle, then the angle opposite c is a right angle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Common Pythagorean triples are 3, 4, 5; 5, 12, 13; 8, 15, 17 and 7, 24, 25."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "triples"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "In a right triangle, the altitude to the hypotenuse makes two triangles similar to the whole, which gives another proof."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "altitude and similarity"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Is a triangle with sides 7, 24 and 25 right-angled?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "The longest side is 25, so test 25 squared against 7 squared + 24 squared."
+            },
+            "why": {
+              "en": "The hypotenuse must be the longest side."
+            }
+          },
+          {
+            "text": {
+              "en": "7 squared + 24 squared = 49 + 576 = 625 = 25 squared."
+            },
+            "why": {
+              "en": "Calculate both sides."
+            }
+          },
+          {
+            "text": {
+              "en": "They are equal, so by the converse the triangle is right-angled."
+            },
+            "why": {
+              "en": "The right angle is opposite the side of length 25."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Pythagoras theorem and its converse."
+        },
+        "requiredIdeas": [
+          {
+            "en": "c squared = a squared + b squared"
+          },
+          {
+            "en": "Hypotenuse is the longest side"
+          },
+          {
+            "en": "Converse proves a right angle"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the formula on a triangle that has no right angle"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma191-1",
+          "r1-m10ma191-2",
+          "r1-m10ma191-3",
+          "r2-m10ma191-4",
+          "r2-m10ma191-5",
+          "r2-m10ma191-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "c squared = a squared + b squared in a right triangle."
+          },
+          {
+            "en": "Converse: if the equation holds, the triangle is right-angled."
+          },
+          {
+            "en": "3-4-5, 5-12-13, 8-15-17, 7-24-25 are triples."
+          },
+          {
+            "en": "Hypotenuse is opposite the right angle."
+          }
+        ]
+      }
+    ]
+  }
+}

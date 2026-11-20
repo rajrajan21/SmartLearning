@@ -1,3 +1,4 @@
+import { useActiveBoard } from "../lib/activeBoard";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Link, useParams, useSearch } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -57,6 +58,7 @@ function BookTile({ book }: { book: Book }) {
 /** /books and /books?class=N : the shelf. One row of covers per subject. */
 export function BooksPage() {
   const s = useSettings();
+  const activeBoard = useActiveBoard();
   const on = s.get("feature.textbooks") === true;
   const { status, books } = useBooks(on);
   const search = useSearch();
@@ -66,7 +68,7 @@ export function BooksPage() {
   const open = s.get<number[]>("catalog.openClasses");
   const shown = books.filter((b) => open.includes(b.classLevel) && (!wanted || b.classLevel === wanted));
   const levels = [...new Set(shown.map((b) => b.classLevel))].sort((a, b) => a - b);
-  const board = String(s.get<string>("catalog.defaultBoard") || "cbse").toLowerCase();
+  const board = activeBoard.toLowerCase();
   return (
     <div className="paper books">
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, ...(wanted ? [{ href: `/${board}/${wanted}`, label: `${ui("classWord", s.lang)} ${wanted}` }] : []), { label: ui("textbooks", s.lang) }]} />

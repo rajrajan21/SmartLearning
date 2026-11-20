@@ -15,10 +15,10 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "Asha shares her roti"
+     "en": "Sharing a paratha"
     },
     "text": {
-     "en": "Asha had one warm roti. Her friend Kabir came to play.\nAsha tore the roti into two pieces that were exactly the same size. \"One for you, one for me,\" she said.\nLater her cousins came too. Asha and Kabir tore each piece again, so there were four equal pieces for four children.\nHow much of the roti did each child get?"
+     "en": "Shabnam and Mukta share a chocolate and a paratha. Shabnam folds the paratha over itself so both pieces are exactly equal."
     }
    },
    {
@@ -28,10 +28,11 @@
     "keepEnglishTerms": [
      "half",
      "quarter",
-     "whole"
+     "whole",
+     "equal parts"
     ],
     "text": {
-     "en": "A whole can be shared into equal parts.\nShare a whole into 2 equal parts: each part is one half.\nShare a whole into 4 equal parts: each part is one quarter.\nThe parts must be exactly equal. If one part is bigger, it is not a half.\n2 halves make 1 whole. 4 quarters make 1 whole. 2 quarters make 1 half."
+     "en": "Shabnam and Mukta want to share their lunch fairly.\nSharing fairly means the parts are equal. If one part is bigger it is not fair.\nTo check, fold the paratha over itself. If the two parts match exactly, they are equal.\nWhen 1 whole is shared equally between 2 people, each share is called a half.\nTwo halves make one whole.\nIf a whole is cut into 4 equal parts, each part is a quarter. Four quarters make a whole.\nCheck chikki: if some is eaten from 3 sides, less than half may be left. Compare with half to decide."
     }
    },
    {
@@ -43,64 +44,111 @@
      {
       "id": "t1",
       "text": {
-       "en": "Imagine a chapati. Fold it so both sides match exactly. Now you have two equal parts."
+       "en": "Shabnam and Mukta want to share their lunch fairly."
       },
       "board": [
        {
         "op": "clear"
-       },
-       {
-        "op": "draw",
-        "shape": "circle",
-        "label": "whole"
-       },
-       {
-        "op": "write",
-        "text": "2 equal parts = halves"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "Each part is one half. Two halves put together make one whole chapati."
+       "en": "Sharing fairly means the parts are equal."
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "1/2 + 1/2 = 1 whole"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t3",
       "text": {
-       "en": "Fold it once more. Now there are four equal parts. Each one is a quarter."
+       "en": "If one part is bigger it is not fair."
       },
-      "board": [
-       {
-        "op": "draw",
-        "shape": "line"
-       },
-       {
-        "op": "write",
-        "text": "4 equal parts = quarters"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t4",
       "text": {
-       "en": "Two quarters make a half. Four quarters make a whole. Remember: the parts must always be equal."
+       "en": "To check, fold the paratha over itself."
+      },
+      "board": []
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "If the two parts match exactly, they are equal."
+      },
+      "board": []
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "When 1 whole is shared equally between 2 people, each share is called a half."
       },
       "board": [
        {
         "op": "write",
-        "text": "2 quarters = 1 half"
-       },
+        "text": "half"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Two halves make one whole."
+      },
+      "board": [
        {
         "op": "write",
-        "text": "4 quarters = 1 whole"
+        "text": "whole"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "If a whole is cut into 4 equal parts, each part is a quarter."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "quarter"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Four quarters make a whole."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "quarter"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Check chikki: if some is eaten from 3 sides, less than half may be left."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "half"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "Compare with half to decide."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "half"
        }
       ]
      }
@@ -111,31 +159,31 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "A pizza is cut into 4 equal slices. Ravi eats 1 slice. How much of the pizza has he eaten, and how much is left?"
+     "en": "Which is bigger, half a chikki or a quarter?"
     },
     "steps": [
      {
       "text": {
-       "en": "Count the equal slices. There are 4, so each slice is one quarter."
+       "en": "Half is 2 equal parts of a whole."
       },
       "why": {
-       "en": "Four equal parts are quarters."
+       "en": "Two parts."
       }
      },
      {
       "text": {
-       "en": "Ravi ate 1 slice, so he ate one quarter of the pizza."
+       "en": "A quarter is 4 equal parts."
       },
       "why": {
-       "en": "He took 1 of the 4 equal parts."
+       "en": "Four parts."
       }
      },
      {
       "text": {
-       "en": "Slices left: 4 take away 1 is 3 slices. Three quarters are left."
+       "en": "More equal parts means each is smaller, so half is bigger."
       },
       "why": {
-       "en": "What is left is the other 3 equal parts."
+       "en": "Answer."
       }
      }
     ]
@@ -145,22 +193,19 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "A friend says \"a half is the bigger piece when you break a roti.\" What would you tell your friend?"
+     "en": "A friend says unequal parts are halves. Is that right?"
     },
     "requiredIdeas": [
      {
-      "en": "A half is one of TWO EQUAL parts."
+      "en": "Halves must be equal"
      },
      {
-      "en": "If the two parts are not equal, neither part is a half."
-     },
-     {
-      "en": "Two halves make a whole."
+      "en": "Fold to check"
      }
     ],
     "commonMisconceptions": [
      {
-      "en": "Calling any piece a half, even when the pieces are not equal."
+      "en": "Any two parts are halves"
      }
     ]
    },
@@ -169,9 +214,9 @@
     "type": "quiz",
     "provenance": "original",
     "questionIds": [
-     "r1-two-equal",
-     "r1-half-meaning",
-     "r1-pizza-slice"
+     "n34-3m78065-1",
+     "n34-3m78065-2",
+     "n34-3m78065-3"
     ]
    },
    {
@@ -180,13 +225,13 @@
     "provenance": "original",
     "points": [
      {
-      "en": "A half is one of 2 equal parts. A quarter is one of 4 equal parts."
+      "en": "Equal parts are fair."
      },
      {
-      "en": "2 halves make a whole. 4 quarters make a whole. 2 quarters make a half."
+      "en": "Two halves make a whole."
      },
      {
-      "en": "Parts must always be equal."
+      "en": "Four quarters make a whole."
      }
     ]
    }

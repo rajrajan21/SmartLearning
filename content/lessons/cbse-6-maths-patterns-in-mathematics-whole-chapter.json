@@ -1,0 +1,465 @@
+{
+  "board": "CBSE",
+  "classLevel": 6,
+  "subject": "maths",
+  "chapter": "patterns-in-mathematics",
+  "topic": "whole-chapter",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Patterns in Mathematics"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Why is 36 special?"
+        },
+        "text": {
+          "en": "Count 36 dots. You can arrange them in a perfect triangle, and you can also arrange them in a perfect 6 by 6 square. Very few numbers do both. Mathematicians love such surprises, because mathematics is the search for patterns and for the reasons why they exist. In this chapter we find patterns in numbers and shapes, and then we ask why they happen."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sequence",
+          "triangular numbers",
+          "square numbers",
+          "hexagonal numbers",
+          "number theory",
+          "geometry"
+        ],
+        "text": {
+          "en": "Mathematics is, in large part, the search for patterns and for explanations of why those patterns exist. Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather. Finding a pattern is only half the job. Mathematicians also want to know why the pattern happens, because the reason can then be used far beyond the place where it was first noticed. For example, understanding patterns in the motion of planets led to the theory of gravitation, which lets us launch satellites and send rockets to the Moon and Mars. Patterns in genomes help doctors diagnose and cure diseases.\nThe most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory. A number sequence is a list of numbers that follows a rule. Some famous ones are all 1s, the counting numbers, odd numbers, even numbers, triangular numbers 1, 3, 6, 10, 15, squares 1, 4, 9, 16, 25, and cubes 1, 8, 27, 64, 125. Two more are the Virahanka numbers 1, 2, 3, 5, 8, 13, 21 where each number is the sum of the two before it, and the powers of 2, which are 1, 2, 4, 8, 16, 32 and double every time. The powers of 3 are 1, 3, 9, 27, 81 and triple every time. To describe a sequence, say its rule in your own words and then use the rule to write the next three numbers. For 1, 3, 6, 10, 15, the gaps are 2, 3, 4, 5, so the next gap is 6 and the next number is 21.\nPictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular. Square numbers are dots in a square grid: 1 by 1, 2 by 2, 3 by 3. Cube numbers are small cubes stacked into a bigger cube: 1, 8, 27, 64. The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw. The numbers 1, 7, 19, 37 are called hexagonal numbers, because they are dots arranged in rings around a centre in the shape of a hexagon. The gaps are 6, 12, 18, so the next gap is 24 and the next hexagonal number is 61.\nSequences are related in surprising ways. Add the odd numbers: 1 = 1, 1 + 3 = 4, 1 + 3 + 5 = 9, 1 + 3 + 5 + 7 = 16, 1 + 3 + 5 + 7 + 9 = 25. We get the square numbers every time. Why does it happen forever? A picture explains it. Take a square grid of dots and split it into L-shaped layers. The first layer is 1 dot, the next 3, then 5, then 7, and so on. So a square with n dots on each side is the sum of the first n odd numbers. The picture works for a square of any size, so the first 10 odd numbers add to 10 × 10 = 100, and the first 100 odd numbers add to 100 × 100 = 10,000, without adding them one by one. Another pattern: 1, then 1 + 2 + 1, then 1 + 2 + 3 + 2 + 1, then 1 + 2 + 3 + 4 + 3 + 2 + 1 give 1, 4, 9, 16. Adding the counting numbers up and then down also gives the squares. For example 1 + 2 + ... + 100 + ... + 2 + 1 = 100 × 100 = 10,000. More relations to explore: two consecutive triangular numbers add up to a square, for example 3 + 6 = 9 and 6 + 10 = 16. Adding powers of 2 from 1 gives 1, 3, 7, 15, 31, and adding 1 to each gives the powers of 2 again. Six times a triangular number plus 1 gives the hexagonal numbers, and adding hexagonal numbers 1, 1 + 7, 1 + 7 + 19 gives the cubes 1, 8, 27.\nShapes also form patterns. The branch of mathematics that studies shapes is called geometry. A shape sequence is a list of shapes that follows a rule. Examples are regular polygons (triangle, quadrilateral, pentagon, hexagon, heptagon, octagon, nonagon, decagon), complete graphs K2, K3, K4, K5, stacked squares, stacked triangles and the Koch snowflake. The word regular means all the sides are equal in length and all the corners look the same. We will study angles in the next chapter.\nShape sequences are linked to number sequences. The number of sides in the regular polygons goes 3, 4, 5, 6, 7, 8, 9, 10, the counting numbers from 3. The number of corners is the same, because each side joins two corners and the polygon closes up. In a complete graph, every point is joined to every other point by a line. K2, K3, K4, K5 have 1, 3, 6, 10 lines, which are the triangular numbers, because a new point is joined to all the earlier points, adding 1, then 2, then 3, then 4 lines. Stacked squares have 1, 4, 9, 16 little squares, the square numbers. Stacked triangles have rows with 1, 3, 5, 7 little triangles, so the totals 1, 4, 9, 16 are again squares. In the Koch snowflake, every line segment is replaced by a speed bump of four smaller segments. The number of segments goes 3, 12, 48, 192, which is 3 times the powers of 4. The shapes get more and more detailed, but the pattern in the numbers stays simple."
+        }
+      },
+      {
+        "id": "diagram1",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c6-maths-odd-sum-squares.svg",
+        "altText": {
+          "en": "A 6 by 6 square of dots split into L-shaped layers of 1, 3, 5, 7, 9 and 11 dots"
+        },
+        "caption": {
+          "en": "Odd numbers add up to squares"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Mathematics is, in large part, the search for patterns and for explanations of why those patterns exist."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "What is mathematics?"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather."
+            },
+            "board": []
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Finding a pattern is only half the job. Mathematicians also want to know why the pattern happens, because the reason can then be used far beyond the place where it was first noticed."
+            },
+            "board": []
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "For example, understanding patterns in the motion of planets led to the theory of gravitation, which lets us launch satellites and send rockets to the Moon and Mars. Patterns in genomes help doctors diagnose and cure diseases."
+            },
+            "board": []
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Patterns in numbers"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A number sequence is a list of numbers that follows a rule. Some famous ones are all 1s, the counting numbers, odd numbers, even numbers, triangular numbers 1, 3, 6, 10, 15, squares 1, 4, 9, 16, 25, and cubes 1, 8, 27, 64, 125."
+            },
+            "board": []
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Two more are the Virahanka numbers 1, 2, 3, 5, 8, 13, 21 where each number is the sum of the two before it, and the powers of 2, which are 1, 2, 4, 8, 16, 32 and double every time. The powers of 3 are 1, 3, 9, 27, 81 and triple every time."
+            },
+            "board": []
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "To describe a sequence, say its rule in your own words and then use the rule to write the next three numbers. For 1, 3, 6, 10, 15, the gaps are 2, 3, 4, 5, so the next gap is 6 and the next number is 21."
+            },
+            "board": []
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Visualising number sequences"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Square numbers are dots in a square grid: 1 by 1, 2 by 2, 3 by 3. Cube numbers are small cubes stacked into a bigger cube: 1, 8, 27, 64."
+            },
+            "board": []
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw."
+            },
+            "board": []
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "The numbers 1, 7, 19, 37 are called hexagonal numbers, because they are dots arranged in rings around a centre in the shape of a hexagon. The gaps are 6, 12, 18, so the next gap is 24 and the next hexagonal number is 61."
+            },
+            "board": []
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "Sequences are related in surprising ways. Add the odd numbers: 1 = 1, 1 + 3 = 4, 1 + 3 + 5 = 9, 1 + 3 + 5 + 7 = 16, 1 + 3 + 5 + 7 + 9 = 25. We get the square numbers every time."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Relations among number sequences"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Why does it happen forever? A picture explains it. Take a square grid of dots and split it into L-shaped layers. The first layer is 1 dot, the next 3, then 5, then 7, and so on. So a square with n dots on each side is the sum of the first n odd numbers."
+            },
+            "board": []
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "The picture works for a square of any size, so the first 10 odd numbers add to 10 × 10 = 100, and the first 100 odd numbers add to 100 × 100 = 10,000, without adding them one by one."
+            },
+            "board": []
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Another pattern: 1, then 1 + 2 + 1, then 1 + 2 + 3 + 2 + 1, then 1 + 2 + 3 + 4 + 3 + 2 + 1 give 1, 4, 9, 16. Adding the counting numbers up and then down also gives the squares. For example 1 + 2 + ... + 100 + ... + 2 + 1 = 100 × 100 = 10,000."
+            },
+            "board": []
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "More relations to explore: two consecutive triangular numbers add up to a square, for example 3 + 6 = 9 and 6 + 10 = 16. Adding powers of 2 from 1 gives 1, 3, 7, 15, 31, and adding 1 to each gives the powers of 2 again. Six times a triangular number plus 1 gives the hexagonal numbers, and adding hexagonal numbers 1, 1 + 7, 1 + 7 + 19 gives the cubes 1, 8, 27."
+            },
+            "board": []
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Shapes also form patterns. The branch of mathematics that studies shapes is called geometry. A shape sequence is a list of shapes that follows a rule."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Patterns in shapes"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Examples are regular polygons (triangle, quadrilateral, pentagon, hexagon, heptagon, octagon, nonagon, decagon), complete graphs K2, K3, K4, K5, stacked squares, stacked triangles and the Koch snowflake."
+            },
+            "board": []
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "The word regular means all the sides are equal in length and all the corners look the same. We will study angles in the next chapter."
+            },
+            "board": []
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Shape sequences are linked to number sequences. The number of sides in the regular polygons goes 3, 4, 5, 6, 7, 8, 9, 10, the counting numbers from 3. The number of corners is the same, because each side joins two corners and the polygon closes up."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Shapes meet numbers"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "In a complete graph, every point is joined to every other point by a line. K2, K3, K4, K5 have 1, 3, 6, 10 lines, which are the triangular numbers, because a new point is joined to all the earlier points, adding 1, then 2, then 3, then 4 lines."
+            },
+            "board": []
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Stacked squares have 1, 4, 9, 16 little squares, the square numbers. Stacked triangles have rows with 1, 3, 5, 7 little triangles, so the totals 1, 4, 9, 16 are again squares."
+            },
+            "board": []
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "In the Koch snowflake, every line segment is replaced by a speed bump of four smaller segments. The number of segments goes 3, 12, 48, 192, which is 3 times the powers of 4. The shapes get more and more detailed, but the pattern in the numbers stays simple."
+            },
+            "board": []
+          }
+        ]
+      },
+      {
+        "id": "example1",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the sum of the first 15 odd numbers without adding them one by one."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Use the L-shaped layers picture: the first n odd numbers fill an n by n square."
+            },
+            "why": {
+              "en": "The pattern explains the shortcut."
+            }
+          },
+          {
+            "text": {
+              "en": "Here n = 15, so the sum is 15 × 15."
+            },
+            "why": {
+              "en": "Square of the number of terms."
+            }
+          },
+          {
+            "text": {
+              "en": "15 × 15 = 225."
+            },
+            "why": {
+              "en": "So 1 + 3 + 5 + ... + 29 = 225."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example2",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Show that 36 is both a triangular number and a square number."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Triangular numbers are 1, 1 + 2, 1 + 2 + 3, ... Add rows: 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 = 36."
+            },
+            "why": {
+              "en": "Eight rows of dots make a triangle of 36 dots."
+            }
+          },
+          {
+            "text": {
+              "en": "Square numbers are n × n. 6 × 6 = 36."
+            },
+            "why": {
+              "en": "Six rows of six dots make a square."
+            }
+          },
+          {
+            "text": {
+              "en": "Hence 36 is in both lists."
+            },
+            "why": {
+              "en": "The same dots can be arranged in two different patterns."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example3",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the next hexagonal number after 1, 7, 19, 37."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Look at the gaps: 7 - 1 = 6, 19 - 7 = 12, 37 - 19 = 18."
+            },
+            "why": {
+              "en": "Find how the sequence grows."
+            }
+          },
+          {
+            "text": {
+              "en": "The gaps go up by 6 each time, so the next gap is 24."
+            },
+            "why": {
+              "en": "The gap sequence 6, 12, 18, 24 is a pattern too."
+            }
+          },
+          {
+            "text": {
+              "en": "37 + 24 = 61."
+            },
+            "why": {
+              "en": "Check: 6 × 10 + 1 = 61, using the fourth triangular number 10."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example4",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "How many line segments are there in the 4th Koch snowflake shape if the first three have 3, 12 and 48?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Each segment is replaced by 4 smaller ones, so the count is multiplied by 4 every time."
+            },
+            "why": {
+              "en": "This is the rule of the speed bump."
+            }
+          },
+          {
+            "text": {
+              "en": "The 4th shape has 48 × 4 line segments."
+            },
+            "why": {
+              "en": "Multiply the previous count by 4."
+            }
+          },
+          {
+            "text": {
+              "en": "48 × 4 = 192."
+            },
+            "why": {
+              "en": "The numbers are 3 times the powers of 4: 3, 12, 48, 192."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain to a friend how a picture shows that adding the first n odd numbers gives n × n, and give one example of a shape pattern linked to a number sequence."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Square dots split into L-shaped layers of 1, 3, 5, 7, and so on dots."
+          },
+          {
+            "en": "The picture works for any size of square, so the pattern never stops."
+          },
+          {
+            "en": "For example, the number of lines in complete graphs K2, K3, K4, K5 is 1, 3, 6, 10, the triangular numbers."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking a pattern is proved after checking a few cases."
+          },
+          {
+            "en": "Confusing square numbers with the sequence of odd numbers."
+          },
+          {
+            "en": "Thinking regular polygons only have equal sides, not equal corners."
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "c6ma-pim-1",
+          "c6ma-pim-2",
+          "c6ma-pim-3",
+          "c6ma-pim-4",
+          "c6ma-pim-5",
+          "c6ma-pim-6",
+          "c6ma-pim-7"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Mathematics is the search for patterns and for the reasons why they happen."
+          },
+          {
+            "en": "Number sequences include counting numbers, odd and even numbers, triangular numbers, squares, cubes, Virahanka numbers and powers of 2 and 3."
+          },
+          {
+            "en": "Pictures help us see and explain patterns: the first n odd numbers add up to n × n."
+          },
+          {
+            "en": "Adding the counting numbers up and then down also gives the squares."
+          },
+          {
+            "en": "Shape sequences such as regular polygons, complete graphs, stacked squares, stacked triangles and the Koch snowflake match number sequences."
+          }
+        ]
+      }
+    ]
+  }
+}

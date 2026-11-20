@@ -1,0 +1,250 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "probability",
+ "topic": "basics-of-probability",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Basics of Probability"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Before a cricket match the captains toss a coin. Nobody knows the result, yet we can say the chance of heads is one out of two."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "outcome",
+     "event",
+     "favourable outcomes",
+     "sure event"
+    ],
+    "text": {
+     "en": "An experiment is an activity with results that we cannot predict, like tossing a coin or rolling a die. Each possible result is an outcome and a group of outcomes is an event.\nThe probability of an event E is P(E) = number of favourable outcomes ÷ total number of outcomes, when all outcomes are equally likely. For a die, P(getting 4) = 1/6.\nProbability is always between 0 and 1. An impossible event has probability 0 and a sure event has probability 1. For example P(getting 7 on a die) = 0.\nThe probability that an event does not happen is 1 − P(E). If P(rain) = 2/5 then P(no rain) = 3/5. The probabilities of all outcomes add up to 1."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "An experiment is an activity with results that we cannot predict, like tossing a coin or rolling a die."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "outcome"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Each possible result is an outcome and a group of outcomes is an event."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "event"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The probability of an event E is P(E) = number of favourable outcomes ÷ total number of outcomes, when all outcomes are equally likely."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "favourable outcomes"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "For a die, P(getting 4) = 1/6."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sure event"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Probability is always between 0 and 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "outcome"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "An impossible event has probability 0 and a sure event has probability 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "event"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "For example P(getting 7 on a die) = 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "favourable outcomes"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "The probability that an event does not happen is 1 − P(E)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sure event"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "If P(rain) = 2/5 then P(no rain) = 3/5."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "outcome"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "A bag has 3 red and 5 blue balls. One ball is drawn at random. Find P(red) and P(not red)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Total outcomes = 3 + 5 = 8."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "P(red) = 3/8."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "P(not red) = 1 − 3/8 = 5/8."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "This matches the blue balls, 5 out of 8."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says The probability of an event can be 3/2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Favourable outcomes cannot be more than total outcomes"
+     },
+     {
+      "en": "So the fraction cannot exceed 1"
+     },
+     {
+      "en": "Probability lies between 0 and 1"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-bas440",
+     "r1-bas441"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "P(E) = favourable outcomes ÷ total outcomes."
+     },
+     {
+      "en": "0 ≤ P(E) ≤ 1."
+     },
+     {
+      "en": "P(not E) = 1 − P(E)."
+     }
+    ]
+   }
+  ]
+ }
+}

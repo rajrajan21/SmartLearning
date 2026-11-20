@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "fluids",
+  "topic": "pressure-and-buoyancy",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Pressure, Pascal's law and buoyancy"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The needle and the foot"
+        },
+        "text": {
+          "en": "A sharp needle pushes into cloth easily but a flat foot does not, even with the same force. Pressure depends on the area as well as the force."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "P = F/A",
+          "P = h rho g",
+          "Pascal's law",
+          "atmospheric pressure",
+          "Archimedes principle",
+          "float and sink",
+          "density"
+        ],
+        "text": {
+          "en": "Pressure = force / area; the unit is pascal (Pa), 1 Pa = 1 N/m squared.\nPressure in a liquid at depth h is P = h rho g, where rho is the density; it acts equally in all directions.\nPascal's law: pressure applied to a confined fluid is transmitted equally in all directions; used in hydraulic lifts and brakes.\nAtmospheric pressure is about 101 325 Pa and is measured with a barometer.\nBuoyant force is the upward force on an object in a fluid; Archimedes principle says it equals the weight of the fluid displaced.\nAn object floats if its density is less than the liquid's, and sinks if its density is more.\nDensity = mass / volume, and relative density = density of substance / density of water."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Pressure = force / area; the unit is pascal (Pa), 1 Pa = 1 N/m squared."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P = F/A"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Pressure in a liquid at depth h is P = h rho g, where rho is the density; it acts equally in all directions."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "P = h rho g"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Pascal's law: pressure applied to a confined fluid is transmitted equally in all directions; used in hydraulic lifts and brakes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Pascal's law"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Atmospheric pressure is about 101 325 Pa and is measured with a barometer."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "atmospheric pressure"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Buoyant force is the upward force on an object in a fluid; Archimedes principle says it equals the weight of the fluid displaced."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Archimedes principle"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "An object floats if its density is less than the liquid's, and sinks if its density is more."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "float and sink"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Density = mass / volume, and relative density = density of substance / density of water."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "density"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A force of 200 N acts on an area of 0.5 square metre. Find the pressure."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Pressure = force / area."
+            },
+            "why": {
+              "en": "Use the formula."
+            }
+          },
+          {
+            "text": {
+              "en": "P = 200 / 0.5."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "P = 400 Pa."
+            },
+            "why": {
+              "en": "The unit is pascal."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Archimedes principle and Pascal's law."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Buoyant force equals weight of fluid displaced"
+          },
+          {
+            "en": "Pressure transmitted equally"
+          },
+          {
+            "en": "P = F/A"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking pressure depends on the shape of the container"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9sc460-1",
+          "r1-m9sc460-2",
+          "r1-m9sc460-3",
+          "r2-m9sc460-4",
+          "r2-m9sc460-5",
+          "r2-m9sc460-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "P = F/A in pascal."
+          },
+          {
+            "en": "Liquid pressure P = h rho g."
+          },
+          {
+            "en": "Archimedes: buoyant force = weight of displaced fluid."
+          },
+          {
+            "en": "Floats if density is less than the fluid's."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,87 @@
+{
+ "id": "puzzle-times-eleven",
+ "kind": "puzzle",
+ "category": "mental",
+ "age": "11-13",
+ "title": "The Times-Eleven Trick",
+ "summary": "Try small cases, spot the pattern, then use it.",
+ "emoji": "✨",
+ "tags": [
+  "mental maths",
+  "pattern"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Multiply 23 by 11 in your head, without writing anything.",
+    "Then try 54 times 11.",
+    "There is a quick pattern. Can you spot it?"
+   ],
+   "points": [
+    "Multiply 23 by 11 in your head, without writing anything."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Try a few by hand: 12 times 11 is 132, and 31 times 11 is 341.",
+    "Look at the middle digit of each answer and compare it to the two digits you started with."
+   ],
+   "points": [
+    "Try a few by hand: 12 times 11 is 132, and 31 times 11 is 341."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Look for a pattern",
+   "sentences": [
+    "For a two-digit number, write the first digit, then the sum of the two digits, then the last digit.",
+    "So 23 becomes 2, then 2 plus 3 equals 5, then 3, which gives 253.",
+    "If the sum is 10 or more, carry the 1 to the left."
+   ],
+   "points": [
+    "For a two-digit number, write the first digit, then the sum of the two digits, then the last digit."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "23 times 11 is 253.",
+    "54 times 11: 5, then 5 plus 4 equals 9, then 4, which gives 594.",
+    "For 78 times 11: 7, then 15, then 8. Carry the 1 to get 858.",
+    "The trick works because times 11 means times 10 plus times 1, so each digit is added to its neighbour."
+   ],
+   "points": [
+    "23 times 11 is 253."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "What is 45 times 11?",
+   "options": [
+    "495",
+    "455",
+    "545"
+   ],
+   "answer": 0,
+   "why": "4, then 4 plus 5 equals 9, then 5, which gives 495."
+  },
+  {
+   "q": "What is 36 times 11?",
+   "options": [
+    "396",
+    "366",
+    "406"
+   ],
+   "answer": 0,
+   "why": "3, then 3 plus 6 equals 9, then 6, which gives 396."
+  }
+ ],
+ "method": "Look for a pattern"
+}

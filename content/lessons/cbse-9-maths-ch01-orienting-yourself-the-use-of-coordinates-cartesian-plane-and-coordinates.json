@@ -1,0 +1,253 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch01-orienting-yourself-the-use-of-coordinates",
+  "topic": "cartesian-plane-and-coordinates",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "The Cartesian plane, coordinates and distances"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Finding Reiaan's chair"
+        },
+        "text": {
+          "en": "Reiaan sketches his new room on graph paper to place his bed, desk and door. To tell a friend exactly where each thing is, he needs just two numbers for every position. That is the idea of coordinates."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "(x, 0) and (0, y)",
+          "(x, y)",
+          "AD = sqrt(4^2 + 3^2) = 5",
+          "four quadrants",
+          "order matters",
+          "reflection in y-axis",
+          "same y: |x2 - x1|",
+          "x-axis, y-axis, origin"
+        ],
+        "text": {
+          "en": "To locate a point in a plane we use two perpendicular lines: a horizontal x-axis and a vertical y-axis, meeting at the origin O with coordinates (0, 0).\nThe distance of a point from the y-axis is its x-coordinate, and the distance from the x-axis is its y-coordinate, written as the ordered pair (x, y).\nA point on the x-axis has the form (x, 0), and a point on the y-axis has the form (0, y).\nThe axes divide the plane into four quadrants. The signs are (+, +) in Quadrant I, (-, +) in II, (-, -) in III and (+, -) in IV.\nThe order matters: (x, y) equals (y, x) only when x = y.\nFor points on the same horizontal line, the distance is the absolute value of the difference of the x-coordinates, for example from (3, 4) to (7, 4) it is 4.\nFor any two points we make a right triangle and use the Baudhayana-Pythagoras theorem. From A (3, 4) to D (7, 1) the legs are 4 and 3, so AD = 5.\nReflecting a point in the y-axis changes the sign of its x-coordinate, so M (9, 6) goes to M' (-9, 6)."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c89-cartesian-plane.svg",
+        "altText": {
+          "en": "Cartesian plane with four quadrants and the point P(2, 2)"
+        },
+        "caption": {
+          "en": "Coordinates and quadrants"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "To locate a point in a plane we use two perpendicular lines: a horizontal x-axis and a vertical y-axis, meeting at the origin O with coordinates (0, 0)."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x-axis, y-axis, origin"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The distance of a point from the y-axis is its x-coordinate, and the distance from the x-axis is its y-coordinate, written as the ordered pair (x, y)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(x, y)"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A point on the x-axis has the form (x, 0), and a point on the y-axis has the form (0, y)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(x, 0) and (0, y)"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The axes divide the plane into four quadrants. The signs are (+, +) in Quadrant I, (-, +) in II, (-, -) in III and (+, -) in IV."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "four quadrants"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The order matters: (x, y) equals (y, x) only when x = y."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "order matters"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For points on the same horizontal line, the distance is the absolute value of the difference of the x-coordinates, for example from (3, 4) to (7, 4) it is 4."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "same y: |x2 - x1|"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For any two points we make a right triangle and use the Baudhayana-Pythagoras theorem. From A (3, 4) to D (7, 1) the legs are 4 and 3, so AD = 5."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AD = sqrt(4^2 + 3^2) = 5"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Reflecting a point in the y-axis changes the sign of its x-coordinate, so M (9, 6) goes to M' (-9, 6)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "reflection in y-axis"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the distance between P (2, 3) and Q (6, 6)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Horizontal difference = 6 - 2 = 4 and vertical difference = 6 - 3 = 3."
+            },
+            "why": {
+              "en": "Make a right triangle with these legs."
+            }
+          },
+          {
+            "text": {
+              "en": "PQ squared = 4^2 + 3^2 = 25."
+            },
+            "why": {
+              "en": "Use the Baudhayana-Pythagoras theorem."
+            }
+          },
+          {
+            "text": {
+              "en": "So PQ = 5 units."
+            },
+            "why": {
+              "en": "Take the positive square root."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do coordinates fix a point and how do you find the distance between two points?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Two perpendicular axes and an origin"
+          },
+          {
+            "en": "x is distance from y-axis, y from x-axis"
+          },
+          {
+            "en": "Right triangle and the theorem for distance"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Writing (y, x) instead of (x, y)"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m1-1",
+          "m1-2",
+          "m1-3",
+          "m1-4",
+          "m1-5",
+          "m1-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "The coordinate plane has an x-axis, a y-axis and the origin (0, 0)."
+          },
+          {
+            "en": "A point is written (x, y); points on the axes are (x, 0) and (0, y)."
+          },
+          {
+            "en": "Quadrant signs: I (+,+), II (-,+), III (-,-), IV (+,-)."
+          },
+          {
+            "en": "Distances come from differences of coordinates and the theorem."
+          }
+        ]
+      }
+    ]
+  }
+}

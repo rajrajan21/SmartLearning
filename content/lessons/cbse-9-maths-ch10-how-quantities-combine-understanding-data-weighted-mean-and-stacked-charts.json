@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch10-how-quantities-combine-understanding-data",
+  "topic": "weighted-mean-and-stacked-charts",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Weighted mean and stacked bar charts"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Marks that count differently"
+        },
+        "text": {
+          "en": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "100% stacked",
+          "average of averages",
+          "check weights",
+          "mixtures",
+          "one-way conversion",
+          "stacked bar chart",
+          "use of weights",
+          "weighted mean"
+        ],
+        "text": {
+          "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn).\nUse it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments.\nAn average of averages can be found with weights equal to the number of values in each group.\nThe weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures.\nA stacked bar chart puts parts on top of one another, useful when the total of each bar also matters.\nA 100% stacked bar chart compares proportions, like a pie chart, not absolute values.\nFrom a stacked bar chart you can make a 100% stacked chart, but not the other way round.\nAlways check the weights add to the right total."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "weighted mean"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "use of weights"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "An average of averages can be found with weights equal to the number of values in each group."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "average of averages"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mixtures"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "stacked bar chart"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A 100% stacked bar chart compares proportions, like a pie chart, not absolute values."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "100% stacked"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "From a stacked bar chart you can make a 100% stacked chart, but not the other way round."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one-way conversion"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Always check the weights add to the right total."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check weights"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A quiz (weight 1) score is 60 and an exam (weight 3) score is 80. Find the weighted mean."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Weighted sum = 1 x 60 + 3 x 80 = 300."
+            },
+            "why": {
+              "en": "Multiply each score by its weight."
+            }
+          },
+          {
+            "text": {
+              "en": "Sum of weights = 4."
+            },
+            "why": {
+              "en": "Add the weights."
+            }
+          },
+          {
+            "text": {
+              "en": "Weighted mean = 300/4 = 75."
+            },
+            "why": {
+              "en": "Divide."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "When do we use a weighted mean?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Different importance or group sizes"
+          },
+          {
+            "en": "Multiply by weights then divide by total weight"
+          },
+          {
+            "en": "Gives a fair combined score"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the simple mean when weights differ"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m10-1",
+          "m10-2",
+          "m10-3",
+          "m10-4",
+          "m10-5",
+          "m10-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Weighted mean = sum of (weight x value) / sum of weights."
+          },
+          {
+            "en": "It handles unequal importance or group sizes."
+          },
+          {
+            "en": "Stacked bars show totals; 100% stacked bars show proportions."
+          },
+          {
+            "en": "A 100% chart cannot be turned back into a stacked chart."
+          }
+        ]
+      }
+    ]
+  }
+}

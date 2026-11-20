@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "quadratic-equations-solving",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Quadratic equations: factorisation, completing the square and formula"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The garden path"
+        },
+        "text": {
+          "en": "A rectangular garden is 3 m longer than it is wide, and its area is 28 square metres. What are its sides? Writing x(x + 3) = 28 gives a quadratic equation."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "ax^2 + bx + c = 0",
+          "factorisation",
+          "completing the square",
+          "quadratic formula",
+          "discriminant",
+          "nature of roots",
+          "sum and product"
+        ],
+        "text": {
+          "en": "A quadratic equation is ax squared + bx + c = 0 with a not equal to 0. Its solutions are called roots.\nMethod 1, factorisation: split the middle term and use that if pq = 0 then p = 0 or q = 0.\nMethod 2, completing the square: write x squared + (b/a)x as a perfect square plus a number, then take square roots.\nMethod 3, formula: x = [-b plus or minus the square root of (b squared - 4ac)] divided by 2a.\nThe expression b squared - 4ac is the discriminant, written delta.\nIf delta is positive there are two different real roots; if delta = 0 there are two equal real roots; if delta is negative there are no real roots.\nThe sum of the roots is -b/a and the product of the roots is c/a."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A quadratic equation is ax squared + bx + c = 0 with a not equal to 0. Its solutions are called roots."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ax^2 + bx + c = 0"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Method 1, factorisation: split the middle term and use that if pq = 0 then p = 0 or q = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "factorisation"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Method 2, completing the square: write x squared + (b/a)x as a perfect square plus a number, then take square roots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "completing the square"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Method 3, formula: x = [-b plus or minus the square root of (b squared - 4ac)] divided by 2a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "quadratic formula"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The expression b squared - 4ac is the discriminant, written delta."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "discriminant"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "If delta is positive there are two different real roots; if delta = 0 there are two equal real roots; if delta is negative there are no real roots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "nature of roots"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The sum of the roots is -b/a and the product of the roots is c/a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum and product"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Solve x squared - 5x + 6 = 0, then use the formula on 2x squared + 3x - 2 = 0."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Factorise: x squared - 5x + 6 = (x - 2)(x - 3) = 0, so x = 2 or x = 3."
+            },
+            "why": {
+              "en": "Numbers with sum -5 and product 6 are -2 and -3."
+            }
+          },
+          {
+            "text": {
+              "en": "For 2x squared + 3x - 2: a = 2, b = 3, c = -2, delta = 9 + 16 = 25."
+            },
+            "why": {
+              "en": "Find delta first."
+            }
+          },
+          {
+            "text": {
+              "en": "x = (-3 plus or minus 5)/4, so x = 1/2 or x = -2."
+            },
+            "why": {
+              "en": "Both values satisfy the equation."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "List the three methods of solving a quadratic and what the discriminant tells us."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Factorisation, completing the square, formula"
+          },
+          {
+            "en": "Discriminant is b squared - 4ac"
+          },
+          {
+            "en": "Positive, zero, negative give two, equal, no real roots"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting the sign when b is negative"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma203-1",
+          "r1-m10ma203-2",
+          "r1-m10ma203-3",
+          "r2-m10ma203-4",
+          "r2-m10ma203-5",
+          "r2-m10ma203-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Quadratic: ax squared + bx + c = 0, a not zero."
+          },
+          {
+            "en": "Roots by factorisation, completing the square or the formula."
+          },
+          {
+            "en": "delta = b squared - 4ac decides the nature of the roots."
+          },
+          {
+            "en": "Sum of roots = -b/a, product = c/a."
+          }
+        ]
+      }
+    ]
+  }
+}

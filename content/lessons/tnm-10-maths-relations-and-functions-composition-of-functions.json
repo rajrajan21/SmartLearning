@@ -1,0 +1,241 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "relations-and-functions",
+  "topic": "composition-of-functions",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Composition of functions"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The two-step machine"
+        },
+        "text": {
+          "en": "First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "g o f",
+          "right to left",
+          "g(f(x))",
+          "not commutative",
+          "associative",
+          "identity",
+          "inverse",
+          "domain check"
+        ],
+        "text": {
+          "en": "If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g.\nRead g o f as g of f. The rightmost function acts first.\nExample: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3.\nBut (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative.\nComposition is associative: (h o g) o f = h o (g o f), so brackets do not change the result.\nThe identity function I(x) = x leaves any function unchanged: f o I = I o f = f.\nIf f o g = g o f = I, then g is the inverse of f, written f^-1.\nCheck the domains: the output of the first function must lie in the domain of the second."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "g o f"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Read g o f as g of f. The rightmost function acts first."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "right to left"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "g(f(x))"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "not commutative"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "associative"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The identity function I(x) = x leaves any function unchanged: f o I = I o f = f."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "identity"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "If f o g = g o f = I, then g is the inverse of f, written f^-1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "inverse"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Check the domains: the output of the first function must lie in the domain of the second."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "domain check"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If f(x) = 3x - 1 and g(x) = x squared, find (g o f)(2) and (f o g)(2)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "f(2) = 3 x 2 - 1 = 5, so (g o f)(2) = g(5) = 25."
+            },
+            "why": {
+              "en": "First f, then g."
+            }
+          },
+          {
+            "text": {
+              "en": "g(2) = 4, so (f o g)(2) = f(4) = 3 x 4 - 1 = 11."
+            },
+            "why": {
+              "en": "First g, then f."
+            }
+          },
+          {
+            "text": {
+              "en": "25 and 11 differ, so g o f is not the same as f o g."
+            },
+            "why": {
+              "en": "Order of composition matters."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain what g o f means and why the order matters."
+        },
+        "requiredIdeas": [
+          {
+            "en": "First apply f then g"
+          },
+          {
+            "en": "g(f(x))"
+          },
+          {
+            "en": "g o f is usually different from f o g"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Applying g first because it is written first"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma792-1",
+          "r1-m10ma792-2",
+          "r1-m10ma792-3",
+          "r2-m10ma792-4",
+          "r2-m10ma792-5",
+          "r2-m10ma792-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "(g o f)(x) = g(f(x)): f acts first."
+          },
+          {
+            "en": "Composition is associative but not commutative."
+          },
+          {
+            "en": "Identity function leaves a function unchanged."
+          },
+          {
+            "en": "If f o g = g o f = identity, they are inverses."
+          }
+        ]
+      }
+    ]
+  }
+}

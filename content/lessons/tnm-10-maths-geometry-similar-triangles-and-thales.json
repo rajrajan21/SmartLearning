@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "geometry",
+  "topic": "similar-triangles-and-thales",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Similar triangles and Thales (Basic Proportionality) theorem"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The shadow of a tree"
+        },
+        "text": {
+          "en": "At noon a 2 m stick casts a 1 m shadow while a tree casts a 6 m shadow. Because the sun's rays make the same angle, the two triangles have the same shape. How tall is the tree?"
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "similar triangles",
+          "Thales theorem",
+          "AD/DB = AE/EC",
+          "converse",
+          "angle bisector theorem",
+          "AA, SSS, SAS",
+          "area ratio = side ratio squared"
+        ],
+        "text": {
+          "en": "Two triangles are similar if their corresponding angles are equal and their corresponding sides are in the same ratio.\nThales (Basic Proportionality) theorem: a line drawn parallel to one side of a triangle divides the other two sides in the same ratio.\nIn triangle ABC with DE parallel to BC, AD/DB = AE/EC.\nThe converse is also true: if a line divides two sides in the same ratio, it is parallel to the third side.\nThe angle bisector of a triangle divides the opposite side in the ratio of the other two sides.\nSimilarity tests: AA (two equal angles), SSS (three proportional sides) and SAS (one equal angle and the including sides proportional).\nFor similar triangles, the ratio of areas equals the square of the ratio of corresponding sides."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-similar-triangles-and-thales.svg",
+        "altText": {
+          "en": "Triangle ABC with a line DE parallel to the base BC"
+        },
+        "caption": {
+          "en": "Thales theorem"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Two triangles are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "similar triangles"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Thales (Basic Proportionality) theorem: a line drawn parallel to one side of a triangle divides the other two sides in the same ratio."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Thales theorem"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "In triangle ABC with DE parallel to BC, AD/DB = AE/EC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AD/DB = AE/EC"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The converse is also true: if a line divides two sides in the same ratio, it is parallel to the third side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The angle bisector of a triangle divides the opposite side in the ratio of the other two sides."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle bisector theorem"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Similarity tests: AA (two equal angles), SSS (three proportional sides) and SAS (one equal angle and the including sides proportional)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AA, SSS, SAS"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For similar triangles, the ratio of areas equals the square of the ratio of corresponding sides."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "area ratio = side ratio squared"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, DE is parallel to BC with D on AB and E on AC. If AD = 3, DB = 6 and AE = 2, find EC."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By Thales: AD/DB = AE/EC, so 3/6 = 2/EC."
+            },
+            "why": {
+              "en": "The parallel line divides the sides proportionally."
+            }
+          },
+          {
+            "text": {
+              "en": "Cross-multiply: 3 x EC = 12."
+            },
+            "why": {
+              "en": "From 3/6 = 2/EC."
+            }
+          },
+          {
+            "text": {
+              "en": "EC = 4."
+            },
+            "why": {
+              "en": "Check: 2/4 = 1/2 = 3/6."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Thales theorem and one test for similar triangles."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Parallel line divides sides in the same ratio"
+          },
+          {
+            "en": "AA test"
+          },
+          {
+            "en": "Areas are in ratio of squares of sides"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the ratio of areas as the ratio of sides"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma205-1",
+          "r1-m10ma205-2",
+          "r1-m10ma205-3",
+          "r2-m10ma205-4",
+          "r2-m10ma205-5",
+          "r2-m10ma205-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "DE parallel to BC gives AD/DB = AE/EC."
+          },
+          {
+            "en": "AA, SSS and SAS prove similarity."
+          },
+          {
+            "en": "Area ratio = (side ratio) squared."
+          },
+          {
+            "en": "Angle bisector divides the opposite side in the ratio of the other two sides."
+          }
+        ]
+      }
+    ]
+  }
+}

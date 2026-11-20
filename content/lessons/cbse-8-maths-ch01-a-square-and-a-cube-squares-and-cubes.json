@@ -1,0 +1,261 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch01-a-square-and-a-cube",
+ "topic": "squares-and-cubes",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Squares, perfect squares and cubes"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The locker puzzle"
+    },
+    "text": {
+     "en": "Queen Ratnamanjuri left a puzzle in her will: 100 lockers in a row, all closed. Person 1 toggles every locker, person 2 toggles every 2nd locker, person 3 every 3rd, and so on up to person 100. Which lockers stay open at the end?"
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "perfect square",
+     "perfect cube",
+     "factor",
+     "n²",
+     "n³"
+    ],
+    "text": {
+     "en": "A locker is toggled once by every person whose number is a factor of the locker number, so locker 6 is toggled by persons 1, 2, 3 and 6.\nFactors usually come in pairs, like 1 × 6 and 2 × 3, so most numbers have an even number of factors and their locker ends up closed.\nA number has an odd number of factors only when one pair repeats the same number, like 6 × 6 for 36.\nSo the lockers that stay open are 1, 4, 9, 16, 25, 36, 49, 64, 81 and 100, which are the square numbers.\nA square number is the area of a square: a square of side n has area n × n, which we write as n².\nThe squares of natural numbers are called perfect squares. A perfect square can only end in 0, 1, 4, 5, 6 or 9, never in 2, 3, 7 or 8.\nBut ending in 6 does not prove a number is a square: 16 and 36 are squares, while 26 is not.\nSquares of fractions and decimals also exist, for example (3/5)² = 9/25 and (2.5)² = 6.25.\nA cube is a solid with all sides equal. A cube of side n has volume n × n × n, written n³, and numbers like 1, 8, 27, 64 are called perfect cubes.\nThe Babylonians listed squares and cubes on clay tablets as long ago as 1700 BCE, and Aryabhata called a square and its area varga."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A locker is toggled once by every person whose number is a factor of the locker number, so locker 6 is toggled by persons 1, 2, 3 and 6."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "factors = toggles"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Factors usually come in pairs, like 1 × 6 and 2 × 3, so most numbers have an even number of factors and their locker ends up closed."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "factor pairs"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A number has an odd number of factors only when one pair repeats the same number, like 6 × 6 for 36."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "6 × 6 = 36"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "So the lockers that stay open are 1, 4, 9, 16, 25, 36, 49, 64, 81 and 100, which are the square numbers."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "1, 4, 9, 16, 25 ..."
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A square number is the area of a square: a square of side n has area n × n, which we write as n²."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "n × n = n²"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The squares of natural numbers are called perfect squares. A perfect square can only end in 0, 1, 4, 5, 6 or 9, never in 2, 3, 7 or 8."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "ends 0 1 4 5 6 9"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "But ending in 6 does not prove a number is a square: 16 and 36 are squares, while 26 is not."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "26 is not a square"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Squares of fractions and decimals also exist, for example (3/5)² = 9/25 and (2.5)² = 6.25."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(2.5)² = 6.25"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A cube is a solid with all sides equal. A cube of side n has volume n × n × n, written n³, and numbers like 1, 8, 27, 64 are called perfect cubes."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "n³ : 1, 8, 27, 64"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "The Babylonians listed squares and cubes on clay tablets as long ago as 1700 BCE, and Aryabhata called a square and its area varga."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "history: varga"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Is 144 a perfect square? Find its square root."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Try numbers whose units digit squares to 4: 2 or 8 (since 2×2=4 and 8×8=64). So test 12."
+      },
+      "why": {
+       "en": "The units digit of a square tells us which roots are possible."
+      }
+     },
+     {
+      "text": {
+       "en": "12 × 12 = 144."
+      },
+      "why": {
+       "en": "Multiply to confirm."
+      }
+     },
+     {
+      "text": {
+       "en": "So 144 is a perfect square and its square root is 12."
+      },
+      "why": {
+       "en": "A number that equals n × n for a natural number n is a perfect square."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Explain why only the square-numbered lockers stay open."
+    },
+    "requiredIdeas": [
+     {
+      "en": "Each factor pair toggles a locker twice."
+     },
+     {
+      "en": "A repeated factor like 6 × 6 gives an odd count."
+     },
+     {
+      "en": "So open lockers are the squares."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Every number ending in 6 is a square."
+     },
+     {
+      "en": "Cube means multiplying a number by 3."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-squ90",
+     "r1-squ91",
+     "r1-squ92",
+     "r1-squ93",
+     "r1-squ94"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "A square number is n × n = n²; a cube number is n × n × n = n³."
+     },
+     {
+      "en": "Perfect squares end only in 0, 1, 4, 5, 6 or 9."
+     },
+     {
+      "en": "Square numbers have an odd number of factors, which solves the locker puzzle."
+     }
+    ]
+   }
+  ]
+ }
+}

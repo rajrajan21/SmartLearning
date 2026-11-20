@@ -1,0 +1,50 @@
+@echo off
+setlocal
+cd /d "%~dp0"
+title SharpStudy - generate teacher audio
+set REPORT=generate-audio-report.txt
+rem How many pieces of audio are made at the same time. 1 or 2 keeps your PC free for other work; raise it to go faster.
+set JOBS=2
+echo === SharpStudy: generate Malar Teacher audio for lessons === > %REPORT%
+echo.
+where node >nul 2>nul
+if errorlevel 1 goto nonode
+where pnpm >nul 2>nul
+if errorlevel 1 call npm install -g pnpm
+if not exist node_modules call pnpm install
+curl -s -m 5 http://localhost:8080/api/health >nul 2>nul
+if errorlevel 1 goto nospeech
+set TRIES=0
+:waitvoice
+curl -s -m 5 http://localhost:8080/api/health | findstr /r /c:"tts.*true" >nul 2>nul
+if not errorlevel 1 goto voiceready
+set /a TRIES+=1
+if %TRIES% GTR 40 goto nospeech
+echo Waiting for the voice engine to get ready, try %TRIES% of 40 ...
+timeout /t 5 /nobreak >nul
+goto waitvoice
+:voiceready
+echo Using %JOBS% at a time. Change JOBS at the top of this file.
+echo Generating audio for every lesson sentence that does not have it yet...
+call pnpm --filter @studysmart/api audio:build --jobs %JOBS% >> %REPORT% 2>&1
+set RC=%ERRORLEVEL%
+type %REPORT%
+echo.
+if not "%RC%"=="0" goto failed
+echo DONE. New audio is in content\audio. Run Publish-To-GitHub.bat to save it to GitHub.
+goto end
+:nonode
+echo Node.js was not found. Install the LTS version from nodejs.org, then run this file again.
+goto end
+:nospeech
+echo The Malar Teacher speech server is not running.
+echo Open the Malar Teacher folder inside this folder and run "Start Malar Teacher.bat".
+echo Wait until it says the voice engine is ready, then run this file again.
+echo Speech server not running >> %REPORT%
+goto end
+:failed
+echo NOT FINISHED. Read the lines above. The same text is in %REPORT%.
+echo NOT FINISHED >> %REPORT%
+:end
+echo.
+pause

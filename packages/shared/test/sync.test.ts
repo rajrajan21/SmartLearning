@@ -14,3 +14,17 @@ describe("progress merge", () => {
     expect(mergeSync(emptySync(), a)).toEqual(a);
   });
 });
+
+describe("saved lessons sync", () => {
+  const n = (savedAt: number, removedAt?: number) => ({ id: "t1", href: "/x", title: { en: "A" }, subject: { en: "Maths" }, savedAt, ...(removedAt ? { removedAt } : {}) });
+  it("keeps a lesson saved on either device", () => {
+    const a = { ...emptySync(), notes: { t1: n(10) } }, b = { ...emptySync(), notes: { t2: { ...n(20), id: "t2" } } };
+    expect(Object.keys(mergeSync(a, b).notes).sort()).toEqual(["t1", "t2"]);
+  });
+  it("an un-save made later beats an older save, and a re-save beats an older un-save", () => {
+    const saved = { ...emptySync(), notes: { t1: n(10) } }, removed = { ...emptySync(), notes: { t1: n(10, 30) } }, resaved = { ...emptySync(), notes: { t1: n(50) } };
+    expect(mergeSync(saved, removed).notes.t1?.removedAt).toBe(30);
+    expect(mergeSync(removed, resaved).notes.t1?.removedAt).toBeUndefined();
+    expect(mergeSync(removed, saved)).toEqual(mergeSync(saved, removed));
+  });
+});

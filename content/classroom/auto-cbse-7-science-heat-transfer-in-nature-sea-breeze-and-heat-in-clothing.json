@@ -1,0 +1,313 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "heat-transfer-in-nature",
+ "topic": "sea-breeze-and-heat-in-clothing",
+ "status": "published",
+ "title": {
+  "en": "Sea breeze and land breeze"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Sea breeze and land breeze",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sea",
+   "x": 40,
+   "y": 340,
+   "w": 400,
+   "h": 100,
+   "rx": 0,
+   "fill": "#BBDEFB",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "land",
+   "x": 440,
+   "y": 340,
+   "w": 420,
+   "h": 100,
+   "rx": 0,
+   "fill": "#D7CCC8",
+   "stroke": "earth",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ls",
+   "x": 240,
+   "y": 400,
+   "text": "sea",
+   "size": 26,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ll",
+   "x": 650,
+   "y": 400,
+   "text": "land",
+   "size": 26,
+   "color": "earth",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "sun",
+   "cx": 780,
+   "cy": 110,
+   "r": 40,
+   "fill": "#FFEE58",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "day",
+   "x": 450,
+   "y": 95,
+   "text": "Day",
+   "size": 30,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "d1",
+   "x1": 330,
+   "y1": 320,
+   "x2": 560,
+   "y2": 320,
+   "stroke": "water",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "d2",
+   "x1": 650,
+   "y1": 320,
+   "x2": 650,
+   "y2": 180,
+   "stroke": "accent",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "dt1",
+   "x": 450,
+   "y": 300,
+   "text": "cooler air from the sea",
+   "size": 20,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "dt2",
+   "x": 720,
+   "y": 250,
+   "text": "warm air rises",
+   "size": 20,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "night",
+   "x": 450,
+   "y": 95,
+   "text": "Night",
+   "size": 30,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "n1",
+   "x1": 560,
+   "y1": 320,
+   "x2": 330,
+   "y2": 320,
+   "stroke": "earth",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "n2",
+   "x1": 240,
+   "y1": 320,
+   "x2": 240,
+   "y2": 180,
+   "stroke": "accent",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "nt1",
+   "x": 450,
+   "y": 300,
+   "text": "cooler air from the land",
+   "size": 20,
+   "color": "earth",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nt2",
+   "x": 260,
+   "y": 250,
+   "text": "warm air rises",
+   "size": 20,
+   "color": "accent",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Land and sea are heated differently. Land warms up and cools down faster than water."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sea",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "land",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "ls",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ll",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "In the day the land becomes hotter than the sea. The air over the land gets warm and rises. Cooler air from the sea moves in to take its place. This is the sea breeze."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "sun",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "day",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "dt2",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "dt1",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "At night the land cools faster, and the sea stays warmer. Now the air over the sea rises, and cooler air from the land blows towards the sea. This is the land breeze."
+   },
+   "actions": [
+    {
+     "do": "hide",
+     "target": "sun",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "day",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "d1",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "d2",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "dt1",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "dt2",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "night",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "n2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "nt2",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "n1",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "nt1",
+     "at": 0.65
+    }
+   ]
+  }
+ ]
+}

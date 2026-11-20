@@ -1,0 +1,230 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "expressions-using-letter-numbers",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "Variables"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Patterns and variables",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sq0x0",
+   "x": 90,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "ct0",
+   "x": 118,
+   "y": 290,
+   "text": "1 square: 4 sticks",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sq1x0",
+   "x": 360,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "sq1x1",
+   "x": 416,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "ct1",
+   "x": 416,
+   "y": 290,
+   "text": "2 squares: 7 sticks",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sq2x0",
+   "x": 630,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "sq2x1",
+   "x": 686,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "sq2x2",
+   "x": 742,
+   "y": 180,
+   "w": 56,
+   "h": 56,
+   "rx": 0,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "ct2",
+   "x": 714,
+   "y": 290,
+   "text": "3 squares: 10 sticks",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "rl",
+   "x": 450,
+   "y": 380,
+   "text": "sticks = 3 × n + 1",
+   "size": 52,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nn",
+   "x": 450,
+   "y": 440,
+   "text": "n is the number of squares",
+   "size": 26,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Make squares in a row with matchsticks. One square needs four sticks."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sq0x0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "sq1x0",
+     "at": 0.33333333333333337
+    },
+    {
+     "do": "draw",
+     "target": "sq1x1",
+     "at": 0.45000000000000007
+    },
+    {
+     "do": "draw",
+     "target": "sq2x0",
+     "at": 0.5666666666666668
+    },
+    {
+     "do": "draw",
+     "target": "sq2x1",
+     "at": 0.6833333333333333
+    },
+    {
+     "do": "draw",
+     "target": "sq2x2",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "ct0",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "ct1",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "ct2",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Each extra square adds only three more sticks, because it shares one side. So the number of sticks is three times the number of squares, plus one."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "rl",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The letter n stands for any number of squares. A letter that can take different values is called a variable. With a variable, one rule covers every case."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nn",
+     "at": 0.3
+    },
+    {
+     "do": "pulse",
+     "target": "rl",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

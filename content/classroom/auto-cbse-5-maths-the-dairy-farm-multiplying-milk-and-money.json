@@ -1,0 +1,191 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "the-dairy-farm",
+ "topic": "multiplying-milk-and-money",
+ "status": "published",
+ "title": {
+  "en": "Money"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "Money",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "m0",
+   "x": 165,
+   "y": 170,
+   "w": 120,
+   "h": 70,
+   "rx": 8,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "v0",
+   "x": 225,
+   "y": 215,
+   "text": "₹10",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "m1",
+   "cx": 375,
+   "cy": 205,
+   "r": 42,
+   "fill": "#FFE082",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "v1",
+   "x": 375,
+   "y": 215,
+   "text": "₹5",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "m2",
+   "cx": 525,
+   "cy": 205,
+   "r": 42,
+   "fill": "#FFE082",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "v2",
+   "x": 525,
+   "y": 215,
+   "text": "₹2",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "m3",
+   "cx": 675,
+   "cy": 205,
+   "r": 42,
+   "fill": "#FFE082",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "v3",
+   "x": 675,
+   "y": 215,
+   "text": "₹1",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tot",
+   "x": 450,
+   "y": 380,
+   "text": "₹10 + 5 + 2 + 1 = ₹18",
+   "size": 46,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "We pay for things with coins and notes. The rupee is the money we use in India."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here are 4 pieces of money. Let us add their values one by one."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "m0",
+     "at": 0.15
+    },
+    {
+     "do": "show",
+     "target": "v0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "m1",
+     "at": 0.3125
+    },
+    {
+     "do": "show",
+     "target": "v1",
+     "at": 0.3625
+    },
+    {
+     "do": "draw",
+     "target": "m2",
+     "at": 0.475
+    },
+    {
+     "do": "show",
+     "target": "v2",
+     "at": 0.5249999999999999
+    },
+    {
+     "do": "draw",
+     "target": "m3",
+     "at": 0.6375000000000001
+    },
+    {
+     "do": "show",
+     "target": "v3",
+     "at": 0.6875
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Add them all together. The total is 18 rupees."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "tot",
+     "on": "18 rupees"
+    }
+   ]
+  }
+ ]
+}

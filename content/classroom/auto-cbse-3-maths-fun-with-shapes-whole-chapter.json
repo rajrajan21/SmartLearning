@@ -1,0 +1,200 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "maths",
+ "chapter": "fun-with-shapes",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "triangle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 48,
+   "text": "A triangle",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "sh",
+   "points": [
+    [
+     300,
+     120
+    ],
+    [
+     450,
+     400
+    ],
+    [
+     150,
+     400
+    ]
+   ],
+   "fill": "#FFF3D6",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "e0",
+   "x1": 300,
+   "y1": 120,
+   "x2": 450,
+   "y2": 400,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v0",
+   "cx": 300,
+   "cy": 120,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e1",
+   "x1": 450,
+   "y1": 400,
+   "x2": 150,
+   "y2": 400,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v1",
+   "cx": 450,
+   "cy": 400,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e2",
+   "x1": 150,
+   "y1": 400,
+   "x2": 300,
+   "y2": 120,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v2",
+   "cx": 150,
+   "cy": 400,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ns",
+   "x": 700,
+   "y": 220,
+   "text": "3 sides",
+   "size": 44,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nc",
+   "x": 700,
+   "y": 300,
+   "text": "3 corners",
+   "size": 44,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "This is a triangle. Let us look at it carefully."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "sh",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The straight lines around the shape are its sides. Count them with me. A triangle has 3 sides."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "e0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "e1",
+     "at": 0.3666666666666667
+    },
+    {
+     "do": "draw",
+     "target": "e2",
+     "at": 0.5333333333333333
+    },
+    {
+     "do": "write",
+     "target": "ns",
+     "on": "3 sides"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The points where two sides meet are the corners. A triangle has 3 corners too."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "v0",
+     "at": 0.2
+    },
+    {
+     "do": "show",
+     "target": "v1",
+     "at": 0.3666666666666667
+    },
+    {
+     "do": "show",
+     "target": "v2",
+     "at": 0.5333333333333333
+    },
+    {
+     "do": "write",
+     "target": "nc",
+     "on": "3 corners"
+    }
+   ]
+  }
+ ]
+}

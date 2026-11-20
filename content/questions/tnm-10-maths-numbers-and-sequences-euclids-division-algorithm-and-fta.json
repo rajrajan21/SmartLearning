@@ -1,0 +1,213 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "numbers-and-sequences",
+  "topic": "euclids-division-algorithm-and-fta",
+  "questions": [
+    {
+      "key": "r1-m10ma783-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "By Euclid's lemma, 17 = 5 x 3 + r gives r ="
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "2"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "3"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "The remainder must satisfy 5 x 3 + r = 17"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "5"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Remainder is less than 5"
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "12"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Subtract 15 from 17"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "r = 17 - 15 = 2."
+      }
+    },
+    {
+      "key": "r1-m10ma783-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "HCF of 12 and 18 is"
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "12 = 2^2 x 3 and 18 = 2 x 3^2; common smallest powers give 2 x 3 = 6."
+      }
+    },
+    {
+      "key": "r1-m10ma783-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "The remainder in a = bq + r can be equal to b."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "The remainder must be smaller than b."
+      }
+    },
+    {
+      "key": "r2-m10ma783-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If HCF(8, 12) = 4, then LCM(8, 12) ="
+      },
+      "answer": 24,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "LCM = 8 x 12 / 4 = 24."
+      }
+    },
+    {
+      "key": "r2-m10ma783-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The prime factorisation of 60 is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "2 x 2 x 3 x 5"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "2 x 3 x 10"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "10 is not prime"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "4 x 15"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Neither is prime"
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "2 x 5 x 6"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "6 is not prime"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "60 = 2^2 x 3 x 5."
+      }
+    },
+    {
+      "key": "r2-m10ma783-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Using Euclid's algorithm, HCF(48, 18) ="
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "48 = 18x2+12, 18 = 12x1+6, 12 = 6x2+0."
+      }
+    },
+    {
+      "key": "r3-m10ma783-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Every composite number has more than one prime factorisation."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "Apart from order it is unique."
+      }
+    },
+    {
+      "key": "r3-m10ma783-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If a = 4q + r and the remainder is r = 3 when a = 23, the quotient q is"
+      },
+      "answer": 5,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "23 = 4 x 5 + 3."
+      }
+    }
+  ]
+}

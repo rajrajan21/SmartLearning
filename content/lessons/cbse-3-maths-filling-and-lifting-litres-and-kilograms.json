@@ -15,10 +15,10 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "Amma goes shopping"
+     "en": "The juice challenge"
     },
     "text": {
-     "en": "Amma went to the shop with Meena. \"Two kilograms of rice and one litre of oil, please,\" she said.\nMeena watched the shopkeeper pour oil into a bottle. Then he put the rice on the scale.\n\"Why do we say litre for the oil and kilogram for the rice?\" asked Meena."
+     "en": "A shop poster says: drink 6 glasses of juice and get your money back! Chintu said, “I cannot drink 6 glasses!” because the glasses are big."
     }
    },
    {
@@ -28,10 +28,11 @@
     "keepEnglishTerms": [
      "litre",
      "kilogram",
-     "gram"
+     "capacity",
+     "weight"
     ],
     "text": {
-     "en": "We use litres (L) to measure how much liquid a container can hold: milk, water, oil.\nWe use kilograms (kg) to measure how heavy something is: rice, sugar, a school bag.\nSmall weights are measured in grams (g). 1 kilogram is 1000 grams.\nHalf a kilogram is 500 grams.\nThe same unit can be added or taken away: 2 kg + 3 kg = 5 kg, and 5 L take away 2 L is 3 L."
+     "en": "Welcome to Filling and Lifting. Chintu sees a juice challenge, and the glasses are very big.\nIf the glass is bigger, you drink fewer glasses. If the glass is smaller, you drink more glasses to finish the same drink.\nThe amount a container can hold is called its capacity. We measure the capacity of liquids in litres.\nThe heaviness of an object is its weight. We measure weight in kilograms.\nA bottle of 1 litre milk holds ten glasses of 100 ml (additional, not in the textbook).\nA packet of 1 kilogram sugar is the weight you can weigh against a standard weight."
     }
    },
    {
@@ -43,65 +44,104 @@
      {
       "id": "t1",
       "text": {
-       "en": "When we want to know how much water a bucket holds, we measure in litres."
+       "en": "Welcome to Filling and Lifting."
       },
       "board": [
        {
         "op": "clear"
-       },
-       {
-        "op": "draw",
-        "shape": "rect",
-        "label": "bucket"
-       },
-       {
-        "op": "write",
-        "text": "litre (L) = how much it holds"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "When we want to know how heavy a bag of rice is, we weigh it in kilograms."
+       "en": "Chintu sees a juice challenge, and the glasses are very big."
       },
-      "board": [
-       {
-        "op": "draw",
-        "shape": "rect",
-        "label": "rice"
-       },
-       {
-        "op": "write",
-        "text": "kilogram (kg) = how heavy"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t3",
       "text": {
-       "en": "A kilogram is the same as one thousand grams. Half a kilogram is five hundred grams."
+       "en": "If the glass is bigger, you drink fewer glasses."
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "1 kg = 1000 g"
-       },
-       {
-        "op": "write",
-        "text": "half kg = 500 g"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t4",
       "text": {
-       "en": "We can add and take away litres, and kilograms, just like numbers. Remember to keep the same unit."
+       "en": "If the glass is smaller, you drink more glasses to finish the same drink."
+      },
+      "board": []
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "The amount a container can hold is called its capacity."
       },
       "board": [
        {
         "op": "write",
-        "text": "2 kg + 3 kg = 5 kg"
+        "text": "capacity"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "We measure the capacity of liquids in litres."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "litre"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "The heaviness of an object is its weight."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "weight"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "We measure weight in kilograms."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "kilogram"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A bottle of 1 litre milk holds ten glasses of 100 ml (additional, not in the textbook)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "litre"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "A packet of 1 kilogram sugar is the weight you can weigh against a standard weight."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "kilogram"
        }
       ]
      }
@@ -112,31 +152,31 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Amma buys 2 kg of rice and 3 kg of sugar. How many kilograms does she carry home?"
+     "en": "Which unit for water in a bucket?"
     },
     "steps": [
      {
       "text": {
-       "en": "Both are in kilograms, so we can add them."
+       "en": "Water is a liquid."
       },
       "why": {
-       "en": "Only the same units can be added."
+       "en": "Liquid capacity."
       }
      },
      {
       "text": {
-       "en": "Add 2 + 3 = 5."
+       "en": "Use litres."
       },
       "why": {
-       "en": "Adding the two weights gives the total."
+       "en": "Capacity unit."
       }
      },
      {
       "text": {
-       "en": "She carries 5 kg."
+       "en": "A bucket holds about 10 litres."
       },
       "why": {
-       "en": "Always write the unit with the answer."
+       "en": "Estimate."
       }
      }
     ]
@@ -146,22 +186,19 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "Meena asks why oil is measured in litres but rice in kilograms. What will you tell her?"
+     "en": "Why can Chintu not take the juice challenge?"
     },
     "requiredIdeas": [
      {
-      "en": "Litres tell how much a container holds, for liquids."
+      "en": "The glass is big"
      },
      {
-      "en": "Kilograms tell how heavy something is."
-     },
-     {
-      "en": "1 kilogram is 1000 grams."
+      "en": "One drinks fewer big glasses"
      }
     ],
     "commonMisconceptions": [
      {
-      "en": "Using litres to measure how heavy something is."
+      "en": "He is not thirsty"
      }
     ]
    },
@@ -170,9 +207,9 @@
     "type": "quiz",
     "provenance": "original",
     "questionIds": [
-     "r1-milk",
-     "r1-rice",
-     "r1-litre-half"
+     "n34-3m47808-1",
+     "n34-3m47808-2",
+     "n34-3m47808-3"
     ]
    },
    {
@@ -181,13 +218,13 @@
     "provenance": "original",
     "points": [
      {
-      "en": "Litres measure how much liquid a container holds."
+      "en": "Capacity is measured in litres."
      },
      {
-      "en": "Kilograms measure how heavy something is."
+      "en": "Weight is measured in kilograms."
      },
      {
-      "en": "1 kg = 1000 g, and the same units can be added or taken away."
+      "en": "Bigger containers hold more."
      }
     ]
    }

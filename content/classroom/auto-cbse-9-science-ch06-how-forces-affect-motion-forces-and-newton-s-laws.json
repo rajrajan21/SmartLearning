@@ -1,0 +1,191 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "ch06-how-forces-affect-motion",
+ "topic": "forces-and-newton-s-laws",
+ "status": "published",
+ "title": {
+  "en": "Force"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Push and pull",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "bx",
+   "x": 380,
+   "y": 230,
+   "w": 140,
+   "h": 110,
+   "rx": 8,
+   "fill": "#FFCC80",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "gr",
+   "x1": 80,
+   "y1": 345,
+   "x2": 820,
+   "y2": 345,
+   "stroke": "earth",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "bt",
+   "x": 450,
+   "y": 295,
+   "text": "Box",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "pu",
+   "x1": 140,
+   "y1": 285,
+   "x2": 370,
+   "y2": 285,
+   "stroke": "accent",
+   "width": 9
+  },
+  {
+   "kind": "text",
+   "id": "pl",
+   "x": 255,
+   "y": 255,
+   "text": "Push",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "pl2",
+   "x1": 760,
+   "y1": 285,
+   "x2": 530,
+   "y2": 285,
+   "stroke": "good",
+   "width": 9
+  },
+  {
+   "kind": "text",
+   "id": "pl3",
+   "x": 645,
+   "y": 255,
+   "text": "Pull",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "fr",
+   "x1": 520,
+   "y1": 372,
+   "x2": 400,
+   "y2": 372,
+   "stroke": "warm",
+   "width": 7
+  },
+  {
+   "kind": "text",
+   "id": "ft",
+   "x": 460,
+   "y": 410,
+   "text": "Friction",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A force is a push or a pull. A force can make things move, stop, or change direction."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "gr",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "bx",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "bt",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here we push the box from the left. The bigger the push, the faster it moves. And here we pull it with a rope from the right."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "pu",
+     "on": "push"
+    },
+    {
+     "do": "write",
+     "target": "pl",
+     "on": "push"
+    },
+    {
+     "do": "draw",
+     "target": "pl2",
+     "on": "pull"
+    },
+    {
+     "do": "write",
+     "target": "pl3",
+     "on": "pull"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "When the box slides, the rough ground rubs against it and slows it down. This force is called friction, and it acts in the opposite direction."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "fr",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "ft",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "surface-areas-and-volumes",
+  "topic": "volume-of-combined-solids",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Volume of combination of solids"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "How much does it hold?"
+        },
+        "text": {
+          "en": "A tank, a test tube or an ice-cream cone with ice cream on top: volumes of combined solids tell us how much they hold."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "1 litre = 1000 cm^3",
+          "add volumes",
+          "capsule volume",
+          "cone + cylinder",
+          "displacement",
+          "draw and mark",
+          "melting and recasting",
+          "volume formulas"
+        ],
+        "text": {
+          "en": "Volume formulas: cuboid l b h, cylinder pi r squared h, cone one-third pi r squared h, sphere four-thirds pi r cubed, hemisphere two-thirds pi r cubed.\nFor combined solids, add the volumes of the parts. Joining does not hide any volume.\nA cone on a cylinder: V = pi r squared h(cylinder) + one-third pi r squared h(cone).\nA capsule: V = pi r squared h + two-thirds pi r cubed x 2 for both hemispheres.\nIf a solid is melted and recast, the volume stays the same: V(old) = V(new) x number of pieces.\nWhen a solid is dropped into water, the water rises by the volume of the solid.\nConvert units carefully: 1 litre = 1000 cubic centimetres.\nDraw the solid, mark the radii and heights, and then compute each part."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Volume formulas: cuboid l b h, cylinder pi r squared h, cone one-third pi r squared h, sphere four-thirds pi r cubed, hemisphere two-thirds pi r cubed."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "volume formulas"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For combined solids, add the volumes of the parts. Joining does not hide any volume."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "add volumes"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A cone on a cylinder: V = pi r squared h(cylinder) + one-third pi r squared h(cone)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cone + cylinder"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A capsule: V = pi r squared h + two-thirds pi r cubed x 2 for both hemispheres."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "capsule volume"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "If a solid is melted and recast, the volume stays the same: V(old) = V(new) x number of pieces."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "melting and recasting"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "When a solid is dropped into water, the water rises by the volume of the solid."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "displacement"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Convert units carefully: 1 litre = 1000 cubic centimetres."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "1 litre = 1000 cm^3"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Draw the solid, mark the radii and heights, and then compute each part."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "draw and mark"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A metallic sphere of radius 4.2 cm is melted and recast into a cylinder of radius 6 cm. Find the height (pi cancels)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Sphere volume = 4/3 pi (4.2)^3."
+            },
+            "why": {
+              "en": "Volume of sphere."
+            }
+          },
+          {
+            "text": {
+              "en": "Cylinder volume = pi (36) h. Equate: 36h = 4/3 x 74.088 = 98.784."
+            },
+            "why": {
+              "en": "Volume is conserved."
+            }
+          },
+          {
+            "text": {
+              "en": "h = 2.744 cm."
+            },
+            "why": {
+              "en": "Solve."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you handle volume of combined solids?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Add the volumes"
+          },
+          {
+            "en": "Melting keeps volume constant"
+          },
+          {
+            "en": "Use the right formulas"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Subtracting volumes for joined solids"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-vc1",
+          "r1-vc2",
+          "r2-vc3",
+          "r2-vc4",
+          "r2-vc5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Volume of a combined solid is the sum of its parts."
+          },
+          {
+            "en": "Melting and recasting preserves volume."
+          },
+          {
+            "en": "1 litre = 1000 cm^3."
+          }
+        ]
+      }
+    ]
+  }
+}

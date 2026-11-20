@@ -1,0 +1,74 @@
+{
+ "id": "puzzle-alternating-pattern",
+ "kind": "puzzle",
+ "category": "patterns",
+ "age": "11-13",
+ "title": "Two Patterns in One",
+ "summary": "Separate a mixed sequence into alternate terms.",
+ "emoji": "🔀",
+ "tags": [
+  "alternating"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Look at 2, 10, 4, 20, 6, 30, ...",
+    "What are the next two numbers?"
+   ],
+   "points": [
+    "Look at 2, 10, 4, 20, 6, 30, ..."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "The numbers do not go up evenly.",
+    "Try splitting them into odd places and even places."
+   ],
+   "points": [
+    "The numbers do not go up evenly."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Split the sequence",
+   "sentences": [
+    "Take every first, third and fifth number: 2, 4, 6. That goes up by 2.",
+    "Take every second, fourth and sixth number: 10, 20, 30. That goes up by 10.",
+    "Two small patterns are mixed together."
+   ],
+   "points": [
+    "Take every first, third and fifth number: 2, 4, 6. That goes up by 2."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "The next first-line number is 8 and the next second-line number is 40.",
+    "So the sequence continues 8, 40.",
+    "When it looks messy, split it into two."
+   ],
+   "points": [
+    "The next first-line number is 8 and the next second-line number is 40."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "What comes next: 1, 100, 2, 200, 3, ...?",
+   "options": [
+    "4",
+    "300",
+    "30"
+   ],
+   "answer": 1,
+   "why": "The two lines are 1,2,3 and 100,200,300, so 300 comes next."
+  }
+ ],
+ "method": "Split the sequence"
+}

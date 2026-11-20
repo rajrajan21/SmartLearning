@@ -1,4 +1,4 @@
-import { useRef, type ReactElement } from "react";
+import { useEffect, useRef, useState, type ReactElement } from "react";
 import { BOARD_H, BOARD_W, clockAngles, type BoardObject, type ObjState } from "@studysmart/shared";
 import { project, shadeHex, type SolidShape } from "../lib/solid3d";
 
@@ -20,15 +20,42 @@ function sectorPath(cx: number, cy: number, r: number, from: number, to: number)
   return `M ${cx} ${cy} L ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${sweep > 180 ? 1 : 0} 1 ${x2.toFixed(1)} ${y2.toFixed(1)} Z`;
 }
 
+/** attribution for the pictures, fetched once from the site (public/pictures/credits.json) */
+type Credit = { title?: string; author?: string; license?: string; source?: string };
+let creditCache: Record<string, Credit> | null = null, creditAsk: Promise<void> | null = null;
+function useCredits(): Record<string, Credit> {
+  const [, force] = useState(0);
+  useEffect(() => { if (creditCache || creditAsk) { void creditAsk?.then(() => force((n) => n + 1)); return; } creditAsk = fetch("/pictures/credits.json").then((r) => (r.ok ? r.json() : {})).then((j) => { creditCache = j as Record<string, Credit>; }).catch(() => { creditCache = {}; }).then(() => force((n) => n + 1)); }, []);
+  return creditCache ?? {};
+}
+
+/** a picture with a labelled frame behind it, so the lesson still looks right until the file has been fetched */
+function PictureFrame({ o, dim, credits, pictures, dark }: { o: Extract<BoardObject, { kind: "image" }>; dim: number; credits: boolean; pictures: boolean; dark: boolean }) {
+  const cr = useCredits()[o.src];
+  const [bad, setBad] = useState(false);
+  const line = cr ? `${cr.author ?? "Unknown"} · ${cr.license ?? ""}` : "";
+  return (
+    <g opacity={Math.max(0.15, dim)}>
+      <rect x={o.x} y={o.y} width={o.w} height={o.h} rx={10} fill={dark ? "#1d4a38" : "#FFF3D6"} stroke={dark ? "#cfe8d8" : "#C58B3C"} strokeWidth={3} strokeDasharray={pictures && !bad && cr ? "0" : "8 6"} />
+      {(!pictures || bad || !cr) && <text x={o.x + o.w / 2} y={o.y + o.h / 2} fontSize={22} textAnchor="middle" fill={dark ? "#cfe8d8" : "#8D6E63"} fontFamily="system-ui, sans-serif">{"🖼 " + o.alt.slice(0, 40)}</text>}
+      {pictures && cr && !bad && <image href={`/pictures/${o.src}.webp`} x={o.x + 3} y={o.y + 3} width={o.w - 6} height={o.h - 6} preserveAspectRatio="xMidYMid meet" onError={() => setBad(true)}><title>{o.alt}</title></image>}
+      {o.caption && <text x={o.x + o.w / 2} y={o.y + o.h + 22} fontSize={18} textAnchor="middle" fill={dark ? "#ffffff" : "#1F3B6E"} fontFamily="system-ui, sans-serif">{o.caption}</text>}
+      {credits && cr && !bad && pictures && <text x={o.x + o.w - 6} y={o.y + o.h - 8} fontSize={11} textAnchor="end" fill="#ffffff" stroke="#00000088" strokeWidth={0.4} fontFamily="system-ui, sans-serif">{line.slice(0, 70)}</text>}
+    </g>
+  );
+}
+
 interface Props {
   objects: BoardObject[]; scene: Record<string, ObjState>; style: BoardStyle; show3d: boolean;
   /** seconds, drives the slow turning of solids */
   clock: number; yaw: number; onYaw?: (d: number) => void; label: string;
   /** a question is showing: hide the writing (it could give the answer away) and keep solids turning */
   quiet?: boolean;
+  /** admin switches for pictures and picture credits */
+  visuals?: { pictures?: boolean; credits?: boolean };
 }
 
-export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, label, quiet }: Props) {
+export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, label, quiet, visuals }: Props) {
   const drag = useRef<number | null>(null);
   const C = (c?: string, f = "ink") => col(style, c, f);
   return (
@@ -89,6 +116,22 @@ export function ClassBoard({ objects, scene, style, show3d, clock, yaw, onYaw, l
               const r = (o.size ?? 7) * (0.7 + 0.5 * (1 - ph)), fade = ph < 0.1 ? ph * 10 : ph > 0.85 ? (1 - ph) / 0.15 : 1;
               return <path key={i} opacity={fade * 0.95} d={`M ${xx} ${yy - r * 1.7} C ${xx + r * 1.1} ${yy - r * 0.2} ${xx + r} ${yy + r} ${xx} ${yy + r} C ${xx - r} ${yy + r} ${xx - r * 1.1} ${yy - r * 0.2} ${xx} ${yy - r * 1.7} Z`} />;
             })}</g>);
+            break;
+          }
+          case "orbit": {
+            const per = o.period ?? 8, ang = ((o.phase ?? 0) + (clock / per) * 360) % 360, tl = o.tilt ?? 1, [px, py] = pt(o.cx, o.cy, o.r, ang), py2 = o.cy + (py - o.cy) * tl, sz = o.size ?? 14;
+            body = (<g>{o.ring !== false && <ellipse cx={o.cx} cy={o.cy} rx={o.r} ry={o.r * tl} fill="none" stroke={C("soft")} strokeWidth={2} strokeDasharray="6 8" opacity={st.draw} />}
+              {o.emoji ? <text x={px} y={py2 + sz * 0.35} fontSize={sz * 2} textAnchor="middle">{o.emoji}</text> : <circle cx={px} cy={py2} r={sz} fill={C(o.color, "accent")} stroke={C("ink")} strokeWidth={2} />}</g>);
+            break;
+          }
+          case "wave": {
+            const amp = (o.amp ?? 24) * (1 + pulse * 0.4), cyc = o.cycles ?? 3, ph = clock * (o.speed ?? 0.6) * Math.PI * 2, steps = 60, upto = Math.max(2, Math.round(steps * st.draw));
+            const d = Array.from({ length: upto + 1 }, (_, i) => { const t = i / steps; return `${i ? "L" : "M"} ${(o.x + t * o.len).toFixed(1)} ${(o.y + amp * Math.sin(t * cyc * Math.PI * 2 - ph)).toFixed(1)}`; }).join(" ");
+            body = <path d={d} fill="none" stroke={C(o.color, "accent")} strokeWidth={o.width ?? 5} strokeLinecap="round" />;
+            break;
+          }
+          case "image": {
+            body = <PictureFrame o={o} dim={st.draw} credits={visuals?.credits !== false} pictures={visuals?.pictures !== false} dark={style === "chalk"} />;
             break;
           }
           case "solid": {

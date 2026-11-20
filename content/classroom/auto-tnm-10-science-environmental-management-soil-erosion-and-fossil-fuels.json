@@ -1,0 +1,182 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "environmental-management",
+ "topic": "soil-erosion-and-fossil-fuels",
+ "status": "published",
+ "title": {
+  "en": "Soil layers"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Layers of soil",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "l1",
+   "x": 180,
+   "y": 110,
+   "w": 400,
+   "h": 80,
+   "rx": 0,
+   "fill": "#5D4037",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "l2",
+   "x": 180,
+   "y": 190,
+   "w": 400,
+   "h": 90,
+   "rx": 0,
+   "fill": "#8D6E63",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "l3",
+   "x": 180,
+   "y": 280,
+   "w": 400,
+   "h": 90,
+   "rx": 0,
+   "fill": "#BCAAA4",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "l4",
+   "x": 180,
+   "y": 370,
+   "w": 400,
+   "h": 70,
+   "rx": 0,
+   "fill": "#757575",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a1",
+   "x": 620,
+   "y": 160,
+   "text": "Topsoil: dark, has humus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "a2",
+   "x": 620,
+   "y": 245,
+   "text": "Subsoil: less humus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "a3",
+   "x": 620,
+   "y": 335,
+   "text": "Weathered rock",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "a4",
+   "x": 620,
+   "y": 410,
+   "text": "Bedrock: hard rock",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "If we dig deep, we see that soil is made of layers. Each layer is different."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "l1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "l2",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "l3",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "l4",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The top layer is the topsoil. It is dark because it has humus, made from rotted plants and animals. Plants grow best in it."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "a1",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Below it are the subsoil and broken rocks, and at the bottom the hard bedrock."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "a2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "a3",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "a4",
+     "at": 0.8
+    }
+   ]
+  }
+ ]
+}

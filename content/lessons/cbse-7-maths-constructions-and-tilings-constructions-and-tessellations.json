@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "constructions-and-tilings",
+ "topic": "constructions-and-tessellations",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Constructions and tessellations"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The tiled floor"
+    },
+    "text": {
+     "en": "Neha watched workers fix square tiles on the floor without leaving gaps.\n\"Why do squares fit so well?\" she asked. \"Let us find out which shapes can tile a floor,\" said the teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "compass",
+     "bisector",
+     "perpendicular",
+     "tiling",
+     "regular polygon"
+    ],
+    "text": {
+     "en": "With a ruler and compass we can make accurate drawings. To bisect an angle, draw an arc from the vertex cutting both arms, then draw two equal arcs from those points so that they cross, and join the vertex to the crossing point. This line divides the angle into two equal parts.\nTo draw the perpendicular bisector of a line segment, take a compass opening more than half the length, draw arcs from both ends above and below, and join the two crossing points. This line cuts the segment into two equal parts at a right angle.\nA tiling covers a flat surface with no gaps and no overlaps. Equilateral triangles, squares and regular hexagons tile because their angles add up to 360 degrees around a point. Regular pentagons do not tile because 360 is not a multiple of 108 degrees."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A compass and ruler help us draw exactly."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "compass and ruler"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "An angle bisector divides an angle into two equal parts."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "angle bisector"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A perpendicular bisector cuts a segment into two equal parts at a right angle."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "perpendicular bisector"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Triangles, squares and regular hexagons tile a floor. Pentagons do not."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "tilings"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Why can regular hexagons tile a floor?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Each angle of a regular hexagon is 120 degrees."
+      },
+      "why": {
+       "en": "Interior angle."
+      }
+     },
+     {
+      "text": {
+       "en": "Three hexagons meet at a point: 3 times 120 is 360."
+      },
+      "why": {
+       "en": "Angles around a point make 360."
+      }
+     },
+     {
+      "text": {
+       "en": "So they fit with no gaps."
+      },
+      "why": {
+       "en": "That is a tiling."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says any shape tiles a floor. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Regular pentagons leave gaps."
+     },
+     {
+      "en": "The angles around a point must add up to 360 degrees."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Thinking every shape tiles."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-ang",
+     "r1-sq"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "An angle bisector divides an angle into two equal parts."
+     },
+     {
+      "en": "A perpendicular bisector cuts a segment into two equal parts at a right angle."
+     },
+     {
+      "en": "Triangles, squares and regular hexagons tile; regular pentagons do not."
+     }
+    ]
+   }
+  ]
+ }
+}

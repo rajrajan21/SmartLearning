@@ -1,0 +1,195 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-the-unknown",
+ "topic": "solving-equations-and-word-problems",
+ "status": "published",
+ "title": {
+  "en": "Equations"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Solving an equation",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "bm",
+   "x1": 150,
+   "y1": 230,
+   "x2": 750,
+   "y2": 230,
+   "stroke": "ink",
+   "width": 8
+  },
+  {
+   "kind": "poly",
+   "id": "bs",
+   "points": [
+    [
+     450,
+     230
+    ],
+    [
+     405,
+     400
+    ],
+    [
+     495,
+     400
+    ]
+   ],
+   "fill": "#BCAAA4",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 270,
+   "y": 200,
+   "text": "x + 3",
+   "size": 56,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r1",
+   "x": 630,
+   "y": 200,
+   "text": "8",
+   "size": 56,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 270,
+   "y": 200,
+   "text": "x",
+   "size": 56,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r2",
+   "x": 630,
+   "y": 200,
+   "text": "5",
+   "size": 56,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m3",
+   "x": 450,
+   "y": 120,
+   "text": "take away 3 from both sides",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ans",
+   "x": 450,
+   "y": 450,
+   "text": "x = 5",
+   "size": 64,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An equation is like a balance. Both sides weigh the same. Here x plus three balances with eight."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "bm",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "bs",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "r1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "To find x, we do the same thing to both sides so that the balance stays level. Take away three from both sides."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m3",
+     "at": 0.2
+    },
+    {
+     "do": "hide",
+     "target": "l1",
+     "at": 0.5
+    },
+    {
+     "do": "hide",
+     "target": "r1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "r2",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Now x is alone. So x is five. Check: five plus three is eight."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ans",
+     "at": 0.2
+    }
+   ]
+  }
+ ]
+}

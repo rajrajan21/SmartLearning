@@ -1,0 +1,127 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "social-science",
+ "chapter": "oceans-and-continents",
+ "topic": "the-major-oceans-and-landforms",
+ "status": "published",
+ "title": {
+  "en": "Landforms"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Mountains, plateaus and plains",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "pr",
+   "d": "M 40 420 L 160 420 L 260 150 L 360 420 L 430 320 L 600 320 L 660 420 L 860 420",
+   "stroke": "earth",
+   "width": 6,
+   "fill": "#BCAAA4"
+  },
+  {
+   "kind": "text",
+   "id": "m1",
+   "x": 260,
+   "y": 120,
+   "text": "Mountain",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m2",
+   "x": 515,
+   "y": 290,
+   "text": "Plateau",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m3",
+   "x": 770,
+   "y": 395,
+   "text": "Plain",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "gr",
+   "x1": 40,
+   "y1": 420,
+   "x2": 860,
+   "y2": 420,
+   "stroke": "ink",
+   "width": 3
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The land has different shapes, called landforms. Here is a side view."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "pr",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "gr",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A mountain is very high land with a pointed top. A plateau is high land that is flat on top, like a table."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "m2",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A plain is a large flat area of low land. Plains are good for farming and for building towns."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m3",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

@@ -39,7 +39,7 @@ describe("weeklySummary", () => {
     expect(weeklySummary(child, 10).weakTopics).toEqual([{ topicId: "w1", best: 30 }, { topicId: "w2", best: 50 }]);
   });
   it("copes with a quiet week", () => {
-    const w = weeklySummary({ ...child, daily: {}, activeDays: [], progress: { lesson: {}, practice: {}, revision: {} } }, 10);
+    const w = weeklySummary({ ...child, daily: {}, activeDays: [], progress: { lesson: {}, practice: {}, revision: {}, notes: {}, mistakes: {} } }, 10);
     expect(w).toMatchObject({ daysLearned: 0, answers: 0, accuracyPct: null, estMinutes: 0, topicsDone: [], weakTopics: [] });
   });
 });

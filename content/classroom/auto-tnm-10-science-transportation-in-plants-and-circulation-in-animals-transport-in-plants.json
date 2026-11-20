@@ -1,0 +1,211 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "transportation-in-plants-and-circulation-in-animals",
+ "topic": "transport-in-plants",
+ "status": "published",
+ "title": {
+  "en": "Parts of a plant"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Parts of a plant",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "gd",
+   "x": 200,
+   "y": 360,
+   "w": 300,
+   "h": 100,
+   "rx": 4,
+   "fill": "#A1887F",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "path",
+   "id": "st",
+   "d": "M 350 360 L 350 190",
+   "stroke": "good",
+   "width": 9
+  },
+  {
+   "kind": "path",
+   "id": "rt",
+   "d": "M 350 360 L 310 430 M 350 360 L 350 445 M 350 360 L 390 430",
+   "stroke": "earth",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "lf1",
+   "d": "M 350 290 Q 280 240 250 280 Q 290 320 350 290",
+   "stroke": "good",
+   "width": 4,
+   "fill": "#7BE0AD"
+  },
+  {
+   "kind": "path",
+   "id": "lf2",
+   "d": "M 350 250 Q 420 200 450 240 Q 410 280 350 250",
+   "stroke": "good",
+   "width": 4,
+   "fill": "#7BE0AD"
+  },
+  {
+   "kind": "circle",
+   "id": "fl",
+   "cx": 350,
+   "cy": 165,
+   "r": 34,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "fl2",
+   "x": 350,
+   "y": 175,
+   "text": "🌸",
+   "size": 52,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tf",
+   "x": 590,
+   "y": 165,
+   "text": "Flower: makes seeds",
+   "size": 26,
+   "color": "warm",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "tl",
+   "x": 590,
+   "y": 265,
+   "text": "Leaf: makes food",
+   "size": 26,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "ts",
+   "x": 590,
+   "y": 330,
+   "text": "Stem: holds the plant",
+   "size": 26,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "tr",
+   "x": 590,
+   "y": 425,
+   "text": "Roots: take in water",
+   "size": 26,
+   "color": "earth",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Most plants have four main parts. Let us grow one. First the roots under the ground."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "gd",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "rt",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "tr",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The roots hold the plant firmly and take in water and minerals from the soil. The stem carries the water up to every part of the plant and holds it up."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "st",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ts",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The leaves use sunlight, air and water to make food for the plant. And the flower makes seeds, which can grow into new plants."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "lf1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "lf2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "tl",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "fl",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "fl2",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "tf",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

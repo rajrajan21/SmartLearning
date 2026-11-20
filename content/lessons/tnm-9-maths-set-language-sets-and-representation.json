@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "set-language",
+  "topic": "sets-and-representation",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sets, their representation and types"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The school bag"
+        },
+        "text": {
+          "en": "Your school bag holds a set of books. Mathematics uses the word set for any well-defined collection of objects, and it is the language in which later ideas are written."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "set",
+          "roster and set-builder",
+          "n(A)",
+          "empty set",
+          "subset",
+          "equal and equivalent",
+          "power set"
+        ],
+        "text": {
+          "en": "A set is a well-defined collection of distinct objects, called its elements; we write x belongs to A as x in A.\nRoster form lists the elements: A = {1, 2, 3, 4}. Set-builder form gives a rule: A = {x : x is a natural number less than 5}.\nThe number of elements of a finite set A is its cardinal number, n(A).\nThe empty set has no elements and is written as { } or the symbol phi.\nA set is a subset of B if every element of A is in B, written A is contained in B. The empty set is a subset of every set.\nTwo sets are equal if they have exactly the same elements; equivalent sets have the same number of elements.\nThe power set of A is the set of all subsets of A; if n(A) = m it has 2^m elements."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-9-sets-and-representation.svg",
+        "altText": {
+          "en": "Venn diagram of two overlapping sets A and B"
+        },
+        "caption": {
+          "en": "Two sets in a Venn diagram"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A set is a well-defined collection of distinct objects, called its elements; we write x belongs to A as x in A."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "set"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Roster form lists the elements: A = {1, 2, 3, 4}. Set-builder form gives a rule: A = {x : x is a natural number less than 5}."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "roster and set-builder"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The number of elements of a finite set A is its cardinal number, n(A)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "n(A)"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The empty set has no elements and is written as { } or the symbol phi."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "empty set"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A set is a subset of B if every element of A is in B, written A is contained in B. The empty set is a subset of every set."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "subset"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Two sets are equal if they have exactly the same elements; equivalent sets have the same number of elements."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "equal and equivalent"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The power set of A is the set of all subsets of A; if n(A) = m it has 2^m elements."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "power set"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "List all subsets of A = {a, b} and give the number of elements of its power set."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Subsets with no element: { }. With one element: {a}, {b}. With two: {a, b}."
+            },
+            "why": {
+              "en": "Build them by size."
+            }
+          },
+          {
+            "text": {
+              "en": "Count them: 1 + 2 + 1 = 4 subsets."
+            },
+            "why": {
+              "en": "Add the sizes."
+            }
+          },
+          {
+            "text": {
+              "en": "This agrees with 2^2 = 4."
+            },
+            "why": {
+              "en": "A set with m elements has 2^m subsets."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain roster form, set-builder form and what a subset is."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Roster lists elements"
+          },
+          {
+            "en": "Set-builder gives a rule"
+          },
+          {
+            "en": "Subset: every element also in the other set"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking order or repetition matters in a set"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma667-1",
+          "r1-m9ma667-2",
+          "r1-m9ma667-3",
+          "r2-m9ma667-4",
+          "r2-m9ma667-5",
+          "r2-m9ma667-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A set is a well-defined collection of distinct objects."
+          },
+          {
+            "en": "Roster: list; set-builder: rule."
+          },
+          {
+            "en": "n(A) counts the elements."
+          },
+          {
+            "en": "A set with m elements has 2^m subsets."
+          }
+        ]
+      }
+    ]
+  }
+}

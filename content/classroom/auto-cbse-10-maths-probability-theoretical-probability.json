@@ -1,0 +1,144 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "probability",
+ "topic": "theoretical-probability",
+ "status": "published",
+ "title": {
+  "en": "Probability"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Probability",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 450,
+   "y": 110,
+   "text": "P(event) = favourable outcomes ÷ all outcomes",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "c",
+   "x": 450,
+   "y": 180,
+   "text": "Toss a coin: P(head) = 1/2",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d",
+   "x": 450,
+   "y": 235,
+   "text": "Roll a die: P(an even number) = 3/6 = 1/2",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s",
+   "x": 450,
+   "y": 300,
+   "text": "Sure event: probability 1",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "i",
+   "x": 450,
+   "y": 345,
+   "text": "Impossible event (a 7 on a die): probability 0",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r",
+   "x": 450,
+   "y": 410,
+   "text": "Probability always lies between 0 and 1",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Probability measures how likely an event is. It is the number of outcomes we want divided by the number of all possible outcomes."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A coin has two equally likely outcomes, so the probability of a head is one half. A die has six outcomes, three of them even, so the probability of an even number is three sixths, which is also one half."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "c",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "d",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "An event that is certain has probability 1, and an impossible event has probability 0. So a probability is never less than 0 or more than 1."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "s",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "i",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "r",
+     "at": 0.8
+    }
+   ]
+  }
+ ]
+}

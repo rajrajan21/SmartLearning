@@ -1,0 +1,193 @@
+{
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "ch10-how-quantities-combine-understanding-data",
+ "topic": "weighted-mean-and-stacked-charts",
+ "status": "published",
+ "title": {
+  "en": "Mean"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The mean (average)",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "gl",
+   "x1": 120,
+   "y1": 400,
+   "x2": 780,
+   "y2": 400,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "b0",
+   "x": 190,
+   "y": 320,
+   "w": 120,
+   "h": 80,
+   "rx": 4,
+   "fill": "#FFD166",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "m0",
+   "x": 190,
+   "y": 240,
+   "w": 120,
+   "h": 160,
+   "rx": 4,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "b1",
+   "x": 390,
+   "y": 160,
+   "w": 120,
+   "h": 240,
+   "rx": 4,
+   "fill": "#FF8A65",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "m1",
+   "x": 390,
+   "y": 240,
+   "w": 120,
+   "h": 160,
+   "rx": 4,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "b2",
+   "x": 590,
+   "y": 240,
+   "w": 120,
+   "h": 160,
+   "rx": 4,
+   "fill": "#7BE0AD",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "m2",
+   "x": 590,
+   "y": 240,
+   "w": 120,
+   "h": 160,
+   "rx": 4,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "av",
+   "x1": 140,
+   "y1": 240,
+   "x2": 760,
+   "y2": 240,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "mn",
+   "x": 450,
+   "y": 450,
+   "text": "(2 + 6 + 4) ÷ 3 = 4",
+   "size": 40,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Here are three towers of blocks, with two, six and four blocks."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.6000000000000001
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "To find the mean, we move blocks from the taller towers to the shorter ones until all towers are equally tall. Add them all up and share equally."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "av",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "m0",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "m1",
+     "at": 0.4666666666666667
+    },
+    {
+     "do": "draw",
+     "target": "m2",
+     "at": 0.6333333333333333
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Each tower now has four blocks. So the mean of two, six and four is four."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "mn",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

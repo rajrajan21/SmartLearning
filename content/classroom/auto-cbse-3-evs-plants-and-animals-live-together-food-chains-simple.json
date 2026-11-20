@@ -1,0 +1,233 @@
+{
+ "board": "CBSE",
+ "classLevel": 3,
+ "subject": "evs",
+ "chapter": "plants-and-animals-live-together",
+ "topic": "food-chains-simple",
+ "status": "published",
+ "title": {
+  "en": "A food chain"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A food chain",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 183.33333333333334,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 183.33333333333334,
+   "y": 280,
+   "text": "🌱",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 183.33333333333334,
+   "y": 344,
+   "text": "Grass",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 450,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 450,
+   "y": 280,
+   "text": "🦌",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 450,
+   "y": 344,
+   "text": "Deer",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 716.6666666666667,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 716.6666666666667,
+   "y": 280,
+   "text": "🐅",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 716.6666666666667,
+   "y": 344,
+   "text": "Tiger",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 245.33333333333334,
+   "y1": 260,
+   "x2": 388,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 512,
+   "y1": 260,
+   "x2": 654.6666666666667,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Every living thing needs food. A food chain shows who eats whom. It starts with a green plant, the producer, which makes its own food using sunlight."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Next comes Deer."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Next comes Tiger."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The arrows show how energy moves: from the grass to the deer to the tiger. Plants are producers and animals are consumers."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

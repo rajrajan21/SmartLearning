@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "numbers-and-sequences",
+  "topic": "series-and-sum-of-ap",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Series and the sum of an AP"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Gauss and the class"
+        },
+        "text": {
+          "en": "A teacher once asked a class to add 1 + 2 + 3 + ... + 100. A boy named Gauss answered in seconds. He paired 1 with 100, 2 with 99 and so on - fifty pairs each making 101."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "series",
+          "S_n = n/2[2a + (n-1)d]",
+          "S_n = n/2(a + l)",
+          "5050",
+          "n(n+1)/2",
+          "odd numbers: n^2",
+          "t_n = S_n - S_(n-1)"
+        ],
+        "text": {
+          "en": "A series is the sum of the terms of a sequence, for example 1 + 3 + 5 + 7.\nFor an AP with first term a, common difference d and n terms, the sum is S_n = n/2 x [2a + (n - 1)d].\nIf the last term l is known, S_n = n/2 x (a + l).\nCheck with Gauss: n = 100, a = 1, l = 100, so S = 100/2 x 101 = 5050.\nThe sum of the first n natural numbers is n(n + 1)/2.\nThe sum of the first n odd numbers is n squared, and of the first n even numbers is n(n + 1).\nAlso t_n = S_n - S_(n-1), so we can find any term from the sum formula."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A series is the sum of the terms of a sequence, for example 1 + 3 + 5 + 7."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "series"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For an AP with first term a, common difference d and n terms, the sum is S_n = n/2 x [2a + (n - 1)d]."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "S_n = n/2[2a + (n-1)d]"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If the last term l is known, S_n = n/2 x (a + l)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "S_n = n/2(a + l)"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Check with Gauss: n = 100, a = 1, l = 100, so S = 100/2 x 101 = 5050."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "5050"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The sum of the first n natural numbers is n(n + 1)/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "n(n+1)/2"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The sum of the first n odd numbers is n squared, and of the first n even numbers is n(n + 1)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "odd numbers: n^2"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Also t_n = S_n - S_(n-1), so we can find any term from the sum formula."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_n = S_n - S_(n-1)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the sum of the first 20 terms of the AP 4, 7, 10, ..."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "a = 4, d = 3, n = 20."
+            },
+            "why": {
+              "en": "Read off a, d, n."
+            }
+          },
+          {
+            "text": {
+              "en": "S_20 = 20/2 x [2 x 4 + 19 x 3] = 10 x [8 + 57] = 10 x 65."
+            },
+            "why": {
+              "en": "Substitute in the formula."
+            }
+          },
+          {
+            "text": {
+              "en": "S_20 = 650."
+            },
+            "why": {
+              "en": "Multiply carefully."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How did Gauss add 1 to 100 so quickly, and what formula follows?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Pair first and last terms"
+          },
+          {
+            "en": "Each pair makes 101"
+          },
+          {
+            "en": "S_n = n/2 (a + l)"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to halve n"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma201-1",
+          "r1-m10ma201-2",
+          "r1-m10ma201-3",
+          "r2-m10ma201-4",
+          "r2-m10ma201-5",
+          "r2-m10ma201-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "S_n = n/2 [2a + (n - 1)d] = n/2 (a + l)."
+          },
+          {
+            "en": "1 + 2 + ... + n = n(n + 1)/2."
+          },
+          {
+            "en": "Sum of first n odd numbers = n squared."
+          },
+          {
+            "en": "t_n = S_n - S_(n-1)."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch04-exploring-algebraic-identities",
+  "topic": "algebraic-identities",
+  "questions": [
+    {
+      "key": "m4-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "(x + 3)^2 equals"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "x^2 + 6x + 9"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "x^2 + 9"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "x^2 + 3x + 9"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "a = x and b = 3 give x^2 + 2 x 3 x + 9."
+      }
+    },
+    {
+      "key": "m4-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "x^2 - 25 factorises as"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "(x + 5)(x - 5)"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "(x - 5)^2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "(x + 25)(x - 1)"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "a^2 - b^2 = (a + b)(a - b)."
+      }
+    },
+    {
+      "key": "m4-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "(a + b)^2 = a^2 + b^2 for all a and b."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "The middle term 2ab is missing; it is zero only if a or b is zero."
+      }
+    },
+    {
+      "key": "m4-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Find 99^2 using (100 - 1)^2."
+      },
+      "answer": 9801,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 9999,
+          "why": {
+            "en": "Use a^2 - 2ab + b^2, not a^2 - b^2."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "10000 - 200 + 1 = 9801."
+      }
+    },
+    {
+      "key": "m4-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Find 103 x 97."
+      },
+      "answer": 9991,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 10009,
+          "why": {
+            "en": "The difference of squares subtracts 9."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(100 + 3)(100 - 3) = 10000 - 9 = 9991."
+      }
+    },
+    {
+      "key": "m4-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "If a + b = 7 and ab = 10, then a^2 + b^2 ="
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "29"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "49"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "39"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "This does not match the working in the explanation."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "a^2 + b^2 = 49 - 2 x 10 = 29."
+      }
+    },
+    {
+      "key": "m4-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "Factorise x^2 - 16. Write like (x+a)(x-a)."
+      },
+      "accepted": [
+        "(x+4)(x-4)",
+        "(x-4)(x+4)"
+      ],
+      "wrongAnswers": [
+        {
+          "text": "(x-4)^2",
+          "why": {
+            "en": "(x - 4)^2 expands to x^2 - 8x + 16."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "16 = 4^2, so a^2 - b^2 with a = x and b = 4."
+      }
+    },
+    {
+      "key": "m4-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "An identity is true only for some values of the variable."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "An identity is true for all values."
+      }
+    }
+  ]
+}

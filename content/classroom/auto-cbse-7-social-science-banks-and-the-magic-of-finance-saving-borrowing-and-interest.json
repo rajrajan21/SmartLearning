@@ -1,0 +1,167 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "social-science",
+ "chapter": "banks-and-the-magic-of-finance",
+ "topic": "saving-borrowing-and-interest",
+ "status": "published",
+ "title": {
+  "en": "Simple interest"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Simple interest",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 450,
+   "y": 130,
+   "text": "I = P × R × T ÷ 100",
+   "size": 44,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "p",
+   "x": 450,
+   "y": 190,
+   "text": "P = principal, the money borrowed or saved",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r",
+   "x": 450,
+   "y": 228,
+   "text": "R = rate of interest per year, in per cent",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t",
+   "x": 450,
+   "y": 266,
+   "text": "T = time in years",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 450,
+   "y": 335,
+   "text": "P = ₹1000, R = 5%, T = 2 years",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "i",
+   "x": 450,
+   "y": 385,
+   "text": "I = 1000 × 5 × 2 ÷ 100 = ₹100",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 450,
+   "y": 435,
+   "text": "Amount = 1000 + 100 = ₹1100",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "When we save or borrow money, the extra money paid for using it is called interest. Simple interest is worked out on the original sum every year."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "P is the principal, the money saved or borrowed. R is the rate, the interest for every hundred rupees in a year. T is the time in years."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "p",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "r",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "t",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "For example, a principal of 1000 rupees at 5 per cent for 2 years. Interest is 1000 times 5 times 2, divided by 100, which is 100 rupees."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "i",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The amount to be paid back is the principal plus the interest: 1100 rupees."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

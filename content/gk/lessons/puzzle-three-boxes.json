@@ -1,0 +1,75 @@
+{
+ "id": "puzzle-three-boxes",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "11-13",
+ "title": "The Mislabelled Boxes",
+ "summary": "Start with the box whose label gives you the most certainty.",
+ "emoji": "📦",
+ "tags": [
+  "elimination"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Three boxes are labelled Apples, Oranges and Mixed.",
+    "Every label is wrong.",
+    "You may take out one fruit from one box without looking inside. Which box do you pick to fix all the labels?"
+   ],
+   "points": [
+    "Three boxes are labelled Apples, Oranges and Mixed."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Because all labels are wrong, the box labelled Mixed cannot really be mixed.",
+    "That is a strong clue. Start where the most is known."
+   ],
+   "points": [
+    "Because all labels are wrong, the box labelled Mixed cannot really be mixed."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Use the certain one",
+   "sentences": [
+    "Pick from the box labelled Mixed.",
+    "Suppose you pull out an apple.",
+    "Then that box holds only apples, because it cannot be mixed."
+   ],
+   "points": [
+    "Pick from the box labelled Mixed."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Then the box labelled Oranges cannot hold oranges, and it cannot be apples either, so it is Mixed.",
+    "The box labelled Apples must be Oranges.",
+    "One fruit solved everything."
+   ],
+   "points": [
+    "Then the box labelled Oranges cannot hold oranges, and it cannot be apples either, so it is Mixed."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "Why do we pick from the box labelled Mixed?",
+   "options": [
+    "Its label is wrong, so it holds only one fruit",
+    "It is the heaviest",
+    "It is the largest"
+   ],
+   "answer": 0,
+   "why": "A wrong Mixed label means it is a pure box."
+  }
+ ],
+ "method": "Use the certain one"
+}

@@ -1,0 +1,233 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "social-science",
+ "chapter": "the-beginnings-of-indian-civilisation",
+ "topic": "early-humans-and-farming",
+ "status": "published",
+ "title": {
+  "en": "From hunters to farmers"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "From hunters to farmers",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 183.33333333333334,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 183.33333333333334,
+   "y": 280,
+   "text": "🏹",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 183.33333333333334,
+   "y": 344,
+   "text": "Hunting and gathering",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 450,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 450,
+   "y": 280,
+   "text": "🌾",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 450,
+   "y": 344,
+   "text": "Learning to farm",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 716.6666666666667,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 716.6666666666667,
+   "y": 280,
+   "text": "🏘️",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 716.6666666666667,
+   "y": 344,
+   "text": "Settled villages",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 245.33333333333334,
+   "y1": 260,
+   "x2": 388,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 512,
+   "y1": 260,
+   "x2": 654.6666666666667,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Early people moved from place to place, hunting animals and gathering fruits, roots and seeds."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Later, people learned to grow crops and to keep animals."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "With farming, people could stay in one place and build villages."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "Farming was a great change in the way people lived."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "polynomials",
+  "topic": "zeroes-and-coefficients",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Relationship between zeroes and coefficients"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Sum and product - a shortcut"
+        },
+        "text": {
+          "en": "If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "alpha and beta",
+          "alpha beta gamma = -d/a",
+          "check",
+          "cubic sum = -b/a",
+          "product = c/a",
+          "sum = -b/a",
+          "watch the signs",
+          "x^2 - (sum)x + product"
+        ],
+        "text": {
+          "en": "Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c.\nThen the sum of the zeroes is alpha + beta = minus b by a.\nAnd the product of the zeroes is alpha x beta = c by a.\nCheck with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1.\nTo form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes.\nFor a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a.\nThe sum of products taken two at a time is c by a, and the product of all three zeroes is minus d by a.\nRemember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "alpha and beta"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Then the sum of the zeroes is alpha + beta = minus b by a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sum = -b/a"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "And the product of the zeroes is alpha x beta = c by a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "product = c/a"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "x^2 - (sum)x + product"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cubic sum = -b/a"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The sum of products taken two at a time is c by a, and the product of all three zeroes is minus d by a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "alpha beta gamma = -d/a"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Remember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "watch the signs"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find a quadratic polynomial whose zeroes have sum 6 and product 5, and then find the zeroes."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Quadratic = x^2 - (sum)x + product = x^2 - 6x + 5."
+            },
+            "why": {
+              "en": "Use the formula."
+            }
+          },
+          {
+            "text": {
+              "en": "Factorise: x^2 - 6x + 5 = (x - 1)(x - 5)."
+            },
+            "why": {
+              "en": "Numbers with product 5 and sum -6."
+            }
+          },
+          {
+            "text": {
+              "en": "The zeroes are 1 and 5, and indeed 1 + 5 = 6 and 1 x 5 = 5."
+            },
+            "why": {
+              "en": "Check against the sum and product."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How are zeroes of a quadratic connected to its coefficients?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Sum = -b/a"
+          },
+          {
+            "en": "Product = c/a"
+          },
+          {
+            "en": "Quadratic = x^2 - (sum)x + product"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting the negative sign in -b/a"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-zc1",
+          "r1-zc2",
+          "r2-zc3",
+          "r2-zc4",
+          "r2-zc5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "For a x^2 + b x + c: sum of zeroes = -b/a, product = c/a."
+          },
+          {
+            "en": "A quadratic with given zeroes: x^2 - (sum)x + (product), up to a constant multiple."
+          },
+          {
+            "en": "For a cubic: sum = -b/a, sum of pair products = c/a, product = -d/a."
+          }
+        ]
+      }
+    ]
+  }
+}

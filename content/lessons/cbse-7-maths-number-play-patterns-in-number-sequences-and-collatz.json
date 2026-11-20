@@ -1,0 +1,175 @@
+{
+  "board": "CBSE",
+  "classLevel": 7,
+  "subject": "maths",
+  "chapter": "number-play",
+  "topic": "patterns-in-number-sequences-and-collatz",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Number sequences and the Collatz idea (additional, not in the textbook)"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Asha picked a number: if even, halve it; if odd, triple it and add 1.\n\"Where does it end?\" she wondered."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "rule",
+          "sequence",
+          "pattern"
+        ],
+        "text": {
+          "en": "Some sequences are made by a rule applied again and again. Start with 6: 6, 3, 10, 5, 16, 8, 4, 2, 1. This is the Collatz rule.\nNobody has proved that every starting number reaches 1, though it works for every number tested.\nPlaying with such rules builds our sense of patterns and proofs."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Some sequences are made by a rule applied again and again."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "rule"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Start with 6: 6, 3, 10, 5, 16, 8, 4, 2, 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sequence"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "This is the Collatz rule."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "pattern"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Nobody has proved that every starting number reaches 1, though it works for every number tested."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "rule"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Apply the Collatz rule to 5."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "5 is odd: triple and add 1 gives 16."
+            },
+            "why": {
+              "en": "Odd."
+            }
+          },
+          {
+            "text": {
+              "en": "16 halves to 8, 4, 2."
+            },
+            "why": {
+              "en": "Even."
+            }
+          },
+          {
+            "text": {
+              "en": "2 halves to 1."
+            },
+            "why": {
+              "en": "End."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says the Collatz rule has been proved for every number. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "It is unproved."
+          },
+          {
+            "en": "It works for all tested numbers."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Overclaiming."
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-pat90",
+          "r1-pat91"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A rule repeated makes a sequence."
+          },
+          {
+            "en": "Some number puzzles are unsolved."
+          }
+        ]
+      }
+    ]
+  }
+}

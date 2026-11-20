@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "a-tale-of-three-intersecting-lines",
+ "topic": "triangles-angle-sum-and-sides",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Triangles: angle sum and sides"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The straw triangle"
+    },
+    "text": {
+     "en": "Nikhil had three straws of lengths 3 cm, 4 cm and 8 cm and tried to make a triangle. The two shorter straws could not reach each other across the longest straw.\n\"Not every set of three lengths makes a triangle,\" said his teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "angle sum",
+     "exterior angle",
+     "equilateral",
+     "isosceles",
+     "triangle inequality"
+    ],
+    "text": {
+     "en": "The three angles of any triangle add up to 180°. So if two angles are 50° and 60°, the third is 180° − 110° = 70°. An exterior angle of a triangle equals the sum of the two opposite interior angles.\nTriangles are named by sides: equilateral (all three sides equal, each angle 60°), isosceles (two sides equal, and the angles opposite them are equal) and scalene (no sides equal). By angles they are acute, right or obtuse.\nThe triangle inequality says that the sum of any two sides of a triangle is greater than the third side. Lengths 3, 4, 8 cannot form a triangle since 3 + 4 = 7 is not more than 8."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The three angles of a triangle add up to 180 degrees."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "angle sum 180"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "An equilateral triangle has three equal sides and each angle is 60 degrees."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "equilateral"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "An isosceles triangle has two equal sides and two equal angles."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "isosceles"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "In a triangle, any two sides together are longer than the third side."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "triangle inequality"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Can sides of 5 cm, 7 cm and 10 cm form a triangle?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "The two shorter sides add up to 5 + 7 = 12."
+      },
+      "why": {
+       "en": "Check the largest side."
+      }
+     },
+     {
+      "text": {
+       "en": "12 is greater than 10."
+      },
+      "why": {
+       "en": "The rule holds."
+      }
+     },
+     {
+      "text": {
+       "en": "The other pairs also work, so yes, they form a triangle."
+      },
+      "why": {
+       "en": "3, 4, 8 would not."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says a triangle can have two right angles. How will you show this is wrong?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Two right angles already add up to 180°."
+     },
+     {
+      "en": "Then the third angle would be 0°, which is not possible."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Ignoring the angle sum."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-sum",
+     "r1-eq"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Angles of a triangle add up to 180°."
+     },
+     {
+      "en": "Equilateral: all sides equal; isosceles: two equal; scalene: none."
+     },
+     {
+      "en": "Any two sides add up to more than the third side."
+     }
+    ]
+   }
+  ]
+ }
+}

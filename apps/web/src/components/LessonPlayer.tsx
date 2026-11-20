@@ -1,3 +1,4 @@
+import { SpeakAnswer } from "./SpeakAnswer";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "wouter";
 import type { ContentBlock, PublicQuestion, TopicLesson } from "@studysmart/shared";
@@ -127,6 +128,7 @@ function Block({ block, questions, pictures, register }: { block: ContentBlock; 
           <label htmlFor={`tb-${block.id}`}>{ui("yourAnswer", lang)}</label>
           <textarea id={`tb-${block.id}`} rows={4} value={answer} onChange={(e) => setAnswer(e.target.value)} />
           <p className="small">{ui("yourAnswerHint", lang)}</p>
+          <SpeakAnswer value={answer} onText={setAnswer} />
           {!ideas ? <button type="button" className="btn ghost" onClick={() => setIdeas(true)}>{ui("showIdeas", lang)}</button> : (
             <div className="ideas">
               <h3>{ui("keyIdeas", lang)}</h3>

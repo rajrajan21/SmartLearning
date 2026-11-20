@@ -1,0 +1,241 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "laws-of-motion",
+  "topic": "newtons-laws-and-momentum",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Newton's laws, momentum and impulse"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The sudden stop"
+        },
+        "text": {
+          "en": "When a bus brakes suddenly, you lurch forward. Your body wants to keep moving - that is inertia, the first clue to Newton's laws."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "first law and inertia",
+          "p = mv",
+          "F = ma",
+          "newton",
+          "impulse",
+          "third law",
+          "conservation of momentum",
+          "recoil and rockets"
+        ],
+        "text": {
+          "en": "Newton's first law: a body stays at rest or in uniform motion in a straight line unless an external force acts on it. This property is inertia.\nMomentum p = mass x velocity (p = mv). It is a vector and its unit is kg m/s.\nNewton's second law: the rate of change of momentum is directly proportional to the applied force and takes place in the direction of the force, which gives F = ma.\nForce is measured in newton: 1 N = 1 kg m/s squared.\nImpulse = force x time = change in momentum (Ft = mv - mu).\nNewton's third law: to every action there is an equal and opposite reaction; the two forces act on different bodies.\nLaw of conservation of momentum: if no external force acts, the total momentum before a collision equals the total momentum after.\nRecoil of a gun and the launch of a rocket are everyday uses of the third law and of conservation of momentum."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Newton's first law: a body stays at rest or in uniform motion in a straight line unless an external force acts on it. This property is inertia."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "first law and inertia"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Momentum p = mass x velocity (p = mv). It is a vector and its unit is kg m/s."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "p = mv"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Newton's second law: the rate of change of momentum is directly proportional to the applied force and takes place in the direction of the force, which gives F = ma."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "F = ma"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Force is measured in newton: 1 N = 1 kg m/s squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "newton"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Impulse = force x time = change in momentum (Ft = mv - mu)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "impulse"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Newton's third law: to every action there is an equal and opposite reaction; the two forces act on different bodies."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "third law"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Law of conservation of momentum: if no external force acts, the total momentum before a collision equals the total momentum after."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conservation of momentum"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Recoil of a gun and the launch of a rocket are everyday uses of the third law and of conservation of momentum."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "recoil and rockets"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A 2 kg trolley moving at 3 m/s collides and sticks to a 1 kg trolley at rest. Find their common velocity."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Momentum before = 2 x 3 + 1 x 0 = 6 kg m/s."
+            },
+            "why": {
+              "en": "Add the momenta of both bodies."
+            }
+          },
+          {
+            "text": {
+              "en": "After the collision both move together with mass 3 kg and velocity v: 3v."
+            },
+            "why": {
+              "en": "Total mass is 2 + 1."
+            }
+          },
+          {
+            "text": {
+              "en": "3v = 6, so v = 2 m/s."
+            },
+            "why": {
+              "en": "Conservation of momentum."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Newton's three laws in your own words with one example each."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Inertia"
+          },
+          {
+            "en": "F = ma"
+          },
+          {
+            "en": "Equal and opposite reaction"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking action and reaction cancel because they act on one body"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10sc845-1",
+          "r1-m10sc845-2",
+          "r1-m10sc845-3",
+          "r2-m10sc845-4",
+          "r2-m10sc845-5",
+          "r2-m10sc845-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "First law: inertia; second law: F = ma; third law: action-reaction."
+          },
+          {
+            "en": "Momentum = mass x velocity."
+          },
+          {
+            "en": "Impulse = Ft = change in momentum."
+          },
+          {
+            "en": "Total momentum is conserved if no external force acts."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,238 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "mensuration",
+ "topic": "cylinder-cone-and-sphere",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Surface Area and Volume of Cylinder, Cone and Sphere"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "A water tank is a cylinder, an ice-cream cone is a cone, and a football is a sphere. To paint the tank or fill the cone we need surface area and volume formulas."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "curved surface area",
+     "total surface area",
+     "slant height",
+     "volume"
+    ],
+    "text": {
+     "en": "Surface area is the area of the outside of a solid and is measured in square units. Volume is the space inside and is measured in cubic units. We use π = 22/7 unless told otherwise.\nFor a cylinder of radius r and height h the curved surface area is 2πrh, the total surface area is 2πr(r + h) and the volume is πr²h.\nFor a cone of radius r, height h and slant height l, we have l² = r² + h². The curved surface area is πrl, the total surface area is πr(l + r) and the volume is one third of πr²h.\nFor a sphere of radius r, the surface area is 4πr² and the volume is four thirds of πr³. A hemisphere has curved surface area 2πr², total surface area 3πr² and volume two thirds of πr³."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Surface area is the area of the outside of a solid and is measured in square units."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "curved surface area"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Volume is the space inside and is measured in cubic units."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "total surface area"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "We use π = 22/7 unless told otherwise."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "slant height"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "For a cylinder of radius r and height h the curved surface area is 2πrh, the total surface area is 2πr(r + h) and the volume is πr²h."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "volume"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "For a cone of radius r, height h and slant height l, we have l² = r² + h²."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "curved surface area"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The curved surface area is πrl, the total surface area is πr(l + r) and the volume is one third of πr²h."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "total surface area"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "For a sphere of radius r, the surface area is 4πr² and the volume is four thirds of πr³."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "slant height"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "A hemisphere has curved surface area 2πr², total surface area 3πr² and volume two thirds of πr³."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "volume"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the volume of a cylinder of radius 7 cm and height 10 cm. Use π = 22/7."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Write the formula: V = πr²h."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "Substitute: V = (22/7) × 7 × 7 × 10."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "Simplify: (22/7) × 49 = 154, so V = 154 × 10 = 1540."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "The volume is 1540 cubic centimetres."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says Volume of a cone is πr²h, the same as a cylinder. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "A cone fits inside a cylinder of the same base and height"
+     },
+     {
+      "en": "Three cones of water fill that cylinder"
+     },
+     {
+      "en": "So the cone volume is one third of πr²h"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-cyl340",
+     "r1-cyl341"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Cylinder: CSA 2πrh and volume πr²h."
+     },
+     {
+      "en": "Cone: CSA πrl and volume one third of πr²h."
+     },
+     {
+      "en": "Sphere: area 4πr² and volume four thirds of πr³."
+     }
+    ]
+   }
+  ]
+ }
+}

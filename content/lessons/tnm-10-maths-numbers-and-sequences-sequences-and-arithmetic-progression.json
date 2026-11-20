@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "numbers-and-sequences",
+  "topic": "sequences-and-arithmetic-progression",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sequences and Arithmetic Progression (AP)"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Steps of a staircase"
+        },
+        "text": {
+          "en": "Each step of a staircase is 15 cm higher than the one below. The heights 15, 30, 45, 60 ... follow a pattern: add the same amount each time."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sequence",
+          "AP",
+          "common difference d",
+          "a, a + d, a + 2d",
+          "t_n = a + (n - 1)d",
+          "t_10 = 32",
+          "2b = a + c"
+        ],
+        "text": {
+          "en": "A sequence is a list of numbers arranged in a definite order, such as 2, 4, 6, 8, ... Each number is a term.\nA sequence in which each term is obtained by adding a fixed number d to the previous term is an Arithmetic Progression (AP).\nThe fixed number d is the common difference: d = t2 - t1 = t3 - t2. It can be positive, negative or zero.\nIf the first term is a and the common difference d, the AP is a, a + d, a + 2d, ...\nThe general (n-th) term is t_n = a + (n - 1)d.\nFor the AP 5, 8, 11, ... we have a = 5, d = 3, so t_10 = 5 + 9 x 3 = 32.\nThree numbers a, b, c are in AP exactly when 2b = a + c, that is b is the average of its neighbours."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A sequence is a list of numbers arranged in a definite order, such as 2, 4, 6, 8, ... Each number is a term."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sequence"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A sequence in which each term is obtained by adding a fixed number d to the previous term is an Arithmetic Progression (AP)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AP"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The fixed number d is the common difference: d = t2 - t1 = t3 - t2. It can be positive, negative or zero."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "common difference d"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If the first term is a and the common difference d, the AP is a, a + d, a + 2d, ..."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a, a + d, a + 2d"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The general (n-th) term is t_n = a + (n - 1)d."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_n = a + (n - 1)d"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For the AP 5, 8, 11, ... we have a = 5, d = 3, so t_10 = 5 + 9 x 3 = 32."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "t_10 = 32"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Three numbers a, b, c are in AP exactly when 2b = a + c, that is b is the average of its neighbours."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2b = a + c"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Which term of the AP 3, 8, 13, 18, ... is 78?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "a = 3 and d = 5. Use t_n = a + (n - 1)d = 78."
+            },
+            "why": {
+              "en": "Identify a and d first."
+            }
+          },
+          {
+            "text": {
+              "en": "3 + (n - 1) x 5 = 78, so (n - 1) x 5 = 75 and n - 1 = 15."
+            },
+            "why": {
+              "en": "Solve the equation for n."
+            }
+          },
+          {
+            "text": {
+              "en": "n = 16. So 78 is the 16th term."
+            },
+            "why": {
+              "en": "n must be a positive whole number."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the formula for the n-th term of an AP and say how you find d."
+        },
+        "requiredIdeas": [
+          {
+            "en": "t_n = a + (n - 1)d"
+          },
+          {
+            "en": "d is the difference of consecutive terms"
+          },
+          {
+            "en": "Three numbers are in AP if 2b = a + c"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using n instead of n - 1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma191-1",
+          "r1-m10ma191-2",
+          "r1-m10ma191-3",
+          "r2-m10ma191-4",
+          "r2-m10ma191-5",
+          "r2-m10ma191-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "An AP adds a fixed common difference d each time."
+          },
+          {
+            "en": "t_n = a + (n - 1)d."
+          },
+          {
+            "en": "a, b, c are in AP if 2b = a + c."
+          },
+          {
+            "en": "d can be negative: 20, 17, 14 has d = -3."
+          }
+        ]
+      }
+    ]
+  }
+}

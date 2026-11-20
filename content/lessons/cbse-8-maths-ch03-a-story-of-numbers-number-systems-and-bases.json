@@ -1,0 +1,261 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch03-a-story-of-numbers",
+ "topic": "number-systems-and-bases",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "A story of numbers: counting, bases and place value"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "Reema's old paper"
+    },
+    "text": {
+     "en": "Reema finds a strange paper with wedge-shaped symbols. Her father says it comes from Mesopotamia about 4000 years ago, and tells her how humans learned to write numbers."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "base",
+     "place value",
+     "one-to-one mapping",
+     "digit",
+     "Roman numerals"
+    ],
+    "text": {
+     "en": "Even in the Stone Age people needed to count food, animals and trade, so they matched each animal with a stick or a pebble.\nThis pairing, where no two objects share the same stick, is called one-to-one mapping and it is the basis of counting.\nAnother method uses a fixed order of sounds or names, like the letters of a language, to name each count.\nTally marks and Roman numerals show how different cultures wrote numbers with symbols and rules of grouping.\nLarge numbers need grouping, so many systems use a base, like base 10 (ten of one place make one of the next place) or base 60 in Mesopotamia.\nThe Indian system uses ten symbols 0 to 9 where each digit has an absolute value and a place value, and a zero holds a place when it is empty.\nThis system made arithmetic easy, and scholars like Al-Khwarizmi carried it to the Arab world, from where Europe learned it.\nEuropeans called the numerals Arabic, but Arab scholars called them Hindu numerals, which is why the name Hindu-Arabic or Indian numerals is used today.\nA number like 345 means 3 × 100 + 4 × 10 + 5 × 1, so the place of a digit decides its value.\nThe same idea works in any base: in base 2, only the digits 0 and 1 are used and each place is a power of 2."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Even in the Stone Age people needed to count food, animals and trade, so they matched each animal with a stick or a pebble."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "one-to-one mapping"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "This pairing, where no two objects share the same stick, is called one-to-one mapping and it is the basis of counting."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "one-to-one mapping"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Another method uses a fixed order of sounds or names, like the letters of a language, to name each count."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "names for counts"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Tally marks and Roman numerals show how different cultures wrote numbers with symbols and rules of grouping."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "tally, Roman"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Large numbers need grouping, so many systems use a base, like base 10 (ten of one place make one of the next place) or base 60 in Mesopotamia."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "base"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The Indian system uses ten symbols 0 to 9 where each digit has an absolute value and a place value, and a zero holds a place when it is empty."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "0–9, place value"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "This system made arithmetic easy, and scholars like Al-Khwarizmi carried it to the Arab world, from where Europe learned it."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "spread of numerals"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Europeans called the numerals Arabic, but Arab scholars called them Hindu numerals, which is why the name Hindu-Arabic or Indian numerals is used today."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Hindu-Arabic"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A number like 345 means 3 × 100 + 4 × 10 + 5 × 1, so the place of a digit decides its value."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "345 = 3×100 + 4×10 + 5"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "The same idea works in any base: in base 2, only the digits 0 and 1 are used and each place is a power of 2."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "base 2: 0 and 1"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Write 13 in base 2."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Find the largest power of 2 not more than 13: 8."
+      },
+      "why": {
+       "en": "Powers of 2 are 1, 2, 4, 8, 16."
+      }
+     },
+     {
+      "text": {
+       "en": "13 − 8 = 5. The next power 4 fits: 5 − 4 = 1. Then 2 does not fit and 1 fits."
+      },
+      "why": {
+       "en": "Use each power once or not at all."
+      }
+     },
+     {
+      "text": {
+       "en": "So 13 = 8 + 4 + 1 = 1101 in base 2."
+      },
+      "why": {
+       "en": "Write 1 for powers used and 0 for powers skipped."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "How does a place-value system help us compare with tally marks?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Tally marks need one mark per object."
+     },
+     {
+      "en": "Place value uses a few symbols for any number."
+     },
+     {
+      "en": "A zero shows an empty place."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "The value of a digit never depends on its place."
+     },
+     {
+      "en": "Roman numerals have a zero."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-num420",
+     "r1-num421",
+     "r1-num422",
+     "r1-num423",
+     "r1-num424"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Counting began by one-to-one mapping with sticks or pebbles."
+     },
+     {
+      "en": "A base groups objects; we use base 10 with the digits 0 to 9."
+     },
+     {
+      "en": "Place value and zero made the Indian numerals powerful and they spread to the world."
+     }
+    ]
+   }
+  ]
+ }
+}

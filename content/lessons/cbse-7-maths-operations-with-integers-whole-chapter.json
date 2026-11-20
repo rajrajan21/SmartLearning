@@ -1,0 +1,496 @@
+{
+  "board": "CBSE",
+  "classLevel": 7,
+  "subject": "maths",
+  "chapter": "operations-with-integers",
+  "topic": "whole-chapter",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Operations with Integers"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Rakesh's number puzzle"
+        },
+        "text": {
+          "en": "Rakesh says: I thought of two numbers; their sum is 25 and their difference is 11. Trying pairs, we find 18 and 7. If the difference is -11 instead, the numbers swap to 7 and 18. Puzzles like this use integers, so let us recall what we know and then learn to multiply and divide them."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "integer",
+          "additive inverse",
+          "commutative",
+          "associative",
+          "distributive",
+          "Brahmagupta"
+        ],
+        "text": {
+          "en": "A carrom coin starts at 0. If two strikes move it a and b units to the right, the final position is P = a + b. Let rightward movement be positive and leftward negative. Then 5 and -7 give 5 + (-7) = -2, so the coin is 2 units left of 0. The same formula P = a + b works for all directions. An integer carries two pieces of information: its magnitude, which is the distance, and its sign, which is the direction. In the token model a green token stands for +1 and a red token for -1. A green and a red token together make a zero pair. To compute 7 - 18 with tokens, add 11 zero pairs to 7 positives so that 18 positives can be removed. 11 negatives remain, so 7 - 18 = -11. Subtracting a number is the same as adding its additive inverse. The additive inverse of 18 is -18 and the additive inverse of -18 is 18, so 7 - 18 = 7 + (-18) and 4 - (-12) = 4 + 12.\nStart with an empty bag. When the multiplier is positive we place tokens into the bag that many times. When it is negative we remove tokens that many times. To get 4 × 2, place 2 positives four times: 8 positives, so 4 × 2 = 8. To get 4 × (-2), place 2 negatives four times: 8 negatives, so 4 × (-2) = -8. For (-4) × 2 we must remove 2 positives four times. The bag is empty, so first put in zero pairs, then remove the positives. 8 negatives remain, so (-4) × 2 = -8. For (-4) × (-2) we remove 2 negatives four times. Add zero pairs, take out the negatives, and 8 positives remain. So (-4) × (-2) = +8. Removing 2 positives is the same as adding 2 negatives, which is why (-4) × 2 can also be viewed as adding 2 negative tokens four times.\nWrite the three times table downward: 3 × 3 = 9, 2 × 3 = 6, 1 × 3 = 3, 0 × 3 = 0. Each time the multiplier falls by 1, the product falls by 3. The pattern continues below zero: -1 × 3 = -3, -2 × 3 = -6. In the table with multiplicand -3, the products rise by 3 each time the multiplier falls by 1: 4 × (-3) = -12, 2 × (-3) = -6, 0 × (-3) = 0, and then -2 × (-3) = 6. Compare the four tables of 3, -3 for multipliers 3 and -3. The magnitude of the product does not change with the signs. The rules are: positive × positive is positive; negative × negative is positive; one positive and one negative gives negative. Also 1 × a = a for every integer a, and -1 × a = -a, the additive inverse of a. For a = -5, -1 × (-5) = 5.\nCommutative: swapping the numbers does not change the product. For example -15 × (-8) = 120 = (-8) × (-15), and 14 × (-5) = -70 = (-5) × 14. The magnitude does not change and the sign rule gives the same sign either way. Associative: for three integers (a × b) × c = a × (b × c). For 5 × (-3) × 4, doing 5 × (-3) first gives -15, then -60; doing (-3) × 4 first gives -12 and then -60. Any order gives -60. Sign of many products: multiply -1 an even number of times and the result is positive; an odd number of times, negative. So a product with an even number of negative factors is positive, and with an odd number it is negative. Distributive: a × (b + c) = a × b + a × c. Check 5 × (4 + (-2)) = 5 × 2 = 10, and 5 × 4 + 5 × (-2) = 20 - 10 = 10.\nIn 628 CE Brahmagupta wrote the first clear rules for multiplying and dividing positive and negative numbers, calling positives fortunes and negatives debts. The product or quotient of two fortunes is a fortune. Of two debts is a fortune. Of a debt and a fortune, or a fortune and a debt, is a debt. Division is the reverse of multiplication. To find (-100) ÷ 25 ask what must be multiplied with 25 to get -100. The answer is -4. For (-100) ÷ (-4) ask what multiplied with -4 gives -100: it is 25. So division has the same sign rules as multiplication: same signs give a positive quotient, different signs give a negative quotient. Division by zero is not defined.\nA test gives 5 marks for each correct answer and takes away 2 marks for each wrong one. For 30 correct and 20 wrong answers the marks are 30 × 5 + 20 × (-2) = 150 - 40 = 110. A mine elevator moves at 3 metres per minute. Downward speed is -3. Starting at ground level and going down for 60 minutes, the position is 60 × (-3) = -180, that is 180 metres below the ground. If it starts at 15 metres above ground and descends for 45 minutes, the final position is 15 + 45 × (-3) = 15 - 135 = -120, which is 120 metres below the ground. A cooling process lowering the temperature by 5 degrees every hour from 32 degrees gives 32 + 10 × (-5) = -18 degrees after 10 hours. Whenever a quantity can go up or down, a profit or a loss, above or below, modelling with integers makes the answer come out with the right sign."
+        }
+      },
+      {
+        "id": "diagram1",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c7-maths-integer-signs.svg",
+        "altText": {
+          "en": "A number line showing a coin moving +4 then -2 and the sign rules for multiplying and dividing integers"
+        },
+        "caption": {
+          "en": "Sign rules for integers"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A carrom coin starts at 0. If two strikes move it a and b units to the right, the final position is P = a + b."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Recap: integers on the line and with tokens"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Let rightward movement be positive and leftward negative. Then 5 and -7 give 5 + (-7) = -2, so the coin is 2 units left of 0. The same formula P = a + b works for all directions."
+            },
+            "board": []
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "An integer carries two pieces of information: its magnitude, which is the distance, and its sign, which is the direction."
+            },
+            "board": []
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In the token model a green token stands for +1 and a red token for -1. A green and a red token together make a zero pair."
+            },
+            "board": []
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To compute 7 - 18 with tokens, add 11 zero pairs to 7 positives so that 18 positives can be removed. 11 negatives remain, so 7 - 18 = -11."
+            },
+            "board": []
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Subtracting a number is the same as adding its additive inverse. The additive inverse of 18 is -18 and the additive inverse of -18 is 18, so 7 - 18 = 7 + (-18) and 4 - (-12) = 4 + 12."
+            },
+            "board": []
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Start with an empty bag. When the multiplier is positive we place tokens into the bag that many times. When it is negative we remove tokens that many times."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Multiplying integers with tokens"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "To get 4 × 2, place 2 positives four times: 8 positives, so 4 × 2 = 8. To get 4 × (-2), place 2 negatives four times: 8 negatives, so 4 × (-2) = -8."
+            },
+            "board": []
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "For (-4) × 2 we must remove 2 positives four times. The bag is empty, so first put in zero pairs, then remove the positives. 8 negatives remain, so (-4) × 2 = -8."
+            },
+            "board": []
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "For (-4) × (-2) we remove 2 negatives four times. Add zero pairs, take out the negatives, and 8 positives remain. So (-4) × (-2) = +8."
+            },
+            "board": []
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Removing 2 positives is the same as adding 2 negatives, which is why (-4) × 2 can also be viewed as adding 2 negative tokens four times."
+            },
+            "board": []
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Write the three times table downward: 3 × 3 = 9, 2 × 3 = 6, 1 × 3 = 3, 0 × 3 = 0. Each time the multiplier falls by 1, the product falls by 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Patterns in integer multiplication"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "The pattern continues below zero: -1 × 3 = -3, -2 × 3 = -6. In the table with multiplicand -3, the products rise by 3 each time the multiplier falls by 1: 4 × (-3) = -12, 2 × (-3) = -6, 0 × (-3) = 0, and then -2 × (-3) = 6."
+            },
+            "board": []
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Compare the four tables of 3, -3 for multipliers 3 and -3. The magnitude of the product does not change with the signs."
+            },
+            "board": []
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "The rules are: positive × positive is positive; negative × negative is positive; one positive and one negative gives negative."
+            },
+            "board": []
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Also 1 × a = a for every integer a, and -1 × a = -a, the additive inverse of a. For a = -5, -1 × (-5) = 5."
+            },
+            "board": []
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "Commutative: swapping the numbers does not change the product. For example -15 × (-8) = 120 = (-8) × (-15), and 14 × (-5) = -70 = (-5) × 14. The magnitude does not change and the sign rule gives the same sign either way."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Properties of integer multiplication"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Associative: for three integers (a × b) × c = a × (b × c). For 5 × (-3) × 4, doing 5 × (-3) first gives -15, then -60; doing (-3) × 4 first gives -12 and then -60. Any order gives -60."
+            },
+            "board": []
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Sign of many products: multiply -1 an even number of times and the result is positive; an odd number of times, negative. So a product with an even number of negative factors is positive, and with an odd number it is negative."
+            },
+            "board": []
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Distributive: a × (b + c) = a × b + a × c. Check 5 × (4 + (-2)) = 5 × 2 = 10, and 5 × 4 + 5 × (-2) = 20 - 10 = 10."
+            },
+            "board": []
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "In 628 CE Brahmagupta wrote the first clear rules for multiplying and dividing positive and negative numbers, calling positives fortunes and negatives debts."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Brahmagupta and division"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "The product or quotient of two fortunes is a fortune. Of two debts is a fortune. Of a debt and a fortune, or a fortune and a debt, is a debt."
+            },
+            "board": []
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Division is the reverse of multiplication. To find (-100) ÷ 25 ask what must be multiplied with 25 to get -100. The answer is -4. For (-100) ÷ (-4) ask what multiplied with -4 gives -100: it is 25."
+            },
+            "board": []
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "So division has the same sign rules as multiplication: same signs give a positive quotient, different signs give a negative quotient. Division by zero is not defined."
+            },
+            "board": []
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "A test gives 5 marks for each correct answer and takes away 2 marks for each wrong one. For 30 correct and 20 wrong answers the marks are 30 × 5 + 20 × (-2) = 150 - 40 = 110."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Using integers in real situations"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "A mine elevator moves at 3 metres per minute. Downward speed is -3. Starting at ground level and going down for 60 minutes, the position is 60 × (-3) = -180, that is 180 metres below the ground."
+            },
+            "board": []
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "If it starts at 15 metres above ground and descends for 45 minutes, the final position is 15 + 45 × (-3) = 15 - 135 = -120, which is 120 metres below the ground."
+            },
+            "board": []
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A cooling process lowering the temperature by 5 degrees every hour from 32 degrees gives 32 + 10 × (-5) = -18 degrees after 10 hours."
+            },
+            "board": []
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Whenever a quantity can go up or down, a profit or a loss, above or below, modelling with integers makes the answer come out with the right sign."
+            },
+            "board": []
+          }
+        ]
+      },
+      {
+        "id": "example1",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find (-6) × (-3) and (-8) × 4."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "(-6) × (-3): both are negative."
+            },
+            "why": {
+              "en": "The product of two negatives is positive."
+            }
+          },
+          {
+            "text": {
+              "en": "6 × 3 = 18, so (-6) × (-3) = 18."
+            },
+            "why": {
+              "en": "Multiply the magnitudes."
+            }
+          },
+          {
+            "text": {
+              "en": "(-8) × 4: one negative, one positive, so the product is negative: -32."
+            },
+            "why": {
+              "en": "Different signs give a negative product."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example2",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Mala answers 30 questions correctly and 20 wrongly, with +5 for right and -2 for wrong. Find her marks."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Marks from correct answers = 30 × 5 = 150."
+            },
+            "why": {
+              "en": "Positive marks."
+            }
+          },
+          {
+            "text": {
+              "en": "Marks from wrong answers = 20 × (-2) = -40."
+            },
+            "why": {
+              "en": "Each wrong answer takes away 2."
+            }
+          },
+          {
+            "text": {
+              "en": "Total = 150 + (-40) = 110."
+            },
+            "why": {
+              "en": "Add the two parts."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example3",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A lift starts 15 m above ground and goes down at 3 m per minute for 45 minutes. Where does it end?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Speed downward = -3 metres per minute."
+            },
+            "why": {
+              "en": "Downward is negative."
+            }
+          },
+          {
+            "text": {
+              "en": "Distance moved = 45 × (-3) = -135."
+            },
+            "why": {
+              "en": "Multiply speed by time."
+            }
+          },
+          {
+            "text": {
+              "en": "End position = 15 + (-135) = -120, which is 120 m below the ground."
+            },
+            "why": {
+              "en": "Add to the starting position."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example4",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the value of (-36) ÷ 9 and (-48) ÷ (-6)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "(-36) ÷ 9: different signs, so negative: -4."
+            },
+            "why": {
+              "en": "36 ÷ 9 = 4."
+            }
+          },
+          {
+            "text": {
+              "en": "(-48) ÷ (-6): same signs, so positive: 8."
+            },
+            "why": {
+              "en": "48 ÷ 6 = 8."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain to a friend how to find the sign and value of the product or quotient of two integers, and why (-4) × (-2) = 8 using tokens."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Multiply or divide the magnitudes, then give the sign by the rule: same signs positive, different signs negative."
+          },
+          {
+            "en": "Removing negative tokens from a bag after adding zero pairs leaves positive tokens."
+          },
+          {
+            "en": "Multiplication of integers is commutative, associative and distributive over addition."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking the product of two negatives is negative."
+          },
+          {
+            "en": "Thinking -1 × a is always negative."
+          },
+          {
+            "en": "Dividing by zero."
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "c7ma-owi-1",
+          "c7ma-owi-2",
+          "c7ma-owi-3",
+          "c7ma-owi-4",
+          "c7ma-owi-5",
+          "c7ma-owi-6",
+          "c7ma-owi-7",
+          "c7ma-owi-8"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "The product or quotient of two integers with the same sign is positive; with different signs it is negative."
+          },
+          {
+            "en": "1 × a = a and -1 × a = -a for every integer a."
+          },
+          {
+            "en": "Integer multiplication is commutative, associative and distributive over addition."
+          },
+          {
+            "en": "A product of many integers is positive if the number of negative factors is even, and negative if it is odd."
+          },
+          {
+            "en": "Division is the inverse of multiplication and follows the same sign rules; division by zero is undefined."
+          },
+          {
+            "en": "Integers help model gains and losses, above and below ground, and rising and falling temperatures."
+          }
+        ]
+      }
+    ]
+  }
+}

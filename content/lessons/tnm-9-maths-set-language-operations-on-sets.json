@@ -1,0 +1,258 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "set-language",
+ "topic": "operations-on-sets",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Operations on Sets"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Kavin and Meena each wrote the games they play. Kavin plays cricket and kabaddi. Meena plays kabaddi and carrom. The teacher asked, which games are played by at least one of them, and which by both?"
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "union",
+     "intersection",
+     "difference",
+     "complement"
+    ],
+    "text": {
+     "en": "A set is a well-defined collection of objects. We write the members inside curly brackets, for example A = {1, 2, 3, 4} and B = {3, 4, 5}. A Venn diagram draws each set as a circle inside a rectangle called the universal set.\nThe union of A and B is written A ∪ B. It has every element that is in A or in B or in both, without repeating. For our sets A ∪ B = {1, 2, 3, 4, 5}. The intersection A ∩ B has only the elements common to both, so A ∩ B = {3, 4}.\nThe difference A − B has the elements that are in A but not in B. So A − B = {1, 2} and B − A = {5}. Note that A − B and B − A are not the same set. The complement of A, written A', has all elements of the universal set that are not in A.\nA useful counting rule is n(A ∪ B) = n(A) + n(B) − n(A ∩ B). We subtract the common elements once because they were counted twice. Two sets with no common element are called disjoint sets and for them A ∩ B is the empty set."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A set is a well-defined collection of objects."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "union"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "We write the members inside curly brackets, for example A = {1, 2, 3, 4} and B = {3, 4, 5}."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "intersection"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A Venn diagram draws each set as a circle inside a rectangle called the universal set."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "difference"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The union of A and B is written A ∪ B."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "complement"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "It has every element that is in A or in B or in both, without repeating."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "union"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "For our sets A ∪ B = {1, 2, 3, 4, 5}."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "intersection"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "The intersection A ∩ B has only the elements common to both, so A ∩ B = {3, 4}."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "difference"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "The difference A − B has the elements that are in A but not in B."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "complement"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "So A − B = {1, 2} and B − A = {5}."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "union"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "If U = {1,2,3,4,5,6,7,8,9,10}, A = {2,4,6,8,10} and B = {1,2,3,4,5}, find A ∪ B, A ∩ B, A − B and A'."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "A ∪ B: list every element of A and B once, so A ∪ B = {1,2,3,4,5,6,8,10}."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "A ∩ B: pick the common ones, so A ∩ B = {2,4}."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "A − B: elements of A not in B, so A − B = {6,8,10}."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     },
+     {
+      "text": {
+       "en": "A': elements of U not in A, so A' = {1,3,5,7,9}."
+      },
+      "why": {
+       "en": "Step 4."
+      }
+     },
+     {
+      "text": {
+       "en": "Check with the rule: n(A ∪ B) = 5 + 5 − 2 = 8, and we listed 8 elements."
+      },
+      "why": {
+       "en": "Step 5."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says A − B is the same as B − A. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "A − B keeps elements of A that are not in B"
+     },
+     {
+      "en": "B − A keeps elements of B that are not in A"
+     },
+     {
+      "en": "They are different unless A and B are equal"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-ope800",
+     "r1-ope801"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Union joins two sets without repeating elements."
+     },
+     {
+      "en": "Intersection keeps only common elements."
+     },
+     {
+      "en": "n(A ∪ B) = n(A) + n(B) − n(A ∩ B)."
+     }
+    ]
+   }
+  ]
+ }
+}

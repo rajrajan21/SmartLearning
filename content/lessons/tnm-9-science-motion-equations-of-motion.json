@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "motion",
+  "topic": "equations-of-motion",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Speed, velocity, acceleration and the equations of motion"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The cyclist"
+        },
+        "text": {
+          "en": "A cyclist speeds up from rest to 6 m/s in 3 seconds. How quickly did the speed change, and how far did she go? The equations of motion answer both."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "distance and displacement",
+          "speed and velocity",
+          "a = (v - u)/t",
+          "v = u + at",
+          "g = 9.8",
+          "graphs",
+          "circular motion"
+        ],
+        "text": {
+          "en": "Distance is the total path length (scalar); displacement is the shortest straight-line distance with direction (vector).\nSpeed = distance / time; velocity = displacement / time.\nAcceleration a = (v - u)/t, where u is initial and v final velocity; unit m/s squared.\nThe three equations of motion for uniform acceleration: v = u + at, s = ut + 1/2 at squared, v squared = u squared + 2as.\nFor a freely falling body, a = g = 9.8 m/s squared downwards.\nIn a distance-time graph the slope is the speed; in a velocity-time graph the slope is the acceleration and the area under it is the distance.\nUniform circular motion has constant speed but changing velocity, so it is accelerated."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Distance is the total path length (scalar); displacement is the shortest straight-line distance with direction (vector)."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "distance and displacement"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Speed = distance / time; velocity = displacement / time."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "speed and velocity"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Acceleration a = (v - u)/t, where u is initial and v final velocity; unit m/s squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a = (v - u)/t"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The three equations of motion for uniform acceleration: v = u + at, s = ut + 1/2 at squared, v squared = u squared + 2as."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "v = u + at"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For a freely falling body, a = g = 9.8 m/s squared downwards."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "g = 9.8"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "In a distance-time graph the slope is the speed; in a velocity-time graph the slope is the acceleration and the area under it is the distance."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "graphs"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Uniform circular motion has constant speed but changing velocity, so it is accelerated."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "circular motion"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A car starts from rest and accelerates at 2 m/s squared for 5 s. Find its final velocity and the distance covered."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "u = 0, a = 2, t = 5. v = u + at = 0 + 2 x 5 = 10 m/s."
+            },
+            "why": {
+              "en": "First equation of motion."
+            }
+          },
+          {
+            "text": {
+              "en": "s = ut + 1/2 at squared = 0 + 1/2 x 2 x 25."
+            },
+            "why": {
+              "en": "Second equation."
+            }
+          },
+          {
+            "text": {
+              "en": "s = 25 m."
+            },
+            "why": {
+              "en": "Check: average speed 5 m/s x 5 s = 25 m."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State the three equations of motion and when they apply."
+        },
+        "requiredIdeas": [
+          {
+            "en": "v = u + at"
+          },
+          {
+            "en": "s = ut + 1/2 at^2"
+          },
+          {
+            "en": "v^2 = u^2 + 2as"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using them when acceleration is not constant"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9sc250-1",
+          "r1-m9sc250-2",
+          "r1-m9sc250-3",
+          "r2-m9sc250-4",
+          "r2-m9sc250-5",
+          "r2-m9sc250-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Speed is scalar, velocity is vector."
+          },
+          {
+            "en": "a = (v - u)/t."
+          },
+          {
+            "en": "v = u + at; s = ut + 1/2 at^2; v^2 = u^2 + 2as."
+          },
+          {
+            "en": "Free fall: a = g = 9.8 m/s^2."
+          }
+        ]
+      }
+    ]
+  }
+}

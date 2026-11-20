@@ -1,0 +1,246 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "nature-of-roots-and-discriminant",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Nature of roots and the discriminant"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Does it touch the axis?"
+        },
+        "text": {
+          "en": "A ball is thrown and its height follows a quadratic equation. Will it reach a given height? The discriminant answers it without solving."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "quadratic formula",
+          "discriminant",
+          "D positive",
+          "D zero",
+          "D negative",
+          "finding k"
+        ],
+        "text": {
+          "en": "The roots of ax squared plus bx plus c equal 0 are given by the quadratic formula minus b plus or minus the square root of b squared minus 4ac, all over 2a.\nThe expression b squared minus 4ac is called the discriminant D.\nIf D is greater than 0, the roots are real and unequal and the parabola cuts the X axis twice.\nIf D equals 0, the roots are real and equal and the parabola touches the X axis once.\nIf D is less than 0, there are no real roots and the parabola does not meet the X axis.\nTo find an unknown k for given nature, form D in terms of k and use D = 0, D greater than 0 or D less than 0."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-nature-of-roots-and-discriminant.svg",
+        "altText": {
+          "en": "Three parabolas showing two one and no intersections with the X axis for positive zero and negative discriminant"
+        },
+        "caption": {
+          "en": "Discriminant and roots"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The roots of ax squared plus bx plus c equal 0 are given by the quadratic formula minus b plus or minus the square root of b squared minus 4ac, all over 2a."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "quadratic formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The expression b squared minus 4ac is called the discriminant D."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "discriminant"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If D is greater than 0, the roots are real and unequal and the parabola cuts the X axis twice."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D positive"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If D equals 0, the roots are real and equal and the parabola touches the X axis once."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D zero"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "If D is less than 0, there are no real roots and the parabola does not meet the X axis."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "D negative"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "To find an unknown k for given nature, form D in terms of k and use D = 0, D greater than 0 or D less than 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "finding k"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find k for which kx^2 - (8k + 4)x + 81 = 0 has real and equal roots."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Here a = k, b = -(8k + 4), c = 81."
+            },
+            "why": {
+              "en": "Identify the coefficients."
+            }
+          },
+          {
+            "text": {
+              "en": "D = 0 gives (8k + 4)^2 - 4 x k x 81 = 0."
+            },
+            "why": {
+              "en": "Equal roots need D = 0."
+            }
+          },
+          {
+            "text": {
+              "en": "64k^2 + 64k + 16 - 324k = 0, so 64k^2 - 260k + 16 = 0."
+            },
+            "why": {
+              "en": "Expand and collect."
+            }
+          },
+          {
+            "text": {
+              "en": "Divide by 4: 16k^2 - 65k + 4 = 0, so (16k - 1)(k - 4) = 0."
+            },
+            "why": {
+              "en": "Factorise."
+            }
+          },
+          {
+            "text": {
+              "en": "Hence k = 1/16 or k = 4."
+            },
+            "why": {
+              "en": "Two values of k."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Find the values of k so that (k + 9)x^2 + (k + 1)x + 1 = 0 has no real roots."
+        },
+        "requiredIdeas": [
+          {
+            "en": "a = k + 9, b = k + 1, c = 1"
+          },
+          {
+            "en": "D less than 0: (k + 1)^2 - 4(k + 9) < 0"
+          },
+          {
+            "en": "k^2 - 2k - 35 < 0, so (k + 5)(k - 7) < 0"
+          },
+          {
+            "en": "Hence -5 < k < 7"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Reversing the inequality"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma607-1",
+          "r1-m10ma607-2",
+          "r1-m10ma607-3",
+          "r2-m10ma607-4",
+          "r2-m10ma607-5",
+          "r2-m10ma607-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "D = b^2 - 4ac."
+          },
+          {
+            "en": "D > 0 two real roots; D = 0 equal; D < 0 none."
+          },
+          {
+            "en": "For equal roots set D = 0 and solve for k."
+          },
+          {
+            "en": "Graph meets the X axis as many times as the number of real roots."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "numbers-and-sequences",
+  "topic": "euclids-division-algorithm-and-fta",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Euclid's division lemma, algorithm and the Fundamental Theorem of Arithmetic"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Sharing sweets"
+        },
+        "text": {
+          "en": "You have 17 sweets and want to pack them 5 to a box. You fill 3 boxes and 2 are left over. That simple fact, 17 = 5 x 3 + 2, is the heart of a very old and powerful idea."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "a = bq + r",
+          "0 <= r < b",
+          "HCF",
+          "last non-zero remainder",
+          "unique prime factorisation",
+          "360",
+          "HCF smallest, LCM greatest",
+          "HCF x LCM = a x b"
+        ],
+        "text": {
+          "en": "Euclid's division lemma: for positive integers a and b there are unique whole numbers q and r with a = bq + r and 0 <= r < b.\nHere q is the quotient and r the remainder, and r is always smaller than b.\nEuclid's division algorithm uses this lemma repeatedly to find the HCF (highest common factor) of two numbers.\nTo find the HCF of 455 and 42: 455 = 42 x 10 + 35, then 42 = 35 x 1 + 7, then 35 = 7 x 5 + 0. The last non-zero remainder, 7, is the HCF.\nThe Fundamental Theorem of Arithmetic says every composite number can be written as a product of primes in exactly one way, apart from the order.\nFor example 360 = 2 x 2 x 2 x 3 x 3 x 5 = 2^3 x 3^2 x 5.\nUsing prime factorisation, HCF takes the smallest powers of the common primes and LCM takes the greatest powers of all primes.\nFor two numbers, HCF x LCM = product of the two numbers."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Euclid's division lemma: for positive integers a and b there are unique whole numbers q and r with a = bq + r and 0 <= r < b."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "a = bq + r"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Here q is the quotient and r the remainder, and r is always smaller than b."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "0 <= r < b"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Euclid's division algorithm uses this lemma repeatedly to find the HCF (highest common factor) of two numbers."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "To find the HCF of 455 and 42: 455 = 42 x 10 + 35, then 42 = 35 x 1 + 7, then 35 = 7 x 5 + 0. The last non-zero remainder, 7, is the HCF."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "last non-zero remainder"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The Fundamental Theorem of Arithmetic says every composite number can be written as a product of primes in exactly one way, apart from the order."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "unique prime factorisation"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For example 360 = 2 x 2 x 2 x 3 x 3 x 5 = 2^3 x 3^2 x 5."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "360"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Using prime factorisation, HCF takes the smallest powers of the common primes and LCM takes the greatest powers of all primes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF smallest, LCM greatest"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For two numbers, HCF x LCM = product of the two numbers."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "HCF x LCM = a x b"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the HCF of 135 and 225 by Euclid's algorithm."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Divide the larger by the smaller: 225 = 135 x 1 + 90."
+            },
+            "why": {
+              "en": "Start with a = 225, b = 135."
+            }
+          },
+          {
+            "text": {
+              "en": "Now 135 = 90 x 1 + 45."
+            },
+            "why": {
+              "en": "Replace the pair by (135, 90)."
+            }
+          },
+          {
+            "text": {
+              "en": "Then 90 = 45 x 2 + 0. The remainder is 0, so the HCF is 45."
+            },
+            "why": {
+              "en": "The last non-zero remainder is the HCF."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain how Euclid's algorithm finds the HCF and what the Fundamental Theorem of Arithmetic says."
+        },
+        "requiredIdeas": [
+          {
+            "en": "a = bq + r with r less than b"
+          },
+          {
+            "en": "Repeat until remainder is zero"
+          },
+          {
+            "en": "Every composite number has a unique prime factorisation"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Taking the zero remainder as the HCF"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma783-1",
+          "r1-m10ma783-2",
+          "r1-m10ma783-3",
+          "r2-m10ma783-4",
+          "r2-m10ma783-5",
+          "r2-m10ma783-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "a = bq + r with 0 <= r < b."
+          },
+          {
+            "en": "Euclid's algorithm: repeat division; last non-zero remainder is the HCF."
+          },
+          {
+            "en": "Every composite number = product of primes, uniquely."
+          },
+          {
+            "en": "HCF x LCM = product of the two numbers."
+          }
+        ]
+      }
+    ]
+  }
+}

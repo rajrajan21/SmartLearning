@@ -4,7 +4,7 @@
 import { createRequire } from "node:module";
 import { createCanvas } from "@napi-rs/canvas";
 import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const here = dirname(fileURLToPath(import.meta.url));
@@ -20,7 +20,7 @@ const require = createRequire(import.meta.url);
 const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
 const stdFonts = join(dirname(require.resolve("pdfjs-dist/package.json")), "standard_fonts") + "/";
 
-const manifest = JSON.parse(readFileSync(join(root, "manifest.json"), "utf8")).books.filter((b) => b.status === "ok" && b.kind === "single");
+const manifest = JSON.parse(readFileSync(join(root, "manifest.json"), "utf8")).books.filter((b) => b.status === "ok" && b.kind === "single" && (b.file || b.path)).map((b) => ({ ...b, file: b.file ?? basename(b.path) }));
 const curriculum = existsSync(curriculumFile) ? JSON.parse(readFileSync(curriculumFile, "utf8")) : { classes: [] };
 const overrides = existsSync(join(root, "toc-overrides.json")) ? JSON.parse(readFileSync(join(root, "toc-overrides.json"), "utf8")) : {};
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9஀-௿ ]+/g, " ").replace(/\s+/g, " ").trim();

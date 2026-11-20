@@ -1,0 +1,235 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "mensuration",
+  "topic": "frustum-of-a-cone",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Frustum of a cone: surface area and volume"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The fire bucket"
+        },
+        "text": {
+          "en": "Glasses, buckets and street cones are not exact cones: their tops are cut off. A cone with its top sliced off by a plane parallel to the base is called a frustum."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "frustum",
+          "notation",
+          "slant height",
+          "curved surface area",
+          "total surface area",
+          "volume"
+        ],
+        "text": {
+          "en": "A frustum is the part of a cone between its base and a plane parallel to the base.\nLet R be the radius of the larger base, r the radius of the top, h the height and l the slant height of the frustum.\nThe slant height is the square root of h squared plus (R minus r) squared.\nThe curved surface area is pi times (R plus r) times l.\nThe total surface area adds the two circular ends: pi (R plus r) l plus pi R squared plus pi r squared.\nThe volume is the difference of two cones; using similar triangles it becomes pi h over 3 times (R squared plus R r plus r squared)."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-frustum-of-a-cone.svg",
+        "altText": {
+          "en": "A frustum of a cone with R r h and l labelled and its formulas"
+        },
+        "caption": {
+          "en": "Frustum of a cone"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A frustum is the part of a cone between its base and a plane parallel to the base."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "frustum"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Let R be the radius of the larger base, r the radius of the top, h the height and l the slant height of the frustum."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "notation"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The slant height is the square root of h squared plus (R minus r) squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "slant height"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The curved surface area is pi times (R plus r) times l."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "curved surface area"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The total surface area adds the two circular ends: pi (R plus r) l plus pi R squared plus pi r squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "total surface area"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The volume is the difference of two cones; using similar triangles it becomes pi h over 3 times (R squared plus R r plus r squared)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "volume"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A bucket in the shape of a frustum has top diameter 10 m, bottom diameter 4 m and height 4 m. Find its curved and total surface areas."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "R = 5 m, r = 2 m, h = 4 m. Slant height l = sqrt(4^2 + (5-2)^2) = sqrt(25) = 5 m."
+            },
+            "why": {
+              "en": "The 3-4-5 triangle."
+            }
+          },
+          {
+            "text": {
+              "en": "CSA = pi (R + r) l = 22/7 x 7 x 5 = 110 sq. m."
+            },
+            "why": {
+              "en": "(5 + 2) = 7."
+            }
+          },
+          {
+            "text": {
+              "en": "TSA = 110 + pi (25 + 4) = 110 + 22/7 x 29 = 110 + 91.14."
+            },
+            "why": {
+              "en": "Add both circular ends."
+            }
+          },
+          {
+            "text": {
+              "en": "TSA is about 201.14 sq. m."
+            },
+            "why": {
+              "en": "Rounded to two decimals."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Find the volume of a frustum of height 45 cm with radii 28 cm and 7 cm."
+        },
+        "requiredIdeas": [
+          {
+            "en": "V = (pi h / 3)(R^2 + Rr + r^2)"
+          },
+          {
+            "en": "R^2 + Rr + r^2 = 784 + 196 + 49 = 1029"
+          },
+          {
+            "en": "V = 1/3 x 22/7 x 1029 x 45 = 48510 cu. cm"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the cone volume formula directly"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma856-1",
+          "r1-m10ma856-2",
+          "r1-m10ma856-3",
+          "r2-m10ma856-4",
+          "r2-m10ma856-5",
+          "r2-m10ma856-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Frustum: cone with the top cut parallel to the base."
+          },
+          {
+            "en": "l = sqrt(h^2 + (R-r)^2)."
+          },
+          {
+            "en": "CSA = pi (R + r) l."
+          },
+          {
+            "en": "V = pi h (R^2 + Rr + r^2) / 3."
+          }
+        ]
+      }
+    ]
+  }
+}

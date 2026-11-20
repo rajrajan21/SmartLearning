@@ -92,6 +92,17 @@ describe("accounts API", () => {
     expect((await request(app).post("/api/v1/account/login").type("form").send("email=a@b.co&password=x")).status).toBe(415);
   });
 
+  it("saves favourite lessons in the account and keeps an un-save", async () => {
+    const { cookie } = await signUp();
+    const note = (savedAt: number, removedAt?: number) => ({ id: "t1", href: "/cbse/6/maths/a/b", title: { en: "Fractions" }, subject: { en: "Maths" }, savedAt, ...(removedAt ? { removedAt } : {}) });
+    const put = (notes: unknown) => request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ notes });
+    expect((await put({ t1: note(100) })).body.notes.t1.savedAt).toBe(100);
+    expect((await put({ t1: note(100, 200) })).body.notes.t1.removedAt).toBe(200);
+    // an older save arriving late cannot bring the lesson back
+    expect((await put({ t1: note(100) })).body.notes.t1.removedAt).toBe(200);
+    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body.notes.t1.removedAt).toBe(200);
+  });
+
   it("keeps progress per child and merges devices without losing anything", async () => {
     const { cookie } = await signUp();
     const a = { lesson: { t1: { step: 2, total: 7, done: false, updatedAt: 1000 } }, practice: { t1: { "1": { best: 60, stars: 0, passed: false, tries: 1 } } } };
@@ -106,11 +117,15 @@ describe("accounts API", () => {
     const stale = await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send(a);
     expect(stale.body.lesson.t1.done).toBe(true); expect(stale.body.practice.t1["1"].best).toBe(80);
     expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body.lesson.t2.step).toBe(1);
+    const mk = { id: "q1", stem: { en: "Q" }, answer: { en: "A" }, why: { en: "W" }, at: 5 };
+    expect((await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ mistakes: { q1: mk } })).status).toBe(200);
+    expect((await request(app).put("/api/v1/account/sync").set("Cookie", cookie).send({ mistakes: { q1: { ...mk, removedAt: 9 } } })).body.mistakes.q1.removedAt).toBe(9);
+    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body.mistakes.q1.removedAt).toBe(9);
     // another child starts clean
     const add = await request(app).post("/api/v1/account/children").set("Cookie", cookie).send({ nickname: "Arun", classLevel: 3 });
     const arun = add.body.profiles.find((p: { nickname: string }) => p.nickname === "Arun").id;
     await request(app).post(`/api/v1/account/children/${arun}/select`).set("Cookie", cookie).send({});
-    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body).toEqual({ lesson: {}, practice: {}, revision: {} });
+    expect((await request(app).get("/api/v1/account/sync").set("Cookie", cookie)).body).toEqual({ lesson: {}, practice: {}, revision: {}, notes: {}, mistakes: {} });
   });
 
   it("keeps the latest revision review for each question", async () => {

@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "probability-problems-with-dice-and-cards",
+  "questions": [
+    {
+      "key": "r1-pd1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Number of outcomes for two dice"
+      },
+      "answer": 36,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 12,
+          "why": {
+            "en": "Multiply."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "6 x 6."
+      }
+    },
+    {
+      "key": "r1-pd2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "P(two tails in 2 tosses)"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "1/4"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "1/2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "One in four outcomes."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "3/4"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is at least one tail."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "TT only."
+      }
+    },
+    {
+      "key": "r2-pd3",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Two dice. Number of pairs with sum 7"
+      },
+      "answer": 6,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 5,
+          "why": {
+            "en": "Count all."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "(1,6) to (6,1)."
+      }
+    },
+    {
+      "key": "r2-pd4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Assertion (A): P(sum 7) = 1/6 for two dice. Reason (R): 6 of the 36 outcomes have sum 7."
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "Both A and R are true and R explains A"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "A true, R false"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "R is correct."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "A false, R true"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "6/36 = 1/6."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Count the favourable outcomes carefully."
+      }
+    },
+    {
+      "key": "r2-pd5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Number of aces in a deck"
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 1,
+          "why": {
+            "en": "There is one in each suit."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "One per suit."
+      }
+    },
+    {
+      "key": "r3-pd6",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "P(a doublet) when two dice are thrown"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "1/6"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "1/36"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is a particular double."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "1/2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Too high."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "6 of 36."
+      }
+    },
+    {
+      "key": "r3-pd7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Theoretical probability predicts what should happen."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "Based on assumptions."
+      }
+    },
+    {
+      "key": "r3-pd8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "A card is drawn from 52. Number of face cards"
+      },
+      "answer": 12,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 16,
+          "why": {
+            "en": "Aces and tens are not face cards."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Jack, queen, king in 4 suits."
+      }
+    }
+  ]
+}

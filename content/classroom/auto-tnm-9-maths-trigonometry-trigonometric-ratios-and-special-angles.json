@@ -1,0 +1,212 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "trigonometry",
+ "topic": "trigonometric-ratios-and-special-angles",
+ "status": "published",
+ "title": {
+  "en": "Trigonometric ratios"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Trigonometric ratios",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "tr",
+   "points": [
+    [
+     220,
+     410
+    ],
+    [
+     640,
+     410
+    ],
+    [
+     640,
+     150
+    ]
+   ],
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "rt",
+   "d": "M 620 410 L 620 390 L 640 390",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "th",
+   "x": 290,
+   "y": 400,
+   "text": "θ",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "op",
+   "x": 668,
+   "y": 285,
+   "text": "opposite",
+   "size": 22,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "ad",
+   "x": 430,
+   "y": 440,
+   "text": "adjacent",
+   "size": 22,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hy",
+   "x": 400,
+   "y": 260,
+   "text": "hypotenuse",
+   "size": 22,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "f1",
+   "x": 40,
+   "y": 110,
+   "text": "sin θ = opposite ÷ hypotenuse",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "f2",
+   "x": 40,
+   "y": 150,
+   "text": "cos θ = adjacent ÷ hypotenuse",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "f3",
+   "x": 40,
+   "y": 190,
+   "text": "tan θ = opposite ÷ adjacent",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "ex",
+   "x": 450,
+   "y": 480,
+   "text": "In a 3-4-5 triangle: sin θ = 3/5, cos θ = 4/5, tan θ = 3/4",
+   "size": 20,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Take a right-angled triangle and mark one of its acute angles, theta. The side facing theta is the opposite side, the side next to it is the adjacent side, and the longest side is the hypotenuse."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "tr",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "rt",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "th",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "op",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "ad",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "hy",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Sine of theta is opposite over hypotenuse. Cosine is adjacent over hypotenuse. Tangent is opposite over adjacent."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "f1",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "f2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "f3",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "For a triangle with opposite side 3, adjacent side 4 and hypotenuse 5, sine is 3 over 5, cosine is 4 over 5 and tangent is 3 over 4."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ex",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

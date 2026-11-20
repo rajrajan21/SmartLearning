@@ -1,0 +1,106 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "evs",
+ "chapter": "rhythms-of-nature",
+ "topic": "weather-and-festivals",
+ "status": "published",
+ "title": {
+  "en": "Seasons"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Why we have seasons",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "su",
+   "cx": 450,
+   "cy": 265,
+   "r": 38,
+   "fill": "#FFCA28",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "orbit",
+   "id": "er",
+   "cx": 450,
+   "cy": 265,
+   "r": 170,
+   "period": 14,
+   "size": 15,
+   "emoji": "🌍",
+   "tilt": 0.55
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 450,
+   "y": 470,
+   "text": "One trip round the Sun takes one year",
+   "size": 24,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Earth goes round the Sun once every year."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "su",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "er",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The Earth is tilted a little. As it travels, sometimes our part leans towards the Sun and gets more heat, and sometimes it leans away and gets less."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "er",
+     "at": 0.2,
+     "color": "warm"
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "This change in heat gives us the seasons: summer, rainy season, autumn, winter and spring."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    }
+   ]
+  }
+ ]
+}

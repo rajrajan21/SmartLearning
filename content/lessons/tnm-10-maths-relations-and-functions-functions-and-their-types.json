@@ -1,0 +1,253 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "relations-and-functions",
+  "topic": "functions-and-their-types",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "What is a function? One-one, onto and constant functions"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The vending machine"
+        },
+        "text": {
+          "en": "You press button B3 on a vending machine and always get the same biscuit. Press it again - same biscuit. A machine that gives exactly one output for each input is behaving like a function."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "function",
+          "one arrow each",
+          "y = f(x)",
+          "vertical line test",
+          "one-one",
+          "onto",
+          "constant function",
+          "identity function"
+        ],
+        "text": {
+          "en": "A function f from A to B is a relation in which every element of A is paired with exactly one element of B.\nSo no element of A may be left out and no element of A may have two arrows leaving it.\nWe write y = f(x); x is the independent variable (input) and y the dependent variable (output).\nA vertical-line test on a graph checks this: a vertical line must cut the graph at most once.\nA function is one-one if different inputs always give different outputs, that is f(a) = f(b) implies a = b.\nA function is onto if every element of the codomain is an output of some input, so range = codomain.\nA constant function gives the same output for every input, for example f(x) = 5.\nAn identity function maps every x to itself, f(x) = x, and a function can also be shown by a table, a set of pairs, an arrow diagram or a graph."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-functions-and-their-types.svg",
+        "altText": {
+          "en": "Arrow diagram of a function where 1 and 3 both map to 4"
+        },
+        "caption": {
+          "en": "A function that is onto but not one-one"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A function f from A to B is a relation in which every element of A is paired with exactly one element of B."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "function"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "So no element of A may be left out and no element of A may have two arrows leaving it."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one arrow each"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "We write y = f(x); x is the independent variable (input) and y the dependent variable (output)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "y = f(x)"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A vertical-line test on a graph checks this: a vertical line must cut the graph at most once."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "vertical line test"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A function is one-one if different inputs always give different outputs, that is f(a) = f(b) implies a = b."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one-one"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A function is onto if every element of the codomain is an output of some input, so range = codomain."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "onto"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "A constant function gives the same output for every input, for example f(x) = 5."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "constant function"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "An identity function maps every x to itself, f(x) = x, and a function can also be shown by a table, a set of pairs, an arrow diagram or a graph."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "identity function"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Is f = {(1,4),(2,5),(3,4)} a function from {1,2,3} to {4,5}? Is it one-one? Is it onto?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Each of 1, 2, 3 appears once as a first element, so f is a function."
+            },
+            "why": {
+              "en": "Every input has exactly one output."
+            }
+          },
+          {
+            "text": {
+              "en": "But 1 and 3 both go to 4, so different inputs share an output. f is not one-one."
+            },
+            "why": {
+              "en": "One-one needs different outputs for different inputs."
+            }
+          },
+          {
+            "text": {
+              "en": "The outputs used are 4 and 5, which is the whole codomain, so f is onto."
+            },
+            "why": {
+              "en": "Range equals codomain."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you decide whether a relation is a function? Then explain one-one and onto."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Each input has exactly one output"
+          },
+          {
+            "en": "One-one means different inputs give different outputs"
+          },
+          {
+            "en": "Onto means range equals codomain"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking two inputs sharing an output breaks the function rule"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma832-1",
+          "r1-m10ma832-2",
+          "r1-m10ma832-3",
+          "r2-m10ma832-4",
+          "r2-m10ma832-5",
+          "r2-m10ma832-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A function gives exactly one output for each input."
+          },
+          {
+            "en": "One-one: no two inputs share an output. Onto: range = codomain."
+          },
+          {
+            "en": "Constant function f(x) = c; identity function f(x) = x."
+          },
+          {
+            "en": "Use the vertical line test on graphs."
+          }
+        ]
+      }
+    ]
+  }
+}

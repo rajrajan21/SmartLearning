@@ -1,0 +1,288 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "electricity",
+  "topic": "resistors-in-series-and-parallel",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Resistivity and the combination of resistors"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Fairy lights and house wiring"
+        },
+        "text": {
+          "en": "On a string of old fairy lights, if one bulb fails the whole string goes dark. In your house, if one bulb fails the fan keeps running. The first is a series circuit and the second is a parallel circuit."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "resistivity",
+          "conductor and insulator",
+          "conductance",
+          "series circuit",
+          "Rs = R1 + R2 + R3",
+          "more than the highest",
+          "parallel circuit",
+          "1/Rp"
+        ],
+        "text": {
+          "en": "The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre.\nConductors such as copper have very small resistivity, about 1.62 times 10 to the power minus 8 ohm metre, while insulators such as glass and rubber have a very large resistivity.\nThe reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity.\nIn a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them.\nThe potential differences add up, V = V1 + V2 + V3, which gives the effective resistance Rs = R1 + R2 + R3.\nThe equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R.\nIn a parallel circuit there are two or more loops, the potential difference across each resistor is the same and the currents add, I = I1 + I2 + I3.\nThe effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance.\nSeries-parallel and parallel-series combinations are solved in steps: first replace each group by its effective resistance and then combine the groups.\nIn a series circuit if one appliance is disconnected the others stop working, but in a parallel circuit they work independently, which is why house wiring is parallel."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-resistors-in-series-and-parallel.svg",
+        "altText": {
+          "en": "A series circuit and a parallel circuit with their formulas and the rule for resistivity"
+        },
+        "caption": {
+          "en": "Resistors in series and parallel"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "resistivity"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Conductors such as copper have very small resistivity, about 1.62 times 10 to the power minus 8 ohm metre, while insulators such as glass and rubber have a very large resistivity."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conductor and insulator"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conductance"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "series circuit"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The potential differences add up, V = V1 + V2 + V3, which gives the effective resistance Rs = R1 + R2 + R3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Rs = R1 + R2 + R3"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "more than the highest"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "In a parallel circuit there are two or more loops, the potential difference across each resistor is the same and the currents add, I = I1 + I2 + I3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallel circuit"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "1/Rp"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Series-parallel and parallel-series combinations are solved in steps: first replace each group by its effective resistance and then combine the groups."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "combined circuits"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "In a series circuit if one appliance is disconnected the others stop working, but in a parallel circuit they work independently, which is why house wiring is parallel."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "series versus parallel"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Three resistors of 5 ohm, 3 ohm and 2 ohm are connected in series across a 10 V battery. Find the effective resistance and the current. Then find the effective resistance if 6 ohm and 3 ohm are connected in parallel."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Series: Rs = R1 + R2 + R3 = 5 + 3 + 2 = 10 ohm."
+            },
+            "why": {
+              "en": "Resistances add in series."
+            }
+          },
+          {
+            "text": {
+              "en": "Current I = V / Rs = 10 / 10 = 1 A."
+            },
+            "why": {
+              "en": "Ohm's law."
+            }
+          },
+          {
+            "text": {
+              "en": "Parallel 6 ohm and 3 ohm: 1/Rp = 1/6 + 1/3 = 1/6 + 2/6 = 3/6 = 1/2."
+            },
+            "why": {
+              "en": "Add reciprocals."
+            }
+          },
+          {
+            "text": {
+              "en": "So Rp = 2 ohm, which is less than the smaller resistor, 3 ohm."
+            },
+            "why": {
+              "en": "Check with the rule."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A wire of length 10 m and area 2 x 10^-7 m2 has a resistance of 2 ohm. Find its resistivity."
+        },
+        "requiredIdeas": [
+          {
+            "en": "rho = R A / L"
+          },
+          {
+            "en": "rho = 2 x 2 x 10^-7 / 10"
+          },
+          {
+            "en": "rho = 4 x 10^-8 ohm metre"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the length in the numerator"
+          },
+          {
+            "en": "Forgetting that the unit is ohm metre"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10sc604-1",
+          "r1-m10sc604-2",
+          "r1-m10sc604-3",
+          "r2-m10sc604-4",
+          "r2-m10sc604-5",
+          "r2-m10sc604-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Series: Rs = R1 + R2 + R3, same current, Rs is the largest."
+          },
+          {
+            "en": "Parallel: 1/Rp = sum of reciprocals, same voltage, Rp is the smallest."
+          },
+          {
+            "en": "rho = R A / L in ohm metre."
+          },
+          {
+            "en": "House wiring is parallel so appliances work independently."
+          }
+        ]
+      }
+    ]
+  }
+}

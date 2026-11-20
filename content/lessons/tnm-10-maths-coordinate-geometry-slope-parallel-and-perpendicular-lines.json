@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "slope-parallel-and-perpendicular-lines",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Slope of a line, parallel and perpendicular lines"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "How steep is the road?"
+        },
+        "text": {
+          "en": "Engineers must know how steep a road or staircase is before building it. In mathematics, steepness is measured by the slope of a line."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "definition of slope",
+          "slope formula",
+          "sign of the slope",
+          "special lines",
+          "parallel lines",
+          "perpendicular lines",
+          "collinearity by slope"
+        ],
+        "text": {
+          "en": "The slope or gradient of a non-vertical line is m equals tan theta, where theta is the angle of inclination with the positive X axis.\nFor two points (x1,y1) and (x2,y2), the slope is the difference in y divided by the difference in x.\nIf theta is acute the slope is positive and the line rises; if theta is obtuse the slope is negative and the line falls.\nA horizontal line has slope zero, and the slope of a vertical line is undefined.\nTwo non-vertical lines are parallel if and only if their slopes are equal.\nTwo non-vertical lines are perpendicular if and only if the product of their slopes is minus one.\nThree points are collinear if the slope of AB equals the slope of BC."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-slope-parallel-and-perpendicular-lines.svg",
+        "altText": {
+          "en": "A line through two points showing rise and run with slope facts"
+        },
+        "caption": {
+          "en": "Slope of a line"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The slope or gradient of a non-vertical line is m equals tan theta, where theta is the angle of inclination with the positive X axis."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "definition of slope"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For two points (x1,y1) and (x2,y2), the slope is the difference in y divided by the difference in x."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "slope formula"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If theta is acute the slope is positive and the line rises; if theta is obtuse the slope is negative and the line falls."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sign of the slope"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A horizontal line has slope zero, and the slope of a vertical line is undefined."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "special lines"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Two non-vertical lines are parallel if and only if their slopes are equal."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallel lines"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Two non-vertical lines are perpendicular if and only if the product of their slopes is minus one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "perpendicular lines"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Three points are collinear if the slope of AB equals the slope of BC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "collinearity by slope"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the slope of the line through (2,3) and (6,11), and the slope of a line perpendicular to it."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Slope m = (11 - 3)/(6 - 2) = 8/4 = 2."
+            },
+            "why": {
+              "en": "Rise 8 over run 4."
+            }
+          },
+          {
+            "text": {
+              "en": "For a perpendicular line, m1 x m2 = -1."
+            },
+            "why": {
+              "en": "So 2 x m2 = -1."
+            }
+          },
+          {
+            "text": {
+              "en": "Therefore m2 = -1/2."
+            },
+            "why": {
+              "en": "A negative reciprocal."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Show that A(1,2), B(3,6), C(5,10) are collinear using slopes."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Slope AB = (6-2)/(3-1) = 2"
+          },
+          {
+            "en": "Slope BC = (10-6)/(5-3) = 2"
+          },
+          {
+            "en": "Equal slopes and common point B, so A, B, C are collinear"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using slopes of unrelated pairs"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma308-1",
+          "r1-m10ma308-2",
+          "r1-m10ma308-3",
+          "r2-m10ma308-4",
+          "r2-m10ma308-5",
+          "r2-m10ma308-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "m = tan theta = (y2-y1)/(x2-x1)."
+          },
+          {
+            "en": "Parallel: m1 = m2."
+          },
+          {
+            "en": "Perpendicular: m1 m2 = -1."
+          },
+          {
+            "en": "Vertical line: slope undefined."
+          }
+        ]
+      }
+    ]
+  }
+}

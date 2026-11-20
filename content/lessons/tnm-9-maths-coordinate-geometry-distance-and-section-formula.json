@@ -1,0 +1,215 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "distance-and-section-formula",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Distance, mid-point and section formula (Class 9)"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two houses on a grid"
+        },
+        "text": {
+          "en": "Two houses are at (2, 1) and (5, 5) on a town grid. A cable runs straight between them. How long is it, and where is its middle?"
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "distance formula",
+          "Pythagoras",
+          "mid-point",
+          "section formula",
+          "trisection",
+          "centroid"
+        ],
+        "text": {
+          "en": "The distance between (x1, y1) and (x2, y2) is the square root of [(x2 - x1)^2 + (y2 - y1)^2].\nIt is Pythagoras theorem on the horizontal and vertical differences.\nThe mid-point is ((x1 + x2)/2, (y1 + y2)/2).\nThe point that divides the segment internally in the ratio m : n is ((m x2 + n x1)/(m + n), (m y2 + n y1)/(m + n)).\nThe points of trisection divide the segment in the ratio 1 : 2 and 2 : 1.\nThe centroid of a triangle is the average of its three vertices."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The distance between (x1, y1) and (x2, y2) is the square root of [(x2 - x1)^2 + (y2 - y1)^2]."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "distance formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "It is Pythagoras theorem on the horizontal and vertical differences."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Pythagoras"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The mid-point is ((x1 + x2)/2, (y1 + y2)/2)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mid-point"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The point that divides the segment internally in the ratio m : n is ((m x2 + n x1)/(m + n), (m y2 + n y1)/(m + n))."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "section formula"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The points of trisection divide the segment in the ratio 1 : 2 and 2 : 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "trisection"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The centroid of a triangle is the average of its three vertices."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "centroid"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the distance between (2, 1) and (5, 5) and the mid-point."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Differences: 5 - 2 = 3 and 5 - 1 = 4."
+            },
+            "why": {
+              "en": "Subtract each coordinate."
+            }
+          },
+          {
+            "text": {
+              "en": "Distance = square root of (9 + 16) = 5."
+            },
+            "why": {
+              "en": "A 3-4-5 triangle."
+            }
+          },
+          {
+            "text": {
+              "en": "Mid-point = (3.5, 3)."
+            },
+            "why": {
+              "en": "Average each coordinate."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Write the distance formula and mid-point formula and explain where they come from."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Pythagoras theorem"
+          },
+          {
+            "en": "Mid-point is an average"
+          },
+          {
+            "en": "Section formula uses the ratio m : n"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Subtracting in the wrong order inside the square"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma200-1",
+          "r1-m9ma200-2",
+          "r1-m9ma200-3",
+          "r2-m9ma200-4",
+          "r2-m9ma200-5",
+          "r2-m9ma200-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Distance = root of sum of squared differences."
+          },
+          {
+            "en": "Mid-point = average of coordinates."
+          },
+          {
+            "en": "Section formula: ratio m : n."
+          },
+          {
+            "en": "Centroid = average of the three vertices."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "surface-areas-and-volumes",
+  "topic": "surface-area-of-combined-solids",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Surface area of combination of solids"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A toy made of parts"
+        },
+        "text": {
+          "en": "A toy rocket is a cone on a cylinder, a medicine capsule is a cylinder with two hemispheres. Joining solids changes which surfaces are visible."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "CSA formulas",
+          "basic solids",
+          "capsule",
+          "cone on cylinder",
+          "hemisphere on cube",
+          "hidden surface",
+          "list visible faces",
+          "square units"
+        ],
+        "text": {
+          "en": "The basic solids are cuboid, cube, cylinder, cone, sphere and hemisphere.\nCurved surface area of a cylinder is 2 pi r h, of a cone is pi r l with l = root(r^2 + h^2), of a sphere is 4 pi r^2 and of a hemisphere is 2 pi r^2.\nWhen two solids are joined, the area where they join is hidden, so it is not part of the total surface area.\nFor a cone on a cylinder: TSA = CSA of cone + CSA of cylinder + area of the base circle of the cylinder.\nFor a capsule: TSA = CSA of cylinder + CSA of two hemispheres.\nFor a hemisphere on a cube, subtract the circle covered on the cube, then add the curved area of the hemisphere.\nDraw the combined solid and list which surfaces are visible before you calculate.\nUse the same units everywhere and write square units."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The basic solids are cuboid, cube, cylinder, cone, sphere and hemisphere."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "basic solids"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Curved surface area of a cylinder is 2 pi r h, of a cone is pi r l with l = root(r^2 + h^2), of a sphere is 4 pi r^2 and of a hemisphere is 2 pi r^2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "CSA formulas"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "When two solids are joined, the area where they join is hidden, so it is not part of the total surface area."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "hidden surface"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "For a cone on a cylinder: TSA = CSA of cone + CSA of cylinder + area of the base circle of the cylinder."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cone on cylinder"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "For a capsule: TSA = CSA of cylinder + CSA of two hemispheres."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "capsule"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For a hemisphere on a cube, subtract the circle covered on the cube, then add the curved area of the hemisphere."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "hemisphere on cube"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Draw the combined solid and list which surfaces are visible before you calculate."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "list visible faces"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Use the same units everywhere and write square units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "square units"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A toy is a cone on a hemisphere, both of radius 3.5 cm. Total height 15.5 cm. Find its surface area (pi = 22/7)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Cone height = 15.5 - 3.5 = 12 cm, slant height l = root(144 + 12.25) = 12.5 cm."
+            },
+            "why": {
+              "en": "Find the slant height."
+            }
+          },
+          {
+            "text": {
+              "en": "CSA cone = 22/7 x 3.5 x 12.5 = 137.5 cm^2, hemisphere = 2 x 22/7 x 12.25 = 77 cm^2."
+            },
+            "why": {
+              "en": "Add visible curved surfaces."
+            }
+          },
+          {
+            "text": {
+              "en": "Total = 214.5 cm^2."
+            },
+            "why": {
+              "en": "Joint circle is hidden."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the surface area of joined solids?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Add the visible surfaces"
+          },
+          {
+            "en": "Ignore the joined face"
+          },
+          {
+            "en": "Use correct formulas"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Adding the hidden base"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sa1",
+          "r1-sa2",
+          "r2-sa3",
+          "r2-sa4",
+          "r2-sa5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Hidden joined faces are not counted."
+          },
+          {
+            "en": "TSA of combined solid = sum of visible areas."
+          },
+          {
+            "en": "Cone slant height l = √(r^2 + h^2)."
+          }
+        ]
+      }
+    ]
+  }
+}

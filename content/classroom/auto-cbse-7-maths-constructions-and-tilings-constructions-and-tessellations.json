@@ -1,0 +1,378 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "constructions-and-tilings",
+ "topic": "constructions-and-tessellations",
+ "status": "published",
+ "title": {
+  "en": "Tiling with regular polygons"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Which regular polygons tile a floor?",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p0",
+   "points": [
+    [
+     120,
+     135
+    ],
+    [
+     176,
+     233
+    ],
+    [
+     64,
+     233
+    ]
+   ],
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 120,
+   "y": 320,
+   "text": "Triangle",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q0",
+   "x": 120,
+   "y": 365,
+   "text": "60° × 6 = 360°",
+   "size": 21,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r0",
+   "x": 120,
+   "y": 410,
+   "text": "fits exactly",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p1",
+   "points": [
+    [
+     294,
+     154
+    ],
+    [
+     386,
+     154
+    ],
+    [
+     386,
+     246
+    ],
+    [
+     294,
+     246
+    ]
+   ],
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 340,
+   "y": 320,
+   "text": "Square",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q1",
+   "x": 340,
+   "y": 365,
+   "text": "90° × 4 = 360°",
+   "size": 21,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r1",
+   "x": 340,
+   "y": 410,
+   "text": "fits exactly",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p2",
+   "points": [
+    [
+     560,
+     135
+    ],
+    [
+     616,
+     168
+    ],
+    [
+     616,
+     233
+    ],
+    [
+     560,
+     265
+    ],
+    [
+     504,
+     233
+    ],
+    [
+     504,
+     168
+    ]
+   ],
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 560,
+   "y": 320,
+   "text": "Hexagon",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q2",
+   "x": 560,
+   "y": 365,
+   "text": "120° × 3 = 360°",
+   "size": 21,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r2",
+   "x": 560,
+   "y": 410,
+   "text": "fits exactly",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p3",
+   "points": [
+    [
+     780,
+     135
+    ],
+    [
+     842,
+     180
+    ],
+    [
+     818,
+     253
+    ],
+    [
+     742,
+     253
+    ],
+    [
+     718,
+     180
+    ]
+   ],
+   "fill": "#FFCDD2",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 780,
+   "y": 320,
+   "text": "Pentagon",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q3",
+   "x": 780,
+   "y": 365,
+   "text": "108° × 3 = 324°",
+   "size": 21,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r3",
+   "x": 780,
+   "y": 410,
+   "text": "leaves a gap",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "To cover a floor with tiles and no gaps, the angles that meet at a point must add up to 360 degrees."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Equilateral triangles have 60 degree angles, and six of them meet at a point: 6 times 60 is 360."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "q0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "r0",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Squares have 90 degree angles, and four meet at a point: 4 times 90 is 360."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "q1",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "r1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "A regular hexagon has 120 degree angles, and three meet at a point: 3 times 120 is 360."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "q2",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "r2",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "A regular pentagon has 108 degree angles. Three of them make only 324 degrees, which leaves a gap, so pentagons cannot tile a floor on their own."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p3",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "q3",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "r3",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

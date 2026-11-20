@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch02-introduction-to-linear-polynomials",
+  "topic": "linear-polynomials-and-linear-patterns",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Linear polynomials and linear patterns"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The cost of a cricket season"
+        },
+        "text": {
+          "en": "A club pays 100 rupees as a joining fee and 60 rupees for every day of practice. The total cost grows by the same amount each day. This steady growth is what a linear polynomial describes."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "coefficient",
+          "degree",
+          "input and output",
+          "linear decay",
+          "linear equation",
+          "linear pattern",
+          "linear: ax + b",
+          "nth term"
+        ],
+        "text": {
+          "en": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y.\nA polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of the variable, so x^2 + 5x + 1 has degree 2.\nPolynomials of degree 1, such as 3z + 7, are called linear polynomials. Their general form is a x + b with a not zero.\nIf a quantity rises or falls by a fixed amount each step, the pattern is linear. For a taxi fare of 25 rupees plus 15 rupees per extra km the rule is a linear polynomial.\nA linear polynomial works like a machine: the input is x and the output is, say, 2x + 3. Input 4 gives 11 and input -6 gives -9.\nSetting a linear polynomial equal to a number gives a linear equation. If two numbers differ by 10 and sum to 64 then x + (x + 10) = 64, so 2x = 54 and x = 27.\nIn a growing tile pattern where each stage has one square less than twice the stage number, term n is 2n - 1. Term 5 has 9 squares.\nA pattern that decreases by a fixed amount, like a plant height falling 0.5 m each month, is linear decay."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "coefficient"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of the variable, so x^2 + 5x + 1 has degree 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "degree"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Polynomials of degree 1, such as 3z + 7, are called linear polynomials. Their general form is a x + b with a not zero."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "linear: ax + b"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If a quantity rises or falls by a fixed amount each step, the pattern is linear. For a taxi fare of 25 rupees plus 15 rupees per extra km the rule is a linear polynomial."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "linear pattern"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A linear polynomial works like a machine: the input is x and the output is, say, 2x + 3. Input 4 gives 11 and input -6 gives -9."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "input and output"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Setting a linear polynomial equal to a number gives a linear equation. If two numbers differ by 10 and sum to 64 then x + (x + 10) = 64, so 2x = 54 and x = 27."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "linear equation"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "In a growing tile pattern where each stage has one square less than twice the stage number, term n is 2n - 1. Term 5 has 9 squares."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "nth term"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A pattern that decreases by a fixed amount, like a plant height falling 0.5 m each month, is linear decay."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "linear decay"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A total cost is C(d) = 100 + 60d. Find the cost for 5 days and the days for a cost of 460 rupees."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "For d = 5, C = 100 + 60 x 5 = 400."
+            },
+            "why": {
+              "en": "Substitute d = 5."
+            }
+          },
+          {
+            "text": {
+              "en": "Set 100 + 60d = 460, so 60d = 360."
+            },
+            "why": {
+              "en": "Form the linear equation."
+            }
+          },
+          {
+            "text": {
+              "en": "d = 6 days."
+            },
+            "why": {
+              "en": "Divide both sides by 60."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What makes a pattern linear and how is it written?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Fixed change at every step"
+          },
+          {
+            "en": "Written as a x + b"
+          },
+          {
+            "en": "Can be used as an input-output machine"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking x^2 + 5x + 1 is linear"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m2-1",
+          "m2-2",
+          "m2-3",
+          "m2-4",
+          "m2-5",
+          "m2-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A polynomial's degree is its highest power; degree 1 means linear."
+          },
+          {
+            "en": "A linear polynomial has the form a x + b."
+          },
+          {
+            "en": "Linear patterns change by a fixed amount at each step."
+          },
+          {
+            "en": "Equating a linear polynomial to a number gives a linear equation."
+          }
+        ]
+      }
+    ]
+  }
+}

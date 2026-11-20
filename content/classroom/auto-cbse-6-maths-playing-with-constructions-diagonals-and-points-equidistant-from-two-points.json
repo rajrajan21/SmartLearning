@@ -1,0 +1,217 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "playing-with-constructions",
+ "topic": "diagonals-and-points-equidistant-from-two-points",
+ "status": "published",
+ "title": {
+  "en": "Perpendicular bisector"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Points equidistant from A and B",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ab",
+   "x1": 220,
+   "y1": 340,
+   "x2": 680,
+   "y2": 340,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 200,
+   "y": 372,
+   "text": "A",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 700,
+   "y": 372,
+   "text": "B",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "m",
+   "cx": 450,
+   "cy": 340,
+   "r": 7,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "pb",
+   "x1": 450,
+   "y1": 110,
+   "x2": 450,
+   "y2": 450,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "path",
+   "id": "rt",
+   "d": "M 450 320 L 470 320 L 470 340",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "pp",
+   "cx": 450,
+   "cy": 180,
+   "r": 8,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lp",
+   "x": 480,
+   "y": 175,
+   "text": "P",
+   "size": 26,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "pa",
+   "x1": 450,
+   "y1": 180,
+   "x2": 220,
+   "y2": 340,
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "pb2",
+   "x1": 450,
+   "y1": 180,
+   "x2": 680,
+   "y2": 340,
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "eq",
+   "x": 450,
+   "y": 470,
+   "text": "PA = PB",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Here is a line segment AB. Its midpoint is the point exactly halfway between A and B."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ab",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "la",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "m",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A line through the midpoint, at a right angle to AB, is the perpendicular bisector of AB. It cuts AB into two equal halves."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "pb",
+     "at": 0.2,
+     "ms": 1200
+    },
+    {
+     "do": "draw",
+     "target": "rt",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Pick any point P on this line. Its distance to A is the same as its distance to B. Every point on the perpendicular bisector is equidistant from A and B."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "pp",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "lp",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "pa",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "pb2",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "eq",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

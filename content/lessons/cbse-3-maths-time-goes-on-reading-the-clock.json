@@ -15,10 +15,10 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "Kabir is late for school"
+     "en": "Appa's calendar"
     },
     "text": {
-     "en": "Kabir looked at the clock on the wall. The short hand pointed at 7 and the long hand pointed at 12.\n\"It is 7 o'clock!\" said Amma. \"School bus comes at half past 7.\"\nKabir wondered how long he had. He wanted to read the clock like a grown-up.\nCan you help him?"
+     "en": "Appa bought a new calendar. Amma found July missing! “Don't worry, July and January look the same,” said Dadi, and they played a calendar game."
     }
    },
    {
@@ -26,13 +26,13 @@
     "type": "explanation",
     "provenance": "original",
     "keepEnglishTerms": [
-     "o'clock",
-     "half past",
-     "hour",
-     "minute"
+     "clock",
+     "hour hand",
+     "minute hand",
+     "analog"
     ],
     "text": {
-     "en": "A clock has two hands.\nThe short hand is the hour hand. It tells the hour.\nThe long hand is the minute hand.\nWhen the minute hand points at 12, it is o'clock. The hour hand tells which hour: hour hand on 7 means 7 o'clock.\nWhen the minute hand points at 6, it is half past. Hour hand just after 7 means half past 7.\nThere are 60 minutes in 1 hour, and half an hour is 30 minutes.\nThere are 24 hours in a day and 7 days in a week."
+     "en": "A clock has an hour hand and a minute hand. The short hand shows hours and the long hand shows minutes.\nA clock with hands is an analog clock. A clock that shows time in digits is a digital clock.\nWhen the minute hand is on 12 and the hour hand on 3, it is 3 o'clock.\nFrom one number to the next on the clock is 5 minutes. 12 full of five-minute steps makes 60 minutes in an hour.\nWrite the time taken by looking at the start and end positions of the hands.\nTime can also be measured with a sand clock. You can make one with two small bottles and fine sand, in front of an adult.\nList what you can do in 5, 10, 15, 30 and 60 minutes."
     }
    },
    {
@@ -44,66 +44,112 @@
      {
       "id": "t1",
       "text": {
-       "en": "Look at a clock. The short hand is the hour hand. The long hand is the minute hand."
+       "en": "A clock has an hour hand and a minute hand."
       },
       "board": [
        {
         "op": "clear"
        },
        {
-        "op": "draw",
-        "shape": "circle",
-        "label": "clock"
-       },
-       {
         "op": "write",
-        "text": "short = hour, long = minute"
+        "text": "clock"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "When the long hand is on 12, we say o'clock. Short hand on 3 means 3 o'clock."
+       "en": "The short hand shows hours and the long hand shows minutes."
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "long hand on 12 = o'clock"
-       }
-      ]
+      "board": []
      },
      {
       "id": "t3",
       "text": {
-       "en": "When the long hand is on 6, we say half past. Half an hour is 30 minutes."
+       "en": "A clock with hands is an analog clock."
       },
       "board": [
        {
         "op": "write",
-        "text": "long hand on 6 = half past"
-       },
-       {
-        "op": "write",
-        "text": "half hour = 30 minutes"
+        "text": "clock"
        }
       ]
      },
      {
       "id": "t4",
       "text": {
-       "en": "One hour has 60 minutes. One day has 24 hours. One week has 7 days."
+       "en": "A clock that shows time in digits is a digital clock."
       },
       "board": [
        {
         "op": "write",
-        "text": "1 hour = 60 minutes"
-       },
-       {
-        "op": "write",
-        "text": "1 day = 24 hours"
+        "text": "clock"
        }
       ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "When the minute hand is on 12 and the hour hand on 3, it is 3 o'clock."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "clock"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "From one number to the next on the clock is 5 minutes."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "clock"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "12 full of five-minute steps makes 60 minutes in an hour."
+      },
+      "board": []
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Write the time taken by looking at the start and end positions of the hands."
+      },
+      "board": []
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Time can also be measured with a sand clock."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "clock"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "You can make one with two small bottles and fine sand, in front of an adult."
+      },
+      "board": []
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "List what you can do in 5, 10, 15, 30 and 60 minutes."
+      },
+      "board": []
      }
     ]
    },
@@ -112,31 +158,31 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "The school bus comes at half past 7. It is 7 o'clock now. How many minutes must Kabir wait?"
+     "en": "The hour hand is on 3 and the minute hand on 12. What time?"
     },
     "steps": [
      {
       "text": {
-       "en": "From 7 o'clock to half past 7, the minute hand goes from 12 to 6."
+       "en": "Minute hand on 12 means o'clock."
       },
       "why": {
-       "en": "o'clock is the minute hand on 12; half past is on 6."
+       "en": "Read minutes."
       }
      },
      {
       "text": {
-       "en": "Half an hour is 30 minutes."
+       "en": "Hour hand on 3."
       },
       "why": {
-       "en": "An hour has 60 minutes and half of 60 is 30."
+       "en": "Read hours."
       }
      },
      {
       "text": {
-       "en": "So Kabir must wait 30 minutes for the bus."
+       "en": "3 o'clock."
       },
       "why": {
-       "en": "From 7:00 to 7:30 is 30 minutes."
+       "en": "Say it."
       }
      }
     ]
@@ -146,22 +192,19 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "Your younger brother mixes up the two hands of the clock. How will you explain them?"
+     "en": "What is the difference between analog and digital clocks?"
     },
     "requiredIdeas": [
      {
-      "en": "The short hand is the hour hand."
+      "en": "Analog has hands"
      },
      {
-      "en": "The long hand is the minute hand."
-     },
-     {
-      "en": "Long hand on 12 means o'clock; on 6 means half past."
+      "en": "Digital shows digits"
      }
     ],
     "commonMisconceptions": [
      {
-      "en": "Thinking the long hand tells the hour."
+      "en": "Same"
      }
     ]
    },
@@ -170,9 +213,9 @@
     "type": "quiz",
     "provenance": "original",
     "questionIds": [
-     "r1-short-hand",
-     "r1-minutes-hour",
-     "r1-oclock"
+     "n34-3m8040-1",
+     "n34-3m8040-2",
+     "n34-3m8040-3"
     ]
    },
    {
@@ -181,13 +224,13 @@
     "provenance": "original",
     "points": [
      {
-      "en": "The short hand tells the hour and the long hand tells the minutes."
+      "en": "Short hand for hours, long for minutes."
      },
      {
-      "en": "Minute hand on 12 is o'clock; on 6 is half past."
+      "en": "60 minutes = 1 hour."
      },
      {
-      "en": "1 hour = 60 minutes, half an hour = 30 minutes, 1 day = 24 hours, 1 week = 7 days."
+      "en": "Analog vs digital."
      }
     ]
    }

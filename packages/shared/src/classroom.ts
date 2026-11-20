@@ -25,7 +25,13 @@ const ClockO = z.object({ kind: z.literal("clock"), id: Id, cx: N, cy: N, r: z.n
 /** a 3D solid drawn by the site itself (no 3D library, no outside website) */
 const FlowO = z.object({ kind: z.literal("flow"), id: Id, x: N, y: N, len: z.number().min(20).max(500), count: z.number().int().min(1).max(20).optional(), speed: z.number().min(0.1).max(3).optional(), spread: z.number().min(0).max(200).optional(), size: z.number().min(3).max(20).optional(), up: z.boolean().optional(), color: Colour.optional() });
 const SolidO = z.object({ kind: z.literal("solid"), id: Id, shape: z.enum(["cube", "cuboid", "cylinder", "cone", "sphere", "pyramid"]), x: N, y: N, size: z.number().min(60).max(420), color: Colour.optional() });
-export const BoardObject = z.discriminatedUnion("kind", [CircleO, LineO, ArrowO, RectO, SectorO, PolyO, PathO, TextO, ClockO, SolidO, FlowO]);
+/** a body going round a centre (a planet, the Moon, an electron); `period` is seconds per lap, driven by the board clock */
+const OrbitO = z.object({ kind: z.literal("orbit"), id: Id, cx: N, cy: N, r: z.number().min(5).max(800), period: z.number().min(1).max(120).optional(), size: z.number().min(3).max(60).optional(), color: Colour.optional(), emoji: z.string().max(4).optional(), ring: z.boolean().optional(), tilt: z.number().min(0.2).max(1).optional(), phase: z.number().min(0).max(360).optional() });
+/** a moving wave (sound, light, water); amplitude in board units, `speed` in cycles per second */
+const WaveO = z.object({ kind: z.literal("wave"), id: Id, x: N, y: N, len: z.number().min(40).max(900), amp: z.number().min(2).max(120).optional(), cycles: z.number().min(0.5).max(20).optional(), speed: z.number().min(0).max(3).optional(), color: Colour.optional(), width: z.number().min(1).max(12).optional() });
+/** an openly licensed picture, stored on the site as a small WebP; shows a labelled frame until the file is fetched */
+const ImageO = z.object({ kind: z.literal("image"), id: Id, x: N, y: N, w: z.number().min(40).max(900), h: z.number().min(40).max(500), src: z.string().regex(/^[a-z0-9][a-z0-9-]{0,80}$/), alt: z.string().min(1).max(200), caption: z.string().max(120).optional() });
+export const BoardObject = z.discriminatedUnion("kind", [CircleO, LineO, ArrowO, RectO, SectorO, PolyO, PathO, TextO, ClockO, SolidO, FlowO, OrbitO, WaveO, ImageO]);
 export type BoardObject = z.infer<typeof BoardObject>;
 
 export const ActionKind = z.enum(["draw", "show", "hide", "write", "fill", "pulse", "time", "mark", "spin", "clear"]);
@@ -59,7 +65,7 @@ export const ClassroomStep = z.object({
   /** the part of the lesson this step belongs to (shown in the lesson rail), e.g. "Story" */
   section: z.string().max(30).optional(),
   narration: LocalizedText,
-  actions: z.array(ClassAction).max(80).default([]),
+  actions: z.array(ClassAction).max(260).default([]),
   check: ClassroomCheck.optional(),
 });
 export type ClassroomStep = z.infer<typeof ClassroomStep>;
@@ -77,7 +83,7 @@ export const VoiceInfo = z.object({ id: z.string(), label: z.string(), gender: z
 export type VoiceInfo = z.infer<typeof VoiceInfo>;
 
 const needs: Record<z.infer<typeof ActionKind>, string[] | "any" | "none"> = {
-  draw: ["circle", "line", "arrow", "rect", "sector", "poly", "path", "clock"],
+  draw: ["circle", "line", "arrow", "rect", "sector", "poly", "path", "clock", "orbit", "wave", "image"],
   show: "any", hide: "any", write: ["text"], fill: ["circle", "rect", "sector", "poly", "path", "solid"],
   pulse: "any", time: ["clock"], mark: ["solid"], spin: ["solid"], clear: "none",
 };

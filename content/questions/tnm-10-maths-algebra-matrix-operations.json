@@ -1,0 +1,248 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "matrix-operations",
+  "questions": [
+    {
+      "key": "r1-m10ma998-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Sum of all elements of A + B for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
+      },
+      "answer": 36,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "6 + 8 + 10 + 12."
+      }
+    },
+    {
+      "key": "r1-m10ma998-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Element in the first row, second column of 2A for A = [[1,2],[3,4]]"
+      },
+      "answer": 4,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "2 x 2."
+      }
+    },
+    {
+      "key": "r1-m10ma998-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Element in row 1, column 1 of AB for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
+      },
+      "answer": 19,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "1x5 + 2x7."
+      }
+    },
+    {
+      "key": "r2-m10ma998-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Element in row 2, column 2 of AB for A = [[2,0],[1,3]], B = [[1,4],[0,2]]"
+      },
+      "answer": 10,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "1x4 + 3x2."
+      }
+    },
+    {
+      "key": "r2-m10ma998-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Matrix multiplication is always commutative."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "AB and BA can differ."
+      }
+    },
+    {
+      "key": "r2-m10ma998-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Number of elements in the product of a 2 x 3 and a 3 x 4 matrix"
+      },
+      "answer": 8,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "Order 2 x 4."
+      }
+    },
+    {
+      "key": "r3-m10ma998-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Matrices A (order 3 x 2) and B (order 3 x 2): which is defined?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "A + B"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "AB"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Columns of A not equal to rows of B"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "BA"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Same reason"
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "A x B with order 3 x 3"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Not defined"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Same order is needed for addition."
+      }
+    },
+    {
+      "key": "r3-m10ma998-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "A I = A for a suitable identity matrix I."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "Identity matrix."
+      }
+    },
+    {
+      "key": "r3-m10ma998-9",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The additive identity for matrices is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "the zero matrix"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "the identity matrix"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is the multiplicative identity"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "the transpose"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Different idea"
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "the scalar 1"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Not a matrix"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "A + O = A."
+      }
+    },
+    {
+      "key": "r3-m10ma998-10",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "The product of an m x n and n x p matrix has order m x ____."
+      },
+      "accepted": [
+        "p"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "Rows of the first, columns of the second."
+      }
+    }
+  ]
+}

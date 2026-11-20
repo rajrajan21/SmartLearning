@@ -1,0 +1,235 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "large-numbers-around-us",
+ "topic": "lakhs-crores-and-millions",
+ "status": "published",
+ "title": {
+  "en": "Lakhs and crores"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Lakhs and crores",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h0",
+   "x": 250,
+   "y": 100,
+   "text": "Number",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "h1",
+   "x": 650,
+   "y": 100,
+   "text": "In words",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "hl",
+   "x1": 40,
+   "y1": 118,
+   "x2": 860,
+   "y2": 118,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "r00",
+   "x": 250,
+   "y": 170,
+   "text": "1,000",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r01",
+   "x": 650,
+   "y": 170,
+   "text": "one thousand",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r10",
+   "x": 250,
+   "y": 232,
+   "text": "1,00,000",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r11",
+   "x": 650,
+   "y": 232,
+   "text": "one lakh = 100 thousand",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r20",
+   "x": 250,
+   "y": 294,
+   "text": "1,00,00,000",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r21",
+   "x": 650,
+   "y": 294,
+   "text": "one crore = 100 lakh",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r30",
+   "x": 250,
+   "y": 356,
+   "text": "10,00,000",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r31",
+   "x": 650,
+   "y": 356,
+   "text": "ten lakh = one million",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "In India we write large numbers with commas in a special way: after the thousands, a comma comes after every two digits."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "h0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "h1",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "hl",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "One thousand is written 1,000."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r00",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r01",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "One lakh is 1,00,000. It is a hundred thousand."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r10",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r11",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "One crore is 1,00,00,000. It is a hundred lakh."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r20",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r21",
+     "at": 0.35
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "Ten lakh is 10,00,000, and that is the same as one million."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r30",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "r31",
+     "at": 0.35
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,220 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "mensuration",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Mensuration"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju saw a water tank shaped like a cylinder with a half ball on top. \"How much water does it hold?\" he asked."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "cylinder",
+     "cone",
+     "sphere",
+     "hemisphere",
+     "frustum",
+     "combined solids"
+    ],
+    "text": {
+     "en": "The curved surface area of a right circular cylinder is 2 pi r h, its total surface area is 2 pi r (h + r) and its volume is pi r^2 h. A hollow cylinder has an outer and an inner radius, and the material used is found by subtracting the inner volume from the outer.\nA right circular cone has curved surface area pi r l where l = sqrt(r^2 + h^2), and volume one third pi r^2 h. A sphere has surface area 4 pi r^2 and volume four-thirds pi r^3. A hemisphere has curved surface area 2 pi r^2, total surface area 3 pi r^2 and volume two-thirds pi r^3.\nA frustum is a cone with its top cut off by a plane parallel to the base. Combined solids, such as a cylinder with a hemisphere, are handled by adding or subtracting the individual surface areas or volumes."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The curved surface area of a right circular cylinder is 2 pi r h, its total surface area is 2 pi r (h + r) and its volume is pi r^2 h."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "cylinder"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "A hollow cylinder has an outer and an inner radius, and the material used is found by subtracting the inner volume from the outer."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cone"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A right circular cone has curved surface area pi r l where l = sqrt(r^2 + h^2), and volume one third pi r^2 h."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sphere"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "A sphere has surface area 4 pi r^2 and volume four-thirds pi r^3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "hemisphere"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A hemisphere has curved surface area 2 pi r^2, total surface area 3 pi r^2 and volume two-thirds pi r^3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "frustum"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "A frustum is a cone with its top cut off by a plane parallel to the base."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "combined solids"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Combined solids, such as a cylinder with a hemisphere, are handled by adding or subtracting the individual surface areas or volumes."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "cylinder"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the volume of a cylinder with r = 7 cm and h = 10 cm (pi = 22/7)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "V = pi r^2 h."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "22/7 x 49 x 10."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "V = 1540 cubic cm."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says The volume of a sphere is 4 pi r^2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "That is its surface area."
+     },
+     {
+      "en": "The volume is four-thirds pi r^3."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-men400",
+     "r1-men401"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Cylinder volume = pi r^2 h."
+     },
+     {
+      "en": "Cone volume = one third pi r^2 h."
+     },
+     {
+      "en": "Sphere area = 4 pi r^2."
+     },
+     {
+      "en": "Frustum is a cone cut by a parallel plane."
+     }
+    ]
+   }
+  ]
+ }
+}

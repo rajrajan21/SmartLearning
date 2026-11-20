@@ -1,0 +1,282 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "evs",
+ "chapter": "rhythms-of-nature",
+ "topic": "day-night-and-seasons",
+ "status": "published",
+ "title": {
+  "en": "Day and night"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Day and night",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "su",
+   "x": 130,
+   "y": 270,
+   "text": "☀️",
+   "size": 110,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ry0",
+   "x1": 210,
+   "y1": 210,
+   "x2": 360,
+   "y2": 210,
+   "stroke": "sun",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "ry1",
+   "x1": 210,
+   "y1": 240,
+   "x2": 360,
+   "y2": 240,
+   "stroke": "sun",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "ry2",
+   "x1": 210,
+   "y1": 270,
+   "x2": 360,
+   "y2": 270,
+   "stroke": "sun",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "ry3",
+   "x1": 210,
+   "y1": 300,
+   "x2": 360,
+   "y2": 300,
+   "stroke": "sun",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "ry4",
+   "x1": 210,
+   "y1": 330,
+   "x2": 360,
+   "y2": 330,
+   "stroke": "sun",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "er",
+   "cx": 520,
+   "cy": 270,
+   "r": 130,
+   "fill": "#4FA3E0",
+   "stroke": "water",
+   "width": 4
+  },
+  {
+   "kind": "sector",
+   "id": "nt",
+   "cx": 520,
+   "cy": 270,
+   "r": 126,
+   "from": 0,
+   "to": 180,
+   "fill": "#1B2A4A",
+   "stroke": "ink",
+   "width": 2
+  },
+  {
+   "kind": "orbit",
+   "id": "sp",
+   "cx": 520,
+   "cy": 270,
+   "r": 130,
+   "period": 12,
+   "size": 12,
+   "emoji": "📍",
+   "tilt": 1,
+   "ring": false
+  },
+  {
+   "kind": "text",
+   "id": "dl",
+   "x": 455,
+   "y": 270,
+   "text": "Day",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nl",
+   "x": 590,
+   "y": 270,
+   "text": "Night",
+   "size": 30,
+   "color": "#FFFFFF",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ro",
+   "x1": 520,
+   "y1": 108,
+   "x2": 600,
+   "y2": 108,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "rt",
+   "x": 520,
+   "y": 90,
+   "text": "Earth spins",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "earth-from-space",
+   "alt": "The Earth seen from space",
+   "caption": "Our Earth from space (NASA)"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Sun is a star that gives us light. Only the half of the Earth that faces the Sun gets light, and there it is day."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "su",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "ry0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "ry1",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "ry2",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "ry3",
+     "at": 0.35000000000000003
+    },
+    {
+     "do": "draw",
+     "target": "ry4",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "er",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "dl",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The other half faces away from the Sun, so it is dark. There it is night."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nt",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "nl",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The Earth spins round like a top, once in about twenty-four hours. As it spins, a place on Earth goes into the light, then into the dark, and day and night follow each other."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ro",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "rt",
+     "at": 0.2
+    },
+    {
+     "do": "show",
+     "target": "sp",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. The Earth seen from space. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

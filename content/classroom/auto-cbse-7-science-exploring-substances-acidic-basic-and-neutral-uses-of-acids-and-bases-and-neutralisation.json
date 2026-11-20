@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "exploring-substances-acidic-basic-and-neutral",
+ "topic": "uses-of-acids-and-bases-and-neutralisation",
+ "status": "published",
+ "title": {
+  "en": "Acids and bases"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Testing with litmus paper",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "bl",
+   "x": 180,
+   "y": 150,
+   "w": 90,
+   "h": 150,
+   "rx": 4,
+   "fill": "#64B5F6",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "bl2",
+   "x": 225,
+   "y": 330,
+   "text": "Blue litmus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "rd",
+   "x": 630,
+   "y": 150,
+   "w": 90,
+   "h": 150,
+   "rx": 4,
+   "fill": "#EF5350",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "rd2",
+   "x": 675,
+   "y": 330,
+   "text": "Red litmus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ac",
+   "x": 225,
+   "y": 400,
+   "text": "Acid: turns blue to red",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bs",
+   "x": 675,
+   "y": 400,
+   "text": "Base: turns red to blue",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "tp",
+   "x": 405,
+   "y": 170,
+   "w": 90,
+   "h": 130,
+   "rx": 4,
+   "fill": "#E57373",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lm",
+   "x": 450,
+   "y": 330,
+   "text": "Blue litmus in lemon juice",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "How can we tell an acid from a base? We use an indicator, such as litmus paper. Litmus paper is red or blue."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "bl",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "bl2",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "rd",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "rd2",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "An acid, like lemon juice, turns blue litmus red."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "tp",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lm",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "ac",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A base, like soap solution, turns red litmus blue. Never taste or touch unknown liquids to test them."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "bs",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

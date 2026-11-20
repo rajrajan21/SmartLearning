@@ -1,0 +1,178 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "parallel-and-intersecting-lines",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "Transversal"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Parallel lines and a transversal",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "p1",
+   "x1": 120,
+   "y1": 200,
+   "x2": 780,
+   "y2": 200,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "p2",
+   "x1": 120,
+   "y1": 360,
+   "x2": 780,
+   "y2": 360,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "tv",
+   "x1": 300,
+   "y1": 100,
+   "x2": 600,
+   "y2": 460,
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "sector",
+   "id": "a1",
+   "cx": 345,
+   "cy": 200,
+   "r": 50,
+   "from": 90,
+   "to": 140,
+   "fill": "#FFE082",
+   "stroke": "accent",
+   "width": 2
+  },
+  {
+   "kind": "sector",
+   "id": "a2",
+   "cx": 480,
+   "cy": 360,
+   "r": 50,
+   "from": 90,
+   "to": 140,
+   "fill": "#FFE082",
+   "stroke": "accent",
+   "width": 2
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 395,
+   "y": 245,
+   "text": "x",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 530,
+   "y": 405,
+   "text": "x",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "em",
+   "x": 130,
+   "y": 450,
+   "text": "Equal corresponding angles",
+   "size": 28,
+   "color": "good",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Two lines that never meet, however far we draw them, are parallel lines."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A line that crosses both of them is called a transversal."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "tv",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "It makes angles at both crossings. The angles in the same position at the two crossings, called corresponding angles, are equal when the lines are parallel."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "em",
+     "at": 0.8
+    }
+   ]
+  }
+ ]
+}

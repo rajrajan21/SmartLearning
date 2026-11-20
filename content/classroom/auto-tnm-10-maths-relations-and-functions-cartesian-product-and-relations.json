@@ -1,0 +1,279 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "relations-and-functions",
+ "topic": "cartesian-product-and-relations",
+ "status": "published",
+ "title": {
+  "en": "Relations and functions"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 38,
+   "text": "A function as a mapping",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "dom",
+   "cx": 250,
+   "cy": 250,
+   "r": 120,
+   "fill": "#E3F2FD",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "ran",
+   "cx": 650,
+   "cy": 250,
+   "r": 120,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 250,
+   "y": 110,
+   "text": "Domain",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lr",
+   "x": 650,
+   "y": 110,
+   "text": "Range",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "fx",
+   "x": 450,
+   "y": 140,
+   "text": "f(x) = 2x",
+   "size": 30,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "x0",
+   "x": 250,
+   "y": 200,
+   "text": "1",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "y0",
+   "x": 650,
+   "y": 200,
+   "text": "2",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "m0",
+   "x1": 285,
+   "y1": 190,
+   "x2": 615,
+   "y2": 190,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "x1",
+   "x": 250,
+   "y": 260,
+   "text": "2",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "y1",
+   "x": 650,
+   "y": 260,
+   "text": "4",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "m1",
+   "x1": 285,
+   "y1": 250,
+   "x2": 615,
+   "y2": 250,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "x2",
+   "x": 250,
+   "y": 320,
+   "text": "3",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "y2",
+   "x": 650,
+   "y": 320,
+   "text": "6",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "m2",
+   "x1": 285,
+   "y1": 310,
+   "x2": 615,
+   "y2": 310,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n",
+   "x": 450,
+   "y": 450,
+   "text": "Each input has exactly one output",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A relation links the elements of one set to the elements of another. A function is a special relation."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "dom",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ld",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "ran",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "lr",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here the rule is f of x equals 2 x. The input 1 goes to 2, 2 goes to 4, and 3 goes to 6."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "fx",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "x0",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "m0",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "y0",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "x1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "m1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "y1",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "write",
+     "target": "x2",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "draw",
+     "target": "m2",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "y2",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "In a function, every input in the domain is linked to exactly one output. The set of outputs is the range."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "n",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

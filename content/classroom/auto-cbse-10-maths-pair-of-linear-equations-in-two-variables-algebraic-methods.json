@@ -1,0 +1,305 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "pair-of-linear-equations-in-two-variables",
+ "topic": "algebraic-methods",
+ "status": "published",
+ "title": {
+  "en": "Pairs of linear equations"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Two linear equations, three possibilities",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "f0",
+   "x": 20,
+   "y": 80,
+   "w": 260,
+   "h": 260,
+   "rx": 12,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "f1",
+   "x": 320,
+   "y": 80,
+   "w": 260,
+   "h": 260,
+   "rx": 12,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "f2",
+   "x": 620,
+   "y": 80,
+   "w": 260,
+   "h": 260,
+   "rx": 12,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "a1",
+   "x1": 40,
+   "y1": 300,
+   "x2": 260,
+   "y2": 120,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "a2",
+   "x1": 40,
+   "y1": 130,
+   "x2": 260,
+   "y2": 290,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "pt",
+   "cx": 150,
+   "cy": 211,
+   "r": 8,
+   "fill": "#FF8A65",
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "b1",
+   "x1": 340,
+   "y1": 300,
+   "x2": 560,
+   "y2": 130,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "b2",
+   "x1": 340,
+   "y1": 330,
+   "x2": 560,
+   "y2": 160,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "c1",
+   "x1": 640,
+   "y1": 300,
+   "x2": 860,
+   "y2": 120,
+   "stroke": "accent",
+   "width": 8
+  },
+  {
+   "kind": "line",
+   "id": "c2",
+   "x1": 640,
+   "y1": 300,
+   "x2": 860,
+   "y2": 120,
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 150,
+   "y": 375,
+   "text": "Lines cross",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s0",
+   "x": 150,
+   "y": 410,
+   "text": "one solution",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 375,
+   "text": "Parallel lines",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s1",
+   "x": 450,
+   "y": 410,
+   "text": "no solution",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 750,
+   "y": 375,
+   "text": "Same line",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s2",
+   "x": 750,
+   "y": 410,
+   "text": "infinitely many solutions",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Each linear equation in two variables is a straight line. When we have two of them, the lines can be placed in three ways."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "f0",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "f1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "f2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "If the lines cross, they meet at exactly one point. That point is the one solution."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "pt",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "s0",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "If the lines are parallel, they never meet, so there is no solution."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "s1",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "If the two lines are the same line, every point on it is a solution, so there are infinitely many."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "c2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "s2",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+from lib import *
+C=10;S='science'
+d=svg(600,250,'<text x="300" y="22" text-anchor="middle" font-weight="bold">Thermal expansion</text>'
+ '<rect x="30" y="60" width="150" height="22" fill="#aed6f1" stroke="#333"/><rect x="30" y="100" width="185" height="22" fill="#f5b7b1" stroke="#333"/><text x="35" y="55" font-size="13">Before heating: L0</text><text x="35" y="140" font-size="13">After heating: L0 + dL</text><text x="30" y="170" font-size="14">dL = alpha x L0 x dT   (linear)</text><text x="30" y="192" font-size="14">dA = alpha_A x A0 x dT (area)</text><text x="30" y="214" font-size="14">dV = alpha_V x V0 x dT (volume)</text>'
+ '<text x="320" y="55" font-size="14" font-weight="bold">Order of expansion</text><text x="320" y="80" font-size="14">Gas  (most)</text><text x="320" y="102" font-size="14">Liquid</text><text x="320" y="124" font-size="14">Solid (least)</text>'
+ '<rect x="470" y="60" width="40" height="120" fill="none" stroke="#333"/><rect x="470" y="110" width="40" height="70" fill="#d6eaf8"/><line x1="470" y1="110" x2="510" y2="110" stroke="#c0392b" stroke-width="2"/><text x="520" y="114" font-size="12">L2 (apparent)</text><text x="520" y="75" font-size="12">L3 after heating</text><text x="320" y="170" font-size="13">Real expansion = apparent expansion</text><text x="320" y="190" font-size="13">+ expansion of the container</text>')
+lesson(C,S,'thermal-physics','thermal-expansion-of-solids-and-liquids',"Thermal expansion of solids, liquids and gases","Gaps in the railway track",
+"Railway engineers leave small gaps between rails and the bridge builders leave rollers under one end of a bridge. Without these gaps, the metal would bend in the summer heat because everything expands when it is heated.",
+["When heat energy is given to a substance its temperature may rise, its state may change and it expands; all solids, liquids and gases undergo thermal expansion. @ thermal expansion",
+ "In linear expansion the length changes; the coefficient of linear expansion is the increase in length per unit length per degree rise in temperature, and its SI unit is per kelvin. @ linear expansion",
+ "The change in length is given by delta L = alpha L zero delta T, where delta T is the final minus the initial temperature. @ dL = alpha L0 dT",
+ "In superficial or areal expansion the area increases, and delta A = alpha A times A zero times delta T, with its own coefficient of superficial expansion. @ areal expansion",
+ "In cubical expansion the volume increases, and delta V = alpha V times V zero times delta T, with the coefficient of cubical expansion measured in per kelvin. @ cubical expansion",
+ "Different materials have different coefficients; for example water is about 20.7 times 10 to the power minus 5 and mercury is 18.2 times 10 to the power minus 5 per kelvin while glass is only 2.5 times 10 to the power minus 5. @ different materials",
+ "For the same rise in temperature a liquid expands more than a solid and a gas expands the most. @ gas expands most",
+ "A liquid must be heated in a container, which also expands, so the level we see rising is only the apparent expansion. @ apparent expansion",
+ "Real expansion is the true expansion of the liquid; real expansion is always more than the apparent expansion, because the container also expands. @ real expansion",
+ "Real expansion equals apparent expansion plus the expansion of the container, which is why a thermometer bulb first dips slightly when placed in hot water. @ real = apparent + container"],
+("A steel rail is 30 m long at 20 degrees Celsius. Its coefficient of linear expansion is 1.2 x 10^-5 per kelvin. Find the increase in length when the temperature rises to 50 degrees Celsius.",[("L0 = 30 m, alpha = 1.2 x 10^-5 /K, delta T = 50 - 20 = 30 K.","Write the given data."),("delta L = alpha L0 delta T = 1.2 x 10^-5 x 30 x 30.","Use the formula."),("delta L = 1.08 x 10^-2 m = 1.08 cm.","About one centimetre."),("So the final length is 30.0108 m; engineers leave a gap of at least this much.","Reason for the gaps.")]),
+("Why does the level of a liquid in a glass vessel first fall a little and then rise when the vessel is heated?",["The container is heated first and expands, so the level falls","Then the liquid receives heat and expands more than the container","Real expansion is more than the apparent expansion"],["Heat first makes the liquid contract","The glass never expands"]),
+["Expansion happens in solids, liquids and gases; gases expand most.","dL = alpha L0 dT, dA = alpha_A A0 dT, dV = alpha_V V0 dT.","Coefficients are in per kelvin and differ for each material.","Real expansion = apparent expansion + expansion of the container."],
+["n|Change in length in mm of a 2 m rod with alpha = 1 x 10^-5 /K when heated by 50 K|1|dL = 1e-5 x 2 x 50 = 0.001 m = 1 mm.",
+ "m|The SI unit of the coefficient of linear expansion is|per kelvin (K^-1)|metre per kelvin~That is not a ratio per unit length;joule~Unit of energy;kelvin~It is per kelvin, not kelvin|alpha = dL / (L0 dT).",
+ "t|A gas expands more than a solid for the same rise in temperature.|True|Gases expand the most, then liquids, then solids.",
+ "m|Real expansion of a liquid is|more than its apparent expansion|less than its apparent expansion~The container expansion adds to the apparent value;equal to apparent expansion~Only if the container did not expand;zero~Liquids do expand|Real = apparent + container expansion.",
+ "t|In the expression dL = alpha L0 dT, dT is the final temperature minus the initial temperature.|True|dT is the change in temperature.",
+ "n|Increase in length in cm of a 50 m wire with alpha = 2 x 10^-5 /K for a 10 K rise|1|dL = 2e-5 x 50 x 10 = 0.01 m = 1 cm.",
+ "m|Railway tracks are laid with small gaps in order to|allow for thermal expansion|reduce friction~Gaps do not reduce friction;save iron~The gaps do not save material;let rain water pass~Not the reason|Rails would buckle in summer without gaps.",
+ "m|Which substance has the highest coefficient of cubical expansion in the table?|water (20.7 x 10^-5 /K)|glass~Lowest in the table, 2.5 x 10^-5;aluminium~7 x 10^-5;brass~6 x 10^-5|Water has the largest value in the table.",
+ "t|The coefficient of cubical expansion of a liquid depends on temperature, but that of a gas does not.|False|It is the opposite: it is independent of temperature for liquids and depends on temperature for gases.",
+ "s|The expansion of a solid that increases its volume is called ____ expansion.|cubical / volumetric|Also written cubic expansion."],
+svg=(d,"Rod lengthening on heating, formulas for linear area and volume expansion, and a liquid level in a heated container","Thermal expansion"))
+print('ok')

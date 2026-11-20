@@ -1,0 +1,301 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "evs",
+ "chapter": "how-things-are-made",
+ "topic": "from-cotton-to-cloth",
+ "status": "published",
+ "title": {
+  "en": "From cotton to cloth"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "From cotton to cloth",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 150,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 150,
+   "y": 280,
+   "text": "🌿",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 150,
+   "y": 344,
+   "text": "Cotton plant",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 350,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 350,
+   "y": 280,
+   "text": "☁️",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 350,
+   "y": 344,
+   "text": "Cotton",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 550,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 550,
+   "y": 280,
+   "text": "🧶",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 550,
+   "y": 344,
+   "text": "Yarn",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b3",
+   "cx": 750,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 750,
+   "y": 280,
+   "text": "👕",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 750,
+   "y": 344,
+   "text": "Cloth",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 212,
+   "y1": 260,
+   "x2": 288,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 412,
+   "y1": 260,
+   "x2": 488,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 612,
+   "y1": 260,
+   "x2": 688,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Cotton grows on the cotton plant."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The cotton bolls are picked, and the fluffy cotton is cleaned."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The cotton is spun into yarn, or thread."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The yarn is woven into cloth, and the cloth is made into clothes."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b3",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e3",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "That is how a plant becomes our clothes."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

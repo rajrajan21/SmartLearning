@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-always-true",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "14+",
+ "title": "If-Then Thinking",
+ "summary": "If A leads to B, then not B leads to not A, but B does not lead back to A.",
+ "emoji": "🔀",
+ "tags": [
+  "if-then",
+  "logic"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "If it rains, the match is cancelled.",
+    "The match was not cancelled.",
+    "What can you say about the rain?"
+   ],
+   "points": [
+    "If it rains, the match is cancelled."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Turn the rule into: rain leads to cancellation.",
+    "Then ask what the missing cancellation tells you."
+   ],
+   "points": [
+    "Turn the rule into: rain leads to cancellation."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: The contrapositive",
+   "sentences": [
+    "If rain, then cancelled. The opposite is: if not cancelled, then no rain.",
+    "This reversed version is always true when the original is.",
+    "It is called the contrapositive."
+   ],
+   "points": [
+    "If rain, then cancelled. The opposite is: if not cancelled, then no rain."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Since the match was not cancelled, it did not rain.",
+    "Be careful: if the match was cancelled, we could not say it rained, because there may be other reasons.",
+    "Only the not-cancelled reading is safe."
+   ],
+   "points": [
+    "Since the match was not cancelled, it did not rain."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "If it is a square, it has four sides. A shape does not have four sides. It is:",
+   "options": [
+    "A square",
+    "Not a square",
+    "Cannot say"
+   ],
+   "answer": 1,
+   "why": "No four sides means not a square."
+  }
+ ],
+ "method": "The contrapositive"
+}

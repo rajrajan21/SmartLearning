@@ -1,0 +1,243 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "genetics",
+  "topic": "mendels-monohybrid-cross",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Mendel and the monohybrid cross"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The monk and the pea garden"
+        },
+        "text": {
+          "en": "Between 1856 and 1863 an Austrian monk grew about 10,000 pea plants in his monastery garden and counted the offspring of every cross. By counting carefully he found that heredity follows simple rules, and genetics was born."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "Mendel",
+          "7 pairs of characters",
+          "genetics",
+          "monohybrid cross",
+          "dominant and recessive",
+          "3 : 1 ratio",
+          "genotype and phenotype"
+        ],
+        "text": {
+          "en": "Gregor Johann Mendel (1822-1884), an Austrian monk, discovered the basic principles of heredity through experiments on garden pea plants; he is the Father of Genetics.\nHe worked from 1856 to 1863 on nearly 10,000 pea plants of 34 varieties and chose 7 pairs of contrasting characters, such as tall and dwarf plants.\nGenetics is the branch of biology that deals with genes, genetic variation and heredity; heredity passes traits from one generation to the next, while variation is the difference among individuals.\nA cross involving one pair of contrasting characters is a monohybrid cross, for example tall (T) with dwarf (t).\nA pure tall plant crossed with a pure dwarf plant gave only tall plants in the F1 generation, so tall is dominant and dwarf is recessive.\nSelfing the F1 plants gave tall and dwarf plants in the ratio 3:1 in the F2 generation.\nThe genetic ratio in F2 is 1 TT : 2 Tt : 1 tt, so the phenotypic ratio is 3 tall : 1 dwarf."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-mendels-monohybrid-cross.svg",
+        "altText": {
+          "en": "Punnett square for Tt x Tt"
+        },
+        "caption": {
+          "en": "The F2 generation of a monohybrid cross"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Gregor Johann Mendel (1822-1884), an Austrian monk, discovered the basic principles of heredity through experiments on garden pea plants; he is the Father of Genetics."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mendel"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "He worked from 1856 to 1863 on nearly 10,000 pea plants of 34 varieties and chose 7 pairs of contrasting characters, such as tall and dwarf plants."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "7 pairs of characters"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Genetics is the branch of biology that deals with genes, genetic variation and heredity; heredity passes traits from one generation to the next, while variation is the difference among individuals."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "genetics"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A cross involving one pair of contrasting characters is a monohybrid cross, for example tall (T) with dwarf (t)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "monohybrid cross"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A pure tall plant crossed with a pure dwarf plant gave only tall plants in the F1 generation, so tall is dominant and dwarf is recessive."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "dominant and recessive"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Selfing the F1 plants gave tall and dwarf plants in the ratio 3:1 in the F2 generation."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "3 : 1 ratio"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The genetic ratio in F2 is 1 TT : 2 Tt : 1 tt, so the phenotypic ratio is 3 tall : 1 dwarf."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "genotype and phenotype"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Cross two heterozygous tall plants (Tt x Tt). What fraction of offspring will be dwarf?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Each parent makes gametes T and t in equal numbers."
+            },
+            "why": {
+              "en": "Gametes are T or t."
+            }
+          },
+          {
+            "text": {
+              "en": "Combining them gives TT, Tt, Tt and tt."
+            },
+            "why": {
+              "en": "One in four are tt."
+            }
+          },
+          {
+            "text": {
+              "en": "Only tt plants are dwarf, so the fraction is 1/4 (and 3/4 are tall)."
+            },
+            "why": {
+              "en": "Phenotypic ratio 3:1."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Mendel's monohybrid cross results and explain the terms dominant and recessive."
+        },
+        "requiredIdeas": [
+          {
+            "en": "F1 all tall"
+          },
+          {
+            "en": "F2 tall:dwarf = 3:1"
+          },
+          {
+            "en": "Dominant trait shows in F1"
+          },
+          {
+            "en": "Recessive reappears in F2"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking the recessive trait is lost forever in F1"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10sc771-1",
+          "r1-m10sc771-2",
+          "r1-m10sc771-3",
+          "r2-m10sc771-4",
+          "r2-m10sc771-5",
+          "r2-m10sc771-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Mendel used garden pea plants and 7 pairs of contrasting characters."
+          },
+          {
+            "en": "Monohybrid cross: one pair of characters."
+          },
+          {
+            "en": "F1 all tall; F2 3 tall : 1 dwarf."
+          },
+          {
+            "en": "Genotype ratio 1 TT : 2 Tt : 1 tt."
+          }
+        ]
+      }
+    ]
+  }
+}

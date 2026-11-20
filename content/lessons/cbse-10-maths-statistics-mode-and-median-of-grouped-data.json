@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "statistics",
+  "topic": "mode-and-median-of-grouped-data",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Mode, median and cumulative frequency"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Most common and middle value"
+        },
+        "text": {
+          "en": "Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "3 median = mode + 2 mean",
+          "continuous classes",
+          "cumulative frequency",
+          "median class",
+          "median formula",
+          "modal class",
+          "mode formula",
+          "ogive"
+        ],
+        "text": {
+          "en": "The modal class is the class with the highest frequency.\nMode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width.\nThe cumulative frequency of a class is the sum of the frequencies of that class and all classes before it.\nThe median class is the class whose cumulative frequency is just greater than n/2.\nMedian = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class.\nClasses must be continuous before using these formulas. Make them continuous if there are gaps.\nRelationship: 3 median = mode + 2 mean, an empirical relation.\nAn ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The modal class is the class with the highest frequency."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "modal class"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mode formula"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cumulative frequency"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The median class is the class whose cumulative frequency is just greater than n/2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "median class"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "median formula"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Classes must be continuous before using these formulas. Make them continuous if there are gaps."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "continuous classes"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Relationship: 3 median = mode + 2 mean, an empirical relation."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "3 median = mode + 2 mean"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "ogive"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the mode for 0-10, 10-20, 20-30, 30-40 with frequencies 3, 8, 15, 6."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Modal class is 20-30; f1 = 15, f0 = 8, f2 = 6, l = 20, h = 10."
+            },
+            "why": {
+              "en": "Highest frequency."
+            }
+          },
+          {
+            "text": {
+              "en": "Mode = 20 + (7/(30 - 14)) x 10 = 20 + 70/16."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "Mode = 24.375."
+            },
+            "why": {
+              "en": "Compute."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the median of grouped data?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Cumulative frequency"
+          },
+          {
+            "en": "Median class (n/2)"
+          },
+          {
+            "en": "Apply the formula"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Forgetting to use n/2"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-mm1",
+          "r1-mm2",
+          "r2-mm3",
+          "r2-mm4",
+          "r2-mm5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Mode = l + [(f1 - f0)/(2f1 - f0 - f2)] h."
+          },
+          {
+            "en": "Median = l + [(n/2 - cf)/f] h."
+          },
+          {
+            "en": "3 Median = Mode + 2 Mean."
+          }
+        ]
+      }
+    ]
+  }
+}

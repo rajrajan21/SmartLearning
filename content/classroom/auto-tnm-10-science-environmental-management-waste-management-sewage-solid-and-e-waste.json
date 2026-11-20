@@ -1,0 +1,248 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "environmental-management",
+ "topic": "waste-management-sewage-solid-and-e-waste",
+ "status": "published",
+ "title": {
+  "en": "Reduce, reuse, recycle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Reduce, reuse, recycle",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 450,
+   "cy": 140,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 450,
+   "y": 160,
+   "text": "♻️",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 450,
+   "y": 224,
+   "text": "Reduce",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 683.8268590217984,
+   "cy": 323,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 683.8268590217984,
+   "y": 343,
+   "text": "🔁",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 683.8268590217984,
+   "y": 407,
+   "text": "Reuse",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 216.17314097820162,
+   "cy": 323.00000000000006,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 216.17314097820162,
+   "y": 343.00000000000006,
+   "text": "🏭",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 216.17314097820162,
+   "y": 407.00000000000006,
+   "text": "Recycle",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 498.8247965637715,
+   "y1": 178.21176835094562,
+   "x2": 635.002062458027,
+   "y2": 284.7882316490544,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 621.8268590217984,
+   "y1": 323,
+   "x2": 278.1731409782016,
+   "y2": 323.00000000000006,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 264.9979375419731,
+   "y1": 284.7882316490544,
+   "x2": 401.17520343622857,
+   "y2": 178.21176835094562,
+   "stroke": "accent",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "We make a lot of waste, but we can look after the Earth. First, reduce: use only what we need."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Next, reuse: use things again, like a jar for storing things."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Finally, recycle: turn old paper, glass and metal into new things."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "Remember the three Rs: reduce, reuse and recycle. Small habits protect our planet."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.2
+    },
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  }
+ ]
+}

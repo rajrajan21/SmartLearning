@@ -6,7 +6,7 @@ import { hashPassword, hashToken, newToken, verifyPassword } from "./crypto.js";
 
 export class AccountError extends Error { constructor(message: string, readonly status: 400 | 401 | 403 | 404 | 409 | 429 = 400) { super(message); } }
 export interface Limits { minPassword: number; maxChildren: number; sessionDays: number; signup: boolean }
-export interface ChildData { nickname: string; classLevel: number; extraClasses?: number[]; avatar: string; language: string; pin?: string; secretQuestion?: string; secretAnswer?: string }
+export interface ChildData { nickname: string; classLevel: number; extraClasses?: number[]; avatar: string; language: string; boardCode?: string; pin?: string; secretQuestion?: string; secretAnswer?: string }
 export const CONSENT_VERSION = "2026-11";
 
 export interface Session { userId: string; studentId: string | null; child?: boolean }
@@ -42,7 +42,7 @@ export function createAccountService(db: Db): AccountService {
   const lockouts = new Map<string, { n: number; until: number }>();
   const profilesOf = async (userId: string): Promise<PublicProfile[]> => {
     const rows = await db.select({ p: s.studentProfiles }).from(s.guardianships).innerJoin(s.studentProfiles, eq(s.guardianships.studentId, s.studentProfiles.id)).where(eq(s.guardianships.parentId, userId));
-    return rows.map(({ p }) => ({ id: p.id, nickname: p.nickname, classLevel: p.classLevel, classes: [p.classLevel, ...(JSON.parse(p.extraClasses) as number[])], avatar: p.avatar, language: p.language, hasPin: !!p.pinHash, secretQuestion: p.secretQuestion ?? null })).sort((a, b) => a.nickname.localeCompare(b.nickname));
+    return rows.map(({ p }) => ({ id: p.id, nickname: p.nickname, classLevel: p.classLevel, boardCode: p.boardCode, classes: [p.classLevel, ...(JSON.parse(p.extraClasses) as number[])], avatar: p.avatar, language: p.language, hasPin: !!p.pinHash, secretQuestion: p.secretQuestion ?? null })).sort((a, b) => a.nickname.localeCompare(b.nickname));
   };
   const build = async (userId: string, studentId: string | null, child = false): Promise<Me> => {
     const [u] = await db.select().from(s.users).where(eq(s.users.id, userId));
@@ -68,6 +68,8 @@ export function createAccountService(db: Db): AccountService {
         if (r.kind === "lesson") out.lesson[r.topicId] = JSON.parse(r.dataJson);
         else if (r.kind === "practice") out.practice[r.topicId] = JSON.parse(r.dataJson);
         else if (r.kind === "revision") out.revision[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "note") out.notes[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "mistake") out.mistakes[r.topicId] = JSON.parse(r.dataJson);
       } catch { /* skip an unreadable row */ }
     }
     return SyncData.parse(out);
@@ -82,7 +84,7 @@ export function createAccountService(db: Db): AccountService {
       if (taken) throw new AccountError("That email already has an account. Try signing in.", 409);
       const out = await db.transaction(async (tx) => {
         const [u] = await tx.insert(s.users).values({ email, role: "parent", passwordHash: hashPassword(password), fatherEmail: fatherEmail ?? null, motherEmail: motherEmail ?? null }).returning();
-        const [p] = await tx.insert(s.studentProfiles).values({ nickname: child.nickname, classLevel: child.classLevel, boardCode: "CBSE", language: child.language, avatar: child.avatar, extraClasses: classesOf(child), ...secrets(child) }).returning();
+        const [p] = await tx.insert(s.studentProfiles).values({ nickname: child.nickname, classLevel: child.classLevel, boardCode: child.boardCode ?? "CBSE", language: child.language, avatar: child.avatar, extraClasses: classesOf(child), ...secrets(child) }).returning();
         await tx.insert(s.guardianships).values({ parentId: u!.id, studentId: p!.id });
         await tx.insert(s.consents).values({ parentId: u!.id, studentId: p!.id, purpose: "learning_progress", textVersion: CONSENT_VERSION });
         return { userId: u!.id, studentId: p!.id };
@@ -156,7 +158,7 @@ export function createAccountService(db: Db): AccountService {
     async addChild(sess, c, l) {
       if ((await profilesOf(sess.userId)).length >= l.maxChildren) throw new AccountError(`You can add up to ${l.maxChildren} children.`, 409);
       await db.transaction(async (tx) => {
-        const [p] = await tx.insert(s.studentProfiles).values({ nickname: c.nickname, classLevel: c.classLevel, boardCode: "CBSE", language: c.language, avatar: c.avatar, extraClasses: classesOf(c), ...secrets(c) }).returning();
+        const [p] = await tx.insert(s.studentProfiles).values({ nickname: c.nickname, classLevel: c.classLevel, boardCode: c.boardCode ?? "CBSE", language: c.language, avatar: c.avatar, extraClasses: classesOf(c), ...secrets(c) }).returning();
         await tx.insert(s.guardianships).values({ parentId: sess.userId, studentId: p!.id });
         await tx.insert(s.consents).values({ parentId: sess.userId, studentId: p!.id, purpose: "learning_progress", textVersion: CONSENT_VERSION });
       });
@@ -165,7 +167,7 @@ export function createAccountService(db: Db): AccountService {
 
     async updateChild(sess, id, c) {
       if (!(await owns(sess.userId, id))) throw new AccountError("Child not found", 404);
-      await db.update(s.studentProfiles).set({ nickname: c.nickname, classLevel: c.classLevel, extraClasses: classesOf(c), avatar: c.avatar, language: c.language, ...secrets(c), updatedAt: new Date() }).where(eq(s.studentProfiles.id, id));
+      await db.update(s.studentProfiles).set({ nickname: c.nickname, classLevel: c.classLevel, ...(c.boardCode ? { boardCode: c.boardCode } : {}), extraClasses: classesOf(c), avatar: c.avatar, language: c.language, ...secrets(c), updatedAt: new Date() }).where(eq(s.studentProfiles.id, id));
       return build(sess.userId, sess.studentId);
     },
 
@@ -244,6 +246,8 @@ export function createAccountService(db: Db): AccountService {
           if (r.kind === "lesson") out.lesson[r.topicId] = JSON.parse(r.dataJson);
           else if (r.kind === "practice") out.practice[r.topicId] = JSON.parse(r.dataJson);
           else if (r.kind === "revision") out.revision[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "note") out.notes[r.topicId] = JSON.parse(r.dataJson);
+        else if (r.kind === "mistake") out.mistakes[r.topicId] = JSON.parse(r.dataJson);
         } catch { /* skip an unreadable row */ }
       }
       return SyncData.parse(out);
@@ -255,7 +259,7 @@ export function createAccountService(db: Db): AccountService {
       return db.transaction(async (tx) => {
         const rows = await tx.select().from(s.studentProgress).where(eq(s.studentProgress.studentId, studentId));
         const have = emptySync();
-        for (const r of rows) { try { if (r.kind === "lesson") have.lesson[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "practice") have.practice[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "revision") have.revision[r.topicId] = JSON.parse(r.dataJson); } catch { /* ignore */ } }
+        for (const r of rows) { try { if (r.kind === "lesson") have.lesson[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "practice") have.practice[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "revision") have.revision[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "mistake") have.mistakes[r.topicId] = JSON.parse(r.dataJson); else if (r.kind === "note") have.notes[r.topicId] = JSON.parse(r.dataJson); } catch { /* ignore */ } }
         const merged = mergeSync(have, incoming);
         const write = async (kind: string, topicId: string, data: unknown) => {
           const json = JSON.stringify(data);
@@ -264,6 +268,8 @@ export function createAccountService(db: Db): AccountService {
         for (const [id, v] of Object.entries(merged.lesson)) if (JSON.stringify(have.lesson[id]) !== JSON.stringify(v)) await write("lesson", id, v);
         for (const [id, v] of Object.entries(merged.practice)) if (JSON.stringify(have.practice[id]) !== JSON.stringify(v)) await write("practice", id, v);
         for (const [id, v] of Object.entries(merged.revision)) if (JSON.stringify(have.revision[id]) !== JSON.stringify(v)) await write("revision", id, v);
+        for (const [id, v] of Object.entries(merged.notes)) if (JSON.stringify(have.notes[id]) !== JSON.stringify(v)) await write("note", id, v);
+        for (const [id, v] of Object.entries(merged.mistakes)) if (JSON.stringify(have.mistakes[id]) !== JSON.stringify(v)) await write("mistake", id, v);
         return merged;
       });
     },

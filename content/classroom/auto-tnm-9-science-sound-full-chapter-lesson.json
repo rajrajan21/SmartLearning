@@ -1,0 +1,133 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "sound",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Sound"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Sound is a vibration",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "sp",
+   "x": 100,
+   "y": 250,
+   "text": "🔔",
+   "size": 90,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "wave",
+   "id": "w1",
+   "x": 180,
+   "y": 250,
+   "len": 640,
+   "amp": 30,
+   "cycles": 5,
+   "speed": 0.8,
+   "color": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 500,
+   "y": 340,
+   "text": "A soft, low sound",
+   "size": 28,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "wave",
+   "id": "w2",
+   "x": 180,
+   "y": 250,
+   "len": 640,
+   "amp": 55,
+   "cycles": 12,
+   "speed": 1.4,
+   "color": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "lb2",
+   "x": 500,
+   "y": 430,
+   "text": "A loud, high sound",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Sound is made when something vibrates, that is, moves quickly to and fro. A bell, a drum and our own throat all vibrate when they make a sound."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "sp",
+     "at": 0.1
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The vibration travels through the air as waves, until it reaches our ears. Here is a gentle wave. The waves are far apart, so the sound is low."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "w1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lb",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A bigger vibration makes a louder sound, and faster vibrations make a higher sound. See how the waves are taller and closer now."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "w2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lb2",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

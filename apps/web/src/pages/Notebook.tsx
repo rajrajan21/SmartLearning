@@ -1,4 +1,7 @@
+import { useActiveBoard } from "../lib/activeBoard";
+import { useState } from "react";
 import { Link } from "wouter";
+import { FilterBox, matches } from "../components/SearchBox";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useBoard, useRetry } from "../lib/curriculum";
@@ -13,14 +16,16 @@ import { NotFound, Title } from "../components/bits";
 /** Saved favourite lessons (device only) and a printable "what I learned" sheet. */
 export function NotebookPage() {
   const s = useSettings();
-  const board = s.get<string>("catalog.defaultBoard");
+  const board = useActiveBoard();
   const [attempt] = useRetry();
   const state = useBoard(board, attempt);
   const notes = useNotebook();
   const progress = useAllProgress(), results = useAllResults();
   const acct = useAccountOptional();
   if (s.get("notebook.enabled") !== true || s.get("feature.lessons") !== true) return <NotFound />;
-  const saved = Object.values(notes).sort((a, b) => b.savedAt - a.savedAt);
+  const [nq, setNq] = useState("");
+  const savedAll = Object.values(notes).sort((a, b) => b.savedAt - a.savedAt);
+  const saved = savedAll.filter((n) => matches(nq, s.name(n.title), s.name(n.subject)));
   const finished = state.status === "ready" ? flatTopics(state.data as never, board).filter((f) => progress[f.id]?.done) : [];
   const stars = totalStars(results as never);
   const lv = levelOf(Object.values(progress).filter((p) => p.done).length, stars);
@@ -28,7 +33,8 @@ export function NotebookPage() {
     <div className="paper notebook-page">
       <h1>{ui("nbTitle", s.lang)}</h1>
       <p className="lead">{ui("nbIntro", s.lang)}</p>
-      {saved.length === 0 ? <p className="soon-note">{ui("nbEmpty", s.lang)}</p> : (
+      {savedAll.length > 4 && <FilterBox value={nq} onChange={setNq} />}
+      {savedAll.length === 0 ? <p className="soon-note">{ui("nbEmpty", s.lang)}</p> : saved.length === 0 ? <p className="filter-none" role="status">{ui("filterNone", s.lang)}</p> : (
         <ul className="nb-list noprint">
           {saved.map((n) => (
             <li key={n.id}>

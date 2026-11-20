@@ -1,0 +1,240 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "trigonometry",
+  "topic": "trigonometric-ratios-and-identities",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Trigonometric ratios of an acute angle and identities"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The flagpole"
+        },
+        "text": {
+          "en": "Standing 20 m from a flagpole you look up at its top at 45 degrees. How tall is it? Trigonometry links angles to lengths in a right triangle."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sin, cos, tan",
+          "cosec, sec, cot",
+          "tan = sin/cos",
+          "sin^2 A + cos^2 A = 1",
+          "1 + tan^2 A = sec^2 A",
+          "special angles",
+          "complementary angles"
+        ],
+        "text": {
+          "en": "In a right triangle, for an acute angle A: sin A = opposite/hypotenuse, cos A = adjacent/hypotenuse, tan A = opposite/adjacent.\nTheir reciprocals are cosec A = 1/sin A, sec A = 1/cos A, cot A = 1/tan A.\nAlso tan A = sin A / cos A.\nThe basic identity is sin squared A + cos squared A = 1.\nDividing it gives 1 + tan squared A = sec squared A and 1 + cot squared A = cosec squared A.\nValues of special angles: sin 30 = 1/2, sin 45 = 1/root 2, sin 60 = root 3 / 2, cos is the reverse, and tan 45 = 1.\nComplementary angles: sin (90 - A) = cos A and tan (90 - A) = cot A."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-trigonometric-ratios-and-identities.svg",
+        "altText": {
+          "en": "Right triangle with sides opposite, adjacent and hypotenuse"
+        },
+        "caption": {
+          "en": "Sides for angle A"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In a right triangle, for an acute angle A: sin A = opposite/hypotenuse, cos A = adjacent/hypotenuse, tan A = opposite/adjacent."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin, cos, tan"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Their reciprocals are cosec A = 1/sin A, sec A = 1/cos A, cot A = 1/tan A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cosec, sec, cot"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Also tan A = sin A / cos A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tan = sin/cos"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The basic identity is sin squared A + cos squared A = 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin^2 A + cos^2 A = 1"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Dividing it gives 1 + tan squared A = sec squared A and 1 + cot squared A = cosec squared A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "1 + tan^2 A = sec^2 A"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Values of special angles: sin 30 = 1/2, sin 45 = 1/root 2, sin 60 = root 3 / 2, cos is the reverse, and tan 45 = 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "special angles"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Complementary angles: sin (90 - A) = cos A and tan (90 - A) = cot A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complementary angles"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If sin A = 3/5 and A is acute, find cos A and tan A."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Use sin squared A + cos squared A = 1: cos squared A = 1 - 9/25 = 16/25."
+            },
+            "why": {
+              "en": "The identity links sin and cos."
+            }
+          },
+          {
+            "text": {
+              "en": "cos A = 4/5 because A is acute, so cos is positive."
+            },
+            "why": {
+              "en": "Take the positive root."
+            }
+          },
+          {
+            "text": {
+              "en": "tan A = sin A / cos A = (3/5)/(4/5) = 3/4."
+            },
+            "why": {
+              "en": "Divide."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Define sin, cos and tan and write the main identity."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Opposite, adjacent, hypotenuse"
+          },
+          {
+            "en": "sin squared + cos squared = 1"
+          },
+          {
+            "en": "Complementary angle relations"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing up opposite and adjacent"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma988-1",
+          "r1-m10ma988-2",
+          "r1-m10ma988-3",
+          "r2-m10ma988-4",
+          "r2-m10ma988-5",
+          "r2-m10ma988-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "sin = opp/hyp, cos = adj/hyp, tan = opp/adj."
+          },
+          {
+            "en": "sin squared A + cos squared A = 1."
+          },
+          {
+            "en": "sin(90 - A) = cos A."
+          },
+          {
+            "en": "tan 45 = 1, sin 30 = 1/2, cos 60 = 1/2."
+          }
+        ]
+      }
+    ]
+  }
+}

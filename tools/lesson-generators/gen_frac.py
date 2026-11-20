@@ -198,7 +198,7 @@ step("f9-q4",I,"Last question. Riya ate two fifths of a pizza and Meena ate one 
  Q("2/5 + 1/5 of a pizza is:","ஒரு பீட்சாவில் 2/5 + 1/5:",0,[["3/5","3/5"],["3/10","3/10","Add only the numerators. The denominator stays 5.","தொகுதிகளை மட்டும் கூட்டுங்கள். பகுதி 5 ஆகவே இருக்கும்."],["1/5","1/5","That is the difference, not the sum.","அது வித்தியாசம், கூட்டுத்தொகை அல்ல."]],
   "2/5 + 1/5 = 3/5 of the pizza.","2/5 + 1/5 = 3/5 பீட்சா."))
 exec(open("/tmp/gen_frac_ext.py").read())
-ORDER=[A,B,C,D,E,F,G,H,HIST,I]
+ORDER=[A,B,C,D,E,F,G,H,HIST,"10 Math Talk and notes",FX,"12 Chikki and circles","13 Fraction wall","14 Lengths on the line","15 Draw the lengths","Extra practice",I]
 ST.sort(key=lambda s:ORDER.index(s["section"]))
 rec={"id":"cbse-6-maths-fractions-parts-of-a-whole","class":6,"subject":"maths","chapter":"fractions","topic":"parts-of-a-whole","title":["Fractions","பின்னங்கள்"],"bg":"#FFF9F0","titleColor":"#1F3B6E","parts":P,"steps":ST}
 json.dump(rec,open(OUT,'w'),ensure_ascii=False,indent=1)

@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "statistics-and-probability",
+  "topic": "measures-of-dispersion",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Range, variance and standard deviation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two cricketers"
+        },
+        "text": {
+          "en": "Two batsmen both average 50 runs, but one scores steadily while the other swings between 0 and 100. The mean alone cannot tell them apart - we need a measure of spread."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "range",
+          "variance",
+          "standard deviation",
+          "shortcut formula",
+          "small or large sd",
+          "effect of change",
+          "coefficient of variation"
+        ],
+        "text": {
+          "en": "Range = largest value - smallest value. It is quick but depends only on two numbers.\nVariance measures how far values are on average from the mean: variance = sum of (x - mean) squared / n.\nStandard deviation is the square root of the variance, written sigma. It has the same unit as the data.\nShortcut: variance = (sum of x squared)/n - (mean) squared.\nA small standard deviation means the data are close to the mean; a large one means they are spread out.\nIf every value is increased by the same number, the standard deviation does not change; if every value is multiplied by k, it is multiplied by k.\nCoefficient of variation = (sigma / mean) x 100 percent, used to compare the consistency of two data sets."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Range = largest value - smallest value. It is quick but depends only on two numbers."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "range"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Variance measures how far values are on average from the mean: variance = sum of (x - mean) squared / n."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "variance"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Standard deviation is the square root of the variance, written sigma. It has the same unit as the data."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "standard deviation"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Shortcut: variance = (sum of x squared)/n - (mean) squared."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "shortcut formula"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A small standard deviation means the data are close to the mean; a large one means they are spread out."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "small or large sd"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "If every value is increased by the same number, the standard deviation does not change; if every value is multiplied by k, it is multiplied by k."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "effect of change"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Coefficient of variation = (sigma / mean) x 100 percent, used to compare the consistency of two data sets."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "coefficient of variation"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the standard deviation of 2, 4, 6, 8, 10."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Mean = 30/5 = 6."
+            },
+            "why": {
+              "en": "Add and divide."
+            }
+          },
+          {
+            "text": {
+              "en": "Squared deviations: 16, 4, 0, 4, 16, sum 40; variance = 40/5 = 8."
+            },
+            "why": {
+              "en": "Square each (x - 6)."
+            }
+          },
+          {
+            "text": {
+              "en": "Standard deviation = root 8, about 2.83."
+            },
+            "why": {
+              "en": "Take the square root of the variance."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Why do we need the standard deviation as well as the mean?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Mean shows the centre not the spread"
+          },
+          {
+            "en": "SD measures spread around the mean"
+          },
+          {
+            "en": "Lower SD means more consistent"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking a larger mean means larger spread"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma560-1",
+          "r1-m10ma560-2",
+          "r1-m10ma560-3",
+          "r2-m10ma560-4",
+          "r2-m10ma560-5",
+          "r2-m10ma560-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Range = max - min."
+          },
+          {
+            "en": "Variance = average squared deviation; SD = its square root."
+          },
+          {
+            "en": "Adding a constant leaves SD unchanged."
+          },
+          {
+            "en": "Lower coefficient of variation = more consistent."
+          }
+        ]
+      }
+    ]
+  }
+}

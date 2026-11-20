@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Algebra"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju saw the expression 3x + 5 on the board. \"What is its value when x is 2?\" asked his teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "polynomial",
+     "zero of a polynomial",
+     "remainder theorem",
+     "algebraic identity",
+     "factorisation",
+     "GCD"
+    ],
+    "text": {
+     "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial. The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0.\nThe remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a). The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0. Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise.\nFactorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial. Polynomials are divided by the division algorithm or by synthetic division. The GCD of polynomials is the highest common factor, and a linear equation in two variables has a pair of values that satisfy it."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "polynomial"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "zero of a polynomial"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "remainder theorem"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "algebraic identity"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "factorisation"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Factorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "GCD"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Polynomials are divided by the division algorithm or by synthetic division."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "polynomial"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "The GCD of polynomials is the highest common factor, and a linear equation in two variables has a pair of values that satisfy it."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "zero of a polynomial"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the remainder when x^2 + 2x + 1 is divided by (x - 1)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "By the remainder theorem put x = 1."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "1 + 2 + 1 = 4."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "The remainder is 4."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says (a + b)^2 = a^2 + b^2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "The middle term 2ab is also present."
+     },
+     {
+      "en": "(a + b)^2 = a^2 + 2ab + b^2."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-alg740",
+     "r1-alg741"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Polynomials have whole-number powers."
+     },
+     {
+      "en": "Remainder = p(a)."
+     },
+     {
+      "en": "a^2 - b^2 = (a + b)(a - b)."
+     },
+     {
+      "en": "Factor theorem uses p(a) = 0."
+     }
+    ]
+   }
+  ]
+ }
+}

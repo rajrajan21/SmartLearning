@@ -1,0 +1,197 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "playing-with-constructions",
+ "topic": "drawing-circles-and-copying-lengths",
+ "status": "published",
+ "title": {
+  "en": "Parts of a circle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Parts of a circle",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "ci",
+   "cx": 450,
+   "cy": 255,
+   "r": 150,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "ce",
+   "cx": 450,
+   "cy": 255,
+   "r": 6,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lo",
+   "x": 432,
+   "y": 283,
+   "text": "O",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "rad",
+   "x1": 450,
+   "y1": 255,
+   "x2": 546,
+   "y2": 140,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "lr",
+   "x": 560,
+   "y": 150,
+   "text": "radius",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "dia",
+   "x1": 300,
+   "y1": 255,
+   "x2": 600,
+   "y2": 255,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 360,
+   "y": 243,
+   "text": "diameter",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "chd",
+   "x1": 399,
+   "y1": 396,
+   "x2": 546,
+   "y2": 370,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "lch",
+   "x": 450,
+   "y": 450,
+   "text": "chord",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A circle is the set of all points at the same distance from a fixed point, the centre. Here the centre is O."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ci",
+     "at": 0.2,
+     "ms": 1500
+    },
+    {
+     "do": "draw",
+     "target": "ce",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "lo",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The radius is a line from the centre to a point on the circle. All radii of a circle are equal."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "rad",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lr",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The diameter is a line across the circle through the centre. It is twice the radius."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "dia",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "ld",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "A chord joins any two points on the circle. The diameter is the longest chord."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "chd",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lch",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

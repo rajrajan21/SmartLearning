@@ -1,0 +1,220 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "coordinate-geometry",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Coordinate Geometry"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju plotted three points on his graph sheet. \"Do they make a triangle or lie on one line?\" he wondered."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "area of a triangle",
+     "collinear",
+     "slope",
+     "inclination",
+     "slope-intercept form",
+     "general form"
+    ],
+    "text": {
+     "en": "The area of a triangle with vertices (x1, y1), (x2, y2), (x3, y3) is half the absolute value of x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2). If this area is zero, the three points are collinear. The area of a quadrilateral is found by splitting it into two triangles.\nThe inclination of a line is the angle it makes with the positive x-axis, and the slope m = tan(theta) = (y2 - y1)/(x2 - x1). Parallel lines have equal slopes and perpendicular lines have slopes whose product is -1.\nThe equation of a straight line has several forms: slope-intercept y = mx + c, point-slope, two-point, intercept form x/a + y/b = 1 and the general form ax + by + c = 0. The equations of the coordinate axes are y = 0 and x = 0."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The area of a triangle with vertices (x1, y1), (x2, y2), (x3, y3) is half the absolute value of x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2)."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "area of a triangle"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "If this area is zero, the three points are collinear."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "collinear"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "The area of a quadrilateral is found by splitting it into two triangles."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "slope"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The inclination of a line is the angle it makes with the positive x-axis, and the slope m = tan(theta) = (y2 - y1)/(x2 - x1)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "inclination"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Parallel lines have equal slopes and perpendicular lines have slopes whose product is -1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "slope-intercept form"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The equation of a straight line has several forms: slope-intercept y = mx + c, point-slope, two-point, intercept form x/a + y/b = 1 and the general form ax + by + c = 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "general form"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "The equations of the coordinate axes are y = 0 and x = 0."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "area of a triangle"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the slope of the line through (1, 2) and (3, 6)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "m = (6 - 2)/(3 - 1)."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "4 / 2."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "The slope is 2."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says Perpendicular lines have equal slopes. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Parallel lines have equal slopes."
+     },
+     {
+      "en": "For perpendicular lines the product is -1."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-coo660",
+     "r1-coo661"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Slope = (y2 - y1)/(x2 - x1)."
+     },
+     {
+      "en": "Collinear points give area zero."
+     },
+     {
+      "en": "y = mx + c."
+     },
+     {
+      "en": "Perpendicular: m1 m2 = -1."
+     }
+    ]
+   }
+  ]
+ }
+}

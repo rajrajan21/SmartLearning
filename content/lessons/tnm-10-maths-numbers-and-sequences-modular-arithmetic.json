@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "numbers-and-sequences",
+  "topic": "modular-arithmetic",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Modular arithmetic - clock arithmetic"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The clock that wraps"
+        },
+        "text": {
+          "en": "It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "congruence",
+          "17 = 5 (mod 12)",
+          "same remainder",
+          "remainder",
+          "add and multiply",
+          "negative numbers",
+          "uses"
+        ],
+        "text": {
+          "en": "Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b.\nSo 17 = 5 (mod 12), because 12 divides 17 - 5 = 12.\nAnother way: a and b leave the same remainder when divided by m.\nTo find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2.\nCongruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m).\nNegative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7.\nReal uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "congruence"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "17 = 5 (mod 12)"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Another way: a and b leave the same remainder when divided by m."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "same remainder"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "remainder"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "add and multiply"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "negative numbers"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "uses"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the remainder when 2^5 x 7 is divided by 5, i.e. compute 2^5 x 7 (mod 5)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "2^5 = 32 and 32 = 2 (mod 5), because 32 - 2 = 30."
+            },
+            "why": {
+              "en": "Reduce each factor first."
+            }
+          },
+          {
+            "text": {
+              "en": "7 = 2 (mod 5)."
+            },
+            "why": {
+              "en": "7 - 2 = 5, divisible by 5."
+            }
+          },
+          {
+            "text": {
+              "en": "So the product = 2 x 2 = 4 (mod 5). The remainder is 4."
+            },
+            "why": {
+              "en": "Multiply the reduced numbers."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "What does a = b (mod m) mean? Give an example with a clock."
+        },
+        "requiredIdeas": [
+          {
+            "en": "m divides a - b"
+          },
+          {
+            "en": "Same remainder on division by m"
+          },
+          {
+            "en": "Clock wraps around"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking it means a equals b"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma167-1",
+          "r1-m10ma167-2",
+          "r1-m10ma167-3",
+          "r2-m10ma167-4",
+          "r2-m10ma167-5",
+          "r2-m10ma167-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "a = b (mod m) means m divides a - b."
+          },
+          {
+            "en": "a mod m is the remainder when a is divided by m."
+          },
+          {
+            "en": "Congruences can be added and multiplied."
+          },
+          {
+            "en": "Used for clocks, calendars and check digits."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,227 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "geometry",
+  "topic": "angle-bisector-theorem",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Angle bisector theorem"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Dividing the base"
+        },
+        "text": {
+          "en": "A bisector from the apex of a triangle splits the opposite side not in half but in the ratio of the other two sides. Let us see why this is useful."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "Thales theorem",
+          "converse",
+          "statement",
+          "formula",
+          "converse of bisector theorem",
+          "applications"
+        ],
+        "text": {
+          "en": "Thales theorem: a line parallel to one side of a triangle divides the other two sides in the same ratio.\nConverse: if a line divides two sides in the same ratio, it is parallel to the third side.\nAngle bisector theorem: the internal bisector of an angle of a triangle divides the opposite side in the ratio of the sides containing the angle.\nIn triangle ABC with bisector AD, BD over DC equals AB over AC.\nThe converse is also true: if BD over DC equals AB over AC, then AD bisects angle A.\nUse it to find unknown lengths and to prove that bisectors meet at the incentre."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-angle-bisector-theorem.svg",
+        "altText": {
+          "en": "A triangle ABC with the bisector AD dividing the side BC in the ratio AB to AC"
+        },
+        "caption": {
+          "en": "Angle bisector theorem"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Thales theorem: a line parallel to one side of a triangle divides the other two sides in the same ratio."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Thales theorem"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Converse: if a line divides two sides in the same ratio, it is parallel to the third side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Angle bisector theorem: the internal bisector of an angle of a triangle divides the opposite side in the ratio of the sides containing the angle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "statement"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In triangle ABC with bisector AD, BD over DC equals AB over AC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "formula"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The converse is also true: if BD over DC equals AB over AC, then AD bisects angle A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "converse of bisector theorem"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Use it to find unknown lengths and to prove that bisectors meet at the incentre."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "applications"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, AB = 6, AC = 9, BC = 10 and AD bisects angle A with D on BC. Find BD and DC."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By the angle bisector theorem BD/DC = AB/AC = 6/9 = 2/3."
+            },
+            "why": {
+              "en": "The ratio is 2 : 3."
+            }
+          },
+          {
+            "text": {
+              "en": "Let BD = 2k and DC = 3k with 2k + 3k = 10."
+            },
+            "why": {
+              "en": "BD + DC = BC."
+            }
+          },
+          {
+            "text": {
+              "en": "So k = 2, BD = 4 and DC = 6."
+            },
+            "why": {
+              "en": "Check: 4/6 = 2/3."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Why does the bisector theorem not give BD = DC?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "BD : DC equals AB : AC"
+          },
+          {
+            "en": "BD = DC only when AB = AC"
+          },
+          {
+            "en": "That is the isosceles case"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking every cevian is a median"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma524-1",
+          "r1-m10ma524-2",
+          "r1-m10ma524-3",
+          "r2-m10ma524-4",
+          "r2-m10ma524-5",
+          "r2-m10ma524-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "BD/DC = AB/AC for bisector AD."
+          },
+          {
+            "en": "Its converse also holds."
+          },
+          {
+            "en": "Thales: a parallel line divides the sides proportionally."
+          },
+          {
+            "en": "Use ratio then sum to find lengths."
+          }
+        ]
+      }
+    ]
+  }
+}

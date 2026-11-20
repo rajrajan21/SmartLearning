@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "arithmetic-progressions",
+  "topic": "sum-of-n-terms",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Sum of the first n terms of an AP"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Gauss and the quick sum"
+        },
+        "text": {
+          "en": "A story says a boy was asked to add 1 to 100 and answered at once. He paired 1 with 100, 2 with 99 and so on. That idea gives us the sum formula for every AP."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "1 + ... + 100 = 5050",
+          "S = n/2 (a + l)",
+          "S = n/2 [2a + (n-1)d]",
+          "a = 8, d = -5",
+          "an = Sn - S(n-1)",
+          "arithmetic mean",
+          "choose formula",
+          "pairing"
+        ],
+        "text": {
+          "en": "Pair the first and last terms: each pair has the same sum, so we get n by 2 pairs of the sum a + l.\nThe sum of the first n terms of an AP is S = n by 2 times (2a + (n - 1) d).\nIf the last term l is known, the sum is S = n by 2 times (a + l).\nAdd 1 to 100: n = 100, a = 1, l = 100, so S = 50 x 101 = 5050.\nFind the sum of the first 22 terms of 8, 3, -2: a = 8, d = -5, S = 11 (16 - 105) = -979.\nThe nth term can be found from sums: a_n = S_n - S_(n-1).\nIf a, b, c are in AP then b = (a + c)/2, and b is called the arithmetic mean of a and c.\nPick the formula that matches what is given: use S = n/2 (a + l) when the last term is known."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Pair the first and last terms: each pair has the same sum, so we get n by 2 pairs of the sum a + l."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "pairing"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The sum of the first n terms of an AP is S = n by 2 times (2a + (n - 1) d)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "S = n/2 [2a + (n-1)d]"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If the last term l is known, the sum is S = n by 2 times (a + l)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "S = n/2 (a + l)"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Add 1 to 100: n = 100, a = 1, l = 100, so S = 50 x 101 = 5050."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "1 + ... + 100 = 5050"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Find the sum of the first 22 terms of 8, 3, -2: a = 8, d = -5, S = 11 (16 - 105) = -979."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a = 8, d = -5"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The nth term can be found from sums: a_n = S_n - S_(n-1)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "an = Sn - S(n-1)"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "If a, b, c are in AP then b = (a + c)/2, and b is called the arithmetic mean of a and c."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "arithmetic mean"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Pick the formula that matches what is given: use S = n/2 (a + l) when the last term is known."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "choose formula"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "How many terms of 24, 21, 18 ... must be taken so that the sum is 78?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "a = 24, d = -3. S = n/2 (48 + (n - 1)(-3)) = 78."
+            },
+            "why": {
+              "en": "Use the S formula."
+            }
+          },
+          {
+            "text": {
+              "en": "n(51 - 3n) = 156 gives 3n^2 - 51n + 156 = 0, i.e. n^2 - 17n + 52 = 0."
+            },
+            "why": {
+              "en": "Simplify."
+            }
+          },
+          {
+            "text": {
+              "en": "(n - 4)(n - 13) = 0. Both n = 4 and 13 are valid: the terms after the 8th cancel out."
+            },
+            "why": {
+              "en": "Both give the sum 78."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you find the sum of an AP?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "S = n/2 [2a + (n-1)d]"
+          },
+          {
+            "en": "S = n/2 (a + l)"
+          },
+          {
+            "en": "Choose formula by given data"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using n instead of n/2"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sn1",
+          "r1-sn2",
+          "r2-sn3",
+          "r2-sn4",
+          "r2-sn5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "S_n = n/2 [2a + (n - 1)d] and S_n = n/2 (a + l)."
+          },
+          {
+            "en": "a_n = S_n - S_(n-1)."
+          },
+          {
+            "en": "Arithmetic mean of a and c is (a + c)/2."
+          }
+        ]
+      }
+    ]
+  }
+}

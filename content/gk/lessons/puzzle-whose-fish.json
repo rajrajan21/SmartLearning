@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-whose-fish",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "8-10",
+ "title": "Who Owns the Fish?",
+ "summary": "Cross out impossible options until only one is left.",
+ "emoji": "🐟",
+ "tags": [
+  "table",
+  "elimination"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Three friends, Mira, Nila and Omar, each own a different pet: a cat, a dog or a fish.",
+    "Nila owns neither the dog nor the fish.",
+    "Omar does not own the dog. Who owns the fish?"
+   ],
+   "points": [
+    "Three friends, Mira, Nila and Omar, each own a different pet: a cat, a dog or a fish."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Make a small table of names and pets.",
+    "Cross out what is impossible and see what is left."
+   ],
+   "points": [
+    "Make a small table of names and pets."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Table and elimination",
+   "sentences": [
+    "Nila owns neither dog nor fish, so Nila owns the cat.",
+    "Now only the dog and the fish are left for Mira and Omar.",
+    "Omar does not own the dog, so Omar must own the fish."
+   ],
+   "points": [
+    "Nila owns neither dog nor fish, so Nila owns the cat."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Nila has the cat, Mira has the dog and Omar has the fish.",
+    "Each clue removed one option until only one was left.",
+    "That is elimination."
+   ],
+   "points": [
+    "Nila has the cat, Mira has the dog and Omar has the fish."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "Nila owns the cat and Omar does not own the dog. Who owns the dog?",
+   "options": [
+    "Mira",
+    "Omar",
+    "Nila"
+   ],
+   "answer": 0,
+   "why": "Only Mira is left for the dog."
+  }
+ ],
+ "method": "Table and elimination"
+}

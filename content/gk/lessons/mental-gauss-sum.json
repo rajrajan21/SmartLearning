@@ -1,0 +1,76 @@
+{
+ "id": "mental-gauss-sum",
+ "kind": "puzzle",
+ "category": "mental",
+ "age": "11-13",
+ "title": "Add 1 to 100 Like Gauss",
+ "summary": "Pair the numbers from both ends to make equal sums.",
+ "emoji": "➗",
+ "tags": [
+  "sum",
+  "pairing"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "What is 1 plus 2 plus 3 and so on up to 100?",
+    "Do not add one by one."
+   ],
+   "points": [
+    "What is 1 plus 2 plus 3 and so on up to 100?"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Look at pairs: the first and last numbers together, the second and second last together."
+   ],
+   "points": [
+    "Look at pairs: the first and last numbers together, the second and second last together."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Pair them up",
+   "sentences": [
+    "1 plus 100 is 101. 2 plus 99 is 101. 3 plus 98 is 101.",
+    "There are 50 such pairs.",
+    "Every pair gives 101."
+   ],
+   "points": [
+    "1 plus 100 is 101. 2 plus 99 is 101. 3 plus 98 is 101."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "50 times 101 is 5050.",
+    "The famous story says the young Carl Friedrich Gauss used this idea.",
+    "The shortcut is the count times the first plus last, divided by 2."
+   ],
+   "points": [
+    "50 times 101 is 5050."
+   ]
+  }
+ ],
+ "facts": [
+  "The Gauss story may be partly legend, but the method is real."
+ ],
+ "quiz": [
+  {
+   "q": "What is 1 plus 2 plus up to 10?",
+   "options": [
+    "50",
+    "55",
+    "60"
+   ],
+   "answer": 1,
+   "why": "5 pairs of 11 give 55."
+  }
+ ],
+ "method": "Pair them up"
+}

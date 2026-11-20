@@ -1,0 +1,228 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "surds-and-scientific-notation",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Surds, rationalising and scientific notation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Big and small numbers"
+        },
+        "text": {
+          "en": "The distance to the Sun is about 150 000 000 km and a virus may be 0.0000001 m wide. Scientists write such numbers compactly. And roots like root 2 need careful handling too."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "surd",
+          "surd laws",
+          "like surds",
+          "simplify",
+          "rationalise",
+          "conjugate",
+          "a x 10^n"
+        ],
+        "text": {
+          "en": "A surd is an irrational root such as root 2, root 3 or the cube root of 5.\nLaws: root a x root b = root (ab) and root a / root b = root (a/b).\nLike surds can be added: 3 root 2 + 5 root 2 = 8 root 2.\nSimplify surds by taking out square factors: root 18 = root 9 x root 2 = 3 root 2.\nTo rationalise 1/(root a) multiply the top and bottom by root a, giving root a / a.\nFor 1/(a + root b) multiply by the conjugate (a - root b) to use (a + root b)(a - root b) = a squared - b.\nScientific notation writes a number as a x 10^n with 1 less than or equal to a less than 10 and n an integer."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A surd is an irrational root such as root 2, root 3 or the cube root of 5."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "surd"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Laws: root a x root b = root (ab) and root a / root b = root (a/b)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "surd laws"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Like surds can be added: 3 root 2 + 5 root 2 = 8 root 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "like surds"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Simplify surds by taking out square factors: root 18 = root 9 x root 2 = 3 root 2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "simplify"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To rationalise 1/(root a) multiply the top and bottom by root a, giving root a / a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "rationalise"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For 1/(a + root b) multiply by the conjugate (a - root b) to use (a + root b)(a - root b) = a squared - b."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conjugate"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Scientific notation writes a number as a x 10^n with 1 less than or equal to a less than 10 and n an integer."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a x 10^n"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Rationalise 1/(root 3 + 1) and write 4 500 000 in scientific notation."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Multiply top and bottom by (root 3 - 1): denominator = 3 - 1 = 2."
+            },
+            "why": {
+              "en": "Conjugate removes the root."
+            }
+          },
+          {
+            "text": {
+              "en": "So 1/(root 3 + 1) = (root 3 - 1)/2."
+            },
+            "why": {
+              "en": "Numerator is root 3 - 1."
+            }
+          },
+          {
+            "text": {
+              "en": "4 500 000 = 4.5 x 10^6."
+            },
+            "why": {
+              "en": "Move the decimal point 6 places."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Describe how to rationalise a denominator and write a number in scientific notation."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Multiply by the conjugate"
+          },
+          {
+            "en": "Result has a rational denominator"
+          },
+          {
+            "en": "a x 10^n with a between 1 and 10"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Leaving a root in the denominator"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma336-1",
+          "r1-m9ma336-2",
+          "r1-m9ma336-3",
+          "r2-m9ma336-4",
+          "r2-m9ma336-5",
+          "r2-m9ma336-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Surds: root a x root b = root (ab)."
+          },
+          {
+            "en": "Rationalise by multiplying by the conjugate."
+          },
+          {
+            "en": "Like surds add by adding coefficients."
+          },
+          {
+            "en": "Scientific notation: a x 10^n, 1 <= a < 10."
+          }
+        ]
+      }
+    ]
+  }
+}

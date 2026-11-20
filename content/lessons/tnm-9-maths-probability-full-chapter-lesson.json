@@ -1,0 +1,208 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "probability",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Probability"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "sample space",
+     "event",
+     "classical probability",
+     "empirical probability",
+     "sure event",
+     "complementary event"
+    ],
+    "text": {
+     "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space. An event is a part of the sample space. In the classical approach, probability P(E) = number of favourable outcomes / total number of outcomes, so it lies between 0 and 1.\nThe empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials. The more trials, the closer it comes to the classical value.\nTypes of events include the sure event with probability 1, the impossible event with probability 0 and equally likely, mutually exclusive and complementary events, where P(E) + P(not E) = 1."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "sample space"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "An event is a part of the sample space."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "event"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "In the classical approach, probability P(E) = number of favourable outcomes / total number of outcomes, so it lies between 0 and 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "classical probability"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "empirical probability"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "The more trials, the closer it comes to the classical value."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "sure event"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Types of events include the sure event with probability 1, the impossible event with probability 0 and equally likely, mutually exclusive and complementary events, where P(E) + P(not E) = 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "complementary event"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "A die is thrown. Find the probability of getting an even number."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "There are 6 equally likely outcomes."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "Even numbers are 2, 4 and 6, that is 3."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "P = 3/6 = 1/2."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says Probability can be 2. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Probability lies from 0 to 1."
+     },
+     {
+      "en": "A value of 2 is impossible."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-pro210",
+     "r1-pro211"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "P(E) lies between 0 and 1."
+     },
+     {
+      "en": "P(E) = favourable / total."
+     },
+     {
+      "en": "Sure event: 1; impossible event: 0."
+     },
+     {
+      "en": "P(E) + P(not E) = 1."
+     }
+    ]
+   }
+  ]
+ }
+}

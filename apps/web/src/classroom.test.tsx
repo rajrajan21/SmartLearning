@@ -34,6 +34,19 @@ describe("classroom", () => {
     mount("/classroom");
     expect(await screen.findByText("Halves and quarters")).toBeTruthy();
   });
+  it("has its own heart: save, un-save, and it can be switched off", async () => {
+    mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
+    await screen.findByText("Halves and quarters");
+    fireEvent.click(screen.getByRole("button", { name: /Save to my notebook/ }));
+    const all = JSON.parse(localStorage.getItem("ss_notebook_v1") ?? "{}") as Record<string, { href: string; removedAt?: number }>;
+    expect(Object.values(all)[0]?.href).toBe("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
+    fireEvent.click(await screen.findByRole("button", { name: /Saved in my notebook/ }));
+    expect(Object.values(JSON.parse(localStorage.getItem("ss_notebook_v1") ?? "{}") as Record<string, { removedAt?: number }>)[0]?.removedAt).toBeGreaterThan(0);
+    cleanup(); settings = { "classroom.browserVoice": false, "notebook.enabled": false };
+    mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
+    await screen.findByText("Halves and quarters");
+    expect(screen.queryByRole("button", { name: /Save to my notebook/ })).toBeNull();
+  });
   it("shows a start button, then the step and the caption", async () => {
     mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
     await screen.findByText("Halves and quarters");

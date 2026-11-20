@@ -6,7 +6,15 @@ import { Preview } from "./Preview";
 import { LookPicker } from "./LookPicker";
 import { AccessCodes } from "./AccessCodes";
 import { Reports } from "./Reports";
+import { SocialAdmin } from "./SocialAdmin";
+import { AudioAdmin } from "./AudioAdmin";
+import { PapersAdmin } from "./PapersAdmin";
 import { Branding } from "./Branding";
+import { LibraryAdmin } from "./LibraryAdmin";
+import { ContribAdmin } from "./ContribAdmin";
+import { VisualsAdmin } from "./VisualsAdmin";
+import { PerfAdmin } from "./PerfAdmin";
+import { TourAdmin } from "./TourAdmin";
 
 type Tab = PanelId | "log" | "backup";
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
@@ -57,6 +65,7 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
   const [draft, setDraft] = useState<Values>({});
   const [overridden, setOverridden] = useState<Set<string>>(new Set());
   const [tab, setTab] = useState<Tab>("features");
+  const [q, setQ] = useState("");
   const [msg, setMsg] = useState<{ kind: "ok" | "err"; text: string } | null>(null);
   const [busy, setBusy] = useState(false);
   const [audit, setAudit] = useState<AuditEntry[] | null>(null);
@@ -126,10 +135,20 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
   const isOff = (d: SettingDef) => !!d.dependsOn && draft[d.dependsOn] !== true;
   const panelChanged = (id: PanelId) => defs.filter((d) => d.panel === id && !same(draft[d.key], saved[d.key])).length;
 
+  const terms = q.toLowerCase().split(/\s+/).filter(Boolean);
+  const panelLabel = (id: string) => data.panels.find((p) => p.id === id)?.label ?? id;
+  const hits = terms.length === 0 ? [] : defs.filter((d) => { const hay = `${d.label} ${d.section} ${d.key} ${(d as { help?: string }).help ?? ""} ${panelLabel(d.panel)}`.toLowerCase(); return terms.every((t) => hay.includes(t)); });
+  const searching = terms.length > 0;
+
   return (
     <div className="admin">
       <header className="a-top">
         <h1>Site settings</h1>
+        <div className="a-search" role="search">
+          <label htmlFor="a-q" className="sr-only">Search settings</label>
+          <input id="a-q" type="search" placeholder="Search settings, e.g. notebook, classroom, password" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") setQ(""); }} autoComplete="off" />
+          {q && <button type="button" className="btn ghost sm" onClick={() => setQ("")} aria-label="Clear search">Clear</button>}
+        </div>
         <div className="a-links"><a href="/" target="_blank" rel="noreferrer">View site</a><button type="button" className="link" onClick={onSignOut}>Sign out</button></div>
       </header>
       <div className="a-body">
@@ -143,7 +162,22 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
           <button type="button" className={`a-tab ${tab === "backup" ? "on" : ""}`} onClick={() => setTab("backup")}>Backup</button>
         </nav>
         <section className="a-main" aria-live="polite">
-          {panel && (
+          {searching && (
+            <>
+              <div className="a-head"><div><h2>Search results</h2><p>{hits.length === 0 ? `No settings match "${q}". Try a shorter word.` : `${hits.length} setting${hits.length === 1 ? "" : "s"} match "${q}". You can change them here and save as usual.`}</p></div></div>
+              {[...new Set(hits.map((d) => d.panel))].map((pid) => (
+                <fieldset key={pid} className="group"><legend>{panelLabel(pid)}</legend>
+                  {hits.filter((d) => d.panel === pid).map((d) => (
+                    <div key={d.key} className="a-hit"><p className="a-where">{d.section}</p>
+                      <Field def={d} value={draft[d.key]!} values={draft} changed={!same(draft[d.key], saved[d.key])} disabled={isOff(d)} onChange={(v) => set(d.key, v)} onReset={() => set(d.key, saved[d.key]!)} />
+                      <button type="button" className="link" onClick={() => { setQ(""); setTab(pid as Tab); }}>Open the {panelLabel(pid)} section</button>
+                    </div>
+                  ))}
+                </fieldset>
+              ))}
+            </>
+          )}
+          {!searching && panel && (
             <>
               <div className="a-head"><div><h2>{panel.label}</h2><p>{panel.help}</p></div>
                 <button type="button" className="btn ghost sm" disabled={busy || !panelDefs.some((d) => overridden.has(d.key))} onClick={() => resetKeys(panelDefs.filter((d) => overridden.has(d.key)).map((d) => d.key), `all ${panel.label.toLowerCase()} settings`)}>Reset this section</button>
@@ -165,11 +199,21 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
                 </fieldset>
               ))}
               {panel.id === "site" && <Branding values={draft} onVersion={(k, v) => set(k, v)} />}
+              {panel.id === "site" && <PerfAdmin />}
               {panel.id === "reports" && <Reports />}
+              {panel.id === "library" && <LibraryAdmin />}
+              {panel.id === "contrib" && <ContribAdmin />}
+              {panel.id === "visualcover" && <VisualsAdmin />}
+              {panel.id === "tour" && <TourAdmin />}
+              {panel.id === "papers" && <PapersAdmin />}
+              {panel.id === "audiocover" && <AudioAdmin perPage={Number(saved["audio.coverage.perPage"] ?? 50)} defaultFilter={String(saved["audio.coverage.defaultFilter"] ?? "all")} />}
+              {panel.id === "social" && <SocialAdmin mode="gates" />}
+              {panel.id === "socialaccounts" && <SocialAdmin mode="accounts" />}
+              {panel.id === "socialqueue" && <SocialAdmin mode="queue" />}
               {panel.id === "access" && <AccessCodes defaultMaxUses={Number(saved["access.newCode.maxUses"] ?? 10)} defaultExpiryDays={Number(saved["access.newCode.expiryDays"] ?? 0)} mode={String(saved["access.mode"])} />}
             </>
           )}
-          {tab === "log" && (
+          {!searching && tab === "log" && (
             <>
               <div className="a-head"><div><h2>Change log</h2><p>The last 50 changes, newest first.</p></div></div>
               {audit === null ? <p className="loading">Loading…</p> : audit.length === 0 ? <p>No changes yet.</p> : (
@@ -180,7 +224,7 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
               )}
             </>
           )}
-          {tab === "backup" && (
+          {!searching && tab === "backup" && (
             <>
               <div className="a-head"><div><h2>Backup</h2><p>Save your settings to a file, or load them back. Importing replaces matching settings and is saved immediately.</p></div></div>
               <div className="backup">

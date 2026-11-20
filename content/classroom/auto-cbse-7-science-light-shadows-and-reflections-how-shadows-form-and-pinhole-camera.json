@@ -1,0 +1,208 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "light-shadows-and-reflections",
+ "topic": "how-shadows-form-and-pinhole-camera",
+ "status": "published",
+ "title": {
+  "en": "Light and shadow"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Light travels in straight lines",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lm",
+   "x": 110,
+   "y": 250,
+   "text": "💡",
+   "size": 90,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "r0",
+   "x1": 170,
+   "y1": 235,
+   "x2": 430,
+   "y2": 235,
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "r1",
+   "x1": 170,
+   "y1": 250,
+   "x2": 430,
+   "y2": 250,
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "r2",
+   "x1": 170,
+   "y1": 265,
+   "x2": 430,
+   "y2": 265,
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "ob",
+   "x": 440,
+   "y": 190,
+   "w": 50,
+   "h": 120,
+   "rx": 6,
+   "fill": "#8D6E63",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "obt",
+   "x": 465,
+   "y": 335,
+   "text": "Opaque object",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "sc",
+   "x": 780,
+   "y": 130,
+   "w": 24,
+   "h": 260,
+   "rx": 0,
+   "fill": "#ECEFF1",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "poly",
+   "id": "sh",
+   "points": [
+    [
+     784,
+     190
+    ],
+    [
+     800,
+     190
+    ],
+    [
+     800,
+     310
+    ],
+    [
+     784,
+     310
+    ]
+   ],
+   "fill": "#37474F",
+   "stroke": "ink",
+   "width": 2
+  },
+  {
+   "kind": "text",
+   "id": "sht",
+   "x": 700,
+   "y": 430,
+   "text": "Shadow",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Light travels in straight lines. It goes out from a bright source, like a lamp, in every direction."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "lm",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "r0",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "r1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "r2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "When light meets an opaque object, one that light cannot pass through, the light is blocked."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ob",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "obt",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The dark area behind the object, where the light cannot reach, is the shadow."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "sc",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "sh",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "sht",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

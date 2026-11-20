@@ -1,0 +1,332 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "numbers-and-sequences",
+ "topic": "sequences-and-arithmetic-progression",
+ "status": "published",
+ "title": {
+  "en": "Arithmetic progression"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Arithmetic progression",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b0",
+   "x": 90,
+   "y": 90,
+   "w": 110,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t0",
+   "x": 145,
+   "y": 137,
+   "text": "2",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 205,
+   "y1": 125,
+   "x2": 255,
+   "y2": 125,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d0",
+   "x": 230,
+   "y": 100,
+   "text": "+3",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b1",
+   "x": 260,
+   "y": 90,
+   "w": 110,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 315,
+   "y": 137,
+   "text": "5",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 375,
+   "y1": 125,
+   "x2": 425,
+   "y2": 125,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d1",
+   "x": 400,
+   "y": 100,
+   "text": "+3",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b2",
+   "x": 430,
+   "y": 90,
+   "w": 110,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 485,
+   "y": 137,
+   "text": "8",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 545,
+   "y1": 125,
+   "x2": 595,
+   "y2": 125,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "d2",
+   "x": 570,
+   "y": 100,
+   "text": "+3",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b3",
+   "x": 600,
+   "y": 90,
+   "w": 110,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 655,
+   "y": 137,
+   "text": "11",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 450,
+   "y": 230,
+   "text": "aₙ = a + (n − 1)d",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 450,
+   "y": 285,
+   "text": "a = 2, d = 3: the 10th term = 2 + 9 × 3 = 29",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "s",
+   "x": 450,
+   "y": 355,
+   "text": "Sₙ = n/2 × [2a + (n − 1)d]",
+   "size": 34,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 450,
+   "y": 410,
+   "text": "Sum of the first 10 terms = 5 × (4 + 27) = 155",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An arithmetic progression, or AP, is a list of numbers in which each term is got by adding the same number, the common difference d, to the term before it. Here the first term is 2 and d is 3."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "t0",
+     "at": 0.17
+    },
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "d0",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.3125
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.3325
+    },
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.3625
+    },
+    {
+     "do": "write",
+     "target": "d1",
+     "at": 0.3825
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.475
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.495
+    },
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.5249999999999999
+    },
+    {
+     "do": "write",
+     "target": "d2",
+     "at": 0.545
+    },
+    {
+     "do": "draw",
+     "target": "b3",
+     "at": 0.6375000000000001
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.6575
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The n-th term is a plus n minus 1 times d. For the 10th term, 2 plus 9 times 3 gives 29."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "e1",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The sum of the first n terms is n over 2, times 2 a plus n minus 1 times d. For 10 terms, that is 5 times 31, which is 155."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "s",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "e2",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
+}

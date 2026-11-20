@@ -1,0 +1,19 @@
+import re
+def sl(t): return re.sub(r'-+','-',re.sub(r'[^a-z0-9]+','-',t.lower())).strip('-')[:60]
+SCI9="Measurement;Motion;Fluids;Electric charge and Electric current;Magnetism and Electromagnetism;Light;Heat;Sound;Universe;Matter Around Us;Atomic Structure;Periodic Classification of Elements;Chemical Bonding;Acids, Bases and Salts;Carbon and its Compounds;Applied Chemistry;Animal Kingdom;Organisation of Tissues;Plant Physiology;Organ Systems in Animals;Nutrition and Health;World of Microbes;Economic Biology;Environmental Science".split(';')
+SCI10="Laws of Motion;Optics;Thermal Physics;Electricity;Acoustics;Nuclear Physics;Atoms and Molecules;Periodic Classification of Elements;Solutions;Types of Chemical Reactions;Carbon and its Compounds;Plant Anatomy and Plant Physiology;Structural Organisation of Animals;Transportation in Plants and Circulation in Animals;Nervous System;Plant and Animal Hormones;Reproduction in Plants and Animals;Genetics;Origin and Evolution of Life;Breeding and Biotechnology;Health and Diseases;Environmental Management".split(';')
+MAT9="Set Language;Real Numbers;Algebra;Geometry;Coordinate Geometry;Trigonometry;Mensuration;Statistics;Probability".split(';')
+MAT10="Relations and Functions;Numbers and Sequences;Algebra;Geometry;Coordinate Geometry;Trigonometry;Mensuration;Statistics and Probability".split(';')
+SOC9=[("History","Evolution of Humans and Society - Prehistoric Period;Ancient Civilisations;Early Tamil Society and Culture;Intellectual Awakening and Socio-Political Changes;The Classical World;The Middle Ages;State and Society in Medieval India;The Beginning of the Modern Age;The Age of Revolutions;Industrial Revolution;Colonialism in Asia and Africa"),
+ ("Geography","Lithosphere - I Endogenetic Processes;Lithosphere - II Exogenetic Processes;Atmosphere;Hydrosphere;Biosphere;Man and Environment;Mapping Skills;Disaster Management: Responding to Disasters"),
+ ("Civics","Forms of Government and Democracy;Election, Political Parties and Pressure Groups;Human Rights;Forms of Government;Local Self Government;Road safety"),
+ ("Economics","Understanding Development: Perspectives, Measurement and Sustainability;Employment in India and Tamil Nadu;Money and Credit;Agriculture in Tamil Nadu;Migration")]
+SOC10=[("History","Outbreak of World War I and Its Aftermath;The World between two World Wars;World war II;The World after World War II;Social and Religious Reform Movements in the 19th Century;Early Revolts against British Rule in Tamil Nadu;Anti-Colonial Movements and the Birth of Nationalism;Nationalism: Gandhian Phase;Freedom Struggle in Tamil Nadu;Social Transformation in Tamil Nadu"),
+ ("Geography","India - Location, Relief and Drainage;Climate and Natural Vegetation of India;India - Agriculture;India - Resources and Industries;India - Population, Transport, Communication and Trade;Physical Geography of Tamil Nadu;Human Geography of Tamil Nadu"),
+ ("Civics","Indian Constitution;Central Government;State Government;India's Foreign Policy;India's International Relations"),
+ ("Economics","Gross Domestic Product and its Growth: an Introduction;Globalization and Trade;Food Security and Nutrition;Government and Taxes;Industrial Clusters in Tamil Nadu")]
+def soc(parts): return [(p.lower()+"-"+sl(t),p+": "+t) for p,ts in parts for t in ts.split(';')]
+def plain(ts): return [(sl(t),t) for t in ts]
+TB=lambda c,s,ed:{"title":f"Tamil Nadu State Board Standard {c} {s} (English Medium)","publisher":"Tamil Nadu Textbook and Educational Services Corporation","edition":ed,"sourceRef":"https://www.tntextbooks.in"}
+CLASSES={9:{"science":("Science",plain(SCI9),"அறிவியல்","2024"),"maths":("Mathematics",plain(MAT9),"கணிதம்","2025"),"social-science":("Social Science",soc(SOC9),"சமூக அறிவியல்","2025")},
+ 10:{"science":("Science",plain(SCI10),"அறிவியல்","2024"),"maths":("Mathematics",plain(MAT10),"கணிதம்","2025"),"social-science":("Social Science",soc(SOC10),"சமூக அறிவியல்","2025")}}

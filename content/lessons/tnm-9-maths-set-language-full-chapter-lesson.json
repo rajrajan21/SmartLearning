@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "set-language",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Set Language"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Asha sorted her class into the group of students who like cricket and the group who like football. \"Some are in both groups,\" she noticed."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "set",
+     "subset",
+     "power set",
+     "union",
+     "intersection",
+     "De Morgan's laws"
+    ],
+    "text": {
+     "en": "A set is a well-defined collection of objects. A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}. Sets are named by capital letters and their members are called elements, which belong to the set.\nThere are many types of sets. The empty set has no element, a finite set has a countable number of elements and an infinite set does not end. Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements.\nSet operations are the union (all elements of A or B), intersection (elements common to both), difference and complement. De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'. For two finite sets, n(A union B) = n(A) + n(B) - n(A intersect B)."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "A set is a well-defined collection of objects."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "set"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "subset"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Sets are named by capital letters and their members are called elements, which belong to the set."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "power set"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "There are many types of sets."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "union"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "The empty set has no element, a finite set has a countable number of elements and an infinite set does not end."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "intersection"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "De Morgan's laws"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Set operations are the union (all elements of A or B), intersection (elements common to both), difference and complement."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "set"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "subset"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "If n(A) = 10, n(B) = 8 and n(A intersect B) = 3, find n(A union B)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use n(A union B) = n(A) + n(B) - n(A intersect B)."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "10 + 8 - 3 = 15."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "So n(A union B) = 15."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says The empty set has one element. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "The empty set has no elements."
+     },
+     {
+      "en": "Its cardinality is 0."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-set40",
+     "r1-set41"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "A set is a well-defined collection."
+     },
+     {
+      "en": "Sets have roster, set-builder and descriptive forms."
+     },
+     {
+      "en": "A set with n elements has 2^n subsets."
+     },
+     {
+      "en": "n(A union B) = n(A) + n(B) - n(A intersect B)."
+     }
+    ]
+   }
+  ]
+ }
+}

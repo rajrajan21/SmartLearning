@@ -1,4 +1,7 @@
 import { Link } from "wouter";
+import { useActiveBoard } from "../lib/activeBoard";
+import { BoardChips } from "../components/BoardChips";
+import { lt } from "../lib/library";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { SearchBox } from "../components/SearchBox";
@@ -15,8 +18,16 @@ import { continueId, firstLessonHref, lessonsToday, pathNodes, recentLessons } f
 import { useLessonTopicIds } from "../lib/curriculum";
 import { useApp } from "../lib/useApp";
 import { AppFeed, DidYouKnow } from "../components/AppFeed";
+import { Reminder } from "../components/Reminder";
+import { DailyChallenge } from "../components/DailyChallenge";
+import { ProjectOfWeek } from "../components/ProjectOfWeek";
+import { PuzzleOfDay } from "../components/PuzzleOfDay";
 import { Rich } from "../components/Rich";
+import { TourSection } from "../components/TourSection";
 import { WaterCycle } from "../components/TryIt";
+import { gt } from "../lib/gk";
+import { lazy, Suspense } from "react";
+const GkTodayCards = lazy(() => import("./Gk").then((m) => ({ default: m.GkTodayCards }))); // the GK page code is loaded only when the cards are shown
 
 const COMING_BOARDS = [
   { code: "TNSB", en: "Tamil Nadu State Board", ta: "தமிழ்நாடு மாநிலப் பாடத்திட்டம்" },
@@ -25,7 +36,7 @@ const COMING_BOARDS = [
 
 export function Home() {
   const s = useSettings();
-  const board = s.get<string>("catalog.defaultBoard");
+  const board = useActiveBoard();
   const [attempt, retry] = useRetry();
   const state = useBoard(board, attempt);
   const open = new Set(s.get<number[]>("catalog.openClasses"));
@@ -55,6 +66,9 @@ export function Home() {
   if (mastery && s.get("mastery.progressPage") === true) quick.push({ href: "/progress", icon: "⭐", label: ui("myProgress", s.lang) });
   if (s.get("browse.explore.enabled") === true) quick.push({ href: "/explore", icon: "🎨", label: ui("navExplore", s.lang) });
   if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) quick.push({ href: "/notebook", icon: "📓", label: ui("navNotebook", s.lang) });
+  if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) quick.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang) });
+  if (s.get("feature.library") === true && s.get("library.nav.show") !== false) quick.push({ href: "/library", icon: "📖", label: lt("title", s.lang) });
+  if (s.get("feature.papers") === true && s.get("papers.home.show") !== false) quick.push({ href: "/papers", icon: "📝", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers" });
   if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} />;
   const lead = s.text("home.hero.lead").trim(), l1 = s.text("home.hero.line1").trim(), l2 = s.text("home.hero.line2").trim();
   const heroTitle = l1 || l2 ? `${lead ? `${lead}||` : ""}${l1}${l1 && l2 ? "|" : ""}${l2}` : s.text("home.hero.title");
@@ -86,6 +100,7 @@ export function Home() {
       )}
         </div>
       </div>
+      <TourSection where="hero" />
       {recent.length > 0 && (
         <section className="recent-row" aria-label={ui("recentTitle", s.lang)}>
           <h2>{ui("recentTitle", s.lang)}</h2>
@@ -119,6 +134,12 @@ export function Home() {
           {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
         </nav>
       )}
+      <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
+      <Reminder goalMet={doneToday >= goal} />
+      {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
+      <PuzzleOfDay />
+      <ProjectOfWeek />
+      <TourSection where="section" />
       {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
       {s.get("explore.tryIt.show") === true && <section className="paper-block"><WaterCycle /></section>}
       {mastery && s.get("mastery.homeCard") === true && s.get("mastery.revision.enabled") === true && due > 0 && (
@@ -137,12 +158,7 @@ export function Home() {
       {s.get("home.boardPicker.show") && (
         <section aria-labelledby="boards-h">
           <h2 id="boards-h">{ui("board", s.lang)}</h2>
-          <ul className="chips">
-            <li><span className="chip on" aria-current="true">CBSE</span></li>
-            {s.get("catalog.showComingSoon") && COMING_BOARDS.map((b) => (
-              <li key={b.code}><span className="chip off" aria-disabled="true">{s.lang === "ta" ? b.ta : b.en} · {ui("soon", s.lang)}</span></li>
-            ))}
-          </ul>
+          <BoardChips />
         </section>
       )}
       {s.get("home.classPicker.show") && (

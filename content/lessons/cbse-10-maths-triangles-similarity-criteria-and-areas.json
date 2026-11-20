@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "triangles",
+  "topic": "similarity-criteria-and-areas",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Criteria for similarity of triangles"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Three quick tests"
+        },
+        "text": {
+          "en": "To prove two triangles similar you do not need to check everything. A few conditions are enough, as in congruence."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "4 : 9",
+          "AA",
+          "AAA",
+          "RHS note",
+          "SAS",
+          "SSS",
+          "area ratio = (side ratio)^2",
+          "vertex order"
+        ],
+        "text": {
+          "en": "AAA criterion: if the corresponding angles of two triangles are equal, the triangles are similar and their sides are proportional.\nAA criterion: if two angles of one triangle equal two angles of the other, the third angles are equal too, so the triangles are similar.\nSSS criterion: if the three pairs of corresponding sides are proportional, the corresponding angles are equal and the triangles are similar.\nSAS criterion: if one angle is equal and the sides including it are proportional, the triangles are similar.\nThe textbook's note adds an RHS criterion: in right triangles, if the hypotenuse and one side are proportional, the triangles are similar.\nAlways write the vertices in the matching order when you name similar triangles, for example triangle ABC is similar to triangle PQR.\nWhen triangles are similar, the ratio of their areas equals the square of the ratio of corresponding sides.\nSo if sides are in the ratio 2 : 3, the areas are in the ratio 4 : 9."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "AAA criterion: if the corresponding angles of two triangles are equal, the triangles are similar and their sides are proportional."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "AAA"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "AA criterion: if two angles of one triangle equal two angles of the other, the third angles are equal too, so the triangles are similar."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "AA"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "SSS criterion: if the three pairs of corresponding sides are proportional, the corresponding angles are equal and the triangles are similar."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "SSS"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "SAS criterion: if one angle is equal and the sides including it are proportional, the triangles are similar."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "SAS"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The textbook's note adds an RHS criterion: in right triangles, if the hypotenuse and one side are proportional, the triangles are similar."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "RHS note"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Always write the vertices in the matching order when you name similar triangles, for example triangle ABC is similar to triangle PQR."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "vertex order"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "When triangles are similar, the ratio of their areas equals the square of the ratio of corresponding sides."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "area ratio = (side ratio)^2"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "So if sides are in the ratio 2 : 3, the areas are in the ratio 4 : 9."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "4 : 9"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Two similar triangles have areas 16 cm squared and 36 cm squared. If a side of the smaller is 4 cm, find the matching side of the larger."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Ratio of areas = 16/36 = 4/9 = (side ratio)^2."
+            },
+            "why": {
+              "en": "Areas go as squares."
+            }
+          },
+          {
+            "text": {
+              "en": "Side ratio = 2/3, so 4/x = 2/3."
+            },
+            "why": {
+              "en": "Take the square root."
+            }
+          },
+          {
+            "text": {
+              "en": "x = 6 cm."
+            },
+            "why": {
+              "en": "Cross multiply."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "List the similarity criteria for triangles."
+        },
+        "requiredIdeas": [
+          {
+            "en": "AA / AAA"
+          },
+          {
+            "en": "SSS and SAS"
+          },
+          {
+            "en": "Area ratio is square of side ratio"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the ratio of sides as the ratio of areas"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sc1",
+          "r1-sc2",
+          "r2-sc3",
+          "r2-sc4",
+          "r2-sc5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "AA, SSS and SAS are the criteria for similar triangles."
+          },
+          {
+            "en": "Similar triangles have corresponding angles equal and sides proportional."
+          },
+          {
+            "en": "Area ratio equals the square of the ratio of corresponding sides."
+          }
+        ]
+      }
+    ]
+  }
+}

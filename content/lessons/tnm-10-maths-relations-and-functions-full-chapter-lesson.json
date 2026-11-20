@@ -1,0 +1,232 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "relations-and-functions",
+ "topic": "full-chapter-lesson",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Relations and Functions"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Asha matched each student in her class to a roll number. \"Each student gets exactly one number,\" said her teacher, \"that is a function.\""
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "Cartesian product",
+     "relation",
+     "function",
+     "domain and range",
+     "one-one function",
+     "bijection"
+    ],
+    "text": {
+     "en": "The Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B. If A has m elements and B has n elements, then A x B has mn elements. A relation from A to B is a subset of A x B.\nA function from A to B is a relation in which every element of A has exactly one image in B. A is the domain, B the codomain and the set of actual images the range. The vertical line test checks whether a graph is a function.\nTypes of functions are one-one, many-one, onto, into and bijection. A bijection is both one-one and onto. The horizontal line test checks for a one-one function. Functions can be shown by an arrow diagram, a table, a set of ordered pairs or a graph, and special functions include the identity, constant and real-valued functions."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "The Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Cartesian product"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "If A has m elements and B has n elements, then A x B has mn elements."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "relation"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "A relation from A to B is a subset of A x B."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "function"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "A function from A to B is a relation in which every element of A has exactly one image in B."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "domain and range"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "A is the domain, B the codomain and the set of actual images the range."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "one-one function"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The vertical line test checks whether a graph is a function."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "bijection"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Types of functions are one-one, many-one, onto, into and bijection."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Cartesian product"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "A bijection is both one-one and onto."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "relation"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "If n(A) = 3 and n(B) = 4, how many elements are in A x B?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use n(A x B) = n(A) x n(B)."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "3 x 4 = 12."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "So A x B has 12 elements."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says In a function, one element of the domain can have two images. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Each element has exactly one image."
+     },
+     {
+      "en": "Otherwise it is only a relation."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-rel710",
+     "r1-rel711"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "A x B has mn elements."
+     },
+     {
+      "en": "A function gives exactly one image."
+     },
+     {
+      "en": "Bijection is one-one and onto."
+     },
+     {
+      "en": "Vertical line test checks a function."
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,229 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "areas-related-to-circles",
+ "topic": "arc-length-and-sector-area",
+ "status": "published",
+ "title": {
+  "en": "Circle measures"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Measures of a circle",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "ci",
+   "cx": 250,
+   "cy": 250,
+   "r": 120,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "sector",
+   "id": "sec",
+   "cx": 250,
+   "cy": 250,
+   "r": 120,
+   "from": 0,
+   "to": 90,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "th",
+   "x": 280,
+   "y": 215,
+   "text": "θ = 90°",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r",
+   "x": 250,
+   "y": 395,
+   "text": "radius r",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f1",
+   "x": 640,
+   "y": 120,
+   "text": "Circumference = 2πr",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f2",
+   "x": 640,
+   "y": 170,
+   "text": "Area = πr²",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f3",
+   "x": 640,
+   "y": 240,
+   "text": "Arc length = (θ/360) × 2πr",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "f4",
+   "x": 640,
+   "y": 290,
+   "text": "Sector area = (θ/360) × πr²",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e",
+   "x": 640,
+   "y": 365,
+   "text": "r = 7 cm, θ = 90°, π = 22/7",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 640,
+   "y": 400,
+   "text": "arc length = 11 cm",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 640,
+   "y": 435,
+   "text": "sector area = 38.5 cm²",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The distance around a circle is its circumference, 2 pi r. The space inside is its area, pi r squared."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ci",
+     "at": 0.1,
+     "ms": 1200
+    },
+    {
+     "do": "write",
+     "target": "r",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "f1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "f2",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A sector is a slice of the circle between two radii. If its angle is theta degrees, it is theta over 360 of the whole circle."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "sec",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "th",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "So the arc length is theta over 360 times 2 pi r, and the area of the sector is theta over 360 times pi r squared."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "f3",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "f4",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "For radius 7 centimetres and angle 90 degrees, a quarter of the circle, the arc is 11 centimetres and the sector area is 38 point 5 square centimetres."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "e",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "e1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "e2",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

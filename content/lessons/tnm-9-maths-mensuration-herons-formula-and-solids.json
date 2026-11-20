@@ -1,0 +1,215 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "mensuration",
+  "topic": "herons-formula-and-solids",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Heron's formula, cuboid and cube"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Painting a room"
+        },
+        "text": {
+          "en": "To buy paint you need the area of the walls; to fill a tank you need its volume. Heron's formula gives the area of a triangle from its three sides alone, and the cuboid and cube formulae give surface areas and volumes."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "Heron's formula",
+          "13, 14, 15",
+          "cuboid",
+          "cube",
+          "diagonal",
+          "units"
+        ],
+        "text": {
+          "en": "Heron's formula: area of a triangle with sides a, b, c is the square root of [s(s - a)(s - b)(s - c)] where s = (a + b + c)/2.\nFor a triangle with sides 13, 14, 15: s = 21, area = root(21 x 8 x 7 x 6) = 84 square units.\nCuboid of length l, breadth b, height h: total surface area = 2(lb + bh + hl); lateral surface area = 2h(l + b); volume = l x b x h.\nCube of side a: total surface area = 6 a squared, lateral = 4 a squared, volume = a cubed.\nThe diagonal of a cuboid is root(l^2 + b^2 + h^2).\nVolume is in cubic units, area in square units; litres: 1000 cubic cm = 1 litre."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Heron's formula: area of a triangle with sides a, b, c is the square root of [s(s - a)(s - b)(s - c)] where s = (a + b + c)/2."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Heron's formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "For a triangle with sides 13, 14, 15: s = 21, area = root(21 x 8 x 7 x 6) = 84 square units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "13, 14, 15"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Cuboid of length l, breadth b, height h: total surface area = 2(lb + bh + hl); lateral surface area = 2h(l + b); volume = l x b x h."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cuboid"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Cube of side a: total surface area = 6 a squared, lateral = 4 a squared, volume = a cubed."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cube"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The diagonal of a cuboid is root(l^2 + b^2 + h^2)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "diagonal"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Volume is in cubic units, area in square units; litres: 1000 cubic cm = 1 litre."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "units"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area of a triangle with sides 7, 8 and 9 cm."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "s = (7 + 8 + 9)/2 = 12."
+            },
+            "why": {
+              "en": "Semi-perimeter."
+            }
+          },
+          {
+            "text": {
+              "en": "Area = root(12 x 5 x 4 x 3) = root 720."
+            },
+            "why": {
+              "en": "s - a = 5, s - b = 4, s - c = 3."
+            }
+          },
+          {
+            "text": {
+              "en": "Area = 12 root 5, about 26.83 square cm."
+            },
+            "why": {
+              "en": "720 = 144 x 5."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Write Heron's formula and the volume and surface-area formulae of a cuboid."
+        },
+        "requiredIdeas": [
+          {
+            "en": "s is half the perimeter"
+          },
+          {
+            "en": "2(lb + bh + hl)"
+          },
+          {
+            "en": "l x b x h"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using perimeter instead of semi-perimeter"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m9ma809-1",
+          "r1-m9ma809-2",
+          "r1-m9ma809-3",
+          "r2-m9ma809-4",
+          "r2-m9ma809-5",
+          "r2-m9ma809-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Heron: area = root[s(s-a)(s-b)(s-c)]."
+          },
+          {
+            "en": "Cuboid: TSA 2(lb + bh + hl), V = lbh."
+          },
+          {
+            "en": "Cube: TSA 6a^2, V = a^3."
+          },
+          {
+            "en": "1000 cubic cm = 1 litre."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "matrices-basics",
+  "questions": [
+    {
+      "key": "r1-m10ma730-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The order of a matrix with 2 rows and 3 columns is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "2 x 3"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "3 x 2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Rows come first"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "5"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is the total of both numbers"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Order is rows x columns."
+      }
+    },
+    {
+      "key": "r1-m10ma730-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "A matrix with equal rows and columns is a square matrix."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "m = n."
+      }
+    },
+    {
+      "key": "r1-m10ma730-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "The number of entries in a 3 x 4 matrix is"
+      },
+      "answer": 12,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "3 x 4."
+      }
+    },
+    {
+      "key": "r2-m10ma730-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "We can add a 2 x 2 matrix and a 2 x 3 matrix."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "Their orders differ."
+      }
+    },
+    {
+      "key": "r2-m10ma730-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If A = [[2, 3]] and k = 3, the sum of the entries of kA is"
+      },
+      "answer": 15,
+      "tolerance": 0,
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "kA = [[6, 9]], and 6 + 9 = 15."
+      }
+    },
+    {
+      "key": "r2-m10ma730-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "If A is 2 x 3 and B is 3 x 2, AB has order"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "2 x 2"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "3 x 3"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Take rows of A and columns of B"
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "2 x 3"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "That is the order of A"
+          }
+        }
+      ],
+      "explanation": {
+        "en": "m x p = 2 x 2."
+      }
+    },
+    {
+      "key": "r3-m10ma730-7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "AB is always equal to BA."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "Matrix multiplication is generally not commutative."
+      }
+    },
+    {
+      "key": "r3-m10ma730-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "A matrix with 1s on the main diagonal and 0s elsewhere is the ____ matrix."
+      },
+      "accepted": [
+        "identity"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "By definition."
+      }
+    }
+  ]
+}

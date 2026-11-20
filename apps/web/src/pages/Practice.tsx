@@ -4,7 +4,8 @@ import type { PublicQuestion } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui, type UiKey } from "../lib/i18n";
 import { useBoard, useRetry, useTopic } from "../lib/curriculum";
-import { pickRound, saveRound, starsFor, usePractice, usePracticeResults } from "../lib/practice";
+import { TopicTabs } from "../components/TopicTabs";
+import { pickRound, shuffled, saveRound, starsFor, usePractice, usePracticeResults } from "../lib/practice";
 import { QuestionCard } from "../components/QuestionCard";
 import { subjectVar } from "../lib/theme";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
@@ -39,6 +40,7 @@ export function PracticePage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={crumbs} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
+      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="practice" has={{ learn: true, practice: true }} />
       {round === null ? (
         <>
           <ul className="rounds">
@@ -54,8 +56,11 @@ export function PracticePage() {
               );
             })}
           </ul>
+          {s.get("practice.diagnostic.enabled") === true && <p><button type="button" className="btn ghost" onClick={() => setRound(0)}>{ui("quickCheck", s.lang)}</button></p>}
           <p><Link className="link" href={topicHref}>← {s.name(d.topic.name)}</Link></p>
         </>
+      ) : round === 0 ? (
+        <QuickCheck key={run} pool={set.data.questions} onExit={() => setRound(null)} onStart={(r) => setRound(r)} />
       ) : (
         <Round key={`${round}-${run}`} topicId={set.data.topicId} round={round} pool={set.data.questions} per={per} pass={pass} nextRound={rounds[rounds.indexOf(round) + 1] ?? null}
           onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} />
@@ -71,6 +76,7 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
   const [i, setI] = useState(0);
   const [right, setRight] = useState(0);
   const [missed, setMissed] = useState<PublicQuestion[]>([]);
+  const [streak, setStreak] = useState(0);
   const [first, setFirst] = useState(true); // the saved score is the first pass through the round; retries are for learning
   const [score, setScore] = useState<{ pct: number; stars: number; got: number; total: number } | null>(null);
   const total = list.length;
@@ -84,6 +90,18 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
       setScore({ pct, stars: starsFor(pct, pass), got: nr, total });
       void res;
     }
+    // adaptive difficulty: swap the NEXT unseen question for an easier or harder one after a streak
+    const st = correct ? Math.max(1, streak + 1) : Math.min(-1, streak - 1);
+    let nextStreak = st;
+    if (first && s.get("practice.adaptive.enabled") === true && i + 1 < total) {
+      const want = st <= -s.get<number>("practice.adaptive.wrongStreak") ? round - 1 : st >= s.get<number>("practice.adaptive.rightStreak") ? round + 1 : 0;
+      if (want >= 1 && want <= 4) {
+        const used = new Set(list.map((x) => x.id));
+        const swap = shuffled(pool.filter((x) => x.round === want && !used.has(x.id)))[0];
+        if (swap) { setList((l) => l.map((x, k) => (k === i + 1 ? swap : x))); nextStreak = 0; }
+      }
+    }
+    setStreak(nextStreak);
     setI(i + 1);
   };
 
@@ -123,6 +141,42 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
       <p className="small step-count">{ui("roundWord", s.lang)} {round} · {ui("questionOf", s.lang)} {i + 1} {ui("ofWord", s.lang)} {total}</p>
       <div className="meter" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={i}><span style={{ width: `${(i / total) * 100}%` }} /></div>
       <QuestionCard key={`${q.id}-${i}-${first}`} q={q} nextLabel={i === total - 1 ? ui("seeResults", s.lang) : undefined} onDone={(r) => answered(q, r.correct)} />
+    </div>
+  );
+}
+
+/** A short untimed mix from every round; it is not saved. The result says which round to start at. */
+function QuickCheck({ pool, onExit, onStart }: { pool: PublicQuestion[]; onExit: () => void; onStart: (r: number) => void }) {
+  const s = useSettings();
+  const n = s.get<number>("practice.diagnostic.count");
+  const [list] = useState<PublicQuestion[]>(() => {
+    const by = [1, 2, 3, 4].map((r) => shuffled(pool.filter((q) => q.round === r)));
+    const out: PublicQuestion[] = [];
+    while (out.length < Math.min(n, pool.length)) { let moved = false; for (const g of by) { const q = g.shift(); if (q && out.length < n) { out.push(q); moved = true; } } if (!moved) break; }
+    return out.sort((a, b) => a.round - b.round);
+  });
+  const [i, setI] = useState(0);
+  const [res, setRes] = useState<Record<number, [number, number]>>({});
+  const done = i >= list.length;
+  const rounds = [1, 2, 3, 4].filter((r) => pool.some((q) => q.round === r));
+  if (done) {
+    const need = s.get<number>("practice.passMark");
+    const at = rounds.find((r) => { const [ok, all] = res[r] ?? [0, 0]; return all > 0 && (ok / all) * 100 < need; });
+    return (
+      <div className="roundend" aria-live="polite">
+        <p className="lead">{at ? ui("startAtRound", s.lang).replace("{n}", String(at)) : ui("startAtChallenge", s.lang)}</p>
+        <div className="actions">
+          <button type="button" className="btn" onClick={() => onStart(at ?? rounds[rounds.length - 1]!)}>{ui("startRound", s.lang)}</button>
+          <button type="button" className="btn ghost" onClick={onExit}>{ui("allRounds", s.lang)}</button>
+        </div>
+      </div>
+    );
+  }
+  const q = list[i]!;
+  return (
+    <div>
+      <p className="small step-count">{ui("quickCheck", s.lang)} · {ui("questionOf", s.lang)} {i + 1} {ui("ofWord", s.lang)} {list.length}</p>
+      <QuestionCard key={q.id} q={q} nextLabel={i === list.length - 1 ? ui("seeResults", s.lang) : undefined} onDone={(r) => { setRes((m) => { const [ok, all] = m[q.round] ?? [0, 0]; return { ...m, [q.round]: [ok + (r.correct ? 1 : 0), all + 1] }; }); setI(i + 1); }} />
     </div>
   );
 }

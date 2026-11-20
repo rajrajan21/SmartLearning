@@ -1,0 +1,235 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "geometry",
+  "topic": "ceva-and-menelaus-theorems",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Concurrency theorems of Ceva and Menelaus"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Italian engineer's theorem"
+        },
+        "text": {
+          "en": "When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "cevian",
+          "Ceva's theorem",
+          "medians",
+          "Menelaus theorem",
+          "product of lengths",
+          "applications"
+        ],
+        "text": {
+          "en": "A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians.\nCeva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1.\nMedians are concurrent because each ratio equals 1; the point of concurrence is the centroid.\nMenelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths.\nWith ordinary lengths the product for collinear points is 1.\nCeva is used to show that the angle bisectors, medians and altitudes are concurrent."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-ceva-and-menelaus-theorems.svg",
+        "altText": {
+          "en": "A triangle with three concurrent cevians and another triangle with a line cutting its sides"
+        },
+        "caption": {
+          "en": "Ceva and Menelaus"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "cevian"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Ceva's theorem"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "medians"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Menelaus theorem"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "With ordinary lengths the product for collinear points is 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "product of lengths"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Ceva is used to show that the angle bisectors, medians and altitudes are concurrent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "applications"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, AB = 13, AC = 14, BC = 15. Points D, E, F lie on BC, CA, AB with AF/FB = 2/5 and CE/EA = 5/8. If AD, BE, CF are concurrent, find BD and DC."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "By Ceva: (BD/DC) x (CE/EA) x (AF/FB) = 1."
+            },
+            "why": {
+              "en": "Insert the given ratios."
+            }
+          },
+          {
+            "text": {
+              "en": "(BD/DC) x (5/8) x (2/5) = 1 gives (BD/DC) x (1/4) = 1."
+            },
+            "why": {
+              "en": "10/40 = 1/4."
+            }
+          },
+          {
+            "text": {
+              "en": "So BD = 4 DC. Also BD + DC = 15."
+            },
+            "why": {
+              "en": "BC = 15."
+            }
+          },
+          {
+            "text": {
+              "en": "DC = 3 and BD = 12."
+            },
+            "why": {
+              "en": "Check: 12/3 = 4."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Trees P, Q, R are on lines BC, AC, AB with BP = 2, PC = 6, CQ = 3, QA = 5, RA = 10, RB = 2. Are they collinear?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Product = (2/6)(3/5)(10/2)"
+          },
+          {
+            "en": "= (1/3)(3/5)(5) = 1"
+          },
+          {
+            "en": "The product is 1, so by Menelaus they are collinear"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using Ceva for collinear points"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma886-1",
+          "r1-m10ma886-2",
+          "r1-m10ma886-3",
+          "r2-m10ma886-4",
+          "r2-m10ma886-5",
+          "r2-m10ma886-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Ceva: product of three ratios = 1 for concurrency."
+          },
+          {
+            "en": "Menelaus: product = 1 (lengths) for collinearity."
+          },
+          {
+            "en": "Medians satisfy Ceva trivially."
+          },
+          {
+            "en": "Centroid is the meeting point of medians."
+          }
+        ]
+      }
+    ]
+  }
+}

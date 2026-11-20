@@ -1,0 +1,249 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "introduction-to-trigonometry",
+  "topic": "trigonometric-ratios",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Trigonometric ratios"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Measuring the unreachable"
+        },
+        "text": {
+          "en": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "3-4-5 triangle",
+          "cosec, sec, cot",
+          "depend on the angle",
+          "one ratio gives all",
+          "opposite, adjacent, hypotenuse",
+          "sin, cos <= 1",
+          "sin, cos, tan",
+          "tan = sin/cos"
+        ],
+        "text": {
+          "en": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC.\nsin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent.\nThe reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.\nAlso tan A = sin A by cos A, and cot A = cos A by sin A.\nThese ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides.\nExample: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4.\nThe values of sin A and cos A are never more than 1. The values of sec A and cosec A are at least 1.\nIf one ratio is known, you can find all the others by drawing the right triangle."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c10-trig-ratios.svg",
+        "altText": {
+          "en": "Right triangle with opposite, adjacent and hypotenuse marked"
+        },
+        "caption": {
+          "en": "Trigonometric ratios"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "opposite, adjacent, hypotenuse"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin, cos, tan"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cosec, sec, cot"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Also tan A = sin A by cos A, and cot A = cos A by sin A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "tan = sin/cos"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "depend on the angle"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "3-4-5 triangle"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The values of sin A and cos A are never more than 1. The values of sec A and cosec A are at least 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sin, cos <= 1"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "If one ratio is known, you can find all the others by drawing the right triangle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "one ratio gives all"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "If 15 cot A = 8, find sin A and sec A."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "cot A = 8/15 = adjacent/opposite, so adjacent = 8 and opposite = 15."
+            },
+            "why": {
+              "en": "Draw the triangle."
+            }
+          },
+          {
+            "text": {
+              "en": "Hypotenuse = root(64 + 225) = 17, so sin A = 15/17."
+            },
+            "why": {
+              "en": "Pythagoras."
+            }
+          },
+          {
+            "text": {
+              "en": "sec A = hypotenuse/adjacent = 17/8."
+            },
+            "why": {
+              "en": "Reciprocal of cos A."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Define the six trigonometric ratios."
+        },
+        "requiredIdeas": [
+          {
+            "en": "sin, cos, tan from sides"
+          },
+          {
+            "en": "cosec, sec, cot are reciprocals"
+          },
+          {
+            "en": "They depend only on the angle"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Mixing up opposite and adjacent"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-tr1",
+          "r1-tr2",
+          "r2-tr3",
+          "r2-tr4",
+          "r2-tr5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "sin = opp/hyp, cos = adj/hyp, tan = opp/adj."
+          },
+          {
+            "en": "cosec, sec, cot are reciprocals of sin, cos, tan."
+          },
+          {
+            "en": "One ratio is enough to find the rest."
+          }
+        ]
+      }
+    ]
+  }
+}

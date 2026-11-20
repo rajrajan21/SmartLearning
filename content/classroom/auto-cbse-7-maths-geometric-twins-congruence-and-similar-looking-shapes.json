@@ -1,0 +1,133 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "geometric-twins",
+ "topic": "congruence-and-similar-looking-shapes",
+ "status": "published",
+ "title": {
+  "en": "Congruent shapes"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Congruent shapes",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "t1",
+   "points": [
+    [
+     150,
+     380
+    ],
+    [
+     380,
+     380
+    ],
+    [
+     300,
+     190
+    ]
+   ],
+   "fill": "#BBDEFB",
+   "stroke": "water",
+   "width": 5
+  },
+  {
+   "kind": "poly",
+   "id": "t2",
+   "points": [
+    [
+     520,
+     380
+    ],
+    [
+     750,
+     380
+    ],
+    [
+     670,
+     190
+    ]
+   ],
+   "fill": "#BBDEFB",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "eq",
+   "x": 450,
+   "y": 450,
+   "text": "Same shape and same size",
+   "size": 34,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Look at these two triangles."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "t1",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "t2",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "If we could pick one up and place it on the other, it would fit exactly, with every side and every angle matching. We say the shapes are congruent."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "t1",
+     "at": 0.3,
+     "color": "good"
+    },
+    {
+     "do": "pulse",
+     "target": "t2",
+     "at": 0.5,
+     "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Congruent shapes have the same shape and the same size."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "eq",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
+}

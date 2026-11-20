@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "science",
+  "chapter": "electricity",
+  "topic": "current-potential-and-ohms-law",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Current, potential difference and Ohm's law"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Water in pipes"
+        },
+        "text": {
+          "en": "Electric current flowing in a wire is like water flowing in a pipe. A battery supplies the push, called potential difference."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "I = Q/t",
+          "R = rho L / A",
+          "V = IR",
+          "V = W/Q",
+          "circuit symbols",
+          "direction",
+          "resistance",
+          "resistivity"
+        ],
+        "text": {
+          "en": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series.\nConventional current flows from positive to negative terminal; electrons flow the other way.\nPotential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a voltmeter connected in parallel.\nOhm's law: at constant temperature, the current through a conductor is proportional to the potential difference, V = IR.\nResistance R is the property that opposes the flow of current. Its unit is the ohm.\nResistance R = rho x L / A. It increases with length, decreases with area of cross-section and depends on the material (resistivity rho).\nMetals have low resistivity, alloys have higher resistivity and insulators very high. Nichrome is used in heaters.\nA circuit diagram uses symbols for cell, switch, bulb, resistor, ammeter and voltmeter."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "I = Q/t"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Conventional current flows from positive to negative terminal; electrons flow the other way."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "direction"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Potential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a voltmeter connected in parallel."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "V = W/Q"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Ohm's law: at constant temperature, the current through a conductor is proportional to the potential difference, V = IR."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "V = IR"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Resistance R is the property that opposes the flow of current. Its unit is the ohm."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "resistance"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Resistance R = rho x L / A. It increases with length, decreases with area of cross-section and depends on the material (resistivity rho)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "R = rho L / A"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Metals have low resistivity, alloys have higher resistivity and insulators very high. Nichrome is used in heaters."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "resistivity"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A circuit diagram uses symbols for cell, switch, bulb, resistor, ammeter and voltmeter."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "circuit symbols"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A current of 0.5 A flows through a 20 ohm resistor. Find the potential difference."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "V = IR."
+            },
+            "why": {
+              "en": "Ohm's law."
+            }
+          },
+          {
+            "text": {
+              "en": "V = 0.5 x 20."
+            },
+            "why": {
+              "en": "Substitute."
+            }
+          },
+          {
+            "text": {
+              "en": "V = 10 volts."
+            },
+            "why": {
+              "en": "Answer with unit."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State Ohm's law and what affects resistance."
+        },
+        "requiredIdeas": [
+          {
+            "en": "V = IR"
+          },
+          {
+            "en": "Length, area, material"
+          },
+          {
+            "en": "Ammeter in series; voltmeter in parallel"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Connecting a voltmeter in series"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-eo1",
+          "r1-eo2",
+          "r2-eo3",
+          "r2-eo4",
+          "r2-eo5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "I = Q/t; V = W/Q; V = IR."
+          },
+          {
+            "en": "Resistance depends on length, area and material: R = rho L/A."
+          },
+          {
+            "en": "Ammeter in series; voltmeter in parallel."
+          }
+        ]
+      }
+    ]
+  }
+}

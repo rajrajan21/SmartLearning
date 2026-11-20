@@ -1,0 +1,251 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "nervous-system",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "A neuron"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "A neuron",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "d1",
+   "x1": 130,
+   "y1": 160,
+   "x2": 250,
+   "y2": 235,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "d2",
+   "x1": 120,
+   "y1": 250,
+   "x2": 250,
+   "y2": 250,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "d3",
+   "x1": 130,
+   "y1": 340,
+   "x2": 250,
+   "y2": 270,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "cb",
+   "cx": 300,
+   "cy": 250,
+   "r": 55,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "nu",
+   "cx": 300,
+   "cy": 250,
+   "r": 18,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 355,
+   "y1": 250,
+   "x2": 700,
+   "y2": 250,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "rect",
+   "id": "tm",
+   "x": 700,
+   "y": 225,
+   "w": 70,
+   "h": 50,
+   "rx": 8,
+   "fill": "#BBDEFB",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 140,
+   "y": 130,
+   "text": "dendrites",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 300,
+   "y": 340,
+   "text": "cell body (nucleus)",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 530,
+   "y": 225,
+   "text": "axon",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 735,
+   "y": 305,
+   "text": "axon terminal",
+   "size": 22,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "dir",
+   "x1": 420,
+   "y1": 400,
+   "x2": 640,
+   "y2": 400,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "l5",
+   "x": 530,
+   "y": 435,
+   "text": "the message travels this way",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The nervous system is made of nerve cells called neurons. Each neuron has a cell body, which contains the nucleus."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "cb",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "nu",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Short branches called dendrites receive messages from other cells and pass them to the cell body."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "d3",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A long fibre, the axon, carries the message away from the cell body to the axon terminal, which passes it to the next cell."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "tm",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "dir",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "l5",
+     "at": 0.85
+    }
+   ]
+  }
+ ]
+}

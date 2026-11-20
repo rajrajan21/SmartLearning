@@ -1,0 +1,224 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "science",
+ "chapter": "ch04-electricity-magnetic-and-heating-effects",
+ "topic": "electricity-magnetic-and-heating-effects",
+ "status": "published",
+ "title": {
+  "en": "Magnets"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Poles of a magnet",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "mn",
+   "x": 250,
+   "y": 200,
+   "w": 400,
+   "h": 90,
+   "rx": 6,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "mnN",
+   "x": 250,
+   "y": 200,
+   "w": 200,
+   "h": 90,
+   "rx": 6,
+   "fill": "#EF5350",
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "rect",
+   "id": "mnS",
+   "x": 450,
+   "y": 200,
+   "w": 200,
+   "h": 90,
+   "rx": 6,
+   "fill": "#42A5F5",
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "nn",
+   "x": 350,
+   "y": 260,
+   "text": "N",
+   "size": 60,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ss",
+   "x": 550,
+   "y": 260,
+   "text": "S",
+   "size": 60,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "at",
+   "x1": 250,
+   "y1": 380,
+   "x2": 440,
+   "y2": 380,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "arrow",
+   "id": "at2",
+   "x1": 650,
+   "y1": 380,
+   "x2": 460,
+   "y2": 380,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "att",
+   "x": 450,
+   "y": 430,
+   "text": "Unlike poles attract",
+   "size": 28,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "rep",
+   "x": 450,
+   "y": 120,
+   "text": "Like poles repel",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "bar-magnet-filings",
+   "alt": "Iron filings showing the field of a magnet",
+   "caption": "Iron filings around a magnet"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A magnet has two ends, called poles. One is the north pole and the other is the south pole."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "mnN",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "mnS",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "nn",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "ss",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The north pole of one magnet pulls the south pole of another towards it. Unlike poles attract each other."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "at",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "at2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "att",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "But two north poles, or two south poles, push each other away. Like poles repel."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "rep",
+     "at": 0.3
+    },
+    {
+     "do": "pulse",
+     "target": "mn",
+     "at": 0.3,
+     "color": "warm"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. Iron filings showing the field of a magnet. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

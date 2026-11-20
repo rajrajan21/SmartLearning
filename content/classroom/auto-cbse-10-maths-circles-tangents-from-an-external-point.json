@@ -1,0 +1,294 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "circles",
+ "topic": "tangents-from-an-external-point",
+ "status": "published",
+ "title": {
+  "en": "Tangent to a circle"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Tangent to a circle",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "ci",
+   "cx": 330,
+   "cy": 265,
+   "r": 140,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "ce",
+   "cx": 330,
+   "cy": 265,
+   "r": 5,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lo",
+   "x": 314,
+   "y": 291,
+   "text": "O",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "rad",
+   "x1": 330,
+   "y1": 265,
+   "x2": 437,
+   "y2": 175,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "cp",
+   "cx": 437,
+   "cy": 175,
+   "r": 7,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "tan",
+   "x1": 353,
+   "y1": 75,
+   "x2": 521,
+   "y2": 275,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "lp",
+   "x": 449,
+   "y": 159,
+   "text": "P",
+   "size": 24,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "rp",
+   "x": 560,
+   "y": 120,
+   "text": "tangent: touches at one point",
+   "size": 22,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "pr",
+   "x": 40,
+   "y": 90,
+   "text": "radius ⟂ tangent at P",
+   "size": 22,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "circle",
+   "id": "q",
+   "cx": 690,
+   "cy": 265,
+   "r": 7,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lq",
+   "x": 706,
+   "y": 273,
+   "text": "Q",
+   "size": 24,
+   "color": "warm",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "q1",
+   "x1": 690,
+   "y1": 265,
+   "x2": 384,
+   "y2": 136,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "q2",
+   "x1": 690,
+   "y1": 265,
+   "x2": 384,
+   "y2": 394,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "eq",
+   "x": 700,
+   "y": 430,
+   "text": "QA = QB",
+   "size": 28,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A tangent is a line that touches a circle at exactly one point, called the point of contact. Here the tangent touches the circle at P."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ci",
+     "at": 0.1,
+     "ms": 1200
+    },
+    {
+     "do": "draw",
+     "target": "ce",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "lo",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "tan",
+     "at": 0.55
+    },
+    {
+     "do": "draw",
+     "target": "cp",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "lp",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "rp",
+     "at": 0.85
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The radius drawn to the point of contact is perpendicular to the tangent."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "rad",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "pr",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "From a point outside the circle we can draw two tangents. The two tangent segments are equal in length."
+   },
+   "actions": [
+    {
+     "do": "hide",
+     "target": "tan",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "rp",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "pr",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "rad",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "cp",
+     "at": 0.05
+    },
+    {
+     "do": "hide",
+     "target": "lp",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "q",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lq",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "q1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "q2",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "eq",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

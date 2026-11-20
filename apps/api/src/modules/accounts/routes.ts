@@ -59,6 +59,7 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
     const v = await settings.all(); const max = Number(v["accounts.maxClassesPerChild"] ?? 3);
     if (1 + b.data.child.extraClasses.length > max) return err(res, 400, "bad_request", `A child can study up to ${max} classes.`);
     if (v["accounts.parentEmails"] !== true) { b.data.fatherEmail = undefined; b.data.motherEmail = undefined; }
+    b.data.child.boardCode = await boardFor(b.data.child.boardCode);
     const { token, me } = await svc.register(b.data, l);
     setCookie(res, token, l.sessionDays); res.status(201).json(me);
   }));
@@ -105,13 +106,24 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
     res.json(await svc.me(session));
   }));
 
+  // Which board a child is on: the parent's pick when the admin allows choosing (and lists that board), else the site's board (CBSE unless the admin changed it).
+  type Board = "CBSE" | "TNSTATE" | "TNMATRIC";
+  const boardFor = async (want?: string): Promise<Board> => {
+    const v = await settings.all();
+    const fallback = String(v["catalog.defaultBoard"] ?? "CBSE") as Board;
+    if (v["accounts.child.chooseBoard"] !== true) return fallback;
+    const on: Record<string, boolean> = { CBSE: v["accounts.child.board.cbse"] !== false, TNSTATE: v["accounts.child.board.tnstate"] === true, TNMATRIC: v["accounts.child.board.tnmatric"] === true };
+    return want && on[want] ? (want as Board) : fallback;
+  };
   r.post("/children", needSession, parentOnly, guard(async (req, res) => {
     const b = ChildInput.safeParse(req.body); if (!b.success) return bad(res, b.error);
+    b.data.boardCode = await boardFor(b.data.boardCode);
     res.status(201).json(await svc.addChild(auth(res).session, b.data, await limitsOf(settings)));
   }));
   r.put("/children/:id", needSession, parentOnly, guard(async (req, res) => {
     const id = z.string().uuid().safeParse(req.params.id), b = ChildInput.safeParse(req.body);
     if (!id.success || !b.success) return err(res, 400, "bad_request", "Invalid child");
+    b.data.boardCode = b.data.boardCode ? await boardFor(b.data.boardCode) : undefined;
     res.json(await svc.updateChild(auth(res).session, id.data, b.data));
   }));
   r.delete("/children/:id", needSession, parentOnly, guard(async (req, res) => {

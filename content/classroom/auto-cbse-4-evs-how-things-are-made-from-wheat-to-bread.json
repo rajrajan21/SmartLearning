@@ -1,0 +1,330 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "evs",
+ "chapter": "how-things-are-made",
+ "topic": "from-wheat-to-bread",
+ "status": "published",
+ "title": {
+  "en": "From wheat to bread"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "From wheat to bread",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 150,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 150,
+   "y": 280,
+   "text": "🌾",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 150,
+   "y": 344,
+   "text": "Wheat",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 350,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 350,
+   "y": 280,
+   "text": "⚙️",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 350,
+   "y": 344,
+   "text": "Flour",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 550,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 550,
+   "y": 280,
+   "text": "🥣",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 550,
+   "y": 344,
+   "text": "Dough",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b3",
+   "cx": 750,
+   "cy": 260,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 750,
+   "y": 280,
+   "text": "🍞",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 750,
+   "y": 344,
+   "text": "Bread",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 212,
+   "y1": 260,
+   "x2": 288,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 412,
+   "y1": 260,
+   "x2": 488,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 612,
+   "y1": 260,
+   "x2": 688,
+   "y2": 260,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "wheat-field",
+   "alt": "A field of ripe wheat",
+   "caption": "A wheat field"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Wheat grows in the fields as a crop."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The grain is ground in a mill to make flour."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Flour is mixed with water to make dough."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The dough is baked, and it becomes bread."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b3",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e3",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "That is how a grain becomes the bread we eat."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. A field of ripe wheat. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

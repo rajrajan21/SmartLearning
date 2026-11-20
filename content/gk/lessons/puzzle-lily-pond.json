@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-lily-pond",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "11-13",
+ "title": "The Lily Pond",
+ "summary": "Start from what you know (the end) and step back.",
+ "emoji": "🪷",
+ "tags": [
+  "doubling",
+  "backwards"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Lily pads on a pond double in number every day.",
+    "On day 30 the pond is completely covered.",
+    "On which day was it half covered?"
+   ],
+   "points": [
+    "Lily pads on a pond double in number every day."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Do not start from day 1.",
+    "Start from the end, because the end is the part you know."
+   ],
+   "points": [
+    "Do not start from day 1."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Work backwards",
+   "sentences": [
+    "If it doubles each day, then one day before it is full, it must be half full.",
+    "You do not need any sums.",
+    "Just step back one day from the end."
+   ],
+   "points": [
+    "If it doubles each day, then one day before it is full, it must be half full."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "The pond was half covered on day 29.",
+    "Many people say day 15, because half of 30 is 15, but doubling is not the same as adding the same amount each day.",
+    "When growth keeps doubling, the last few days do almost all the work."
+   ],
+   "points": [
+    "The pond was half covered on day 29."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "A bacteria colony doubles every hour and fills a dish in 12 hours. When is it a quarter full?",
+   "options": [
+    "Hour 10",
+    "Hour 6",
+    "Hour 3"
+   ],
+   "answer": 0,
+   "why": "Half full at hour 11, a quarter full at hour 10."
+  }
+ ],
+ "method": "Work backwards"
+}

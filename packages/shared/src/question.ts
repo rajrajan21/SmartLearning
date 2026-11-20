@@ -12,6 +12,7 @@ const base = {
   key: slug, // unique within the topic
   round: z.number().int().min(1).max(4),
   stem: LocalizedText,
+  passage: LocalizedText.optional(), // case-based questions: a short passage, table or situation shown above the question
   image: z.object({ assetKey: z.string(), altText: LocalizedText }).optional(), // alt text is mandatory for pictures
   hints: z.array(LocalizedText).max(2).default([]),
   explanation: LocalizedText, // shown after every answer: why the right answer is right
@@ -50,7 +51,32 @@ const OrderObj = z.object({
   items: z.array(z.object({ id: slug, text: LocalizedText })).min(2).max(8), // written in the CORRECT order
 });
 
-export const Question = z.discriminatedUnion("type", [McqObj, TrueFalseObj, NumberObj, ShortObj, OrderObj]).superRefine((q, ctx) => {
+const MultiObj = z.object({
+  ...base,
+  type: z.literal("multi"), // choose ALL the right answers
+  options: z.array(z.object({ id: slug, text: LocalizedText, correct: z.boolean().default(false) })).min(3).max(6),
+});
+const MatchObj = z.object({
+  ...base,
+  type: z.literal("match"), // matching pairs; with an image and letters A, B, C on the left it is diagram labelling
+  pairs: z.array(z.object({ id: slug, left: LocalizedText, right: LocalizedText })).min(2).max(6), // written as the CORRECT pairs
+});
+const LongObj = z.object({
+  ...base,
+  type: z.literal("long"), // written answer marked by key points (a point counts when any of its words appears)
+  modelAnswer: LocalizedText,
+  keyPoints: z.array(z.object({ label: LocalizedText, anyOf: z.array(z.string().min(1).max(40)).min(1).max(8) })).min(2).max(6),
+  passAt: z.number().int().min(1).max(6).optional(), // key points needed; default is half, rounded up
+});
+
+export const Question = z.discriminatedUnion("type", [McqObj, TrueFalseObj, NumberObj, ShortObj, OrderObj, MultiObj, MatchObj, LongObj]).superRefine((q, ctx) => {
+  if (q.type === "multi") {
+    const n = q.options.filter((o) => o.correct).length;
+    if (n < 1 || n >= q.options.length) ctx.addIssue({ code: "custom", path: ["options"], message: "mark at least one and not all options as correct" });
+    if (new Set(q.options.map((o) => o.id)).size !== q.options.length) ctx.addIssue({ code: "custom", path: ["options"], message: "option ids must be unique" });
+  }
+  if (q.type === "match" && new Set(q.pairs.map((p) => p.id)).size !== q.pairs.length) ctx.addIssue({ code: "custom", path: ["pairs"], message: "pair ids must be unique" });
+  if (q.type === "long" && q.passAt && q.passAt > q.keyPoints.length) ctx.addIssue({ code: "custom", path: ["passAt"], message: "passAt is more than the key points" });
   if (q.type === "mcq") {
     if (q.options.filter((o) => o.correct).length !== 1) ctx.addIssue({ code: "custom", path: ["options"], message: "exactly one option must be correct" });
     if (new Set(q.options.map((o) => o.id)).size !== q.options.length) ctx.addIssue({ code: "custom", path: ["options"], message: "option ids must be unique" });
@@ -75,13 +101,16 @@ export const QuestionImport = z.object({
 export type QuestionImport = z.infer<typeof QuestionImport>;
 
 // ================= What students receive (never contains answers) =================
-const pubBase = { id: z.string(), key: z.string(), round: z.number().int(), stem: LocalizedText, image: base.image, hints: z.array(LocalizedText), audio: z.object({ stem: LangAudio.optional() }).optional() };
+const pubBase = { id: z.string(), key: z.string(), round: z.number().int(), stem: LocalizedText, passage: LocalizedText.optional(), image: base.image, hints: z.array(LocalizedText), audio: z.object({ stem: LangAudio.optional() }).optional() };
 export const PublicQuestion = z.discriminatedUnion("type", [
   z.object({ ...pubBase, type: z.literal("mcq"), options: z.array(z.object({ id: z.string(), text: LocalizedText })) }),
   z.object({ ...pubBase, type: z.literal("true_false") }),
   z.object({ ...pubBase, type: z.literal("number"), unit: LocalizedText.optional() }),
   z.object({ ...pubBase, type: z.literal("short") }),
   z.object({ ...pubBase, type: z.literal("order"), items: z.array(z.object({ id: z.string(), text: LocalizedText })) }),
+  z.object({ ...pubBase, type: z.literal("multi"), options: z.array(z.object({ id: z.string(), text: LocalizedText })) }),
+  z.object({ ...pubBase, type: z.literal("match"), lefts: z.array(z.object({ id: z.string(), text: LocalizedText })), rights: z.array(z.object({ id: z.string(), text: LocalizedText })) }),
+  z.object({ ...pubBase, type: z.literal("long") }),
 ]);
 export type PublicQuestion = z.infer<typeof PublicQuestion>;
 
@@ -95,6 +124,9 @@ export const AnswerResponse = z.discriminatedUnion("type", [
   z.object({ type: z.literal("number"), value: z.number().finite() }),
   z.object({ type: z.literal("short"), text: z.string().max(100) }),
   z.object({ type: z.literal("order"), ids: z.array(z.string().max(60)).min(2).max(8) }),
+  z.object({ type: z.literal("multi"), ids: z.array(z.string().max(60)).max(6) }),
+  z.object({ type: z.literal("match"), pairs: z.array(z.object({ left: z.string().max(60), right: z.string().max(60) })).min(2).max(6) }),
+  z.object({ type: z.literal("long"), text: z.string().max(600) }),
 ]);
 export type AnswerResponse = z.infer<typeof AnswerResponse>;
 

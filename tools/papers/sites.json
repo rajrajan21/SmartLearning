@@ -1,0 +1,266 @@
+{
+ "note": "Websites that publish free question papers, in the order the collector works through them. 'dailyCap' = most papers per site per day (0 = no cap; Admin > Question papers can override), 'pauseSeconds' = polite delay between requests to that site, 'hideKey' = the word Admin uses to hide a site's papers on a rights holder's request. Aggregators (commercial) stay OFF; commercial publishers, login-only and CAPTCHA sites are never added. The collector checks robots.txt itself, never signs in, never solves a CAPTCHA and never follows link shorteners. status 'seed' = not yet checked from the owner PC: run Discover-Question-Paper-Sites.bat.",
+ "sites": [
+  {
+   "id": "cbse-academic",
+   "name": "CBSE Academic Unit (cbseacademic.nic.in)",
+   "board": "cbse",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://cbseacademic.nic.in/SQP_CLASSX_2025-26.html",
+    "https://cbseacademic.nic.in/SQP_CLASSXII_2025-26.html",
+    "https://cbseacademic.nic.in/SQP_CLASSIX_2025-26.html",
+    "https://cbseacademic.nic.in/SQP_CLASSXI_2025-26.html",
+    "https://cbseacademic.nic.in/sqp_classx_2026-27.html",
+    "https://cbseacademic.nic.in/sqp_classxii_2026-27.html",
+    "https://cbseacademic.nic.in/sqp_classix_2026-27.html",
+    "https://cbseacademic.nic.in/sqp_classxi_2026-27.html"
+   ],
+   "follow": "sqp|sample|marking|question",
+   "depth": 1,
+   "license": "Published free by CBSE for students; source credit kept on every paper.",
+   "notes": "Sample question papers with marking schemes for classes IX-XII, one page per class and year. 2026-27 pages added 2026-11-17 (Class X confirmed by search; XII, IX and XI follow the same pattern: a page that does not exist is just logged and skipped).",
+   "pauseSeconds": 8,
+   "dailyCap": 40,
+   "hideKey": "cbseacademic"
+  },
+  {
+   "id": "dge-tn",
+   "name": "Tamil Nadu Directorate of Government Examinations (dge.tn.gov.in)",
+   "board": "stateboard",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://dge.tn.gov.in/"
+   ],
+   "follow": "question|sample|paper|bank",
+   "depth": 2,
+   "license": "Official Tamil Nadu government site; source credit kept on every paper.",
+   "notes": "Menus list Sample Question Papers and a Question Bank for SSLC, HSC+1, HSC+2, NTSE, NMMS. Exact page addresses found by the discovery run.",
+   "pauseSeconds": 8,
+   "dailyCap": 40,
+   "hideKey": "dge.tn"
+  },
+  {
+   "id": "kv-digital-library",
+   "name": "KV Kanjikode Digital Library question papers (digitallibrary.kvklibrary.in)",
+   "board": "cbse",
+   "tier": "institution",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://digitallibrary.kvklibrary.in/dlpages/questionpapers.php"
+   ],
+   "follow": "qps|question|paper|pdf",
+   "depth": 1,
+   "license": "Kendriya Vidyalaya library resource; source credit kept. Papers are KVS regional pre-board papers.",
+   "notes": "Direct PDFs such as qps/12-Chemistry-2026-kvsbglr-pb.pdf. Page layout confirmed on the first discovery run.",
+   "pauseSeconds": 6,
+   "dailyCap": 30,
+   "hideKey": "kvklibrary"
+  },
+  {
+   "id": "kvs",
+   "name": "Kendriya Vidyalaya Sangathan sample papers",
+   "board": "cbse",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://kvsangathan.nic.in/"
+   ],
+   "follow": "sample|question|paper|worksheet",
+   "depth": 2,
+   "license": "Published free by KVS for students; source credit kept on every paper.",
+   "notes": "Regional sample and pre-board papers; the discovery run also looks for the Chennai region site.",
+   "pauseSeconds": 8,
+   "dailyCap": 30,
+   "hideKey": "kvsangathan"
+  },
+  {
+   "id": "ncert-exemplar",
+   "name": "NCERT exemplar and practice material",
+   "board": "ncert",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://ncert.nic.in/exemplar-problems.php"
+   ],
+   "follow": "exemplar|problem",
+   "depth": 1,
+   "license": "NCERT material; shown with credit for students' e-learning (as for the textbooks).",
+   "notes": "The tool that fetched this page for us was refused by robots.txt; the collector checks robots itself and logs 'blocked/not allowed' if it applies.",
+   "pauseSeconds": 8,
+   "dailyCap": 30,
+   "hideKey": "ncert"
+  },
+  {
+   "id": "cbse-main",
+   "name": "CBSE main site, previous year question papers",
+   "board": "cbse",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.cbse.gov.in/cbsenew/question-paper.html"
+   ],
+   "follow": "question|paper|previous",
+   "depth": 1,
+   "license": "Published free by CBSE for students; source credit kept on every paper.",
+   "notes": "Board exam papers of earlier years. Page layout to be confirmed on first discovery run.",
+   "pauseSeconds": 8,
+   "dailyCap": 30,
+   "hideKey": "cbse.gov"
+  },
+  {
+   "id": "tntextbooks",
+   "name": "Tamil Nadu Textbook and Educational Services Corporation (tntextbooks.in)",
+   "board": "stateboard",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.tntextbooks.in/"
+   ],
+   "follow": "question|model|sample|paper|bank",
+   "depth": 1,
+   "license": "Official Tamil Nadu government site; source credit kept on every paper.",
+   "notes": "Mainly textbooks; included to find question banks and model papers if present.",
+   "pauseSeconds": 8,
+   "dailyCap": 20,
+   "hideKey": "tntextbooks"
+  },
+  {
+   "id": "tnscert",
+   "name": "Tamil Nadu SCERT",
+   "board": "stateboard",
+   "tier": "official",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.tnscert.org/"
+   ],
+   "follow": "question|model|sample|paper|bank|worksheet",
+   "depth": 1,
+   "license": "Official Tamil Nadu government site; source credit kept on every paper.",
+   "notes": "Worksheets and question banks if published.",
+   "pauseSeconds": 8,
+   "dailyCap": 20,
+   "hideKey": "tnscert"
+  },
+  {
+   "id": "kalvikavi",
+   "name": "Kalvikavi (kalvikavi.com)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.kalvikavi.com/"
+   ],
+   "follow": "question-paper|half-yearly|quarterly|mid-term|annual",
+   "depth": 1,
+   "license": "Tamil Nadu term papers made by district teachers and collected by Kalvikavi; no licence stated. Shown free for student practice with credit and a link to the original page; hidden at once on a rights holder's request (Admin > Question papers > Sources).",
+   "notes": "Classes 6-12 quarterly, half-yearly and annual papers, Tamil and English medium. Most files are public Google Drive links: only public direct-download links are followed, never a sign-in.",
+   "pauseSeconds": 10,
+   "dailyCap": 30,
+   "hideKey": "kalvikavi"
+  },
+  {
+   "id": "padasalai",
+   "name": "Padasalai (padasalai.net)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.padasalai.net/"
+   ],
+   "follow": "question-paper|mid-term|quarterly|half-yearly|annual",
+   "depth": 1,
+   "license": "Teacher-submitted Tamil Nadu papers collected by Padasalai; no licence stated. Shown free for student practice with credit and a link to the original page; hidden at once on a rights holder's request (Admin > Question papers > Sources).",
+   "notes": "Classes 1-12 term papers and answer keys. Links to Google Drive and padasalai.info PDFs are followed only when public; link shorteners (bit.ly), Telegram and WhatsApp links are never followed.",
+   "pauseSeconds": 10,
+   "dailyCap": 30,
+   "hideKey": "padasalai"
+  },
+  {
+   "id": "educationobserver",
+   "name": "Education Observer (educationobserver.com)",
+   "board": "stateboard",
+   "tier": "community",
+   "enabled": true,
+   "status": "seed",
+   "entries": [
+    "https://www.educationobserver.com/"
+   ],
+   "follow": "question-paper|half-yearly|mid-term|quarterly",
+   "depth": 1,
+   "license": "Forum-style collection of Tamil Nadu term papers; no licence stated. Shown free for student practice with credit and a link to the original page; hidden at once on a rights holder's request.",
+   "notes": "Article pages only (robots.txt blocks the forum actions).",
+   "pauseSeconds": 10,
+   "dailyCap": 20,
+   "hideKey": "educationobserver"
+  },
+  {
+   "id": "careers360-tn",
+   "name": "Careers360 Tamil Nadu question papers (aggregator)",
+   "board": "stateboard",
+   "tier": "aggregator",
+   "enabled": false,
+   "status": "seed",
+   "entries": [
+    "https://school.careers360.com/boards/dge-tamil-nadu/tamil-nadu-class-10-quarterly-exam-question-paper-2026",
+    "https://school.careers360.com/boards/dge-tamil-nadu/tamil-nadu-class-9-quarterly-exam-question-paper-2026"
+   ],
+   "follow": "question-paper",
+   "depth": 1,
+   "license": "Private company site: terms on copying not reviewed. OFF until the owner approves.",
+   "notes": "Hosts copies of Tamil Nadu term papers.",
+   "pauseSeconds": 10,
+   "dailyCap": 0,
+   "hideKey": "careers360"
+  },
+  {
+   "id": "aglasem-tn",
+   "name": "AglaSem Tamil Nadu board question papers (aggregator)",
+   "board": "stateboard",
+   "tier": "aggregator",
+   "enabled": false,
+   "status": "seed",
+   "entries": [
+    "https://schools.aglasem.com/tn-board-class-10-question-papers/",
+    "https://schools.aglasem.com/tn-board-class-12-question-papers/"
+   ],
+   "follow": "question-paper",
+   "depth": 1,
+   "license": "Private company site: terms on copying not reviewed. OFF until the owner approves.",
+   "notes": "Lists many TN papers.",
+   "pauseSeconds": 10,
+   "dailyCap": 0,
+   "hideKey": "aglasem"
+  },
+  {
+   "id": "teachernews-tn",
+   "name": "TeacherNews.in Tamil Nadu term papers (aggregator)",
+   "board": "stateboard",
+   "tier": "aggregator",
+   "enabled": false,
+   "status": "seed",
+   "entries": [
+    "https://www.teachernews.in/?p=44717"
+   ],
+   "follow": "question",
+   "depth": 1,
+   "license": "Private site: terms on copying not reviewed. OFF until the owner approves.",
+   "notes": "Half-yearly and quarterly papers with answer keys.",
+   "pauseSeconds": 10,
+   "dailyCap": 0,
+   "hideKey": "teachernews"
+  }
+ ]
+}

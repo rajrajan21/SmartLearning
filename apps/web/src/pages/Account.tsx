@@ -35,6 +35,24 @@ function ChildSecrets({ pin, setPin, sq, setSq, sa, setSa, lang, s, hasPin }: { 
   );
 }
 
+
+/** Default board for a new child: the first board the admin has enabled (CBSE stays the fallback, so old settings behave the same). */
+function defaultBoard(s: { get: (k: string) => unknown }): string {
+  if (s.get("accounts.child.board.cbse") !== false) return "CBSE";
+  if (s.get("accounts.child.board.tnstate") === true) return "TNSTATE";
+  if (s.get("accounts.child.board.tnmatric") === true) return "TNMATRIC";
+  return "CBSE";
+}
+
+/** Board choice, shown only when the admin lets parents choose (and lists at least two boards). */
+function BoardPick({ value, onChange }: { value: string; onChange: (b: string) => void }) {
+  const s = useSettings();
+  if (s.get("accounts.child.chooseBoard") !== true) return null;
+  const all: [string, string, boolean][] = [["CBSE", "CBSE", s.get("accounts.child.board.cbse") !== false], ["TNSTATE", "Tamil Nadu State Board", s.get("accounts.child.board.tnstate") === true], ["TNMATRIC", "Tamil Nadu Matriculation", s.get("accounts.child.board.tnmatric") === true]];
+  const on = all.filter((b) => b[2]);
+  if (on.length < 2) return null;
+  return <label className="field">Board<select id="child-board" value={value} onChange={(e) => onChange(e.target.value)}>{on.map((b) => <option key={b[0]} value={b[0]}>{b[1]}</option>)}</select></label>;
+}
 function ChildForm({ initial, onSave, onCancel }: { initial?: PublicProfile; onSave: (c: ChildInput) => Promise<Result>; onCancel?: () => void }) {
   const s = useSettings();
   const { lang } = s;
@@ -42,6 +60,7 @@ function ChildForm({ initial, onSave, onCancel }: { initial?: PublicProfile; onS
   const [nickname, setNickname] = useState(initial?.nickname ?? "");
   const [classLevel, setClassLevel] = useState(initial?.classLevel ?? classes[0] ?? 3);
   const [avatar, setAvatar] = useState(initial?.avatar ?? "owl");
+  const [board, setBoard] = useState(initial?.boardCode ?? defaultBoard(s));
   const [more, setMore] = useState<number[]>((initial?.classes ?? []).filter((c) => c !== initial?.classLevel));
   const [pin, setPin] = useState(""), [sq, setSq] = useState(initial?.secretQuestion ?? ""), [sa, setSa] = useState("");
   const [err, setErr] = useState("");
@@ -49,7 +68,7 @@ function ChildForm({ initial, onSave, onCancel }: { initial?: PublicProfile; onS
   const maxCl = s.get<number>("accounts.maxClassesPerChild");
   const submit = async (e: FormEvent) => {
     e.preventDefault(); setBusy(true); setErr("");
-    const r = await onSave({ nickname: nickname.trim(), classLevel, extraClasses: more.filter((c) => c !== classLevel), avatar, language: lang, ...(pin ? { pin } : {}), ...(sq.trim() && sa.trim() ? { secretQuestion: sq.trim(), secretAnswer: sa.trim() } : {}) });
+    const r = await onSave({ nickname: nickname.trim(), classLevel, extraClasses: more.filter((c) => c !== classLevel), boardCode: board, avatar, language: lang, ...(pin ? { pin } : {}), ...(sq.trim() && sa.trim() ? { secretQuestion: sq.trim(), secretAnswer: sa.trim() } : {}) });
     setBusy(false);
     if (!r.ok) setErr(r.message === "offline" ? ui("offlineNeeded", lang) : r.message);
   };
@@ -60,6 +79,7 @@ function ChildForm({ initial, onSave, onCancel }: { initial?: PublicProfile; onS
       <p className="small">{ui("childNameHint", lang)}</p>
       <label htmlFor="child-class">{ui("childClass", lang)}</label>
       <select id="child-class" value={classLevel} onChange={(e) => setClassLevel(Number(e.target.value))}>{classes.map((c) => <option key={c} value={c}>{c}</option>)}</select>
+      <BoardPick value={board} onChange={setBoard} />
       <ExtraClasses classes={classes} main={classLevel} more={more} setMore={setMore} max={maxCl} lang={lang} />
       <ChildSecrets pin={pin} setPin={setPin} sq={sq} setSq={setSq} sa={sa} setSa={setSa} lang={lang} s={s} hasPin={initial?.hasPin} />
       <fieldset className="avatars"><legend>{ui("pickAvatar", lang)}</legend>
@@ -85,7 +105,7 @@ function SignedOut() {
   const [mode, setMode] = useState<"in" | "up">("in");
   const [email, setEmail] = useState(""), [password, setPassword] = useState(""), [agree, setAgree] = useState(false);
   const [father, setFather] = useState(""), [mother, setMother] = useState("");
-  const [nick, setNick] = useState(""), [cls, setCls] = useState(classes[0] ?? 3), [avatar, setAvatar] = useState("owl");
+  const [board, setBoard] = useState(defaultBoard(s)), [nick, setNick] = useState(""), [cls, setCls] = useState(classes[0] ?? 3), [avatar, setAvatar] = useState("owl");
   const [more, setMore] = useState<number[]>([]), [pin, setPin] = useState(""), [sq, setSq] = useState(""), [sa, setSa] = useState("");
   const [cName, setCName] = useState(""), [cPin, setCPin] = useState(""), [cAns, setCAns] = useState(""), [how, setHow] = useState<"pin" | "secret">("pin"), [question, setQuestion] = useState<string | null>(null);
   const [err, setErr] = useState(""), [busy, setBusy] = useState(false);
@@ -97,7 +117,7 @@ function SignedOut() {
     e.preventDefault(); setBusy(true); setErr("");
     if (who === "child") show(await acct.childLogin(email, cName.trim(), howNow === "pin" ? { pin: cPin } : { answer: cAns }));
     else if (mode === "in") show(await acct.login(email, password));
-    else show(await acct.register(email, password, { nickname: nick.trim(), classLevel: cls, extraClasses: more, avatar, language: lang, ...(pin ? { pin } : {}), ...(sq.trim() && sa.trim() ? { secretQuestion: sq.trim(), secretAnswer: sa.trim() } : {}) }, s.get("accounts.parentEmails") === true ? { fatherEmail: father.trim(), motherEmail: mother.trim() } : undefined));
+    else show(await acct.register(email, password, { nickname: nick.trim(), classLevel: cls, extraClasses: more, boardCode: board, avatar, language: lang, ...(pin ? { pin } : {}), ...(sq.trim() && sa.trim() ? { secretQuestion: sq.trim(), secretAnswer: sa.trim() } : {}) }, s.get("accounts.parentEmails") === true ? { fatherEmail: father.trim(), motherEmail: mother.trim() } : undefined));
     setBusy(false);
   };
   const lookup = async () => { if (howNow === "secret" && email && cName.trim()) setQuestion(await acct.childQuestion(email, cName.trim())); };
@@ -145,6 +165,7 @@ function SignedOut() {
                   <p className="small">{ui("childNameHint", lang)}</p>
                   <label htmlFor="cl">{ui("childClass", lang)}</label>
                   <select id="cl" value={cls} onChange={(e) => setCls(Number(e.target.value))}>{classes.map((c) => <option key={c} value={c}>{c}</option>)}</select>
+                  <BoardPick value={board} onChange={setBoard} />
                   <ExtraClasses classes={classes} main={cls} more={more} setMore={setMore} max={s.get<number>("accounts.maxClassesPerChild")} lang={lang} />
                   <ChildSecrets pin={pin} setPin={setPin} sq={sq} setSq={setSq} sa={sa} setSa={setSa} lang={lang} s={s} />
                   <fieldset className="avatars"><legend>{ui("pickAvatar", lang)}</legend>

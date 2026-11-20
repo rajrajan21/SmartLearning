@@ -1,0 +1,285 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "statistics-and-probability",
+ "topic": "measures-of-dispersion",
+ "status": "published",
+ "title": {
+  "en": "Mean, median and mode"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Mean, median and mode",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b0",
+   "x": 150,
+   "y": 100,
+   "w": 100,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t0",
+   "x": 200,
+   "y": 147,
+   "text": "2",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b1",
+   "x": 270,
+   "y": 100,
+   "w": 100,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 320,
+   "y": 147,
+   "text": "3",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b2",
+   "x": 390,
+   "y": 100,
+   "w": 100,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 440,
+   "y": 147,
+   "text": "3",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b3",
+   "x": 510,
+   "y": 100,
+   "w": 100,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 560,
+   "y": 147,
+   "text": "5",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b4",
+   "x": 630,
+   "y": 100,
+   "w": 100,
+   "h": 70,
+   "rx": 12,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t4",
+   "x": 680,
+   "y": 147,
+   "text": "7",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m1",
+   "x": 450,
+   "y": 245,
+   "text": "Mean = (2 + 3 + 3 + 5 + 7) ÷ 5 = 20 ÷ 5 = 4",
+   "size": 28,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m2",
+   "x": 450,
+   "y": 305,
+   "text": "Median = the middle value = 3",
+   "size": 28,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m3",
+   "x": 450,
+   "y": 365,
+   "text": "Mode = the value that occurs most often = 3",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Here is a small set of data: 2, 3, 3, 5 and 7. Three measures can describe the centre of the data."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t0",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.32999999999999996
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.45999999999999996
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.48
+    },
+    {
+     "do": "draw",
+     "target": "b3",
+     "at": 0.59
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.61
+    },
+    {
+     "do": "draw",
+     "target": "b4",
+     "at": 0.72
+    },
+    {
+     "do": "write",
+     "target": "t4",
+     "at": 0.74
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The mean is the sum of the values divided by how many there are. The sum is 20 and there are 5 values, so the mean is 4."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m1",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The median is the middle value when the data is in order. The middle of these five numbers is 3."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b2",
+     "at": 0.2,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "m2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The mode is the value that appears most often. The number 3 appears twice, so the mode is 3."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "b1",
+     "at": 0.2,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "b2",
+     "at": 0.3,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "m3",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

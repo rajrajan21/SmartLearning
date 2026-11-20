@@ -1,0 +1,241 @@
+{
+  "board": "CBSE",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "ch04-exploring-algebraic-identities",
+  "topic": "algebraic-identities",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Exploring algebraic identities"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Squares made of pieces"
+        },
+        "text": {
+          "en": "Imagine a square garden whose side is split into two parts, a and b. The garden breaks into four pieces: a square a by a, a square b by b and two rectangles a by b. Counting these pieces gives an algebraic identity."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "(a + b)^2 = a^2 + 2ab + b^2",
+          "(a - b)^2 = a^2 - 2ab + b^2",
+          "103 x 97 = 9991",
+          "a^2 - b^2 = (a + b)(a - b)",
+          "check with numbers",
+          "do not drop 2ab",
+          "factorising",
+          "identity"
+        ],
+        "text": {
+          "en": "An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values.\nCutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2.\nReplacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2.\nThe difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it.\nWe use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991.\nThey also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4).\nTo check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2.\nA common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "identity"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(a + b)^2 = a^2 + 2ab + b^2"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "(a - b)^2 = a^2 - 2ab + b^2"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a^2 - b^2 = (a + b)(a - b)"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "103 x 97 = 9991"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "factorising"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "check with numbers"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "do not drop 2ab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Use an identity to find 52^2."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Write 52 = 50 + 2."
+            },
+            "why": {
+              "en": "Split into easy parts."
+            }
+          },
+          {
+            "text": {
+              "en": "(50 + 2)^2 = 50^2 + 2 x 50 x 2 + 2^2."
+            },
+            "why": {
+              "en": "Apply (a + b)^2."
+            }
+          },
+          {
+            "text": {
+              "en": "= 2500 + 200 + 4 = 2704."
+            },
+            "why": {
+              "en": "Add the three terms."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "State two algebraic identities and one use of each."
+        },
+        "requiredIdeas": [
+          {
+            "en": "(a + b)^2 expansion"
+          },
+          {
+            "en": "a^2 - b^2 = (a + b)(a - b)"
+          },
+          {
+            "en": "Quick calculation or factorising"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Dropping the middle term 2ab"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "m4-1",
+          "m4-2",
+          "m4-3",
+          "m4-4",
+          "m4-5",
+          "m4-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "(a + b)^2 = a^2 + 2ab + b^2 and (a - b)^2 = a^2 - 2ab + b^2."
+          },
+          {
+            "en": "a^2 - b^2 = (a + b)(a - b)."
+          },
+          {
+            "en": "Identities hold for all values and speed up calculation and factorising."
+          },
+          {
+            "en": "Always test an identity with numbers."
+          }
+        ]
+      }
+    ]
+  }
+}

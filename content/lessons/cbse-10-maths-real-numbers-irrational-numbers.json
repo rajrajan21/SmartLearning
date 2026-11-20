@@ -1,0 +1,240 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "irrational-numbers",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Irrational numbers and proofs"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "The number that never ends"
+        },
+        "text": {
+          "en": "Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "2b^2 = a^2",
+          "contradiction",
+          "p divides a^2 => p divides a",
+          "proof by contradiction",
+          "rational + irrational",
+          "rational and irrational",
+          "root 2 is irrational",
+          "two irrationals"
+        ],
+        "text": {
+          "en": "A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this.\nThe textbook first proves a helping result: if a prime p divides a squared, then p divides a.\nTo prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1.\nSquaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c.\nThen 2 b squared = 4 c squared, so b squared = 2 c squared and 2 divides b as well. Now 2 divides both a and b, which contradicts our assumption that they have no common factor.\nSo our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational.\nThe sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational.\nBe careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "rational and irrational"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The textbook first proves a helping result: if a prime p divides a squared, then p divides a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "p divides a^2 => p divides a"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "proof by contradiction"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2b^2 = a^2"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Then 2 b squared = 4 c squared, so b squared = 2 c squared and 2 divides b as well. Now 2 divides both a and b, which contradicts our assumption that they have no common factor."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "contradiction"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "root 2 is irrational"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "rational + irrational"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "two irrationals"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Prove that 3 + 2 root 5 is irrational."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Suppose 3 + 2 root 5 is rational, equal to a by b with b not zero."
+            },
+            "why": {
+              "en": "Start by assuming the opposite."
+            }
+          },
+          {
+            "text": {
+              "en": "Then root 5 = (a - 3b) / 2b, and the right side is rational."
+            },
+            "why": {
+              "en": "Rearrange to isolate root 5."
+            }
+          },
+          {
+            "text": {
+              "en": "But root 5 is irrational, a contradiction. So 3 + 2 root 5 is irrational."
+            },
+            "why": {
+              "en": "The assumption fails."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain in steps why root 2 is irrational."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Assume root 2 = a/b in lowest terms"
+          },
+          {
+            "en": "Show 2 divides both a and b"
+          },
+          {
+            "en": "This contradicts lowest terms"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking a decimal that looks long is automatically irrational"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-irr1",
+          "r1-irr2",
+          "r2-irr3",
+          "r2-irr4",
+          "r2-irr5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A number is irrational if it cannot be written as p/q with integers p and q (q not zero)."
+          },
+          {
+            "en": "If a prime p divides a^2 then p divides a."
+          },
+          {
+            "en": "Root 2, root 3 and root 5 are irrational, proved by contradiction."
+          },
+          {
+            "en": "Rational + irrational and non-zero rational x irrational are irrational."
+          }
+        ]
+      }
+    ]
+  }
+}

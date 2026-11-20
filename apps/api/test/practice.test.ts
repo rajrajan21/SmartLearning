@@ -17,6 +17,31 @@ const short = Question.parse({ ...common, key: "s", type: "short", accepted: ["T
 const order = Question.parse({ ...common, key: "o", type: "order", items: [{ id: "x", text: L("one") }, { id: "y", text: L("two") }, { id: "z", text: L("three") }] });
 const tf = Question.parse({ ...common, key: "t", type: "true_false", answer: false });
 
+const multi = Question.parse({ ...common, key: "mu", type: "multi", options: [{ id: "a", text: L("A"), correct: true }, { id: "b", text: L("B") }, { id: "c", text: L("C"), correct: true }] });
+const match = Question.parse({ ...common, key: "ma", passage: L("A small case."), type: "match", pairs: [{ id: "p1", left: L("Cat"), right: L("Meows") }, { id: "p2", left: L("Dog"), right: L("Barks") }] });
+const long = Question.parse({ ...common, key: "lo", type: "long", modelAnswer: L("Plants make food using light."), keyPoints: [{ label: L("light"), anyOf: ["light", "sun"] }, { label: L("food"), anyOf: ["food", "sugar"] }] });
+
+describe("new question types", () => {
+  it("multi needs every right option and nothing else", () => {
+    expect(grade(multi, { type: "multi", ids: ["c", "a"] })).toMatchObject({ correct: true });
+    expect(grade(multi, { type: "multi", ids: ["a"] })).toMatchObject({ correct: false });
+    expect(grade(multi, { type: "multi", ids: ["a", "b", "c"] })).toMatchObject({ correct: false });
+    expect(grade(multi, { type: "multi", ids: ["zz"] })).toHaveProperty("error");
+  });
+  it("match checks every pair; public copy keeps the passage and hides answers", () => {
+    expect(grade(match, { type: "match", pairs: [{ left: "p1", right: "p1" }, { left: "p2", right: "p2" }] })).toMatchObject({ correct: true });
+    expect(grade(match, { type: "match", pairs: [{ left: "p1", right: "p2" }, { left: "p2", right: "p1" }] })).toMatchObject({ correct: false });
+    expect(grade(match, { type: "match", pairs: [{ left: "p1", right: "p1" }] })).toHaveProperty("error");
+    const pub = toPublic("id1", match) as unknown as Record<string, unknown>;
+    expect(pub.passage).toEqual(L("A small case."));
+    expect(pub).toHaveProperty("lefts");
+  });
+  it("long answers pass on half the key points", () => {
+    expect(grade(long, { type: "long", text: "They use the Sun" })).toMatchObject({ correct: true });
+    expect(grade(long, { type: "long", text: "They grow" })).toMatchObject({ correct: false, correctAnswer: L("Plants make food using light.") });
+  });
+});
+
 describe("grading", () => {
   it("mcq: right, wrong with its own explanation, and unknown choice", () => {
     expect(grade(mcq, { type: "mcq", optionId: "a" })).toMatchObject({ correct: true });

@@ -1,0 +1,257 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-common-ground",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "Timeline"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Timeline",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 60,
+   "y1": 260,
+   "x2": 840,
+   "y2": 260,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "d0",
+   "cx": 110,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "s0",
+   "x1": 110,
+   "y1": 260,
+   "x2": 110,
+   "y2": 215,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "w0",
+   "x": 110,
+   "y": 195,
+   "text": "1200",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t0x0",
+   "x": 110,
+   "y": 150,
+   "text": "prime",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "d1",
+   "cx": 450,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "s1",
+   "x1": 450,
+   "y1": 260,
+   "x2": 450,
+   "y2": 305,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "w1",
+   "x": 450,
+   "y": 335,
+   "text": "1440",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t1x0",
+   "x": 450,
+   "y": 372,
+   "text": "LCM",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "d2",
+   "cx": 790,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "s2",
+   "x1": 790,
+   "y1": 260,
+   "x2": 790,
+   "y2": 215,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "w2",
+   "x": 790,
+   "y": 195,
+   "text": "1995",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2x0",
+   "x": 790,
+   "y": 150,
+   "text": "HCF",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A timeline puts events in order, from the oldest on the left to the newest on the right."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "In the division method we divide repeatedly by a prime. For 1200 we get 2, 2, 2, 2, 3, 5, 5, so 1200 = 2 × 2 × 2 × 2 × 3 × 5 × 5. It is quicker than breaking it as 40 × 30."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "d0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s0",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "w0",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t0x0",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "For 96 = 2 × 2 × 2 × 2 × 2 × 3 and 360 = 2 × 2 × 2 × 3 × 3 × 5, take five 2s, two 3s and one 5: LCM = 32 × 9 × 5 = 1440."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "w1",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t1x0",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "Take 105 = 3 × 5 × 7 and 95 = 5 × 19. The HCF is 5 and the LCM is 3 × 5 × 7 × 19 = 1995. Their product is 105 × 95 = 9975."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "w2",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t2x0",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-two-doors",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "8-10",
+ "title": "Two Doors, Two Lies",
+ "summary": "A known lie is a clue: flip it to find the truth.",
+ "emoji": "🚪",
+ "tags": [
+  "lies",
+  "cases"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Two doors, one leads to treasure and one to a trap.",
+    "Door 1 has a sign: The treasure is behind this door. Door 2 has a sign: The treasure is behind door 1.",
+    "You are told both signs are lies. Which door has the treasure?"
+   ],
+   "points": [
+    "Two doors, one leads to treasure and one to a trap."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "If a sign is a lie, the opposite of what it says is true.",
+    "Take each sign and flip it."
+   ],
+   "points": [
+    "If a sign is a lie, the opposite of what it says is true."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Flip the lies",
+   "sentences": [
+    "Sign 1 lies, so the treasure is not behind door 1.",
+    "Sign 2 also lies, so the treasure is not behind door 1, which agrees.",
+    "With only two doors and none behind door 1, only door 2 is left."
+   ],
+   "points": [
+    "Sign 1 lies, so the treasure is not behind door 1."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "The treasure is behind door 2.",
+    "Both flipped signs fit this answer.",
+    "Always check that your answer matches every clue."
+   ],
+   "points": [
+    "The treasure is behind door 2."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "A sign says: The treasure is behind this door, and it is a lie. The treasure is:",
+   "options": [
+    "Behind this door",
+    "Not behind this door",
+    "Nowhere"
+   ],
+   "answer": 1,
+   "why": "A lie means the opposite is true."
+  }
+ ],
+ "method": "Flip the lies"
+}

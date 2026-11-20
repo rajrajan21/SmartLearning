@@ -42,15 +42,21 @@ export function levelOf(lessonsDone: number, stars: number): { level: number; to
   return { level: 1 + Math.floor(xp / step), toNext: step - (xp % step), pct: Math.round(((xp % step) / step) * 100) };
 }
 
-// ---- my notebook: favourite lessons, saved on this device only ----
-export interface NoteEntry { id: string; href: string; title: Name; subject: Name; savedAt: number }
+// ---- my notebook: favourite lessons; kept on this device and, when signed in, in the account ----
+export interface NoteEntry { id: string; href: string; title: Name; subject: Name; savedAt: number; removedAt?: number }
 const KEY = "ss_notebook_v1";
 const listeners = new Set<() => void>();
-export const readNotebook = (): Record<string, NoteEntry> => store.getJson<Record<string, NoteEntry>>(KEY) ?? {};
-export function toggleNote(e: Omit<NoteEntry, "savedAt">): boolean {
-  const all = readNotebook();
-  const saved = !all[e.id];
-  if (saved) all[e.id] = { ...e, savedAt: Date.now() }; else delete all[e.id];
+const readRaw = (): Record<string, NoteEntry> => store.getJson<Record<string, NoteEntry>>(KEY) ?? {};
+/** Only the lessons that are currently saved (an un-save is kept as a marker so other devices learn about it). */
+export const readNotebook = (): Record<string, NoteEntry> => Object.fromEntries(Object.entries(readRaw()).filter(([, n]) => !n.removedAt || n.savedAt > n.removedAt));
+export const readAllNotes = readRaw;
+export function replaceAllNotes(all: Record<string, NoteEntry>): void { store.setJson(KEY, all); listeners.forEach((l) => l()); }
+export function onNotesChange(l: () => void): () => void { listeners.add(l); return () => { listeners.delete(l); }; }
+export function toggleNote(e: Omit<NoteEntry, "savedAt" | "removedAt">): boolean {
+  const all = readRaw();
+  const cur = all[e.id];
+  const saved = !cur || (!!cur.removedAt && cur.savedAt <= cur.removedAt);
+  all[e.id] = saved ? { ...e, savedAt: Date.now() } : { ...cur!, removedAt: Date.now() };
   store.setJson(KEY, all);
   listeners.forEach((l) => l());
   return saved;

@@ -1,0 +1,242 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "polynomials",
+  "topic": "zeroes-and-graphs",
+  "questions": [
+    {
+      "key": "r1-zg1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The zeroes of x^2 - 1 are"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "1 and -1"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "1 only"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "(-1)^2 - 1 = 0 as well."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "0 and 1"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "0^2 - 1 = -1, not 0."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "x^2 - 1 = (x - 1)(x + 1)."
+      }
+    },
+    {
+      "key": "r1-zg2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "A quadratic polynomial can have at most two zeroes."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "Its graph (a parabola) cuts the x-axis at most twice."
+      }
+    },
+    {
+      "key": "r2-zg3",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "If the graph of y = p(x) cuts the x-axis at 3 points, p(x) has how many zeroes?"
+      },
+      "answer": 3,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 2,
+          "why": {
+            "en": "Count the intersection points."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Each intersection point gives one zero."
+      }
+    },
+    {
+      "key": "r2-zg4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The graph of y = x^2 + 1 does not cut the x-axis. So it has"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "no real zeroes"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "one zero"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "One zero means the parabola touches the axis."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "two zeroes"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Two zeroes mean two intersection points."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "x^2 + 1 is always at least 1, so it is never 0."
+      }
+    },
+    {
+      "key": "r2-zg5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "Find the zero of 2x + 5. Write it as a decimal."
+      },
+      "accepted": [
+        "-2.5",
+        "-5/2"
+      ],
+      "wrongAnswers": [
+        {
+          "text": "2.5",
+          "why": {
+            "en": "Check the sign: 2(2.5) + 5 = 10, not 0."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "2x + 5 = 0 gives x = -5/2 = -2.5."
+      }
+    },
+    {
+      "key": "r3-zg6",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Case study: A parabola opens upward and its lowest point is above the x-axis. How many zeroes does the polynomial have?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "0"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "1"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "One zero needs the vertex on the axis."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Two zeroes need the parabola to cross the axis twice."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The curve never reaches y = 0."
+      }
+    },
+    {
+      "key": "r3-zg7",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "The graph of a linear polynomial a x + b (a not zero) cuts the x-axis at exactly one point."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "The zero is -b/a."
+      }
+    },
+    {
+      "key": "r3-zg8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many zeroes can a cubic polynomial have at most?"
+      },
+      "answer": 3,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 2,
+          "why": {
+            "en": "That is for a quadratic."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "A cubic graph can cross the x-axis at most 3 times."
+      }
+    }
+  ]
+}

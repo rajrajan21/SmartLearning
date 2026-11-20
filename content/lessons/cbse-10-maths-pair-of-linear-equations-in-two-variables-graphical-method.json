@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "pair-of-linear-equations-in-two-variables",
+  "topic": "graphical-method",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Graphical method and nature of solutions"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two roads, one meeting point"
+        },
+        "text": {
+          "en": "Two friends start walking along two straight roads. Will the roads cross, run side by side, or be the same road? That is exactly what a pair of linear equations tells us."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "a1/a2 = b1/b2 = c1/c2",
+          "a1/a2 not b1/b2",
+          "a1x + b1y + c1 = 0",
+          "coincident example",
+          "coincident: infinitely many",
+          "intersecting: unique solution",
+          "parallel: no solution",
+          "two lines"
+        ],
+        "text": {
+          "en": "A pair of linear equations in two variables looks like a1 x + b1 y + c1 = 0 and a2 x + b2 y + c2 = 0.\nEach equation is a straight line on the graph. Solving the pair means finding where the two lines meet.\nIf the lines intersect at one point, there is a unique solution and the pair is consistent.\nIf the lines coincide, there are infinitely many solutions and the pair is dependent and consistent.\nIf the lines are parallel, there is no solution and the pair is inconsistent.\nWe can decide the case without drawing. If a1 by a2 is not equal to b1 by b2, the lines intersect.\nIf a1 by a2 = b1 by b2 not equal to c1 by c2, the lines are parallel. If all three ratios are equal, the lines coincide.\nFor x + y = 5 and 2x + 2y = 10 the ratios are all 1 by 2, so the lines coincide."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A pair of linear equations in two variables looks like a1 x + b1 y + c1 = 0 and a2 x + b2 y + c2 = 0."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "a1x + b1y + c1 = 0"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Each equation is a straight line on the graph. Solving the pair means finding where the two lines meet."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "two lines"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "If the lines intersect at one point, there is a unique solution and the pair is consistent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "intersecting: unique solution"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "If the lines coincide, there are infinitely many solutions and the pair is dependent and consistent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "coincident: infinitely many"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "If the lines are parallel, there is no solution and the pair is inconsistent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "parallel: no solution"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "We can decide the case without drawing. If a1 by a2 is not equal to b1 by b2, the lines intersect."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a1/a2 not b1/b2"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "If a1 by a2 = b1 by b2 not equal to c1 by c2, the lines are parallel. If all three ratios are equal, the lines coincide."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "a1/a2 = b1/b2 = c1/c2"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For x + y = 5 and 2x + 2y = 10 the ratios are all 1 by 2, so the lines coincide."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "coincident example"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Does the pair x + 2y = 4 and 2x + 4y = 12 have a solution?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Compare ratios: a1/a2 = 1/2, b1/b2 = 2/4 = 1/2, c1/c2 = 4/12 = 1/3."
+            },
+            "why": {
+              "en": "Write the three ratios."
+            }
+          },
+          {
+            "text": {
+              "en": "The first two ratios are equal but the third is different."
+            },
+            "why": {
+              "en": "a1/a2 = b1/b2 not c1/c2."
+            }
+          },
+          {
+            "text": {
+              "en": "So the lines are parallel and the pair is inconsistent - no solution."
+            },
+            "why": {
+              "en": "Parallel lines never meet."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you tell the nature of solutions from the coefficients?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Compare a1/a2, b1/b2, c1/c2"
+          },
+          {
+            "en": "Unequal first two: one solution"
+          },
+          {
+            "en": "All equal: infinitely many; third different: none"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Comparing a1/b1 instead of a1/a2"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-gm1",
+          "r1-gm2",
+          "r2-gm3",
+          "r2-gm4",
+          "r2-gm5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A pair of linear equations is shown by two lines."
+          },
+          {
+            "en": "Intersecting lines: unique solution (consistent); coincident lines: infinitely many (dependent); parallel lines: none (inconsistent)."
+          },
+          {
+            "en": "Use the ratios a1/a2, b1/b2, c1/c2 to decide."
+          }
+        ]
+      }
+    ]
+  }
+}

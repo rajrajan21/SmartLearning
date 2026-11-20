@@ -1,0 +1,333 @@
+{
+  "board": "CBSE",
+  "classLevel": 6,
+  "subject": "maths",
+  "chapter": "patterns-in-mathematics",
+  "topic": "whole-chapter",
+  "questions": [
+    {
+      "key": "c6ma-pim-1",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The next number in 1, 3, 6, 10, 15 is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "21"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "20"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "The gaps are 2, 3, 4, 5, 6, so we add 6 to get 21, not 5."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "25"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "25 is the next square number, not the next triangular number."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
+      }
+    },
+    {
+      "key": "c6ma-pim-2",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "The Virahanka numbers 1, 2, 3, 5, 8, 13 are formed by"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "adding the two numbers before"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "adding 2 each time"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "The gaps are 1, 1, 2, 3, 5, so the gap is not constant."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "doubling each time"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Doubling gives 1, 2, 4, 8, 16, the powers of 2."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
+      }
+    },
+    {
+      "key": "c6ma-pim-3",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "The number 36 is both a triangular number and a square number."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "36 = 1 + 2 + ... + 8 and 36 = 6 × 6."
+      }
+    },
+    {
+      "key": "c6ma-pim-4",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Without adding one by one, find the sum of the first 12 odd numbers."
+      },
+      "answer": 144,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 24,
+          "why": {
+            "en": "You doubled 12; the sum is 12 × 12."
+          }
+        },
+        {
+          "value": 78,
+          "why": {
+            "en": "That is the sum 1 + 2 + ... + 12, not the odd numbers."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The first n odd numbers add up to n × n, so 12 × 12 = 144."
+      }
+    },
+    {
+      "key": "c6ma-pim-5",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Find the value of 1 + 2 + 3 + ... + 49 + 50 + 49 + ... + 3 + 2 + 1."
+      },
+      "answer": 2500,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 1275,
+          "why": {
+            "en": "That is only the up part 1 + 2 + ... + 50."
+          }
+        },
+        {
+          "value": 100,
+          "why": {
+            "en": "You added the two ends 50 + 50; the answer is 50 × 50."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Adding up and then down to n gives n × n, so 50 × 50 = 2500."
+      }
+    },
+    {
+      "key": "c6ma-pim-6",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "The hexagonal numbers go 1, 7, 19, 37. What is the next one?"
+      },
+      "answer": 61,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 55,
+          "why": {
+            "en": "The gaps are not 18; the gap after 18 is 24."
+          }
+        },
+        {
+          "value": 49,
+          "why": {
+            "en": "49 is a square number, not the next hexagonal number."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
+      }
+    },
+    {
+      "key": "c6ma-pim-7",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "How many lines does the complete graph K5 have?"
+      },
+      "answer": 10,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 5,
+          "why": {
+            "en": "That is the number of points, not the lines joining them."
+          }
+        },
+        {
+          "value": 15,
+          "why": {
+            "en": "15 lines belong to K6, not K5."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
+      }
+    },
+    {
+      "key": "c6ma-pim-8",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Add 1 to the sum 1 + 2 + 4 + 8 + 16. What number do you get?"
+      },
+      "answer": 32,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 31,
+          "why": {
+            "en": "31 is the sum before adding 1."
+          }
+        },
+        {
+          "value": 16,
+          "why": {
+            "en": "16 is the last number added, not the total plus 1."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
+      }
+    },
+    {
+      "key": "c6ma-pim-9",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "number",
+      "stem": {
+        "en": "Koch snowflake shapes have 3, 12, 48 line segments. How many does the next shape have?"
+      },
+      "answer": 192,
+      "tolerance": 0,
+      "wrongAnswers": [
+        {
+          "value": 96,
+          "why": {
+            "en": "You doubled 48; every segment is replaced by 4, not 2."
+          }
+        },
+        {
+          "value": 60,
+          "why": {
+            "en": "You added 12; the rule is to multiply by 4."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Each segment becomes 4 segments, so 48 × 4 = 192."
+      }
+    },
+    {
+      "key": "c6ma-pim-10",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Which sequence do you get by adding consecutive odd numbers starting from 1 (1, 1 + 3, 1 + 3 + 5, ...)?"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "Square numbers 1, 4, 9, 16"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "Triangular numbers 1, 3, 6, 10"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Triangular numbers come from adding the counting numbers 1, 2, 3, ..."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "Cube numbers 1, 8, 27, 64"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Cubes come from adding the hexagonal numbers."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
+      }
+    }
+  ]
+}

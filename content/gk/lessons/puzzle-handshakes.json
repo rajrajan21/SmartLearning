@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-handshakes",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "11-13",
+ "title": "Handshakes at the Party",
+ "summary": "Solve smaller versions first and look for the pattern.",
+ "emoji": "🤝",
+ "tags": [
+  "counting",
+  "pattern"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "Five friends meet. Each shakes hands with every other friend exactly once.",
+    "How many handshakes happen?"
+   ],
+   "points": [
+    "Five friends meet. Each shakes hands with every other friend exactly once."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Counting one by one is easy to mess up.",
+    "Look for a pattern with smaller groups first."
+   ],
+   "points": [
+    "Counting one by one is easy to mess up."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Try smaller cases",
+   "sentences": [
+    "With 2 friends: 1 handshake. With 3 friends: 3. With 4 friends: 6.",
+    "Each new friend adds a handshake with everyone already there.",
+    "So the totals go 1, 3, 6, 10."
+   ],
+   "points": [
+    "With 2 friends: 1 handshake. With 3 friends: 3. With 4 friends: 6."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "For 5 friends we add 4 more to the 6, which gives 10.",
+    "There is also a shortcut: each person shakes 4 hands, so 5 times 4 is 20, and each handshake was counted twice, so divide by 2 to get 10."
+   ],
+   "points": [
+    "For 5 friends we add 4 more to the 6, which gives 10."
+   ]
+  }
+ ],
+ "facts": [
+  "For n people the handshakes are n times (n minus 1) divided by 2."
+ ],
+ "quiz": [
+  {
+   "q": "How many handshakes among 6 people?",
+   "options": [
+    "12",
+    "15",
+    "18"
+   ],
+   "answer": 1,
+   "why": "6 times 5 divided by 2 is 15."
+  }
+ ],
+ "method": "Try smaller cases"
+}

@@ -1,0 +1,314 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "real-numbers",
+ "topic": "irrational-numbers",
+ "status": "published",
+ "title": {
+  "en": "The number system"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 34,
+   "text": "The number system",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "re",
+   "x": 30,
+   "y": 70,
+   "w": 840,
+   "h": 410,
+   "rx": 20,
+   "fill": "#F3E5F5",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "lre",
+   "x": 450,
+   "y": 98,
+   "text": "Real numbers",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ra",
+   "x": 60,
+   "y": 115,
+   "w": 500,
+   "h": 345,
+   "rx": 18,
+   "fill": "#E3F2FD",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "lra",
+   "x": 310,
+   "y": 143,
+   "text": "Rational numbers (p/q)",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "zi",
+   "x": 90,
+   "y": 160,
+   "w": 380,
+   "h": 275,
+   "rx": 16,
+   "fill": "#C8E6C9",
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lzi",
+   "x": 280,
+   "y": 188,
+   "text": "Integers",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "wh",
+   "x": 120,
+   "y": 205,
+   "w": 260,
+   "h": 200,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lwh",
+   "x": 250,
+   "y": 232,
+   "text": "Whole numbers",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "na",
+   "x": 150,
+   "y": 250,
+   "w": 200,
+   "h": 130,
+   "rx": 12,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lna",
+   "x": 250,
+   "y": 285,
+   "text": "Natural numbers",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 250,
+   "y": 325,
+   "text": "1, 2, 3 ...",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ir",
+   "x": 590,
+   "y": 115,
+   "w": 250,
+   "h": 345,
+   "rx": 18,
+   "fill": "#FFCDD2",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "lir",
+   "x": 715,
+   "y": 143,
+   "text": "Irrational numbers",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "i1",
+   "x": 715,
+   "y": 230,
+   "text": "√2",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "i2",
+   "x": 715,
+   "y": 290,
+   "text": "π",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "i3",
+   "x": 715,
+   "y": 350,
+   "text": "√3",
+   "size": 30,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Numbers are grouped in sets. Start with the natural numbers: 1, 2, 3 and so on."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "na",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lna",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Add zero and we get the whole numbers. Add the negative numbers as well and we get the integers."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "wh",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lwh",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "zi",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lzi",
+     "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Numbers that can be written as a fraction p over q, with q not zero, are the rational numbers. Every integer is rational."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ra",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "lra",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "Numbers that cannot be written as such a fraction, like the square root of 2 and pi, are irrational. Rational and irrational numbers together make the real numbers."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ir",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lir",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "i1",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "i2",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "i3",
+     "at": 0.7
+    },
+    {
+     "do": "draw",
+     "target": "re",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "lre",
+     "at": 0.9
+    }
+   ]
+  }
+ ]
+}

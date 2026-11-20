@@ -15,7 +15,10 @@
     "account:reset-password": "tsx src/tools/reset-password.ts",
     "curriculum:check": "tsx src/db/cli.ts check",
     "books:pages": "node src/tools/build-book-pages.mjs",
-    "lessons:build": "tsx src/tools/lessonkit/cli.ts"
+    "library:pages": "node src/tools/build-library-pages.mjs",
+    "lessons:build": "tsx src/tools/lessonkit/cli.ts",
+    "backup": "node src/tools/backup.mjs",
+    "visuals:build": "tsx src/tools/build-visuals.ts"
   },
   "dependencies": {
     "@studysmart/shared": "workspace:*",

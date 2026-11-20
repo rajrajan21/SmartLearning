@@ -1,0 +1,76 @@
+{
+ "id": "puzzle-river-crossing",
+ "kind": "puzzle",
+ "category": "logic",
+ "age": "8-10",
+ "title": "The River Crossing",
+ "summary": "Find the item in the most conflicts and plan around it.",
+ "emoji": "🛶",
+ "tags": [
+  "classic",
+  "planning"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "A farmer must take a wolf, a goat and a cabbage across a river in a small boat that carries only the farmer and one item.",
+    "If left alone, the wolf eats the goat and the goat eats the cabbage.",
+    "How does he cross?"
+   ],
+   "points": [
+    "A farmer must take a wolf, a goat and a cabbage across a river in a small boat that carries only the farmer and one item."
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "List what can never be left together: wolf with goat, and goat with cabbage.",
+    "The goat is in both pairs, so it is the key."
+   ],
+   "points": [
+    "List what can never be left together: wolf with goat, and goat with cabbage."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Find the troublemaker",
+   "sentences": [
+    "Take the goat first, since leaving it with either is the problem.",
+    "Return alone and take the wolf across, then bring the goat back.",
+    "Leave the goat and take the cabbage across, then go back for the goat."
+   ],
+   "points": [
+    "Take the goat first, since leaving it with either is the problem."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "Trip 1: goat across. Trip 2: farmer back alone. Trip 3: wolf across, goat back.",
+    "Trip 4: cabbage across, farmer back alone. Trip 5: goat across.",
+    "Everyone is safe."
+   ],
+   "points": [
+    "Trip 1: goat across. Trip 2: farmer back alone. Trip 3: wolf across, goat back."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "Which item is the key in the river puzzle?",
+   "options": [
+    "The goat",
+    "The wolf",
+    "The cabbage"
+   ],
+   "answer": 0,
+   "why": "The goat is in both unsafe pairs."
+  }
+ ],
+ "method": "Find the troublemaker"
+}

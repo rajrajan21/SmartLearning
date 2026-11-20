@@ -36,21 +36,41 @@ function allTopics(g: Graph): Located[] {
 }
 const ref = (l: Located): TopicRef => ({ classLevel: l.subject.classLevel, subjectSlug: l.subject.slug, chapterSlug: l.chapter.slug, topicSlug: l.topic.slug, name: l.topic.name });
 
-export function topicDetail(g: Graph, classLevel: number, subjectSlug: string, chapterSlug: string, topicSlug: string): TopicDetail | null {
+interface TopicIndex { all: Located[]; byId: Map<string, Located>; byKey: Map<string, Located>; unlocks: Map<string, Located[]>; sameSubject: Map<string, Located[]>; pos: Map<string, number> }
+const indexes = new WeakMap<Graph, TopicIndex>();
+function indexOf(g: Graph): TopicIndex {
+  let ix = indexes.get(g);
+  if (ix) return ix;
   const all = allTopics(g);
-  const here = all.find((l) => l.subject.classLevel === classLevel && l.subject.slug === subjectSlug && l.chapter.slug === chapterSlug && l.topic.slug === topicSlug);
-  if (!here) return null;
   const byId = new Map(all.map((l) => [l.topic.id, l]));
-  const sameSubject = all.filter((l) => l.subject.id === here.subject.id); // already in chapter/topic order
-  const i = sameSubject.findIndex((l) => l.topic.id === here.topic.id);
+  const byKey = new Map<string, Located>();
+  const unlocks = new Map<string, Located[]>(), sameSubject = new Map<string, Located[]>(), pos = new Map<string, number>();
+  for (const l of all) {
+    const k = `${l.subject.classLevel}|${l.subject.slug}|${l.chapter.slug}|${l.topic.slug}`;
+    if (!byKey.has(k)) byKey.set(k, l); // the first match wins, as before
+    for (const pre of new Set(l.topic.prerequisiteIds)) { const a = unlocks.get(pre); if (a) a.push(l); else unlocks.set(pre, [l]); }
+    const list = sameSubject.get(l.subject.id) ?? [];
+    pos.set(l.topic.id, list.length); list.push(l); sameSubject.set(l.subject.id, list);
+  }
+  ix = { all, byId, byKey, unlocks, sameSubject, pos };
+  indexes.set(g, ix);
+  return ix;
+}
+
+export function topicDetail(g: Graph, classLevel: number, subjectSlug: string, chapterSlug: string, topicSlug: string): TopicDetail | null {
+  const ix = indexOf(g);
+  const here = ix.byKey.get(`${classLevel}|${subjectSlug}|${chapterSlug}|${topicSlug}`);
+  if (!here) return null;
+  const sameSubject = ix.sameSubject.get(here.subject.id) ?? []; // already in chapter/topic order
+  const i = ix.pos.get(here.topic.id) ?? -1;
   return TopicDetail.parse({
     topic: { id: here.topic.id, slug: here.topic.slug, name: here.topic.name },
     chapter: { slug: here.chapter.slug, position: here.chapter.position, name: here.chapter.name },
     subject: { slug: here.subject.slug, name: here.subject.name },
     classLevel,
     objectives: here.topic.objectives,
-    prerequisites: here.topic.prerequisiteIds.map((id) => byId.get(id)).filter((x): x is Located => !!x).map(ref),
-    unlocks: all.filter((l) => l.topic.prerequisiteIds.includes(here.topic.id)).map(ref),
+    prerequisites: here.topic.prerequisiteIds.map((id) => ix.byId.get(id)).filter((x): x is Located => !!x).map(ref),
+    unlocks: (ix.unlocks.get(here.topic.id) ?? []).map(ref),
     previous: i > 0 && sameSubject[i - 1] ? ref(sameSubject[i - 1]!) : null,
     next: i >= 0 && sameSubject[i + 1] ? ref(sameSubject[i + 1]!) : null,
   });

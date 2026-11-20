@@ -1,6 +1,7 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { AnswerFeedback, PhraseSet, PracticeSet, type AnswerResponse, type PublicQuestion } from "@studysmart/shared";
 import { store } from "./storage";
+import { useSettings } from "./settings";
 import type { Load } from "./curriculum";
 
 /** Random id kept on this device until accounts arrive (Module 6). Holds no personal data. */
@@ -12,7 +13,9 @@ export function anonId(): string {
 
 /** The practice set for a topic: null when the topic has no questions yet. */
 export function usePractice(board: string, cls: number, subject: string, chapter: string, topic: string, enabled = true): Load<PracticeSet | null> {
-  const [state, setState] = useState<Load<PracticeSet | null>>({ status: "loading" });
+  const [raw0, setState] = useState<Load<PracticeSet | null>>({ status: "loading" });
+  const st = useSettings();
+  const state = useMemo<Load<PracticeSet | null>>(() => (raw0.status === "ready" && raw0.data ? { status: "ready", data: { ...raw0.data, questions: allowedTypes(raw0.data.questions, (k) => st.get(k)) } } : raw0), [raw0, st]);
   useEffect(() => {
     if (!enabled) { setState({ status: "ready", data: null }); return; }
     let alive = true;
@@ -83,6 +86,9 @@ export function usePracticeResults(topicId: string | undefined): Record<number, 
 }
 
 export const shuffled = <T,>(a: T[]): T[] => { const b = [...a]; for (let i = b.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [b[i], b[j]] = [b[j]!, b[i]!]; } return b; };
+/** Drops question types the admin has switched off. */
+export const allowedTypes = (qs: PublicQuestion[], get: (k: string) => unknown): PublicQuestion[] =>
+  qs.filter((q) => (q.type !== "multi" || get("practice.type.multi") !== false) && (q.type !== "match" || get("practice.type.match") !== false) && (q.type !== "long" || get("practice.type.long") !== false));
 export const pickRound = (qs: PublicQuestion[], round: number, per: number, mix: boolean) => { const r = qs.filter((q) => q.round === round); return (mix ? shuffled(r) : r).slice(0, per); };
 export const usePlay = () => useCallback((url: string | undefined) => { if (!url) return; try { void new Audio(url).play().catch(() => {}); } catch { /* no audio available */ } }, []);
 

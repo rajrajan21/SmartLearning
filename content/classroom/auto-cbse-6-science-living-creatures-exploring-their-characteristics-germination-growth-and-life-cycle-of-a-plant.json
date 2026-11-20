@@ -1,0 +1,345 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "science",
+ "chapter": "living-creatures-exploring-their-characteristics",
+ "topic": "germination-growth-and-life-cycle-of-a-plant",
+ "status": "published",
+ "title": {
+  "en": "Life cycle of a plant"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Life cycle of a plant",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b0",
+   "cx": 450,
+   "cy": 140,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e0",
+   "x": 450,
+   "y": 160,
+   "text": "🌰",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l0",
+   "x": 450,
+   "y": 224,
+   "text": "Seed",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b1",
+   "cx": 720,
+   "cy": 262,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e1",
+   "x": 720,
+   "y": 282,
+   "text": "🌱",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 720,
+   "y": 346,
+   "text": "Seedling",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b2",
+   "cx": 450,
+   "cy": 384,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e2",
+   "x": 450,
+   "y": 404,
+   "text": "🌿",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 450,
+   "y": 468,
+   "text": "Young plant",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "b3",
+   "cx": 180,
+   "cy": 262,
+   "r": 52,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "e3",
+   "x": 180,
+   "y": 282,
+   "text": "🌻",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 180,
+   "y": 346,
+   "text": "Flower",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "a0",
+   "x1": 506.4999118914688,
+   "y1": 165.52958981762663,
+   "x2": 663.5000881085313,
+   "y2": 236.47041018237337,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a1",
+   "x1": 663.5000881085313,
+   "y1": 287.52958981762663,
+   "x2": 506.4999118914688,
+   "y2": 358.47041018237337,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a2",
+   "x1": 393.5000881085312,
+   "y1": 358.47041018237337,
+   "x2": 236.49991189146877,
+   "y2": 287.52958981762663,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "a3",
+   "x1": 236.49991189146877,
+   "y1": 236.47041018237337,
+   "x2": 393.5000881085312,
+   "y2": 165.52958981762663,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "seed-germination",
+   "alt": "A seed growing into a seedling",
+   "caption": "A seed germinates"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A plant begins as a seed."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "b0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "e0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "l0",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "With water, warmth and air the seed germinates, and a tiny shoot comes out."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e1",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The shoot grows roots, a stem and leaves."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e2",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "The plant flowers, and the flower makes new seeds."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a2",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b3",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "e3",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s5",
+   "narration": {
+    "en": "The new seeds fall to the ground and can grow into new plants."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "a3",
+     "at": 0.2
+    },
+    {
+     "do": "pulse",
+     "target": "b0",
+     "at": 0.3,
+     "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. A seed growing into a seedling. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

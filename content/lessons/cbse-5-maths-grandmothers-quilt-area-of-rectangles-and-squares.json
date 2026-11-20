@@ -1,0 +1,232 @@
+{
+  "board": "CBSE",
+  "classLevel": 5,
+  "subject": "maths",
+  "chapter": "grandmothers-quilt",
+  "topic": "area-of-rectangles-and-squares",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Area and perimeter together"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Trisha's rectangles"
+        },
+        "text": {
+          "en": "Trisha makes two rectangles. She says, I increased the area of my rectangle, and the perimeter increased. Is that always true? We will explore."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "8 x 5 = 40",
+          "Trisha is not always right",
+          "area vs perimeter",
+          "length x breadth",
+          "same area",
+          "same perimeter",
+          "square wins"
+        ],
+        "text": {
+          "en": "The area of a rectangle = number of squares in one row x number of rows, that is, length x breadth. For a square, side x side.\nA rectangle 8 cm by 5 cm has area 40 square cm. A square of side 6 cm has area 36 square cm.\nShapes made of 12 squares can be 6 x 2, 4 x 3 or 12 x 1. All have area 12 square units but perimeters 16, 14 and 26 units. So the same area can give different perimeters.\nShapes with the same perimeter can have different areas. With perimeter 16: 7 x 1 has area 7, 6 x 2 has 12, 5 x 3 has 15 and 4 x 4 has 16.\nSo is Trisha always right? No. From 12 x 1 (area 12, perimeter 26) to 4 x 4 (area 16, perimeter 16) the area increased but the perimeter decreased.\nArea and perimeter are different things: area measures the inside in square units and perimeter measures the border in units of length.\n(additional, not in the textbook) For a fixed perimeter, the square gives the biggest area."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c5-area-perimeter.svg",
+        "altText": {
+          "en": "Rectangles with equal area and different perimeters"
+        },
+        "caption": {
+          "en": "Area vs perimeter"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The area of a rectangle = number of squares in one row x number of rows, that is, length x breadth. For a square, side x side."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "length x breadth"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A rectangle 8 cm by 5 cm has area 40 square cm. A square of side 6 cm has area 36 square cm."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "8 x 5 = 40"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Shapes made of 12 squares can be 6 x 2, 4 x 3 or 12 x 1. All have area 12 square units but perimeters 16, 14 and 26 units. So the same area can give different perimeters."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "same area"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Shapes with the same perimeter can have different areas. With perimeter 16: 7 x 1 has area 7, 6 x 2 has 12, 5 x 3 has 15 and 4 x 4 has 16."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "same perimeter"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "So is Trisha always right? No. From 12 x 1 (area 12, perimeter 26) to 4 x 4 (area 16, perimeter 16) the area increased but the perimeter decreased."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Trisha is not always right"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Area and perimeter are different things: area measures the inside in square units and perimeter measures the border in units of length."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "area vs perimeter"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "(additional, not in the textbook) For a fixed perimeter, the square gives the biggest area."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "square wins"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the area and perimeter of a rectangle 8 cm long and 5 cm broad."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Area = 8 x 5 = 40 square cm."
+            },
+            "why": {
+              "en": "Length x breadth."
+            }
+          },
+          {
+            "text": {
+              "en": "Perimeter = 2 x (8 + 5) = 26 cm."
+            },
+            "why": {
+              "en": "Add length and breadth and double."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Is it true that when the area of a rectangle increases, its perimeter always increases? Explain with an example."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Not always"
+          },
+          {
+            "en": "12 x 1 has area 12 and perimeter 26"
+          },
+          {
+            "en": "4 x 4 has area 16 but perimeter 16, which is smaller"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Believing bigger area means bigger perimeter"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-ar1",
+          "r1-ar2",
+          "r1-ar3",
+          "r2-ar4",
+          "r2-ar5",
+          "r2-ar6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Area of a rectangle = length x breadth."
+          },
+          {
+            "en": "Same area can give different perimeters."
+          },
+          {
+            "en": "Same perimeter can give different areas."
+          },
+          {
+            "en": "Area is in square units, perimeter in length units."
+          }
+        ]
+      }
+    ]
+  }
+}

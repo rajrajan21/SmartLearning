@@ -1,0 +1,235 @@
+{
+  "board": "TNMATRIC",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "statistics-and-probability",
+  "topic": "coefficient-of-variation",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Coefficient of variation"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Whose marks are steadier?"
+        },
+        "text": {
+          "en": "Sathya scored 460 and Vidhya 480 marks in five subjects, with standard deviations 4.6 and 2.4. Who is steadier? The standard deviation alone cannot tell us."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "need for a relative measure",
+          "definition",
+          "Karl Pearson",
+          "interpretation",
+          "variability",
+          "variance to SD"
+        ],
+        "text": {
+          "en": "Standard deviation has units, so SDs of data with different units, such as kg and rupees, cannot be compared directly.\nCoefficient of variation is the standard deviation divided by the mean, multiplied by 100 percent.\nIt was suggested by Karl Pearson and has no unit.\nThe data with the smaller coefficient of variation is more consistent or stable.\nThe data with the larger coefficient of variation is more variable or less consistent.\nFor variance data, take the square root first to get the SD."
+        }
+      },
+      {
+        "id": "diagram",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "tnm-10-coefficient-of-variation.svg",
+        "altText": {
+          "en": "Two panels showing the coefficient of variation formula and the interpretation of smaller values"
+        },
+        "caption": {
+          "en": "Coefficient of variation"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Standard deviation has units, so SDs of data with different units, such as kg and rupees, cannot be compared directly."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "need for a relative measure"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Coefficient of variation is the standard deviation divided by the mean, multiplied by 100 percent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "definition"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "It was suggested by Karl Pearson and has no unit."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Karl Pearson"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The data with the smaller coefficient of variation is more consistent or stable."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "interpretation"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The data with the larger coefficient of variation is more variable or less consistent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "variability"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For variance data, take the square root first to get the SD."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "variance to SD"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Compare the consistency of Sathya (total 460, SD 4.6) and Vidhya (total 480, SD 2.4) over five subjects."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Means: Sathya 460/5 = 92; Vidhya 480/5 = 96."
+            },
+            "why": {
+              "en": "Divide totals by 5."
+            }
+          },
+          {
+            "text": {
+              "en": "C.V. of Sathya = 4.6/92 x 100 = 5%."
+            },
+            "why": {
+              "en": "SD over mean."
+            }
+          },
+          {
+            "text": {
+              "en": "C.V. of Vidhya = 2.4/96 x 100 = 2.5%."
+            },
+            "why": {
+              "en": "SD over mean."
+            }
+          },
+          {
+            "text": {
+              "en": "Vidhya has the smaller C.V., so she is more consistent."
+            },
+            "why": {
+              "en": "The smaller the C.V., the steadier the data."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "The mean and variance of heights are 155 cm and 72.25 cm^2, and of weights 46.5 kg and 28.09 kg^2. Which varies more?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "SD of heights = 8.5, C.V. = 8.5/155 x 100 = 5.48%"
+          },
+          {
+            "en": "SD of weights = 5.3, C.V. = 5.3/46.5 x 100 = 11.40%"
+          },
+          {
+            "en": "Weights vary more; heights are more consistent"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Comparing SDs of 8.5 and 5.3 directly"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-m10ma727-1",
+          "r1-m10ma727-2",
+          "r1-m10ma727-3",
+          "r2-m10ma727-4",
+          "r2-m10ma727-5",
+          "r2-m10ma727-6"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "C.V. = (SD / mean) x 100 percent."
+          },
+          {
+            "en": "Smaller C.V. means more consistent."
+          },
+          {
+            "en": "C.V. has no units."
+          },
+          {
+            "en": "Take square root of variance for SD."
+          }
+        ]
+      }
+    ]
+  }
+}

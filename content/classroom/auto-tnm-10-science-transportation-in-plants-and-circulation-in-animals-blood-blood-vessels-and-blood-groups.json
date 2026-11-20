@@ -1,0 +1,167 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "transportation-in-plants-and-circulation-in-animals",
+ "topic": "blood-blood-vessels-and-blood-groups",
+ "status": "published",
+ "title": {
+  "en": "The heart and blood"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The heart pumps blood round the body",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ht",
+   "x": 450,
+   "y": 275,
+   "text": "❤️",
+   "size": 120,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "orbit",
+   "id": "bl",
+   "cx": 450,
+   "cy": 265,
+   "r": 215,
+   "period": 5,
+   "size": 11,
+   "color": "#E53935",
+   "tilt": 0.62
+  },
+  {
+   "kind": "orbit",
+   "id": "bl2",
+   "cx": 450,
+   "cy": 265,
+   "r": 215,
+   "period": 5,
+   "size": 11,
+   "color": "#E53935",
+   "tilt": 0.62,
+   "phase": 180,
+   "ring": false
+  },
+  {
+   "kind": "text",
+   "id": "lg",
+   "x": 160,
+   "y": 420,
+   "text": "Lungs: oxygen in",
+   "size": 24,
+   "color": "water",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bd",
+   "x": 740,
+   "y": 420,
+   "text": "Body: oxygen used",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "human-heart",
+   "alt": "A diagram of the human heart",
+   "caption": "The heart"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The heart is a strong muscle about the size of your fist. It beats all day and all night."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "ht",
+     "at": 0.1
+    },
+    {
+     "do": "pulse",
+     "target": "ht",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "With every beat it pumps blood through tubes called blood vessels to every part of the body."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "bl",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "bl2",
+     "at": 0.15
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The blood picks up oxygen in the lungs and carries it, with food, to the whole body. Then it returns to the heart to start again."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "lg",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "bd",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. A diagram of the human heart. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}

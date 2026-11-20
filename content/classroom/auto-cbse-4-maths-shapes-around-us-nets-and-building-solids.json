@@ -1,0 +1,137 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "maths",
+ "chapter": "shapes-around-us",
+ "topic": "nets-and-building-solids",
+ "status": "published",
+ "title": {
+  "en": "A cube"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A cube",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "solid",
+   "id": "so",
+   "shape": "cube",
+   "x": 330,
+   "y": 290,
+   "size": 220,
+   "color": "accent"
+  },
+  {
+   "kind": "text",
+   "id": "f",
+   "x": 700,
+   "y": 200,
+   "text": "6 faces",
+   "size": 38,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "e",
+   "x": 700,
+   "y": 280,
+   "text": "12 edges",
+   "size": 38,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "c",
+   "x": 700,
+   "y": 360,
+   "text": "8 corners",
+   "size": 38,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "This is a cube. It is a solid shape, so we can hold it. Drag the board to turn it round."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "show",
+     "target": "so",
+     "at": 0.2
+    },
+    {
+     "do": "spin",
+     "target": "so",
+     "at": 0.5,
+     "rate": 30
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The flat or curved surfaces are its faces. A cube has 6 faces."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "so",
+     "at": 0.1,
+     "mode": "faces"
+    },
+    {
+     "do": "write",
+     "target": "f",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Edges are where two faces meet, and corners are where edges meet. It has 12 edges and 8 corners."
+   },
+   "actions": [
+    {
+     "do": "mark",
+     "target": "so",
+     "at": 0.1,
+     "mode": "edges"
+    },
+    {
+     "do": "write",
+     "target": "e",
+     "at": 0.3
+    },
+    {
+     "do": "mark",
+     "target": "so",
+     "at": 0.6,
+     "mode": "corners"
+    },
+    {
+     "do": "write",
+     "target": "c",
+     "at": 0.65
+    }
+   ]
+  }
+ ]
+}

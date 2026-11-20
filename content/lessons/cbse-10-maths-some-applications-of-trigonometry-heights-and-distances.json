@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "some-applications-of-trigonometry",
+  "topic": "heights-and-distances",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Heights and distances"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Measuring a tower from the ground"
+        },
+        "text": {
+          "en": "Surveyors measure mountains and towers using only an angle and a distance on the ground. Trigonometry makes that possible."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "alternate angles",
+          "angle of depression",
+          "angle of elevation",
+          "choose the ratio",
+          "draw the figure",
+          "h = 20 tan 60",
+          "line of sight",
+          "units"
+        ],
+        "text": {
+          "en": "The line of sight is the line from the eye of the observer to the object being viewed.\nThe angle of elevation is the angle between the line of sight and the horizontal when you look up at an object.\nThe angle of depression is the angle between the line of sight and the horizontal when you look down at an object.\nStep one: draw a clear figure and mark the right triangle. Step two: mark the known lengths and angles.\nStep three: choose the ratio that connects the known side and the unknown side. Use tan when height and ground distance are involved.\nExample: from a point 20 m from a tower's foot, the angle of elevation of the top is 60 degrees. Height = 20 tan 60 = 20 root 3 m.\nRemember that the angle of depression from a point equals the angle of elevation from the object below, because of alternate angles.\nAdd the observer's eye height when the problem says so, and give the answer with units."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The line of sight is the line from the eye of the observer to the object being viewed."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "line of sight"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The angle of elevation is the angle between the line of sight and the horizontal when you look up at an object."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle of elevation"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The angle of depression is the angle between the line of sight and the horizontal when you look down at an object."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "angle of depression"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Step one: draw a clear figure and mark the right triangle. Step two: mark the known lengths and angles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "draw the figure"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Step three: choose the ratio that connects the known side and the unknown side. Use tan when height and ground distance are involved."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "choose the ratio"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Example: from a point 20 m from a tower's foot, the angle of elevation of the top is 60 degrees. Height = 20 tan 60 = 20 root 3 m."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "h = 20 tan 60"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Remember that the angle of depression from a point equals the angle of elevation from the object below, because of alternate angles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "alternate angles"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Add the observer's eye height when the problem says so, and give the answer with units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "units"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A tower stands on level ground. From a point 30 m away, the angle of elevation of the top is 30 degrees. Find the height."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "tan 30 = h/30, with tan 30 = 1/root 3."
+            },
+            "why": {
+              "en": "Height over ground distance."
+            }
+          },
+          {
+            "text": {
+              "en": "h = 30/root 3 = 10 root 3."
+            },
+            "why": {
+              "en": "Simplify."
+            }
+          },
+          {
+            "text": {
+              "en": "h is about 17.3 m."
+            },
+            "why": {
+              "en": "Using root 3 = 1.73."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain angle of elevation and depression and how to start a problem."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Both measured from the horizontal"
+          },
+          {
+            "en": "Draw and mark the right triangle"
+          },
+          {
+            "en": "Pick the ratio"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Measuring the angle from the vertical"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-hd1",
+          "r1-hd2",
+          "r2-hd3",
+          "r2-hd4",
+          "r2-hd5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Angle of elevation: line of sight above the horizontal; depression: below it."
+          },
+          {
+            "en": "Draw the right triangle and choose the correct ratio."
+          },
+          {
+            "en": "Typical use: height = distance x tan(angle)."
+          }
+        ]
+      }
+    ]
+  }
+}

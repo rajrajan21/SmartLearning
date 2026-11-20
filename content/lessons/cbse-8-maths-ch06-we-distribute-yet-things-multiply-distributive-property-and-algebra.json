@@ -1,0 +1,261 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "maths",
+ "chapter": "ch06-we-distribute-yet-things-multiply",
+ "topic": "distributive-property-and-algebra",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Distributive property and expanding expressions"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "Products that change"
+    },
+    "text": {
+     "en": "What happens to the product 23 × 27 if one number goes up by 1? And if one goes up by 1 and the other goes down by 1?"
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "distributive property",
+     "expand",
+     "identity",
+     "expression",
+     "bracket"
+    ],
+    "text": {
+     "en": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac.\nIf 27 grows to 28, the product 23 × 27 grows by 23, because 23 × 28 = 23 × 27 + 23.\nWe usually skip the multiplication sign before brackets, so a(b + c) means a × (b + c).\nThe same property holds on the other side: (a + b)c = ac + bc.\nIf a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1.\nSo the product changes by b − a − 1; with a = 23 and b = 27 it increases by 3.\nSpecial cases give identities: (a + b)² = a² + 2ab + b² and (a − b)² = a² − 2ab + b².\nAlso (a + b)(a − b) = a² − b², which lets us calculate 51 × 49 as 50² − 1² = 2,499.\nCommon mistakes: (a + b)² is not a² + b², and −(a − b) is −a + b, not −a − b.\nAlgebra gives many ways to reach the same answer, and checking with numbers tells us if a rule is right."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "a(b + c) = ab + ac"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "If 27 grows to 28, the product 23 × 27 grows by 23, because 23 × 28 = 23 × 27 + 23."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "+1 adds one more 23"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "We usually skip the multiplication sign before brackets, so a(b + c) means a × (b + c)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "5a, xy, a(b + c)"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The same property holds on the other side: (a + b)c = ac + bc."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(a + b)c = ac + bc"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "If a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(a+1)(b−1) = ab − a + b − 1"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "So the product changes by b − a − 1; with a = 23 and b = 27 it increases by 3."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "change = b − a − 1"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Special cases give identities: (a + b)² = a² + 2ab + b² and (a − b)² = a² − 2ab + b²."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(a ± b)² = a² ± 2ab + b²"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Also (a + b)(a − b) = a² − b², which lets us calculate 51 × 49 as 50² − 1² = 2,499."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(a+b)(a−b) = a² − b²"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Common mistakes: (a + b)² is not a² + b², and −(a − b) is −a + b, not −a − b."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "watch for mistakes"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Algebra gives many ways to reach the same answer, and checking with numbers tells us if a rule is right."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "test with numbers"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find 103 × 97 using an identity."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Write 103 = 100 + 3 and 97 = 100 − 3."
+      },
+      "why": {
+       "en": "Pick numbers around a friendly base."
+      }
+     },
+     {
+      "text": {
+       "en": "(100 + 3)(100 − 3) = 100² − 3²."
+      },
+      "why": {
+       "en": "Use (a + b)(a − b) = a² − b²."
+      }
+     },
+     {
+      "text": {
+       "en": "10,000 − 9 = 9,991."
+      },
+      "why": {
+       "en": "Subtract."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says (a + b)² = a² + b². How do you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Expand: (a + b)(a + b) = a² + 2ab + b²."
+     },
+     {
+      "en": "Test a = 1, b = 1: 4 versus 2."
+     },
+     {
+      "en": "So the middle term 2ab is missing."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "(a + b)² = a² + b² always."
+     },
+     {
+      "en": "Brackets can be ignored."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-dis220",
+     "r1-dis221",
+     "r1-dis222",
+     "r1-dis223",
+     "r1-dis224"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "a(b + c) = ab + ac and (a + b)c = ac + bc."
+     },
+     {
+      "en": "(a ± b)² = a² ± 2ab + b² and (a + b)(a − b) = a² − b²."
+     },
+     {
+      "en": "Check rules with numbers to avoid mistakes."
+     }
+    ]
+   }
+  ]
+ }
+}

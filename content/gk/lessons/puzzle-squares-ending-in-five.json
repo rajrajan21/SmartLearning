@@ -1,0 +1,87 @@
+{
+ "id": "puzzle-squares-ending-in-five",
+ "kind": "puzzle",
+ "category": "mental",
+ "age": "14+",
+ "title": "Squaring Numbers That End in 5",
+ "summary": "A pattern is only a rule once you can explain why it works.",
+ "emoji": "🧮",
+ "tags": [
+  "mental maths",
+  "algebra"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "The puzzle",
+   "sentences": [
+    "What is 35 times 35?",
+    "What is 85 times 85?",
+    "There is a fast way that needs only one small multiplication."
+   ],
+   "points": [
+    "What is 35 times 35?"
+   ]
+  },
+  {
+   "id": "s2",
+   "title": "How to think about it",
+   "sentences": [
+    "Split the number into the tens part and the 5 at the end.",
+    "Try 15 times 15, which is 225, and 25 times 25, which is 625. Look at how the answers start and end."
+   ],
+   "points": [
+    "Split the number into the tens part and the 5 at the end."
+   ]
+  },
+  {
+   "id": "s3",
+   "title": "The method: Find the rule, then test it",
+   "sentences": [
+    "Take the tens digit, and multiply it by the next number up.",
+    "Write that, then write 25 after it.",
+    "For 35: 3 times 4 is 12, so the answer is 1225."
+   ],
+   "points": [
+    "Take the tens digit, and multiply it by the next number up."
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "The answer",
+   "sentences": [
+    "35 times 35 is 1225.",
+    "85 times 85: 8 times 9 is 72, so the answer is 7225.",
+    "It works because (10n plus 5) squared equals 100 times n times (n plus 1), plus 25.",
+    "Always test a rule on a case you already know, like 15 times 15 equals 225."
+   ],
+   "points": [
+    "35 times 35 is 1225."
+   ]
+  }
+ ],
+ "facts": [],
+ "quiz": [
+  {
+   "q": "What is 65 times 65?",
+   "options": [
+    "4225",
+    "4025",
+    "4325"
+   ],
+   "answer": 0,
+   "why": "6 times 7 is 42, then 25 gives 4225."
+  },
+  {
+   "q": "What is 95 times 95?",
+   "options": [
+    "9025",
+    "8925",
+    "9125"
+   ],
+   "answer": 0,
+   "why": "9 times 10 is 90, then 25 gives 9025."
+  }
+ ],
+ "method": "Find the rule, then test it"
+}

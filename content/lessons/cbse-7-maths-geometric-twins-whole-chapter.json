@@ -1,0 +1,551 @@
+{
+  "board": "CBSE",
+  "classLevel": 7,
+  "subject": "maths",
+  "chapter": "geometric-twins",
+  "topic": "whole-chapter",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Geometric Twins"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Copying a signboard exactly"
+        },
+        "text": {
+          "en": "A signboard symbol must be recreated on another board. Tracing works for a small symbol, but for a big one we need measurements. Which measurements are enough to build an exact copy? The answer leads to one of the most useful ideas in geometry, congruence."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "congruent",
+          "SSS",
+          "SAS",
+          "ASA",
+          "AAS",
+          "RHS",
+          "hypotenuse"
+        ],
+        "text": {
+          "en": "Take two arm lengths AB = 4 cm and BC = 8 cm of the symbol. Many different symbols can be drawn with those two lengths, because the arms can open to different angles. Add the angle ABC = 80 degrees. Now the two arm lengths and the angle between them fix the shape and size completely. Figures that are exact copies of each other, with the same shape and size, are called congruent. Congruent figures can be superimposed so that one fits exactly over the other. While checking, a figure may be rotated or flipped before superimposing. So a flipped copy is still congruent. To test two circles, compare their radii. To test two rectangles, compare length and breadth. Fixing the right measurements decides congruence.\nMeera and Rabia must copy a big triangular frame with sides 40 cm, 60 cm and 80 cm. Meera says the angles are not needed. Is she right? Scale it down to 4 cm, 6 cm and 8 cm. Draw the 6 cm base AB, then draw arcs of radius 4 cm and 8 cm from its ends. The arcs meet at two points E and F, giving triangles ABE and ABF. These two triangles are mirror images across AB, so they are congruent. Hence every triangle with these three sides is congruent to the original. This is the SSS condition: if two triangles have the same three side lengths, they are congruent. Meera was right.\nWhen triangle ABC fits over triangle XYZ, A lies over X, B over Y and C over Z. These are corresponding vertices. Sides AB and XY, BC and YZ, AC and XZ correspond, and so do the angles A and X, B and Y, C and Z. We write triangle ABC is congruent to triangle XYZ using the sign ≅. The first vertex matches the first, the second matches the second, and the third matches the third. So writing triangle ACB ≅ triangle XYZ is wrong for this pair, but triangle ACB ≅ triangle XZY is correct, because the order of both names changes in the same way. In rectangle ABCD, triangles ABD and CDB are congruent by SSS: AB = CD, AD = CB, and BD is common. The correct correspondence is A to C, B to D, D to B, so triangle ABD ≅ triangle CDB. A common side shared by two triangles is equal to itself. Remember to use it as one pair of equal sides.\nSuppose the angles are 30, 70 and 80 degrees. Many triangles with these angles can be drawn, small and large. They have the same shape but not the same size. So equal angles alone do not make triangles congruent.\nTake triangles ABC and XYZ with AB = XY = 6 cm, AC = XZ = 5 cm and angle A = angle X = 30 degrees. The angle is between the two sides, so it is the included angle. Construct it: draw AB, make 30 degrees at A, mark 5 cm on that arm and join. Every classmate will get a congruent triangle. So two sides and the included angle equal means the triangles are congruent. This is the SAS (Side Angle Side) condition.\nNow take two sides and a non-included angle: PQ = 6 cm, angle P = 30 degrees and QR = 4 cm. Draw PQ, make 30 degrees at P, and cut an arc of radius 4 cm from Q on the line. The arc meets the line at two points R and S, giving two different triangles with the same measurements. So SSA does not guarantee congruence. For two angles and the included side, BC = 5 cm, angle B = 50 and angle C = 30 degrees, the construction gives only one triangle. This is the ASA (Angle Side Angle) condition, and it guarantees congruence. Take two angles and a non-included side: angle A = 35, angle C = 75 and BC = 4 cm. The third angle B = 180 - 35 - 75 = 70 degrees, and the same holds for the other triangle, so ASA applies. This is the AAS (Angle Angle Side) condition, and it also guarantees congruence. Whenever two angles are known, the third angle is known too, so AAS can always be turned into ASA.\nIn a right-angled triangle, the side opposite to the right angle is the hypotenuse. It is the longest side. Take BC = 4 cm, right angle at B and hypotenuse AC = 5 cm. Draw QR = 4 cm, draw a perpendicular at Q, and cut an arc of radius 5 cm from R on it. The arc also meets the perpendicular below QR, but that triangle is a mirror image and so is congruent. So a right angle, the hypotenuse and one other side equal gives congruence. This is the RHS (Right angle, Hypotenuse, Side) condition. The conditions that guarantee congruence are SSS, SAS, ASA, AAS and RHS. SSA in general and AAA do not.\nCongruence helps us discover facts. In triangle ABC with AB = AC, draw the altitude AD from A to BC. Triangles ADB and ADC have AB = AC, a right angle at D, and the common side AD. So they are congruent by RHS, and angle B = angle C, being corresponding angles. So in a triangle, angles opposite to equal sides are equal. In an isosceles triangle with the apex angle 80 degrees, the other two angles are (180 - 80) divided by 2 = 50 degrees each. In an equilateral triangle every pair of sides is equal, so all three angles are equal. Three equal angles add to 180 degrees, so each angle is 60 degrees. We found this just by using congruence. Congruent triangles appear in bridges, pyramids, domes and rangoli designs, because equal triangles make strong, repeating patterns."
+        }
+      },
+      {
+        "id": "diagram1",
+        "type": "diagram",
+        "provenance": "original",
+        "assetKey": "c7-maths-congruence-conditions.svg",
+        "altText": {
+          "en": "Two congruent triangles with the conditions SSS, SAS, ASA, AAS and RHS that guarantee congruence, and SSA and AAA that do not"
+        },
+        "caption": {
+          "en": "Which facts are enough for congruence"
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Take two arm lengths AB = 4 cm and BC = 8 cm of the symbol. Many different symbols can be drawn with those two lengths, because the arms can open to different angles."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Congruent figures"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Add the angle ABC = 80 degrees. Now the two arm lengths and the angle between them fix the shape and size completely."
+            },
+            "board": []
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Figures that are exact copies of each other, with the same shape and size, are called congruent. Congruent figures can be superimposed so that one fits exactly over the other."
+            },
+            "board": []
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "While checking, a figure may be rotated or flipped before superimposing. So a flipped copy is still congruent."
+            },
+            "board": []
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "To test two circles, compare their radii. To test two rectangles, compare length and breadth. Fixing the right measurements decides congruence."
+            },
+            "board": []
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Meera and Rabia must copy a big triangular frame with sides 40 cm, 60 cm and 80 cm. Meera says the angles are not needed. Is she right?"
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Congruence of triangles: the SSS condition"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Scale it down to 4 cm, 6 cm and 8 cm. Draw the 6 cm base AB, then draw arcs of radius 4 cm and 8 cm from its ends. The arcs meet at two points E and F, giving triangles ABE and ABF."
+            },
+            "board": []
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "These two triangles are mirror images across AB, so they are congruent. Hence every triangle with these three sides is congruent to the original."
+            },
+            "board": []
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "This is the SSS condition: if two triangles have the same three side lengths, they are congruent. Meera was right."
+            },
+            "board": []
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "When triangle ABC fits over triangle XYZ, A lies over X, B over Y and C over Z. These are corresponding vertices. Sides AB and XY, BC and YZ, AC and XZ correspond, and so do the angles A and X, B and Y, C and Z."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Naming congruent triangles"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "We write triangle ABC is congruent to triangle XYZ using the sign ≅. The first vertex matches the first, the second matches the second, and the third matches the third."
+            },
+            "board": []
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "So writing triangle ACB ≅ triangle XYZ is wrong for this pair, but triangle ACB ≅ triangle XZY is correct, because the order of both names changes in the same way."
+            },
+            "board": []
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "In rectangle ABCD, triangles ABD and CDB are congruent by SSS: AB = CD, AD = CB, and BD is common. The correct correspondence is A to C, B to D, D to B, so triangle ABD ≅ triangle CDB."
+            },
+            "board": []
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "A common side shared by two triangles is equal to itself. Remember to use it as one pair of equal sides."
+            },
+            "board": []
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "Suppose the angles are 30, 70 and 80 degrees. Many triangles with these angles can be drawn, small and large."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Measuring the angles only: AAA is not enough"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "They have the same shape but not the same size. So equal angles alone do not make triangles congruent."
+            },
+            "board": []
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "Take triangles ABC and XYZ with AB = XY = 6 cm, AC = XZ = 5 cm and angle A = angle X = 30 degrees. The angle is between the two sides, so it is the included angle."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "SAS condition"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Construct it: draw AB, make 30 degrees at A, mark 5 cm on that arm and join. Every classmate will get a congruent triangle."
+            },
+            "board": []
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "So two sides and the included angle equal means the triangles are congruent. This is the SAS (Side Angle Side) condition."
+            },
+            "board": []
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Now take two sides and a non-included angle: PQ = 6 cm, angle P = 30 degrees and QR = 4 cm. Draw PQ, make 30 degrees at P, and cut an arc of radius 4 cm from Q on the line."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "SSA fails, ASA and AAS work"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "The arc meets the line at two points R and S, giving two different triangles with the same measurements. So SSA does not guarantee congruence."
+            },
+            "board": []
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "For two angles and the included side, BC = 5 cm, angle B = 50 and angle C = 30 degrees, the construction gives only one triangle. This is the ASA (Angle Side Angle) condition, and it guarantees congruence."
+            },
+            "board": []
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Take two angles and a non-included side: angle A = 35, angle C = 75 and BC = 4 cm. The third angle B = 180 - 35 - 75 = 70 degrees, and the same holds for the other triangle, so ASA applies. This is the AAS (Angle Angle Side) condition, and it also guarantees congruence."
+            },
+            "board": []
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Whenever two angles are known, the third angle is known too, so AAS can always be turned into ASA."
+            },
+            "board": []
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "In a right-angled triangle, the side opposite to the right angle is the hypotenuse. It is the longest side."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "RHS condition"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Take BC = 4 cm, right angle at B and hypotenuse AC = 5 cm. Draw QR = 4 cm, draw a perpendicular at Q, and cut an arc of radius 5 cm from R on it. The arc also meets the perpendicular below QR, but that triangle is a mirror image and so is congruent."
+            },
+            "board": []
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "So a right angle, the hypotenuse and one other side equal gives congruence. This is the RHS (Right angle, Hypotenuse, Side) condition."
+            },
+            "board": []
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "The conditions that guarantee congruence are SSS, SAS, ASA, AAS and RHS. SSA in general and AAA do not."
+            },
+            "board": []
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Congruence helps us discover facts. In triangle ABC with AB = AC, draw the altitude AD from A to BC."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Angles of isosceles and equilateral triangles"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Triangles ADB and ADC have AB = AC, a right angle at D, and the common side AD. So they are congruent by RHS, and angle B = angle C, being corresponding angles."
+            },
+            "board": []
+          },
+          {
+            "id": "t31",
+            "text": {
+              "en": "So in a triangle, angles opposite to equal sides are equal. In an isosceles triangle with the apex angle 80 degrees, the other two angles are (180 - 80) divided by 2 = 50 degrees each."
+            },
+            "board": []
+          },
+          {
+            "id": "t32",
+            "text": {
+              "en": "In an equilateral triangle every pair of sides is equal, so all three angles are equal. Three equal angles add to 180 degrees, so each angle is 60 degrees."
+            },
+            "board": []
+          },
+          {
+            "id": "t33",
+            "text": {
+              "en": "We found this just by using congruence. Congruent triangles appear in bridges, pyramids, domes and rangoli designs, because equal triangles make strong, repeating patterns."
+            },
+            "board": []
+          }
+        ]
+      },
+      {
+        "id": "example1",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Triangles PQR and XYZ have PQ = XY, QR = YZ and angle Q = angle Y. Are they congruent? Write the congruence."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "PQ = XY, angle Q = angle Y and QR = YZ. Angle Q lies between PQ and QR."
+            },
+            "why": {
+              "en": "Check whether the equal angle is between the two equal sides."
+            }
+          },
+          {
+            "text": {
+              "en": "So SAS holds."
+            },
+            "why": {
+              "en": "Two sides and the included angle are equal."
+            }
+          },
+          {
+            "text": {
+              "en": "Triangle PQR ≅ triangle XYZ."
+            },
+            "why": {
+              "en": "The first, second and third vertices correspond in that order."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example2",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In the figure, O is the midpoint of AD and of BC. Show that AB = CD."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "AO = OD and BO = OC."
+            },
+            "why": {
+              "en": "O is the midpoint of both segments."
+            }
+          },
+          {
+            "text": {
+              "en": "Angle AOB = angle DOC."
+            },
+            "why": {
+              "en": "They are vertically opposite angles."
+            }
+          },
+          {
+            "text": {
+              "en": "So triangle AOB ≅ triangle DOC by SAS."
+            },
+            "why": {
+              "en": "Two sides and the included angle are equal."
+            }
+          },
+          {
+            "text": {
+              "en": "AB and DC are corresponding sides, so AB = CD."
+            },
+            "why": {
+              "en": "Corresponding parts of congruent triangles are equal."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example3",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In triangle ABC, AB = AC and angle A = 40 degrees. Find angles B and C."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "AB = AC, so angle B = angle C."
+            },
+            "why": {
+              "en": "Angles opposite equal sides are equal."
+            }
+          },
+          {
+            "text": {
+              "en": "Angle B + angle C = 180 - 40 = 140 degrees."
+            },
+            "why": {
+              "en": "The angle sum of a triangle is 180 degrees."
+            }
+          },
+          {
+            "text": {
+              "en": "Each is 70 degrees."
+            },
+            "why": {
+              "en": "Divide 140 by 2."
+            }
+          }
+        ]
+      },
+      {
+        "id": "example4",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Triangle ABC has angle A = 35, angle C = 75 and BC = 4 cm, and triangle XYZ has angle X = 35, angle Z = 75 and YZ = 4 cm. Show they are congruent."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Angle B = 180 - 35 - 75 = 70 degrees. Likewise angle Y = 70 degrees."
+            },
+            "why": {
+              "en": "The angle sum of a triangle is 180."
+            }
+          },
+          {
+            "text": {
+              "en": "Angle B = angle Y, BC = YZ and angle C = angle Z."
+            },
+            "why": {
+              "en": "Two angles and the included side are equal."
+            }
+          },
+          {
+            "text": {
+              "en": "So triangle ABC ≅ triangle XYZ by ASA."
+            },
+            "why": {
+              "en": "Hence congruent."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "Explain to a friend which measurements are enough to copy a triangle exactly and which are not, and why the angles of an equilateral triangle are 60 degrees."
+        },
+        "requiredIdeas": [
+          {
+            "en": "Three sides (SSS), two sides and the included angle (SAS), two angles and a side (ASA, AAS) and RHS are enough."
+          },
+          {
+            "en": "Three angles alone (AAA) and two sides with a non-included angle (SSA) are not enough."
+          },
+          {
+            "en": "In a triangle, angles opposite equal sides are equal; an equilateral triangle has three equal angles adding to 180 degrees, so each is 60 degrees."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Thinking equal angles are enough to make triangles congruent."
+          },
+          {
+            "en": "Matching vertices in the wrong order when writing the congruence."
+          },
+          {
+            "en": "Thinking SSA always works."
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "c7ma-gt-1",
+          "c7ma-gt-2",
+          "c7ma-gt-3",
+          "c7ma-gt-4",
+          "c7ma-gt-5",
+          "c7ma-gt-6",
+          "c7ma-gt-7",
+          "c7ma-gt-8"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Figures with the same shape and size are congruent; they fit exactly over each other, even when rotated or flipped."
+          },
+          {
+            "en": "Two triangles are congruent by SSS, SAS, ASA, AAS or RHS."
+          },
+          {
+            "en": "SSA (non-included angle) and AAA do not guarantee congruence."
+          },
+          {
+            "en": "Corresponding vertices, sides and angles are named in the same order when writing the congruence."
+          },
+          {
+            "en": "Angles opposite equal sides of a triangle are equal."
+          },
+          {
+            "en": "Each angle of an equilateral triangle is 60 degrees."
+          }
+        ]
+      }
+    ]
+  }
+}

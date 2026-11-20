@@ -1,0 +1,242 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "real-numbers",
+ "topic": "laws-of-exponents",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Laws of Exponents"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "A bacterium doubles every minute. After 3 minutes there are 2 × 2 × 2 = 8 bacteria. Writing 2 three times is slow, so mathematicians write it as 2 to the power 3."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "base",
+     "index",
+     "product law",
+     "negative index"
+    ],
+    "text": {
+     "en": "In a^n, a is the base and n is the index or exponent. It means a multiplied by itself n times. So 2^5 = 2 × 2 × 2 × 2 × 2 = 32 and 10^3 = 1000.\nThe product law says a^m × a^n = a^(m+n) when the base is the same. For example 3^2 × 3^4 = 3^6 = 729. The quotient law says a^m ÷ a^n = a^(m−n), so 5^7 ÷ 5^4 = 5^3 = 125.\nThe power law says (a^m)^n = a^(mn). For example (2^3)^2 = 2^6 = 64. Also (ab)^n = a^n × b^n, so (2 × 5)^2 = 4 × 25 = 100.\nAny non-zero number to the power 0 is 1, so 7^0 = 1. A negative index means the reciprocal, so a^(−n) = 1 ÷ a^n. For example 2^(−3) = 1/8. A fractional index such as a^(1/2) means the square root of a, so 9^(1/2) = 3."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "In a^n, a is the base and n is the index or exponent."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "base"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "It means a multiplied by itself n times."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "index"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "So 2^5 = 2 × 2 × 2 × 2 × 2 = 32 and 10^3 = 1000."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "product law"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "The product law says a^m × a^n = a^(m+n) when the base is the same."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "negative index"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "For example 3^2 × 3^4 = 3^6 = 729."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "base"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "The quotient law says a^m ÷ a^n = a^(m−n), so 5^7 ÷ 5^4 = 5^3 = 125."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "index"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "The power law says (a^m)^n = a^(mn)."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "product law"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "For example (2^3)^2 = 2^6 = 64."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "negative index"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Also (ab)^n = a^n × b^n, so (2 × 5)^2 = 4 × 25 = 100."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "base"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Simplify (2^3 × 2^4) ÷ 2^5."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use the product law on the top: 2^3 × 2^4 = 2^(3+4) = 2^7."
+      },
+      "why": {
+       "en": "Step 1."
+      }
+     },
+     {
+      "text": {
+       "en": "Now use the quotient law: 2^7 ÷ 2^5 = 2^(7−5) = 2^2."
+      },
+      "why": {
+       "en": "Step 2."
+      }
+     },
+     {
+      "text": {
+       "en": "Find the value: 2^2 = 4."
+      },
+      "why": {
+       "en": "Step 3."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "A friend says 2^3 × 2^4 = 4^7. How will you reply?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "The base stays the same when we multiply"
+     },
+     {
+      "en": "We add the indices to get 2^7"
+     },
+     {
+      "en": "2^7 = 128, but 4^7 is a much larger number"
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "Check the idea again."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "r1-law770",
+     "r1-law771"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "To multiply with the same base, add the indices."
+     },
+     {
+      "en": "To divide with the same base, subtract the indices."
+     },
+     {
+      "en": "a^0 = 1 and a^(−n) = 1/a^n."
+     }
+    ]
+   }
+  ]
+ }
+}

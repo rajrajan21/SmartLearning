@@ -1,0 +1,279 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "science",
+ "chapter": "electricity-circuits-and-their-components",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "An electric circuit"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A simple electric circuit",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "bat",
+   "x": 170,
+   "y": 220,
+   "w": 70,
+   "h": 60,
+   "rx": 6,
+   "fill": "#EF9A9A",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "bt",
+   "x": 205,
+   "y": 258,
+   "text": "🔋",
+   "size": 38,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bl",
+   "x": 120,
+   "y": 258,
+   "text": "Cell",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "w1",
+   "d": "M 205 220 L 205 130 L 450 130",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "path",
+   "id": "w2",
+   "d": "M 450 130 L 700 130 L 700 220",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "path",
+   "id": "w3",
+   "d": "M 700 340 L 700 400 L 205 400 L 205 280",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "bu",
+   "cx": 700,
+   "cy": 280,
+   "r": 50,
+   "fill": "#FFF9C4",
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "bu2",
+   "x": 700,
+   "y": 295,
+   "text": "💡",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bn",
+   "x": 790,
+   "y": 285,
+   "text": "Bulb",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "rect",
+   "id": "sw",
+   "x": 400,
+   "y": 112,
+   "w": 100,
+   "h": 36,
+   "rx": 6,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "swt",
+   "x": 450,
+   "y": 100,
+   "text": "Switch",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "d1",
+   "x1": 260,
+   "y1": 130,
+   "x2": 340,
+   "y2": 130,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d2",
+   "x1": 700,
+   "y1": 150,
+   "x2": 700,
+   "y2": 200,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d3",
+   "x1": 640,
+   "y1": 400,
+   "x2": 560,
+   "y2": 400,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d4",
+   "x1": 205,
+   "y1": 360,
+   "x2": 205,
+   "y2": 310,
+   "stroke": "sun",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An electric circuit is a closed path through which electricity can flow. It needs a cell, wires and a bulb."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "bat",
+     "at": 0.2
+    },
+    {
+     "do": "show",
+     "target": "bt",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "bl",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "bu",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "bu2",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "bn",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The wires join the cell to the bulb and back again, making a complete loop."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "w1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "w2",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "w3",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "When the switch is closed the circuit is complete, and electricity flows round it. The bulb glows. If the loop is broken anywhere, the bulb goes out."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "sw",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "swt",
+     "at": 0.15
+    },
+    {
+     "do": "fill",
+     "target": "bu",
+     "color": "sun",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.55
+    },
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "d3",
+     "at": 0.75
+    },
+    {
+     "do": "draw",
+     "target": "d4",
+     "at": 0.85
+    }
+   ]
+  }
+ ]
+}

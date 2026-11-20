@@ -1,0 +1,302 @@
+{
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "heredity",
+ "topic": "mendels-experiments",
+ "status": "published",
+ "title": {
+  "en": "Mendel's monohybrid cross"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "A monohybrid cross: Tt × Tt",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "pa",
+   "x": 450,
+   "y": 100,
+   "text": "Gametes of one parent",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "pb",
+   "x": 200,
+   "y": 255,
+   "text": "Gametes of the other",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ga0",
+   "x": 380,
+   "y": 140,
+   "text": "T",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "gb0",
+   "x": 300,
+   "y": 210,
+   "text": "T",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ga1",
+   "x": 480,
+   "y": 140,
+   "text": "t",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "gb1",
+   "x": 300,
+   "y": 310,
+   "text": "t",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c00",
+   "x": 330,
+   "y": 150,
+   "w": 100,
+   "h": 100,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "v00",
+   "x": 380,
+   "y": 212,
+   "text": "TT",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c01",
+   "x": 430,
+   "y": 150,
+   "w": 100,
+   "h": 100,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "v01",
+   "x": 480,
+   "y": 212,
+   "text": "Tt",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c10",
+   "x": 330,
+   "y": 250,
+   "w": 100,
+   "h": 100,
+   "rx": 0,
+   "fill": "#C8E6C9",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "v10",
+   "x": 380,
+   "y": 312,
+   "text": "Tt",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c11",
+   "x": 430,
+   "y": 250,
+   "w": 100,
+   "h": 100,
+   "rx": 0,
+   "fill": "#FFE0B2",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "v11",
+   "x": 480,
+   "y": 312,
+   "text": "tt",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r1",
+   "x": 450,
+   "y": 400,
+   "text": "Genotype ratio TT : Tt : tt = 1 : 2 : 1",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "r2",
+   "x": 450,
+   "y": 440,
+   "text": "Tall (TT, Tt) : dwarf (tt) = 3 : 1",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Mendel crossed pea plants that had the gene T for tall and t for dwarf. Each parent here is Tt, and it passes on either T or t in its gametes."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "pa",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ga0",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "ga1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "pb",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "gb0",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "gb1",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A Punnett square shows every possible pairing. We get T T, T t, T t and t t."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "c00",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "v00",
+     "at": 0.12
+    },
+    {
+     "do": "draw",
+     "target": "c01",
+     "at": 0.275
+    },
+    {
+     "do": "write",
+     "target": "v01",
+     "at": 0.295
+    },
+    {
+     "do": "draw",
+     "target": "c10",
+     "at": 0.45000000000000007
+    },
+    {
+     "do": "write",
+     "target": "v10",
+     "at": 0.47
+    },
+    {
+     "do": "draw",
+     "target": "c11",
+     "at": 0.625
+    },
+    {
+     "do": "write",
+     "target": "v11",
+     "at": 0.6449999999999999
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The genotypes come in the ratio 1 to 2 to 1. Because T is dominant over t, three offspring are tall and one is dwarf. This 3 to 1 ratio is the phenotype ratio."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "r1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "r2",
+     "at": 0.6
+    }
+   ]
+  }
+ ]
+}

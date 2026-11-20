@@ -1,0 +1,107 @@
+{
+ "id": "primes-and-the-sieve",
+ "kind": "lesson",
+ "category": "maths",
+ "age": "11-13",
+ "title": "Prime Numbers and the Sieve",
+ "summary": "What primes are, why they matter and how a 2,000-year-old trick finds them.",
+ "emoji": "🔢",
+ "tags": [
+  "prime",
+  "sieve"
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "title": "What is a prime?",
+   "sentences": [
+    "A prime number has exactly two factors: 1 and itself.",
+    "The first primes are 2, 3, 5, 7, 11 and 13.",
+    "The number 1 is not a prime, and 2 is the only even prime."
+   ],
+   "points": [
+    "Exactly two factors",
+    "2, 3, 5, 7, 11, 13",
+    "2 is the only even prime"
+   ],
+   "visual": "number-sieve"
+  },
+  {
+   "id": "s2",
+   "title": "The Sieve of Eratosthenes",
+   "sentences": [
+    "Write the numbers from 2 to 50.",
+    "Circle 2 and cross out every multiple of 2.",
+    "Move to the next number that is not crossed out, 3, circle it and cross out its multiples, and keep going. The numbers left standing are primes."
+   ],
+   "points": [
+    "Circle a prime",
+    "Cross out its multiples",
+    "Repeat"
+   ],
+   "visual": "number-sieve"
+  },
+  {
+   "id": "s3",
+   "title": "Why stop early?",
+   "sentences": [
+    "You only need to sieve with primes up to the square root of the largest number.",
+    "For numbers up to 50 you only need 2, 3, 5 and 7.",
+    "Any number left after that cannot have a smaller factor."
+   ],
+   "points": [
+    "Stop at the square root"
+   ]
+  },
+  {
+   "id": "s4",
+   "title": "Why primes matter",
+   "sentences": [
+    "Every whole number bigger than 1 is either a prime or can be built by multiplying primes in only one way.",
+    "That makes primes the building blocks of numbers.",
+    "Very large primes keep our online messages and bank details secret."
+   ],
+   "points": [
+    "Building blocks",
+    "Used in online security"
+   ]
+  }
+ ],
+ "facts": [
+  "Eratosthenes was a Greek scholar who lived about 2,200 years ago and also measured the size of the Earth.",
+  "There are infinitely many primes: Euclid proved this more than 2,000 years ago.",
+  "The largest known primes have tens of millions of digits."
+ ],
+ "quiz": [
+  {
+   "q": "Which of these is a prime?",
+   "options": [
+    "9",
+    "11",
+    "15"
+   ],
+   "answer": 1,
+   "why": "11 has only the factors 1 and 11."
+  },
+  {
+   "q": "Which is the only even prime?",
+   "options": [
+    "2",
+    "4",
+    "6"
+   ],
+   "answer": 0,
+   "why": "Every other even number can be divided by 2."
+  },
+  {
+   "q": "The numbers left after sieving are...",
+   "options": [
+    "Primes",
+    "Squares",
+    "Even numbers"
+   ],
+   "answer": 0,
+   "why": "The numbers left uncrossed are the primes."
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+  "board": "CBSE",
+  "classLevel": 10,
+  "subject": "maths",
+  "chapter": "some-applications-of-trigonometry",
+  "topic": "two-angle-problems",
+  "lesson": {
+    "status": "published",
+    "title": {
+      "en": "Problems with two angles of elevation or depression"
+    },
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "Two observers, one tower"
+        },
+        "text": {
+          "en": "When the angle changes as you walk toward a tower, two equations reveal both the height and the distance."
+        }
+      },
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "30 and 60",
+          "depression pairs",
+          "difference = walk",
+          "distance = h / tan",
+          "h = 10 root 3",
+          "keep surds",
+          "sanity check",
+          "two triangles, one height"
+        ],
+        "text": {
+          "en": "When two angles of elevation are given, draw one figure with two right triangles that share the same height.\nLet the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle).\nThe difference of the two distances is the distance the observer moved.\nExample: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20.\nSo h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m.\nFor two objects seen from a tower top, use angles of depression and take care with which one is nearer.\nUse the same tan ratio each time, and keep root 3 as it is until the last step.\nAlways check that the answer is reasonable by drawing the triangles to scale."
+        }
+      },
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "When two angles of elevation are given, draw one figure with two right triangles that share the same height."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "two triangles, one height"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "distance = h / tan"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The difference of the two distances is the distance the observer moved."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "difference = walk"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "30 and 60"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "h = 10 root 3"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "For two objects seen from a tower top, use angles of depression and take care with which one is nearer."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "depression pairs"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Use the same tan ratio each time, and keep root 3 as it is until the last step."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "keep surds"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Always check that the answer is reasonable by drawing the triangles to scale."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sanity check"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "From the top of a 75 m lighthouse, the angles of depression of two ships are 30 and 45 degrees on the same side. Find the distance between ships."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Nearer ship: 75/tan 45 = 75 m. Farther ship: 75/tan 30 = 75 root 3 m."
+            },
+            "why": {
+              "en": "Distance = height/tan of depression."
+            }
+          },
+          {
+            "text": {
+              "en": "Gap = 75 root 3 - 75 = 75 (root 3 - 1)."
+            },
+            "why": {
+              "en": "Subtract."
+            }
+          },
+          {
+            "text": {
+              "en": "About 75 x 0.73 = 54.75 m."
+            },
+            "why": {
+              "en": "Use root 3 = 1.73."
+            }
+          }
+        ]
+      },
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "How do you set up a two-angle problem?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Two triangles sharing the height"
+          },
+          {
+            "en": "Express each distance"
+          },
+          {
+            "en": "Use the given difference"
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Using the same triangle for both angles"
+          }
+        ]
+      },
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-ta1",
+          "r1-ta2",
+          "r2-ta3",
+          "r2-ta4",
+          "r2-ta5"
+        ]
+      },
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Two angles give two right triangles with a common height."
+          },
+          {
+            "en": "Distances are h/tan(angle); their difference equals the walk."
+          },
+          {
+            "en": "Keep surds exact until the last step."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { Mp3Encoder } from "@breezystack/lamejs";
-import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson } from "@studysmart/shared";
+import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson, GkLesson } from "@studysmart/shared";
 import { composeAll } from "../classroom/compose-all.js";
 import { audioKey, emptyManifest, LANGS, Manifest, speechText, VoiceMap, type Lang } from "./manifest.js";
 
@@ -15,8 +15,12 @@ export interface BuildOptions {
   questionsDir?: string;
   /** content/classroom: board-lesson narration and questions are spoken too (optional) */
   classroomDir?: string;
+  /** content/gk: GK lesson sentences are spoken too (optional) */
+  gkDir?: string;
   /** record every "malar" line in each of these voices too (ids from voices.json); default: just malar */
   teachers?: string[];
+  /** only make audio whose source (lesson, question or classroom file name) contains this text, e.g. one chapter to review */
+  only?: string;
   langs?: Lang[]; force?: boolean; prune?: boolean; log?: (m: string) => void;
   /** clips made at the same time (the speech server runs several engines); default 3 */
   concurrency?: number;
@@ -89,17 +93,23 @@ const readJson = (p: string) => JSON.parse(readFileSync(p, "utf8"));
 const jsonFiles = (dir?: string) => (dir && existsSync(dir) ? readdirSync(dir).filter((x) => x.endsWith(".json")).sort() : []);
 
 interface Job { where: string; teacher: string; lang: Lang; text: string }
+/** Keeps only the jobs whose source name contains `only` (case-insensitive); everything when empty. */
+export const onlyJobs = <T extends { where: string }>(jobs: T[], only?: string): T[] => (only?.trim() ? jobs.filter((j) => j.where.toLowerCase().includes(only.trim().toLowerCase())) : jobs);
 
 /** Everything the teacher says: lesson sentences, question stems and feedback, and stock phrases. */
-export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "audioDir">, langs: Lang[]): Job[] {
+export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "gkDir" | "audioDir">, langs: Lang[]): Job[] {
   const jobs: Job[] = [];
   const add = (where: string, teacher: string, t: { en?: string; ta?: string } | undefined) => { for (const lang of langs) { const text = t?.[lang]?.trim(); if (text) jobs.push({ where, teacher, lang, text }); } };
   for (const f of jsonFiles(o.lessonsDir)) {
-    const lesson = LessonImport.parse(readJson(join(o.lessonsDir, f)));
+    const lessonR = LessonImport.safeParse(readJson(join(o.lessonsDir, f)));
+    if (!lessonR.success) { console.warn(`SKIPPED lesson file ${f}: ${lessonR.error.issues.map((i) => i.path.join(".") + " " + i.message).join("; ")}`); continue; }
+    const lesson = lessonR.data;
     for (const b of lesson.lesson.blocks) if (b.type === "teacher_narration") for (const sen of b.sentences) add(`${f} ${sen.id}`, b.teacher, { en: sen.spoken?.en ?? sen.text.en, ta: sen.spoken?.ta ?? sen.text.ta });
   }
   for (const f of jsonFiles(o.questionsDir)) {
-    const qs = QuestionImport.parse(readJson(join(o.questionsDir!, f)));
+    const qsR = QuestionImport.safeParse(readJson(join(o.questionsDir!, f)));
+    if (!qsR.success) { console.warn(`SKIPPED question file ${f}: ${qsR.error.issues.map((i) => i.path.join(".") + " " + i.message).join("; ")}`); continue; }
+    const qs = qsR.data;
     for (const q of qs.questions.filter((x) => x.status === "published")) {
       const w = `${f} ${q.key}`;
       add(`${w} stem`, "malar", q.stem); add(`${w} explanation`, "malar", q.explanation);
@@ -115,6 +125,13 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
         add(`${f} ${st.id} question`, "malar", st.check.stem); add(`${f} ${st.id} explanation`, "malar", st.check.explanation);
         for (const op of st.check.options) add(`${f} ${st.id} why-wrong`, "malar", op.whyWrong);
       }
+    }
+  }
+  if (o.gkDir && existsSync(join(o.gkDir, "lessons"))) {
+    for (const f of jsonFiles(join(o.gkDir, "lessons"))) {
+      const r = GkLesson.safeParse(readJson(join(o.gkDir, "lessons", f)));
+      if (!r.success) continue; // the content check (check-gk) reports broken files
+      for (const st of r.data.steps) st.sentences.forEach((t, i) => add(`gk ${r.data.id} ${st.id} ${i + 1}`, "malar", { en: t }));
     }
   }
   const phrases = join(o.audioDir, "phrases.json");
@@ -134,7 +151,7 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
   const used = new Set<string>();
 
   const all = collectJobs(o, o.langs ?? LANGS);
-  const jobs = o.teachers?.length ? all.flatMap((j) => (j.teacher === "malar" ? o.teachers!.map((t) => ({ ...j, teacher: t })) : [j])) : all;
+  const jobs = onlyJobs(o.teachers?.length ? all.flatMap((j) => (j.teacher === "malar" ? o.teachers!.map((t) => ({ ...j, teacher: t })) : [j])) : all, o.only);
   // 1) work out what is missing, 2) make it with several clips in flight at once (the speech server has several engines)
   const todo: { job: typeof jobs[number]; cfg: { voice: string; speed: number }; text: string; key: string }[] = [];
   for (const job of jobs) {
@@ -156,6 +173,7 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
     }
   };
   let next = 0, done = 0, failed = 0;
+  let lastSave = Date.now();
   const worker = async () => {
     for (;;) {
       const t = todo[next++]; if (!t) return;
@@ -169,12 +187,12 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
         report.generated++; report.bytes += mp3.length; report.audioMs += durationMs; done++;
         const el = Date.now() - t0, left = Math.round((el / done) * (todo.length - done - failed) / 60000);
         log(`[${done + failed}/${todo.length}] ${t.job.lang} ${t.job.where}: ${durationMs} ms speech${left > 0 ? ` (about ${left} min left)` : ""}`);
-        writeManifest(manifestPath, manifest); // save as we go so an interrupted run loses nothing
+        if (done % 20 === 0 || Date.now() - lastSave > 60000) { writeManifest(manifestPath, manifest); lastSave = Date.now(); } // save every 20 clips or 60 s (rewriting the whole file after every clip got slower as it grew)
       } catch (e) { failed++; report.skipped.push(`${t.job.where}: ${(e as Error).message} (run again to finish it)`); }
     }
   };
   await Promise.all(Array.from({ length: Math.max(1, o.concurrency ?? 3) }, worker));
-  if (o.prune) {
+  if (o.prune && !o.only?.trim()) { // never prune while only a part was built
     for (const [k, e] of Object.entries(manifest.entries)) if (!used.has(k)) { delete manifest.entries[k]; try { unlinkSync(join(filesDir, e.file)); } catch { /* already gone */ } report.pruned++; }
   }
   writeManifest(manifestPath, manifest);

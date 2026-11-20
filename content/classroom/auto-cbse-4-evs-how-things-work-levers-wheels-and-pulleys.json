@@ -1,0 +1,170 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "evs",
+ "chapter": "how-things-work",
+ "topic": "levers-wheels-and-pulleys",
+ "status": "published",
+ "title": {
+  "en": "A lever"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A lever",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "fu",
+   "points": [
+    [
+     450,
+     360
+    ],
+    [
+     410,
+     420
+    ],
+    [
+     490,
+     420
+    ]
+   ],
+   "fill": "#BCAAA4",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "bm",
+   "x1": 150,
+   "y1": 330,
+   "x2": 750,
+   "y2": 390,
+   "stroke": "ink",
+   "width": 10
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 220,
+   "y": 290,
+   "text": "📦",
+   "size": 70,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ef",
+   "x1": 700,
+   "y1": 200,
+   "x2": 700,
+   "y2": 330,
+   "stroke": "accent",
+   "width": 7
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 220,
+   "y": 225,
+   "text": "Load",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 700,
+   "y": 190,
+   "text": "Effort",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 450,
+   "y": 460,
+   "text": "Fulcrum",
+   "size": 26,
+   "color": "earth",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A lever is a simple machine: a stiff bar that turns about a point. It helps us lift heavy things more easily."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "bm",
+     "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The point it turns on is the fulcrum, like the middle of a seesaw. The weight we want to move is the load."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "fu",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "ld",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "t1",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "We push down on the other end. This push is the effort. The farther the effort is from the fulcrum, the less effort we need."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ef",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "t2",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
+}

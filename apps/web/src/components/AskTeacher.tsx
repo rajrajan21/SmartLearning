@@ -51,6 +51,7 @@ export function AskTeacher({ topicId, questionId, about, afterAnswer }: { topicI
             {t.role === "teacher" && (
               <p className="small">
                 {t.source === "ai" && s.get("tutor.showAiNote") === true && <span>{ui("aiNote", lang)} </span>}
+                {s.get("tutor.feedback.show") === true && <Rate q={turns[i - 1]?.text ?? ""} a={t.text} lang={lang} send={s.get("reports.enabled") === true} />}
                 {voice && <button type="button" className="link" onClick={() => speak(t.text)}>🔊 {ui("listenAnswer", lang)}</button>}
               </p>
             )}
@@ -71,4 +72,15 @@ export function AskTeacher({ topicId, questionId, about, afterAnswer }: { topicI
       {err && <p className="err" role="alert">{err}</p>}
     </section>
   );
+}
+
+/** Was this answer helpful? A "no" goes to the admin's problem reports; nothing personal is sent. */
+function Rate({ q, a, lang, send }: { q: string; a: string; lang: "en" | "ta"; send: boolean }) {
+  const [v, setV] = useState<"yes" | "no" | null>(null);
+  if (v) return <span className="small">{ui("rateThanks", lang)} </span>;
+  const pick = (x: "yes" | "no") => {
+    setV(x);
+    if (x === "no" && send) void fetch("/api/v1/reports", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ kind: "other", about: "ai-answer", text: `AI answer not helpful. Question: ${q.slice(0, 200)} | Answer: ${a.slice(0, 250)}` }) }).catch(() => undefined);
+  };
+  return <span>{ui("rateHelpful", lang)} <button type="button" className="link" aria-label="yes" onClick={() => pick("yes")}>👍</button> <button type="button" className="link" aria-label="no" onClick={() => pick("no")}>👎</button> </span>;
 }

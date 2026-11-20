@@ -1,3 +1,4 @@
+import { useActiveBoard } from "../lib/activeBoard";
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { chapterPct, dayNumber, daysInLastWeek, lastDays, ParentDashboard, PublicQuestion, streakOf, weeklySummary, type ChildReport, type Mastery } from "@studysmart/shared";
@@ -13,6 +14,27 @@ import { subjectIcon } from "../lib/browseStats";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
 type Board = ReturnType<typeof useBoard>;
+
+/** The week as plain text a parent can paste anywhere. */
+export function weekText(lang: "en" | "ta", name: string, w: ReturnType<typeof weeklySummary>, nm: (id: string) => string): string {
+  const L = [ui("wsTitle", lang), ui("wsDays", lang).replace("{name}", name).replace("{n}", String(w.daysLearned)), ui("wsTime", lang).replace("{n}", String(w.estMinutes)),
+    w.accuracyPct === null ? ui("wsNoAnswers", lang) : ui("wsAnswers", lang).replace("{n}", String(w.answers)).replace("{p}", String(w.accuracyPct))];
+  if (w.topicsDone.length) L.push(`${ui("wsDone", lang)}: ${w.topicsDone.map(nm).join(", ")}`);
+  if (w.weakTopics.length) L.push(`${ui("wsWeak", lang)}: ${w.weakTopics.slice(0, 5).map((t) => nm(t.topicId)).join(", ")}`);
+  return L.join("\n");
+}
+
+function ShareWeek({ text, whatsapp }: { text: string; whatsapp: boolean }) {
+  const s = useSettings();
+  const [copied, setCopied] = useState(false);
+  const copy = async () => { try { await navigator.clipboard.writeText(text); setCopied(true); setTimeout(() => setCopied(false), 2000); } catch { /* the text is also shown for selecting */ } };
+  return (
+    <p className="actions noprint">
+      <button type="button" className="btn ghost sm" onClick={() => void copy()}>{copied ? ui("shareCopied", s.lang) : ui("shareCopy", s.lang)}</button>
+      {whatsapp && <a className="btn ghost sm" target="_blank" rel="noopener noreferrer" href={`https://wa.me/?text=${encodeURIComponent(text)}`}>{ui("shareWhatsapp", s.lang)}</a>}
+    </p>
+  );
+}
 
 function Chart({ days }: { days: { day: number; n: number; right: number }[] }) {
   const s = useSettings();
@@ -64,6 +86,7 @@ function WeeklySummaryCard({ child, board, today }: { child: ChildReport; board:
       {w.weakTopics.length > 0 ? (
         <><ul>{w.weakTopics.slice(0, cap).map((t) => <li key={t.topicId}>{nm(t.topicId)} <span className="small">({t.best}%)</span></li>)}</ul><p className="small">{ui("wsWeakHelp", lang)}</p></>
       ) : <p className="small">{ui("wsWeakNone", lang)}</p>}
+      {s.get("parent.share.show") === true && <ShareWeek text={weekText(lang, child.profile.nickname, w, nm)} whatsapp={s.get("parent.share.whatsapp") === true} />}
       <p className="small">{ui("wsNote", lang)}</p>
       <p className="noprint"><button type="button" className="btn ghost" onClick={() => window.print()}>{ui("wsPrint", lang)}</button></p>
     </section>
@@ -183,7 +206,8 @@ export function ParentPage() {
   const { lang } = s;
   const acct = useAccount();
   const [attempt, retry] = useRetry();
-  const board = useBoard(s.get<string>("catalog.defaultBoard"), attempt);
+  const activeBoard = useActiveBoard();
+  const board = useBoard(activeBoard, attempt);
   const [data, setData] = useState<ParentDashboard | null | "error">(null);
   const [stems, setStems] = useState<Record<string, string>>({});
   const [sel, setSel] = useState(0);

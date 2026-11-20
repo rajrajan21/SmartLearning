@@ -1,0 +1,230 @@
+{
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "symmetrical-designs",
+ "topic": "symmetry-around-us",
+ "status": "published",
+ "title": {
+  "en": "Rotational symmetry"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Rotational symmetry",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p0",
+   "points": [
+    [
+     250,
+     135
+    ],
+    [
+     324,
+     263
+    ],
+    [
+     176,
+     263
+    ]
+   ],
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "c0",
+   "cx": 250,
+   "cy": 220,
+   "r": 6,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 250,
+   "y": 350,
+   "text": "Equilateral triangle",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d0",
+   "x": 250,
+   "y": 390,
+   "text": "looks the same 3 times in a full turn",
+   "size": 20,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "o0",
+   "x": 250,
+   "y": 430,
+   "text": "order 3",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "p1",
+   "points": [
+    [
+     590,
+     160
+    ],
+    [
+     710,
+     160
+    ],
+    [
+     710,
+     280
+    ],
+    [
+     590,
+     280
+    ]
+   ],
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "c1",
+   "cx": 650,
+   "cy": 220,
+   "r": 6,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 650,
+   "y": 350,
+   "text": "Square",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d1",
+   "x": 650,
+   "y": 390,
+   "text": "looks the same 4 times in a full turn",
+   "size": 20,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "o1",
+   "x": 650,
+   "y": 430,
+   "text": "order 4",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A figure has rotational symmetry if it looks exactly the same after being turned about a point, the centre, by less than a full turn."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "An equilateral triangle turned by 120 degrees fits on itself. In one full turn it looks the same 3 times, so its order of rotational symmetry is 3."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "c0",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "d0",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "o0",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A square turned by 90 degrees fits on itself. In a full turn it looks the same 4 times, so its order is 4."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "d1",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "o1",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
+}

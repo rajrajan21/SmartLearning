@@ -1,0 +1,218 @@
+{
+ "board": "CBSE",
+ "classLevel": 4,
+ "subject": "maths",
+ "chapter": "the-transport-museum",
+ "topic": "building-the-times-15-table",
+ "status": "published",
+ "title": {
+  "en": "Multiplication tables"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The table of 15",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t01",
+   "x": 450,
+   "y": 108,
+   "text": "15 × 1 = 15",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t02",
+   "x": 450,
+   "y": 146,
+   "text": "15 × 2 = 30",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t03",
+   "x": 450,
+   "y": 184,
+   "text": "15 × 3 = 45",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t04",
+   "x": 450,
+   "y": 222,
+   "text": "15 × 4 = 60",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t05",
+   "x": 450,
+   "y": 260,
+   "text": "15 × 5 = 75",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t06",
+   "x": 450,
+   "y": 298,
+   "text": "15 × 6 = 90",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t07",
+   "x": 450,
+   "y": 336,
+   "text": "15 × 7 = 105",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t08",
+   "x": 450,
+   "y": 374,
+   "text": "15 × 8 = 120",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t09",
+   "x": 450,
+   "y": 412,
+   "text": "15 × 9 = 135",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t010",
+   "x": 450,
+   "y": 450,
+   "text": "15 × 10 = 150",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Let us build the table of 15. Each line adds 15 more to the one before."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "15 times 1 is 15, and then we keep adding 15: 15, 30, 45, 60, 75."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "t01",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "t02",
+     "at": 0.26
+    },
+    {
+     "do": "write",
+     "target": "t03",
+     "at": 0.42000000000000004
+    },
+    {
+     "do": "write",
+     "target": "t04",
+     "at": 0.5800000000000001
+    },
+    {
+     "do": "write",
+     "target": "t05",
+     "at": 0.74
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "And on to 15 times 10, which is 150."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "t06",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "t07",
+     "at": 0.26
+    },
+    {
+     "do": "write",
+     "target": "t08",
+     "at": 0.42000000000000004
+    },
+    {
+     "do": "write",
+     "target": "t09",
+     "at": 0.5800000000000001
+    },
+    {
+     "do": "write",
+     "target": "t010",
+     "at": 0.74
+    }
+   ]
+  },
+  {
+   "id": "s4",
+   "narration": {
+    "en": "A quick way: 15 is 10 plus 5, so 15 times a number is 10 times it plus 5 times it. For 15 times 4, that is 40 plus 20, which is 60."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "t04",
+     "at": 0.3,
+     "color": "accent"
+    }
+   ]
+  }
+ ]
+}
