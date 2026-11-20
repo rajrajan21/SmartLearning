@@ -23,17 +23,42 @@ export function ClassroomHub() {
   const on = s.get("feature.classroom") === true;
   const [attempt, retry] = useRetry();
   const idx = useClassroomIndex(on, attempt);
+  const [query, setQuery] = useState("");
+  const [board, setBoard] = useState("");
+  const [grade, setGrade] = useState("");
+  const [subject, setSubject] = useState("");
   if (!on) return <NotFound />;
   if (idx.status === "loading") return <Loading />;
   if (idx.status === "error") return <ErrorBox onRetry={retry} />;
+  const ta = s.lang === "ta";
+  const items = idx.data.items;
+  const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  const matches = items.filter((item) => {
+    const text = [item.title.en, item.title.ta, item.chapter, item.topic, item.board, item.classLevel, item.subject].join(" ").toLowerCase().replace(/-/g, " ");
+    return (!board || item.board === board) && (!grade || String(item.classLevel) === grade)
+      && (!subject || item.subject === subject) && words.every((word) => text.includes(word));
+  });
+  const boards = [...new Set(items.map((item) => item.board))].sort();
+  const grades = [...new Set(items.map((item) => item.classLevel))].sort((a, b) => a - b);
+  const subjects = [...new Set(items.map((item) => item.subject))].sort();
   return (
     <div className="paper">
       <h1>{ui("classroomTitle", s.lang)}</h1>
       <p className="lead">{ui("classroomIntro", s.lang)}</p>
-      {idx.data.items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : (
+      {items.length > 0 && <>
+        <div className="classroom-filters" role="group" aria-label={ta ? "பாட வடிகட்டிகள்" : "Lesson filters"}>
+          <label className="classroom-query">{ta ? "வகுப்பறைப் பாடத்தைத் தேடுங்கள்" : "Find a Classroom lesson"}<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={ta ? "பாடம் அல்லது தலைப்பு" : "Try magnets, fractions, or English"} /></label>
+          <label>{ta ? "பாடத்திட்டம்" : "Board"}<select value={board} onChange={(event) => setBoard(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All boards"}</option>{boards.map((value) => <option key={value}>{value}</option>)}</select></label>
+          <label>{ta ? "வகுப்பு" : "Class"}<select value={grade} onChange={(event) => setGrade(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All classes"}</option>{grades.map((value) => <option key={value} value={value}>{ui("classWord", s.lang)} {value}</option>)}</select></label>
+          <label>{ta ? "பாடம்" : "Subject"}<select value={subject} onChange={(event) => setSubject(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All subjects"}</option>{subjects.map((value) => <option key={value} value={value}>{value.replace(/-/g, " ")}</option>)}</select></label>
+          <button type="button" className="btn ghost" onClick={() => { setQuery(""); setBoard(""); setGrade(""); setSubject(""); }}>{ta ? "அழி" : "Clear filters"}</button>
+        </div>
+        <p className="small" role="status">{matches.length} {ta ? "பாடங்கள்" : matches.length === 1 ? "lesson" : "lessons"}</p>
+      </>}
+      {items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : matches.length === 0 ? <p>{ta ? "பொருந்தும் பாடங்கள் இல்லை." : "No matching lessons. Try another search or clear the filters."}</p> : (
         <ul className="class-list">
-          {idx.data.items.map((i) => (
-            <li key={`${i.subject}/${i.chapter}/${i.topic}`}>
+          {matches.map((i) => (
+            <li key={[i.board, i.classLevel, i.subject, i.chapter, i.topic].join("/")}>
               <Link className="class-card" href={`/classroom/${i.board.toLowerCase()}/${i.classLevel}/${i.subject}/${i.chapter}/${i.topic}`}>
                 <b>{s.name(i.title)}</b>
                 <span>{ui("classWord", s.lang)} {i.classLevel} · {i.subject} · {i.steps} {ui("classroomSteps", s.lang)}</span>

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { detectPhone, resolveApp, setThemePref, setViewPref, useThemePref, useViewPref, type ThemePref } from "../lib/appview";
@@ -6,33 +5,17 @@ import { TextSize } from "./TextSize";
 import { Link } from "wouter";
 import { useNotebook } from "../lib/tier2";
 
-interface InstallEvent extends Event { prompt: () => Promise<void> }
-const isIos = () => typeof navigator !== "undefined" && /iPhone|iPad|iPod/i.test(navigator.userAgent);
-const isMobileDevice = () => typeof navigator !== "undefined" && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
-const isStandalone = () => typeof matchMedia === "function" && matchMedia("(display-mode: standalone)").matches;
+import { InstallTrigger } from "./InstallPopup";
 
-/** Install: Android/Chrome shows the real install prompt; iPhone gets the three Safari steps. */
 export function InstallCard() {
   const s = useSettings();
-  const [evt, setEvt] = useState<InstallEvent | null>(null);
-  const [done, setDone] = useState(isStandalone());
-  useEffect(() => {
-    const h = (e: Event) => { e.preventDefault(); setEvt(e as InstallEvent); };
-    const d = () => setDone(true);
-    addEventListener("beforeinstallprompt", h); addEventListener("appinstalled", d);
-    return () => { removeEventListener("beforeinstallprompt", h); removeEventListener("appinstalled", d); };
-  }, []);
   if (s.get("app.install.show") !== true) return null;
-  return (
-    <section className="me-block install-card" aria-label={ui("installTitle", s.lang)}>
-      <h3>{ui("installTitle", s.lang)}</h3>
-      {done ? <p>{ui("installDone", s.lang)}</p> : evt ? (
-        <button type="button" className="btn" onClick={() => { void evt.prompt(); setEvt(null); }}>{ui("installBtn", s.lang)}</button>
-      ) : isIos() ? (
-        <ol className="ios-steps"><li>{ui("installIos1", s.lang)}</li><li>{ui("installIos2", s.lang)}</li><li>{ui("installIos3", s.lang)}</li></ol>
-      ) : <p className="small">{s.text(isMobileDevice() ? "app.install.otherText" : "app.install.desktopText")}</p>}
-    </section>
-  );
+  const mobile = typeof navigator !== "undefined" && /Android|iPhone|iPad|iPod|Mobile/i.test(navigator.userAgent);
+  return <section className="me-block install-card" aria-label={ui("installTitle", s.lang)}>
+    <h3>{ui("installTitle", s.lang)}</h3>
+    <InstallTrigger />
+    <p className="small">{s.text(mobile ? "app.install.otherText" : "app.install.desktopText")}</p>
+  </section>;
 }
 
 /** Colours (Light / Dark / Auto), text size, language and the app / full-website switch. */
@@ -73,7 +56,7 @@ export function MeSettings({ compact = false }: { compact?: boolean }) {
           {s.get("feature.accounts") === true && s.get("feature.parentDashboard") === true && <li><Link href="/parent" className="btn ghost">👪 {ui("meParentLink", s.lang)}</Link></li>}
         </ul>
       )}
-      {!compact && <InstallCard />}
+      {compact ? <InstallTrigger /> : <InstallCard />}
     </div>
   );
 }

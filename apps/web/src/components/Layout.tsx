@@ -2,9 +2,9 @@ import { PresetContext, previewFrame, useSitePreset } from "../lib/sitePresets";
 import "./sitePresets.css";
 import { useActiveBoard } from "../lib/activeBoard";
 import { SearchBox } from "./SearchBox";
-import { InstallPopup } from "./InstallPopup";
+import { InstallPopup, InstallTrigger } from "./InstallPopup";
 import { ScrollAids } from "./ScrollAids";
-import { type ReactNode } from "react";
+import { useId, useState, type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
@@ -44,6 +44,9 @@ export function Layout({ children }: { children: ReactNode }) {
   const acct = useAccountOptional();
   const showAcct = s.get("feature.accounts") === true && s.get("accounts.showHeaderLink") === true;
   const { app, phone, pref } = useApp();
+  const activity = preset === "activity";
+  const [menuOpen, setMenuOpen] = useState(true);
+  const menuId = useId();
   const [loc] = useLocation();
   useEffect(() => { if (s.get("stats.enabled") === true && !previewFrame() && !loc.startsWith("/admin")) void fetch("/api/v1/track/view", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ path: loc }), keepalive: true }).catch(() => {}); }, [loc, s]);
   useEffect(() => { const r = document.documentElement; if (app) r.setAttribute("data-app", "true"); else r.removeAttribute("data-app"); return () => r.removeAttribute("data-app"); }, [app]);
@@ -58,14 +61,18 @@ export function Layout({ children }: { children: ReactNode }) {
       <InstallPopup />
       <a className="skip" href="#main">{ui("skip", lang)}</a>
       {app && <AppBar />}
-      <header className="top">
+      <header className={activity ? "top activity-header" : "top"}>
         <Link href="/" className="brand" aria-label={`${site} – ${ui("home", lang)}`}>
           <Logo size={42} />
           <span>{site}</span>
         </Link>
-        {preset !== "dashboard" && <MainNav />}
+        {activity && <button type="button" className="btn ghost activity-menu" aria-controls={menuId} aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}>{menuOpen ? "▾" : "▸"} {lang === "ta" ? "பட்டியல்" : "Menu"}</button>}
+        {preset !== "dashboard" && !activity && <MainNav />}
         {s.get("feature.search") === true && s.get("search.header.show") === true && !onLesson && !maintenance && <SearchBox board={activeBoard} compact />}
+        {activity && s.get("feature.classroom") === true && <Link className="btn ghost activity-classroom" href="/classroom">{lang === "ta" ? "வகுப்பறை" : "View Classroom"}</Link>}
         <nav className="top-actions" aria-label="Site">
+          <InstallTrigger />
           <TextSize />
           <HighContrast />
           {s.get("feature.languageToggle") && s.get("lang.tamil.enabled") && (
@@ -79,6 +86,7 @@ export function Layout({ children }: { children: ReactNode }) {
             </Link>
           )}
         </nav>
+        {activity && <div className="activity-nav" id={menuId} hidden={!menuOpen}><MainNav bare /></div>}
       </header>
       {banner && <div className={`banner tone-${s.get<string>("home.announcement.tone")}`} role="status">{s.text("home.announcement.text")}</div>}
       <div className="body-row" data-picker={picker}>

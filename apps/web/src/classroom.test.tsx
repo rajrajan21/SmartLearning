@@ -40,6 +40,38 @@ describe("classroom", () => {
     mount("/classroom");
     expect(await screen.findByText("Halves and quarters")).toBeTruthy();
   });
+  it("combines Classroom filters and restores results when cleared", async () => {
+    mount("/classroom");
+    await screen.findByText("Halves and quarters");
+    fireEvent.change(screen.getByRole("combobox", { name: "Class" }), { target: { value: "3" } });
+    fireEvent.change(screen.getByRole("combobox", { name: "Subject" }), { target: { value: "maths" } });
+    const search = screen.getByRole("searchbox", { name: "Find a Classroom lesson" });
+    fireEvent.change(search, { target: { value: "fair share" } });
+    expect(screen.getByText("Halves and quarters")).toBeTruthy();
+    fireEvent.change(search, { target: { value: "magnet" } });
+    expect(screen.queryByText("Halves and quarters")).toBeNull();
+    fireEvent.click(screen.getByRole("button", { name: "Clear filters" }));
+    expect(screen.getByText("Halves and quarters")).toBeTruthy();
+  });
+  it("keeps chapter search visible when Activity Hub navigation is collapsed", async () => {
+    settings = { ...settings, "layout.sitePreset": "activity", "search.header.show": true, "feature.search": true };
+    mount("/classroom");
+    const menu = await screen.findByRole("button", { name: /Menu/ });
+    expect(menu.getAttribute("aria-expanded")).toBe("true");
+    fireEvent.click(menu);
+    expect(menu.getAttribute("aria-expanded")).toBe("false");
+    expect(screen.getByRole("searchbox", { name: "Search chapters and topics" })).toBeTruthy();
+    fireEvent.click(menu);
+    expect(menu.getAttribute("aria-expanded")).toBe("true");
+  });
+  it("opens browser install and bookmark help even without a native prompt", async () => {
+    settings = { ...settings, "app.install.show": true };
+    mount("/classroom");
+    fireEvent.click(await screen.findByRole("button", { name: "Install app" }));
+    expect(screen.getByText(/bookmark this page/)).toBeTruthy();
+    fireEvent.keyDown(window, { key: "Escape" });
+    expect(screen.queryByText(/bookmark this page/)).toBeNull();
+  });
   it("has its own heart: save, un-save, and it can be switched off", async () => {
     mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
     await screen.findByText("Halves and quarters");

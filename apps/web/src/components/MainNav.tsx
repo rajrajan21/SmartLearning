@@ -7,7 +7,7 @@ import { gt } from "../lib/gk";
 import { lt } from "../lib/library";
 
 /** Clear top menu for wide screens. On phones the bottom tab bar does this job. */
-export function MainNav() {
+export function MainNav({ bare = false }: { bare?: boolean }) {
   const s = useSettings();
   const preset = usePreset();
   const [loc] = useLocation();
@@ -26,21 +26,21 @@ export function MainNav() {
   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
   const priorities: string[] = {
     classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],
-    dashboard: ["/", "/progress", "/revise"], activity: ["/gk", "/explore"], reading: ["/library", "/notebook"],
+    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/papers", "/tour", "/gk", "/explore", "/library"], reading: ["/library", "/notebook"],
   }[preset];
-  if (preset === "classroom" && s.get("feature.classroom") === true) items.push({
+  if ((bare || preset === "classroom") && s.get("feature.classroom") === true) items.push({
     href: "/classroom", label: ui("classroomTitle", s.lang), on: loc.startsWith("/classroom"),
   });
   const rank = (href: string) => priorities.includes(href) ? priorities.indexOf(href) : priorities.length;
   const nav = (
-    <nav className={preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
+    <nav className={bare ? "main-nav preset-nav bare-nav" : preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
       {items.sort((a, b) => rank(a.href) - rank(b.href)).map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}
         onClick={(event) => {
           if (typeof matchMedia === "function" && matchMedia("(max-width: 849px)").matches) event.currentTarget.closest("details")?.removeAttribute("open");
         }}>{i.label}</Link>)}
     </nav>
   );
-  return preset === "classic" ? nav : <details className="preset-menu" open={preset !== "reading" && typeof matchMedia === "function" && matchMedia("(min-width: 850px)").matches}>
+  return bare || preset === "classic" ? nav : <details className="preset-menu" open={preset !== "reading" && typeof matchMedia === "function" && matchMedia("(min-width: 850px)").matches}>
     <summary>{s.lang === "ta" ? "பக்கங்கள்" : "Menu"}</summary>{nav}
   </details>;
 }
