@@ -6,7 +6,7 @@ set REPORT=generate-edge-audio-report.txt
 rem Voices to record: kani = Indian-English woman (Neerja), arul = Indian-English man (Prabhat). Add arul later: set VOICES=kani,arul
 set VOICES=kani
 rem Clips made at the same time. 6 is gentle on the voice service; if you see many "failed" lines in the report, lower it to 3.
-set JOBS=10
+set JOBS=6
 echo === SharpStudy: generate %VOICES% audio === > %REPORT%
 where node >nul 2>nul || ( echo STOPPED: Node.js not found. & goto :end )
 where pnpm >nul 2>nul || call npm install -g pnpm
