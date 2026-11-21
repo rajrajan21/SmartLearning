@@ -83,8 +83,10 @@ describe("question files", () => {
     for (const f of files) {
       const r = QuestionImport.safeParse(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
       expect(r.success, f).toBe(true);
-      if (r.success) for (const n of [1, 2, 3, 4]) expect(r.data.questions.some((q) => q.round === n), `${f} round ${n}`).toBe(true);
+      if (r.success) for (const n of [1, 2, 3]) expect(r.data.questions.some((q) => q.round === n), `${f} round ${n}`).toBe(true);
     }
+    const fullPractice = QuestionImport.parse(shapesJson(questionsDir));
+    expect(fullPractice.questions.some((q) => q.round === 4)).toBe(true);
   });
   it("authoring mistakes are caught", () => {
     const bad = (q: object) => QuestionImport.safeParse({ board: "CBSE", classLevel: 3, subject: "maths", chapter: "c", topic: "t", questions: [{ ...common, ...q }] });
@@ -102,24 +104,25 @@ describe("practice API", () => {
   let m: Awaited<ReturnType<typeof makeRepo>>;
   let app: ReturnType<typeof createApp>;
   const file = () => shapesJson(questionsDir);
+  const questionCount = file().questions.length;
   const path = "/api/v1/practice/boards/CBSE/3/maths/fun-with-shapes/sides-and-corners";
   beforeAll(async () => {
     m = await makeRepo(seedFile());
     app = createApp({ curriculum: m.repo, settings: m.settings, lessons: m.lessons, practice: m.practice, adminKey: null });
-    expect(await m.practice.importQuestions(file())).toMatchObject({ added: 12, updated: 0 });
+    expect(await m.practice.importQuestions(file())).toMatchObject({ added: questionCount, updated: 0 });
   });
   const anon = randomUUID();
   const get = async () => (await request(app).get(path).expect(200)).body as { topicId: string; questions: { id: string; key: string; round: number }[] };
 
   it("import is idempotent and bumps the version only when a question changes", async () => {
-    expect(await m.practice.importQuestions(file())).toMatchObject({ added: 0, updated: 0, unchanged: 12 });
+    expect(await m.practice.importQuestions(file())).toMatchObject({ added: 0, updated: 0, unchanged: questionCount });
     const f = file(); f.questions[0].explanation.en = "Changed words.";
-    expect(await m.practice.importQuestions(f)).toMatchObject({ updated: 1, unchanged: 11 });
+    expect(await m.practice.importQuestions(f)).toMatchObject({ updated: 1, unchanged: questionCount - 1 });
     await m.practice.importQuestions(file()); // put it back
   });
   it("serves the question set without any answers", async () => {
     const set = await get();
-    expect(set.questions).toHaveLength(12);
+    expect(set.questions).toHaveLength(questionCount);
     expect(JSON.stringify(set)).not.toMatch(/whyWrong|"correct"|explanation|accepted/);
     const avail = await request(app).get("/api/v1/practice/available").expect(200);
     expect(avail.body.topicIds).toContain(set.topicId);

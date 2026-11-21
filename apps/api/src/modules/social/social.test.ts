@@ -219,7 +219,9 @@ describe("social service: live posting with a pretend Meta", () => {
   }, 120000);
   it("Instagram reel is published through container, status check and publish once audio is not required", async () => {
     const t = setup({ ...live, "social.fb.enabled": false, "social.ig.enabled": true, "social.postsPerRun": 1, "social.reel.requireAudio": false, "social.reel.seconds": 12 }); dirsToClean.push(t.dir);
-    const r = await t.svc.run({ live: true }); expect(r.posted).toBe(1);
+    const r = await t.svc.run({ live: true });
+    const failed = t.svc.history(1)[0];
+    expect(r.posted, failed?.hold ?? failed?.error ?? r.note).toBe(1);
     const e = t.svc.history(5, "posted")[0]!; expect(e.platform).toBe("instagram"); expect(e.video).toMatch(/^[a-f0-9]{24}\.mp4$/); expect(e.needsAudio).toBe(true);
     const mediaCall = t.calls.find((c) => c.url.includes("/987654321/media") && c.method === "POST")!; expect(mediaCall).toBeTruthy();
     expect(t.calls.some((c) => c.url.includes("media_publish"))).toBe(true);

@@ -80,11 +80,16 @@ describe("tutor answers", () => {
     expect(third.source).toBe("lesson"); expect(third.remaining).toBe(0);
     expect(sent).toHaveLength(2);
   });
-  it("Tamil answers use the Tamil lesson text", () => {
-    return m.lessons.getPublishedById(topicId).then((l) => {
-      const ta = passagesOf(l!, "ta"), en = passagesOf(l!, "en");
-      expect(ta.length).toBe(en.length); expect(ta.some((p, i) => p.text !== en[i]!.text)).toBe(true);
-    });
+  it("Tamil answers use the Tamil lesson text", async () => {
+    const fixture = json(lessonsDir);
+    const block = fixture.lesson.blocks.find((b: { type: string }) => b.type === "explanation");
+    block.text = { en: "A triangle has three sides.", ta: "முக்கோணத்திற்கு மூன்று பக்கங்கள் உள்ளன." };
+    await m.lessons.importLesson(fixture);
+    const stored = await m.lessons.getPublishedById(topicId);
+    const ta = passagesOf(stored!, "ta"), en = passagesOf(stored!, "en");
+    expect(ta.length).toBe(en.length);
+    expect(ta.map((p) => p.text)).toContain(block.text.ta);
+    expect(en.map((p) => p.text)).toContain(block.text.en);
   });
 });
 

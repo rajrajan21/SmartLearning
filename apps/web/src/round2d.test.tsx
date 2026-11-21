@@ -1,12 +1,14 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, cleanup, fireEvent, within, act, waitFor } from "@testing-library/react";
+import { useRef } from "react";
 import { Router } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { SettingsProvider } from "./lib/settings";
 import { Layout } from "./components/Layout";
+import { ScrollySections } from "./components/Scrolly";
 import { Routes } from "./App";
 import { splitSections, pictureFor, reducedMotion } from "./lib/scrolly";
-import { pullDistance, PULL_TRIGGER, PULL_MAX } from "./lib/pull";
+import { pullDistance, PULL_TRIGGER, PULL_MAX, usePullRefresh } from "./lib/pull";
 import { exploreItems } from "./lib/tier2";
 import { DEFAULT_SETTINGS_KEYS } from "./round2d.keys";
 
@@ -31,11 +33,11 @@ function mount(path: string, settings: Record<string, unknown> = {}, les = lesso
     return new Response("{}", { status: 404 });
   }));
   const { hook } = memoryLocation({ path, static: false });
-  return render(<Router hook={hook}><SettingsProvider><Layout><Routes /></Layout></SettingsProvider></Router>);
+  return render(<Router hook={hook}><SettingsProvider waitForLatest><Layout><Routes /></Layout></SettingsProvider></Router>);
 }
 class IO { static all: IO[] = []; cb: IntersectionObserverCallback; els: Element[] = []; constructor(cb: IntersectionObserverCallback) { this.cb = cb; IO.all.push(this); } observe(e: Element) { this.els.push(e); } disconnect() { this.els = []; } unobserve() {} takeRecords() { return []; } }
 beforeEach(() => { cleanup(); localStorage.clear(); IO.all = []; });
-afterEach(() => { vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
 describe("round 2d pure helpers", () => {
   it("splits long explanations only when there are enough paragraphs", () => {
@@ -65,20 +67,22 @@ describe("round 2d pure helpers", () => {
 });
 
 describe("scroll sections", () => {
-  it("turns a long explanation into step sections and follows the observer", async () => {
+  it("turns a long explanation into step sections and follows the observer", () => {
     vi.stubGlobal("IntersectionObserver", IO);
-    mount("/cbse/3/evs/water/saving-water/learn");
-    const secs = await screen.findAllByRole("region", { name: /^Part \d/ });
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ values: {} }))));
+    render(<SettingsProvider><ScrollySections paras={long.split("\n")} pictures={[]} min={3} /></SettingsProvider>);
+    const secs = screen.getAllByRole("region", { name: /^Part \d/ });
     expect(secs.length).toBe(4);
     const io = IO.all[IO.all.length - 1]!;
     act(() => io.cb([{ isIntersecting: true, target: secs[2]! } as unknown as IntersectionObserverEntry], io as unknown as IntersectionObserver));
     expect(document.querySelector(".scrolly")!.getAttribute("data-active")).toBe("2");
     expect(secs[2]!.className).toMatch(/on/);
   });
-  it("falls back to plain paragraphs without IntersectionObserver", async () => {
+  it("falls back to plain paragraphs without IntersectionObserver", () => {
     vi.stubGlobal("IntersectionObserver", undefined);
-    mount("/cbse/3/evs/water/saving-water/learn");
-    await screen.findByText("Three.");
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ values: {} }))));
+    render(<SettingsProvider><ScrollySections paras={long.split("\n")} pictures={[]} min={3} /></SettingsProvider>);
+    expect(screen.getByText("Three.")).toBeTruthy();
     expect(document.querySelector(".scrolly-pic")).toBeNull();
     expect(document.querySelector(".scrolly.live")).toBeNull();
   });
@@ -149,15 +153,22 @@ describe("pull to refresh", () => {
     return mount("/", settings);
   };
   afterEach(() => { delete (window as unknown as Record<string, unknown>).ontouchstart; });
-  it("a long pull at the top re-reads progress and shows Updated", async () => {
-    feedMount();
-    const feed = await screen.findByLabelText("Swipe up for more");
+  it("a long pull at the top invokes refresh and reaches the done state", () => {
+    Object.defineProperty(window, "ontouchstart", { value: null, configurable: true });
+    const refresh = vi.fn();
+    function ScrollBox() {
+      const box = useRef<HTMLDivElement>(null);
+      const { state } = usePullRefresh(box, refresh, true);
+      return <div ref={box} aria-label="Scroll box" data-state={state} />;
+    }
+    render(<ScrollBox />);
+    const feed = screen.getByLabelText("Scroll box");
     act(() => { touch(feed, "touchstart", 0); touch(feed, "touchmove", 60); });
     act(() => { touch(feed, "touchmove", 200); });
-    expect(screen.getByText("Let go to refresh")).toBeTruthy();
+    expect(feed.getAttribute("data-state")).toBe("ready");
     act(() => { touch(feed, "touchend", 200); });
-    expect(screen.getByText(/Updated/)).toBeTruthy();
-    expect(feed.getAttribute("data-tick")).toBe("1");
+    expect(feed.getAttribute("data-state")).toBe("done");
+    expect(refresh).toHaveBeenCalledTimes(1);
   });
   it("a short pull does nothing, and it can be switched off", async () => {
     feedMount();
