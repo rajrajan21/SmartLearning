@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-import { admin, type JobUpdate, type MonitorData } from "./api";
+import { admin, type JobUpdate, type MonitorData, type OracleJobInventory } from "./api";
 
 const unavailable = "Unavailable";
 const number = (n: number) => n.toLocaleString();
@@ -13,8 +13,17 @@ function bytes(value?: number | null) {
 }
 const duration = (seconds: number) => Math.floor(seconds / 86400) + "d " + Math.floor(seconds / 3600 % 24) + "h " + Math.floor(seconds / 60 % 60) + "m";
 const status = (data: JobUpdate | null) => data?.stale ? "Stale" : data ? data.status[0]!.toUpperCase() + data.status.slice(1) : "Unknown";
-const sources = [["oracle", "Oracle server"], ["windows", "Windows PC"]] as const;
 const errors = { speech: "Speech clips were skipped", process: "The build process reported an error", skipped: "Some requested clips are missing" };
+const jobLabels: Record<string, string> = {
+  "sharpstudy-papers.service": "Question-paper collection",
+  "sharpstudy-ereader-grade7.service": "Class 7 textbook rendering",
+  "sharpstudy-ereader-core.service": "Textbook rendering",
+  "sharpstudy-depth-release.service": "Lesson release",
+  "sharpstudy-depth-verify.service": "Lesson release verification",
+};
+const jobStatus = { running: "Running", starting: "Starting", scheduled: "Scheduled", complete: "Completed", failed: "Failed", idle: "Idle" };
+const jobName = (id: string) => jobLabels[id] ?? id.replace(/^(sharpstudy|studysmart)-/, "").replace(/\.service$/, "").replaceAll("-", " ");
+const jobDuration = (seconds: number) => seconds >= 3600 ? duration(seconds) : `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
 
 function useSnapshot<T,>(load: () => Promise<T>) {
   const [data, setData] = useState<T | null>(null);
@@ -36,31 +45,64 @@ function Metric({ label, value, detail }: { label: string; value: string; detail
   return <div className="admin-metric"><span>{label}</span><strong>{value}</strong>{detail && <small>{detail}</small>}</div>;
 }
 
+function OracleJobs({ inventory, compact }: { inventory?: OracleJobInventory | null; compact?: boolean }) {
+  if (!inventory) return <p>Oracle job status is unavailable.</p>;
+  const { jobs, checkedAt } = inventory;
+  const count = (state: OracleJobInventory["jobs"][number]["status"]) => jobs.filter(job => job.status === state).length;
+  return <section aria-label="Oracle server jobs">
+    <h3>Oracle server</h3>
+    <div className="admin-metrics">
+      <Metric label="Running" value={number(count("running"))} />
+      <Metric label="Starting" value={number(count("starting"))} />
+      <Metric label="Scheduled" value={number(count("scheduled"))} />
+      <Metric label="Failed" value={number(count("failed"))} />
+    </div>
+    <p className="small">Last checked {date(checkedAt)}. Refreshes every 30 seconds.</p>
+    {!compact && <div className="admin-metrics">
+      {jobs.map((job) => <article className="admin-metric" key={job.id}>
+        <h4>{jobName(job.id)}</h4>
+        <span className="ops-status" data-status={job.status}>{jobStatus[job.status]}</span>
+        {job.startedAt && <small>{job.status === "running" ? "Started" : "Last started"} {date(job.startedAt)}</small>}
+        {job.finishedAt && job.status !== "running" && <small>Finished {date(job.finishedAt)}</small>}
+        {job.elapsedSeconds !== null && <small>{job.status === "running" ? "Running for" : "Last runtime"} {jobDuration(job.elapsedSeconds)}</small>}
+        {job.nextRunAt && <small>Next run {date(job.nextRunAt)}</small>}
+      </article>)}
+      {!jobs.length && <p>No SharpStudy jobs currently listed by Oracle.</p>}
+    </div>}
+  </section>;
+}
+
+function AudioJob({ item, label }: { item: JobUpdate | null; label: string }) {
+  return <article className="admin-metric">
+    <h3>{label}</h3>
+    {item ? <>
+      <span className="ops-status" data-status={item.stale ? "unknown" : item.status}>{status(item)}</span>
+      <p>{item.phase ?? "Phase unavailable"}</p>
+      {item.total !== null && item.completed !== null && <>
+        <progress max={item.total} value={item.completed} aria-label={label + " clip progress"} />
+        <span>{number(item.completed)} / {number(item.total)} clips</span>
+      </>}
+      <small>Log updated {date(item.updatedAt)}</small>
+      {item.error && <small>{errors[item.error]}</small>}
+    </> : <p>No PC job report received.</p>}
+  </article>;
+}
+
 export function Jobs({ compact, onOpen }: { compact?: boolean; onOpen?: () => void }) {
   const { data, failed, reload } = useSnapshot(admin.jobs);
   return <section className="ops-section">
-    <div className="a-head"><div><h2>Background jobs</h2><p>Kani audio generation by source</p></div>
+    <div className="a-head"><div><h2>Background jobs</h2></div>
       {compact ? <button className="btn ghost sm" onClick={onOpen}>Open Jobs</button> : <button className="btn ghost sm" onClick={reload}>Refresh</button>}
     </div>
-    {failed && <p role="alert">Could not read job updates.</p>}
+    {failed && <p role="alert">Could not refresh jobs. {data && "Showing the last successful reading."}</p>}
     {!data && !failed && <p role="status">Loading job updates…</p>}
-    {data && <div className="admin-metrics">{sources.map(([id, label]) => {
-      const item = data[id];
-      return <article className="admin-metric" key={id}>
-        <h3>{label}</h3>
-        <span className="ops-status" data-status={item && !item.stale ? item.status : "unknown"}>{status(item)}</span>
-        {item ? <>
-          <p>{item.phase ?? "Phase unavailable"}</p>
-          {item.total !== null && item.completed !== null && <>
-            <progress max={item.total} value={item.completed} aria-label={label + " clip progress"} />
-            <span>{number(item.completed)} / {number(item.total)} clips</span>
-          </>}
-          <small>Log updated {date(item.updatedAt)}</small>
-          {item.error && <small>{errors[item.error]}</small>}
-        </> : <p>Waiting for the first log update.</p>}
-      </article>;
-    })}</div>}
-    {!compact && <p className="small">An in-progress job becomes stale when its source log has no update for 15 minutes. A reported completion is for the displayed phase.</p>}
+    {data && <>
+      <OracleJobs inventory={data.inventory} compact={compact} />
+      {!compact && <div className="admin-metrics ops-job-reports">
+        <AudioJob label="Windows PC audio" item={data.windows} />
+        {data.oracle && <AudioJob label="Oracle audio progress" item={data.oracle} />}
+      </div>}
+    </>}
   </section>;
 }
 

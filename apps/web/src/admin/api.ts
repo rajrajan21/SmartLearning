@@ -35,7 +35,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
 }
 export const admin = {
   monitor: () => call<MonitorData>("GET", "/monitor"),
-  jobs: () => call<Record<"oracle" | "windows", JobUpdate | null>>("GET", "/monitor/jobs"),
+  jobs: () => call<{ oracle: JobUpdate | null; windows: JobUpdate | null; inventory?: OracleJobInventory | null }>("GET", "/monitor/jobs"),
   session: () => call<{ ok: true }>("GET", "/session"),
   load: () => call<AdminData>("GET", "/settings"),
   save: (changes: Values) => call<{ values: Values; overridden: string[] }>("PUT", "/settings", { changes }),
@@ -80,6 +80,17 @@ export interface JobUpdate {
   phase: string | null; status: "running" | "complete" | "partial" | "failed" | "unknown";
   completed: number | null; total: number | null; updatedAt: string; stale: boolean;
   error: "speech" | "process" | "skipped" | null;
+}
+export interface OracleJobInventory {
+  checkedAt: string;
+  jobs: {
+    id: string;
+    status: "running" | "starting" | "scheduled" | "complete" | "failed" | "idle";
+    startedAt: string | null;
+    finishedAt: string | null;
+    elapsedSeconds: number | null;
+    nextRunAt: string | null;
+  }[];
 }
 export interface MonitorData {
   service: string; uptime: number; hostUptime: number; cpu: number | null; load: number[] | null;

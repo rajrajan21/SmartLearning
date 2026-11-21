@@ -10,6 +10,7 @@ import { requireAdmin, safeEqual } from "../settings/admin-auth.js";
 import type { Db } from "../../db/client.js";
 import type { ReportsService } from "../stats/reports.js";
 import type { StatsService } from "../stats/service.js";
+import { readOracleJobs } from "./oracle-jobs.js";
 
 export interface MonitorPaths { content: string; audio: string; uploads: string; backups: string; jobState: string }
 type Size = { bytes: number; files: number; complete: boolean; recentBackups: { at: string; bytes: number }[] };
@@ -124,8 +125,8 @@ export function monitorRoutes(deps: {
   });
   router.use(requireAdmin(deps.adminKey, deps.adminUserId));
   router.get("/jobs", async (_req, res) => {
-    const [oracle, windows] = await Promise.all([getJob("oracle"), getJob("windows")]);
-    res.json({ oracle, windows });
+    const [oracle, windows, inventory] = await Promise.all([getJob("oracle"), getJob("windows"), readOracleJobs()]);
+    res.json({ oracle, windows, inventory });
   });
   router.get("/", async (_req, res) => {
     if (!cached || Date.now() - sampled > 120_000) {
