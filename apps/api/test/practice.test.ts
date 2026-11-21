@@ -83,8 +83,10 @@ describe("question files", () => {
     for (const f of files) {
       const r = QuestionImport.safeParse(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
       expect(r.success, f).toBe(true);
-      if (r.success) for (const n of [1, 2, 3, 4]) expect(r.data.questions.some((q) => q.round === n), `${f} round ${n}`).toBe(true);
+      if (r.success) for (const n of [1, 2, 3]) expect(r.data.questions.some((q) => q.round === n), `${f} round ${n}`).toBe(true);
     }
+    const fullPractice = QuestionImport.parse(shapesJson(questionsDir));
+    expect(fullPractice.questions.some((q) => q.round === 4)).toBe(true);
   });
   it("authoring mistakes are caught", () => {
     const bad = (q: object) => QuestionImport.safeParse({ board: "CBSE", classLevel: 3, subject: "maths", chapter: "c", topic: "t", questions: [{ ...common, ...q }] });

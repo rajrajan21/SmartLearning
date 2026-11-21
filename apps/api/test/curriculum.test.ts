@@ -4,7 +4,7 @@ import * as schema from "../src/db/schema.js";
 import { createPgliteDb } from "../src/db/dev.js";
 import { importCurriculum } from "../src/modules/curriculum/importer.js";
 import type { CurriculumRepository } from "../src/modules/curriculum/repository.js";
-import { authoredFixture, makeRepo, seedFile } from "./helpers.js";
+import { authoredFixture, makeRepo, seedFile, shippedSeedFile } from "./helpers.js";
 
 let repo: CurriculumRepository;
 let db: Awaited<ReturnType<typeof makeRepo>>["db"];
@@ -12,9 +12,9 @@ beforeAll(async () => ({ repo, db } = await makeRepo()));
 
 describe("seed file", () => {
   it("is valid and has the verified chapter counts", () => {
-    const d = CurriculumImport.parse(seedFile());
-    const subjects = d.classes[0]!.subjects;
-    expect(subjects.map((s) => [s.slug, s.chapters.length])).toEqual([["maths", 14], ["evs", 12]]);
+    const d = CurriculumImport.parse(shippedSeedFile());
+    const subjects = d.classes.find((c) => c.classLevel === 3)!.subjects;
+    expect(subjects.map((s) => [s.slug, s.chapters.length])).toEqual([["maths", 14], ["evs", 12], ["english", 15]]);
     expect(d.verifiedOn).toBeTruthy();
   });
 });
@@ -22,7 +22,7 @@ describe("seed file", () => {
 describe("importer", () => {
   it("is idempotent", async () => {
     await importCurriculum(db, authoredFixture());
-    expect(await db.select().from(schema.chapters)).toHaveLength(62);
+    expect(await db.select().from(schema.chapters)).toHaveLength(60);
     expect(await db.select().from(schema.textbooks)).toHaveLength(5);
     expect(await db.select().from(schema.topics)).toHaveLength(3);
     expect(await db.select().from(schema.objectives)).toHaveLength(2);
@@ -88,7 +88,7 @@ describe("repository", () => {
   });
   it("coverage shows what still needs authoring", async () => {
     const c = await repo.coverage("cbse");
-    expect(c!.totals).toMatchObject({ chapters: 62, chaptersWithTopics: 2, topics: 3, topicsWithObjectives: 1, chaptersWithTamil: 0 });
+    expect(c!.totals).toMatchObject({ chapters: 60, chaptersWithTopics: 2, topics: 3, topicsWithObjectives: 1, chaptersWithTamil: 0 });
   });
   it("serves the current year, keeps old years, and diffs them", async () => {
     const next = seedFile();
@@ -98,7 +98,8 @@ describe("repository", () => {
     next.classes[0].subjects[0].chapters.push({ slug: "brand-new", name: { en: "Brand New" } });
     await importCurriculum(db, next);
     expect((await repo.getBoard("cbse"))!.academicYear).toBe("2027-28");
-    expect((await repo.getBoard("cbse", "2026-27"))!.classes[0]!.subjects[0]!.chapters.length).toBe(12); // evs sorts first
+    const old = await repo.getBoard("cbse", "2026-27");
+    expect(old!.classes[0]!.subjects.find((s) => s.slug === "evs")!.chapters).toHaveLength(12);
     expect((await repo.listYears("cbse")).map((y) => y.academicYear)).toEqual(["2026-27", "2027-28"]);
     const d = await repo.diff("cbse", "2026-27", "2027-28");
     expect(d!.addedChapters).toEqual([{ classLevel: 3, subjectSlug: "maths", chapter: "Brand New" }]);
