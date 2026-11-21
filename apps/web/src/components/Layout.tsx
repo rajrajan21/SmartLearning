@@ -51,11 +51,12 @@ export function Layout({ children }: { children: ReactNode }) {
   useEffect(() => { if (s.get("stats.enabled") === true && !previewFrame() && !loc.startsWith("/admin")) void fetch("/api/v1/track/view", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ path: loc }), keepalive: true }).catch(() => {}); }, [loc, s]);
   useEffect(() => { const r = document.documentElement; if (app) r.setAttribute("data-app", "true"); else r.removeAttribute("data-app"); return () => r.removeAttribute("data-app"); }, [app]);
   const picker = s.get<string>("layout.picker");
-  const onLesson = loc.startsWith("/classroom/") || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
+  const classroomLesson = loc.startsWith("/classroom/");
+  const onLesson = classroomLesson || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <PresetContext.Provider value={preset}>
-    <div className="shell" data-site-preset={preset} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
+    <div className="shell" data-site-preset={preset} data-classroom-lesson={classroomLesson || undefined} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
       <ScrollToTop />
       <ScrollAids />
       <InstallPopup />

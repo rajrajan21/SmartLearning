@@ -11,9 +11,15 @@ if (typeof window !== "undefined") window.addEventListener("beforeinstallprompt"
 const OPEN_INSTALL = "ss-open-install";
 export function InstallTrigger() {
   const s = useSettings();
-  if (s.get("app.install.show") !== true || isStandalone()) return null;
+  const [installed, setInstalled] = useState(isStandalone);
+  useEffect(() => {
+    const onInstall = () => setInstalled(true);
+    window.addEventListener("appinstalled", onInstall);
+    return () => window.removeEventListener("appinstalled", onInstall);
+  }, []);
+  if (s.get("app.install.show") !== true || installed) return null;
   return <button type="button" className="btn ghost install-trigger" onClick={() => window.dispatchEvent(new Event(OPEN_INSTALL))}>
-    {s.lang === "ta" ? "செயலியைச் சேர்" : "Install app"}
+    {s.lang === "ta" ? "செயலி / புக்மார்க் சேர்" : "Install app / bookmark"}
   </button>;
 }
 
@@ -35,7 +41,16 @@ export function InstallPopup() {
   useEffect(() => {
     const h = (e: Event) => { e.preventDefault(); saved = e as InstallEvent; setEvt(saved); };
     const d = () => { saved = null; setEvt(null); setOpen(false); setManual(false); };
-    const request = () => { if (!isStandalone()) setManual(true); };
+    const request = () => {
+      if (isStandalone()) return;
+      const prompt = saved;
+      if (!prompt) { setManual(true); return; }
+      saved = null;
+      setEvt(null);
+      setOpen(false);
+      setManual(false);
+      void prompt.prompt().catch(() => setManual(true));
+    };
     const escape = (event: KeyboardEvent) => { if (event.key === "Escape") { setOpen(false); setManual(false); } };
     window.addEventListener("keydown", escape);
     window.addEventListener(OPEN_INSTALL, request);

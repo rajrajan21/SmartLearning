@@ -62,11 +62,18 @@ export function BooksPage() {
   const on = s.get("feature.textbooks") === true;
   const { status, books } = useBooks(on);
   const search = useSearch();
+  const [query, setQuery] = useState("");
+  const [classFilter, setClassFilter] = useState("");
   const wanted = Number(new URLSearchParams(search).get("class")) || 0;
   if (!on) return <NotFound />;
   if (status === "loading") return <Loading />;
   const open = s.get<number[]>("catalog.openClasses");
-  const shown = books.filter((b) => open.includes(b.classLevel) && (!wanted || b.classLevel === wanted));
+  const available = books.filter((b) => open.includes(b.classLevel));
+  const classes = [...new Set(available.map((b) => b.classLevel))].sort((a, b) => a - b);
+  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const selected = wanted || Number(classFilter);
+  const shown = available.filter((b) => (!selected || b.classLevel === selected) &&
+    words.every((word) => [b.title, b.subject, b.language].join(" ").toLowerCase().includes(word)));
   const levels = [...new Set(shown.map((b) => b.classLevel))].sort((a, b) => a - b);
   const board = activeBoard.toLowerCase();
   return (
@@ -74,6 +81,13 @@ export function BooksPage() {
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, ...(wanted ? [{ href: `/${board}/${wanted}`, label: `${ui("classWord", s.lang)} ${wanted}` }] : []), { label: ui("textbooks", s.lang) }]} />
       <h1>{ui("textbooks", s.lang)}{wanted ? ` · ${ui("classWord", s.lang)} ${wanted}` : ""}</h1>
       <p className="lead">{ui("booksIntro", s.lang)}</p>
+      {!wanted && <div className="book-catalog-filters">
+        <label>{s.lang === "ta" ? "பாடப்புத்தகங்களைத் தேடுங்கள்" : "Search textbooks"}<input type="search" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
+        <label>{ui("classWord", s.lang)}<select value={classFilter} onChange={(e) => setClassFilter(e.target.value)}>
+          <option value="">{s.lang === "ta" ? "அனைத்து வகுப்புகள்" : "All classes"}</option>
+          {classes.map((n) => <option value={n} key={n}>{ui("classWord", s.lang)} {n}</option>)}
+        </select></label>
+      </div>}
       {levels.length === 0 && <p className="soon-note">{ui("booksNone", s.lang)}</p>}
       {levels.map((level) => {
         const mine = booksOfClass(shown, level);

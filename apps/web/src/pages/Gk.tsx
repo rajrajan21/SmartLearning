@@ -1,3 +1,5 @@
+import { PuzzleOfDay } from "../components/PuzzleOfDay";
+import { ProjectOfWeek } from "../components/ProjectOfWeek";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "wouter";
 import { GK_AGES, GK_AGE_LABEL, GK_ANIMATED_VISUALS, type GkAge, type GkIndex, type GkListItem } from "@studysmart/shared";
@@ -81,7 +83,7 @@ function DailyCard({ item }: { item: GkListItem }) {
   );
 }
 
-function PuzzleCard({ item }: { item: GkListItem }) {
+function PuzzleCard({ item, home }: { item: GkListItem; home?: boolean }) {
   const s = useSettings();
   const l = useGkLesson(item.id, true);
   const think = Number(s.get("gk.puzzle.thinkSeconds") ?? 20);
@@ -96,7 +98,7 @@ function PuzzleCard({ item }: { item: GkListItem }) {
   const steps = p?.steps ?? [];
   const canShow = reveal === "button" || (reveal === "after-think" && left <= 0) || (reveal === "after-tries" && tries >= Number(s.get("gk.puzzle.tries") ?? 2));
   return (
-    <article className="gk-puzzle" data-testid="gk-puzzle">
+    <article className="gk-puzzle" id={home ? "puzzle" : undefined} data-testid="gk-puzzle">
       <h2>🧩 {gt("puzzleDay", s.lang)}</h2>
       {!p ? <p className="small">{item.title}</p> : (
         <>
@@ -115,22 +117,33 @@ function PuzzleCard({ item }: { item: GkListItem }) {
   );
 }
 
-export function GkTodayCards({ home }: { home?: boolean }) {
+export function GkTodayCards({ home, preferPuzzle }: { home?: boolean; preferPuzzle?: boolean }) {
   const { s, on, hiddenCats, hiddenLessons } = useGkConfig();
   const ixr = useGkIndex(on);
   const date = useMemo(() => new Date(), []);
-  if (!on || !ixr.data) return null;
+  if (!on || !ixr.data) return preferPuzzle ? <PuzzleOfDay /> : null;
   const base = visibleItems(ixr.data, { hiddenCats, hiddenLessons });
   const age = (s.get("gk.rememberAge") === true && savedAge()) || String(s.get("gk.daily.age") ?? "any");
   const dOn = s.get("gk.daily.enabled") === true && (!home || s.get("gk.daily.showOnHome") === true);
-  const pOn = s.get("gk.puzzle.enabled") === true && (!home || s.get("gk.puzzle.showOnHome") === true);
+  const pOn = s.get("gk.puzzle.enabled") === true && (!home || ((preferPuzzle || s.get("puzzle.show") !== true) && s.get("gk.puzzle.showOnHome") === true));
   const daily = dOn ? pickDaily(pool(ixr.data, base, String(s.get("gk.daily.mode")), s, "lesson", age), date, Number(s.get("gk.daily.shuffle") ?? 0), Number(s.get("gk.daily.count") ?? 1)) : [];
   const puz = pOn ? pickDaily(pool(ixr.data, base, String(s.get("gk.puzzle.mode")), s, "puzzle", String(s.get("gk.puzzle.age") ?? "any")), date, Number(s.get("gk.puzzle.shuffle") ?? 0) + 5, 1) : [];
-  if (!daily.length && !puz.length) return null;
+  if (!daily.length && !puz.length) return preferPuzzle ? <PuzzleOfDay /> : null;
+  if (preferPuzzle) {
+    return <>
+      {daily.length > 0 && <div className="activity-daily-gk">
+        {daily.map((d) => <DailyCard key={d.id} item={d} />)}
+      </div>}
+      <div className="activity-puzzle">
+        {puz[0] ? <PuzzleCard key={puz[0].id} item={puz[0]} home={home} /> : <PuzzleOfDay />}
+        <Link className="btn ghost sm activity-open-gk" href="/gk">{gt("gotoGk", s.lang)} →</Link>
+      </div>
+    </>;
+  }
   return (
     <section className={`gk-today${home ? " home" : ""}`} aria-label="GK today">
       {daily.map((d) => <DailyCard key={d.id} item={d} />)}
-      {puz[0] && <PuzzleCard item={puz[0]} />}
+      {puz[0] && <PuzzleCard key={puz[0].id} item={puz[0]} home={home} />}
       {home && <p className="gk-today-more"><Link className="btn ghost sm" href="/gk">{gt("gotoGk", s.lang)} →</Link></p>}
     </section>
   );
@@ -184,6 +197,7 @@ export function GkPage() {
       <h1>{title}</h1>
       <p className="lead">{intro}</p>
       <GkTodayCards />
+      <ProjectOfWeek />
       <div className="gk-filters noprint">
         {s.get("gk.showSearch") === true && <input type="search" className="gk-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={gt("search", lang)} aria-label={gt("search", lang)} />}
         {s.get("gk.showAgeFilter") === true && (

@@ -1,5 +1,5 @@
 // SharpStudy service worker (never caches admin or account/child data): app shell + curriculum data work offline after the first visit.
-const VERSION = "v4";
+const VERSION = "v5";
 const SHELL = `ss-shell-${VERSION}`;
 const DATA = `ss-data-${VERSION}`;
 

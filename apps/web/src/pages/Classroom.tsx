@@ -1,5 +1,5 @@
 import { ReportProblem } from "../components/ReportProblem";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { Link, useParams } from "wouter";
 import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
@@ -17,6 +17,26 @@ import { ErrorBox, Loading, NotFound } from "../components/bits";
 type Phase = "idle" | "playing" | "paused" | "gap" | "check" | "feedback" | "done";
 const reduced = () => typeof matchMedia === "function" && matchMedia("(prefers-reduced-motion: reduce)").matches;
 const hasSpeech = () => typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined";
+
+function ClassroomGroup({ label, count, initiallyOpen, children }: { label: string; count: number; initiallyOpen: boolean; children: ReactNode }) {
+  const [open, setOpen] = useState(initiallyOpen);
+  return <details className="classroom-group" open={open} onToggle={(event) => setOpen(event.currentTarget.open)}>
+    <summary>{label}<span className="small">({count})</span></summary>
+    {open && children}
+  </details>;
+}
+
+function classroomGroups<T, K>(items: T[], key: (item: T) => K) {
+  const result = new Map<K, T[]>();
+  for (const item of items) {
+    const name = key(item);
+    const group = result.get(name);
+    if (group) group.push(item);
+    else result.set(name, [item]);
+  }
+  return [...result.entries()];
+}
+const classroomLabel = (slug: string) => slug.replace(/-/g, " ").replace(/(^|\s)\p{L}/gu, (letter) => letter.toUpperCase());
 
 export function ClassroomHub() {
   const s = useSettings();
@@ -38,6 +58,9 @@ export function ClassroomHub() {
     return (!board || item.board === board) && (!grade || String(item.classLevel) === grade)
       && (!subject || item.subject === subject) && words.every((word) => text.includes(word));
   });
+  const classes = classroomGroups(matches, (item) => item.classLevel).sort(([a], [b]) => a - b);
+  const openMatches = words.length > 0 || Boolean(grade);
+  const filterKey = [query, board, grade, subject].join("|");
   const boards = [...new Set(items.map((item) => item.board))].sort();
   const grades = [...new Set(items.map((item) => item.classLevel))].sort((a, b) => a - b);
   const subjects = [...new Set(items.map((item) => item.subject))].sort();
@@ -56,16 +79,35 @@ export function ClassroomHub() {
         <p className="small" role="status">{matches.length} {ta ? "பாடங்கள்" : matches.length === 1 ? "lesson" : "lessons"}</p>
       </>}
       {items.length === 0 ? <p>{ui("classroomNone", s.lang)}</p> : matches.length === 0 ? <p>{ta ? "பொருந்தும் பாடங்கள் இல்லை." : "No matching lessons. Try another search or clear the filters."}</p> : (
-        <ul className="class-list">
-          {matches.map((i) => (
-            <li key={[i.board, i.classLevel, i.subject, i.chapter, i.topic].join("/")}>
-              <Link className="class-card" href={`/classroom/${i.board.toLowerCase()}/${i.classLevel}/${i.subject}/${i.chapter}/${i.topic}`}>
-                <b>{s.name(i.title)}</b>
-                <span>{ui("classWord", s.lang)} {i.classLevel} · {i.subject} · {i.steps} {ui("classroomSteps", s.lang)}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <div className="classroom-groups" key={filterKey}>
+          {classes.map(([level, lessons]) => {
+            const groups = classroomGroups(lessons, (item) => item.subject).sort(([a], [b]) => a.localeCompare(b));
+            return <ClassroomGroup key={level} label={ui("classWord", s.lang) + " " + level} count={lessons.length} initiallyOpen={openMatches || classes.length === 1}>
+              <div className="classroom-groups">
+                {groups.map(([name, subjectLessons]) => {
+                  const chapters = classroomGroups(subjectLessons, (item) => item.chapter).sort(([a], [b]) => a.localeCompare(b));
+                  return <ClassroomGroup key={name} label={classroomLabel(name)} count={subjectLessons.length} initiallyOpen={words.length > 0 || groups.length === 1}>
+                    <div className="classroom-groups">
+                      {chapters.map(([chapter, chapterLessons]) => (
+                        <ClassroomGroup key={chapter} label={classroomLabel(chapter)} count={chapterLessons.length} initiallyOpen={words.length > 0 || chapters.length === 1}>
+                          <ul className="class-list">
+                            {[...chapterLessons].sort((a, b) => s.name(a.title).localeCompare(s.name(b.title), s.lang)).map((i) => (
+                              <li key={[i.board, i.classLevel, i.subject, i.chapter, i.topic].join("/")}>
+                                <Link className="class-card" href={["", "classroom", i.board.toLowerCase(), i.classLevel, i.subject, i.chapter, i.topic].join("/")}>
+                                  <b>{s.name(i.title)}</b><span>{i.board} · {i.steps} {ui("classroomSteps", s.lang)}</span>
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </ClassroomGroup>
+                      ))}
+                    </div>
+                  </ClassroomGroup>;
+                })}
+              </div>
+            </ClassroomGroup>;
+          })}
+        </div>
       )}
     </div>
   );
@@ -215,7 +257,10 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
 
   useEffect(() => () => { run.current++; stopVoice(); clearTimer(); }, [stopVoice]);
 
+  const frame = useRef<HTMLDivElement>(null);
   const play = () => {
+    const view = frame.current;
+    if (view && view.getBoundingClientRect().top < 0) view.scrollIntoView({ block: "start", behavior: "auto" });
     if (phase === "idle" || phase === "done") { begin(0); return; }
     if (phase === "paused") {
       if (tRef.current >= durMs - 30) { if (step + 1 < lesson.steps.length) begin(step + 1); else setPhase("done"); return; }
@@ -277,7 +322,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
   const savedSection = lesson.steps[seen.last]?.section;
 
   return (
-    <div className="paper classroom" data-sample={related ? "true" : undefined}>
+    <div className="paper classroom" ref={frame} data-sample={related ? "true" : undefined}>
       <p className="small"><Link href={back}>← {L("backToTopic")}</Link>{noteOn && <> <button type="button" className="link heart" aria-pressed={noteSaved} onClick={() => toggleNote({ id: noteId, href: `/classroom${back}`, title: lesson.title, subject: { en: subjectSlug.replace(/-/g, " ") } })}><span aria-hidden="true">{noteSaved ? "❤️" : "🤍"}</span> {noteSaved ? L("nbSaved") : L("nbSave")}</button></>}</p>
       <h1>{s.name(related ? sample.title : lesson.title)}</h1>
       {related && <p className="sample-intro">{lang === "ta" ? "காந்தம் எதை ஈர்க்கும்? பலகையில் பார்த்து, விடையைச் சோதித்துப் பாருங்கள்." : "What will a magnet pick up? Watch the board, make a prediction and check your answer."}</p>}

@@ -29,7 +29,7 @@ export function AppBar() {
       <BottomSheet open={sheet} onClose={() => setSheet(false)} title={ui("appQuickSettings", s.lang)}>
         <div onClick={(event) => { if ((event.target as HTMLElement).closest("a,.install-trigger")) setSheet(false); }}>
           {s.get("feature.search") === true && s.get("search.header.show") === true && <SearchBox compact board={board} />}
-          <div className="appbar-links"><MainNav bare /></div>
+          <div className="appbar-links"><MainNav bare extrasOnly /></div>
           <MeSettings compact />
         </div>
       </BottomSheet>

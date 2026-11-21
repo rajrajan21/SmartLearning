@@ -67,7 +67,7 @@ describe("classroom", () => {
   it("opens browser install and bookmark help even without a native prompt", async () => {
     settings = { ...settings, "app.install.show": true };
     mount("/classroom");
-    fireEvent.click(await screen.findByRole("button", { name: "Install app" }));
+    fireEvent.click(await screen.findByRole("button", { name: "Install app / bookmark" }));
     expect(screen.getByText(/bookmark this page/)).toBeTruthy();
     fireEvent.keyDown(window, { key: "Escape" });
     expect(screen.queryByText(/bookmark this page/)).toBeNull();

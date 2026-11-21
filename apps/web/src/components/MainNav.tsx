@@ -7,7 +7,7 @@ import { gt } from "../lib/gk";
 import { lt } from "../lib/library";
 
 /** Clear top menu for wide screens. On phones the bottom tab bar does this job. */
-export function MainNav({ bare = false }: { bare?: boolean }) {
+export function MainNav({ bare = false, extrasOnly = false }: { bare?: boolean; extrasOnly?: boolean }) {
   const s = useSettings();
   const preset = usePreset();
   const [loc] = useLocation();
@@ -23,10 +23,11 @@ export function MainNav({ bare = false }: { bare?: boolean }) {
   if (s.get("tour.enabled") === true && s.get("tour.nav.show") === true && s.get("tour.page.enabled") === true) items.push({ href: "/tour", label: s.text("tour.nav.label") || "How it works", on: loc.startsWith("/tour") });
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) items.push({ href: "/library", label: lt("title", s.lang), on: loc.startsWith("/library") });
+  if (s.get("feature.textbooks") === true) items.push({ href: "/books", label: ui("textbooks", s.lang), on: loc === "/books" });
   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
   const priorities: string[] = {
     classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],
-    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/papers", "/tour", "/gk", "/explore", "/library"], reading: ["/library", "/notebook"],
+    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/books", "/papers", "/tour", "/gk", "/explore", "/library"], reading: ["/library", "/notebook"],
   }[preset];
   if ((bare || preset === "classroom") && s.get("feature.classroom") === true) items.push({
     href: "/classroom", label: ui("classroomTitle", s.lang), on: loc.startsWith("/classroom"),
@@ -34,7 +35,7 @@ export function MainNav({ bare = false }: { bare?: boolean }) {
   const rank = (href: string) => priorities.includes(href) ? priorities.indexOf(href) : priorities.length;
   const nav = (
     <nav className={bare ? "main-nav preset-nav bare-nav" : preset === "classic" ? "main-nav hide-sm" : "main-nav preset-nav"} aria-label={ui("navTop", s.lang)}>
-      {items.sort((a, b) => rank(a.href) - rank(b.href)).map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}
+      {items.filter((item) => !extrasOnly || !["/", items[1]!.href, "/revise", "/progress"].includes(item.href)).sort((a, b) => rank(a.href) - rank(b.href)).map((i) => <Link key={i.href} href={i.href} className={i.on ? "on" : ""} aria-current={i.on ? "page" : undefined}
         onClick={(event) => {
           if (typeof matchMedia === "function" && matchMedia("(max-width: 849px)").matches) event.currentTarget.closest("details")?.removeAttribute("open");
         }}>{i.label}</Link>)}

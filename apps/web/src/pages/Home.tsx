@@ -22,10 +22,8 @@ import { useApp } from "../lib/useApp";
 import { AppFeed, DidYouKnow } from "../components/AppFeed";
 import { Reminder } from "../components/Reminder";
 import { DailyChallenge } from "../components/DailyChallenge";
-import { ProjectOfWeek } from "../components/ProjectOfWeek";
 import { PuzzleOfDay } from "../components/PuzzleOfDay";
 import { Rich } from "../components/Rich";
-import { TourSection } from "../components/TourSection";
 import { WaterCycle } from "../components/TryIt";
 import { gt } from "../lib/gk";
 import { lazy, Suspense } from "react";
@@ -73,23 +71,30 @@ export function Home() {
   if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) quick.push({ href: "/notebook", icon: "📓", label: ui("navNotebook", s.lang) });
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) quick.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang) });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) quick.push({ href: "/library", icon: "📖", label: lt("title", s.lang) });
+  if (s.get("feature.textbooks") === true) quick.push({ href: "/books", icon: "📚", label: ui("textbooks", s.lang) });
   if (s.get("feature.papers") === true && s.get("papers.home.show") !== false) quick.push({ href: "/papers", icon: "📝", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers" });
-  if (preset === "classic" && app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} />;
   const lead = s.text("home.hero.lead").trim(), l1 = s.text("home.hero.line1").trim(), l2 = s.text("home.hero.line2").trim();
   const heroTitle = l1 || l2 ? `${lead ? `${lead}||` : ""}${l1}${l1 && l2 ? "|" : ""}${l2}` : s.text("home.hero.title");
   const challenge = <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />;
-  const gk = s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>;
+  const gkEnabled = s.get("feature.gk") === true && s.get("gk.home.show") !== false;
+  const gk = gkEnabled && <Suspense fallback={null}><GkTodayCards home /></Suspense>;
+  const activityGk = gkEnabled ? <Suspense fallback={<PuzzleOfDay />}><GkTodayCards home preferPuzzle /></Suspense> : <PuzzleOfDay />;
+  if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} dailyGk={gk} />;
   const fact = s.get("home.didYouKnow.show") === true && <DidYouKnow />;
   const today = (
     <details className="preset-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
       <summary>{s.lang === "ta" ? "இன்றைய செயல்பாடுகள்" : "Today's activities"}</summary>
-      {preset === "activity" ? <div className="today-items activity-stacks">
-        <div className="activity-stack">{challenge}<ProjectOfWeek /><PuzzleOfDay />{fact}</div>
-        <div className="activity-stack">{gk}</div>
-      </div> : <div className="today-items">{challenge}{gk}<PuzzleOfDay /><ProjectOfWeek />{fact}</div>}
+      {preset === "activity" ? <div className="today-items activity-rows">
+        {challenge}{fact}{activityGk}
+      </div> : <div className="today-items">{challenge}{gk}<PuzzleOfDay />{fact}</div>}
     </details>
   );
-  const headline = <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={heroTitle} /></h1>;
+  const headline = <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={preset === "activity" ? heroTitle.replace(/\s*\|+\s*/g, " ") : heroTitle} /></h1>;
+  const quickLinks = s.get("home.quickLinks.show") === true && quick.length > 1 && (
+        <nav className="quick" aria-label={ui("quickLinks", s.lang)}>
+          {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
+        </nav>
+      );
   return (
     <div className="paper home">
       <div className="home-top">
@@ -119,7 +124,6 @@ export function Home() {
       )}
         </div>
       </div>
-      <TourSection where="hero" />
       {recent.length > 0 && (
         <section className="recent-row" aria-label={ui("recentTitle", s.lang)}>
           <h2>{ui("recentTitle", s.lang)}</h2>
@@ -134,7 +138,7 @@ export function Home() {
           </ul>
         </section>
       )}
-      {preset === "activity" && today}
+      {preset === "activity" && <div className="activity-browse">{today}{quickLinks}</div>}
       <BoardPath nodes={path} streak={streakOn ? rewards.streak : 0} />
       {s.get("home.rewards.show") === true && (streakOn || rewards.stars > 0) && (
         <section className="rewards" aria-label={ui("rewardsTitle", s.lang)}>
@@ -149,23 +153,16 @@ export function Home() {
           <div className="reward"><b className="reward-n">⭐ {rewards.stars}</b><span>{ui("starsEarned", s.lang)}</span></div>
         </section>
       )}
-      {s.get("home.quickLinks.show") === true && quick.length > 1 && (
-        <nav className="quick" aria-label={ui("quickLinks", s.lang)}>
-          {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
-        </nav>
-      )}
+      {preset !== "activity" && quickLinks}
       {preset === "classic" ? <>
       <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
       <Reminder goalMet={doneToday >= goal} />
       {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
       <PuzzleOfDay />
-      <ProjectOfWeek />
-      <TourSection where="section" />
       {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
       </> : <>
         {preset !== "activity" && today}
         <Reminder goalMet={doneToday >= goal} />
-        <TourSection where="section" />
       </>}
       {s.get("explore.tryIt.show") === true && <section className="paper-block"><WaterCycle /></section>}
       {mastery && s.get("mastery.homeCard") === true && s.get("mastery.revision.enabled") === true && due > 0 && (

@@ -48,7 +48,7 @@ export function PapersListPage() {
   const set = (k: keyof typeof f) => (e: { target: { value: string } }) => setF({ ...f, [k]: e.target.value });
   const shown = rows.slice(page * per, page * per + per);
   return (
-    <main className="papers">
+    <section className="paper papers papers-catalog">
       <h1>{T(lang, "Question papers and quizzes", "வினாத்தாள்கள் மற்றும் வினாடி வினா")}</h1>
       <p className="muted">{T(lang, "Free papers collected from official and open sources. Write your answers, pick options, then check your marks.", "அதிகாரப்பூர்வ மற்றும் திறந்த மூலங்களிலிருந்து சேகரித்த இலவச வினாத்தாள்கள். பதில் எழுதி, மதிப்பெண்களைச் சரிபாருங்கள்.")}</p>
       {showHiTab && <div className="papers-tabs" role="tablist">
@@ -62,6 +62,7 @@ export function PapersListPage() {
         <select aria-label="Kind" value={f.kind} onChange={set("kind")}><option value="">{T(lang, "All kinds", "எல்லா வகை")}</option>{Object.entries(KIND_NAME).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>
         <input type="search" aria-label="Search" placeholder={T(lang, "Search title or chapter", "தேடுக")} value={f.q} onChange={set("q")} />
       </div>}
+      <p className="papers-count small" role="status">{rows.length} {T(lang, rows.length === 1 ? "paper" : "papers", "வினாத்தாள்கள்")}</p>
       {rows.length === 0 ? <div className="notice"><p>{all.length === 0 ? T(lang, "No papers yet. They appear here after the collector job runs.", "இன்னும் வினாத்தாள்கள் இல்லை.") : T(lang, "No papers match these filters.", "பொருந்தும் வினாத்தாள் இல்லை.")}</p></div> : (
         <ul className="papers-list">
           {shown.map((p) => (
@@ -76,7 +77,7 @@ export function PapersListPage() {
         </ul>
       )}
       {rows.length > per && <p className="papers-pager"><button className="btn ghost sm" disabled={page === 0} onClick={() => setPage(page - 1)}>‹</button> {page + 1} / {Math.ceil(rows.length / per)} <button className="btn ghost sm" disabled={(page + 1) * per >= rows.length} onClick={() => setPage(page + 1)}>›</button></p>}
-    </main>
+    </section>
   );
 }
 
