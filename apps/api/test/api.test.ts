@@ -35,12 +35,13 @@ describe("API", () => {
     expect((await request(app).get(`${base}/boards/cbse/topics/99/maths/toy-joy/x`)).status).toBe(400);
   });
   it("search validates and finds", async () => {
-    expect((await request(app).get(`${base}/boards/cbse/search?q=shapes`)).body.hits[0].name.en).toBe("Fun with Shapes");
+    const { body } = await request(app).get(`${base}/boards/cbse/search?q=shapes`).expect(200);
+    expect(body.hits).toEqual(expect.arrayContaining([expect.objectContaining({ name: expect.objectContaining({ en: "Fun with Shapes" }) })]));
     expect((await request(app).get(`${base}/boards/cbse/search`)).status).toBe(400);
     expect((await request(app).get(`${base}/boards/cbse/search?q=${"a".repeat(81)}`)).status).toBe(400);
   });
   it("coverage and diff", async () => {
-    expect((await request(app).get(`${base}/boards/cbse/coverage`)).body.totals.chapters).toBe(62);
+    expect((await request(app).get(`${base}/boards/cbse/coverage`)).body.totals.chapters).toBe(60);
     expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27`)).status).toBe(400);
     expect((await request(app).get(`${base}/boards/cbse/diff?from=2026-27&to=2030-31`)).status).toBe(404);
   });

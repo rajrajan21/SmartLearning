@@ -81,7 +81,7 @@ describe("repository", () => {
   it("search finds English and Tamil, ranks prefix matches first, handles multiple words", async () => {
     expect((await repo.search("CBSE", "toy"))[0]!.name.en).toBe("Toy Joy"); // prefix match before "Counting toys"
     expect((await repo.search("CBSE", "toy")).map((h) => h.kind)).toContain("topic");
-    expect((await repo.search("cbse", "கணிதம்")).map((h) => h.kind)).toEqual(["subject", "subject"]); // Class 3 and Class 6 maths
+    expect((await repo.search("cbse", "கணிதம்")).map((h) => h.kind)).toEqual(["subject", "subject", "subject"]);
     expect((await repo.search("cbse", "house hundreds")).length).toBe(2);
     expect(await repo.search("cbse", "zzzz")).toEqual([]);
     expect(await repo.search("nope", "toy")).toEqual([]);

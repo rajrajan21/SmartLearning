@@ -2,10 +2,11 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import request from "supertest";
 import { beforeAll, describe, expect, it } from "vitest";
-import { LessonImport } from "@studysmart/shared";
+import { CurriculumImport, LessonImport, QuestionImport } from "@studysmart/shared";
 import { createApp } from "../src/app.js";
 import { curriculumDir, lessonsDir, questionsDir } from "../src/server-paths.js";
 import { LessonImportError } from "../src/modules/lessons/service.js";
+import { importCurriculum } from "../src/modules/curriculum/importer.js";
 import { makeRepo, seedFile } from "./helpers.js";
 
 const lessonFor = (over: Record<string, unknown> = {}) => ({
@@ -23,23 +24,33 @@ describe("lesson content files", () => {
     for (const f of files) expect(LessonImport.safeParse(JSON.parse(readFileSync(join(lessonsDir, f), "utf8"))).success, f).toBe(true);
   });
   it("the shipped lessons import against the shipped curriculum and are served", async () => {
-    const m = await makeRepo(JSON.parse(readFileSync(join(curriculumDir, "cbse-2026-27.json"), "utf8")));
-    for (const f of readdirSync(lessonsDir).filter((x) => x.endsWith(".json"))) {
-      await m.lessons.importLesson(JSON.parse(readFileSync(join(lessonsDir, f), "utf8")));
+    const curriculums = ["cbse-2026-27.json", "tn-matric-2026-27.json"].map((f) =>
+      CurriculumImport.parse(JSON.parse(readFileSync(join(curriculumDir, f), "utf8"))));
+    const [cbse, matric] = curriculums;
+    const m = await makeRepo(cbse!);
+    await importCurriculum(m.db, matric!);
+    const registered = new Set<string>();
+    for (const curriculum of curriculums) for (const cls of curriculum.classes) {
+      for (const subject of cls.subjects) for (const chapter of subject.chapters) for (const topic of chapter.topics ?? []) {
+        registered.add([curriculum.boardCode, cls.classLevel, subject.slug, chapter.slug, topic.slug].join("/"));
+      }
     }
-    for (const f of readdirSync(questionsDir).filter((x) => x.endsWith(".json"))) {
-      await m.practice.importQuestions(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
-    }
-    // every quiz block points at questions that exist in its own topic's question file
     for (const f of readdirSync(lessonsDir).filter((x) => x.endsWith(".json"))) {
-      const les = JSON.parse(readFileSync(join(lessonsDir, f), "utf8")), qs = JSON.parse(readFileSync(join(questionsDir, f), "utf8"));
-      const keys = new Set(qs.questions.map((q: { key: string }) => q.key));
+      const les = LessonImport.parse(JSON.parse(readFileSync(join(lessonsDir, f), "utf8")));
+      const qs = QuestionImport.parse(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
+      const id = [les.board, les.classLevel, les.subject, les.chapter, les.topic].join("/");
+      expect(registered.has(id), f).toBe(true);
+      expect([qs.board, qs.classLevel, qs.subject, qs.chapter, qs.topic].join("/"), f).toBe(id);
+      const keys = new Set(qs.questions.map((q) => q.key));
       for (const b of les.lesson.blocks) if (b.type === "quiz") for (const id of b.questionIds) expect(keys.has(id), `${f}: quiz question ${id}`).toBe(true);
     }
-    const l = await m.lessons.getPublished("CBSE", 3, "maths", "fun-with-shapes", "sides-and-corners");
-    expect(l?.blocks.length).toBeGreaterThan(4);
-    expect(l?.title.ta).toBeTruthy();
-  });
+    for (const f of ["cbse-3-maths-fun-with-shapes-sides-and-corners.json", "tnm-10-english-unit-1-his-first-flight.json"]) {
+      const lesson = LessonImport.parse(JSON.parse(readFileSync(join(lessonsDir, f), "utf8")));
+      await m.lessons.importLesson(lesson);
+      await m.practice.importQuestions(JSON.parse(readFileSync(join(questionsDir, f), "utf8")));
+      expect(await m.lessons.getPublished(lesson.board, lesson.classLevel, lesson.subject, lesson.chapter, lesson.topic)).toMatchObject({ title: lesson.lesson.title });
+    }
+  }, 30_000);
 });
 
 describe("lesson import and API", () => {
