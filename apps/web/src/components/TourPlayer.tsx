@@ -39,11 +39,9 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
 
   useEffect(() => { if (!wantUp || have) return; fetch("/api/v1/tour/status").then((r) => (r.ok ? r.json() : null)).then((d) => setHave(d ?? {})).catch(() => setHave({})); }, [wantUp, have]);
   const up = wantUp && !failed && !!have?.[lang]?.video;
-  const base = up ? "/api/v1/tour/files/custom" : "/tour-video/tour";
   const src = up ? `/api/v1/tour/files/custom-${lang}.mp4?v=${ver}` : `/tour-video/tour-${lang}.mp4?v=${ver}`;
   const poster = up && have?.[lang]?.poster ? `/api/v1/tour/files/custom-poster-${lang}.jpg?v=${ver}` : `/tour-video/poster-${lang}.jpg?v=${ver}`;
   const vtt = up ? (have?.[lang]?.vtt ? `/api/v1/tour/files/custom-${lang}.vtt?v=${ver}` : "") : `/tour-video/tour-${lang}.vtt?v=${ver}`;
-  void base;
   useEffect(() => { setFailed(false); }, [lang, wantUp]);
   useEffect(() => { setChap(null); if (up) return; fetch(`/tour-video/tour-${lang}.chapters.json?v=${ver}`).then((r) => (r.ok ? r.json() : null)).then((d) => d && setChap({ chapters: d.chapters.map((c: { t: number; title: Record<string, string> | string }) => ({ t: c.t, title: typeof c.title === "string" ? c.title : c.title[ui] ?? c.title.en })), voiced: d.voiced === true })).catch(() => undefined); }, [lang, ui, up, ver]);
 
@@ -74,6 +72,7 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
       <div className={framed ? "tour-stage" : undefined}>
       <video
         key={src}
+        src={src}
         ref={ref}
         className="tour-video"
         controls

@@ -41,6 +41,7 @@ describe("E-Library, Question papers, GK and the tour video are on by default", 
     mount({ "tour.footer.show": true, "tour.page.enabled": true }, "/tour");
     await screen.findByTestId("tour-page");
     expect(screen.getAllByTestId("tour-player")).toHaveLength(1);
+    expect(screen.getByTestId("tour-player").querySelector("video")?.getAttribute("src")).toMatch(/^\/tour-video\/tour-en\.mp4\?v=/);
     expect(screen.queryByTestId("tour-footer")).toBeNull();
   });
 });
