@@ -15,9 +15,9 @@ export function MindMap({ title, topics }: { title: string; topics: MapTopic[] }
   const pts = branchPoints(list.length, W, H);
   const colour = s.get("browse.mindmap.colourDone") === true;
   return (
-    <section className="paper-block mindmap" aria-label={ui("mindMapTitle", s.lang)}>
-      <h2>{ui("mindMapTitle", s.lang)}</h2>
-      <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={title} className="mm-svg">
+    <details className="chapter-map" open={s.get("browse.mindmap.expanded") === true}>
+      <summary>{ui("mindMapTitle", s.lang)}</summary>
+      {s.get<string>("browse.mindmap.layout") === "radial" ? <svg viewBox={`0 0 ${W} ${H}`} role="group" aria-label={title} className="mm-svg">
         {pts.map((p, i) => <line key={i} x1={W / 2} y1={H / 2} x2={p.x} y2={p.y} className="mm-line" />)}
         <ellipse cx={W / 2} cy={H / 2} rx={78} ry={36} className="mm-center" />
         {wrapLabel(title, 18).map((l, i, a) => <text key={i} x={W / 2} y={H / 2 + (i - (a.length - 1) / 2) * 16 + 5} textAnchor="middle" className="mm-ct">{l}</text>)}
@@ -33,7 +33,13 @@ export function MindMap({ title, topics }: { title: string; topics: MapTopic[] }
             </Link>
           );
         })}
-      </svg>
-    </section>
+      </svg> : <ol className="chapter-map-links">
+        {list.map((topic) => <li key={topic.id}>
+          <Link href={topic.href} className={colour && topic.done ? "done" : undefined}>
+            {topic.label}{colour && topic.done && <span aria-label={ui("syllabusDone", s.lang)}> ✓</span>}
+          </Link>
+        </li>)}
+      </ol>}
+    </details>
   );
 }

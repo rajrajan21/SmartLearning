@@ -104,7 +104,7 @@ export function Home() {
         <section className="hero">
           {preset !== "activity" && headline}
           <p className="lead"><Rich text={s.text("home.hero.subtitle")} /></p>
-          {tryHref && <p className="actions"><Link className="btn big try-btn" href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small">{sampleReady && <><b>{s.name(sample.title)}</b><br /></>}<Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
+          {tryHref && <p className="actions"><Link className={s.get("home.tryLesson.pill") ? "btn try-btn pill" : "btn big try-btn"} href={tryHref}>▶ {s.text("home.cta.label") || ui("tryLesson", s.lang)}</Link><span className="small">{sampleReady && <><b>{s.name(sample.title)}</b><br /></>}<Rich text={s.text("home.cta.note") || ui("tryLessonHelp", s.lang)} /></span></p>}
         </section>
       )}
         <div className="home-side">

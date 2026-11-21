@@ -6,9 +6,9 @@ import { SettingsProvider } from "./lib/settings";
 import { Layout } from "./components/Layout";
 import { Routes } from "./App";
 
-function mount(settings: Record<string, unknown> = {}) {
+function mount(settings: Record<string, unknown> = {}, path = "/") {
   vi.stubGlobal("fetch", vi.fn(async (url: string) => (url.includes("/settings/public") ? new Response(JSON.stringify({ values: settings })) : new Response(JSON.stringify({}), { status: 404 }))));
-  const { hook } = memoryLocation({ path: "/", static: false });
+  const { hook } = memoryLocation({ path, static: false });
   return render(<Router hook={hook}><SettingsProvider><Layout><Routes /></Layout></SettingsProvider></Router>);
 }
 beforeEach(() => { cleanup(); localStorage.clear(); });
@@ -36,5 +36,11 @@ describe("E-Library, Question papers, GK and the tour video are on by default", 
     await screen.findAllByText(/GK|General Knowledge/i);
     expect(screen.getByTestId("tour-footer")).toBeTruthy();
     expect(within(screen.getByTestId("tour-footer")).queryByTestId("tour-player")).toBeNull();
+  });
+  it("shows a single player on the dedicated tour page", async () => {
+    mount({ "tour.footer.show": true, "tour.page.enabled": true }, "/tour");
+    await screen.findByTestId("tour-page");
+    expect(screen.getAllByTestId("tour-player")).toHaveLength(1);
+    expect(screen.queryByTestId("tour-footer")).toBeNull();
   });
 });

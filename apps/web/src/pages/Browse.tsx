@@ -148,6 +148,7 @@ export function ChapterPage() {
   const lessonIds = useLessonTopicIds(s.get("feature.lessons"));
   const masteryOf = useMastery(s.get("feature.mastery") === true);
   const [tq, setTq] = useState("");
+  const [topicQuery, setTopicQuery] = useState("");
   const { subject = "", chapter = "" } = useParams<{ subject: string; chapter: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
   if (state.status === "loading") return <Loading />;
@@ -158,6 +159,8 @@ export function ChapterPage() {
   const ch = sub.chapters[idx]!;
   const prev = sub.chapters[idx - 1], next = sub.chapters[idx + 1];
   const base = `/${board}/${level}/${sub.slug}`;
+  const showTopicSearch = s.get("browse.topics.search") === true && ch.topics.length > 4;
+  const visibleTopics = showTopicSearch ? ch.topics.filter((t) => matches(topicQuery, t.name.en, t.name.ta)) : ch.topics;
   return (
     <div className="paper" style={{ ["--cover" as string]: subjectVar(sub.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: `/${board}/${level}`, label: `${ui("classWord", s.lang)} ${level}` }, { href: base, label: s.name(sub.name) }, { label: s.name(ch.name) }]} />
@@ -181,25 +184,29 @@ export function ChapterPage() {
         </section>
       )}
       <ShareLink what={`${ui("classWord", s.lang)} ${level} ${s.name(sub.name)}: ${s.name(ch.name)}`} />
-      <MindMap title={s.name(ch.name)} topics={ch.topics.map((t) => ({ id: t.id, label: s.name(t.name), href: `${base}/${ch.slug}/${t.slug}`, done: progress[t.id]?.done === true }))} />
       {s.get("feature.chapterTopics") && (
         ch.topics.length === 0 ? <p className="soon-note">{ui("lessonsPreparing", s.lang)}</p> : (
-          <>
-            <h2>{ui("topics", s.lang)}</h2>
+          <section className="chapter-topics" aria-labelledby="chapter-topics-heading">
+            <h2 id="chapter-topics-heading">{ui("topics", s.lang)}</h2>
             {s.get("rewards.masteryBar.show") === true && s.get("feature.mastery") === true && <MasteryBar list={ch.topics.map((t) => masteryOf(t.id)).filter((m): m is NonNullable<typeof m> => m !== null)} label={ui("mbTitle", s.lang)} />}
-            <ul className="topics">
-              {ch.topics.map((t) => (
+            {showTopicSearch && <FilterBox value={topicQuery} onChange={setTopicQuery} />}
+            {visibleTopics.length === 0 && <p role="status">{s.lang === "ta" ? "பொருந்தும் தலைப்புகள் இல்லை." : "No matching topics."}</p>}
+            <ul className={`chapter-topic-list ${s.get<string>("browse.topics.layout") === "list" ? "rows" : "cards"}`}>
+              {visibleTopics.map((t) => (
                 <li key={t.id}>
-                  <Link href={`${base}/${ch.slug}/${t.slug}`}><Title name={t.name} /></Link>
+                  <Link className="chapter-topic-link" href={`${base}/${ch.slug}/${t.slug}`}>
+                    <Title name={t.name} /><span aria-hidden="true">→</span>
+                  </Link>
                   {s.get("feature.lessons") && lessonIds.has(t.id) && <span className="tag">{ui("hasLesson", s.lang)}</span>}
                   {s.get("feature.mastery") === true && s.get("mastery.badges") === true && (() => { const m = masteryOf(t.id); return m && m.level !== "new" ? <MasteryTag m={m} /> : null; })()}
                   {s.get("lesson.progress.showTicks") && progress[t.id]?.done && <span className="tick" title={ui("lessonTick", s.lang)} role="img" aria-label={ui("lessonTick", s.lang)}>✓</span>}
                 </li>
               ))}
             </ul>
-          </>
+          </section>
         )
       )}
+      <MindMap title={s.name(ch.name)} topics={ch.topics.map((t) => ({ id: t.id, label: s.name(t.name), href: `${base}/${ch.slug}/${t.slug}`, done: progress[t.id]?.done === true }))} />
       {ch.topics.length > 0 && s.get("feature.practice") === true && (s.get("feature.exams") === true || s.get("feature.worksheets") === true || s.get("feature.games") === true) && (
         <>
           <h2>{ui("chapterTest", s.lang)}</h2>

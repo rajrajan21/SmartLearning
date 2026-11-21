@@ -1,11 +1,12 @@
-import { Link } from "wouter";
+import { Link, useRoute } from "wouter";
 import { useSettings } from "../lib/settings";
 import { TourPlayer } from "./TourPlayer";
 
 /** The "How it works" video block at the bottom of every public page. Switch it off or make it a button in Admin > How it works video. */
 export function TourFooter() {
   const s = useSettings();
-  if (s.get("tour.enabled") !== true || s.get("tour.footer.show") !== true) return null;
+  const [onTourPage] = useRoute("/tour");
+  if (onTourPage || s.get("tour.enabled") !== true || s.get("tour.footer.show") !== true) return null;
   const heading = s.text("tour.intro.heading").trim(), btn = s.text("tour.button.label").trim();
   const intro = s.text("tour.intro.text").trim();
   const pageOn = s.get("tour.page.enabled") === true;

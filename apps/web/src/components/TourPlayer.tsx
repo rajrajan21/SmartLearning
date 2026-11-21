@@ -34,6 +34,7 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
   const [speed, setSpeed] = useState(Number(s.get("tour.speed.default") ?? 1) || 1);
   const [cc, setCc] = useState(s.get("tour.captions.default") === true);
   const [cur, setCur] = useState(0);
+  const [playedSource, setPlayedSource] = useState<string>();
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => { if (!wantUp || have) return; fetch("/api/v1/tour/status").then((r) => (r.ok ? r.json() : null)).then((d) => setHave(d ?? {})).catch(() => setHave({})); }, [wantUp, have]);
@@ -58,6 +59,8 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
   useEffect(() => { const v = ref.current; if (v) v.playbackRate = speed; }, [speed, src]);
   useEffect(() => { const v = ref.current; if (!v) return; for (const tr of Array.from(v.textTracks)) tr.mode = cc ? "showing" : "hidden"; });
   const autoplay = s.get("tour.autoplay") === true;
+  const framed = s.get("tour.player.cover") === true;
+  const showPlay = framed && !autoplay && playedSource !== src;
   const activeChapter = chapters.reduce((a, c, i) => (cur >= c.t ? i : a), -1);
   const jump = (tm: number) => { const v = ref.current; if (!v) return; v.currentTime = tm; void v.play().catch(() => undefined); };
 
@@ -68,6 +71,7 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
           {(["en", "ta"] as const).map((l) => <button key={l} type="button" className={`tour-chip${lang === l ? " on" : ""}`} aria-pressed={lang === l} onClick={() => setLang(l)}>{t[l]}</button>)}
         </div>
       )}
+      <div className={framed ? "tour-stage" : undefined}>
       <video
         key={src}
         ref={ref}
@@ -82,11 +86,27 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
         onError={() => { if (up) setFailed(true); }}
         onLoadedMetadata={(e) => { e.currentTarget.playbackRate = speed; }}
         onTimeUpdate={(e) => setCur(e.currentTarget.currentTime)}
+        onPlay={() => setPlayedSource(src)}
         aria-label={t.play}
       >
         {showCc && <track kind="captions" src={vtt} srcLang={lang} label={t[lang]} default={cc} />}
         <p>{t.fail}</p>
       </video>
+      {showPlay && (
+        <button
+          type="button"
+          className="tour-stage-play"
+          onClick={() => {
+            const video = ref.current;
+            if (!video) return;
+            void video.play().then(() => video.focus()).catch(() => undefined);
+          }}
+        >
+          <span aria-hidden="true" className="tour-play-glyph">▶</span>
+          <span>{t.play}</span>
+        </button>
+      )}
+      </div>
       <div className="tour-bar">
         {showCc && <button type="button" className={`tour-chip${cc ? " on" : ""}`} aria-pressed={cc} onClick={() => setCc(!cc)}>CC {t.cc}</button>}
         {s.get("tour.speed.show") === true && (
