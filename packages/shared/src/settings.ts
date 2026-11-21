@@ -436,6 +436,8 @@ export const SETTINGS: SettingDef[] = [
   { key: "layout.picker", panel: "theme", section: "Layout style", label: "Board and class chooser", public: true, type: "select", default: "left",
     help: "Where the Board, Class and Subject chooser panel sits on wide screens. Bottom keeps only the in-page chooser and the phone tab bar.",
     options: [{ value: "left", label: "Left side - recommended" }, { value: "right", label: "Right side" }, { value: "bottom", label: "Bottom only (no side panel)" }] },
+  { key: "layout.header.controlsPercent", panel: "layout", section: "Header sizing", label: "Top-row control size (%)", public: true, type: "number", default: 80, min: 70, max: 125, step: 5, help: "Scales the buttons and search field in the Activity Hub header on pointer devices. Use 100 to restore the original size." },
+  { key: "layout.header.navTextPercent", panel: "layout", section: "Header sizing", label: "Navigation text size (%)", public: true, type: "number", default: 120, min: 85, max: 150, step: 5, help: "Changes the text size of the Activity Hub navigation links below the top row. Use 100 to restore the original size." },
   { key: "text.accent.style", panel: "theme", section: "Colourful words", label: "How *starred* words look", public: true, type: "select", default: "gradient",
     help: "In any text you can edit in the admin, words between *stars* get this look. Headlines of pages can also take it.",
     options: [{ value: "gradient", label: "Rainbow gradient text" }, { value: "colour", label: "Solid colours (alternating)" }, { value: "highlight", label: "Highlighter marker" }, { value: "underline", label: "Wavy underline" }, { value: "plain", label: "Plain (no effect)" }] },

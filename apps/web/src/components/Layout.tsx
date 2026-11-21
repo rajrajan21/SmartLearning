@@ -4,7 +4,7 @@ import { useActiveBoard } from "../lib/activeBoard";
 import { SearchBox } from "./SearchBox";
 import { InstallPopup, InstallTrigger } from "./InstallPopup";
 import { ScrollAids } from "./ScrollAids";
-import { useId, useState, type ReactNode } from "react";
+import { useId, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
@@ -45,6 +45,10 @@ export function Layout({ children }: { children: ReactNode }) {
   const showAcct = s.get("feature.accounts") === true && s.get("accounts.showHeaderLink") === true;
   const { app, phone, pref } = useApp();
   const activity = preset === "activity";
+  const headerSizing = activity ? {
+    "--header-controls-scale": s.get<number>("layout.header.controlsPercent") / 100,
+    "--header-nav-text-scale": s.get<number>("layout.header.navTextPercent") / 100,
+  } as CSSProperties : undefined;
   const [menuOpen, setMenuOpen] = useState(true);
   const menuId = useId();
   const [loc] = useLocation();
@@ -62,7 +66,7 @@ export function Layout({ children }: { children: ReactNode }) {
       <InstallPopup />
       <a className="skip" href="#main">{ui("skip", lang)}</a>
       {app && <AppBar />}
-      <header className={activity ? "top activity-header" : "top"}>
+      <header className={activity ? "top activity-header" : "top"} style={headerSizing}>
         <Link href="/" className="brand" aria-label={`${site} – ${ui("home", lang)}`}>
           <Logo size={42} />
           <span>{site}</span>
