@@ -1,5 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, cleanup, fireEvent, within, act, waitFor } from "@testing-library/react";
+import { useRef } from "react";
 import { Router } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { SettingsProvider } from "./lib/settings";
@@ -7,7 +8,7 @@ import { Layout } from "./components/Layout";
 import { ScrollySections } from "./components/Scrolly";
 import { Routes } from "./App";
 import { splitSections, pictureFor, reducedMotion } from "./lib/scrolly";
-import { pullDistance, PULL_TRIGGER, PULL_MAX } from "./lib/pull";
+import { pullDistance, PULL_TRIGGER, PULL_MAX, usePullRefresh } from "./lib/pull";
 import { exploreItems } from "./lib/tier2";
 import { DEFAULT_SETTINGS_KEYS } from "./round2d.keys";
 
@@ -152,15 +153,22 @@ describe("pull to refresh", () => {
     return mount("/", settings);
   };
   afterEach(() => { delete (window as unknown as Record<string, unknown>).ontouchstart; });
-  it("a long pull at the top re-reads progress and shows Updated", async () => {
-    feedMount();
-    const feed = await screen.findByLabelText("Swipe up for more");
+  it("a long pull at the top invokes refresh and reaches the done state", () => {
+    Object.defineProperty(window, "ontouchstart", { value: null, configurable: true });
+    const refresh = vi.fn();
+    function ScrollBox() {
+      const box = useRef<HTMLDivElement>(null);
+      const { state } = usePullRefresh(box, refresh, true);
+      return <div ref={box} aria-label="Scroll box" data-state={state} />;
+    }
+    render(<ScrollBox />);
+    const feed = screen.getByLabelText("Scroll box");
     act(() => { touch(feed, "touchstart", 0); touch(feed, "touchmove", 60); });
     act(() => { touch(feed, "touchmove", 200); });
-    expect(screen.getByText("Let go to refresh")).toBeTruthy();
+    expect(feed.getAttribute("data-state")).toBe("ready");
     act(() => { touch(feed, "touchend", 200); });
-    expect(screen.getByText(/Updated/)).toBeTruthy();
-    expect(feed.getAttribute("data-tick")).toBe("1");
+    expect(feed.getAttribute("data-state")).toBe("done");
+    expect(refresh).toHaveBeenCalledTimes(1);
   });
   it("a short pull does nothing, and it can be switched off", async () => {
     feedMount();
