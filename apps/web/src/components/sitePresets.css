@@ -81,7 +81,14 @@
 .classroom[data-sample="true"] .class-stage { border-color: #31726b; }
 
 /* Activity Hub keeps the menu in a separate, single-line navigation row. */
-.shell .activity-header.top { display: grid; grid-template-columns: max-content max-content minmax(12rem, 24rem) max-content minmax(0, 1fr); gap: .65rem 1rem; align-items: center; }
+.shell .activity-header.top { --header-control-height: max(44px, 2.75rem); display: grid; grid-template-columns: max-content max-content minmax(12rem, 24rem) max-content minmax(0, 1fr); gap: .65rem 1rem; align-items: center; }
+.shell .activity-header.top :is(.activity-menu, .activity-classroom, .top-actions .btn, .search.compact input) {
+  box-sizing: border-box;
+  block-size: var(--header-control-height);
+  min-block-size: var(--header-control-height);
+  padding-block: 0;
+  font-size: .92rem;
+}
 .activity-header > * { order: initial !important; }
 .activity-header > .search.compact { grid-column: 3; width: 100%; min-width: 0; max-width: none; }
 .activity-header .brand { white-space: nowrap; }
