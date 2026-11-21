@@ -41,5 +41,5 @@ function pdfjsAssets(): Plugin {
 export default defineConfig({
   plugins: [react(), pdfjsAssets()],
   server: { proxy: { "/api": "http://localhost:3000", "/health": "http://localhost:3000" } },
-  test: { environment: "jsdom" },
+  test: { environment: "jsdom", setupFiles: ["./src/test-setup.ts"] },
 });
