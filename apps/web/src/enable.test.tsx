@@ -20,6 +20,7 @@ describe("E-Library, Question papers, GK and the tour video are on by default", 
     const hrefs = Array.from(document.querySelectorAll("nav.main-nav a")).map((a) => a.getAttribute("href"));
     expect(hrefs).toContain("/library");
     expect(hrefs).toContain("/papers");
+    expect(hrefs).toContain("/books");
     expect(hrefs).toContain("/gk");
     expect(screen.getByTestId("tour-footer")).toBeTruthy();
   });
@@ -48,5 +49,11 @@ describe("E-Library, Question papers, GK and the tour video are on by default", 
     mount({ "tour.footer.show": true }, "/progress");
     expect(await screen.findByRole("contentinfo")).toBeTruthy();
     expect(screen.queryByTestId("tour-footer")).toBeNull();
+  });
+  it("hides Textbooks from the top navigation independently of the footer", async () => {
+    mount({ "feature.textbooks": true, "textbooks.nav.show": false });
+    await screen.findAllByText(/GK|General Knowledge/i);
+    expect(document.querySelector('nav.main-nav a[href="/books"]')).toBeNull();
+    expect(document.querySelector('footer a[href="/books"]')).toBeTruthy();
   });
 });

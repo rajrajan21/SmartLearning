@@ -23,7 +23,7 @@ export function MainNav({ bare = false, extrasOnly = false }: { bare?: boolean; 
   if (s.get("tour.enabled") === true && s.get("tour.nav.show") === true && s.get("tour.page.enabled") === true) items.push({ href: "/tour", label: s.text("tour.nav.label") || "How it works", on: loc.startsWith("/tour") });
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) items.push({ href: "/library", label: lt("title", s.lang), on: loc.startsWith("/library") });
-  if (s.get("feature.textbooks") === true) items.push({ href: "/books", label: ui("textbooks", s.lang), on: loc === "/books" });
+  if (s.get("feature.textbooks") === true && s.get("textbooks.nav.show") !== false) items.push({ href: "/books", label: ui("textbooks", s.lang), on: loc === "/books" });
   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
   const priorities: string[] = {
     classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],

@@ -187,6 +187,7 @@ export const SETTINGS: SettingDef[] = [
   { key: "audio.coverage.cacheSeconds", panel: "audiocover", section: "Audio coverage page", label: "Keep the result for", public: false, type: "number", default: 60, min: 0, max: 3600, step: 10, unit: "seconds", help: "Working it out reads every lesson, so the answer is kept briefly. The Check again button always recalculates." },
 
   // ---------------- Textbooks (book reader) ----------------
+  bool("textbooks.nav.show", "textbooks", "Navigation", "Show Textbooks in the top navigation", true, { dependsOn: "feature.textbooks", help: "Controls the Textbooks link in the top navigation. Textbooks remain accessible within Subjects." }),
   { key: "reader.style", panel: "textbooks", section: "Look", label: "Reader style", public: true, type: "select", default: "c", dependsOn: "feature.textbooks",
     help: "The look every student starts with. All three work the same way (page turning, zoom, read aloud); only the surroundings change.",
     options: [{ value: "a", label: "A Hardcover (a cloth-bound book on a wooden desk)" }, { value: "b", label: "B Digital (bright, flat, with a strip of page thumbnails)" }, { value: "c", label: "C Library (a reading nook with a bookmark ribbon and night reading)" }] },
