@@ -17,6 +17,8 @@ import { PerfAdmin } from "./PerfAdmin";
 import { TourAdmin } from "./TourAdmin";
 import { Jobs, Operations } from "./Operations";
 import { LayoutGallery } from "./LayoutGallery";
+import { Logo } from "../components/Logo";
+import { SettingsProvider, useSettings } from "../lib/settings";
 import { presetKey, presets, type Preset } from "../lib/sitePresets";
 import "./dashboard.css";
 
@@ -35,6 +37,10 @@ const operationGroup: PanelId[] = ["reports", "audiocover", "visualcover"];
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
 
 export function AdminApp() {
+  return <SettingsProvider><AdminSession /></SettingsProvider>;
+}
+
+function AdminSession() {
   const [authed, setAuthed] = useState<"checking" | "yes" | "no">(adminKey.get() ? "checking" : "no");
   useEffect(() => {
     if (!adminKey.get()) return;
@@ -43,6 +49,11 @@ export function AdminApp() {
   if (authed === "checking") return <div className="admin"><p className="loading" role="status">Checking…</p></div>;
   if (authed === "no") return <Gate onOk={() => setAuthed("yes")} />;
   return <Console onSignOut={() => { adminKey.clear(); adminUser.clear(); setAuthed("no"); }} />;
+}
+
+function AdminTitle() {
+  const site = useSettings().get<string>("site.name");
+  return <h1 className="admin-title"><Logo size={42} /> {site} Admin</h1>;
 }
 
 function Gate({ onOk }: { onOk: () => void }) {
@@ -61,7 +72,7 @@ function Gate({ onOk }: { onOk: () => void }) {
   return (
     <div className="admin gate">
       <form onSubmit={submit} className="gate-card">
-        <h1>Site settings</h1>
+        <h1 className="admin-title"><Logo size={42} /> Site settings</h1>
         <p>Sign in with your user id and the admin key.</p>
         <label htmlFor="au">User id</label>
         <input id="au" type="text" inputMode="email" autoComplete="username" autoCapitalize="none" spellCheck={false} value={user} onChange={(e) => setUser(e.target.value)} />
@@ -200,7 +211,7 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
   return (
     <div className="admin admin-console">
       <header className="a-top">
-        <h1><span className="admin-mark" aria-hidden="true">S</span> SharpStudy Admin</h1>
+        <AdminTitle />
         <div className="a-search" role="search">
           <label htmlFor="a-q" className="sr-only">Search settings</label>
           <input id="a-q" ref={searchRef} type="search" placeholder="Search settings, tools and layouts" value={q} onChange={(e) => setQ(e.target.value)}
