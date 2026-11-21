@@ -44,4 +44,9 @@ describe("E-Library, Question papers, GK and the tour video are on by default", 
     expect(screen.getByTestId("tour-player").querySelector("video")?.getAttribute("src")).toMatch(/^\/tour-video\/tour-en\.mp4\?v=/);
     expect(screen.queryByTestId("tour-footer")).toBeNull();
   });
+  it("keeps the regular footer on Progress without the tour block", async () => {
+    mount({ "tour.footer.show": true }, "/progress");
+    expect(await screen.findByRole("contentinfo")).toBeTruthy();
+    expect(screen.queryByTestId("tour-footer")).toBeNull();
+  });
 });
