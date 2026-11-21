@@ -201,8 +201,19 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
     } else if (b.type === "worked_example") {
       emit("Example", "Worked example", `Let us work through an example. ${b.problem.en}`, [], scene(b.problem.en, "Example", [], `Let us work through an example. ${b.problem.en}`), { fresh: true });
       b.steps.forEach((st, i) => {
-        const say = [`Step ${i + 1}. ${st.text.en}`, st.why?.en].filter(Boolean).join(" ");
+        const text = st.text.en.trim();
+        const explanation = st.why?.en?.trim();
+        const labelOnly = /^step\s+\d+\s*[.!:)]*$/i;
+        const hasLabel = /^step\s+\d+\s*[.!:)]/i.test(text);
+        const label = `Step ${i + 1}.`;
+        const body = [text, explanation && !labelOnly.test(explanation) ? explanation : undefined].filter(Boolean).join(" ");
+        const say = hasLabel ? body : `${label} ${body}`;
         const parts = chunks(say);
+        // A long first sentence can push the number onto its own slide. Keep it with the instruction.
+        if (!hasLabel && parts[0] === label) {
+          parts.splice(0, parts.length, ...chunks(body, 250));
+          parts[0] = `${label} ${parts[0]}`;
+        }
         parts.forEach((c, k) => {
           const expr = expressionIn(c);
           if (k === 0) emit("Example", "Worked example", c, [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }], expr ? scene(c, "Example") : undefined, { fresh: true });
