@@ -255,6 +255,119 @@
               "en": "In the Koch snowflake, every line segment is replaced by a speed bump of four smaller segments. The number of segments goes 3, 12, 48, 192, which is 3 times the powers of 4. The shapes get more and more detailed, but the pattern in the numbers stays simple."
             },
             "board": []
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "Look at the first three terms: three, six, twelve. One rule is to double each time. What next term does doubling give? Try it before we discuss another possible rule."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "3, 6, 12, ?"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Doubling gives twenty-four. But the gaps we have seen are three and six. If the gaps grow by three each time, the next gap will be nine, and twelve plus nine gives twenty-one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Double: next term 24"
+              },
+              {
+                "op": "write",
+                "text": "Add 3, then 6, then 9: next term 21"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Both rules fit the first three terms. To make an answer clear, state your rule, check it against each term you were given, and then use it to predict the next one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "State → Check → Predict"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Turn a four-by-four dot square into a five-by-five square. Draw one new row of five dots, then add four dots down the new column. The corner dot is already in the row."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "4 × 4 → 5 × 5"
+              },
+              {
+                "op": "write",
+                "text": "New row: 5; rest of new column: 4"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "That adds nine dots. Sixteen plus nine makes twenty-five. The next square will add a row of six and another five dots down the column, which makes eleven new dots."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "16 + 9 = 25"
+              },
+              {
+                "op": "write",
+                "text": "25 + 11 = 36"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Picture five students, with every pair shaking hands once. Now a sixth student arrives. Only the new student needs to shake hands with the five already there."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "5 students: 10 handshakes"
+              },
+              {
+                "op": "write",
+                "text": "6th student: 5 new handshakes"
+              }
+            ]
+          },
+          {
+            "id": "t31",
+            "text": {
+              "en": "Now there are fifteen handshakes. The same rule counts connections in a complete graph. Adding a point gives one new connection to each old point, so earlier connections are never counted twice."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "10 + 5 = 15"
+              },
+              {
+                "op": "write",
+                "text": "K5 → K6 adds 5 connections"
+              }
+            ]
           }
         ]
       },

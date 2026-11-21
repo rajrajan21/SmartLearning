@@ -32,7 +32,7 @@
           "hour hand"
         ],
         "text": {
-          "en": "A week has seven days. They are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday, and then the week starts again. A year has twelve months. The names of the months and their order stay the same every year. A calendar shows each month in rows of weeks. We can find the day for any date by looking at the row and column. In July 2024, Monday is the first day and Sundays fall on the 7th, 14th, 21st and 28th. Thursdays fall on the 4th, 11th, 18th and 25th. Three days after Monday 22 July is Thursday 25 July.\nA year has 365 days. That is 52 full weeks and 1 extra day, so a year does not have 53 full weeks. Some months have 31 days, some have 30 and February has fewer than 30. The days of the week and the dates of festivals change from year to year. Some festivals such as Independence Day, Republic Day and Christmas fall on the same date every year, while many others change. Your birthday comes once every year on the same date.\nA birth certificate tells us a person's name, date and place of birth and the names of the parents. Bincy's certificate says she was born on 02/05/2015. That is the second of May in the year 2015. On 2 May 2025 she will be 10 years old, and on 2 May 2030 she will be 15. Her eighth birthday was on 2 May 2023. The certificate was made on 18 May 2015, which is 16 days after her birth. Age puzzles use these facts. If Hetal is twice as old as her brother and also 10 years older than him, then her brother is 10 years old and Hetal is 20.\nA clock has a short hour hand and a long minute hand. The hour hand tells the hour and the minute hand tells the minutes. When the minute hand points to 12 it is an o'clock time such as 7 o'clock. When the minute hand points to 3 it is quarter past, 15 minutes after the hour. When it points to 6 it is half past, 30 minutes after the hour. Hetal starts breakfast at 7:00 and finishes at 7:15, so breakfast takes 15 minutes. We find the time taken by seeing how far the minute hand moved. We can write time in numbers as 8:15, which is quarter past 8, and 8:30, which is half past 8."
+          "en": "A week has seven days. They are Monday, Tuesday, Wednesday, Thursday, Friday, Saturday and Sunday, and then the week starts again. A year has twelve months. The names of the months and their order stay the same every year. A calendar shows each month in rows of weeks. We can find the day for any date by looking at the row and column. In July 2024, Monday is the first day and Sundays fall on the 7th, 14th, 21st and 28th. Thursdays fall on the 4th, 11th, 18th and 25th. Three days after Monday 22 July is Thursday 25 July.\nAn ordinary year has 365 days, or 52 full weeks and 1 extra day. A leap year has 366 days, or 52 full weeks and 2 extra days. Some months have 31 days, some have 30 and February has fewer than 30. The days of the week and the dates of festivals change from year to year. Some festivals such as Independence Day, Republic Day and Christmas fall on the same date every year, while many others change. Most birthdays fall on the same calendar date each year. The date 29 February appears only in leap years.\nA birth certificate tells us a person's name, date and place of birth and the names of the parents. Bincy's certificate says she was born on 02/05/2015. That is the second of May in the year 2015. On 2 May 2025 she will be 10 years old, and on 2 May 2030 she will be 15. Her eighth birthday was on 2 May 2023. The certificate was made on 18 May 2015, which is 16 days after her birth. Age puzzles use these facts. If Hetal is twice as old as her brother and also 10 years older than him, then her brother is 10 years old and Hetal is 20.\nA clock has a short hour hand and a long minute hand. The hour hand tells the hour and the minute hand tells the minutes. When the minute hand points to 12 it is an o'clock time such as 7 o'clock. When the minute hand points to 3 it is quarter past, 15 minutes after the hour. When it points to 6 it is half past, 30 minutes after the hour. Hetal starts breakfast at 7:00 and finishes at 7:15, so breakfast takes 15 minutes. We find the time taken by seeing how far the minute hand moved. We can write time in numbers as 8:15, which is quarter past 8, and 8:30, which is half past 8."
         }
       },
       {
@@ -87,7 +87,7 @@
           {
             "id": "t6",
             "text": {
-              "en": "A year has 365 days. That is 52 full weeks and 1 extra day, so a year does not have 53 full weeks."
+              "en": "An ordinary year has 365 days, or 52 full weeks and 1 extra day. A leap year has 366 days, or 52 full weeks and 2 extra days."
             },
             "board": [
               {
@@ -113,7 +113,7 @@
           {
             "id": "t9",
             "text": {
-              "en": "Your birthday comes once every year on the same date."
+              "en": "Most birthdays fall on the same calendar date each year. The date 29 February appears only in leap years."
             },
             "board": []
           },
@@ -189,6 +189,168 @@
               "en": "We can write time in numbers as 8:15, which is quarter past 8, and 8:30, which is half past 8."
             },
             "board": []
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Start on Monday 29 July. To find the date two days later, say each next day once. Which day and date do you reach?"
+            },
+            "pauseAfterMs": 2500,
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mon 29 Jul → Tue 30 Jul → ?"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "One step takes us to Tuesday the thirtieth and another to Wednesday the thirty-first. Start counting on the day after Monday."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Wed 31 July"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "One more day takes us to Thursday 1 August. July has 31 days, so the number starts again at one while the weekdays keep going."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Wed 31 Jul → Thu 1 Aug"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Look for 29 February on the calendar. Ordinary years give February 28 days, and leap years give it 29."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "February: 28 or 29 days"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Fifty-two full weeks make 364 days. Compare that with 365 days to find why an ordinary year has one day after those full weeks."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "52 × 7 = 364"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Think of a child born on 2 May 2015. On 1 May 2025, the tenth birthday is still one day away. How old is the child on that day?"
+            },
+            "pauseAfterMs": 2500,
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 May: the birthday is tomorrow"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "The child is still nine on 1 May. The child turns ten on 2 May itself. Check the month and day as well as the year when finding age."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "2 May: the child turns ten"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Count around a clock in groups of five. From 12 to 1 is five minutes, to 2 is ten minutes, and to 3 is fifteen minutes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "12: 0 | 1: 5 | 2: 10 | 3: 15"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "At half past eight, the long hand points to 6 and the short hand is halfway from 8 to 9. The short hand moves little by little as the minutes pass."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "8:30: hour hand between 8 and 9"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A game begins at 8:45 and ends at 9:15. Count to 9 o'clock first. How many minutes pass before the new hour begins?"
+            },
+            "pauseAfterMs": 2500,
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "8:45 → 9:00 → 9:15"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "From quarter to nine to nine o'clock is fifteen minutes. From nine o'clock to quarter past nine is another fifteen minutes."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "15 min + 15 min"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "The game lasts thirty minutes. Check by moving the minute hand half a turn, from 9 through 12 and onward to 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "30 minutes = half a turn"
+              }
+            ]
           }
         ]
       },
@@ -345,7 +507,7 @@
         "provenance": "original",
         "points": [
           {
-            "en": "A week has 7 days and a year has 12 months and 365 days."
+            "en": "A week has 7 days and a year has 12 months. An ordinary year has 365 days, and a leap year has 366."
           },
           {
             "en": "A calendar helps us find days and dates and count the days between dates."

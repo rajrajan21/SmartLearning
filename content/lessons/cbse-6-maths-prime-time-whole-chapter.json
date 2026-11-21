@@ -35,7 +35,7 @@
           "Sieve of Eratosthenes"
         ],
         "text": {
-          "en": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15. From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150. Every common multiple of 3 and 5 is a multiple of 15. If the game is played to 900, idli-vada is said 60 times, vada 180 times and idli is said 300 times. In the Jump Jackpot game, Grumpy hides a treasure on a number, and Jumpy jumps in equal steps from 0 to reach it. He lands on the treasure only if the jump size is a factor of that number.\nA number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4. Common factors are the factors shared by two numbers. The common factors of 20 and 28 are 1, 2 and 4, and those of 35 and 50 are 1 and 5. Guna wants to arrange 12 figs in a rectangle and he can do it in several ways because 12 has several factors. Anshu has 7 figs and can only make a single row, because 7 has only the factors 1 and 7.\nA number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19. A number with more than two factors is called a composite number, for example 4, 6, 8, 9, 10 and 12. The number 1 has only one factor, so it is neither prime nor composite. The number 2 is the only even prime, because every other even number is divisible by 2 and so has at least three factors. Between 21 and 30 there are 2 primes, 23 and 29, and 8 composite numbers. The Sieve of Eratosthenes finds primes. Cross out 1, circle 2 and cross out its multiples, circle the next uncrossed number 3 and cross out its multiples, and continue. The circled numbers are the primes, and there are 25 of them up to 100.\nTwo numbers are called co-prime if they have no common factor other than 1. In the treasure game with two treasures, a pair is safe from Jumpy only if the numbers are co-prime. The pair 12 and 26 is not safe, because a jump of 2 reaches both. The pair 4 and 9 is safe. Among 15 and 39, 4 and 15, 18 and 29, and 20 and 55, the safe pairs are 4 and 15, and 18 and 29. Two primes are always co-prime, and a prime and any number that it does not divide are co-prime. Two even numbers are never co-prime, as both are divisible by 2.\nAnshu wrote 56 = 14 x 4 and 63 = 21 x 3 and claimed there is no common factor, so they are co-prime. But Guna wrote 56 = 7 x 8 and 63 = 9 x 7 and found the common factor 7. A single factorisation does not list all the factors. A reliable method is prime factorisation: keep breaking composite factors until only primes are left. For 56 we get 56 = 4 x 14 = 2 x 2 x 2 x 7. Each prime in it is called a prime factor. Every number greater than 1 has a prime factorisation. A prime is its own factorisation, and 1 has none. For 36 we can start from 2 x 18, 3 x 12, 4 x 9 or 6 x 6 and always end with two 2s and two 3s. There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in. With prime factorisations, co-prime checking is easy. 56 = 2 x 2 x 2 x 7 and 63 = 3 x 3 x 7 share the prime 7, so they are not co-prime, while 80 = 2 x 2 x 2 x 2 x 5 and 63 = 3 x 3 x 7 share none, so they are co-prime.\nWe can check divisibility without long division. A number is divisible by 10 if it ends in 0, by 5 if it ends in 0 or 5, and by 2 if it ends in 0, 2, 4, 6 or 8. So 8560 is divisible by 10, 5 and 2. For 4 the last digit is not enough, since 12 is a multiple of 4 but 22 is not. Instead look at the last two digits: a number is divisible by 4 if the number formed by its last two digits is. So 8536 is divisible by 4 because 36 is. For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70. The reason is that 100 is a multiple of 4 and 1000 is a multiple of 8, so only the last few digits can affect divisibility. Tests for 3, 6, 7 and 9 come in later classes.\nLeap years show divisibility at work. A year is a leap year if it is a multiple of 4, except century years, which must be multiples of 400. So 2024 is a leap year, and 2100 is not. In a prime puzzle grid you fill the cells with primes so that each row product and column product match the given numbers, which is a nice use of prime factorisation. A perfect number equals the sum of its factors other than itself. The factors of 6 are 1, 2 and 3, which add to 6, so 6 is the smallest perfect number, and 28 is the next one."
+          "en": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15. From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150. Every common multiple of 3 and 5 is a multiple of 15. If the game is played to 900, idli-vada is said 60 times, vada 180 times and idli is said 300 times. In the Jump Jackpot game, Grumpy hides a treasure on a number, and Jumpy jumps in equal steps from 0 to reach it. He lands on the treasure only if the jump size is a factor of that number.\nA number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4. Common factors are the factors shared by two numbers. The common factors of 20 and 28 are 1, 2 and 4, and those of 35 and 50 are 1 and 5. Guna wants to arrange 12 figs in a rectangle and he can do it in several ways because 12 has several factors. Anshu has 7 figs and can only make a single row, because 7 has only the factors 1 and 7.\nA number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19. A number with more than two factors is called a composite number, for example 4, 6, 8, 9, 10 and 12. The number 1 has only one factor, so it is neither prime nor composite. The number 2 is the only even prime, because every other even number is divisible by 2 and so has at least three factors. Between 21 and 30 there are 2 primes, 23 and 29, and 8 composite numbers. The Sieve of Eratosthenes finds primes. Cross out 1, circle 2 and cross out its multiples, circle the next uncrossed number 3 and cross out its multiples, and continue. The circled numbers are the primes, and there are 25 of them up to 100.\nTwo numbers are called co-prime if they have no common factor other than 1. In the treasure game with two treasures, a pair is safe from Jumpy only if the numbers are co-prime. The pair 12 and 26 is not safe, because a jump of 2 reaches both. The pair 4 and 9 is safe. Among 15 and 39, 4 and 15, 18 and 29, and 20 and 55, the safe pairs are 4 and 15, and 18 and 29. Two distinct primes are always co-prime, and a prime and any positive whole number that it does not divide are co-prime. Two positive even numbers are never co-prime, as both are divisible by 2.\nAnshu wrote 56 = 14 x 4 and 63 = 21 x 3 and claimed there is no common factor, so they are co-prime. But Guna wrote 56 = 7 x 8 and 63 = 9 x 7 and found the common factor 7. A single factorisation does not list all the factors. A reliable method is prime factorisation: keep breaking composite factors until only primes are left. For 56 we get 56 = 4 x 14 = 2 x 2 x 2 x 7. Each prime in it is called a prime factor. Every number greater than 1 has a prime factorisation. A prime is its own factorisation, and 1 has none. For 36 we can start from 2 x 18, 3 x 12, 4 x 9 or 6 x 6 and always end with two 2s and two 3s. There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in. With prime factorisations, co-prime checking is easy. 56 = 2 x 2 x 2 x 7 and 63 = 3 x 3 x 7 share the prime 7, so they are not co-prime, while 80 = 2 x 2 x 2 x 2 x 5 and 63 = 3 x 3 x 7 share none, so they are co-prime.\nWe can check divisibility without long division. A number is divisible by 10 if it ends in 0, by 5 if it ends in 0 or 5, and by 2 if it ends in 0, 2, 4, 6 or 8. So 8560 is divisible by 10, 5 and 2. For 4 the last digit is not enough, since 12 is a multiple of 4 but 22 is not. Instead look at the last two digits: a number is divisible by 4 if the number formed by its last two digits is. So 8536 is divisible by 4 because 36 is. For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70. The reason is that 100 is a multiple of 4 and 1000 is a multiple of 8, so only the last few digits can affect divisibility. Tests for 3, 6, 7 and 9 come in later classes.\nLeap years show divisibility at work. A year is a leap year if it is a multiple of 4, except century years, which must be multiples of 400. So 2024 is a leap year, and 2100 is not. In a prime puzzle grid you fill the cells with primes so that each row product and column product match the given numbers, which is a nice use of prime factorisation. A perfect number equals the sum of its factors other than itself. The factors of 6 are 1, 2 and 3, which add to 6, so 6 is the smallest perfect number, and 28 is the next one."
         }
       },
       {
@@ -173,7 +173,7 @@
           {
             "id": "t14",
             "text": {
-              "en": "Two primes are always co-prime, and a prime and any number that it does not divide are co-prime. Two even numbers are never co-prime, as both are divisible by 2."
+              "en": "Two distinct primes are always co-prime, and a prime and any positive whole number that it does not divide are co-prime. Two positive even numbers are never co-prime, as both are divisible by 2."
             },
             "board": []
           },
@@ -275,6 +275,95 @@
               "en": "A perfect number equals the sum of its factors other than itself. The factors of 6 are 1, 2 and 3, which add to 6, so 6 is the smallest perfect number, and 28 is the next one."
             },
             "board": []
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Imagine arranging forty-eight counters in rectangles. Start with one row of forty-eight, then test two, three, and four rows. Each exact division gives a pair of side lengths."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 × 48, 2 × 24, 3 × 16, 4 × 12"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Five does not divide forty-eight. Six rows of eight work, and seven does not divide it. When we reach eight rows of six, we have seen that pair before, just turned around."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "6 × 8 = 8 × 6"
+              },
+              {
+                "op": "write",
+                "text": "Factor pairs need only be counted once"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Compare 7,264 and 7,268. Both pass the test for divisibility by four because 64 and 68 are multiples of four. Will both pass the test for divisibility by eight?"
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "64 = 4 × 16"
+              },
+              {
+                "op": "write",
+                "text": "68 = 4 × 17"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "For divisibility by eight, use the last three digits. Two hundred sixty-four is eight times thirty-three. Two hundred sixty-eight is four more, so only 7,264 is divisible by eight."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "264 = 8 × 33"
+              },
+              {
+                "op": "write",
+                "text": "268 = 8 × 33 + 4"
+              }
+            ]
+          },
+          {
+            "id": "t31",
+            "text": {
+              "en": "Eight and nine are both composite, yet their only common factor is one. Eight uses only twos as prime factors, and nine uses only threes. Co-prime numbers can both be composite."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "8 = 2 × 2 × 2"
+              },
+              {
+                "op": "write",
+                "text": "9 = 3 × 3"
+              },
+              {
+                "op": "write",
+                "text": "Common factor: 1"
+              }
+            ]
           }
         ]
       },
