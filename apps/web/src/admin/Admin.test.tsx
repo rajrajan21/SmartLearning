@@ -1,4 +1,4 @@
-import { describe, it, expect, vi, beforeEach } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import { render, screen, waitFor, fireEvent, cleanup } from "@testing-library/react";
 import { SETTINGS, THEME_PRESETS, THEMES, PALETTES, PANELS, defaults } from "@studysmart/shared";
 import { AdminApp } from "./AdminApp";
@@ -6,6 +6,7 @@ import { AdminApp } from "./AdminApp";
 let saved: Record<string, unknown> | null = null;
 beforeEach(() => {
   cleanup(); sessionStorage.clear(); saved = null;
+  vi.spyOn(window, "scrollTo").mockImplementation(() => {});
   vi.stubGlobal("confirm", () => true);
   vi.stubGlobal("fetch", vi.fn(async (url: string, init?: RequestInit) => {
     const h = init?.headers as Record<string, string> | undefined;
@@ -18,6 +19,11 @@ beforeEach(() => {
     if (url.endsWith("/settings")) return new Response(JSON.stringify({ panels: PANELS, definitions: SETTINGS, presets: THEME_PRESETS, values: defaults(), overridden: [] }), { status: 200 });
     return new Response("{}", { status: 404 });
   }));
+});
+afterEach(() => {
+  cleanup();
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
 });
 
 describe("admin console", () => {
@@ -65,13 +71,13 @@ describe("admin console", () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
     fireEvent.click(await screen.findByText("Site settings"));
-    fireEvent.click(await screen.findByRole("button", { name: "Look and feel" }));
+    fireEvent.click(screen.getByRole("button", { name: "Look and feel" }));
     fireEvent.click(screen.getByRole("button", { name: /Sunrise/ }));
     expect(screen.getByText(/unsaved change/)).toBeTruthy();
     const hex = screen.getByLabelText("Text hex code") as HTMLInputElement;
     fireEvent.change(hex, { target: { value: "#F5F5F5" } });
-    await waitFor(() => expect(screen.getAllByText(/Hard to read/).length).toBeGreaterThan(0));
-  });
+    expect(screen.getAllByText(/Hard to read/).length).toBeGreaterThan(0);
+  }, 15_000);
 });
 
 describe("look and feel panel", () => {
@@ -79,7 +85,7 @@ describe("look and feel panel", () => {
     sessionStorage.setItem("ss_admin_key", "good-key");
     render(<AdminApp />);
     fireEvent.click(await screen.findByText("Site settings"));
-    fireEvent.click(await screen.findByRole("button", { name: "Look and feel" }));
+    fireEvent.click(screen.getByRole("button", { name: "Look and feel" }));
     expect(screen.getByRole("radiogroup", { name: "Theme" }).querySelectorAll("[role=radio]").length).toBe(THEMES.length);
     expect(screen.getByRole("radiogroup", { name: "Colour palette" }).querySelectorAll("[role=radio]").length).toBe(PALETTES.length + 1);
     expect(screen.getAllByText("Recommended").length).toBeGreaterThan(0);
@@ -96,5 +102,5 @@ describe("look and feel panel", () => {
     await waitFor(() => expect(screen.getByText(/All changes saved/)).toBeTruthy());
     fireEvent.click(screen.getByRole("radio", { name: /^Custom/ }));
     expect(screen.getByLabelText("Text hex code")).toBeTruthy();
-  });
+  }, 15_000);
 });

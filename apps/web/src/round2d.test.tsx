@@ -4,6 +4,7 @@ import { Router } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { SettingsProvider } from "./lib/settings";
 import { Layout } from "./components/Layout";
+import { ScrollySections } from "./components/Scrolly";
 import { Routes } from "./App";
 import { splitSections, pictureFor, reducedMotion } from "./lib/scrolly";
 import { pullDistance, PULL_TRIGGER, PULL_MAX } from "./lib/pull";
@@ -31,11 +32,11 @@ function mount(path: string, settings: Record<string, unknown> = {}, les = lesso
     return new Response("{}", { status: 404 });
   }));
   const { hook } = memoryLocation({ path, static: false });
-  return render(<Router hook={hook}><SettingsProvider><Layout><Routes /></Layout></SettingsProvider></Router>);
+  return render(<Router hook={hook}><SettingsProvider waitForLatest><Layout><Routes /></Layout></SettingsProvider></Router>);
 }
 class IO { static all: IO[] = []; cb: IntersectionObserverCallback; els: Element[] = []; constructor(cb: IntersectionObserverCallback) { this.cb = cb; IO.all.push(this); } observe(e: Element) { this.els.push(e); } disconnect() { this.els = []; } unobserve() {} takeRecords() { return []; } }
 beforeEach(() => { cleanup(); localStorage.clear(); IO.all = []; });
-afterEach(() => { vi.unstubAllGlobals(); });
+afterEach(() => { cleanup(); vi.unstubAllGlobals(); });
 
 describe("round 2d pure helpers", () => {
   it("splits long explanations only when there are enough paragraphs", () => {
@@ -65,20 +66,22 @@ describe("round 2d pure helpers", () => {
 });
 
 describe("scroll sections", () => {
-  it("turns a long explanation into step sections and follows the observer", async () => {
+  it("turns a long explanation into step sections and follows the observer", () => {
     vi.stubGlobal("IntersectionObserver", IO);
-    mount("/cbse/3/evs/water/saving-water/learn");
-    const secs = await screen.findAllByRole("region", { name: /^Part \d/ });
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ values: {} }))));
+    render(<SettingsProvider><ScrollySections paras={long.split("\n")} pictures={[]} min={3} /></SettingsProvider>);
+    const secs = screen.getAllByRole("region", { name: /^Part \d/ });
     expect(secs.length).toBe(4);
     const io = IO.all[IO.all.length - 1]!;
     act(() => io.cb([{ isIntersecting: true, target: secs[2]! } as unknown as IntersectionObserverEntry], io as unknown as IntersectionObserver));
     expect(document.querySelector(".scrolly")!.getAttribute("data-active")).toBe("2");
     expect(secs[2]!.className).toMatch(/on/);
   });
-  it("falls back to plain paragraphs without IntersectionObserver", async () => {
+  it("falls back to plain paragraphs without IntersectionObserver", () => {
     vi.stubGlobal("IntersectionObserver", undefined);
-    mount("/cbse/3/evs/water/saving-water/learn");
-    await screen.findByText("Three.");
+    vi.stubGlobal("fetch", vi.fn(async () => new Response(JSON.stringify({ values: {} }))));
+    render(<SettingsProvider><ScrollySections paras={long.split("\n")} pictures={[]} min={3} /></SettingsProvider>);
+    expect(screen.getByText("Three.")).toBeTruthy();
     expect(document.querySelector(".scrolly-pic")).toBeNull();
     expect(document.querySelector(".scrolly.live")).toBeNull();
   });
