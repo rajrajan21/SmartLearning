@@ -6,6 +6,7 @@ interface Chapter { t: number; title: string }
 interface Have { video: boolean; poster: boolean; vtt: boolean }
 const fmt = (t: number) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, "0")}`;
 const SPEEDS = [0.75, 1, 1.25, 1.5];
+const BUILTIN_VIDEO_REVISION = 2;
 const W = {
   en: { play: "Play the tour video", lang: "Video language", speed: "Speed", cc: "Captions", chapters: "Chapters", fail: "The video could not be played. Please check your connection and try again.", noaudio: "This Tamil video has Tamil captions and music; a Tamil voice is coming.", en: "English", ta: "தமிழ்" },
   ta: { play: "பயண வீடியோவை இயக்கு", lang: "வீடியோ மொழி", speed: "வேகம்", cc: "வசனங்கள்", chapters: "பகுதிகள்", fail: "வீடியோவை இயக்க முடியவில்லை. இணைப்பைச் சரிபார்த்து மீண்டும் முயலுங்கள்.", noaudio: "இந்தத் தமிழ் வீடியோவில் தமிழ் வசனங்களும் இசையும் உண்டு; தமிழ்க் குரல் விரைவில்.", en: "English", ta: "தமிழ்" },
@@ -39,11 +40,12 @@ export function TourPlayer({ compact = false }: { compact?: boolean }) {
 
   useEffect(() => { if (!wantUp || have) return; fetch("/api/v1/tour/status").then((r) => (r.ok ? r.json() : null)).then((d) => setHave(d ?? {})).catch(() => setHave({})); }, [wantUp, have]);
   const up = wantUp && !failed && !!have?.[lang]?.video;
-  const src = up ? `/api/v1/tour/files/custom-${lang}.mp4?v=${ver}` : `/tour-video/tour-${lang}.mp4?v=${ver}`;
-  const poster = up && have?.[lang]?.poster ? `/api/v1/tour/files/custom-poster-${lang}.jpg?v=${ver}` : `/tour-video/poster-${lang}.jpg?v=${ver}`;
-  const vtt = up ? (have?.[lang]?.vtt ? `/api/v1/tour/files/custom-${lang}.vtt?v=${ver}` : "") : `/tour-video/tour-${lang}.vtt?v=${ver}`;
+  const builtinVersion = `${ver}.${BUILTIN_VIDEO_REVISION}`;
+  const src = up ? `/api/v1/tour/files/custom-${lang}.mp4?v=${ver}` : `/tour-video/tour-${lang}.mp4?v=${builtinVersion}`;
+  const poster = up && have?.[lang]?.poster ? `/api/v1/tour/files/custom-poster-${lang}.jpg?v=${ver}` : `/tour-video/poster-${lang}.jpg?v=${builtinVersion}`;
+  const vtt = up ? (have?.[lang]?.vtt ? `/api/v1/tour/files/custom-${lang}.vtt?v=${ver}` : "") : `/tour-video/tour-${lang}.vtt?v=${builtinVersion}`;
   useEffect(() => { setFailed(false); }, [lang, wantUp]);
-  useEffect(() => { setChap(null); if (up) return; fetch(`/tour-video/tour-${lang}.chapters.json?v=${ver}`).then((r) => (r.ok ? r.json() : null)).then((d) => d && setChap({ chapters: d.chapters.map((c: { t: number; title: Record<string, string> | string }) => ({ t: c.t, title: typeof c.title === "string" ? c.title : c.title[ui] ?? c.title.en })), voiced: d.voiced === true })).catch(() => undefined); }, [lang, ui, up, ver]);
+  useEffect(() => { setChap(null); if (up) return; fetch(`/tour-video/tour-${lang}.chapters.json?v=${builtinVersion}`).then((r) => (r.ok ? r.json() : null)).then((d) => d && setChap({ chapters: d.chapters.map((c: { t: number; title: Record<string, string> | string }) => ({ t: c.t, title: typeof c.title === "string" ? c.title : c.title[ui] ?? c.title.en })), voiced: d.voiced === true })).catch(() => undefined); }, [lang, ui, up, builtinVersion]);
 
   const chapters = useMemo(() => {
     if (s.get("tour.chapters.show") !== true) return [];

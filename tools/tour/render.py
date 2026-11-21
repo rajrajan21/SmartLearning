@@ -11,16 +11,17 @@ ap.add_argument('--fps', type=int, default=20); ap.add_argument('--max-frames', 
 ap.add_argument('--sample', default='')  # comma times to dump jpgs only
 a = ap.parse_args()
 L = a.lang
-S = json.load(open(HERE/'script.json')); T = json.load(open(Path(a.work)/f'timings.{L}.json'))
+S = json.loads((HERE/'script.json').read_text(encoding='utf-8'))
+T = json.loads((Path(a.work)/f'timings.{L}.json').read_text(encoding='utf-8'))
 voiced = all(x.get('voiced') for x in T['lines'])
 GAP, PAD_END = 0.45, 1.2
-UI = {'en': dict(ask_head='Ask the teacher', who='Malar Teacher', ph='Type your doubt here…', badge='Coming soon',
+UI = {'en': dict(ask_head='Ask the teacher', who='Malar Teacher', ph='Type your doubt here…', badge='Available now',
                   q='Why do we carry a 1 when adding?', a='When ones add up to ten or more, ten ones become one ten, so we carry it to the tens place.',
-                  tiles=[('📝','Practice & exam papers'),('📚','Free story library'),('🌍','General knowledge')], soon='More is on the way',
+                  tiles=[('🌍','GK'),('📝','Question papers'),('📚','E-Library')], explore='Explore more on SharpStudy',
                   title='How SharpStudy works', sub='A free place to learn sharp', outro='Start learning sharp', cta='Open SharpStudy'),
-      'ta': dict(ask_head='ஆசிரியரிடம் கேளுங்கள்', who='மலர் டீச்சர்', ph='உங்கள் சந்தேகத்தை எழுதுங்கள்…', badge='விரைவில்',
+      'ta': dict(ask_head='ஆசிரியரிடம் கேளுங்கள்', who='மலர் டீச்சர்', ph='உங்கள் சந்தேகத்தை எழுதுங்கள்…', badge='இப்போதே கிடைக்கும்',
                   q='கூட்டும்போது ஏன் 1 ஐ எடுத்துச் செல்கிறோம்?', a='ஒன்றுகள் பத்தைத் தாண்டும்போது, பத்து ஒன்றுகள் ஒரு பத்தாகும்; அதனால் அதைப் பத்தாம் இடத்துக்கு எடுத்துச் செல்கிறோம்.',
-                  tiles=[('📝','பயிற்சி & தேர்வுத் தாள்கள்'),('📚','இலவசக் கதைப் புத்தகங்கள்'),('🌍','பொது அறிவு')], soon='இன்னும் வருகிறது',
+                  tiles=[('🌍','பொது அறிவு'),('📝','வினாத்தாள்கள்'),('📚','மின்னூலகம்')], explore='ஷார்ப்ஸ்டடியில் மேலும் பாருங்கள்',
                   title='ஷார்ப்ஸ்டடி எப்படி வேலை செய்கிறது', sub='கூர்மையாகக் கற்க ஓர் இலவச இடம்', outro='இன்றே கூர்மையாகக் கற்கத் தொடங்குங்கள்', cta='ஷார்ப்ஸ்டடியைத் திற')}[L]
 def shot(n):
     p = Path(a.shots)/f'{L}_{n}.png'
@@ -64,7 +65,7 @@ for ln in lines:
     elif p['kind']=='title': sg.update(title=UI['title'], sub=UI['sub'])
     elif p['kind']=='outro': sg.update(title=UI['outro'], sub='SharpStudy', cta=UI['cta'])
     elif p['kind']=='ask': sg.update(head=UI['ask_head'], who=UI['who'], ph=UI['ph'], q=UI['q'], a=UI['a'])
-    elif p['kind']=='soon': sg.update(head=UI['soon'], badge=UI['badge'], tiles=[dict(icon=i,name=nm) for i,nm in UI['tiles']])
+    elif p['kind']=='soon': sg.update(head=UI['explore'], badge=UI['badge'], tiles=[dict(icon=i,name=nm) for i,nm in UI['tiles']])
     cur['segs'].append(sg); t += dur + GAP
 cur['t1'] = t
 total = t + PAD_END
@@ -116,14 +117,14 @@ with open(out/f'tour-{L}.vtt','w',encoding='utf-8') as f:
     f.write('WEBVTT\n\n')
     for i,ln in enumerate([l for sc in scenes for l in sc['lines']]):
         f.write(f"{i+1}\n{ts(ln['t0'])} --> {ts(ln['t1']+0.2)}\n{ln['text']}\n\n")
-json.dump(dict(total=total, voiced=voiced, chapters=[dict(t=round(s['t0'],2), title=s['chapter']) for s in scenes]), open(out/f'tour-{L}.chapters.json','w'), ensure_ascii=False, indent=1)
+(out/f'tour-{L}.chapters.json').write_text(json.dumps(dict(total=total, voiced=voiced, chapters=[dict(t=round(s['t0'],2), title=s['chapter']) for s in scenes]), ensure_ascii=False, indent=1), encoding='utf-8')
 # ---- frames
 from playwright.sync_api import sync_playwright
 def run():
     with sync_playwright() as p:
         b = p.chromium.launch(executable_path=os.environ.get('CHROME_PATH') or None, args=['--no-sandbox','--allow-file-access-from-files','--disable-web-security'])
         pg = b.new_page(viewport=dict(width=1280,height=720))
-        pg.goto('file://'+str(HERE/'stage'/'stage.html')); pg.wait_for_timeout(500)
+        pg.goto((HERE/'stage'/'stage.html').resolve().as_uri()); pg.wait_for_timeout(500)
         pg.evaluate('d=>window.init(d)', data); pg.evaluate('document.fonts.ready'); pg.wait_for_timeout(1200)
         if a.sample:
             for s in a.sample.split(','):
