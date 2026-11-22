@@ -172,14 +172,14 @@
    "status": "published",
    "type": "short",
    "stem": {
-    "en": "Height of a tower seen at 45 degrees from 10 m away?"
+    "en": "A tower is 10 m horizontally from an observation point at its base level. The angle of elevation to the top is 45°. What is the tower height in metres?"
    },
    "accepted": [
     "10"
    ],
    "wrongAnswers": [],
    "explanation": {
-    "en": "tan 45 = 1."
+    "en": "Tangent 45 degrees is 1, so the height is 1 times the horizontal distance of 10 metres."
    }
   },
   {
@@ -238,6 +238,258 @@
    "answer": true,
    "explanation": {
     "en": "Yes."
+   }
+  },
+  {
+   "key": "tnm10-m-t-1",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "In a right triangle, which pair of sides defines sine of the chosen acute angle?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Opposite over hypotenuse"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "Adjacent over hypotenuse"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Sine uses the opposite leg and the hypotenuse."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "Opposite over adjacent"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Sine uses the opposite leg and the hypotenuse."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sine uses the opposite leg and the hypotenuse."
+   }
+  },
+  {
+   "key": "tnm10-m-t-2",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "If sin A = 3/5 and A is acute, what is cos A?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "2/5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Use cos² A = 1 − 9/25 = 16/25 and take the positive square root."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "3/4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Use cos² A = 1 − 9/25 = 16/25 and take the positive square root."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "4/5"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Use cos² A = 1 − 9/25 = 16/25 and take the positive square root."
+   }
+  },
+  {
+   "key": "tnm10-m-t-3",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Where the terms exist, what is sec² A − tan² A?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "sin² A"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rearrange 1 + tan² A = sec² A."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rearrange 1 + tan² A = sec² A."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Rearrange 1 + tan² A = sec² A."
+   }
+  },
+  {
+   "key": "tnm10-m-t-4",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "What line is used to measure an angle of depression?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The horizontal through the observer"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The vertical through the object"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Depression is measured downwards from horizontal at eye level."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "The ground line through a different point"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Depression is measured downwards from horizontal at eye level."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Depression is measured downwards from horizontal at eye level."
+   }
+  },
+  {
+   "key": "tnm10-m-t-5",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "A 20 m sight line rises at 30°. What is the vertical rise?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "20 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The rise equals 20 × sin 30°, which is 20 × 1/2."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "40 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The rise equals 20 × sin 30°, which is 20 × 1/2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "10 m"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "The rise equals 20 × sin 30°, which is 20 × 1/2."
+   }
+  },
+  {
+   "key": "tnm10-m-t-6",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "A student has eye height 1.5 m and is 8 m from a pole on level ground. If the elevation angle is 45°, how tall is the pole?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "6.5 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rise above the eyes is 8 × tan 45° = 8 m, then add 1.5 m."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "9.5 m"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "8 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rise above the eyes is 8 × tan 45° = 8 m, then add 1.5 m."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Rise above the eyes is 8 × tan 45° = 8 m, then add 1.5 m."
    }
   }
  ]

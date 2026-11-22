@@ -34,7 +34,7 @@
      "general form"
     ],
     "text": {
-     "en": "The area of a triangle with vertices (x1, y1), (x2, y2), (x3, y3) is half the absolute value of x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2). If this area is zero, the three points are collinear. The area of a quadrilateral is found by splitting it into two triangles.\nThe inclination of a line is the angle it makes with the positive x-axis, and the slope m = tan(theta) = (y2 - y1)/(x2 - x1). Parallel lines have equal slopes and perpendicular lines have slopes whose product is -1.\nThe equation of a straight line has several forms: slope-intercept y = mx + c, point-slope, two-point, intercept form x/a + y/b = 1 and the general form ax + by + c = 0. The equations of the coordinate axes are y = 0 and x = 0."
+     "en": "The area of a triangle with vertices (x1, y1), (x2, y2), (x3, y3) is half the absolute value of x1(y2 - y3) + x2(y3 - y1) + x3(y1 - y2). If this area is zero, the three points are collinear. The area of a quadrilateral is found by splitting it into two triangles.\nA line’s inclination is measured from the positive x-axis. If the line is non-vertical, its slope is the tangent of its inclination, or change in y divided by change in x. Parallel non-vertical lines have equal slopes. Perpendicular lines with defined slopes have a product of −1. A vertical and a horizontal line form a right angle too.\nThe equation of a straight line has several forms: slope-intercept y = mx + c, point-slope, two-point, intercept form x/a + y/b = 1 and the general form ax + by + c = 0. The equations of the coordinate axes are y = 0 and x = 0."
     }
    },
    {
@@ -85,7 +85,7 @@
      {
       "id": "t4",
       "text": {
-       "en": "The inclination of a line is the angle it makes with the positive x-axis, and the slope m = tan(theta) = (y2 - y1)/(x2 - x1)."
+       "en": "A line’s inclination is measured from the positive x-axis. For a non-vertical line, the slope is the tangent of its inclination, or the change in y divided by the change in x."
       },
       "board": [
        {
@@ -97,7 +97,7 @@
      {
       "id": "t5",
       "text": {
-       "en": "Parallel lines have equal slopes and perpendicular lines have slopes whose product is -1."
+       "en": "Parallel non-vertical lines have equal slopes. Perpendicular lines with defined slopes have a slope product of minus one. A horizontal line and a vertical line are perpendicular too."
       },
       "board": [
        {
@@ -127,6 +127,294 @@
        {
         "op": "write",
         "text": "area of a triangle"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "To plot negative two comma three, move two units left and three units up from the origin. Reading the coordinates in the other order gives a different point."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "An ordered pair gives x then y"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Between points one comma two and four comma six, the horizontal and vertical changes are three and four. Pythagoras gives a distance of five units."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Distance uses the two coordinate changes"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "The midpoint of one comma two and five comma six is three comma four. Average the two x values and then the two y values."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Average x and average y for a midpoint"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "Start at one comma one and travel one third of the way to seven comma four. Add one third of each coordinate change to get three comma two."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Internal section divides a segment in a chosen ratio"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "Write each vertex once. Multiply and subtract as in the coordinate area formula. Take the absolute value at the end so the area is positive."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Area: use three vertices in order"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "A triangle with vertices one comma one, five comma one, and one comma four has horizontal base four and vertical height three. Its area is six square units."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Base 4, height 3 gives area 6"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "The points zero comma zero, one comma two, and two comma four follow the same line. Their coordinate area is zero."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Zero area identifies a straight line"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "Label the four vertices in order. Split the shape into two triangles along a diagonal inside it. Find and add their areas."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Use an internal diagonal in a quadrilateral"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "Coordinate changes measure distance in units. Because area multiplies lengths, the result is expressed in square units."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Area is read in square units"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "From one comma two to three comma six, the rise is four and the run is two. The slope is two."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Slope = rise divided by run"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "If you start at three comma six, the rise is negative four and the run is negative two. Dividing them still gives positive two."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Reverse both changes and keep the same ratio"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "If x increases by two while y decreases by three, the slope is minus three halves."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Down to the right gives a negative slope"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "A horizontal line has zero rise. A vertical line has zero run, and dividing by zero does not give a slope."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Horizontal slope zero; vertical slope undefined"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "Two non-vertical lines with equal slopes and different intercepts are parallel. With the same intercept as well, they are the same line."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Parallel: compare slopes and intercepts"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "A slope of two is perpendicular to a slope of minus one half. Their product is minus one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Perpendicular slope is a negative reciprocal"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "For y equals two x plus three, the slope is two and the line passes through zero comma three."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "y = mx + c shows the y-intercept"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "If the slope is three and the line contains two comma five, write y minus five equals three times x minus two, with x minus two in brackets."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Point-slope: y − y₁ = m(x − x₁)"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "For two points on a non-vertical line, calculate the slope first and then use either point in the point-slope form."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Two points let you get a slope and an equation"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "When the nonzero intercepts are four and two, write x divided by four plus y divided by two equals one. Test each intercept by setting the other coordinate to zero."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Intercept form: x/a + y/b = 1"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "For two x plus three y minus six equals zero, putting x equals zero gives a y-intercept of two. Putting y equals zero gives an x-intercept of three."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "General form: ax + by + c = 0"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "Every point on x equals four has first coordinate four. Its second coordinate can vary."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Vertical line: x stays constant"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "Substitute both coordinates into the equation. The point two comma five lies on y equals two x plus one because five equals two times two plus one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Test a suspected point"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "To draw a line, mark two known points and join them. Use another substitution to check that the line is heading in the correct direction."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Check two points when sketching"
        }
       ]
      }
@@ -167,6 +455,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the area of the triangle with vertices (1, 1), (5, 1), and (1, 4)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use (1, 1) to (5, 1) as a horizontal base of length 4."
+      },
+      "why": {
+       "en": "Subtract the x-coordinates along that side."
+      }
+     },
+     {
+      "text": {
+       "en": "The perpendicular height is 4 − 1 = 3. Area = ½ × 4 × 3 = 6 square units."
+      },
+      "why": {
+       "en": "A horizontal base has a vertical height."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the line through (1, 2) and (3, 6)."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Slope = (6 − 2)/(3 − 1) = 2."
+      },
+      "why": {
+       "en": "Use the same order for the two coordinate differences."
+      }
+     },
+     {
+      "text": {
+       "en": "Write y − 2 = 2(x − 1), so y = 2x. Check both given points."
+      },
+      "why": {
+       "en": "Substituting x = 1 gives 2, and x = 3 gives 6."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the intercepts of 2x + 3y − 6 = 0."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Let y = 0. This gives 2x = 6, so the x-intercept is (3, 0)."
+      },
+      "why": {
+       "en": "Each point on the x-axis has y = 0."
+      }
+     },
+     {
+      "text": {
+       "en": "Let x = 0. This gives 3y = 6, so the y-intercept is (0, 2)."
+      },
+      "why": {
+       "en": "Each point on the y-axis has x = 0."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -193,7 +559,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-coo660",
-     "r1-coo661"
+     "r1-coo661",
+     "tnm10-m-cg-1",
+     "tnm10-m-cg-2",
+     "tnm10-m-cg-3",
+     "tnm10-m-cg-4",
+     "tnm10-m-cg-5",
+     "tnm10-m-cg-6"
     ]
    },
    {

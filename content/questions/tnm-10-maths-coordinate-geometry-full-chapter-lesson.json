@@ -56,7 +56,7 @@
    "status": "published",
    "type": "true_false",
    "stem": {
-    "en": "Parallel lines have equal slopes."
+    "en": "Parallel non-vertical lines have equal slopes."
    },
    "answer": true,
    "explanation": {
@@ -129,7 +129,7 @@
    "status": "published",
    "type": "mcq",
    "stem": {
-    "en": "Perpendicular lines have slopes with product"
+    "en": "Perpendicular lines with defined slopes have slopes whose product is"
    },
    "options": [
     {
@@ -233,11 +233,263 @@
    "status": "published",
    "type": "true_false",
    "stem": {
-    "en": "Slope equals tan of the inclination."
+    "en": "For a non-vertical line, slope equals the tangent of its inclination."
    },
    "answer": true,
    "explanation": {
     "en": "Yes."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-1",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "What is the midpoint of (1, 2) and (5, 6)?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "(3, 4)"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "(6, 8)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Average the x-coordinates and then the y-coordinates."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "(4, 3)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Average the x-coordinates and then the y-coordinates."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Average the x-coordinates and then the y-coordinates."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-2",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "A triangle has a horizontal base of 6 units and vertical height 4 units. What is its area?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "24 square units"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Half the product of 6 and 4 is 12."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "10 square units"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Half the product of 6 and 4 is 12."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "12 square units"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Half the product of 6 and 4 is 12."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-3",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "What is the slope of the vertical line x = 4?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Four"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The run is zero, so rise cannot be divided by it."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "Undefined"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "Zero"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The run is zero, so rise cannot be divided by it."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The run is zero, so rise cannot be divided by it."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-4",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Which slope is perpendicular to a line of slope 3?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "−1/3"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "1/3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The negative reciprocal gives a product of −1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "−3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The negative reciprocal gives a product of −1."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The negative reciprocal gives a product of −1."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-5",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "What is the equation of the line with slope 2 through (0, 3)?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "y = 3x + 2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The slope is 2 and the y-intercept is 3."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "x = 2y + 3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The slope is 2 and the y-intercept is 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "y = 2x + 3"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "The slope is 2 and the y-intercept is 3."
+   }
+  },
+  {
+   "key": "tnm10-m-cg-6",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Which point lies on y = 2x + 1?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "(2, 4)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "At x = 2, the right side is 5."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "(2, 5)"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "(5, 2)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "At x = 2, the right side is 5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "At x = 2, the right side is 5."
    }
   }
  ]

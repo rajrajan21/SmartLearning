@@ -1,227 +1,951 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "algebra",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "An algebraic identity"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 36,
-   "text": "(a + b)² = a² + 2ab + b²",
-   "size": 32,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "An algebraic identity"
   },
-  {
-   "kind": "rect",
-   "id": "s1",
-   "x": 270,
-   "y": 80,
-   "w": 190,
-   "h": 190,
-   "rx": 0,
-   "fill": "#BBDEFB",
-   "stroke": "accent",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "t1",
-   "x": 365,
-   "y": 185,
-   "text": "a²",
-   "size": 32,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "s2",
-   "x": 460,
-   "y": 80,
-   "w": 110,
-   "h": 190,
-   "rx": 0,
-   "fill": "#C8E6C9",
-   "stroke": "good",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "t2",
-   "x": 515,
-   "y": 185,
-   "text": "ab",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "s3",
-   "x": 270,
-   "y": 270,
-   "w": 190,
-   "h": 110,
-   "rx": 0,
-   "fill": "#C8E6C9",
-   "stroke": "good",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "t3",
-   "x": 365,
-   "y": 335,
-   "text": "ab",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "s4",
-   "x": 460,
-   "y": 270,
-   "w": 110,
-   "h": 110,
-   "rx": 0,
-   "fill": "#FFE0B2",
-   "stroke": "warm",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "t4",
-   "x": 515,
-   "y": 335,
-   "text": "b²",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "la",
-   "x": 365,
-   "y": 72,
-   "text": "a",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "lb",
-   "x": 515,
-   "y": 72,
-   "text": "b",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "ex",
-   "x": 450,
-   "y": 475,
-   "text": "Check: (2 + 3)² = 25 = 4 + 12 + 9",
-   "size": 24,
-   "color": "good",
-   "anchor": "middle"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "Take a big square whose side is a plus b. Its area is a plus b, all squared."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 36,
+      "text": "(a + b)² = a² + 2ab + b²",
+      "size": 32,
+      "color": "accent",
+      "anchor": "middle"
     },
     {
-     "do": "write",
-     "target": "la",
-     "at": 0.3
+      "kind": "rect",
+      "id": "s1",
+      "x": 270,
+      "y": 80,
+      "w": 190,
+      "h": 190,
+      "rx": 0,
+      "fill": "#BBDEFB",
+      "stroke": "accent",
+      "width": 3
     },
     {
-     "do": "write",
-     "target": "lb",
-     "at": 0.4
+      "kind": "text",
+      "id": "t1",
+      "x": 365,
+      "y": 185,
+      "text": "a²",
+      "size": 32,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "s2",
+      "x": 460,
+      "y": 80,
+      "w": 110,
+      "h": 190,
+      "rx": 0,
+      "fill": "#C8E6C9",
+      "stroke": "good",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "t2",
+      "x": 515,
+      "y": 185,
+      "text": "ab",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "s3",
+      "x": 270,
+      "y": 270,
+      "w": 190,
+      "h": 110,
+      "rx": 0,
+      "fill": "#C8E6C9",
+      "stroke": "good",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "t3",
+      "x": 365,
+      "y": 335,
+      "text": "ab",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "s4",
+      "x": 460,
+      "y": 270,
+      "w": 110,
+      "h": 110,
+      "rx": 0,
+      "fill": "#FFE0B2",
+      "stroke": "warm",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "t4",
+      "x": 515,
+      "y": 335,
+      "text": "b²",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "la",
+      "x": 365,
+      "y": 72,
+      "text": "a",
+      "size": 24,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "lb",
+      "x": 515,
+      "y": 72,
+      "text": "b",
+      "size": 24,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "ex",
+      "x": 450,
+      "y": 475,
+      "text": "Check: (2 + 3)² = 25 = 4 + 12 + 9",
+      "size": 24,
+      "color": "good",
+      "anchor": "middle"
+    },
+    {
+      "id": "alggtitle",
+      "kind": "text",
+      "x": 450,
+      "y": 49,
+      "text": "A solution shared by two lines",
+      "size": 34,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx0",
+      "kind": "line",
+      "x1": 256,
+      "y1": 420,
+      "x2": 256,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy0",
+      "kind": "line",
+      "x1": 256,
+      "y1": 420,
+      "x2": 578,
+      "y2": 420,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv0",
+      "kind": "text",
+      "x": 256,
+      "y": 449,
+      "text": "0",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx1",
+      "kind": "line",
+      "x1": 302,
+      "y1": 420,
+      "x2": 302,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy1",
+      "kind": "line",
+      "x1": 256,
+      "y1": 374,
+      "x2": 578,
+      "y2": 374,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv1",
+      "kind": "text",
+      "x": 302,
+      "y": 449,
+      "text": "1",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv1",
+      "kind": "text",
+      "x": 232,
+      "y": 380,
+      "text": "1",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx2",
+      "kind": "line",
+      "x1": 348,
+      "y1": 420,
+      "x2": 348,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy2",
+      "kind": "line",
+      "x1": 256,
+      "y1": 328,
+      "x2": 578,
+      "y2": 328,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv2",
+      "kind": "text",
+      "x": 348,
+      "y": 449,
+      "text": "2",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv2",
+      "kind": "text",
+      "x": 232,
+      "y": 334,
+      "text": "2",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx3",
+      "kind": "line",
+      "x1": 394,
+      "y1": 420,
+      "x2": 394,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy3",
+      "kind": "line",
+      "x1": 256,
+      "y1": 282,
+      "x2": 578,
+      "y2": 282,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv3",
+      "kind": "text",
+      "x": 394,
+      "y": 449,
+      "text": "3",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv3",
+      "kind": "text",
+      "x": 232,
+      "y": 288,
+      "text": "3",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx4",
+      "kind": "line",
+      "x1": 440,
+      "y1": 420,
+      "x2": 440,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy4",
+      "kind": "line",
+      "x1": 256,
+      "y1": 236,
+      "x2": 578,
+      "y2": 236,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv4",
+      "kind": "text",
+      "x": 440,
+      "y": 449,
+      "text": "4",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv4",
+      "kind": "text",
+      "x": 232,
+      "y": 242,
+      "text": "4",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx5",
+      "kind": "line",
+      "x1": 486,
+      "y1": 420,
+      "x2": 486,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy5",
+      "kind": "line",
+      "x1": 256,
+      "y1": 190,
+      "x2": 578,
+      "y2": 190,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv5",
+      "kind": "text",
+      "x": 486,
+      "y": 449,
+      "text": "5",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv5",
+      "kind": "text",
+      "x": 232,
+      "y": 196,
+      "text": "5",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx6",
+      "kind": "line",
+      "x1": 532,
+      "y1": 420,
+      "x2": 532,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy6",
+      "kind": "line",
+      "x1": 256,
+      "y1": 144,
+      "x2": 578,
+      "y2": 144,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv6",
+      "kind": "text",
+      "x": 532,
+      "y": 449,
+      "text": "6",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv6",
+      "kind": "text",
+      "x": 232,
+      "y": 150,
+      "text": "6",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algx7",
+      "kind": "line",
+      "x1": 578,
+      "y1": 420,
+      "x2": 578,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algy7",
+      "kind": "line",
+      "x1": 256,
+      "y1": 98,
+      "x2": 578,
+      "y2": 98,
+      "stroke": "#D8E2EF",
+      "width": 1
+    },
+    {
+      "id": "algxv7",
+      "kind": "text",
+      "x": 578,
+      "y": 449,
+      "text": "7",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algyv7",
+      "kind": "text",
+      "x": 232,
+      "y": 104,
+      "text": "7",
+      "size": 18,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algxaxis",
+      "kind": "arrow",
+      "x1": 256,
+      "y1": 420,
+      "x2": 617,
+      "y2": 420,
+      "stroke": "ink",
+      "width": 3
+    },
+    {
+      "id": "algyaxis",
+      "kind": "arrow",
+      "x1": 256,
+      "y1": 420,
+      "x2": 256,
+      "y2": 75,
+      "stroke": "ink",
+      "width": 3
+    },
+    {
+      "id": "algxlabel",
+      "kind": "text",
+      "x": 633,
+      "y": 431,
+      "text": "x",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algylabel",
+      "kind": "text",
+      "x": 257,
+      "y": 68,
+      "text": "y",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "algsum",
+      "kind": "line",
+      "x1": 256,
+      "y1": 98,
+      "x2": 578,
+      "y2": 420,
+      "stroke": "accent",
+      "width": 6
+    },
+    {
+      "id": "algdiff",
+      "kind": "line",
+      "x1": 302,
+      "y1": 420,
+      "x2": 578,
+      "y2": 144,
+      "stroke": "warm",
+      "width": 6
+    },
+    {
+      "id": "algsumtext",
+      "kind": "text",
+      "x": 167,
+      "y": 132,
+      "text": "x + y = 7",
+      "size": 24,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "id": "algdifftext",
+      "kind": "text",
+      "x": 667,
+      "y": 140,
+      "text": "x − y = 1",
+      "size": 24,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "id": "algcross",
+      "kind": "circle",
+      "cx": 440,
+      "cy": 282,
+      "r": 8,
+      "fill": "good",
+      "stroke": "ink",
+      "width": 2
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "Cut it into four parts: a square of side a, a square of side b, and two rectangles with sides a and b."
-   },
-   "actions": [
+  ],
+  "steps": [
     {
-     "do": "draw",
-     "target": "s1",
-     "at": 0.1
+      "id": "s1",
+      "narration": {
+        "en": "Take a big square whose side is a plus b. Its area is a plus b, all squared."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        },
+        {
+          "do": "write",
+          "target": "la",
+          "at": 0.3
+        },
+        {
+          "do": "write",
+          "target": "lb",
+          "at": 0.4
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "t1",
-     "at": 0.2
+      "id": "s2",
+      "narration": {
+        "en": "Cut it into four parts: a square of side a, a square of side b, and two rectangles with sides a and b."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "s1",
+          "at": 0.1
+        },
+        {
+          "do": "write",
+          "target": "t1",
+          "at": 0.2
+        },
+        {
+          "do": "draw",
+          "target": "s2",
+          "at": 0.35
+        },
+        {
+          "do": "write",
+          "target": "t2",
+          "at": 0.45
+        },
+        {
+          "do": "draw",
+          "target": "s3",
+          "at": 0.55
+        },
+        {
+          "do": "write",
+          "target": "t3",
+          "at": 0.65
+        },
+        {
+          "do": "draw",
+          "target": "s4",
+          "at": 0.8
+        },
+        {
+          "do": "write",
+          "target": "t4",
+          "at": 0.9
+        }
+      ]
     },
     {
-     "do": "draw",
-     "target": "s2",
-     "at": 0.35
+      "id": "s3",
+      "narration": {
+        "en": "Adding the areas of the four parts: a squared, plus two a b, plus b squared. This is the identity. For example, with a equal to 2 and b equal to 3, both sides give 25."
+      },
+      "actions": [
+        {
+          "do": "write",
+          "target": "ex",
+          "at": 0.5
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "t2",
-     "at": 0.45
+      "id": "algebra-two-lines",
+      "narration": {
+        "en": "The blue line represents points whose coordinates add to seven. The orange line represents points where the first coordinate minus the second is one. Every point on each line satisfies its own equation."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "alggtitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx4",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy4",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv4",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv4",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx5",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy5",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv5",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv5",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx6",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy6",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv6",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv6",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algx7",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algy7",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxv7",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyv7",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxaxis",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algyaxis",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algxlabel",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "algylabel",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "algsum",
+          "on": "blue line",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "algsumtext",
+          "on": "blue line",
+          "ms": 420
+        },
+        {
+          "do": "draw",
+          "target": "algdiff",
+          "on": "orange line",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "algdifftext",
+          "on": "orange line",
+          "ms": 420
+        }
+      ]
     },
     {
-     "do": "draw",
-     "target": "s3",
-     "at": 0.55
+      "id": "algebra-crossing",
+      "narration": {
+        "en": "Find the crossing of the two lines. That point satisfies both equations at once. Use the grid to read the horizontal and vertical coordinates."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "algcross",
+          "on": "crossing",
+          "ms": 390
+        },
+        {
+          "do": "pulse",
+          "target": "algcross",
+          "on": "both equations",
+          "ms": 1000
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "t3",
-     "at": 0.65
-    },
-    {
-     "do": "draw",
-     "target": "s4",
-     "at": 0.8
-    },
-    {
-     "do": "write",
-     "target": "t4",
-     "at": 0.9
+      "id": "algebra-picture-check",
+      "narration": {
+        "en": "Use the crossing shown on the graph to answer."
+      },
+      "actions": [],
+      "check": {
+        "stem": {
+          "en": "Which ordered pair satisfies both of the graphed equations?"
+        },
+        "explanation": {
+          "en": "The crossing has x equal to four and y equal to three. Four plus three is seven and four minus three is one."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "(3, 4)"
+            },
+            "whyWrong": {
+              "en": "The coordinates add to seven, but three minus four is minus one."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "(4, 3)"
+            },
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "(5, 2)"
+            },
+            "whyWrong": {
+              "en": "The coordinates add to seven, but their difference is three."
+            }
+          }
+        ]
+      }
     }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "Adding the areas of the four parts: a squared, plus two a b, plus b squared. This is the identity. For example, with a equal to 2 and b equal to 3, both sides give 25."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "ex",
-     "at": 0.5
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -1,232 +1,577 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "algebra",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Algebra"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "algebra",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Algebra"
     },
-    "text": {
-     "en": "Raju saw the expression 3x + 5 on the board. \"What is its value when x is 2?\" asked his teacher."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "polynomial",
-     "zero of a polynomial",
-     "remainder theorem",
-     "algebraic identity",
-     "factorisation",
-     "GCD"
-    ],
-    "text": {
-     "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial. The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0.\nThe remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a). The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0. Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise.\nFactorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial. Polynomials are divided by the division algorithm or by synthetic division. The GCD of polynomials is the highest common factor, and a linear equation in two variables has a pair of values that satisfy it."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Raju saw the expression 3x + 5 on the board. \"What is its value when x is 2?\" asked his teacher."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "polynomial"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "polynomial",
+          "zero of a polynomial",
+          "remainder theorem",
+          "algebraic identity",
+          "factorisation",
+          "GCD"
+        ],
+        "text": {
+          "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial. The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0.\nThe remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a). The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0. Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise.\nFactorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial. Use polynomial long division to divide by a nonzero polynomial. Synthetic division is a useful shortcut when the divisor has the form x minus a. The greatest common divisor is a common factor of greatest degree. One linear equation in two variables can have many ordered-pair solutions."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "zero of a polynomial"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "The remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a)."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A polynomial is an expression with whole-number powers of a variable, named by degree as linear, quadratic or cubic, and by terms as monomial, binomial or trinomial."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The value of a polynomial is found by putting a number for the variable, and a zero of the polynomial is a value that makes it 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "zero of a polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The remainder theorem says that when p(x) is divided by (x - a), the remainder is p(a)."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "remainder theorem"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "algebraic identity"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "factorisation"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Factorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "GCD"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Use polynomial long division to divide by a nonzero polynomial. Synthetic division is a useful shortcut when the divisor has the form x minus a."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "The greatest common divisor is a common factor of greatest degree. One linear equation in two variables can have many ordered-pair solutions."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "zero of a polynomial"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Read three x squared minus two x plus five as three terms with coefficients three, minus two and five. The highest exponent with a nonzero coefficient is two, so this is quadratic."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "3x² − 2x + 5 has degree 2"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "A term like x to the power minus one is one divided by x. Its exponent is negative, so an expression with that term is outside the class of polynomials in x."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Polynomial exponents are nonnegative integers"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "A nonzero constant, such as seven, has degree zero. After cancellation, x minus x is the zero polynomial, whose degree is left undefined here."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Constant 7: degree 0"
+              },
+              {
+                "op": "write",
+                "text": "Zero polynomial: degree undefined"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Evaluate three x squared minus two x plus five at negative two. Put brackets around negative two before squaring, so its square is positive four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "p(−2) = 3(−2)² − 2(−2) + 5 = 21"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "Two polynomials can have the same value at one input and different values elsewhere. A zero of one polynomial simply marks a particular input where that expression equals zero."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Value at one input is not a polynomial identity"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "When a divisor is x plus two, write it as x minus negative two. The number to substitute in the remainder theorem is negative two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Divisor x + 2 → evaluate p(−2)"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "For polynomial x squared plus three x plus two, substitute negative two. Four minus six plus two gives zero, so x plus two divides the polynomial with no remainder."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "p(−2) = 0 → x + 2 is a factor"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "A square of side a plus b can be divided into a square of side a, a square of side b and two rectangles of sides a and b. Both rectangles contribute to the middle term."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(a + b)² = a² + 2ab + b²"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "In x squared minus six x plus nine, the last term is the square of three and the middle term is minus two times x times three. The expression is the square of x minus three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x² − 6x + 9 = (x − 3)²"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Compare x squared minus nine with the last square. Here the middle term is absent, and we subtract one square from another. The factor pair is x plus three and x minus three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x² − 9 = (x + 3)(x − 3)"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "First look for a shared factor in each term. In six x squared plus nine x, both terms share three x. Dividing the terms by three x leaves two x and three in brackets."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "6x² + 9x = 3x(2x + 3)"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "To factor two x squared plus seven x plus three, split seven x into six x and x. The new coefficients add to seven and multiply to six, the product of the leading and constant coefficients."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "2x² + 6x + x + 3"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Group the first two terms and the last two. They become two x times x plus three, and one times x plus three. Factor out the shared bracket."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(2x + 1)(x + 3)"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "For polynomial long division, divide the leading term first, multiply by the whole divisor and subtract. Repeat until the remainder degree is smaller than the divisor degree."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Divide → multiply → subtract → repeat"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Check a division by multiplying the divisor and quotient, then adding the remainder. For x squared plus one divided by x minus one, the quotient is x plus one and the remainder is two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x² + 1 = (x − 1)(x + 1) + 2"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "For that same linear divisor, synthetic division uses one. Use coefficients one, zero and one, including the missing x term. Bring down, multiply and add to get quotient coefficients one, one and remainder two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Synthetic input: 1, 0, 1"
+              },
+              {
+                "op": "write",
+                "text": "Result: 1, 1 | 2"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "To find a greatest common divisor by factoring, compare each shared factor and its multiplicity. For two factors shared only once, use that common factor only once."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "GCD uses the smaller multiplicity of each shared factor"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "For x squared minus nine and x squared minus six x plus nine, the only shared linear factor is x minus three. The first polynomial contains it just once."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "GCD = x − 3"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "The equation x plus y equals seven has many ordered pairs. Four comma three and five comma two both work. Plotting all its solutions gives a straight line."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x + y = 7 has a line of solutions"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A second condition says x minus y equals one. An ordered pair solving the system must satisfy both conditions, so its point appears on both lines."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Both equations must hold at the crossing"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Add those two equations. The y terms cancel and two x equals eight. Then x is four, and substitution into the first equation gives y equals three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Add: 2x = 8 → x = 4"
+              },
+              {
+                "op": "write",
+                "text": "Substitute: y = 3"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Check both equations using four comma three. If the x and y values satisfy one equation but fail the other, the pair is a solution of one line rather than the system."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Check 4 + 3 = 7 and 4 − 3 = 1"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "remainder theorem"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "The factor theorem says that (x - a) is a factor of p(x) if and only if p(a) = 0."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find a pair that satisfies x + y = 7 and x − y = 1."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Add the equations to get two x equals eight."
+            },
+            "why": {
+              "en": "One positive y and one negative y cancel."
+            }
+          },
+          {
+            "text": {
+              "en": "Divide by two to find x equals four. Then substitute into the first equation to get y equals three."
+            },
+            "why": {
+              "en": "Four plus three gives seven."
+            }
+          },
+          {
+            "text": {
+              "en": "Check four minus three as well."
+            },
+            "why": {
+              "en": "It equals one, so the ordered pair satisfies both equations."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "algebraic identity"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Algebraic identities such as (a + b)^2 = a^2 + 2ab + b^2, (a - b)^2 and a^2 - b^2 = (a + b)(a - b) help us expand and factorise."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says (a + b)^2 = a^2 + b^2. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "The middle term 2ab is also present."
+          },
+          {
+            "en": "(a + b)^2 = a^2 + 2ab + b^2."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "factorisation"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Factorisation writes a polynomial as a product, by identities or by splitting the middle term of a quadratic trinomial."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-alg740",
+          "r1-alg741",
+          "tnm9-algebra-divisor-1",
+          "tnm9-algebra-gcd-1",
+          "tnm9-algebra-system-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "GCD"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "Polynomials are divided by the division algorithm or by synthetic division."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "polynomial"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "The GCD of polynomials is the highest common factor, and a linear equation in two variables has a pair of values that satisfy it."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "zero of a polynomial"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Find the remainder when x^2 + 2x + 1 is divided by (x - 1)."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "By the remainder theorem put x = 1."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Polynomials have whole-number powers."
+          },
+          {
+            "en": "Remainder = p(a)."
+          },
+          {
+            "en": "a^2 - b^2 = (a + b)(a - b)."
+          },
+          {
+            "en": "Factor theorem uses p(a) = 0."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "1 + 2 + 1 = 4."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "The remainder is 4."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says (a + b)^2 = a^2 + b^2. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "The middle term 2ab is also present."
-     },
-     {
-      "en": "(a + b)^2 = a^2 + 2ab + b^2."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-alg740",
-     "r1-alg741"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Polynomials have whole-number powers."
-     },
-     {
-      "en": "Remainder = p(a)."
-     },
-     {
-      "en": "a^2 - b^2 = (a + b)(a - b)."
-     },
-     {
-      "en": "Factor theorem uses p(a) = 0."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

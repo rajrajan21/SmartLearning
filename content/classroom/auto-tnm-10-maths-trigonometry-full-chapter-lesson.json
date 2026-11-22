@@ -126,6 +126,167 @@
    "size": 20,
    "color": "good",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 51,
+   "text": "From a line of sight to a height",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "nground",
+   "x1": 220,
+   "y1": 411,
+   "x2": 770,
+   "y2": 411,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "npole",
+   "x1": 566,
+   "y1": 411,
+   "x2": 566,
+   "y2": 138,
+   "stroke": "accent",
+   "width": 6
+  },
+  {
+   "kind": "line",
+   "id": "nhoriz",
+   "x1": 328,
+   "y1": 376,
+   "x2": 566,
+   "y2": 376,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "nupper",
+   "x1": 566,
+   "y1": 138,
+   "x2": 322,
+   "y2": 138,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "nsight",
+   "x1": 328,
+   "y1": 376,
+   "x2": 566,
+   "y2": 138,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "neye",
+   "cx": 328,
+   "cy": 376,
+   "r": 7,
+   "fill": "good",
+   "stroke": "good"
+  },
+  {
+   "kind": "circle",
+   "id": "ntop",
+   "cx": 566,
+   "cy": 138,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "path",
+   "id": "nlowArc",
+   "d": "M 387 376 Q 387 351 370 334",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "path",
+   "id": "nhighArc",
+   "d": "M 507 138 Q 510 167 524 180",
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nob",
+   "x": 315,
+   "y": 352,
+   "text": "Eye",
+   "size": 20,
+   "color": "ink",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "nlow45",
+   "x": 407,
+   "y": 349,
+   "text": "45° elevation",
+   "size": 20,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "nhigh45",
+   "x": 486,
+   "y": 171,
+   "text": "45° depression",
+   "size": 20,
+   "color": "good",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "ndistance",
+   "x": 443,
+   "y": 400,
+   "text": "10 m",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nrise",
+   "x": 595,
+   "y": 257,
+   "text": "10 m rise",
+   "size": 23,
+   "color": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "neyeH",
+   "x": 315,
+   "y": 404,
+   "text": "1.5 m",
+   "size": 20,
+   "color": "ink",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "nresult",
+   "x": 450,
+   "y": 473,
+   "text": "Pole height = 10 m + 1.5 m = 11.5 m",
+   "size": 27,
+   "color": "accent",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -205,6 +366,127 @@
      "do": "write",
      "target": "ex",
      "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "trig1",
+   "narration": {
+    "en": "Draw a horizontal line through the level of the observer’s eyes. The slanted line to the top of the pole is the line of sight."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nground",
+     "at": 0.12,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "npole",
+     "at": 0.2,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nhoriz",
+     "at": 0.32,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "neye",
+     "at": 0.37
+    },
+    {
+     "do": "show",
+     "target": "nob",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "nsight",
+     "at": 0.59,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ntop",
+     "at": 0.69
+    }
+   ]
+  },
+  {
+   "id": "trig2",
+   "narration": {
+    "en": "Measure forty-five degrees above the lower horizontal. The matching angle of depression is below the upper horizontal. The same sight line crosses both."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nlowArc",
+     "at": 0.17,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlow45",
+     "at": 0.26
+    },
+    {
+     "do": "draw",
+     "target": "nupper",
+     "at": 0.43,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nhighArc",
+     "at": 0.57,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nhigh45",
+     "at": 0.69
+    }
+   ]
+  },
+  {
+   "id": "trig3",
+   "narration": {
+    "en": "The horizontal distance is ten metres. Tangent forty-five is one, so the rise above eye level is ten metres. Add one and a half metres to reach eleven and a half."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ndistance",
+     "at": 0.14
+    },
+    {
+     "do": "show",
+     "target": "nrise",
+     "at": 0.36
+    },
+    {
+     "do": "show",
+     "target": "neyeH",
+     "at": 0.61
+    },
+    {
+     "do": "write",
+     "target": "nresult",
+     "at": 0.81,
+     "ms": 450
     }
    ]
   }
