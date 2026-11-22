@@ -242,6 +242,206 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 56,
+   "text": "How selection can change a population",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nframeA",
+   "x": 95,
+   "y": 125,
+   "w": 321,
+   "h": 225,
+   "fill": "#ECDAC2",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "rect",
+   "id": "nframeB",
+   "x": 484,
+   "y": 125,
+   "w": 321,
+   "h": 225,
+   "fill": "#ECDAC2",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nfirst",
+   "x": 255,
+   "y": 108,
+   "text": "Starting population",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nlater",
+   "x": 645,
+   "y": 108,
+   "text": "Later generation",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ntime",
+   "x1": 431,
+   "y1": 243,
+   "x2": 471,
+   "y2": 243,
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "nkeyA",
+   "x": 255,
+   "y": 399,
+   "text": "3 dark and 3 light",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nkeyB",
+   "x": 645,
+   "y": 399,
+   "text": "5 dark and 1 light",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 469,
+   "text": "Illustrative counts, not a prediction",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB0",
+   "cx": 175,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB1",
+   "cx": 254,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB2",
+   "cx": 333,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB3",
+   "cx": 175,
+   "cy": 279,
+   "r": 18,
+   "fill": "#FFF2C8",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB4",
+   "cx": 254,
+   "cy": 279,
+   "r": 18,
+   "fill": "#FFF2C8",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nfirstB5",
+   "cx": 333,
+   "cy": 279,
+   "r": 18,
+   "fill": "#FFF2C8",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB0",
+   "cx": 565,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB1",
+   "cx": 644,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB2",
+   "cx": 723,
+   "cy": 194,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB3",
+   "cx": 565,
+   "cy": 279,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB4",
+   "cx": 644,
+   "cy": 279,
+   "r": 18,
+   "fill": "#514234",
+   "stroke": "#705238"
+  },
+  {
+   "kind": "circle",
+   "id": "nlaterB5",
+   "cx": 723,
+   "cy": 279,
+   "r": 18,
+   "fill": "#FFF2C8",
+   "stroke": "#705238"
   }
  ],
  "steps": [
@@ -416,6 +616,151 @@
      "target": "n5",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "selection1",
+   "narration": {
+    "en": "This starting population has six beetles, half dark and half light. Colour is inherited in this simplified example."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "show",
+     "target": "nfirst",
+     "at": 0.16
+    },
+    {
+     "do": "draw",
+     "target": "nframeA",
+     "at": 0.23,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nfirstB0",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "nfirstB1",
+     "at": 0.355
+    },
+    {
+     "do": "show",
+     "target": "nfirstB2",
+     "at": 0.41
+    },
+    {
+     "do": "show",
+     "target": "nfirstB3",
+     "at": 0.46499999999999997
+    },
+    {
+     "do": "show",
+     "target": "nfirstB4",
+     "at": 0.52
+    },
+    {
+     "do": "show",
+     "target": "nfirstB5",
+     "at": 0.575
+    },
+    {
+     "do": "write",
+     "target": "nkeyA",
+     "at": 0.74,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "selection2",
+   "narration": {
+    "en": "Imagine that on darker ground, more dark beetles survive and reproduce. In a later generation the dark colour can be more common."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ntime",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlater",
+     "at": 0.23
+    },
+    {
+     "do": "draw",
+     "target": "nframeB",
+     "at": 0.31,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlaterB0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "nlaterB1",
+     "at": 0.45
+    },
+    {
+     "do": "show",
+     "target": "nlaterB2",
+     "at": 0.5
+    },
+    {
+     "do": "show",
+     "target": "nlaterB3",
+     "at": 0.55
+    },
+    {
+     "do": "show",
+     "target": "nlaterB4",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "show",
+     "target": "nlaterB5",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "nkeyB",
+     "at": 0.77,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "selection3",
+   "narration": {
+    "en": "Compare how many beetles have each colour in the two groups. Individuals kept their colour, and the population changed over generations."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "nlaterB4",
+     "at": 0.27,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.69,
+     "ms": 450
     }
    ]
   }

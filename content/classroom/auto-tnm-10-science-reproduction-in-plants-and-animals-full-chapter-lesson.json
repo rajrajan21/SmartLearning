@@ -210,6 +210,149 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 51,
+   "text": "From pollination to seed and fruit",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nantherT",
+   "x": 212,
+   "y": 156,
+   "text": "Anther",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "nanther",
+   "cx": 213,
+   "cy": 200,
+   "r": 24,
+   "fill": "#F4DCA2",
+   "stroke": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "nstigmaT",
+   "x": 460,
+   "y": 99,
+   "text": "Stigma",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nstigma",
+   "x": 423,
+   "y": 117,
+   "w": 75,
+   "h": 26,
+   "fill": "#C9E7CD",
+   "stroke": "good",
+   "rx": 10
+  },
+  {
+   "kind": "rect",
+   "id": "nstyle",
+   "x": 449,
+   "y": 141,
+   "w": 23,
+   "h": 156,
+   "fill": "#DDEDD4",
+   "stroke": "good",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nstyleT",
+   "x": 490,
+   "y": 222,
+   "text": "Style",
+   "size": 21,
+   "color": "ink"
+  },
+  {
+   "kind": "circle",
+   "id": "novary",
+   "cx": 460,
+   "cy": 346,
+   "r": 60,
+   "fill": "#CDE9D0",
+   "stroke": "good"
+  },
+  {
+   "kind": "text",
+   "id": "novaryT",
+   "x": 558,
+   "y": 373,
+   "text": "Ovary",
+   "size": 23,
+   "color": "ink"
+  },
+  {
+   "kind": "circle",
+   "id": "novule",
+   "cx": 467,
+   "cy": 345,
+   "r": 19,
+   "fill": "#F9DBA9",
+   "stroke": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "novuleT",
+   "x": 555,
+   "y": 340,
+   "text": "Ovule",
+   "size": 21,
+   "color": "warm"
+  },
+  {
+   "kind": "arrow",
+   "id": "ntransfer",
+   "x1": 240,
+   "y1": 193,
+   "x2": 413,
+   "y2": 134,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nmoves",
+   "x": 317,
+   "y": 159,
+   "text": "Pollen",
+   "size": 19,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "ntube",
+   "d": "M 459 132 L 459 307 Q 459 325 466 336",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "nseed",
+   "x": 450,
+   "y": 466,
+   "text": "Typically: ovule → seed and ovary → fruit",
+   "size": 25,
+   "color": "accent",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -375,6 +518,129 @@
      "target": "n2",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "flower1",
+   "narration": {
+    "en": "Follow pollen from an anther to the stigma. This first event is pollination."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "nanther",
+     "at": 0.17,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nantherT",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "nstigma",
+     "at": 0.31,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nstigmaT",
+     "at": 0.37
+    },
+    {
+     "do": "draw",
+     "target": "ntransfer",
+     "at": 0.49,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nmoves",
+     "at": 0.58
+    }
+   ]
+  },
+  {
+   "id": "flower2",
+   "narration": {
+    "en": "A compatible pollen grain can grow a tube down through the style. The tube carries the male gametes towards an ovule inside the ovary."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nstyle",
+     "at": 0.16,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nstyleT",
+     "at": 0.21
+    },
+    {
+     "do": "draw",
+     "target": "novary",
+     "at": 0.29,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "novaryT",
+     "at": 0.36
+    },
+    {
+     "do": "draw",
+     "target": "novule",
+     "at": 0.41,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "novuleT",
+     "at": 0.46
+    },
+    {
+     "do": "draw",
+     "target": "ntube",
+     "at": 0.59,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "flower3",
+   "narration": {
+    "en": "Fertilisation occurs in the ovule when a male gamete fuses with the egg. In a typical flower, the ovule becomes a seed and the surrounding ovary becomes a fruit."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "novule",
+     "at": 0.22,
+     "color": "warm"
+    },
+    {
+     "do": "pulse",
+     "target": "novary",
+     "at": 0.57,
+     "color": "good"
+    },
+    {
+     "do": "write",
+     "target": "nseed",
+     "at": 0.74,
+     "ms": 450
     }
    ]
   }
