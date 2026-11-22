@@ -1,5 +1,6 @@
 import { dice, detectLanguage, hamming, OPEN_LICENCES, scanContent, scanCopyright, scanPii, simhash, type LicenceId, type PiiResult, type TermLists } from "./detectors.js";
 import { friendlyBlocker, type PdfScan } from "./pdfscan.js";
+import { publisherBook } from "./publisher-evidence.js";
 import type { Extracted } from "./textextract.js";
 
 export type Status = "pass" | "warn" | "fail" | "skip";
@@ -69,10 +70,11 @@ export function reviewSubmission(inp: ReviewInput): Report {
         else notes.push("Scanned pictures with no readable text (allowed by the admin).");
       }
       const blankPct = pages.length ? (blank / pages.length) * 100 : 0;
-      if (textLayer && blankPct > num(v, "contrib.quality.maxBlankPercent", 40)) bump("warn", `${Math.round(blankPct)}% of pages look blank.`);
-      if (ex.error) notes.push(ex.error);
+      if (textLayer && blankPct > num(v, "contrib.quality.maxBlankPercent", 40)) notes.push(`${Math.round(blankPct)}% of pages have little or no extractable text.`);
+      if (ex.error) bump("warn", ex.error);
+      else if (pages.length !== ex.pageCount) bump("warn", "Only part of the PDF was checked.");
     }
-    add("quality", "Quality and suitability", st, st === "pass" ? `${ex.pageCount} pages, readable text found.` : notes[0]!, notes);
+    add("quality", "Quality and suitability", st, notes[0] ?? `${ex.pageCount} pages, readable text found.`, notes);
   } else add("quality", "Quality and suitability", "skip", "Switched off by the admin.");
 
   // ---- 3. duplicates
@@ -90,21 +92,23 @@ export function reviewSubmission(inp: ReviewInput): Report {
 
   // ---- 4. copyright
   const cr = scanCopyright(pages, meta.title, terms);
+  const publisher = publisherBook(inp.sha256);
+  const detected = [...new Set([...cr.detectedLicences, ...(publisher ? [publisher.licence] : [])])];
   if (on(v, "contrib.check.copyright")) {
     const items: string[] = [];
     let st: Status = "pass";
     const bump = (s: Status, msg: string) => { items.push(msg); if (s === "fail" || (s === "warn" && st === "pass")) st = s; };
     const declared = meta.licence as LicenceId | "permission" | "own";
-    const detected = cr.detectedLicences;
     const blocked = [...cr.publisherHits.map((x) => `publisher: ${x}`), ...cr.titleHits.map((x) => `title: ${x}`), ...cr.phraseHits.map((x) => `phrase: ${x}`)];
     if (blocked.length) {
       if (v["contrib.copyright.blockedIsReject"] !== false) { bump("fail", `Matches your blocked list (${blocked.slice(0, 3).join("; ")}).`); reasons.push("This book looks like a commercial or pirated publication (it matches our protected-publisher list), so we cannot add it. If you own the rights, please contact us."); }
       else bump("warn", `Matches your blocked list (${blocked.slice(0, 3).join("; ")}).`);
     }
     if (OPEN_LICENCES.includes(declared as LicenceId)) {
-      if (detected.includes(declared as LicenceId)) items.push(`Licence statement found in the book: ${declared}.`);
+      if (publisher?.licence === declared) items.push(`Publisher licence confirmed for this exact PDF: ${declared}.`);
+      else if (detected.length === 1 && detected.includes(declared as LicenceId) && !cr.allRightsReserved) items.push(`Licence statement found in the book: ${declared}.`);
       else if (cr.allRightsReserved && !detected.length && v["contrib.copyright.rejectAllRights"] !== false) { bump("fail", "The book says 'All rights reserved' but you declared an open licence."); reasons.push("The book itself says 'All rights reserved', which does not match the open licence you chose. Only books that are free to share can be added."); }
-      else if (detected.length && !detected.includes(declared as LicenceId)) bump("warn", `You declared ${declared} but the book states ${detected.join(", ")}.`);
+      else if (detected.length) bump("warn", `The book’s licence notices need clarification. You declared ${declared}; detected notices: ${detected.join(", ")}.`);
       else bump("warn", "The open licence you declared is not stated inside the book; a person will check your proof.");
     } else if (declared === "own") {
       if (cr.publisherHits.length || (cr.isbnCount > 0 && cr.copyrightNotice)) bump("warn", "You said it is your own work but it carries a publisher or ISBN notice.");
@@ -113,7 +117,7 @@ export function reviewSubmission(inp: ReviewInput): Report {
     else bump("warn", "No recognised licence was declared.");
     if (cr.textbookMarkers.length) bump("warn", "Looks like a school textbook (government or board textbooks are not automatically free to republish).");
     if (cr.isbnCount && declared !== "own" && !detected.length) bump("warn", `Has ${cr.isbnCount} ISBN number(s), which usually means a published book.`);
-    add("copyright", "Copyright check", st, st === "pass" ? "No sign of copyright problems." : items[0]!, items);
+    add("copyright", "Copyright check", st, items[0] ?? "No sign of copyright problems.", items);
   } else add("copyright", "Copyright check", "skip", "Switched off by the admin.");
 
   // ---- 5. personal data
@@ -152,18 +156,18 @@ export function reviewSubmission(inp: ReviewInput): Report {
   const fails = checks.filter((c) => c.status === "fail").length, warns = checks.filter((c) => c.status === "warn").length;
   const score = Math.max(0, 100 - fails * 40 - warns * 12);
   let outcome: Outcome = fails ? "reject" : "review";
-  if (!fails && !warns && on(v, "contrib.autoApprove.enabled") === true && v["contrib.autoApprove.enabled"] === true) {
+  if (!fails && v["contrib.autoApprove.enabled"] === true) {
     const allowed = String(v["contrib.autoApprove.licences"] ?? "").split(",").map((s) => s.trim());
-    const verified = cr.detectedLicences.includes(meta.licence as LicenceId) && allowed.includes(meta.licence);
+    const verified = detected.includes(meta.licence as LicenceId) && allowed.includes(meta.licence);
     const evaluated = checks.filter((c) => ["copyright", "pii", "content", "duplicates", "quality", "structure"].includes(c.id));
-    if (verified && textLayer && evaluated.every((c) => c.status === "pass")) outcome = "approve";
+    if (verified && textLayer && !ex.error && ex.pages.length === ex.pageCount && evaluated.every((c) => c.status === "pass")) outcome = "approve";
   }
   if (!fails && outcome === "review") {
     for (const c of checks) if (c.status === "warn" && c.id !== "language") reasons.push(c.detail);
     if (!reasons.length) reasons.push("A person at SharpStudy will read your submission and publish it if everything is fine.");
   }
   return {
-    checks, score, outcome, reasons: [...new Set(reasons)].slice(0, 8), detectedLicences: cr.detectedLicences, language: lang.code, simhash: sim,
+    checks, score, outcome, reasons: [...new Set(reasons)].slice(0, 8), detectedLicences: detected, language: lang.code, simhash: sim,
     stats: { pages: ex.pageCount, pagesRead: pages.length, avgChars, blankPages: blank, words: allText.split(/\s+/).filter(Boolean).length, bytes: inp.bytes, textLayer },
     pii: pii ? { counts: pii.counts, pages: pii.pages, samples: pii.samples } : null,
     createdAt: new Date().toISOString(),

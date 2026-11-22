@@ -191,7 +191,7 @@ export function scanCopyright(pages: string[], title: string, terms: TermLists):
   for (const ph of terms.blockedPhrases) if (all.includes(ph)) res.phraseHits.push(ph);
   for (const r of TEXTBOOK) if (r.test(edge)) res.textbookMarkers.push(r.source.replace(/\\b|\\s\+|\(\?:|\)/g, " ").trim().slice(0, 40));
   const lic = new Set<LicenceId>();
-  const L = edge;
+  const L = edge.split("\n").filter((line) => !/^\s*(?:image|photo|illustration)\s+(?:attribution|credit)\s*:/i.test(line)).join("\n");
   if (/creativecommons\.org\/publicdomain\/zero|\bCC0\b/i.test(L)) lic.add("cc0");
   if (/creativecommons\.org\/licenses\/by-nc-sa\/|CC[\s-]BY[\s-]NC[\s-]SA/i.test(L)) lic.add("by-nc-sa");
   else if (/creativecommons\.org\/licenses\/by-nc\/|CC[\s-]BY[\s-]NC(?![\s-]*(?:SA|ND))/i.test(L)) lic.add("by-nc");

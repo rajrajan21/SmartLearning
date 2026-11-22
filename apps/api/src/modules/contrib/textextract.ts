@@ -67,7 +67,7 @@ export async function extractPdf(buf: Buffer, o: ExtractOptions): Promise<Extrac
         for (const it of tc.items as { str?: string; hasEOL?: boolean }[]) { if (typeof it.str === "string") s += it.str + (it.hasEOL ? "\n" : " "); if (s.length > cap) break; }
         out.pages.push(s.replace(/[ \t\u00a0]+/g, " ").replace(/ ?\n ?/g, "\n").slice(0, cap));
         page.cleanup?.();
-      } catch { out.pages.push(""); }
+      } catch { out.pages.push(""); out.error ??= `Page ${p} could not be checked.`; }
     }
     try {
       const walk = async (items: any[] | null, level: number) => {

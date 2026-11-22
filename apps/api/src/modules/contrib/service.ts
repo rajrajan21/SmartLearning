@@ -5,7 +5,8 @@ import { join } from "node:path";
 import type { SettingsService } from "../settings/service.js";
 import { hashOf, newId, type ContribStore, type Notice, type Submission, type SubStatus } from "./store.js";
 import { FetchError, parseDomains, safeFetch } from "./ssrf.js";
-import { scanPdf } from "./pdfscan.js";
+import { publisherBook } from "./publisher-evidence.js";
+import { scanContributionPdf } from "./pdfscan.js";
 import { extractPdf, type Extracted } from "./textextract.js";
 import { reviewSubmission, type Declared, type ExistingBook, type Report } from "./review.js";
 import { cleanTerms, maskPii, scanContent } from "./detectors.js";
@@ -188,7 +189,13 @@ export function createContribService(d: ContribDeps): ContribService {
       if (!buf) return reject(["The file was not received. Please try again."], "No file");
       const maxMB = Number(v["contrib.maxMB"] ?? 60);
       if (buf.length > maxMB * 1048576) return reject([`That file is larger than ${maxMB} MB.`], "Too big");
-      const scan = scanPdf(buf);
+      const scan = await scanContributionPdf(buf);
+      const publisher = scan.ok ? publisherBook(sub.sha256) : undefined;
+      if (publisher?.licence === sub.meta.licence) {
+        sub.meta.author = publisher.author;
+        sub.meta.sourceUrl = publisher.url;
+        sub.meta.licenceProof = "Free Kids Books confirms the author's CC BY-SA licence on the publication page.";
+      }
       const ex: Extracted = scan.ok
         ? await (d.extract ?? extractPdf)(buf, { maxPages: Math.min(Number(v["contrib.maxPages"] ?? 600) + 1, 1200), maxMs: 90_000, cover: true })
         : { engine: false, pageCount: 0, pages: [], outline: [], info: { title: "", author: "" }, coverJpeg: null };

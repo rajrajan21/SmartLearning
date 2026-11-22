@@ -1,7 +1,8 @@
+import { PDFDocument } from "pdf-lib";
 import { deflateSync } from "node:zlib";
 import { describe, expect, it } from "vitest";
 import { cleanPdf, rawPdf } from "./contrib-fixtures.js";
-import { scanPdf } from "../src/modules/contrib/pdfscan.js";
+import { scanContributionPdf, scanPdf } from "../src/modules/contrib/pdfscan.js";
 
 const codes = (b: Buffer) => scanPdf(b).blockers.map((x) => x.code);
 
@@ -11,6 +12,18 @@ describe("PDF structure scan", () => {
     expect(s.ok).toBe(true);
     expect(s.blockers).toEqual([]);
   });
+  it("clears an apparent /JS token inside a parsed JPEG stream", async () => {
+    const doc = await PDFDocument.create();
+    doc.addPage();
+    doc.context.register(doc.context.stream(
+      Uint8Array.of(0xff, 0xd8, 0x2f, 0x4a, 0x53, 0x5b, 0xff, 0xd9),
+      { Type: "XObject", Subtype: "Image", Filter: "DCTDecode" },
+    ));
+    const buf = Buffer.from(await doc.save({ useObjectStreams: false }));
+    expect(scanPdf(buf).blockers.map((b) => b.code)).toEqual(["has_js"]);
+    expect(await scanContributionPdf(buf)).toMatchObject({ ok: true, blockers: [] });
+  });
+
   it("rejects JavaScript, including a name hidden with #xx escapes", () => {
     expect(codes(rawPdf("/OpenAction << /S /JavaScript /JS (app.alert(1)) >>"))).toContain("has_javascript");
     expect(codes(rawPdf("/AA << /O << /S /J#61vaScr#69pt /JS (x) >> >>"))).toContain("has_javascript");
@@ -22,6 +35,13 @@ describe("PDF structure scan", () => {
     expect(codes(rawPdf("", "4 0 obj\n<< /Subtype /RichMedia >>\nendobj\n"))).toContain("has_richmedia");
     expect(codes(rawPdf("", "4 0 obj\n<< /S /SubmitForm /F (http://x) >>\nendobj\n"))).toContain("has_submitform");
   });
+  it("keeps the original rejection when an image cannot explain the token", async () => {
+    const doc = await PDFDocument.create();
+    doc.addPage();
+    doc.context.register(doc.context.stream(Uint8Array.of(0x2f, 0x4a, 0x53, 0x5b)));
+    expect((await scanContributionPdf(Buffer.from(await doc.save({ useObjectStreams: false })))).ok).toBe(false);
+  });
+
   it("rejects an encrypted PDF", () => { expect(codes(rawPdf("/Encrypt 9 0 R"))).toContain("encrypted"); });
   it("allows a harmless go-to-page start setting but blocks an inline start action", () => {
     expect(scanPdf(rawPdf("/OpenAction [3 0 R /Fit]")).ok).toBe(true);

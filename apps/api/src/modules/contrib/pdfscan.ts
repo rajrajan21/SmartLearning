@@ -1,3 +1,4 @@
+import { PDFArray, PDFDict, PDFDocument, PDFName, PDFRawStream } from "pdf-lib";
 import { inflateSync } from "node:zlib";
 
 /**
@@ -36,7 +37,7 @@ function collectNames(text: string, into: Record<string, number>) {
 }
 
 export function scanPdf(buf: Buffer, limits: ScanLimits = DEFAULT_LIMITS): PdfScan {
-  const out: PdfScan = { ok: true, blockers: [], notes: [], names: {}, encrypted: false, bytes: buf.length, streamsInflated: 0 };
+  const out: PdfScan = { ok: true, blockers: [], notes: [], names: Object.create(null), encrypted: false, bytes: buf.length, streamsInflated: 0 };
   const block = (code: string, message: string) => { if (!out.blockers.some((b) => b.code === code)) out.blockers.push({ code, message }); };
   const note = (code: string, message: string) => { if (!out.notes.some((b) => b.code === code)) out.notes.push({ code, message }); };
   const started = Date.now();
@@ -90,6 +91,47 @@ export function scanPdf(buf: Buffer, limits: ScanLimits = DEFAULT_LIMITS): PdfSc
   if (out.names.AcroForm) note("form", "has form fields");
   out.ok = out.blockers.length === 0;
   return out;
+}
+
+/** Confirm an ambiguous raw /JS hit against parsed objects and JPEG payloads without executing PDF content. */
+export async function scanContributionPdf(buf: Buffer): Promise<PdfScan> {
+  const scan = scanPdf(buf);
+  if (scan.blockers.length !== 1 || scan.blockers[0]?.code !== "has_js" ||
+      scan.notes.some((note) => note.code === "scan_time" || note.code === "objstm")) return scan;
+
+  try {
+    const pdf = await PDFDocument.load(buf, { updateMetadata: false, throwOnInvalidObject: true });
+    const name = (value: string) => PDFName.of(value);
+    const checked = new Set<PDFDict | PDFArray>();
+    function hasActiveName(object: unknown): boolean {
+      if (object instanceof PDFName) {
+        const decoded = decodeName(object.toString().slice(1));
+        return Object.hasOwn(DANGEROUS, decoded) || decoded === "AA" || decoded === "OpenAction";
+      }
+      if (object instanceof PDFRawStream) return hasActiveName(object.dict);
+      if (!(object instanceof PDFDict || object instanceof PDFArray) || checked.has(object)) return false;
+      checked.add(object);
+      return object instanceof PDFDict
+        ? object.entries().some(([key, value]) => hasActiveName(key) || hasActiveName(value))
+        : object.asArray().some(hasActiveName);
+    }
+
+    let imageHits = 0;
+    for (const [, object] of pdf.context.enumerateIndirectObjects()) {
+      if (hasActiveName(object)) return scan;
+      if (!(object instanceof PDFRawStream) || object.dict.get(name("Subtype")) !== name("Image") ||
+          object.dict.get(name("Filter")) !== name("DCTDecode")) continue;
+      const bytes = Buffer.from(object.getContents());
+      if (bytes[0] !== 0xff || bytes[1] !== 0xd8) continue;
+      const names: Record<string, number> = Object.create(null);
+      collectNames(bytes.toString("latin1"), names);
+      imageHits += names.JS ?? 0;
+    }
+    if (!imageHits || imageHits !== scan.names.JS) return scan;
+    return { ...scan, ok: true, blockers: [], notes: [...scan.notes, { code: "image_bytes", message: "An apparent script marker was confirmed to be JPEG image data." }] };
+  } catch {
+    return scan;
+  }
 }
 
 /** Friendly, specific wording for the contributor. */

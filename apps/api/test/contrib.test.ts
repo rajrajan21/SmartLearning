@@ -139,6 +139,20 @@ describe("Contribute to the E-Library", () => {
     expect((await request(app).get("/api/v1/library")).body.books.map((b: { title: string }) => b.title)).toEqual(["Open Fox"]);
   });
 
+  it("publishes an eligible PDF with an advisory language difference", async () => {
+    const cc = await cleanPdf(["This work is licensed under https://creativecommons.org/licenses/by/4.0/ .", ...STORY]);
+    await send(cc, { title: "Open Fox", language: "ta", licence: "by", sourceUrl: "https://example.org/openfox", licenceProof: "The first page carries the CC BY 4.0 notice." });
+    await svc.waitIdle();
+    expect((await mine())[0]!.status).toBe("published");
+  });
+
+  it("keeps a book with only an image credit in manual review", async () => {
+    const cc = await cleanPdf(["Image Attribution: Photo under CC BY-SA.", ...STORY]);
+    await send(cc, { title: "Illustrated Fox", licence: "by-sa", sourceUrl: "https://example.org/illustratedfox", licenceProof: "Photo under CC BY-SA." });
+    await svc.waitIdle();
+    expect((await mine())[0]!.status).toBe("in_review");
+  });
+
   it("refuses duplicates of a file already sent", async () => {
     await send(pdfBuf); await svc.waitIdle();
     await send(pdfBuf, { title: "Same again" }); await svc.waitIdle();
