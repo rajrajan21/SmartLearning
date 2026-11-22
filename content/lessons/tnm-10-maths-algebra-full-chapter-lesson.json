@@ -34,7 +34,7 @@
      "matrix"
     ],
     "text": {
-     "en": "Simultaneous linear equations in two variables can be solved by substitution, elimination and the graphical method. A pair may have a unique solution, no solution or infinitely many, which we judge from the ratios of the coefficients.\nThe GCD and LCM of polynomials are found by factorisation, and rational expressions are simplified, added, subtracted, multiplied and divided like fractions. The square root of a polynomial is found by factorisation or by division.\nA quadratic equation ax^2 + bx + c = 0 is solved by factorisation, completing the square or the formula x = (-b +/- sqrt(b^2 - 4ac)) / 2a. The discriminant b^2 - 4ac tells the nature of the roots, and the sum and product of the roots are -b/a and c/a. Matrices are also introduced as arrays of numbers."
+     "en": "The main simultaneous equations in this chapter have three variables. Eliminate one variable from two different pairs of equations, then solve the resulting pair and check the values in the original three equations. For a pair in two variables, intersecting, parallel or coincident lines describe the three possible solution counts.\nThe GCD and LCM of polynomials are found by factorisation, and rational expressions are simplified, added, subtracted, multiplied and divided like fractions. The square root of a polynomial is found by factorisation or by division.\nA quadratic equation ax^2 + bx + c = 0 is solved by factorisation, completing the square or the formula x = (-b +/- sqrt(b^2 - 4ac)) / 2a. The discriminant b^2 - 4ac tells the nature of the roots, and the sum and product of the roots are -b/a and c/a. Matrices are also introduced as arrays of numbers."
     }
    },
    {
@@ -46,7 +46,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "Simultaneous linear equations in two variables can be solved by substitution, elimination and the graphical method."
+       "en": "This chapter builds on pairs of linear equations to solve simultaneous linear equations in three variables. Eliminate one variable first to get two equations in the other two."
       },
       "board": [
        {
@@ -61,7 +61,7 @@
      {
       "id": "t2",
       "text": {
-       "en": "A pair may have a unique solution, no solution or infinitely many, which we judge from the ratios of the coefficients."
+       "en": "For a pair of linear equations in two variables, distinct lines that meet give one solution. Parallel lines give none, and coincident lines give infinitely many."
       },
       "board": [
        {
@@ -129,6 +129,294 @@
         "text": "simultaneous equations"
        }
       ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Label the three equations before you start. Use two different pairs to eliminate the same variable, so both smaller equations involve the same two unknowns."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Three equations, three unknowns"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Take x plus y plus z equals six. We will compare it with two other equations that are nearly the same."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "I: x + y + z = 6"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Subtract the first equation from the second. The y and z terms cancel and one x remains, so x equals one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "II: 2x + y + z = 7"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "Subtract equation one from equation three. This time x and z cancel. The value of y is two."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "III: x + 2y + z = 8"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "Put one and two back into the first equation to find z equals three. Check the ordered triple in all three equations."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "(x, y, z) = (1, 2, 3)"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "Break each polynomial into factors before looking for common ones. The difference of two squares has a sum factor and a difference factor."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "x² − 9 = (x − 3)(x + 3)"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "For x squared times x plus one and x times x plus one squared, the highest common factor is x times x plus one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Common factor → lower power"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "The least common multiple needs every factor to its highest required power. Here it is x squared times the square of x plus one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "LCM → larger power"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "For the fraction x squared minus nine over x minus three, the original denominator rules out x equals three. A later simplification cannot restore that input."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Original denominator cannot be zero"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "Factor the numerator and cancel the common factor x minus three. The result is x plus three, with x equals three still excluded."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Cancel factors, not terms"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "To add one over x and one over x plus one, use the product of the denominators. The numerator becomes x plus one plus x."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Use a common denominator for addition"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "X squared plus six x plus nine factors as the square of x plus three. Expand the product to check the middle term."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Perfect squares can be recognised"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "In a quadratic, the coefficient of x squared must be nonzero. Move all terms to one side before reading a, b and c."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "For a = 0 the equation is not quadratic"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "The numbers minus two and minus three add to minus five and multiply to six. A zero product means one factor is zero."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "x² − 5x + 6 = (x − 2)(x − 3)"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "For x squared plus six x, half the coefficient is three. Add nine to make the left-hand side the square of x plus three."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Complete the square with half the x coefficient"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "If the discriminant is positive, its square root is positive, so the plus and minus parts of the formula give different real roots."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "D > 0: two different real roots"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "Zero makes the two formula results match. A negative discriminant cannot be square-rooted within the real numbers."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "D = 0: equal roots; D < 0: no real roots"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "Use these relations to check the roots two and three. Their sum is five and their product is six, just as the coefficients predict."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Add roots: −b/a; multiply: c/a"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "If y varies directly with x, the graph is a line through the origin. When x doubles, y doubles."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Direct variation: y = kx"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "If x and y are positive with product twelve, values two and six work. If x doubles to four, y drops to three."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Inverse variation: xy = k"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "Draw y equals x squared minus five x plus six. It crosses the horizontal axis at two and three, the solutions of the original equation."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A quadratic graph meets y = 0 at its real roots"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "A table with two rows and three columns is a two by three matrix. The first index selects a row and the second a column."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Rows × columns give the order"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "A two by three matrix times a three by two matrix gives a two by two result. Each entry comes from one row paired with one column."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Matrix multiplication uses matching inner dimensions"
+       }
+      ]
      }
     ]
    },
@@ -167,6 +455,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Solve x + y + z = 9, x + y − z = 1, and 2x + y + z = 11."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Subtract equation two from equation one to get 2z = 8. Subtract equation one from equation three to get x = 2."
+      },
+      "why": {
+       "en": "Each subtraction cancels two of the unknowns."
+      }
+     },
+     {
+      "text": {
+       "en": "z = 4 and y = 3. Substitute (2, 3, 4) into all three equations."
+      },
+      "why": {
+       "en": "The sums 9, 1 and 11 verify the ordered triple."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Simplify (x² − 16)/(x − 4). Can x be 4?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Factor the numerator as (x − 4)(x + 4)."
+      },
+      "why": {
+       "en": "The difference of two squares exposes a common factor."
+      }
+     },
+     {
+      "text": {
+       "en": "The expression becomes x + 4 for x ≠ 4."
+      },
+      "why": {
+       "en": "The original denominator is zero at x = 4."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "A matrix with rows (1, 2) and (3, 4) is multiplied by a column with entries 5 and 6. Find the first entry."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Pair the first row with the column."
+      },
+      "why": {
+       "en": "Multiply corresponding entries: 1 × 5 and 2 × 6."
+      }
+     },
+     {
+      "text": {
+       "en": "Add the products to get 17."
+      },
+      "why": {
+       "en": "A 2 × 2 matrix multiplied by a 2 × 1 matrix gives a 2 × 1 result."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -193,7 +559,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-alg740",
-     "r1-alg741"
+     "r1-alg741",
+     "tnm10-m-a-1",
+     "tnm10-m-a-2",
+     "tnm10-m-a-3",
+     "tnm10-m-a-4",
+     "tnm10-m-a-5",
+     "tnm10-m-a-6"
     ]
    },
    {

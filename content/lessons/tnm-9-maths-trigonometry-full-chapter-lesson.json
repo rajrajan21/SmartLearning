@@ -1,196 +1,594 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "trigonometry",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Trigonometry"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "trigonometry",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Trigonometry"
     },
-    "text": {
-     "en": "Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wondered."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "hypotenuse",
-     "sine, cosine, tangent",
-     "reciprocal ratios",
-     "complementary angles",
-     "trigonometric table",
-     "height and distance"
-    ],
-    "text": {
-     "en": "In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle. The trigonometric ratios are sine = opposite / hypotenuse, cosine = adjacent / hypotenuse and tangent = opposite / adjacent, and their reciprocals are cosecant, secant and cotangent.\nFor complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A. Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1.\nThe method of using the trigonometric table lets us find the ratio of any angle, and these ideas help to find heights and distances."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wondered."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "hypotenuse"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "The trigonometric ratios are sine = opposite / hypotenuse, cosine = adjacent / hypotenuse and tangent = opposite / adjacent, and their reciprocals are cosecant, secant and cotangent."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "hypotenuse",
+          "sine, cosine, tangent",
+          "reciprocal ratios",
+          "complementary angles",
+          "trigonometric table",
+          "height and distance"
+        ],
+        "text": {
+          "en": "In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle. The trigonometric ratios are sine = opposite / hypotenuse, cosine = adjacent / hypotenuse and tangent = opposite / adjacent, and their reciprocals are cosecant, secant and cotangent.\nFor complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A. Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1.\nA trigonometric table gives approximate ratio values for angles within its range. Those values can help us calculate lengths and angles in right-angled triangles."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "sine, cosine, tangent"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "For complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "hypotenuse"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The trigonometric ratios are sine = opposite / hypotenuse, cosine = adjacent / hypotenuse and tangent = opposite / adjacent, and their reciprocals are cosecant, secant and cotangent."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sine, cosine, tangent"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "reciprocal ratios"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complementary angles"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A trigonometric table gives approximate ratio values for angles within its range. Those values can help us calculate lengths and angles in right-angled triangles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "trigonometric table"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Start with a right-angled triangle. Mark the square corner first. The side across from that corner is the hypotenuse, and it stays the same when you switch between the other two angles."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Hypotenuse is opposite the right angle"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For the angle marked A, trace the leg touching A that is not the hypotenuse. This is the adjacent leg. The other leg, across the triangle, is opposite A."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A determines adjacent and opposite"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Imagine two right triangles with the same acute angle. They are similar, so if the side lengths double, the ratio of any pair of corresponding lengths stays the same."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same angle → similar triangles → same ratios"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length four. The leg of length three is then opposite A."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Opposite 3 · adjacent 4 · hypotenuse 5"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Sine of A is opposite divided by hypotenuse. Substitute three and five, giving three fifths. This compares two lengths without giving a unit."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin A = 3/5"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite divided by adjacent. The ratios are four fifths and three quarters."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "cos A = 4/5"
+              },
+              {
+                "op": "write",
+                "text": "tan A = 3/4"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Cosecant of A is the reciprocal of sine, so it is five thirds. Similarly, secant is the reciprocal of cosine, and cotangent is the reciprocal of tangent."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "cosec A = 5/3 · sec A = 5/4 · cot A = 4/3"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "The three pairs use the same two sides in opposite orders. Check that sine times cosecant gives one when both ratios are defined."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Reciprocal pairs multiply to 1 when both exist"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite leg becomes adjacent. The hypotenuse stays fixed."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Switch angles → the two legs switch roles"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "A and B add to ninety degrees because the third angle is a right angle. This makes the sine of B equal to the cosine of A. Both use the same leg over the same hypotenuse."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A + B = 90°"
+              },
+              {
+                "op": "write",
+                "text": "sin B = cos A"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Use the same side switch for tangent. Tangent of B equals the cotangent of A because these ratios use the same leg in the numerator and the same leg in the denominator."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "tan B = cot A"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "For the other reciprocal pair, compare secant of A with cosecant of its complementary angle. Because the corresponding cosine and sine are equal, their reciprocals are equal too."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sec A = cosec(90° − A)"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "A square split along a diagonal gives a right triangle with two equal legs. The acute angles are both forty-five degrees. With legs of length one, the hypotenuse is the square root of two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "45° triangle: 1, 1, √2"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "In that triangle, tangent of forty-five degrees is one divided by one. Sine and cosine are both one over the square root of two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "tan 45° = 1"
+              },
+              {
+                "op": "write",
+                "text": "sin 45° = cos 45° = 1/√2"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Now split an equilateral triangle with side length two down its middle. The cut creates a right triangle with hypotenuse two and shorter leg one. The remaining leg has length square root of three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "30° and 60° triangle: 1, √3, 2"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "The shorter leg lies opposite thirty degrees, so sine of thirty degrees is one half. Across from sixty degrees is the longer leg, so sine of sixty degrees is square root of three over two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin 30° = 1/2"
+              },
+              {
+                "op": "write",
+                "text": "sin 60° = √3/2"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Cosine of sixty degrees is one half by the complementary-angle rule. This matches the leg next to sixty degrees divided by the hypotenuse."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "cos 60° = sin 30° = 1/2"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "At the endpoint of ninety degrees, cosine is zero. Tangent would require dividing sine by zero, so tangent of ninety degrees is undefined."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "cos 90° = 0"
+              },
+              {
+                "op": "write",
+                "text": "tan 90° is undefined"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "At zero degrees, sine is zero and cosine is one. Tangent is zero divided by one, which is zero. Taking the reciprocal of zero would be undefined."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin 0° = 0 · cos 0° = 1"
+              },
+              {
+                "op": "write",
+                "text": "tan 0° = 0"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "A degree can be split into sixty minutes of angle. On a table, a row gives whole degrees and a column gives minutes. This is an angle measurement rather than a time measurement."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1° = 60′"
+              },
+              {
+                "op": "write",
+                "text": "Read degrees row and minutes column"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "For sine of twenty-six degrees thirty minutes, find the twenty-six degree row in a sine table. Then find the thirty-minute column. A four-decimal table gives about zero point four four six two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin 26° 30′ ≈ 0.4462"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "For an angle between displayed columns, a table may give a small mean difference to adjust the listed value. In the example, twenty-six degrees thirty-two minutes is slightly larger, so its sine is slightly larger."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sin 26° 32′ ≈ 0.4467"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A board ramp forms thirty degrees with a horizontal base. Its sloping side is six metres in a diagram. The rise is opposite that angle, so one half of six gives three metres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "rise = 6 × sin 30° = 3 m"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "If the ground length and the rise are known, tangent compares those two numbers. First sketch the triangle and mark the angle you are working from. That tells you which ratio uses the known sides."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Choose a ratio that uses the known sides"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Pick two numbers from the same drawing and explain the ratio out loud. Then switch to the other acute angle and explain why the numerator or denominator changes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mark the angle → name the sides → form the ratio"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "reciprocal ratios"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A six-metre ramp in a diagram makes an angle of thirty degrees with the horizontal. Find the vertical rise."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Mark the ramp as the hypotenuse and the vertical rise as the opposite side."
+            },
+            "why": {
+              "en": "The ramp is across from the right angle and the rise is across from the marked thirty-degree angle."
+            }
+          },
+          {
+            "text": {
+              "en": "Use sine of thirty degrees, which is one half. Multiply six metres by one half."
+            },
+            "why": {
+              "en": "The sine compares rise with ramp length. The vertical rise is three metres."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "complementary angles"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "The method of using the trigonometric table lets us find the ratio of any angle, and these ideas help to find heights and distances."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says sin 30 = 1. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "sin 30 = 1/2."
+          },
+          {
+            "en": "sin 90 is 1."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "trigonometric table"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "In a right triangle opposite = 3 and hypotenuse = 5. Find sin A."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "sin A = opposite / hypotenuse."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-tri250",
+          "r1-tri251",
+          "tnm9-trig-apply-1",
+          "tnm9-trig-table-1",
+          "tnm9-trig-endpoint-1"
+        ]
       },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "sin = opp / hyp."
+          },
+          {
+            "en": "cos = adj / hyp."
+          },
+          {
+            "en": "tan = opp / adj."
+          },
+          {
+            "en": "sin(90 - A) = cos A."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "3 / 5."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "sin A = 3/5."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says sin 30 = 1. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "sin 30 = 1/2."
-     },
-     {
-      "en": "sin 90 is 1."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-tri250",
-     "r1-tri251"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "sin = opp / hyp."
-     },
-     {
-      "en": "cos = adj / hyp."
-     },
-     {
-      "en": "tan = opp / adj."
-     },
-     {
-      "en": "sin(90 - A) = cos A."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

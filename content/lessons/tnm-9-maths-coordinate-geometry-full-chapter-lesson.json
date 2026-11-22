@@ -1,208 +1,595 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "coordinate-geometry",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Coordinate Geometry"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "coordinate-geometry",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Coordinate Geometry"
     },
-    "text": {
-     "en": "Meena found her seat in the cinema hall by row and seat number. \"Two numbers locate a place,\" said her teacher."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "Cartesian plane",
-     "origin",
-     "ordered pair",
-     "quadrant",
-     "distance formula",
-     "section formula"
-    ],
-    "text": {
-     "en": "The Cartesian plane is made by two number lines, the x-axis and the y-axis, which meet at the origin. A point is located by an ordered pair (x, y), where x is the abscissa and y the ordinate. The axes divide the plane into four quadrants.\nIn the first quadrant both coordinates are positive, in the second x is negative and y positive, in the third both are negative and in the fourth x is positive and y negative. Points on the x-axis have y = 0 and points on the y-axis have x = 0.\nThe distance between two points (x1, y1) and (x2, y2) is the square root of (x2 - x1)^2 + (y2 - y1)^2, and the section formula finds the point dividing the segment in a given ratio."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "The Cartesian plane is made by two number lines, the x-axis and the y-axis, which meet at the origin."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena found her seat in the cinema hall by row and seat number. \"Two numbers locate a place,\" said her teacher."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "Cartesian plane"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "A point is located by an ordered pair (x, y), where x is the abscissa and y the ordinate."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "Cartesian plane",
+          "origin",
+          "ordered pair",
+          "quadrant",
+          "distance formula",
+          "section formula"
+        ],
+        "text": {
+          "en": "The Cartesian plane is made by two number lines, the x-axis and the y-axis, which meet at the origin. A point is located by an ordered pair (x, y), where x is the abscissa and y the ordinate. The axes divide the plane into four quadrants.\nIn the first quadrant both coordinates are positive, in the second x is negative and y positive, in the third both are negative and in the fourth x is positive and y negative. Points on the x-axis have y = 0 and points on the y-axis have x = 0.\nThe distance between two points (x1, y1) and (x2, y2) is the square root of (x2 - x1)^2 + (y2 - y1)^2, and the section formula finds the point dividing the segment in a given ratio."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "origin"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "The axes divide the plane into four quadrants."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The Cartesian plane is made by two number lines, the x-axis and the y-axis, which meet at the origin."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Cartesian plane"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A point is located by an ordered pair (x, y), where x is the abscissa and y the ordinate."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "origin"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The axes divide the plane into four quadrants."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "ordered pair"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "In the first quadrant both coordinates are positive, in the second x is negative and y positive, in the third both are negative and in the fourth x is positive and y negative."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "quadrant"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Points on the x-axis have y = 0 and points on the y-axis have x = 0."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "distance formula"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The distance between two points (x1, y1) and (x2, y2) is the square root of (x2 - x1)^2 + (y2 - y1)^2, and the section formula finds the point dividing the segment in a given ratio."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "section formula"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Think of the plane as a pair of signed number lines at right angles. The horizontal one is the x-axis and the vertical one is the y-axis. Each starts its count from their meeting point."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Origin is (0, 0)"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "To plot two comma three, begin at the origin, move two units right, then go three units up. The horizontal coordinate comes first in the ordered pair."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(2, 3) → right 2, up 3"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Switch the order to three comma two. The point is farther right but lower. The same two numbers can describe different places when their order changes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(2, 3) and (3, 2) differ"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "A negative x-coordinate means left of the vertical axis, and a negative y-coordinate means below the horizontal axis. Combine both instructions to find a point like negative four comma negative two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(−4, −2) → left 4, down 2"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "A point on an axis is outside the four open quadrants. In four comma zero, the vertical move is zero, so the point lies on the horizontal axis."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(4, 0) lies on the x-axis"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Before finding a distance, check whether both points have the same y-coordinate. If they do, count the horizontal difference. From negative two comma one to four comma one is six units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same y: distance = |4 − (−2)| = 6"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "For points with the same x-coordinate, use the vertical difference. From two comma negative three to two comma five is eight units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same x: distance = |5 − (−3)| = 8"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "When both coordinates change, draw one horizontal and one vertical segment between them. Their right angle makes a triangle with the distance between the points as the hypotenuse."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Horizontal change · vertical change · diagonal"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "For negative one comma two and three comma five, the changes are four horizontally and three vertically. The square of the distance is sixteen plus nine."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Δx = 4, Δy = 3"
+              },
+              {
+                "op": "write",
+                "text": "distance² = 16 + 9"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "The square root of twenty-five is five, so the points are five units apart. The sign of a coordinate change can reverse if you swap the endpoints, but its square stays the same."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Distance = 5 units"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "Find a midpoint by averaging the x-coordinates and averaging the y-coordinates separately. You can check by moving equal horizontal and vertical amounts from each end."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Midpoint: average each coordinate"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "For endpoints two comma one and eight comma seven, the averages are five and four. The midpoint is five comma four, halfway along the whole segment."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "M = ((2+8)/2, (1+7)/2) = (5, 4)"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "If the midpoint and one end are known, work backward with the averages. A midpoint of five comma four and an end of two comma one require a horizontal change of three and a vertical change of three to reach the other end."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Reflect (2, 1) through (5, 4) to (8, 7)"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Trisecting a segment means dividing it into three equal lengths. To find both dividing points on a grid, split the horizontal and vertical moves into three equal steps."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Trisection: split each coordinate change into 3"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "From two comma one to eight comma seven, each third moves two right and two up. The first dividing point is four comma three and the second is six comma five."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Trisection points: (4, 3), (6, 5)"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "For an internal ratio of two to three, the segment is divided into five equal parts. Starting from the first endpoint, travel two fifths of both coordinate changes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "AP : PB = 2 : 3"
+              },
+              {
+                "op": "write",
+                "text": "P is two fifths of the way from A"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "In general, if A P to P B is m to n, the coordinate at P is n parts of the first endpoint plus m parts of the second, divided by m plus n. Apply that to x and y separately."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P = ((n x₁ + m x₂)/(m+n), (n y₁ + m y₂)/(m+n))"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Try A at one comma two and B at eleven comma seven in the ratio two to three. Two fifths of the horizontal move is four, and two fifths of the vertical move is two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Move (4, 2) from (1, 2)"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "The point is five comma four. Check that it is closer to A than to B, which fits the ratio two to three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P = (5, 4)"
+              },
+              {
+                "op": "write",
+                "text": "AP is the shorter part"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "A median of a triangle joins a vertex to the midpoint of its opposite side. The three medians meet at the centroid."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Median: vertex → opposite midpoint"
+              },
+              {
+                "op": "write",
+                "text": "Medians meet at the centroid"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "The centroid lies two thirds of the way from each vertex to its opposite midpoint. Its x-coordinate is the mean of the three vertex x-coordinates, and its y-coordinate is the mean of the three vertex y-coordinates."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Centroid: average all 3 x values and all 3 y values"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "For a triangle with vertices zero comma zero, six comma zero and zero comma nine, the average coordinates are two and three. Place this point inside the triangle."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "G = ((0+6+0)/3, (0+0+9)/3) = (2, 3)"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Check that point on the median from zero comma nine. The midpoint of the horizontal side is three comma zero. Two thirds of the move from the vertex gives two right and six down, reaching two comma three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Median check gives (2, 3) again"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Before choosing a formula, ask what the question is finding: a length, a point on a segment, or the balance point of a triangle. Then label which coordinates belong in the calculation."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Length → distance"
+              },
+              {
+                "op": "write",
+                "text": "Point on a segment → section"
+              },
+              {
+                "op": "write",
+                "text": "Triangle medians → centroid"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "ordered pair"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "In the first quadrant both coordinates are positive, in the second x is negative and y positive, in the third both are negative and in the fourth x is positive and y negative."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the point that divides the line from (1, 2) to (11, 7) internally in the ratio 2 to 3, starting at (1, 2)."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Find the total change. Move ten units right and five units up from the first endpoint to the second."
+            },
+            "why": {
+              "en": "These are the horizontal and vertical coordinate differences."
+            }
+          },
+          {
+            "text": {
+              "en": "Take two fifths of each change. This is four units right and two units up."
+            },
+            "why": {
+              "en": "The first portion uses two of the five equal parts."
+            }
+          },
+          {
+            "text": {
+              "en": "Start at one comma two and make that move to reach five comma four."
+            },
+            "why": {
+              "en": "The resulting point should lie nearer the first endpoint."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "quadrant"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Points on the x-axis have y = 0 and points on the y-axis have x = 0."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says The point (-2, 3) lies in the first quadrant. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Its x is negative and y is positive."
+          },
+          {
+            "en": "So it lies in the second quadrant."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "distance formula"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "The distance between two points (x1, y1) and (x2, y2) is the square root of (x2 - x1)^2 + (y2 - y1)^2, and the section formula finds the point dividing the segment in a given ratio."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-coo660",
+          "r1-coo661",
+          "tnm9-coord-midpoint-1",
+          "tnm9-coord-section-1",
+          "tnm9-coord-centroid-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "section formula"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Find the distance between (0, 0) and (3, 4)."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Use the distance formula."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Two axes meet at the origin."
+          },
+          {
+            "en": "(x, y) is an ordered pair."
+          },
+          {
+            "en": "Four quadrants."
+          },
+          {
+            "en": "Distance = sqrt((x2 - x1)^2 + (y2 - y1)^2)."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "sqrt(3^2 + 4^2) = sqrt(25)."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "The distance is 5 units."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says The point (-2, 3) lies in the first quadrant. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Its x is negative and y is positive."
-     },
-     {
-      "en": "So it lies in the second quadrant."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-coo660",
-     "r1-coo661"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Two axes meet at the origin."
-     },
-     {
-      "en": "(x, y) is an ordered pair."
-     },
-     {
-      "en": "Four quadrants."
-     },
-     {
-      "en": "Distance = sqrt((x2 - x1)^2 + (y2 - y1)^2)."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

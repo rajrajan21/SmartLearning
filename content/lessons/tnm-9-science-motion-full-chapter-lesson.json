@@ -1,232 +1,569 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "motion",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Motion"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "motion",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Motion"
     },
-    "text": {
-     "en": "Meena watched a train leave the station while her bus stood still. \"Which of us is moving?\" she wondered."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "distance",
-     "displacement",
-     "velocity",
-     "acceleration",
-     "equations of motion",
-     "centripetal force"
-    ],
-    "text": {
-     "en": "Motion is the change in the position of an object with respect to its surroundings. Distance is the total length of the path travelled, while displacement is the shortest straight-line change of position in a particular direction. Distance has only size, but displacement also has a direction.\nSpeed is the distance covered in unit time. Velocity is the displacement in unit time, so it includes direction. Acceleration is the rate of change of velocity, and negative acceleration is called retardation or deceleration. A distance-time graph with a steeper slope shows a greater speed.\nFor uniformly accelerated motion there are three equations: v = u + at, s = ut + (1/2)at^2 and v^2 = u^2 + 2as. Here u is the initial velocity, v the final velocity, a the acceleration, t the time and s the displacement. A freely falling body has the acceleration due to gravity.\nWhen a body moves in a circle at constant speed its direction keeps changing, so it keeps accelerating towards the centre. This is centripetal acceleration and the force causing it is the centripetal force. The apparent force that seems to act away from the centre is called centrifugal force."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Motion is the change in the position of an object with respect to its surroundings."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena watched a train leave the station while her bus stood still. \"Which of us is moving?\" she wondered."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "distance"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "Distance is the total length of the path travelled, while displacement is the shortest straight-line change of position in a particular direction."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "distance",
+          "displacement",
+          "velocity",
+          "acceleration",
+          "equations of motion",
+          "centripetal force"
+        ],
+        "text": {
+          "en": "Motion is the change in the position of an object with respect to its surroundings. Distance is the total length of the path travelled, while displacement is the shortest straight-line change of position in a particular direction. Distance has only size, but displacement also has a direction.\nSpeed is the distance covered in unit time. Average velocity is displacement divided by elapsed time. It includes direction. Instantaneous velocity describes how fast and in which direction an object moves at a particular moment. Acceleration is the rate of change of velocity. An object slows down when acceleration opposes its velocity. The sign of the acceleration depends on the direction chosen as positive. On a graph of total distance travelled against time, slope gives speed. A steeper segment on the same scale indicates greater speed.\nFor uniformly accelerated motion there are three equations: v = u + at, s = ut + (1/2)at^2 and v^2 = u^2 + 2as. Here u is the initial velocity, v the final velocity, a the acceleration, t the time and s the displacement. A freely falling body has the acceleration due to gravity.\nWhen a body moves in a circle at constant speed its direction keeps changing, so it keeps accelerating towards the centre. This is centripetal acceleration and the force causing it is the centripetal force. The apparent force that seems to act away from the centre is called centrifugal force."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "displacement"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Distance has only size, but displacement also has a direction."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Motion is the change in the position of an object with respect to its surroundings."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "distance"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Distance is the total length of the path travelled, while displacement is the shortest straight-line change of position in a particular direction."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "displacement"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Distance has only size, but displacement also has a direction."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "velocity"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Speed is the distance covered in unit time."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "acceleration"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Average velocity is displacement divided by elapsed time. It includes direction. Instantaneous velocity describes how fast and in which direction an object moves at a particular moment."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "equations of motion"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Acceleration is the rate of change of velocity. An object slows down when acceleration opposes its velocity. The sign of the acceleration depends on the direction chosen as positive."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "centripetal force"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "On a graph of total distance travelled against time, slope gives speed. A steeper segment on the same scale indicates greater speed."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "distance"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For uniformly accelerated motion there are three equations: v = u + at, s = ut + (1/2)at^2 and v^2 = u^2 + 2as."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "displacement"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Watch the station from inside a train. The platform changes position compared with the seat, but a bag resting on the seat does not. The description depends on what we compare the motion with."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Name the reference object"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Think of a toy car rolling straight along a ruler and a fan blade turning around a centre. Both move, but their paths differ. A path is useful evidence when you describe the kind of motion."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Straight path · turning about a centre"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Let east be positive on a straight road. A runner goes eight metres east and then three metres west. Add both path lengths to get a total distance of eleven metres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Distance = 8 + 3 = 11 m"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Compare the finishing point with the starting point. Eight metres east followed by three metres west leaves the runner five metres east of the start."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Displacement = +8 − 3 = +5 m east"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "If the runner goes all the way back to the start, the displacement is zero. The total distance still counts the outward trip and the return."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Closed route: distance can be positive while displacement is zero"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Use the trip with eleven metres of travel and five metres of displacement. If it lasts four seconds, average speed is eleven divided by four, or two point seven five metres per second."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Average speed = 11/4 = 2.75 m/s"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "For the same four seconds, average velocity uses the displacement of five metres east. Divide five by four to get one point two five metres per second east."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Average velocity = +5/4 = 1.25 m/s east"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "A speedometer measures speed at a particular moment. Average speed uses a whole interval and can differ from every reading during some parts of a trip."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Instantaneous: one moment"
+              },
+              {
+                "op": "write",
+                "text": "Average: one time interval"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "A moving object covers equal distances in equal time intervals when its speed is constant. For constant velocity, both its speed and its direction stay the same."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Constant velocity: same speed AND direction"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Compare one object’s cumulative distance graph with another on the same axes. A flat segment shows no additional distance during that interval. An upward segment shows distance increasing."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Flat distance–time section: at rest"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "On a displacement–time graph, a slope can also point downward. If east is positive, displacement decreasing with time shows motion with a westward velocity."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Displacement–time slope gives signed velocity"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "On a velocity–time graph the slope gives acceleration. With velocity changing from two to ten metres per second over four seconds, the slope is eight divided by four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "a = (10 − 2)/4 = 2 m/s²"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Area under a velocity–time graph gives signed displacement. In our all-positive example, draw a rectangle and a triangle. The rectangle is eight metres and the triangle is sixteen metres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area = 4×2 + ½×4×8 = 24 m"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "An area below the zero-velocity line contributes negatively to displacement. To find distance, count its magnitude positively, because distance adds path lengths."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Below axis: negative contribution to displacement"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Take east as positive. A westbound object changes from minus ten to minus four metres per second. It is slowing even though its change in velocity, and hence its average acceleration, is positive."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Velocity −10 → −4 m/s: speed falls"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "For constant acceleration on a straight line, start with v equals u plus a t. The final velocity is the initial velocity plus the change caused by acceleration over the time interval."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "v = u + at"
+              },
+              {
+                "op": "write",
+                "text": "Use signed quantities consistently"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "For displacement over that time, add the part due to initial velocity to the extra part due to acceleration. This gives initial velocity times time plus one half acceleration times time squared."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "s = ut + ½at²"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "If time is missing but the velocities and acceleration are known, the equation using squared velocities can connect them to displacement. First check that acceleration is constant."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "v² = u² + 2as"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "For free fall in the simple model, neglect air resistance and let down be positive. Near Earth the acceleration is about nine point eight metres per second squared downward."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Choose down positive: g ≈ +9.8 m/s²"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A body moving in a circle at a constant speed changes the direction of its velocity. Its instantaneous velocity points along a tangent, and its acceleration points toward the centre."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Velocity tangent to path"
+              },
+              {
+                "op": "write",
+                "text": "Acceleration toward the centre"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "The net inward force that gives this acceleration is called the centripetal force. In a frame turning with the object, an apparent outward effect is called centrifugal force."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Inward net force changes the direction"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "To solve a motion question, name the reference direction and list the quantities with units. Then check whether a graph, an average or a constant-acceleration equation fits the information given."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Choose direction → identify quantities → choose model"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "velocity"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Speed is the distance covered in unit time."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "An object speeds up uniformly from 2 m/s to 10 m/s in 4 s. Find its acceleration and displacement."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Subtract the initial velocity from the final velocity and divide by four seconds."
+            },
+            "why": {
+              "en": "The velocity changes by eight metres per second, so acceleration is two metres per second squared."
+            }
+          },
+          {
+            "text": {
+              "en": "Find the area under its velocity graph. Add a rectangle of four times two and a triangle of half of four times eight."
+            },
+            "why": {
+              "en": "Eight plus sixteen gives a displacement of twenty-four metres in the positive direction."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "acceleration"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Velocity is the displacement in unit time, so it includes direction."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Distance and displacement are always equal. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Distance is the length of the path."
+          },
+          {
+            "en": "Displacement is the straight line between start and end, so it can be smaller."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "equations of motion"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Acceleration is the rate of change of velocity, and negative acceleration is called retardation or deceleration."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-mot490",
+          "r1-mot491",
+          "tnm9-motion-return-1",
+          "tnm9-motion-sign-1",
+          "tnm9-motion-area-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "centripetal force"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "A distance-time graph with a steeper slope shows a greater speed."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "distance"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "For uniformly accelerated motion there are three equations: v = u + at, s = ut + (1/2)at^2 and v^2 = u^2 + 2as."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "displacement"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "A car starts from rest and reaches 20 m/s in 5 s. Find its acceleration."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Use a = (v - u) / t."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Average speed uses distance. Average velocity uses displacement."
+          },
+          {
+            "en": "Acceleration is the change of velocity per second."
+          },
+          {
+            "en": "Three equations describe uniform acceleration."
+          },
+          {
+            "en": "Circular motion needs a centripetal force."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "u = 0, v = 20 m/s and t = 5 s."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "a = 20 / 5 = 4 m/s^2."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Distance and displacement are always equal. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Distance is the length of the path."
-     },
-     {
-      "en": "Displacement is the straight line between start and end, so it can be smaller."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-mot490",
-     "r1-mot491"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Speed = distance / time; velocity = displacement / time."
-     },
-     {
-      "en": "Acceleration is the change of velocity per second."
-     },
-     {
-      "en": "Three equations describe uniform acceleration."
-     },
-     {
-      "en": "Circular motion needs a centripetal force."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

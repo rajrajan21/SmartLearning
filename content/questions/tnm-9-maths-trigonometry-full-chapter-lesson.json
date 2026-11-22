@@ -1,244 +1,367 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "trigonometry",
- "topic": "full-chapter-lesson",
- "questions": [
-  {
-   "key": "r1-tri250",
-   "round": 1,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "mcq",
-   "stem": {
-    "en": "sin A equals"
-   },
-   "options": [
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "trigonometry",
+  "topic": "full-chapter-lesson",
+  "questions": [
     {
-     "id": "o0",
-     "text": {
-      "en": "adjacent / hypotenuse"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
+      "key": "r1-tri250",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "sin A equals"
+      },
+      "options": [
+        {
+          "id": "o0",
+          "text": {
+            "en": "adjacent / hypotenuse"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        },
+        {
+          "id": "right",
+          "text": {
+            "en": "opposite / hypotenuse"
+          },
+          "correct": true
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "opposite / adjacent"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Definition."
+      }
     },
     {
-     "id": "right",
-     "text": {
-      "en": "opposite / hypotenuse"
-     },
-     "correct": true
+      "key": "r1-tri251",
+      "round": 1,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "tan 45 = 1."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "Yes."
+      }
     },
     {
-     "id": "o1",
-     "text": {
-      "en": "opposite / adjacent"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
+      "key": "r2-tri252",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "cos(90 - A) equals"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "sin A"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "cos A"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "tan A"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "Complementary angles."
+      }
+    },
+    {
+      "key": "r2-tri253",
+      "round": 2,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "The hypotenuse is the shortest side."
+      },
+      "answer": false,
+      "explanation": {
+        "en": "It is the longest."
+      }
+    },
+    {
+      "key": "r3-tri254",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "sin 30 equals"
+      },
+      "options": [
+        {
+          "id": "o0",
+          "text": {
+            "en": "1"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        },
+        {
+          "id": "right",
+          "text": {
+            "en": "1/2"
+          },
+          "correct": true
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "sqrt(3)/2"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "From the table."
+      }
+    },
+    {
+      "key": "r3-tri255",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "short",
+      "stem": {
+        "en": "What is tan 45?"
+      },
+      "accepted": [
+        "1"
+      ],
+      "wrongAnswers": [],
+      "explanation": {
+        "en": "Equal opposite and adjacent."
+      }
+    },
+    {
+      "key": "r4-tri256",
+      "round": 4,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq",
+      "stem": {
+        "en": "Reciprocal of sine is"
+      },
+      "options": [
+        {
+          "id": "right",
+          "text": {
+            "en": "cosecant"
+          },
+          "correct": true
+        },
+        {
+          "id": "o0",
+          "text": {
+            "en": "secant"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        },
+        {
+          "id": "o1",
+          "text": {
+            "en": "cotangent"
+          },
+          "correct": false,
+          "whyWrong": {
+            "en": "Try again."
+          }
+        }
+      ],
+      "explanation": {
+        "en": "1 / sin A."
+      }
+    },
+    {
+      "key": "r4-tri257",
+      "round": 4,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "true_false",
+      "stem": {
+        "en": "Trigonometry helps find heights."
+      },
+      "answer": true,
+      "explanation": {
+        "en": "Yes."
+      }
+    },
+    {
+      "stem": {
+        "en": "A right triangle has opposite side 8 and adjacent side 15 for angle A. What is tan A?"
+      },
+      "explanation": {
+        "en": "Tangent compares the opposite and adjacent legs in that order."
+      },
+      "options": [
+        {
+          "id": "o1",
+          "text": {
+            "en": "15/8"
+          },
+          "whyWrong": {
+            "en": "This is cotangent of A."
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "8/15"
+          },
+          "correct": true
+        },
+        {
+          "id": "o3",
+          "text": {
+            "en": "8/17"
+          },
+          "whyWrong": {
+            "en": "This is sine of A."
+          }
+        }
+      ],
+      "key": "tnm9-trig-apply-1",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq"
+    },
+    {
+      "stem": {
+        "en": "Where do you read sin 26° 30′ in a sine table?"
+      },
+      "explanation": {
+        "en": "The degrees select the row and the minutes select the column."
+      },
+      "options": [
+        {
+          "id": "o1",
+          "text": {
+            "en": "Row 30°, column 26′"
+          },
+          "whyWrong": {
+            "en": "This would read a different angle."
+          }
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "Row 26°, column 0′"
+          },
+          "whyWrong": {
+            "en": "Thirty minutes must be included."
+          }
+        },
+        {
+          "id": "o3",
+          "text": {
+            "en": "Row 26°, column 30′"
+          },
+          "correct": true
+        }
+      ],
+      "key": "tnm9-trig-table-1",
+      "round": 3,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq"
+    },
+    {
+      "stem": {
+        "en": "Why is tan 90° undefined?"
+      },
+      "explanation": {
+        "en": "Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
+      },
+      "options": [
+        {
+          "id": "o1",
+          "text": {
+            "en": "It would divide by zero."
+          },
+          "correct": true
+        },
+        {
+          "id": "o2",
+          "text": {
+            "en": "Its numerator and denominator are both one."
+          },
+          "whyWrong": {
+            "en": "Sine is one here, but cosine is zero."
+          }
+        },
+        {
+          "id": "o3",
+          "text": {
+            "en": "All ratios are undefined at ninety degrees."
+          },
+          "whyWrong": {
+            "en": "Sine and cosine have values at ninety degrees."
+          }
+        }
+      ],
+      "key": "tnm9-trig-endpoint-1",
+      "round": 4,
+      "hints": [],
+      "provenance": "original",
+      "status": "published",
+      "type": "mcq"
     }
-   ],
-   "explanation": {
-    "en": "Definition."
-   }
-  },
-  {
-   "key": "r1-tri251",
-   "round": 1,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "true_false",
-   "stem": {
-    "en": "tan 45 = 1."
-   },
-   "answer": true,
-   "explanation": {
-    "en": "Yes."
-   }
-  },
-  {
-   "key": "r2-tri252",
-   "round": 2,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "mcq",
-   "stem": {
-    "en": "cos(90 - A) equals"
-   },
-   "options": [
-    {
-     "id": "right",
-     "text": {
-      "en": "sin A"
-     },
-     "correct": true
-    },
-    {
-     "id": "o0",
-     "text": {
-      "en": "cos A"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    },
-    {
-     "id": "o1",
-     "text": {
-      "en": "tan A"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    }
-   ],
-   "explanation": {
-    "en": "Complementary angles."
-   }
-  },
-  {
-   "key": "r2-tri253",
-   "round": 2,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "true_false",
-   "stem": {
-    "en": "The hypotenuse is the shortest side."
-   },
-   "answer": false,
-   "explanation": {
-    "en": "It is the longest."
-   }
-  },
-  {
-   "key": "r3-tri254",
-   "round": 3,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "mcq",
-   "stem": {
-    "en": "sin 30 equals"
-   },
-   "options": [
-    {
-     "id": "o0",
-     "text": {
-      "en": "1"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    },
-    {
-     "id": "right",
-     "text": {
-      "en": "1/2"
-     },
-     "correct": true
-    },
-    {
-     "id": "o1",
-     "text": {
-      "en": "sqrt(3)/2"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    }
-   ],
-   "explanation": {
-    "en": "From the table."
-   }
-  },
-  {
-   "key": "r3-tri255",
-   "round": 3,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "short",
-   "stem": {
-    "en": "What is tan 45?"
-   },
-   "accepted": [
-    "1"
-   ],
-   "wrongAnswers": [],
-   "explanation": {
-    "en": "Equal opposite and adjacent."
-   }
-  },
-  {
-   "key": "r4-tri256",
-   "round": 4,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "mcq",
-   "stem": {
-    "en": "Reciprocal of sine is"
-   },
-   "options": [
-    {
-     "id": "right",
-     "text": {
-      "en": "cosecant"
-     },
-     "correct": true
-    },
-    {
-     "id": "o0",
-     "text": {
-      "en": "secant"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    },
-    {
-     "id": "o1",
-     "text": {
-      "en": "cotangent"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    }
-   ],
-   "explanation": {
-    "en": "1 / sin A."
-   }
-  },
-  {
-   "key": "r4-tri257",
-   "round": 4,
-   "hints": [],
-   "provenance": "original",
-   "status": "published",
-   "type": "true_false",
-   "stem": {
-    "en": "Trigonometry helps find heights."
-   },
-   "answer": true,
-   "explanation": {
-    "en": "Yes."
-   }
-  }
- ]
+  ]
 }
