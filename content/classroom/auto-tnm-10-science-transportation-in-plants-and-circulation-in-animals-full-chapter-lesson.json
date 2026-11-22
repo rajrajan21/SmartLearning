@@ -83,6 +83,190 @@
    "src": "human-heart",
    "alt": "A diagram of the human heart",
    "caption": "The heart"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "Two linked loops carry blood",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nbottom",
+   "x": 450,
+   "y": 465,
+   "text": "Lungs exchange gases. Body tissues exchange gases and nutrients.",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nright",
+   "x": 201,
+   "y": 242,
+   "w": 158,
+   "h": 70,
+   "fill": "#E1ECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nrightT",
+   "x": 280,
+   "y": 272,
+   "text": "Right heart",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nrightD",
+   "x": 280,
+   "y": 298,
+   "text": "Pumps to lungs",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nlung",
+   "x": 371,
+   "y": 100,
+   "w": 158,
+   "h": 70,
+   "fill": "#E1ECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlungT",
+   "x": 450,
+   "y": 130,
+   "text": "Lungs",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nlungD",
+   "x": 450,
+   "y": 156,
+   "text": "Gas exchange",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nleft",
+   "x": 541,
+   "y": 242,
+   "w": 158,
+   "h": 70,
+   "fill": "#E1ECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nleftT",
+   "x": 620,
+   "y": 272,
+   "text": "Left heart",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nleftD",
+   "x": 620,
+   "y": 298,
+   "text": "Pumps to body",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nbody",
+   "x": 371,
+   "y": 358,
+   "w": 158,
+   "h": 70,
+   "fill": "#E1ECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nbodyT",
+   "x": 450,
+   "y": 388,
+   "text": "Body tissues",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nbodyD",
+   "x": 450,
+   "y": 414,
+   "text": "Delivery and return",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ntoLung",
+   "x1": 323,
+   "y1": 241,
+   "x2": 379,
+   "y2": 171,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nfromLung",
+   "x1": 528,
+   "y1": 159,
+   "x2": 572,
+   "y2": 239,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ntoBody",
+   "x1": 574,
+   "y1": 315,
+   "x2": 524,
+   "y2": 369,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nfromBody",
+   "x1": 373,
+   "y1": 372,
+   "x2": 333,
+   "y2": 320,
+   "stroke": "accent",
+   "width": 4
   }
  ],
  "steps": [
@@ -160,6 +344,145 @@
      "target": "pic",
      "at": 0.15,
      "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "circulation1",
+   "narration": {
+    "en": "Follow blood from the right side of the heart to the lungs. At lung capillaries, blood can pick up oxygen."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nright",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nrightT",
+     "at": 0.25
+    },
+    {
+     "do": "show",
+     "target": "nrightD",
+     "at": 0.31
+    },
+    {
+     "do": "draw",
+     "target": "ntoLung",
+     "at": 0.41,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nlung",
+     "at": 0.54,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlungT",
+     "at": 0.6100000000000001
+    },
+    {
+     "do": "show",
+     "target": "nlungD",
+     "at": 0.67
+    }
+   ]
+  },
+  {
+   "id": "circulation2",
+   "narration": {
+    "en": "Blood returns from the lungs to the left side of the heart. The left side pumps it out to the tissues of the body."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nfromLung",
+     "at": 0.17,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nleft",
+     "at": 0.26,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nleftT",
+     "at": 0.33
+    },
+    {
+     "do": "show",
+     "target": "nleftD",
+     "at": 0.39
+    },
+    {
+     "do": "draw",
+     "target": "ntoBody",
+     "at": 0.59,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nbody",
+     "at": 0.69,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nbodyT",
+     "at": 0.76
+    },
+    {
+     "do": "show",
+     "target": "nbodyD",
+     "at": 0.82
+    }
+   ]
+  },
+  {
+   "id": "circulation3",
+   "narration": {
+    "en": "Blood returns from the body to the right side of the heart. One linked loop travels through the lungs, and the other through the body."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nfromBody",
+     "at": 0.19,
+     "ms": 450
+    },
+    {
+     "do": "pulse",
+     "target": "nlung",
+     "at": 0.42,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "nbody",
+     "at": 0.59,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "nbottom",
+     "at": 0.78,
+     "ms": 450
     }
    ]
   }

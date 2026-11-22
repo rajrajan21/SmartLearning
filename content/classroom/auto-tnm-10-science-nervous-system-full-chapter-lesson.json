@@ -150,6 +150,221 @@
    "size": 20,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "Follow a withdrawal reflex",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 451,
+   "text": "Incoming sensory signal → spinal relay → outgoing motor signal",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nbox0",
+   "x": 56,
+   "y": 190,
+   "w": 132,
+   "h": 106,
+   "fill": "#DEECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabel0",
+   "x": 122,
+   "y": 228,
+   "text": "Receptor",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndetail0",
+   "x": 122,
+   "y": 269,
+   "text": "Detects heat",
+   "size": 15,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext0",
+   "x1": 191,
+   "y1": 244,
+   "x2": 215,
+   "y2": 244,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "nbox1",
+   "x": 218,
+   "y": 190,
+   "w": 132,
+   "h": 106,
+   "fill": "#DEECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabel1",
+   "x": 284,
+   "y": 228,
+   "text": "Sensory neuron",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndetail1",
+   "x": 284,
+   "y": 269,
+   "text": "Carries signal in",
+   "size": 15,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext1",
+   "x1": 353,
+   "y1": 244,
+   "x2": 377,
+   "y2": 244,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "nbox2",
+   "x": 380,
+   "y": 190,
+   "w": 132,
+   "h": 106,
+   "fill": "#DEECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabel2",
+   "x": 446,
+   "y": 228,
+   "text": "Spinal cord",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndetail2",
+   "x": 446,
+   "y": 269,
+   "text": "Relays signal",
+   "size": 15,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext2",
+   "x1": 515,
+   "y1": 244,
+   "x2": 539,
+   "y2": 244,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "nbox3",
+   "x": 542,
+   "y": 190,
+   "w": 132,
+   "h": 106,
+   "fill": "#DEECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabel3",
+   "x": 608,
+   "y": 228,
+   "text": "Motor neuron",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndetail3",
+   "x": 608,
+   "y": 269,
+   "text": "Carries signal out",
+   "size": 15,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext3",
+   "x1": 677,
+   "y1": 244,
+   "x2": 701,
+   "y2": 244,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "nbox4",
+   "x": 704,
+   "y": 190,
+   "w": 132,
+   "h": 106,
+   "fill": "#DEECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabel4",
+   "x": 770,
+   "y": 228,
+   "text": "Muscle",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndetail4",
+   "x": 770,
+   "y": 269,
+   "text": "Contracts",
+   "size": 15,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -244,6 +459,149 @@
      "do": "write",
      "target": "l5",
      "at": 0.85
+    }
+   ]
+  },
+  {
+   "id": "reflex1",
+   "narration": {
+    "en": "A receptor detects heat. A sensory neuron carries the signal into the spinal cord."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "nbox0",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabel0",
+     "at": 0.24
+    },
+    {
+     "do": "show",
+     "target": "ndetail0",
+     "at": 0.29
+    },
+    {
+     "do": "draw",
+     "target": "nnext0",
+     "at": 0.4,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nbox1",
+     "at": 0.52,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabel1",
+     "at": 0.5800000000000001
+    },
+    {
+     "do": "show",
+     "target": "ndetail1",
+     "at": 0.63
+    }
+   ]
+  },
+  {
+   "id": "reflex2",
+   "narration": {
+    "en": "Inside the spinal cord, an interneuron can relay the signal. The motor neuron takes the signal back towards the hand."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext1",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nbox2",
+     "at": 0.28,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabel2",
+     "at": 0.34
+    },
+    {
+     "do": "show",
+     "target": "ndetail2",
+     "at": 0.39
+    },
+    {
+     "do": "draw",
+     "target": "nnext2",
+     "at": 0.52,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nbox3",
+     "at": 0.65,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabel3",
+     "at": 0.71
+    },
+    {
+     "do": "show",
+     "target": "ndetail3",
+     "at": 0.76
+    }
+   ]
+  },
+  {
+   "id": "reflex3",
+   "narration": {
+    "en": "The motor signal reaches the muscle and the muscle contracts. The reflex begins before you make a conscious plan."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext3",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nbox4",
+     "at": 0.35,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabel4",
+     "at": 0.41
+    },
+    {
+     "do": "show",
+     "target": "ndetail4",
+     "at": 0.45999999999999996
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.72,
+     "ms": 450
     }
    ]
   }
