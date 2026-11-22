@@ -96,7 +96,7 @@ export function Layout({ children }: { children: ReactNode }) {
       {banner && <div className={`banner tone-${s.get<string>("home.announcement.tone")}`} role="status">{s.text("home.announcement.text")}</div>}
       <div className="body-row" data-picker={picker}>
         {preset === "dashboard" && <MainNav />}
-        {picker === "left" && !maintenance && !onLesson && <BoardRail />}
+        {(picker === "left" || picker === "right") && !maintenance && !onLesson && <BoardRail />}
         <main id="main" className="page" tabIndex={-1}>
           {maintenance ? (
             <section className="notice">
@@ -105,7 +105,6 @@ export function Layout({ children }: { children: ReactNode }) {
             </section>
           ) : children}
         </main>
-        {picker === "right" && !maintenance && !onLesson && <BoardRail />}
       </div>
       <Footer />
       {!app && phone && pref === "site" && <button type="button" className="app-pill noprint" onClick={() => setViewPref("app")}>📱 {ui("appViewApp", lang)}</button>}
