@@ -34,7 +34,7 @@
      "defects of the eye"
     ],
     "text": {
-     "en": "Light travels in straight lines called rays. When it passes obliquely from one medium to another it bends, which is refraction. The first law of refraction says the incident ray, refracted ray and normal lie in the same plane, and the second is Snell's law: the ratio of sines of the angles is constant. The refractive index is the ratio of the speed of light in vacuum to its speed in the medium.\nA prism splits white light into seven colours, which is dispersion, because each colour has a different angle of refraction, with red bending least and violet most. Scattering of sunlight by atmospheric gases is Rayleigh scattering and explains the blue sky and red sunset.\nLenses are convex or concave, and the lens formula 1/v - 1/u = 1/f, with magnification m = v/u and power P = 1/f in dioptres, describes the image. Convex lenses are used in magnifiers and cameras and concave lenses in correcting short sight. The human eye forms images on the retina. Defects such as myopia and hypermetropia are corrected using lenses. The microscope and telescope extend our sight."
+     "en": "In a uniform transparent medium, light travels in straight lines. A ray represents its direction. When it passes obliquely from one medium to another it bends, which is refraction. The first law of refraction says the incident ray, refracted ray and normal lie in the same plane, and the second is Snell's law: the refractive index times the sine of the ray angle has the same value in each medium. The refractive index is the ratio of the speed of light in vacuum to its speed in the medium.\nA prism splits white light into seven colours, which is dispersion, because each colour has a different angle of refraction, with red bending least and violet most. Scattering of sunlight by atmospheric gases is Rayleigh scattering and explains the blue sky and red sunset.\nLenses are convex or concave, and the lens formula 1/v - 1/u = 1/f, with signed distances and magnification m = v/u, describes the image. Power P = 1/f is in dioptres when the signed focal length f is in metres. Lens curvature and refractive index both affect the focal length. Convex lenses are used in magnifiers and cameras and concave lenses in correcting short sight. The human eye forms images on the retina. Defects such as myopia and hypermetropia are corrected using lenses. The microscope and telescope extend our sight."
     }
    },
    {
@@ -46,7 +46,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "Light travels in straight lines called rays."
+       "en": "In a uniform transparent medium, light travels in straight lines. We use rays to show its direction."
       },
       "board": [
        {
@@ -73,7 +73,7 @@
      {
       "id": "t3",
       "text": {
-       "en": "The first law of refraction says the incident ray, refracted ray and normal lie in the same plane, and the second is Snell's law: the ratio of sines of the angles is constant."
+       "en": "The incident ray, refracted ray and normal lie in one plane. Snell's law relates the sines of the angles to the refractive indices of the two media."
       },
       "board": [
        {
@@ -121,7 +121,7 @@
      {
       "id": "t7",
       "text": {
-       "en": "Lenses are convex or concave, and the lens formula 1/v - 1/u = 1/f, with magnification m = v/u and power P = 1/f in dioptres, describes the image."
+       "en": "For a thin lens, one over image distance minus one over object distance equals one over focal length. Magnification is image distance divided by object distance, using signed values. For power in dioptres, use one over the signed focal length in metres."
       },
       "board": [
        {
@@ -139,6 +139,282 @@
        {
         "op": "write",
         "text": "Snell's law"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "A ray is a line with an arrow showing the direction light travels in a uniform medium."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Rays show light’s direction"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "At the point of entry, draw a line perpendicular to the boundary. Measure the angles from that normal."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Draw a normal before measuring angles"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "Light can change speed when it crosses a boundary straight on, without changing direction."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "At normal incidence the ray keeps its direction"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "When light enters glass at an angle from air, the refracted ray lies closer to the normal."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Air to glass: towards the normal"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "When refraction occurs from glass into air, the ray bends away from the normal."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Glass to air: away from the normal"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "If light travels through a material at two-thirds of its vacuum speed, its refractive index is one and a half."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Index compares light speeds"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "As the incidence angle inside glass increases, the refracted ray in air can approach the surface. At the critical angle it runs along the boundary."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Critical angle marks grazing refraction"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "When light goes towards a lower-index medium above the critical angle, it reflects back into the higher-index medium."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Above the critical angle: total internal reflection"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "The index of glass varies with wavelength. Violet usually deviates more than red in an ordinary glass prism."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "A prism separates by wavelength"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "Air molecules scatter shorter visible wavelengths more strongly. Scattered sunlight reaches your eyes from across the sky."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "The blue sky scatters light in many directions"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "Near the horizon sunlight passes through more air. More short-wavelength light scatters out of the direct beam, leaving warmer colours."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Sunset light has a longer path through air"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "For a thin convex lens in air, rays parallel to the principal axis converge at the far focus."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Convex lens brings parallel rays together"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "Extend those diverging rays backwards. They appear to originate at the focus on the incoming side."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A concave lens spreads parallel rays"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "To locate an image, draw one ray through the optical centre and another parallel to the axis, then trace the refracted paths."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A central ray keeps its direction in the thin-lens model"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "The rays meet between F and 2F on the far side of a convex lens. The image is inverted and can be caught on a screen."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "An object beyond 2F gives a reduced real image"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "With the object closer than the focal length, outgoing rays spread. Their back extensions meet on the object side and the image looks larger."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Inside F: upright virtual magnification"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "If incoming light travels to the right, distances measured right from the optical centre are positive. For a real object on the left, u is negative."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Use signs for lens distances"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "A convex lens of focal length plus twenty-five centimetres has power plus four dioptres. A concave lens has negative power."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Focal length in metres gives dioptres"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "The cornea and lens bend incoming light. The retina receives the image and sends signals through the optic nerve."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "The eye focuses light on the retina"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "For a near object, the eye changes the shape of its lens to help bring the image into focus on the retina."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Accommodation adjusts focus"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "In short sight, a relaxed eye may focus parallel rays before the retina. A concave corrective lens spreads the rays before they enter the eye."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Myopia uses a diverging correction"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "In long sight, near-object rays may focus behind the retina. A convex correction helps bring their focus forward."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Hypermetropia uses a converging correction"
        }
       ]
      }
@@ -179,6 +455,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the refractive index if light moves at 2.0 × 10⁸ m/s in a material."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Divide the vacuum speed 3.0 × 10⁸ by the material speed 2.0 × 10⁸."
+      },
+      "why": {
+       "en": "Both speeds use the same units."
+      }
+     },
+     {
+      "text": {
+       "en": "The refractive index is 1.5."
+      },
+      "why": {
+       "en": "It is a ratio and has no unit."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "A convex lens has f = +10 cm and a real object is at u = −30 cm. Find v."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use 1/v = 1/f + 1/u = 1/10 − 1/30 = 1/15."
+      },
+      "why": {
+       "en": "Keep the sign on the object distance."
+      }
+     },
+     {
+      "text": {
+       "en": "The real image is 15 cm to the right, with magnification −1/2."
+      },
+      "why": {
+       "en": "A negative magnification means an inverted image."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "What correction helps an eye that focuses light from distant objects before the retina?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use a concave or diverging lens."
+      },
+      "why": {
+       "en": "The original image forms too early."
+      }
+     },
+     {
+      "text": {
+       "en": "Diverging incoming rays moves the focus further back, towards the retina."
+      },
+      "why": {
+       "en": "An eye examination determines the appropriate prescription."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -205,7 +559,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-opt200",
-     "r1-opt201"
+     "r1-opt201",
+     "tnm10-s-o-1",
+     "tnm10-s-o-2",
+     "tnm10-s-o-3",
+     "tnm10-s-o-4",
+     "tnm10-s-o-5",
+     "tnm10-s-o-6"
     ]
    },
    {

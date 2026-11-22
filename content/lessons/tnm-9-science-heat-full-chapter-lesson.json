@@ -1,232 +1,561 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "heat",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Heat"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "heat",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Heat"
     },
-    "text": {
-     "en": "Raju noticed that the metal spoon in hot tea became hot but the wooden handle of the ladle did not. \"Heat travels better in metal,\" he said."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "internal energy",
-     "conduction",
-     "convection",
-     "radiation",
-     "specific heat capacity",
-     "latent heat"
-    ],
-    "text": {
-     "en": "The sum of the kinetic and potential energy of the molecules is the internal energy, and when it flows out it is called heat energy. Temperature is the degree of hotness or coolness of a body. The scales are Celsius, Fahrenheit and Kelvin, with F = (9/5)C + 32 and K = C + 273.15. Absolute zero is the temperature at which pressure and volume of a gas theoretically reach zero.\nHeat moves in three ways. In conduction it flows through solids from the hotter to the cooler part without the molecules moving. In convection it is carried by the movement of liquids and gases. In radiation it travels as electromagnetic waves and needs no medium, as the Sun's heat does.\nHeat capacity is the heat needed to raise the temperature of the whole body by 1 degree. Specific heat capacity is the heat needed to raise the temperature of unit mass by 1 degree, using Q = m c (change in T). When a substance changes state, such as ice melting, it takes in latent heat without a change in temperature."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "The sum of the kinetic and potential energy of the molecules is the internal energy, and when it flows out it is called heat energy."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Raju noticed that the metal spoon in hot tea became hot but the wooden handle of the ladle did not. \"Heat travels better in metal,\" he said."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "internal energy"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "Temperature is the degree of hotness or coolness of a body."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "internal energy",
+          "conduction",
+          "convection",
+          "radiation",
+          "specific heat capacity",
+          "latent heat"
+        ],
+        "text": {
+          "en": "Internal energy includes the microscopic kinetic and potential energies of the particles in a system. Heat is energy transferred because of a temperature difference. Temperature is the degree of hotness or coolness of a body. The scales are Celsius, Fahrenheit and Kelvin, with F = (9/5)C + 32 and K = C + 273.15. Absolute zero is zero kelvin, or minus two hundred seventy-three point one five degrees Celsius. Extrapolating a simple ideal-gas model suggests this limit, but real gases can change state before reaching it.\nHeat moves in three ways. In conduction, energy transfers from warmer regions to cooler regions without bulk movement of matter. Particles still have microscopic motion. In convection it is carried by the movement of liquids and gases. In radiation it travels as electromagnetic waves and needs no medium, as the Sun's heat does.\nHeat capacity is the heat needed to raise the temperature of the whole body by 1 degree. Specific heat capacity is the heat needed to raise the temperature of unit mass by 1 degree, using Q = m c (change in T). When a substance changes state, such as ice melting, it takes in latent heat without a change in temperature."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "conduction"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "The scales are Celsius, Fahrenheit and Kelvin, with F = (9/5)C + 32 and K = C + 273.15."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Internal energy includes the microscopic kinetic and potential energies of the particles in a system. Heat is energy transferred because of a temperature difference."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "internal energy"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Temperature is the degree of hotness or coolness of a body."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conduction"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The scales are Celsius, Fahrenheit and Kelvin, with F = (9/5)C + 32 and K = C + 273.15."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "convection"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Absolute zero is zero kelvin, or minus two hundred seventy-three point one five degrees Celsius. Extrapolating a simple ideal-gas model suggests this limit, but real gases can change state before reaching it."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "radiation"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Heat moves in three ways."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "specific heat capacity"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "In conduction, energy transfers from warmer regions to cooler regions without bulk movement of matter. Particles still have microscopic motion."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "latent heat"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "In convection it is carried by the movement of liquids and gases."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "internal energy"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "In radiation it travels as electromagnetic waves and needs no medium, as the Sun's heat does."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "conduction"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Two objects can have the same temperature but different internal energies. A large container of water can contain more internal energy than a small cup of water at the same temperature."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same temperature can accompany different internal energies"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "If a warm section of a metal spoon touches cooler water, energy can pass from the warmer material to the cooler material. At equal temperatures, there is no net heat transfer between them."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Net energy transfer: warmer → cooler"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Think of train tracks under changing outdoor temperatures. A metal rail may expand slightly when it warms. Rail design can account for expansion and contraction."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Temperature rise can cause thermal expansion"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "An observable change after heating can be rising temperature, expansion, change of state or a chemical change in some materials. Point to the evidence before naming which change took place."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Use an observation to identify the effect"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "The end of a metal spoon near a warm liquid warms first. Energy reaches the other end by conduction. The spoon can remain in the same place during this process."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Conduction does not require bulk movement"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Compare matching spoons of different materials in a classroom diagram. The metal can transfer energy to its handle faster than wood. Compare the same distances and the same times."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Compare under the same conditions"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "In a simplified convection model, warmed water is less dense than the cooler water around it. It can rise while cooler water moves in to replace it."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Warmer fluid rises · cooler fluid can sink"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "A sea breeze can form when coastal land warms the air above it faster than the sea does. Near the ground, a flow from sea to land can replace some of the rising air."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Typical daytime coast: sea → land"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "The Sun’s energy reaches Earth through a region with very little matter. Radiation transfers energy through electromagnetic waves and can pass through a vacuum."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Radiation can cross a vacuum"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "A cup can use all three mechanisms. The solid wall conducts, surrounding air can circulate, and the warm surfaces emit radiation. Naming one mechanism need not rule out the others."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Conduction, convection and radiation can act together"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "To convert twenty Celsius to kelvin, add two hundred seventy-three point one five. The result is two hundred ninety-three point one five kelvin."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "20 °C = 293.15 K"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "To convert the same temperature to Fahrenheit, multiply twenty by nine fifths and add thirty-two. The result is sixty-eight degrees Fahrenheit."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "20 °C = 68 °F"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "A difference of one Celsius degree has the same size as a difference of one kelvin. Adding two hundred seventy-three point one five shifts the scale’s zero but does not change its step size."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Δ20 °C has a size of 20 K"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Heat capacity describes energy needed per degree of temperature change for a whole object. Two objects made of the same material can have different heat capacities if their masses differ."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Whole object: heat capacity in J/K"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Specific heat capacity gives the energy per kilogram per degree. At the same mass and supplied energy, a substance with a greater specific heat capacity changes temperature less."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Specific heat capacity in J/(kg·K)"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "For a temperature change with no change of state, multiply mass, specific heat capacity and temperature change. Half a kilogram of water warmed by four kelvin takes about eight thousand four hundred joules."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Q = mcΔT = 0.5 × 4200 × 4 = 8400 J"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "If half a kilogram of water needs about two thousand one hundred joules per kelvin, doubling the amount of water doubles that whole-sample heat capacity. Its specific heat capacity stays the same."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Heat capacity C = mc"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "At fixed pressure, a pure substance can melt while staying at its melting temperature. Energy added during that interval changes how much is solid and how much is liquid."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Melting plateau: energy changes state"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "For a fixed mass changing state, the energy for the phase change equals mass times specific latent heat. Specific latent heat describes energy per kilogram and is measured in joules per kilogram."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Phase change: Q = mL"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Freezing releases energy as the liquid becomes solid, and condensation releases energy as vapour becomes liquid. In both cases, energy leaves the changing sample."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Freezing and condensing release energy"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Water can evaporate at its surface below its boiling temperature. During boiling, vapour forms throughout the liquid where conditions allow it and rises as bubbles."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Evaporation: surface"
+              },
+              {
+                "op": "write",
+                "text": "Boiling: bubbles throughout"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Read a heating graph first for its shape. A slope shows changing temperature. A flat section during melting shows that the sample can still gain energy while its temperature stays constant."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Slope: warming · plateau: change of state"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "convection"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Absolute zero is the temperature at which pressure and volume of a gas theoretically reach zero."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "How much energy warms 0.50 kg of water by 4 °C without changing state? Use 4200 J per kilogram per kelvin."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Identify a mass of half a kilogram and a temperature change of four kelvin."
+            },
+            "why": {
+              "en": "A change of one Celsius degree has the same size as one kelvin."
+            }
+          },
+          {
+            "text": {
+              "en": "Multiply one half by forty-two hundred and then by four."
+            },
+            "why": {
+              "en": "Mass times specific heat capacity times temperature change gives eight thousand four hundred joules."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "radiation"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Heat moves in three ways."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Heat from the Sun reaches us by conduction. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Between Sun and Earth there is almost no matter."
+          },
+          {
+            "en": "The heat reaches us by radiation."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "specific heat capacity"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "In conduction it flows through solids from the hotter to the cooler part without the molecules moving."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-hea400",
+          "r1-hea401",
+          "tnm9-heat-kelvin-1",
+          "tnm9-heat-capacity-1",
+          "tnm9-heat-melt-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "latent heat"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "In convection it is carried by the movement of liquids and gases."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "internal energy"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "In radiation it travels as electromagnetic waves and needs no medium, as the Sun's heat does."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "conduction"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Convert 100 degrees Celsius to kelvin."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Use K = C + 273.15."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Heat flows from hot to cold."
+          },
+          {
+            "en": "Three modes: conduction, convection, radiation."
+          },
+          {
+            "en": "Q = m c (change in T)."
+          },
+          {
+            "en": "Latent heat changes state, not temperature."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "K = 100 + 273.15."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "K = 373.15 K."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Heat from the Sun reaches us by conduction. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Between Sun and Earth there is almost no matter."
-     },
-     {
-      "en": "The heat reaches us by radiation."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-hea400",
-     "r1-hea401"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Heat flows from hot to cold."
-     },
-     {
-      "en": "Three modes: conduction, convection, radiation."
-     },
-     {
-      "en": "Q = m c (change in T)."
-     },
-     {
-      "en": "Latent heat changes state, not temperature."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

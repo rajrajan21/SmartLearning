@@ -1,232 +1,569 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "light",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Light"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "light",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Light"
     },
-    "text": {
-     "en": "Meena saw her face upside-down in the back of a shiny spoon. \"Why is it inverted?\" she asked."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "reflection",
-     "real and virtual image",
-     "concave mirror",
-     "convex mirror",
-     "refraction",
-     "total internal reflection"
-    ],
-    "text": {
-     "en": "Optics is the branch of physics that deals with light. In reflection from a plane mirror the angle of incidence equals the angle of reflection, and the image is virtual, erect, of the same size and laterally inverted. Spherical mirrors are of two kinds: the concave mirror, which curves inwards, and the convex mirror, which curves outwards.\nA concave mirror can form real or virtual images depending on the position of the object, and it is used as a shaving mirror and in headlights. A convex mirror always gives a smaller, virtual, erect image with a wide field of view, which is why it is used as a rear-view mirror.\nThe bending of light when it passes obliquely from one transparent medium to another is refraction. The ratio of the sine of the angle of incidence to the sine of the angle of refraction is the refractive index, and it has no unit. When light goes from a denser to a rarer medium at an angle beyond the critical angle, total internal reflection occurs, which makes diamonds sparkle and stars twinkle."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Optics is the branch of physics that deals with light."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena saw her face upside down in the bowl side of a shiny spoon when she held it at a distance. Close up, her face looked upright."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "reflection"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "In reflection from a plane mirror the angle of incidence equals the angle of reflection, and the image is virtual, erect, of the same size and laterally inverted."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "reflection",
+          "real and virtual image",
+          "concave mirror",
+          "convex mirror",
+          "refraction",
+          "total internal reflection"
+        ],
+        "text": {
+          "en": "Optics is the branch of physics that deals with light. In reflection from a plane mirror the angle of incidence equals the angle of reflection, and the image is virtual, erect, of the same size and laterally inverted. Spherical mirrors are of two kinds: the concave mirror, which curves inwards, and the convex mirror, which curves outwards.\nA concave mirror can form real or virtual images depending on the position of the object, and it is used as a shaving mirror and in headlights. A convex mirror always gives a smaller, virtual, erect image with a wide field of view, which is why it is used as a rear-view mirror.\nThe bending of light when it passes obliquely from one transparent medium to another is refraction. For a ray going from medium one to medium two, dividing the sine of the incident angle by the sine of the refracted angle gives the refractive index of medium two relative to medium one. Total internal reflection can occur when light travels toward a medium of lower refractive index and strikes at more than the critical angle. Diamonds can use this effect. Stars twinkle mainly because air bends their light unevenly."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "real and virtual image"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Spherical mirrors are of two kinds: the concave mirror, which curves inwards, and the convex mirror, which curves outwards."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Optics is the branch of physics that deals with light."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "reflection"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "In reflection from a plane mirror the angle of incidence equals the angle of reflection, and the image is virtual, erect, of the same size and laterally inverted."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "real and virtual image"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Spherical mirrors are of two kinds: the concave mirror, which curves inwards, and the convex mirror, which curves outwards."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "concave mirror"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A concave mirror can form real or virtual images depending on the position of the object, and it is used as a shaving mirror and in headlights."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "convex mirror"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A convex mirror always gives a smaller, virtual, erect image with a wide field of view, which is why it is used as a rear-view mirror."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "refraction"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The bending of light when it passes obliquely from one transparent medium to another is refraction."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "total internal reflection"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For a ray going from medium one to medium two, dividing the sine of the incident angle by the sine of the refracted angle gives the refractive index of medium two relative to medium one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "reflection"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Total internal reflection can occur when light travels toward a medium of lower refractive index and strikes at more than the critical angle. Diamonds can use this effect. Stars twinkle mainly because air bends their light unevenly."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "real and virtual image"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Draw a normal where a ray hits a flat mirror. The normal is perpendicular to the mirror. Both the incident and reflected angles are measured from the normal."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Normal meets the mirror at 90°"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "A ray makes thirty degrees with the mirror surface. That leaves sixty degrees with the normal. The angle of reflection is therefore sixty degrees, measured from the normal."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "30° to mirror → 60° to normal"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "The incident ray, reflected ray and normal lie in one plane. Think of all three as directions you could draw on one flat sheet through the point of incidence."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Incident ray, normal and reflected ray share a plane"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Look at the paths of two rays bouncing from a plane mirror. Extend those outgoing rays backward in a diagram. Their backward extensions appear to meet behind the mirror."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Backward extensions locate a virtual image"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "A plane mirror image is as far behind the mirror as the object is in front. A mark twenty centimetres in front gives an apparent image twenty centimetres behind."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Object and image distances from mirror are equal"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "For a spherical mirror, mark the pole of the mirror, the centre of the sphere it comes from and the line through both. That line is the principal axis."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Pole P · centre of curvature C · principal axis"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "A light ray near the principal axis arrives parallel to it. A concave mirror reflects the ray through the principal focus in the idealised ray diagram."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Concave: parallel ray reflects toward F"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "For a convex mirror, a parallel ray reflects outward. Extending the outgoing ray backward makes it appear to come from the focus behind the mirror."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Convex: backward extension passes through F"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "For a concave mirror, an incoming ray along the line through the centre of curvature strikes the mirror normally. It travels back along the same line."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Ray through C retraces its path"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Put an object beyond the centre of curvature of a concave mirror. Two reflected rays meet between the centre and focus. The image is real, inverted and smaller."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Beyond C → image between F and C"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Place an object exactly at the centre of curvature. The returning rays form a real, inverted image at the centre as well, and the image has the same height magnitude as the object."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "At C → image at C, same size"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Move the object between the centre and the focus. The reflected rays meet farther away than the centre. The real image is inverted and enlarged."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Between F and C → enlarged image beyond C"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Move the object inside the focal distance. The reflected rays separate, but their backward extensions meet behind the mirror. This virtual image is upright and enlarged."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Inside F → enlarged, upright virtual image"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "For a convex mirror viewing an ordinary object in front, the apparent image forms behind the mirror. It is upright and smaller, which lets the mirror fit a wider view into its surface."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Convex mirror: virtual, upright, smaller"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Use the pole as the zero point for mirror distances. In the textbook sign convention, distances pointing in the direction of incoming light are positive. Distances in the opposite direction are negative."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Measure from P · incoming direction is positive"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "The mirror equation connects focal length, image distance and object distance. For a concave mirror with focal length minus ten centimetres and object distance minus thirty, the image distance is minus fifteen centimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1/f = 1/u + 1/v"
+              },
+              {
+                "op": "write",
+                "text": "u = −30 cm, f = −10 cm → v = −15 cm"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "Magnification is image height divided by object height. In this mirror convention it also equals minus image distance divided by object distance. Our example gives minus one half, so the image is inverted and half as tall."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "m = −v/u = −1/2"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Light in a vacuum travels at about three hundred million metres per second. Its speed is lower in water or ordinary glass. A ray entering glass obliquely from air typically bends toward the normal."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Vacuum speed ≈ 3 × 10⁸ m/s"
+              },
+              {
+                "op": "write",
+                "text": "Air → glass: often toward normal"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "The relative refractive index from medium one to medium two is also the speed in medium one divided by the speed in medium two. When medium one is a vacuum, this is the absolute refractive index of medium two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "n₂ relative to n₁ = speed₁ / speed₂"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "At the critical angle, the refracted ray runs along the interface. A larger incident angle can make the light reflect entirely back inside the higher-index medium."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Critical angle → refraction at 90°"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Optical fibres can guide light by repeated internal reflection at a boundary between regions of different refractive index. An atmospheric mirage, in contrast, involves the changing refractive index of air with height."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Optical fibre: repeated internal reflection"
+              },
+              {
+                "op": "write",
+                "text": "Mirage: changing refractive index of air"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Before choosing a rule, ask what happens at the boundary. A mirror mostly reflects, transparent media can refract, and total internal reflection requires both the right direction of travel and a large enough angle."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Identify the media, ray direction and angle"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "concave mirror"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "A concave mirror can form real or virtual images depending on the position of the object, and it is used as a shaving mirror and in headlights."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A ray strikes a plane mirror at thirty degrees to the mirror surface. Find the angle of reflection."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Subtract thirty degrees from ninety degrees to read the incidence angle from the normal."
+            },
+            "why": {
+              "en": "The normal is perpendicular to the mirror, so the angle of incidence is sixty degrees."
+            }
+          },
+          {
+            "text": {
+              "en": "Measure the reflected angle from the same normal on the other side."
+            },
+            "why": {
+              "en": "The law of reflection gives sixty degrees as the angle of reflection."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "convex mirror"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "A convex mirror always gives a smaller, virtual, erect image with a wide field of view, which is why it is used as a rear-view mirror."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says A convex mirror is used as a shaving mirror. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Shaving mirrors are concave because they magnify the face."
+          },
+          {
+            "en": "Convex mirrors give a wide, smaller view and are used for vehicle rear-view."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "refraction"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "The bending of light when it passes obliquely from one transparent medium to another is refraction."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-lig580",
+          "r1-lig581",
+          "tnm9-light-normal-1",
+          "tnm9-light-concave-1",
+          "tnm9-light-tir-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "total internal reflection"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "The ratio of the sine of the angle of incidence to the sine of the angle of refraction is the refractive index, and it has no unit."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "reflection"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "When light goes from a denser to a rarer medium at an angle beyond the critical angle, total internal reflection occurs, which makes diamonds sparkle and stars twinkle."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "real and virtual image"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "A ray strikes a plane mirror at 30 degrees to the normal. What is the angle of reflection?"
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "The law of reflection says i = r."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Reflection: angle i = angle r."
+          },
+          {
+            "en": "Concave mirrors converge, convex diverge."
+          },
+          {
+            "en": "Refraction is bending of light."
+          },
+          {
+            "en": "Total internal reflection requires travel toward a lower refractive index at an angle above the critical angle."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "i = 30 degrees."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "So the angle of reflection is 30 degrees."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says A convex mirror is used as a shaving mirror. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Shaving mirrors are concave because they magnify the face."
-     },
-     {
-      "en": "Convex mirrors give a wide, smaller view and are used for vehicle rear-view."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-lig580",
-     "r1-lig581"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Reflection: angle i = angle r."
-     },
-     {
-      "en": "Concave mirrors converge, convex diverge."
-     },
-     {
-      "en": "Refraction is bending of light."
-     },
-     {
-      "en": "Total internal reflection needs the critical angle."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

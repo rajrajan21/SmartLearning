@@ -1,232 +1,573 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "measurement",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Measurement"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "measurement",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Measurement"
     },
-    "text": {
-     "en": "Raju wanted to buy 3 kilograms of tomatoes and check the length of his notebook. \"Both are measurements,\" said his teacher."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "fundamental quantity",
-     "derived quantity",
-     "SI unit",
-     "least count",
-     "screw gauge",
-     "mass and weight"
-    ],
-    "text": {
-     "en": "Measurement means finding the size or magnitude of a quantity by comparing it with a standard called a unit. A physical quantity has a number and a unit, such as 3 kilograms. Quantities that cannot be written in terms of others are fundamental quantities, such as length, mass, time and temperature. Quantities made from them are derived quantities, such as area, volume and density.\nThe SI system gives one standard unit to each quantity: the metre for length, the kilogram for mass, the second for time and the kelvin for temperature. Large and small values are written with prefixes such as kilo (1000) and milli, or in scientific notation like 9.46 x 10^15 m for a light year. For very large distances we use the astronomical unit, the light year and the parsec.\nTo measure small lengths we use a vernier caliper and a screw gauge. The least count is the smallest length an instrument can measure. A screw gauge works with a pitch, the distance the screw moves in one full turn, and its least count is the pitch divided by the number of head-scale divisions. If the zero of the instrument is not at zero, we correct the reading using the zero error.\nMass is the quantity of matter in a body and does not change from place to place. Weight is the force with which gravity pulls the body, and it is measured with a spring balance using Hooke's law. So a body keeps the same mass on the Moon but weighs less there."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Measurement means finding the size or magnitude of a quantity by comparing it with a standard called a unit."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Raju wanted to buy 3 kilograms of tomatoes and check the length of his notebook. \"Both are measurements,\" said his teacher."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "fundamental quantity"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "A physical quantity has a number and a unit, such as 3 kilograms."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "fundamental quantity",
+          "derived quantity",
+          "SI unit",
+          "least count",
+          "screw gauge",
+          "mass and weight"
+        ],
+        "text": {
+          "en": "Measurement means finding the size or magnitude of a quantity by comparing it with a standard called a unit. A physical quantity has a number and a unit, such as 3 kilograms. The SI system chooses base quantities independently. Length, mass, time and thermodynamic temperature are four of its seven base quantities. Quantities made from them are derived quantities, such as area, volume and density.\nThe SI base units include metre for length, kilogram for mass, second for time and kelvin for thermodynamic temperature. Other quantities can use units derived from those base units. Large and small values are written with prefixes such as kilo (1000) and milli, or in scientific notation like 9.46 x 10^15 m for a light year. For very large distances we use the astronomical unit, the light year and the parsec.\nTo measure small lengths we use a vernier caliper and a screw gauge. The least count is the smallest length an instrument can measure. A screw gauge works with a pitch, the distance the screw moves in one full turn, and its least count is the pitch divided by the number of head-scale divisions. If the zero of the instrument is not at zero, we correct the reading using the zero error.\nMass is the quantity of matter in a body and does not change from place to place. Weight is the force with which gravity pulls the body, and it is measured with a spring balance using Hooke's law. So a body keeps the same mass on the Moon but weighs less there."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "derived quantity"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Quantities that cannot be written in terms of others are fundamental quantities, such as length, mass, time and temperature."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Measurement means finding the size or magnitude of a quantity by comparing it with a standard called a unit."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "fundamental quantity"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A physical quantity has a number and a unit, such as 3 kilograms."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "derived quantity"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The SI system chooses base quantities independently. Length, mass, time and thermodynamic temperature are four of its seven base quantities."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "SI unit"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Quantities made from them are derived quantities, such as area, volume and density."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "least count"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The SI base units include metre for length, kilogram for mass, second for time and kelvin for thermodynamic temperature. Other quantities can use units derived from those base units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "screw gauge"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Large and small values are written with prefixes such as kilo (1000) and milli, or in scientific notation like 9.46 x 10^15 m for a light year."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mass and weight"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For very large distances we use the astronomical unit, the light year and the parsec."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "fundamental quantity"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "To measure small lengths we use a vernier caliper and a screw gauge."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "derived quantity"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "A measurement compares a quantity with an agreed unit. A notebook length of twenty-five centimetres includes both the number twenty-five and the length unit centimetre."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Measurement = numerical value with a unit"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Name the other three SI base quantities: electric current, amount of substance and luminous intensity. Their units are ampere, mole and candela."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A · mol · cd"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "A rectangular area is length multiplied by breadth. Both dimensions can be measured in metres, so the derived SI unit is square metres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area uses m²"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Volume uses three factors of length and therefore cubic metres. Density divides a mass by a volume, so its derived SI unit is kilograms per cubic metre."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Volume: m³"
+              },
+              {
+                "op": "write",
+                "text": "Density: kg/m³"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "A prefix changes the size of the unit. One millimetre is one thousandth of a metre. A length of three hundred fifty millimetres is zero point three five metres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "350 mm = 0.35 m"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Use a space between a value and a unit symbol. Write the symbol for kilogram as lowercase k and g. Unit symbols stay the same for singular and plural values."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Write 3 kg"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "For very large distances in the solar system, the astronomical unit is convenient. One astronomical unit is about one hundred fifty million kilometres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 au ≈ 150 million km"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "A light-year is the distance light travels in a vacuum in one year. The word year tells us how long the light travels, but the complete term names a length."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 light-year ≈ 9.46 × 10¹⁵ m"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "The parsec is another astronomical distance unit. One parsec is about three point two six light-years. Choose a unit suited to the scale of the question."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 pc ≈ 3.26 light-years"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "A ruler with a mark every millimetre has a scale interval of one millimetre. Look straight at the marked position to reduce apparent shifts from a sideways view."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Ruler: view the mark straight on"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "A vernier caliper has a fixed main scale and a sliding vernier. Its outside jaws can measure outside diameter, while the smaller inside jaws can measure an opening."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Caliper options: outside and inside measurements"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "On a diagram where one main-scale interval is one millimetre and ten vernier intervals match nine main-scale intervals, one vernier interval is zero point nine millimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 main division = 1.00 mm"
+              },
+              {
+                "op": "write",
+                "text": "1 vernier division = 0.90 mm"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "The difference between those interval lengths is zero point one millimetre. That is the least count for this caliper design."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Least count = 1.00 − 0.90 = 0.10 mm"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Suppose the vernier zero is just past twenty-four millimetres and vernier line six aligns with a main-scale line. Add six times zero point one to twenty-four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Observed caliper reading = 24.6 mm"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "A screw gauge uses the movement of a screw through a known distance per full turn. The distance moved through one full turn is called pitch."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Pitch = advance per full rotation"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "A pitch of half a millimetre and a head with fifty divisions give a least count of one hundredth of a millimetre. Divide the pitch by the number of equal divisions."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Least count = 0.50 mm / 50 = 0.01 mm"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "Read the sleeve first and then the head graduation that meets the reference line. Four millimetres on the sleeve and thirty-seven head divisions give an observed reading of four point three seven millimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "4 mm + 37 × 0.01 mm = 4.37 mm"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Close the measuring faces gently with nothing between them to check zero. If the reading is plus zero point zero three millimetres, subtract that positive offset from your observed reading."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Correct value = observed value − zero error"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "A negative zero error is also subtracted as a signed value. Subtracting minus zero point zero two adds zero point zero two millimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Subtract a negative offset → add its magnitude"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Accuracy means closeness to a reference value. Precision concerns how closely measurements agree with one another. A consistent zero error can make repeat readings close together but shifted."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Accuracy: closeness to reference"
+              },
+              {
+                "op": "write",
+                "text": "Precision: agreement between readings"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Mass can be measured with a balance using known masses. Weight is the gravitational force on a body and is measured in newtons. Its value depends on the local gravitational field."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mass: kg"
+              },
+              {
+                "op": "write",
+                "text": "Weight: N"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "A mass of two kilograms has weight about nineteen point six newtons where gravity gives nine point eight newtons per kilogram. On the Moon the same mass has a smaller weight."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "W = mg = 2 × 9.8 = 19.6 N"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "SI unit"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Quantities made from them are derived quantities, such as area, volume and density."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A screw gauge has pitch 0.50 mm and 50 head divisions. Its observed reading is 4.37 mm and the zero error is +0.03 mm. Find the least count and corrected reading."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Divide half a millimetre by fifty head divisions."
+            },
+            "why": {
+              "en": "The least count is one hundredth of a millimetre."
+            }
+          },
+          {
+            "text": {
+              "en": "Subtract the positive zero error from the observed reading."
+            },
+            "why": {
+              "en": "Four point three seven minus zero point zero three gives four point three four millimetres."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "least count"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "The SI system gives one standard unit to each quantity: the metre for length, the kilogram for mass, the second for time and the kelvin for temperature."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Mass and weight are the same thing. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Mass is the amount of matter and stays the same everywhere."
+          },
+          {
+            "en": "Weight is the pull of gravity and changes from place to place."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "screw gauge"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Large and small values are written with prefixes such as kilo (1000) and milli, or in scientific notation like 9.46 x 10^15 m for a light year."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-mea630",
+          "r1-mea631",
+          "tnm9-measure-unit-1",
+          "tnm9-measure-gauge-1",
+          "tnm9-measure-zero-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "mass and weight"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "For very large distances we use the astronomical unit, the light year and the parsec."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "fundamental quantity"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "To measure small lengths we use a vernier caliper and a screw gauge."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "derived quantity"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "A screw gauge has pitch 1 mm and 100 head-scale divisions. Find its least count."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Least count = pitch divided by number of head scale divisions."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A quantity has a number and a unit."
+          },
+          {
+            "en": "Length, mass, time and temperature are fundamental."
+          },
+          {
+            "en": "Least count is the smallest reading an instrument can give."
+          },
+          {
+            "en": "Mass stays the same, weight changes with gravity."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "1 mm divided by 100 = 0.01 mm."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "So the least count is 0.01 mm."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Mass and weight are the same thing. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Mass is the amount of matter and stays the same everywhere."
-     },
-     {
-      "en": "Weight is the pull of gravity and changes from place to place."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-mea630",
-     "r1-mea631"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "A quantity has a number and a unit."
-     },
-     {
-      "en": "Length, mass, time and temperature are fundamental."
-     },
-     {
-      "en": "Least count is the smallest reading an instrument can give."
-     },
-     {
-      "en": "Mass stays the same, weight changes with gravity."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

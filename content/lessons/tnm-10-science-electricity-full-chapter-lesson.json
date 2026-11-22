@@ -34,7 +34,7 @@
      "Joule's law"
     ],
     "text": {
-     "en": "Electric current is the rate of flow of charge, I = Q / t, with the unit ampere. Potential difference between two points is the work done in moving a unit positive charge from one point to the other, and its unit is the volt. A circuit needs components like cell, switch, bulb, ammeter and voltmeter.\nOhm's law says that at constant temperature V = IR, where R is the resistance in ohms. Resistivity is the resistance of a conductor of unit length and unit cross-section, and conductance is the opposite of resistance. In series R = R1 + R2 + R3, and in parallel 1/R = 1/R1 + 1/R2 + 1/R3.\nJoule's law gives the heat produced as H = I^2 R t, used in heaters and bulbs. Electric power is P = VI with the unit watt, and electrical energy is measured in kilowatt hour. Domestic circuits use fuses and earthing, because overloading and short circuits cause danger."
+     "en": "Electric current is the rate of flow of charge, I = Q / t, with the unit ampere. Potential difference between two points is the work done in moving a unit positive charge from one point to the other, and its unit is the volt. A working circuit needs a source and a complete conducting path. A switch controls the path, a bulb can act as a load, and meters are used to take measurements.\nOhm's law says that at constant temperature V = IR, where R is the resistance in ohms. For a uniform conductor, resistivity equals resistance times cross-sectional area divided by length. Conductance is the reciprocal of resistance. In series R = R1 + R2 + R3, and in parallel 1/R = 1/R1 + 1/R2 + 1/R3.\nJoule's law gives the heat produced as H = I^2 R t, used in heaters and bulbs. Electric power is P = VI with the unit watt, and electrical energy is measured in kilowatt hour. Domestic circuits use fuses and earthing, because overloading and short circuits cause danger."
     }
    },
    {
@@ -73,7 +73,7 @@
      {
       "id": "t3",
       "text": {
-       "en": "A circuit needs components like cell, switch, bulb, ammeter and voltmeter."
+       "en": "A working circuit needs an energy source, conducting connections and a complete path. A switch can open the path. A bulb can be the load, and meters are added when measurements are needed."
       },
       "board": [
        {
@@ -97,7 +97,7 @@
      {
       "id": "t5",
       "text": {
-       "en": "Resistivity is the resistance of a conductor of unit length and unit cross-section, and conductance is the opposite of resistance."
+       "en": "Resistivity is a property of a material. For a uniform conductor it equals resistance times cross-sectional area divided by length. Conductance is the reciprocal of resistance."
       },
       "board": [
        {
@@ -141,6 +141,285 @@
         "text": "potential difference"
        }
       ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "If twelve coulombs pass in three seconds, the average current is four amperes. One ampere means one coulomb per second."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Current measures charge per time"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "In a metallic wire the electrons drift the other way. Circuit arrows generally show the direction of conventional current."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Conventional current goes from positive to negative outside the cell"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "A potential difference of six volts transfers six joules of energy per coulomb of charge passing through a component."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "One volt means one joule per coulomb"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "Place an ammeter in the path whose current you want to measure. The same branch current flows through both the meter and the component."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Ammeter goes in series"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "Connect the voltmeter across the component to compare electric potential at its two ends."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Voltmeter goes across two points"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "Keep the temperature steady. If doubling the voltage doubles the current, the voltage divided by current stays constant."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Ohmic conductor: voltage rises in proportion to current"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "If six volts cause two amperes through a resistor, the resistance is three ohms."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "R = V/I"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "Put current on the horizontal axis and voltage on the vertical axis. For an ohmic conductor the straight graph’s slope gives resistance."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Read V against I on a graph"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "For identical material and thickness, a longer wire has larger resistance. With twice the length, there is twice the resistance at the same temperature."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Length raises resistance"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "A wire of twice the cross-sectional area has half the resistance when its material, length and temperature stay fixed."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Thicker cross-section lowers resistance"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "There is only one route through resistors in series. The individual voltage drops add to the supply voltage."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Series components carry the same current"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "A resistor added in series increases the total opposition to current. Add the resistance values directly."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Series: 6 Ω plus 3 Ω makes 9 Ω"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "Both ends of each branch are connected to the same pair of nodes. Each branch therefore gets the same potential difference."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Parallel branches have the same voltage"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "Across six volts, a six-ohm resistor draws one ampere and a three-ohm resistor draws two. The supply current is three amperes."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Add branch currents at a junction"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "Divide the six-volt supply by the total current of three amperes. The pair of branches acts like a single two-ohm resistor."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Equivalent parallel resistance is smaller than either branch"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "For a constant current in a resistor, doubling the current produces four times the heat over the same time, if resistance stays the same."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Heating depends on current squared"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "At six volts and two amperes, the power is twelve watts. The circuit transfers twelve joules per second to the component."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Power is the rate of energy transfer"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "A one-kilowatt appliance used for half an hour uses half a kilowatt-hour. Kilowatt measures power and kilowatt-hour measures energy."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Energy = power × time"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "Appliances receive the supply voltage across their branches and can be switched independently. Learn with diagrams or supervised low-voltage equipment."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Household loads are connected in parallel"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "Overload can occur when too many loads draw current together. A safety device opens the circuit if the current becomes excessive."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A short circuit gives current an unintended low-resistance route"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "An earth connection helps protective devices disconnect a faulty appliance if a live wire touches its metal case."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Earthing gives a protective path"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "LEDs use semiconductor materials and commonly use less electric power than older filament lamps for similar lighting."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "An LED turns electrical energy into light"
+       }
+      ]
      }
     ]
    },
@@ -179,6 +458,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the current if 15 C passes through a wire in 5 seconds."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Use I = Q/t = 15/5."
+      },
+      "why": {
+       "en": "Current measures charge passing per second."
+      }
+     },
+     {
+      "text": {
+       "en": "The average current is 3 A."
+      },
+      "why": {
+       "en": "Each second carries an average of 3 coulombs."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the equivalent resistance of 6 Ω and 3 Ω in parallel at 6 V."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Branch currents are 6/6 = 1 A and 6/3 = 2 A."
+      },
+      "why": {
+       "en": "Both branches have 6 V across them."
+      }
+     },
+     {
+      "text": {
+       "en": "The current sums to 3 A, so R = 6/3 = 2 Ω."
+      },
+      "why": {
+       "en": "The equivalent resistor draws the same total current."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "How much energy does a 2 kW appliance use in 15 minutes?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Convert 15 minutes to 0.25 h."
+      },
+      "why": {
+       "en": "Kilowatt-hours use power in kilowatts and time in hours."
+      }
+     },
+     {
+      "text": {
+       "en": "Energy = 2 × 0.25 = 0.50 kWh."
+      },
+      "why": {
+       "en": "Use power multiplied by elapsed time."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -205,7 +562,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-ele290",
-     "r1-ele291"
+     "r1-ele291",
+     "tnm10-s-e-1",
+     "tnm10-s-e-2",
+     "tnm10-s-e-3",
+     "tnm10-s-e-4",
+     "tnm10-s-e-5",
+     "tnm10-s-e-6"
     ]
    },
    {

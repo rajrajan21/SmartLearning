@@ -146,6 +146,125 @@
    "size": 22,
    "color": "good",
    "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 52,
+   "text": "Refraction at an air–glass boundary",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nglass",
+   "x": 185,
+   "y": 250,
+   "w": 529,
+   "h": 185,
+   "fill": "#DBEFFB",
+   "stroke": "soft"
+  },
+  {
+   "kind": "line",
+   "id": "nsurface",
+   "x1": 185,
+   "y1": 250,
+   "x2": 714,
+   "y2": 250,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "nnormal",
+   "x1": 440,
+   "y1": 104,
+   "x2": 440,
+   "y2": 420,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "arrow",
+   "id": "nincident",
+   "x1": 287,
+   "y1": 130,
+   "x2": 436,
+   "y2": 247,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nrefracted",
+   "x1": 443,
+   "y1": 254,
+   "x2": 494,
+   "y2": 398,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nair",
+   "x": 678,
+   "y": 180,
+   "text": "Air",
+   "size": 25,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nglassT",
+   "x": 672,
+   "y": 332,
+   "text": "Glass",
+   "size": 25,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnormalT",
+   "x": 439,
+   "y": 93,
+   "text": "Normal",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ninT",
+   "x": 259,
+   "y": 123,
+   "text": "Incident ray",
+   "size": 20,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "noutT",
+   "x": 542,
+   "y": 403,
+   "text": "Refracted ray",
+   "size": 20,
+   "color": "good"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 475,
+   "text": "Angles are measured from the normal",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -247,6 +366,100 @@
      "target": "f2",
      "at": 0.5,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "refraction1",
+   "narration": {
+    "en": "The upper region is air and the lower region is glass. The normal is perpendicular to the boundary at the point where the ray arrives."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nglass",
+     "at": 0.16,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nsurface",
+     "at": 0.22,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nair",
+     "at": 0.26
+    },
+    {
+     "do": "show",
+     "target": "nglassT",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "nnormal",
+     "at": 0.54,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nnormalT",
+     "at": 0.64
+    }
+   ]
+  },
+  {
+   "id": "refraction2",
+   "narration": {
+    "en": "The incoming ray meets the surface at an angle. In the glass it bends towards the normal."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nincident",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ninT",
+     "at": 0.27
+    },
+    {
+     "do": "draw",
+     "target": "nrefracted",
+     "at": 0.58,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "noutT",
+     "at": 0.72
+    }
+   ]
+  },
+  {
+   "id": "refraction3",
+   "narration": {
+    "en": "Compare each ray with the normal beside it. The angle in glass is smaller than the angle the incoming ray makes in air."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.45,
+     "ms": 450
     }
    ]
   }

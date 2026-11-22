@@ -1,159 +1,375 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "light",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "Reflection of light"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 44,
-   "text": "Reflection of light",
-   "size": 34,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "light",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "Reflection of light"
   },
-  {
-   "kind": "line",
-   "id": "mr",
-   "x1": 200,
-   "y1": 380,
-   "x2": 700,
-   "y2": 380,
-   "stroke": "ink",
-   "width": 8
-  },
-  {
-   "kind": "line",
-   "id": "nm",
-   "x1": 450,
-   "y1": 380,
-   "x2": 450,
-   "y2": 150,
-   "stroke": "soft",
-   "width": 3
-  },
-  {
-   "kind": "arrow",
-   "id": "in",
-   "x1": 250,
-   "y1": 160,
-   "x2": 440,
-   "y2": 375,
-   "stroke": "sun",
-   "width": 5
-  },
-  {
-   "kind": "arrow",
-   "id": "rf",
-   "x1": 460,
-   "y1": 375,
-   "x2": 650,
-   "y2": 160,
-   "stroke": "warm",
-   "width": 5
-  },
-  {
-   "kind": "text",
-   "id": "ti",
-   "x": 270,
-   "y": 150,
-   "text": "Incident ray",
-   "size": 24,
-   "color": "sun",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "tr",
-   "x": 640,
-   "y": 150,
-   "text": "Reflected ray",
-   "size": 24,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "tm",
-   "x": 450,
-   "y": 425,
-   "text": "Mirror",
-   "size": 26,
-   "color": "ink",
-   "anchor": "middle"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "When light falls on a shiny surface such as a mirror, it bounces back. This is called reflection."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 44,
+      "text": "Reflection of light",
+      "size": 34,
+      "color": "accent",
+      "anchor": "middle"
     },
     {
-     "do": "draw",
-     "target": "mr",
-     "at": 0.2
+      "kind": "line",
+      "id": "mr",
+      "x1": 200,
+      "y1": 380,
+      "x2": 700,
+      "y2": 380,
+      "stroke": "ink",
+      "width": 8
     },
     {
-     "do": "write",
-     "target": "tm",
-     "at": 0.4
+      "kind": "line",
+      "id": "nm",
+      "x1": 450,
+      "y1": 380,
+      "x2": 450,
+      "y2": 150,
+      "stroke": "soft",
+      "width": 3
+    },
+    {
+      "kind": "arrow",
+      "id": "in",
+      "x1": 250,
+      "y1": 160,
+      "x2": 440,
+      "y2": 375,
+      "stroke": "sun",
+      "width": 5
+    },
+    {
+      "kind": "arrow",
+      "id": "rf",
+      "x1": 460,
+      "y1": 375,
+      "x2": 650,
+      "y2": 160,
+      "stroke": "warm",
+      "width": 5
+    },
+    {
+      "kind": "text",
+      "id": "ti",
+      "x": 270,
+      "y": 150,
+      "text": "Incident ray",
+      "size": 24,
+      "color": "sun",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "tr",
+      "x": 640,
+      "y": 150,
+      "text": "Reflected ray",
+      "size": 24,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "tm",
+      "x": 450,
+      "y": 425,
+      "text": "Mirror",
+      "size": 26,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lighttitle",
+      "kind": "text",
+      "x": 450,
+      "y": 53,
+      "text": "Measure the ray angles from the normal",
+      "size": 34,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lightmirror",
+      "kind": "line",
+      "x1": 176,
+      "y1": 342,
+      "x2": 722,
+      "y2": 342,
+      "stroke": "ink",
+      "width": 6
+    },
+    {
+      "id": "lightnormal",
+      "kind": "line",
+      "x1": 450,
+      "y1": 96,
+      "x2": 450,
+      "y2": 342,
+      "stroke": "#718097",
+      "width": 3
+    },
+    {
+      "id": "lightnormalname",
+      "kind": "text",
+      "x": 450,
+      "y": 88,
+      "text": "Normal",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lightmirrorname",
+      "kind": "text",
+      "x": 450,
+      "y": 383,
+      "text": "Plane mirror",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lightincident",
+      "kind": "arrow",
+      "x1": 206,
+      "y1": 98,
+      "x2": 450,
+      "y2": 342,
+      "stroke": "warm",
+      "width": 6
+    },
+    {
+      "id": "lightreflected",
+      "kind": "arrow",
+      "x1": 450,
+      "y1": 342,
+      "x2": 694,
+      "y2": 98,
+      "stroke": "accent",
+      "width": 6
+    },
+    {
+      "id": "lightleftarc",
+      "kind": "path",
+      "d": "M 450 255 Q 414 265 388 280",
+      "stroke": "warm",
+      "width": 4
+    },
+    {
+      "id": "lightrightarc",
+      "kind": "path",
+      "d": "M 450 255 Q 486 265 512 280",
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "id": "lightleftval",
+      "kind": "text",
+      "x": 394,
+      "y": 236,
+      "text": "45°",
+      "size": 26,
+      "color": "warm",
+      "anchor": "middle"
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "The ray that comes towards the mirror is the incident ray."
-   },
-   "actions": [
+  ],
+  "steps": [
     {
-     "do": "draw",
-     "target": "in",
-     "at": 0.2
+      "id": "s1",
+      "narration": {
+        "en": "When light falls on a shiny surface such as a mirror, it bounces back. This is called reflection."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        },
+        {
+          "do": "draw",
+          "target": "mr",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "tm",
+          "at": 0.4
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "ti",
-     "at": 0.5
+      "id": "s2",
+      "narration": {
+        "en": "The ray that comes towards the mirror is the incident ray."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "in",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "ti",
+          "at": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "narration": {
+        "en": "The ray that bounces off is the reflected ray. The dotted line standing straight up from the mirror is the normal, and the two rays make equal angles with it."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "nm",
+          "at": 0.1
+        },
+        {
+          "do": "draw",
+          "target": "rf",
+          "at": 0.35
+        },
+        {
+          "do": "write",
+          "target": "tr",
+          "at": 0.6
+        }
+      ]
+    },
+    {
+      "id": "light-normal",
+      "narration": {
+        "en": "The normal meets the mirror at a right angle where the ray strikes. Use that line to read the angle of the incoming ray."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "lighttitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lightmirror",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lightmirrorname",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lightnormal",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lightnormalname",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "lightincident",
+          "on": "incoming ray",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "lightleftarc",
+          "on": "incoming ray",
+          "ms": 300
+        },
+        {
+          "do": "show",
+          "target": "lightleftval",
+          "on": "incoming ray",
+          "ms": 300
+        }
+      ]
+    },
+    {
+      "id": "light-reflect",
+      "narration": {
+        "en": "Follow the outgoing ray. Its angle is measured from the same normal, on the other side. The two angles with the normal are equal."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "lightreflected",
+          "on": "outgoing ray",
+          "ms": 850
+        },
+        {
+          "do": "draw",
+          "target": "lightrightarc",
+          "on": "same normal",
+          "ms": 850
+        }
+      ]
+    },
+    {
+      "id": "light-picture-check",
+      "narration": {
+        "en": "Read the marked angle and choose the matching angle on the other side of the normal."
+      },
+      "actions": [],
+      "check": {
+        "stem": {
+          "en": "What is the angle of reflection in this diagram?"
+        },
+        "explanation": {
+          "en": "The incident ray forms forty-five degrees with the normal. The reflected ray forms the same angle with the normal."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "90°"
+            },
+            "whyWrong": {
+              "en": "That is the angle between the normal and the mirror."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "45°"
+            },
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "135°"
+            },
+            "whyWrong": {
+              "en": "Use the acute angle between the outgoing ray and the normal above the mirror."
+            }
+          }
+        ]
+      }
     }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "The ray that bounces off is the reflected ray. The dotted line standing straight up from the mirror is the normal, and the two rays make equal angles with it."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "nm",
-     "at": 0.1
-    },
-    {
-     "do": "draw",
-     "target": "rf",
-     "at": 0.35
-    },
-    {
-     "do": "write",
-     "target": "tr",
-     "at": 0.6
-    }
-   ]
-  }
- ]
+  ]
 }

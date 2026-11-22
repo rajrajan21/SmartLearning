@@ -72,6 +72,107 @@
    "size": 28,
    "color": "warm",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 56,
+   "text": "An echo travels to the wall and back",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nwall",
+   "x": 697,
+   "y": 113,
+   "w": 24,
+   "h": 302,
+   "fill": "soft",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nwallT",
+   "x": 709,
+   "y": 450,
+   "text": "Wall",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsourceT",
+   "x": 166,
+   "y": 290,
+   "text": "Source and listener",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nout",
+   "x1": 162,
+   "y1": 171,
+   "x2": 688,
+   "y2": 171,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nin",
+   "x1": 689,
+   "y1": 337,
+   "x2": 164,
+   "y2": 337,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "noutT",
+   "x": 449,
+   "y": 149,
+   "text": "Outgoing sound",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ninT",
+   "x": 448,
+   "y": 377,
+   "text": "Returning sound",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nelapsed",
+   "x": 450,
+   "y": 249,
+   "text": "Round-trip time: 0.20 s",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncalc",
+   "x": 450,
+   "y": 477,
+   "text": "Distance to wall = 340 × 0.20 ÷ 2 = 34 m",
+   "size": 25,
+   "color": "accent",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -126,6 +227,89 @@
      "do": "write",
      "target": "lb2",
      "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "echo1",
+   "narration": {
+    "en": "The outgoing sound travels across the room to the wall. Follow the upper arrow from the source to the reflector."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nwall",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nwallT",
+     "at": 0.22
+    },
+    {
+     "do": "show",
+     "target": "nsourceT",
+     "at": 0.32
+    },
+    {
+     "do": "draw",
+     "target": "nout",
+     "at": 0.55,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "noutT",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "echo2",
+   "narration": {
+    "en": "The wall reflects part of the sound towards the listener. The time you measure includes the outward and return paths."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nin",
+     "at": 0.22,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ninT",
+     "at": 0.36
+    },
+    {
+     "do": "write",
+     "target": "nelapsed",
+     "at": 0.68,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "echo3",
+   "narration": {
+    "en": "At three hundred and forty metres per second for two tenths of a second, the total path is sixty-eight metres. Halve it to get thirty-four metres to the wall."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "ncalc",
+     "at": 0.68,
+     "ms": 450
     }
    ]
   }
