@@ -1,0 +1,160 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "a-tale-of-three-intersecting-lines",
+ "topic": "altitudes-of-triangles",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Altitudes inside and outside triangles"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "Dev draws a triangle leaning to the left. He tries to drop a vertical line from the high vertex but finds it meets the base line beyond an endpoint."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "text": {
+     "en": "An altitude is a perpendicular segment from a vertex to the line containing the opposite side. The meeting point is the foot of the altitude. Extend the opposite side when the perpendicular lands outside the triangle. In a right triangle, two sides serve as altitudes."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Choose a vertex. The side that does not touch it is the opposite side."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Choose the opposite side"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Use a set square to draw a perpendicular from the chosen vertex."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Meet the base line at 90°"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Continue the opposite side in a straight line if the perpendicular would miss the side itself."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Extend if the foot lies outside"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Repeat the construction from each vertex. An altitude can be inside, outside or along a side."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Three vertices, three altitudes"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "How do you construct the altitude from C to the opposite line AB if the foot lies beyond A?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Extend AB in a straight line beyond A."
+      },
+      "why": {
+       "en": "The full base line contains the side and its extension."
+      }
+     },
+     {
+      "text": {
+       "en": "Draw a perpendicular from C to meet the extension at H."
+      },
+      "why": {
+       "en": "The segment CH meets the line at a right angle."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Why does the height exist even if it misses the base segment?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "The line can be extended."
+     },
+     {
+      "en": "The altitude meets the extended line at 90°."
+     }
+    ],
+    "commonMisconceptions": []
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "c7ma-alt-1",
+     "c7ma-alt-2",
+     "c7ma-alt-3",
+     "c7ma-alt-4"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "An altitude comes from a vertex and meets the opposite line at a right angle."
+     },
+     {
+      "en": "An obtuse triangle can have an altitude outside it."
+     }
+    ]
+   }
+  ]
+ }
+}

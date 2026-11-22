@@ -1,0 +1,120 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "another-peek-beyond-the-point",
+ "topic": "decimal-division-and-repeating-quotients",
+ "status": "published",
+ "title": {
+  "en": "Dividing decimals and recognising repeating quotients"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "title",
+   "x": 450,
+   "y": 60,
+   "text": "Change both numbers by the same factor",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "first",
+   "x": 450,
+   "y": 145,
+   "text": "6.3 ÷ 0.9",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "change",
+   "x": 450,
+   "y": 230,
+   "text": "(6.3 × 10) ÷ (0.9 × 10)",
+   "size": 34,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "divide",
+   "x": 450,
+   "y": 315,
+   "text": "63 ÷ 9 = 7",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "check",
+   "x": 450,
+   "y": 402,
+   "text": "Check: 7 × 0.9 = 6.3",
+   "size": 34,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "decimal1",
+   "narration": {
+    "en": "Think of six point three divided by zero point nine. We want an equivalent calculation with a whole-number divisor."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "title",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "first",
+     "at": 0.18
+    }
+   ]
+  },
+  {
+   "id": "decimal2",
+   "narration": {
+    "en": "Multiply both numbers by ten. The divisor is now nine and the dividend is sixty-three. Scaling both numbers keeps the quotient the same."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "change",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "divide",
+     "at": 0.65
+    }
+   ]
+  },
+  {
+   "id": "decimal3",
+   "narration": {
+    "en": "Sixty-three divided by nine is seven. Check with the original divisor. Seven times zero point nine is six point three."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "divide",
+     "at": 0.16,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "check",
+     "at": 0.62
+    }
+   ]
+  }
+ ]
+}

@@ -7,7 +7,7 @@
  "lesson": {
   "status": "published",
   "title": {
-   "en": "Multiplying and dividing integers"
+   "en": "Integer division, inverse products and zero"
   },
   "blocks": [
    {
@@ -18,20 +18,15 @@
      "en": "A short story"
     },
     "text": {
-     "en": "A diver went down 3 metres every minute for 4 minutes.\n\"That is minus 12 metres,\" said Ravi."
+     "en": "A balance has a total change of minus 24 points after four equal rounds. Rani uses multiplication to check the change in each round."
     }
    },
    {
     "id": "explain",
     "type": "explanation",
     "provenance": "original",
-    "keepEnglishTerms": [
-     "positive",
-     "negative",
-     "product"
-    ],
     "text": {
-     "en": "Multiplying two numbers with different signs gives a negative answer: 3 times minus 4 is minus 12. Multiplying two negatives gives a positive: minus 3 times minus 4 is 12.\nDivision follows the same sign rule: minus 12 divided by 4 is minus 3 and minus 12 divided by minus 4 is 3.\nZero times any integer is zero."
+     "en": "To solve a ÷ b, ask what number multiplied by the non-zero divisor b gives a. Equal signs give a positive quotient and different signs give a negative quotient when both values are non-zero. Zero divided by a non-zero number is zero. A divisor of zero makes division undefined."
     }
    },
    {
@@ -43,7 +38,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "Multiplying two numbers with different signs gives a negative answer: 3 times minus 4 is minus 12."
+       "en": "Ask what number multiplied by four gives minus twenty-four."
       },
       "board": [
        {
@@ -51,43 +46,43 @@
        },
        {
         "op": "write",
-        "text": "positive"
+        "text": "−24 ÷ 4 = ?"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "Multiplying two negatives gives a positive: minus 3 times minus 4 is 12."
+       "en": "The signed product checks the quotient of minus six."
       },
       "board": [
        {
         "op": "write",
-        "text": "negative"
+        "text": "4 × (−6) = −24"
        }
       ]
      },
      {
       "id": "t3",
       "text": {
-       "en": "Division follows the same sign rule: minus 12 divided by 4 is minus 3 and minus 12 divided by minus 4 is 3."
+       "en": "Two negatives give a positive quotient. Check six times minus four."
       },
       "board": [
        {
         "op": "write",
-        "text": "product"
+        "text": "−24 ÷ (−4) = 6"
        }
       ]
      },
      {
       "id": "t4",
       "text": {
-       "en": "Zero times any integer is zero."
+       "en": "Four times zero makes zero. Nothing multiplied by zero makes four."
       },
       "board": [
        {
         "op": "write",
-        "text": "positive"
+        "text": "0 ÷ 4 = 0; 4 ÷ 0 is undefined"
        }
       ]
      }
@@ -98,31 +93,23 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Find (-5) x (-2)."
+     "en": "Check both −35 ÷ 7 and −35 ÷ (−7)."
     },
     "steps": [
      {
       "text": {
-       "en": "Both are negative."
+       "en": "Seven times minus five is minus thirty-five."
       },
       "why": {
-       "en": "Signs."
+       "en": "Different signs give a negative quotient."
       }
      },
      {
       "text": {
-       "en": "Two negatives make a positive."
+       "en": "Minus seven times five is minus thirty-five."
       },
       "why": {
-       "en": "Rule."
-      }
-     },
-     {
-      "text": {
-       "en": "5 times 2 is 10."
-      },
-      "why": {
-       "en": "Answer."
+       "en": "Equal signs in the original division give a positive quotient."
       }
      }
     ]
@@ -132,21 +119,17 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "A friend says a negative times a negative is negative. How will you reply?"
+     "en": "How do you check −18 ÷ (−3), and why can you divide zero by 3?"
     },
     "requiredIdeas": [
      {
-      "en": "Two negatives give a positive."
+      "en": "−3 × 6 gives −18."
      },
      {
-      "en": "The signs cancel."
+      "en": "3 × 0 gives 0."
      }
     ],
-    "commonMisconceptions": [
-     {
-      "en": "Sign error."
-     }
-    ]
+    "commonMisconceptions": []
    },
    {
     "id": "quiz",
@@ -154,7 +137,9 @@
     "provenance": "original",
     "questionIds": [
      "r1-sig620",
-     "r1-sig621"
+     "r1-sig621",
+     "r2-sig622",
+     "r2-sig623"
     ]
    },
    {
@@ -163,10 +148,10 @@
     "provenance": "original",
     "points": [
      {
-      "en": "Same signs give positive."
+      "en": "Check a quotient by multiplying by the divisor."
      },
      {
-      "en": "Different signs give negative."
+      "en": "A divisor must be non-zero."
      }
     ]
    }

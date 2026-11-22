@@ -7,7 +7,7 @@
  "lesson": {
   "status": "published",
   "title": {
-   "en": "HCF and LCM in word problems"
+   "en": "Common division and the HCF–LCM product check"
   },
   "blocks": [
    {
@@ -18,20 +18,15 @@
      "en": "A short story"
     },
     "text": {
-     "en": "Two bells ring every 6 and 8 minutes. They ring together now.\n\"When will they ring together again?\" asked Ravi."
+     "en": "Two classes have 18 and 24 students. They need the largest team size that works with both class sizes. Zara sets up a common-division table."
     }
    },
    {
     "id": "explain",
     "type": "explanation",
     "provenance": "original",
-    "keepEnglishTerms": [
-     "HCF",
-     "LCM",
-     "multiple"
-    ],
     "text": {
-     "en": "The HCF (highest common factor) is the largest number that divides two numbers. The LCM (least common multiple) is the smallest number that both divide.\nFor 6 and 8, the multiples are 6, 12, 18, 24 and 8, 16, 24 so the LCM is 24. The bells ring together again after 24 minutes.\nUse HCF for sharing into equal groups and LCM for events repeating together."
+     "en": "Divide both numbers by a prime that divides them exactly. Continue until the remaining numbers have no common divisor greater than one. The product of primes used is the HCF. For two positive integers, HCF × LCM equals their product."
     }
    },
    {
@@ -43,7 +38,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "The HCF (highest common factor) is the largest number that divides two numbers."
+       "en": "Use a prime divisor that works for both numbers. Divide both by three to get six and eight."
       },
       "board": [
        {
@@ -51,43 +46,43 @@
        },
        {
         "op": "write",
-        "text": "HCF"
+        "text": "18 and 24 are divisible by 3"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "The LCM (least common multiple) is the smallest number that both divide."
+       "en": "Divide both by two. This leaves three and four."
       },
       "board": [
        {
         "op": "write",
-        "text": "LCM"
+        "text": "6 and 8 are divisible by 2"
        }
       ]
      },
      {
       "id": "t3",
       "text": {
-       "en": "For 6 and 8, the multiples are 6, 12, 18, 24 and 8, 16, 24 so the LCM is 24."
+       "en": "Three and four have no common prime divisor. Multiply the common prime divisors that we used."
       },
       "board": [
        {
         "op": "write",
-        "text": "multiple"
+        "text": "HCF = 3 × 2 = 6"
        }
       ]
      },
      {
       "id": "t4",
       "text": {
-       "en": "The bells ring together again after 24 minutes."
+       "en": "Check the relationship by finding the least common multiple, seventy-two. Six times seventy-two equals the product of eighteen and twenty-four."
       },
       "board": [
        {
         "op": "write",
-        "text": "HCF"
+        "text": "18 × 24 = 6 × 72"
        }
       ]
      }
@@ -98,31 +93,23 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Find the LCM of 4 and 6."
+     "en": "Use common division to find the HCF and LCM of 20 and 30."
     },
     "steps": [
      {
       "text": {
-       "en": "Multiples of 4: 4, 8, 12."
+       "en": "Divide both by 2, then both by 5."
       },
       "why": {
-       "en": "List."
+       "en": "The remaining 2 and 3 have no common factor greater than 1."
       }
      },
      {
       "text": {
-       "en": "Multiples of 6: 6, 12."
+       "en": "HCF = 2 × 5 = 10; LCM = 20 × 30 ÷ 10 = 60."
       },
       "why": {
-       "en": "List."
-      }
-     },
-     {
-      "text": {
-       "en": "The LCM is 12."
-      },
-      "why": {
-       "en": "Answer."
+       "en": "For two positive integers, HCF × LCM equals the product of the integers."
       }
      }
     ]
@@ -132,21 +119,17 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "A friend says LCM is always smaller than both numbers. How will you reply?"
+     "en": "When do you stop common division, and what do you multiply?"
     },
     "requiredIdeas": [
      {
-      "en": "LCM is at least the bigger number."
+      "en": "Stop when the remaining numbers share no prime divisor."
      },
      {
-      "en": "It is a common multiple."
+      "en": "Multiply the common primes used in order."
      }
     ],
-    "commonMisconceptions": [
-     {
-      "en": "Mixing LCM and HCF."
-     }
-    ]
+    "commonMisconceptions": []
    },
    {
     "id": "quiz",
@@ -154,7 +137,9 @@
     "provenance": "original",
     "questionIds": [
      "r1-pri40",
-     "r1-pri41"
+     "r1-pri41",
+     "r2-pri42",
+     "r2-pri43"
     ]
    },
    {
@@ -163,10 +148,10 @@
     "provenance": "original",
     "points": [
      {
-      "en": "HCF is greatest common factor."
+      "en": "Only common divisors belong in an HCF division table."
      },
      {
-      "en": "LCM is least common multiple."
+      "en": "For two positive integers, use the product to check HCF and LCM."
      }
     ]
    }

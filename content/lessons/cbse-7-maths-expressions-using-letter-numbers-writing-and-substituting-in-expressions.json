@@ -7,7 +7,7 @@
  "lesson": {
   "status": "published",
   "title": {
-   "en": "Forming and evaluating expressions"
+   "en": "Expressions for patterns and calendar relationships"
   },
   "blocks": [
    {
@@ -18,20 +18,15 @@
      "en": "A short story"
     },
     "text": {
-     "en": "A pen costs 5 rupees. Ravi bought n pens.\n\"I will pay 5n rupees,\" he said."
+     "en": "Mina lists three dates that fall in the same column of a calendar. She wants a rule that works for any starting date in that column."
     }
    },
    {
     "id": "explain",
     "type": "explanation",
     "provenance": "original",
-    "keepEnglishTerms": [
-     "variable",
-     "expression",
-     "evaluate"
-    ],
     "text": {
-     "en": "A variable is a letter that stands for a number. 5n means 5 times n. n plus 3 means 3 more than n.\nTo evaluate an expression we put a number in place of the letter. When n is 4, 5n is 20.\nExpressions help us write a rule for any number."
+     "en": "A letter can stand for the first value in a pattern. When a calendar date is n, the same weekday one week later is n + 7, as long as both dates are in the same month. For a repeating increase, multiply the step size by the number of steps taken. Substitute values to check whether a rule fits the situation."
     }
    },
    {
@@ -43,7 +38,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "A variable is a letter that stands for a number."
+       "en": "Use n for the first date so the rule can work for more than one starting value."
       },
       "board": [
        {
@@ -51,43 +46,43 @@
        },
        {
         "op": "write",
-        "text": "variable"
+        "text": "Starting date: n"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "5n means 5 times n."
+       "en": "Move one row down the same calendar column. The value grows by seven."
       },
       "board": [
        {
         "op": "write",
-        "text": "expression"
+        "text": "One week later: n + 7"
        }
       ]
      },
      {
       "id": "t3",
       "text": {
-       "en": "n plus 3 means 3 more than n."
+       "en": "Two steps add seven twice, so the expression is n plus fourteen."
       },
       "board": [
        {
         "op": "write",
-        "text": "evaluate"
+        "text": "Two weeks later: n + 14"
        }
       ]
      },
      {
       "id": "t4",
       "text": {
-       "en": "To evaluate an expression we put a number in place of the letter."
+       "en": "Substitute eight. The next two dates on the same weekday are fifteen and twenty-two."
       },
       "board": [
        {
         "op": "write",
-        "text": "variable"
+        "text": "Check with n = 8"
        }
       ]
      }
@@ -98,31 +93,23 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Evaluate 3n + 2 when n = 4."
+     "en": "Can three same-weekday dates in one month be 9, 16 and 23?"
     },
     "steps": [
      {
       "text": {
-       "en": "Replace n with 4."
+       "en": "Let n = 9, then find n + 7 and n + 14."
       },
       "why": {
-       "en": "Substitute."
+       "en": "Calendar rows for the same weekday are seven days apart."
       }
      },
      {
       "text": {
-       "en": "3 times 4 is 12."
+       "en": "The expressions give 16 and 23."
       },
       "why": {
-       "en": "Multiply."
-      }
-     },
-     {
-      "text": {
-       "en": "12 plus 2 is 14."
-      },
-      "why": {
-       "en": "Answer."
+       "en": "The three dates follow the same-column pattern."
       }
      }
     ]
@@ -132,21 +119,17 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "A friend says 5n means 5 plus n. How will you reply?"
+     "en": "Explain why the fourth date in the same column is n + 21."
     },
     "requiredIdeas": [
      {
-      "en": "5n means 5 times n."
+      "en": "There are three steps from the first date."
      },
      {
-      "en": "Writing letter next to number means multiply."
+      "en": "Each step adds seven."
      }
     ],
-    "commonMisconceptions": [
-     {
-      "en": "Reading it as plus."
-     }
-    ]
+    "commonMisconceptions": []
    },
    {
     "id": "quiz",
@@ -154,7 +137,9 @@
     "provenance": "original",
     "questionIds": [
      "r1-wri460",
-     "r1-wri461"
+     "r1-wri461",
+     "r2-wri462",
+     "r2-wri463"
     ]
    },
    {
@@ -163,10 +148,10 @@
     "provenance": "original",
     "points": [
      {
-      "en": "A letter stands for a number."
+      "en": "Represent a starting value with a letter."
      },
      {
-      "en": "Substitute to evaluate."
+      "en": "Use substitution to check a relationship."
      }
     ]
    }

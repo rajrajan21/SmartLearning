@@ -1,0 +1,244 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "a-tale-of-three-intersecting-lines",
+ "topic": "altitudes-of-triangles",
+ "status": "published",
+ "title": {
+  "en": "Altitudes inside and outside triangles"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "title",
+   "x": 450,
+   "y": 55,
+   "text": "An altitude outside the triangle",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "ab",
+   "x1": 306,
+   "y1": 350,
+   "x2": 660,
+   "y2": 350,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "ac",
+   "x1": 306,
+   "y1": 350,
+   "x2": 202,
+   "y2": 152,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "bc",
+   "x1": 660,
+   "y1": 350,
+   "x2": 202,
+   "y2": 152,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "extend",
+   "x1": 306,
+   "y1": 350,
+   "x2": 149,
+   "y2": 350,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "height",
+   "x1": 202,
+   "y1": 152,
+   "x2": 202,
+   "y2": 350,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "cornerTop",
+   "x1": 202,
+   "y1": 326,
+   "x2": 226,
+   "y2": 326,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "cornerSide",
+   "x1": 226,
+   "y1": 326,
+   "x2": 226,
+   "y2": 350,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "pointA",
+   "x": 318,
+   "y": 386,
+   "text": "A",
+   "size": 26,
+   "color": "ink"
+  },
+  {
+   "kind": "text",
+   "id": "pointB",
+   "x": 665,
+   "y": 380,
+   "text": "B",
+   "size": 26,
+   "color": "ink"
+  },
+  {
+   "kind": "text",
+   "id": "pointC",
+   "x": 184,
+   "y": 139,
+   "text": "C",
+   "size": 26,
+   "color": "ink"
+  },
+  {
+   "kind": "text",
+   "id": "pointH",
+   "x": 187,
+   "y": 385,
+   "text": "H",
+   "size": 26,
+   "color": "good"
+  },
+  {
+   "kind": "text",
+   "id": "rightAngle",
+   "x": 242,
+   "y": 320,
+   "text": "90°",
+   "size": 26,
+   "color": "good"
+  },
+  {
+   "kind": "text",
+   "id": "caption",
+   "x": 450,
+   "y": 446,
+   "text": "CH is perpendicular to the line through A and B",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "height1",
+   "narration": {
+    "en": "This triangle has an obtuse angle at A. We will use the line through A and B as the base."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "title",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "ab",
+     "at": 0.18
+    },
+    {
+     "do": "draw",
+     "target": "ac",
+     "at": 0.33
+    },
+    {
+     "do": "draw",
+     "target": "bc",
+     "at": 0.43
+    },
+    {
+     "do": "show",
+     "target": "pointA",
+     "at": 0.52
+    },
+    {
+     "do": "show",
+     "target": "pointB",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "pointC",
+     "at": 0.67
+    }
+   ]
+  },
+  {
+   "id": "height2",
+   "narration": {
+    "en": "Extend the base past A. The perpendicular from C will meet that extension outside the triangle."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "extend",
+     "at": 0.16
+    },
+    {
+     "do": "draw",
+     "target": "height",
+     "at": 0.55
+    },
+    {
+     "do": "show",
+     "target": "pointH",
+     "at": 0.72
+    }
+   ]
+  },
+  {
+   "id": "height3",
+   "narration": {
+    "en": "The foot is H. Mark a right angle to show that CH and the base line meet at ninety degrees."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "cornerTop",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "cornerSide",
+     "at": 0.29
+    },
+    {
+     "do": "show",
+     "target": "rightAngle",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "caption",
+     "at": 0.8
+    }
+   ]
+  }
+ ]
+}

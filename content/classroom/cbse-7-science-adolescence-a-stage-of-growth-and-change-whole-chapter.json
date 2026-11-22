@@ -1,0 +1,373 @@
+{
+  "board": "CBSE",
+  "classLevel": 7,
+  "subject": "science",
+  "chapter": "adolescence-a-stage-of-growth-and-change",
+  "topic": "whole-chapter",
+  "title": {
+    "en": "Adolescence: A Stage of Growth and Change"
+  },
+  "status": "published",
+  "objects": [
+    {
+      "id": "chartttl",
+      "kind": "text",
+      "x": 450,
+      "y": 57,
+      "text": "Two fictional growth records",
+      "size": 35,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "charty",
+      "kind": "arrow",
+      "x1": 120,
+      "y1": 383,
+      "x2": 120,
+      "y2": 103,
+      "stroke": "ink",
+      "width": 3
+    },
+    {
+      "id": "chartx",
+      "kind": "arrow",
+      "x1": 120,
+      "y1": 383,
+      "x2": 775,
+      "y2": 383,
+      "stroke": "ink",
+      "width": 3
+    },
+    {
+      "id": "yaxis",
+      "kind": "text",
+      "x": 120,
+      "y": 90,
+      "text": "Height",
+      "size": 23,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "xaxis",
+      "kind": "text",
+      "x": 741,
+      "y": 427,
+      "text": "Time",
+      "size": 23,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "orangeline",
+      "kind": "path",
+      "d": "M 134 354 C 203 348 231 339 265 305 C 314 257 330 185 383 169 C 461 146 602 139 720 136",
+      "stroke": "warm",
+      "width": 8
+    },
+    {
+      "id": "blueline",
+      "kind": "path",
+      "d": "M 134 368 C 306 361 380 332 436 327 C 483 320 533 304 569 257 C 626 184 680 177 720 174",
+      "stroke": "accent",
+      "width": 8
+    },
+    {
+      "id": "signaltitle",
+      "kind": "text",
+      "x": 450,
+      "y": 62,
+      "text": "Hormones carry signals",
+      "size": 35,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "glandbox",
+      "kind": "rect",
+      "x": 125,
+      "y": 192,
+      "w": 215,
+      "h": 115,
+      "rx": 20,
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "id": "glandlabel",
+      "kind": "text",
+      "x": 232,
+      "y": 259,
+      "text": "Gland",
+      "size": 25,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "signal",
+      "kind": "arrow",
+      "x1": 351,
+      "y1": 249,
+      "x2": 549,
+      "y2": 249,
+      "stroke": "warm",
+      "width": 7
+    },
+    {
+      "id": "signallabel",
+      "kind": "text",
+      "x": 450,
+      "y": 223,
+      "text": "Signal",
+      "size": 22,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "targetbox",
+      "kind": "rect",
+      "x": 560,
+      "y": 192,
+      "w": 215,
+      "h": 115,
+      "rx": 20,
+      "stroke": "good",
+      "width": 4
+    },
+    {
+      "id": "targetlabel",
+      "kind": "text",
+      "x": 667,
+      "y": 259,
+      "text": "Responding tissue",
+      "size": 25,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "labela",
+      "kind": "text",
+      "x": 757,
+      "y": 143,
+      "text": "A",
+      "size": 23,
+      "anchor": "middle",
+      "color": "ink"
+    },
+    {
+      "id": "labelb",
+      "kind": "text",
+      "x": 757,
+      "y": 181,
+      "text": "B",
+      "size": 23,
+      "anchor": "middle",
+      "color": "ink"
+    }
+  ],
+  "steps": [
+    {
+      "id": "growth-lines",
+      "narration": {
+        "en": "These are fictional growth records. Read time from left to right. The orange record becomes steeper earlier. The blue record becomes steeper later. A steeper part shows faster growth during that period."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "write",
+          "target": "chartttl",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "charty",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "chartx",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "yaxis",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "xaxis",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "orangeline",
+          "on": "orange record",
+          "ms": 950
+        },
+        {
+          "do": "draw",
+          "target": "blueline",
+          "on": "blue record",
+          "ms": 950
+        }
+      ]
+    },
+    {
+      "id": "hormone-signals",
+      "narration": {
+        "en": "The first box stands for a gland that releases a hormone. The arrow represents the signal travelling. The second box stands for a part of the body that can respond to that signal."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "write",
+          "target": "signaltitle",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "glandbox",
+          "on": "first box",
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "glandlabel",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "signal",
+          "on": "arrow represents",
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "signallabel",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "draw",
+          "target": "targetbox",
+          "on": "second box",
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "targetlabel",
+          "at": 0,
+          "ms": 500
+        }
+      ]
+    },
+    {
+      "id": "read-chart",
+      "narration": {
+        "en": "Use the fictional chart to answer the question."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "chartttl",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "charty",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "chartx",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "yaxis",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "xaxis",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "orangeline",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "blueline",
+          "at": 0
+        },
+        {
+          "do": "write",
+          "target": "labela",
+          "at": 0,
+          "ms": 500
+        },
+        {
+          "do": "write",
+          "target": "labelb",
+          "at": 0,
+          "ms": 500
+        }
+      ],
+      "check": {
+        "stem": {
+          "en": "Which line shows an earlier period of faster growth?"
+        },
+        "options": [
+          {
+            "id": "first",
+            "text": {
+              "en": "Line A"
+            },
+            "correct": true
+          },
+          {
+            "id": "second",
+            "text": {
+              "en": "Line B"
+            },
+            "whyWrong": {
+              "en": "The steeper part of line B is farther to the right, so it happens later."
+            }
+          },
+          {
+            "id": "same",
+            "text": {
+              "en": "Both at the same time"
+            },
+            "whyWrong": {
+              "en": "The steeper parts occur at different positions on the time axis."
+            }
+          }
+        ],
+        "explanation": {
+          "en": "Line A turns steeper farther to the left on the time axis. Its faster period comes earlier in this model."
+        }
+      }
+    }
+  ]
+}

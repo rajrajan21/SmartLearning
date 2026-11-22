@@ -7,7 +7,7 @@
  "lesson": {
   "status": "published",
   "title": {
-   "en": "Operations with decimals"
+   "en": "Decimal place value and fraction equivalents"
   },
   "blocks": [
    {
@@ -15,24 +15,18 @@
     "type": "story",
     "provenance": "original",
     "title": {
-     "en": "At the market"
+     "en": "A short story"
     },
     "text": {
-     "en": "Imran bought 2.5 kg of rice at ₹42.40 per kilogram. \"How much must I pay?\" he asked the shopkeeper.\nThe shopkeeper multiplied 42.40 by 2.5 on paper. \"₹106,\" he said."
+     "en": "Meera records a length as 2.5 metres. Her friend writes 2.50 metres. They compare the two measurements using the meaning of each digit."
     }
    },
    {
     "id": "explain",
     "type": "explanation",
     "provenance": "original",
-    "keepEnglishTerms": [
-     "decimal places",
-     "place value",
-     "multiply",
-     "divide"
-    ],
     "text": {
-     "en": "To add or subtract decimals, line up the decimal points so that tenths are under tenths and hundredths under hundredths, then add or subtract as with whole numbers. For example 12.5 + 3.75 = 16.25.\nTo multiply decimals, multiply as if there were no decimal points and then place the point so that the answer has as many decimal places as the two numbers together. For 2.5 × 1.2 there are 2 decimal places in all, 25 × 12 = 300, so the answer is 3.00 = 3.\nTo divide a decimal by a whole number, divide as usual and put the decimal point in the answer above the point in the number: 7.5 ÷ 5 = 1.5. Multiplying by 10 moves the point one place right and dividing by 10 moves it one place left."
+     "en": "A digit just after the decimal point counts tenths, and the next counts hundredths. A tenth equals ten hundredths. Adding zeros to the end of a decimal part preserves its value. Compare from the highest place to the lowest."
     }
    },
    {
@@ -44,7 +38,7 @@
      {
       "id": "t1",
       "text": {
-       "en": "To add or subtract decimals, line up the decimal points."
+       "en": "The digit five is in the tenths place, so two point five is two and five tenths."
       },
       "board": [
        {
@@ -52,43 +46,43 @@
        },
        {
         "op": "write",
-        "text": "line up points"
+        "text": "2.5 = 2 + 5/10"
        }
       ]
      },
      {
       "id": "t2",
       "text": {
-       "en": "To multiply decimals, multiply as whole numbers, then count the decimal places in total."
+       "en": "Regroup the five tenths into fifty hundredths. Both representations describe the same quantity."
       },
       "board": [
        {
         "op": "write",
-        "text": "multiply"
+        "text": "5 tenths = 50 hundredths"
        }
       ]
      },
      {
       "id": "t3",
       "text": {
-       "en": "To divide by a whole number, divide as usual and place the point above."
+       "en": "A zero hundredths digit does not add any length. The two measurements are equal."
       },
       "board": [
        {
         "op": "write",
-        "text": "divide"
+        "text": "2.5 = 2.50"
        }
       ]
      },
      {
       "id": "t4",
       "text": {
-       "en": "Multiplying by ten moves the point one place right."
+       "en": "Both numbers have two ones. At the next place, five tenths is greater than zero tenths."
       },
       "board": [
        {
         "op": "write",
-        "text": "times ten"
+        "text": "2.50 > 2.05"
        }
       ]
      }
@@ -99,31 +93,23 @@
     "type": "worked_example",
     "provenance": "original",
     "problem": {
-     "en": "Find 2.5 × 1.2."
+     "en": "Write 3.07 as a sum of a whole number and a fraction. Is it greater than 3.7?"
     },
     "steps": [
      {
       "text": {
-       "en": "Ignore the points: 25 × 12 = 300."
+       "en": "3.07 is 3 + 7/100."
       },
       "why": {
-       "en": "Multiply as whole numbers."
+       "en": "The first digit to the right is zero tenths and the next is seven hundredths."
       }
      },
      {
       "text": {
-       "en": "There is one decimal place in each number, so two in all."
+       "en": "3.7 equals 3.70, so 3.07 is smaller."
       },
       "why": {
-       "en": "Count the places."
-      }
-     },
-     {
-      "text": {
-       "en": "Put the point so that the answer has two places: 3.00, which is 3."
-      },
-      "why": {
-       "en": "So 2.5 × 1.2 = 3."
+       "en": "Seven hundredths is smaller than seventy hundredths."
       }
      }
     ]
@@ -133,21 +119,17 @@
     "type": "teach_back",
     "provenance": "original",
     "prompt": {
-     "en": "A friend says 0.4 × 0.3 equals 1.2. How will you explain the mistake?"
+     "en": "Why can you write 0.4 as 0.40?"
     },
     "requiredIdeas": [
      {
-      "en": "4 × 3 = 12 and there are two decimal places."
+      "en": "One tenth is ten hundredths."
      },
      {
-      "en": "So the answer is 0.12."
+      "en": "Four tenths and forty hundredths represent the same value."
      }
     ],
-    "commonMisconceptions": [
-     {
-      "en": "Forgetting to place the decimal point."
-     }
-    ]
+    "commonMisconceptions": []
    },
    {
     "id": "quiz",
@@ -155,7 +137,9 @@
     "provenance": "original",
     "questionIds": [
      "r1-add",
-     "r1-line"
+     "r1-line",
+     "r2-mul",
+     "r2-ten"
     ]
    },
    {
@@ -164,13 +148,10 @@
     "provenance": "original",
     "points": [
      {
-      "en": "Line up decimal points to add and subtract."
+      "en": "Read decimal digits by place value."
      },
      {
-      "en": "Multiply as whole numbers and count total decimal places."
-     },
-     {
-      "en": "Divide by a whole number and put the point straight above."
+      "en": "Compare the first place where the digits differ."
      }
     ]
    }

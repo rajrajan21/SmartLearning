@@ -13,39 +13,39 @@
    "status": "published",
    "type": "mcq",
    "stem": {
-    "en": "5n when n = 4"
+    "en": "A date is n. What is the date one week later in the same month?"
    },
    "options": [
     {
      "id": "right",
      "text": {
-      "en": "20"
+      "en": "n + 7"
      },
      "correct": true
     },
     {
      "id": "o0",
      "text": {
-      "en": "9"
+      "en": "n + 1"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "The same weekday one week later is seven days after the start."
      }
     },
     {
      "id": "o1",
      "text": {
-      "en": "54"
+      "en": "7n"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "The same weekday one week later is seven days after the start."
      }
     }
    ],
    "explanation": {
-    "en": "5x4."
+    "en": "The same weekday one week later is seven days after the start."
    }
   },
   {
@@ -54,13 +54,41 @@
    "hints": [],
    "provenance": "original",
    "status": "published",
-   "type": "true_false",
+   "type": "mcq",
    "stem": {
-    "en": "A variable stands for a number."
+    "en": "If the first date is 6, what is the third date in the same calendar column?"
    },
-   "answer": true,
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "13"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The third date is two weeks later, so 6 + 14 = 20."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "18"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The third date is two weeks later, so 6 + 14 = 20."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "20"
+     },
+     "correct": true
+    }
+   ],
    "explanation": {
-    "en": "Yes."
+    "en": "The third date is two weeks later, so 6 + 14 = 20."
    }
   },
   {
@@ -71,39 +99,39 @@
    "status": "published",
    "type": "mcq",
    "stem": {
-    "en": "3n + 2 when n = 4"
+    "en": "How many steps of seven take you from n to n + 21?"
    },
    "options": [
     {
-     "id": "o0",
-     "text": {
-      "en": "9"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
-    },
-    {
      "id": "o1",
      "text": {
-      "en": "24"
+      "en": "21"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "Twenty-one is three lots of seven."
      }
     },
     {
      "id": "right",
      "text": {
-      "en": "14"
+      "en": "3"
      },
      "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Twenty-one is three lots of seven."
+     }
     }
    ],
    "explanation": {
-    "en": "Evaluate."
+    "en": "Twenty-one is three lots of seven."
    }
   },
   {
@@ -112,13 +140,41 @@
    "hints": [],
    "provenance": "original",
    "status": "published",
-   "type": "true_false",
+   "type": "mcq",
    "stem": {
-    "en": "5n means 5 plus n."
+    "en": "A row of tiles starts with 4 and gains 3 each time. What is its value after n increases?"
    },
-   "answer": false,
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4 + 3n"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "4n + 3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The starting value remains four, with three more per increase."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3n"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The starting value remains four, with three more per increase."
+     }
+    }
+   ],
    "explanation": {
-    "en": "Times."
+    "en": "The starting value remains four, with three more per increase."
    }
   },
   {
@@ -129,17 +185,27 @@
    "status": "published",
    "type": "mcq",
    "stem": {
-    "en": "n + 3 when n = 7"
+    "en": "If n is 2, what is the value of 4 + 3n?"
    },
    "options": [
     {
      "id": "o0",
      "text": {
-      "en": "21"
+      "en": "14"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "Replace n with two and calculate 4 + 6."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Replace n with two and calculate 4 + 6."
      }
     },
     {
@@ -148,20 +214,10 @@
       "en": "10"
      },
      "correct": true
-    },
-    {
-     "id": "o1",
-     "text": {
-      "en": "4"
-     },
-     "correct": false,
-     "whyWrong": {
-      "en": "Try again."
-     }
     }
    ],
    "explanation": {
-    "en": "Add."
+    "en": "Replace n with two and calculate 4 + 6."
    }
   },
   {
@@ -170,16 +226,41 @@
    "hints": [],
    "provenance": "original",
    "status": "published",
-   "type": "short",
+   "type": "mcq",
    "stem": {
-    "en": "2n when n = 6? Write only the number."
+    "en": "A calendar pattern starts at 5 and follows 5, 12, 19. Which expression gives the fourth date?"
    },
-   "accepted": [
-    "12"
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "5 × 3 + 7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "There are three steps between the first and fourth dates."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "5 + 3 × 7"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5 + 4 × 7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "There are three steps between the first and fourth dates."
+     }
+    }
    ],
-   "wrongAnswers": [],
    "explanation": {
-    "en": "2x6."
+    "en": "There are three steps between the first and fourth dates."
    }
   },
   {
@@ -190,39 +271,39 @@
    "status": "published",
    "type": "mcq",
    "stem": {
-    "en": "Cost of n pens at 5 each"
+    "en": "How do you check whether an expression fits a row of measured values?"
    },
    "options": [
     {
      "id": "right",
      "text": {
-      "en": "5n"
+      "en": "Substitute a known input and compare the result"
      },
      "correct": true
     },
     {
      "id": "o0",
      "text": {
-      "en": "n+5"
+      "en": "Use the biggest possible input"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "A known input and output can test the rule for that case."
      }
     },
     {
      "id": "o1",
      "text": {
-      "en": "n-5"
+      "en": "Change the values until they match"
      },
      "correct": false,
      "whyWrong": {
-      "en": "Try again."
+      "en": "A known input and output can test the rule for that case."
      }
     }
    ],
    "explanation": {
-    "en": "Times."
+    "en": "A known input and output can test the rule for that case."
    }
   },
   {
@@ -231,13 +312,41 @@
    "hints": [],
    "provenance": "original",
    "status": "published",
-   "type": "true_false",
+   "type": "mcq",
    "stem": {
-    "en": "Expressions give rules for any number."
+    "en": "A sequence starts at 2 and grows by 5. What value appears after three increases?"
    },
-   "answer": true,
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "12"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Take the starting 2 and add three lots of 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "15"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Take the starting 2 and add three lots of 5."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "17"
+     },
+     "correct": true
+    }
+   ],
    "explanation": {
-    "en": "Yes."
+    "en": "Take the starting 2 and add three lots of 5."
    }
   }
  ]

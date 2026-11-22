@@ -6,242 +6,111 @@
  "topic": "sign-rules-for-products-and-quotients",
  "status": "published",
  "title": {
-  "en": "Signs in multiplication"
+  "en": "Integer division, inverse products and zero"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "ttl",
+   "id": "title",
    "x": 450,
-   "y": 44,
-   "text": "Signs in multiplication",
+   "y": 60,
+   "text": "Integer division, inverse products and zero",
    "size": 34,
    "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "h0",
-   "x": 250,
-   "y": 100,
-   "text": "Multiply",
-   "size": 26,
-   "color": "accent",
-   "anchor": "middle"
+   "id": "cue1",
+   "x": 75,
+   "y": 145,
+   "text": "−24 ÷ 4 = ?",
+   "size": 29,
+   "color": "ink"
   },
   {
    "kind": "text",
-   "id": "h1",
-   "x": 650,
-   "y": 100,
-   "text": "Answer",
-   "size": 26,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "line",
-   "id": "hl",
-   "x1": 40,
-   "y1": 118,
-   "x2": 860,
-   "y2": 118,
-   "stroke": "ink",
-   "width": 3
+   "id": "cue2",
+   "x": 75,
+   "y": 226,
+   "text": "4 × (−6) = −24",
+   "size": 29,
+   "color": "ink"
   },
   {
    "kind": "text",
-   "id": "r00",
-   "x": 250,
-   "y": 170,
-   "text": "positive × positive",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
+   "id": "cue3",
+   "x": 75,
+   "y": 307,
+   "text": "−24 ÷ (−4) = 6",
+   "size": 29,
+   "color": "ink"
   },
   {
    "kind": "text",
-   "id": "r01",
-   "x": 650,
-   "y": 170,
-   "text": "positive",
-   "size": 24,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r10",
-   "x": 250,
-   "y": 232,
-   "text": "positive × negative",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r11",
-   "x": 650,
-   "y": 232,
-   "text": "negative",
-   "size": 24,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r20",
-   "x": 250,
-   "y": 294,
-   "text": "negative × positive",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r21",
-   "x": 650,
-   "y": 294,
-   "text": "negative",
-   "size": 24,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r30",
-   "x": 250,
-   "y": 356,
-   "text": "negative × negative",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r31",
-   "x": 650,
-   "y": 356,
-   "text": "positive",
-   "size": 24,
-   "color": "warm",
-   "anchor": "middle"
+   "id": "cue4",
+   "x": 75,
+   "y": 388,
+   "text": "0 ÷ 4 = 0; 4 ÷ 0 is undefined",
+   "size": 29,
+   "color": "good"
   }
  ],
  "steps": [
   {
-   "id": "s1",
+   "id": "p1",
    "narration": {
-    "en": "Here are the rules for the sign of a product of two integers."
+    "en": "Ask what number multiplied by four gives minus twenty-four."
    },
    "actions": [
     {
      "do": "show",
-     "target": "ttl",
+     "target": "title",
      "at": 0.05
     },
     {
      "do": "write",
-     "target": "h0",
+     "target": "cue1",
+     "at": 0.22
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "narration": {
+    "en": "The signed product checks the quotient of minus six."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "cue2",
      "at": 0.2
-    },
-    {
-     "do": "write",
-     "target": "h1",
-     "at": 0.30000000000000004
-    },
-    {
-     "do": "draw",
-     "target": "hl",
-     "at": 0.5
     }
    ]
   },
   {
-   "id": "s2",
+   "id": "p3",
    "narration": {
-    "en": "A positive times a positive is positive. For example, 3 times 4 is 12."
+    "en": "Two negatives give a positive quotient. Check six times minus four."
    },
    "actions": [
     {
      "do": "write",
-     "target": "r00",
-     "at": 0.15
-    },
-    {
-     "do": "write",
-     "target": "r01",
-     "at": 0.35
+     "target": "cue3",
+     "at": 0.2
     }
    ]
   },
   {
-   "id": "s3",
+   "id": "p4",
    "narration": {
-    "en": "A positive times a negative is negative. For example, 3 times negative 4 is negative 12."
+    "en": "Four times zero makes zero. Nothing multiplied by zero makes four."
    },
    "actions": [
     {
      "do": "write",
-     "target": "r10",
-     "at": 0.15
-    },
-    {
-     "do": "write",
-     "target": "r11",
-     "at": 0.35
-    }
-   ]
-  },
-  {
-   "id": "s4",
-   "narration": {
-    "en": "A negative times a positive is also negative. Negative 3 times 4 is negative 12."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "r20",
-     "at": 0.15
-    },
-    {
-     "do": "write",
-     "target": "r21",
-     "at": 0.35
-    }
-   ]
-  },
-  {
-   "id": "s5",
-   "narration": {
-    "en": "A negative times a negative is positive. Negative 3 times negative 4 is 12."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "r30",
-     "at": 0.15
-    },
-    {
-     "do": "write",
-     "target": "r31",
-     "at": 0.35
-    }
-   ]
-  },
-  {
-   "id": "s6",
-   "narration": {
-    "en": "The same rules work for division. Same signs give a positive answer, and different signs give a negative answer."
-   },
-   "actions": [
-    {
-     "do": "pulse",
-     "target": "hl",
-     "at": 0.2,
-     "color": "good"
+     "target": "cue4",
+     "at": 0.2
     }
    ]
   }

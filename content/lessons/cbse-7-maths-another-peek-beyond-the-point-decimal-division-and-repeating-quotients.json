@@ -1,0 +1,160 @@
+{
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "another-peek-beyond-the-point",
+ "topic": "decimal-division-and-repeating-quotients",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Dividing decimals and recognising repeating quotients"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "A short story"
+    },
+    "text": {
+     "en": "A rope is 6.3 metres long. If each piece should be 0.9 metre, how many equal pieces can we cut?"
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "text": {
+     "en": "In a division calculation, multiply both dividend and divisor by the same power of ten to make the divisor whole. Check by multiplying the quotient by the original divisor. In long division, the same nonzero remainder leads to repeated digits. A zero remainder ends the division."
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Multiply both numbers by the same power of ten. Scaling only one changes the quotient."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Scale both numbers"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Multiplying both by ten makes a whole-number division. The quotient is seven."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "6.3 ÷ 0.9 = 63 ÷ 9"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Multiply by the original divisor to check that the quotient gives the original dividend."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "7 × 0.9 = 6.3"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "If a nonzero remainder comes back in long division, the same steps and digits will follow again."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Repeated remainder → repeated digits"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "How many 0.4-metre pieces can be cut from 3.2 metres?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Multiply both measurements by 10 to obtain 32 ÷ 4."
+      },
+      "why": {
+       "en": "The number of equal pieces stays the same if both measurements use the same finer unit."
+      }
+     },
+     {
+      "text": {
+       "en": "The quotient is 8. Check: 8 × 0.4 = 3.2."
+      },
+      "why": {
+       "en": "The eight lengths account for the whole rope."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Why is 3.2 ÷ 0.4 equal to 32 ÷ 4, and how do you check the answer?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "Both numbers are multiplied by ten."
+     },
+     {
+      "en": "Multiply 8 by 0.4 to return to 3.2."
+     }
+    ],
+    "commonMisconceptions": []
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "c7ma-ddq-1",
+     "c7ma-ddq-2",
+     "c7ma-ddq-3",
+     "c7ma-ddq-4"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Scale both terms by the same factor."
+     },
+     {
+      "en": "In long division a recurring nonzero remainder produces recurring digits."
+     }
+    ]
+   }
+  ]
+ }
+}
