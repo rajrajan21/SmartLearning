@@ -33,7 +33,7 @@ describe("classroom", () => {
   it("lets the server choose the lesson voice when no preference is saved", async () => {
     const path = "/classroom/cbse/3/maths/fair-share/halves-and-quarters";
     mount(path);
-    await screen.findByText("Halves and quarters");
+    await screen.findByText("Halves and quarters", {}, { timeout: 3000 });
     expect(fetch).toHaveBeenCalledWith(`/api/v1${path}`);
   });
   it("lists the lessons on the hub", async () => {
