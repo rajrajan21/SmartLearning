@@ -1,133 +1,354 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "sound",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "Sound"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 44,
-   "text": "Sound is a vibration",
-   "size": 34,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "sound",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "Sound"
   },
-  {
-   "kind": "text",
-   "id": "sp",
-   "x": 100,
-   "y": 250,
-   "text": "🔔",
-   "size": 90,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "wave",
-   "id": "w1",
-   "x": 180,
-   "y": 250,
-   "len": 640,
-   "amp": 30,
-   "cycles": 5,
-   "speed": 0.8,
-   "color": "accent",
-   "width": 5
-  },
-  {
-   "kind": "text",
-   "id": "lb",
-   "x": 500,
-   "y": 340,
-   "text": "A soft, low sound",
-   "size": 28,
-   "color": "soft",
-   "anchor": "middle"
-  },
-  {
-   "kind": "wave",
-   "id": "w2",
-   "x": 180,
-   "y": 250,
-   "len": 640,
-   "amp": 55,
-   "cycles": 12,
-   "speed": 1.4,
-   "color": "warm",
-   "width": 5
-  },
-  {
-   "kind": "text",
-   "id": "lb2",
-   "x": 500,
-   "y": 430,
-   "text": "A loud, high sound",
-   "size": 28,
-   "color": "warm",
-   "anchor": "middle"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "Sound is made when something vibrates, that is, moves quickly to and fro. A bell, a drum and our own throat all vibrate when they make a sound."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 44,
+      "text": "Sound is a vibration",
+      "size": 34,
+      "color": "accent",
+      "anchor": "middle"
     },
     {
-     "do": "show",
-     "target": "sp",
-     "at": 0.1
-    }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "The vibration travels through the air as waves, until it reaches our ears. Here is a gentle wave. The waves are far apart, so the sound is low."
-   },
-   "actions": [
-    {
-     "do": "show",
-     "target": "w1",
-     "at": 0.3
+      "kind": "text",
+      "id": "sp",
+      "x": 100,
+      "y": 250,
+      "text": "🔔",
+      "size": 90,
+      "color": "ink",
+      "anchor": "middle"
     },
     {
-     "do": "write",
-     "target": "lb",
-     "at": 0.7
-    }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "A bigger vibration makes a louder sound, and faster vibrations make a higher sound. See how the waves are taller and closer now."
-   },
-   "actions": [
-    {
-     "do": "show",
-     "target": "w2",
-     "at": 0.2
+      "kind": "wave",
+      "id": "w1",
+      "x": 180,
+      "y": 250,
+      "len": 640,
+      "amp": 30,
+      "cycles": 5,
+      "speed": 0.8,
+      "color": "accent",
+      "width": 5
     },
     {
-     "do": "write",
-     "target": "lb2",
-     "at": 0.6
+      "kind": "text",
+      "id": "lb",
+      "x": 500,
+      "y": 340,
+      "text": "A soft, low sound",
+      "size": 28,
+      "color": "soft",
+      "anchor": "middle"
+    },
+    {
+      "kind": "wave",
+      "id": "w2",
+      "x": 180,
+      "y": 250,
+      "len": 640,
+      "amp": 55,
+      "cycles": 12,
+      "speed": 1.4,
+      "color": "warm",
+      "width": 5
+    },
+    {
+      "kind": "text",
+      "id": "lb2",
+      "x": 500,
+      "y": 430,
+      "text": "A loud, high sound",
+      "size": 28,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundtitle",
+      "kind": "text",
+      "x": 450,
+      "y": 52,
+      "text": "An echo travels out and back",
+      "size": 35,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundsender",
+      "kind": "circle",
+      "cx": 178,
+      "cy": 264,
+      "r": 37,
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "id": "soundsrcname",
+      "kind": "text",
+      "x": 178,
+      "y": 344,
+      "text": "Source",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundwall",
+      "kind": "line",
+      "x1": 722,
+      "y1": 118,
+      "x2": 722,
+      "y2": 373,
+      "stroke": "ink",
+      "width": 7
+    },
+    {
+      "id": "soundwallname",
+      "kind": "text",
+      "x": 723,
+      "y": 414,
+      "text": "Reflector",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundout",
+      "kind": "arrow",
+      "x1": 235,
+      "y1": 224,
+      "x2": 714,
+      "y2": 224,
+      "stroke": "warm",
+      "width": 6
+    },
+    {
+      "id": "soundback",
+      "kind": "arrow",
+      "x1": 713,
+      "y1": 288,
+      "x2": 235,
+      "y2": 288,
+      "stroke": "good",
+      "width": 6
+    },
+    {
+      "id": "soundoutlabel",
+      "kind": "text",
+      "x": 448,
+      "y": 196,
+      "text": "Outward pulse",
+      "size": 23,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundbacklabel",
+      "kind": "text",
+      "x": 448,
+      "y": 327,
+      "text": "Returning pulse",
+      "size": 23,
+      "color": "good",
+      "anchor": "middle"
+    },
+    {
+      "id": "soundspeed",
+      "kind": "text",
+      "x": 450,
+      "y": 447,
+      "text": "Speed: 340 m/s · Total time: 0.20 s",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
     }
-   ]
-  }
- ]
+  ],
+  "steps": [
+    {
+      "id": "s1",
+      "narration": {
+        "en": "Sound is made when something vibrates, that is, moves quickly to and fro. A bell, a drum and our own throat all vibrate when they make a sound."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        },
+        {
+          "do": "show",
+          "target": "sp",
+          "at": 0.1
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "narration": {
+        "en": "The vibration travels through the air as waves, until it reaches our ears. Here is a gentle wave. The waves are far apart, so the sound is low."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "w1",
+          "at": 0.3
+        },
+        {
+          "do": "write",
+          "target": "lb",
+          "at": 0.7
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "narration": {
+        "en": "A bigger vibration makes a louder sound, and faster vibrations make a higher sound. See how the waves are taller and closer now."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "w2",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "lb2",
+          "at": 0.6
+        }
+      ]
+    },
+    {
+      "id": "sound-out",
+      "narration": {
+        "en": "A pulse leaves the source and travels toward the reflecting wall. The upper arrow shows that outward trip."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "soundtitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "soundsender",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "soundsrcname",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "soundwall",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "soundwallname",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "soundout",
+          "on": "outward trip",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "soundoutlabel",
+          "on": "outward trip",
+          "ms": 300
+        }
+      ]
+    },
+    {
+      "id": "sound-back",
+      "narration": {
+        "en": "The sound reflects and makes a return trip. The recorded delay includes both trips. Use the speed and total time to find the full path length before dividing by two."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "soundback",
+          "on": "return trip",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "soundbacklabel",
+          "on": "return trip",
+          "ms": 330
+        },
+        {
+          "do": "show",
+          "target": "soundspeed",
+          "on": "speed and total time",
+          "ms": 400
+        }
+      ]
+    },
+    {
+      "id": "sound-picture-check",
+      "narration": {
+        "en": "Read the numbers on the board and count the two legs of the path."
+      },
+      "actions": [],
+      "check": {
+        "stem": {
+          "en": "How far is the reflecting wall from the source?"
+        },
+        "explanation": {
+          "en": "At 340 metres per second for 0.20 seconds, the sound travels 68 metres in all. The distance to the wall is half that, or 34 metres."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "68 m"
+            },
+            "whyWrong": {
+              "en": "That is the distance out and back together."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "34 m"
+            },
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "17 m"
+            },
+            "whyWrong": {
+              "en": "Divide the full path length by two once."
+            }
+          }
+        ]
+      }
+    }
+  ]
 }

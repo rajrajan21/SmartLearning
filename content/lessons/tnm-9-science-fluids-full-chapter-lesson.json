@@ -1,232 +1,557 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "fluids",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Fluids"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "fluids",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Fluids"
     },
-    "text": {
-     "en": "Asha pressed her palm and then a pin against a rubber balloon. \"The pin pops it,\" she said, \"but the palm does not!\""
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "thrust and pressure",
-     "atmospheric pressure",
-     "Pascal's law",
-     "density",
-     "buoyancy",
-     "Archimedes' principle"
-    ],
-    "text": {
-     "en": "The force acting perpendicular to a surface is called thrust, and the force per unit area is pressure. The unit of pressure is the pascal, which is one newton per square metre. The same thrust on a smaller area gives a larger pressure, which is why a pin pierces but a palm does not.\nLiquids and gases are called fluids. Pressure in a liquid increases with depth and with the density of the liquid. The layer of air around the Earth exerts atmospheric pressure, measured with a barometer, and one standard atmosphere is about 101.3 kilopascals.\nPascal's law states that pressure applied to an enclosed liquid is passed on equally throughout the liquid. The hydraulic press and hydraulic lift use this law as force multipliers: a small force on a small piston gives a large force on a big piston.\nDensity is mass per unit volume, and relative density is the density of a substance divided by the density of water. A body in a liquid feels an upward buoyant force. Archimedes' principle says this force equals the weight of the liquid displaced, so a body floats if its density is less than that of the liquid."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "The force acting perpendicular to a surface is called thrust, and the force per unit area is pressure."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Asha tried carrying the same bag with a narrow strap and a wide padded strap. The wide one spread the load over more of her shoulder."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "thrust and pressure"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "The unit of pressure is the pascal, which is one newton per square metre."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "thrust and pressure",
+          "atmospheric pressure",
+          "Pascal's law",
+          "density",
+          "buoyancy",
+          "Archimedes' principle"
+        ],
+        "text": {
+          "en": "The force acting perpendicular to a surface is called thrust, and the force per unit area is pressure. The unit of pressure is the pascal, which is one newton per square metre. The same perpendicular force produces greater pressure over a smaller area. In a diagram, compare wide and narrow tips pressing with the same force.\nLiquids and gases are called fluids. Pressure in a liquid increases with depth and with the density of the liquid. The layer of air around the Earth exerts atmospheric pressure, measured with a barometer, and one standard atmosphere is about 101.3 kilopascals.\nPascal’s principle says a change in pressure applied to an enclosed fluid is transmitted throughout the fluid without reduction in the ideal static case. In a hydraulic machine at similar piston heights, the same pressure change acts over each piston. The larger piston delivers more force and usually moves a shorter distance.\nDensity is mass per unit volume, and relative density is the density of a substance divided by the density of water. A body in a liquid feels an upward buoyant force. Archimedes' principle says this force equals the weight of the liquid displaced, so a body floats if its density is less than that of the liquid."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "atmospheric pressure"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "The same thrust on a smaller area gives a larger pressure, which is why a pin pierces but a palm does not."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "The force acting perpendicular to a surface is called thrust, and the force per unit area is pressure."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "thrust and pressure"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "The unit of pressure is the pascal, which is one newton per square metre."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "atmospheric pressure"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "The same perpendicular force produces greater pressure over a smaller area. In a diagram, compare wide and narrow tips pressing with the same force."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Pascal's law"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Liquids and gases are called fluids."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "density"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Pressure in a liquid increases with depth and with the density of the liquid."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "buoyancy"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The layer of air around the Earth exerts atmospheric pressure, measured with a barometer, and one standard atmosphere is about 101.3 kilopascals."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "Archimedes' principle"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Pascal’s principle says a change in pressure applied to an enclosed fluid is transmitted throughout the fluid without reduction in the ideal static case."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "thrust and pressure"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "In a hydraulic machine at similar piston heights, the same pressure change acts over each piston. The larger piston delivers more force and usually moves a shorter distance."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "atmospheric pressure"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Pressure compares a perpendicular force with the area over which it acts. Spread two hundred newtons over four square metres to get fifty newtons per square metre, or fifty pascals."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "p = F/A = 200/4 = 50 Pa"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Keep the force at two hundred newtons but halve the area to two square metres. The pressure doubles. Wide straps spread the force over more area and reduce pressure on the shoulder."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same force, half the area → twice the pressure"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Particles in a gas move and hit the walls of their container. Those collisions help explain gas pressure. Pressure on a small flat piece of the wall acts perpendicular to that piece."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Gas pressure acts on container surfaces"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "For a fluid at rest, pressure at a given point acts in all directions. Consider a tiny surface at that point. The pressure force on it points perpendicular to the chosen surface."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "At one point: pressure in every direction"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "Under a liquid surface, the pressure increase due to the liquid is density times gravitational field strength times depth. This assumes the liquid density is nearly constant."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Liquid pressure increase = ρgh"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "In a water tank at two metres depth, use density one thousand kilograms per cubic metre and gravitational field strength nine point eight newtons per kilogram. The extra pressure is nineteen thousand six hundred pascals."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ρgh = 1000 × 9.8 × 2 = 19,600 Pa"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "Two points at the same depth in connected still water have equal pressure. Changing the container’s shape does not by itself change the pressure at that depth."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Same connected liquid and depth → same pressure"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Atmospheric pressure comes from the air above us. At sea level, a common reference is one standard atmosphere, which is about one hundred one point three kilopascals."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 atmosphere ≈ 101.3 kPa"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "A barometer measures atmospheric pressure. A mercury barometer can be understood from a diagram: air pressure balances the weight per area of a liquid column. An aneroid barometer uses a flexible sealed capsule."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Barometer measures atmospheric pressure"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "A gauge often reports pressure relative to the surrounding air. Absolute pressure includes the surrounding value. In the open water example, one hundred one point three plus nineteen point six gives about one hundred twenty point nine kilopascals."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Absolute = atmospheric + gauge pressure"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Let a small piston have area five square centimetres and a large piston area twenty-five. The output area is five times the input area. In the ideal model the pressure change is the same."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area ratio 25/5 = 5"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "A ten newton input produces fifty newtons at the large piston in the ideal model. But the large piston moves only one fifth as far. Equal fluid volumes move at the two pistons."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Force gain ×5 · travel distance ×1/5"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Density compares mass and volume. An object of mass six hundred grams and volume eight hundred cubic centimetres has average density zero point seven five grams per cubic centimetre."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "ρ = 600/800 = 0.75 g/cm³"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Relative density compares a substance’s density with a stated reference. For many solids and liquids, that reference is water. The ratio has no unit when both densities use the same units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Relative density = density / reference density"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Pressure is greater deeper down in a liquid. For a submerged box, the upward pressure force on the lower face is greater than the downward pressure force on the top face. Their difference gives an upthrust."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Pressure difference produces upthrust"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Archimedes’ principle connects upthrust to the weight of displaced fluid. If a body displaces half a litre of water, the displaced water has mass about half a kilogram and weight about four point nine newtons."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Upthrust = weight of displaced fluid"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "If a floating object is at rest and the fluid is its only support, its upthrust balances its weight. Both forces are present even though their net force is zero."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Float at rest: upthrust equals weight"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "A hollow ship can have a large volume for its mass. Counting the space inside its hull helps explain why its average density can be smaller than water’s. It floats when it displaces water whose weight matches its own."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Floating depends on average density and displaced fluid"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "For a floating block with average density three quarters of water’s density, three quarters of its volume lies below the surface in the simple model. That volume displaces water of the matching weight."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Submerged fraction = density of object / density of liquid"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "A hydrometer floats at different depths in different liquids. In a denser liquid, it needs to displace less volume for the same upthrust, so it generally floats higher."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Denser fluid → a floating hydrometer sits higher"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "In a Cartesian diver diagram, additional pressure compresses a trapped air bubble and changes the diver’s average density. If it becomes denser than the surrounding water, it sinks."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "More pressure can change average density"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Decide whether the question asks for fluid pressure or an overall force. Pressure depends on force per area. Upthrust is an overall force that depends on the weight of displaced fluid."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Pressure: pascals · upthrust: newtons"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "Pascal's law"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Liquids and gases are called fluids."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In an ideal hydraulic machine, a 10 N force acts on a 5 cm² piston. The second piston has area 25 cm². What force does it deliver?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Divide the output piston’s area by the input piston’s area."
+            },
+            "why": {
+              "en": "Twenty-five divided by five gives an area factor of five."
+            }
+          },
+          {
+            "text": {
+              "en": "Multiply the ten newton input by five."
+            },
+            "why": {
+              "en": "Equal pressure changes act on the two pistons at the same height, so the ideal output is fifty newtons."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "density"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Pressure in a liquid increases with depth and with the density of the liquid."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says A heavy body always sinks in water. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Sinking depends on density, not weight alone."
+          },
+          {
+            "en": "A big steel ship floats because its average density is less than water's."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "buoyancy"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "The layer of air around the Earth exerts atmospheric pressure, measured with a barometer, and one standard atmosphere is about 101.3 kilopascals."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-flu480",
+          "r1-flu481",
+          "tnm9-fluid-pressure-1",
+          "tnm9-fluid-gauge-1",
+          "tnm9-fluid-hydraulic-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "Archimedes' principle"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "Pascal's law states that pressure applied to an enclosed liquid is passed on equally throughout the liquid."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "thrust and pressure"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "The hydraulic press and hydraulic lift use this law as force multipliers: a small force on a small piston gives a large force on a big piston."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "atmospheric pressure"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "A force of 200 N acts on an area of 4 m^2. Find the pressure."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Pressure = thrust / area."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Pressure = force / area."
+          },
+          {
+            "en": "Fluid pressure grows with depth."
+          },
+          {
+            "en": "Pascal's law explains hydraulic machines."
+          },
+          {
+            "en": "Archimedes' principle explains floating and sinking."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "200 N divided by 4 m^2."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "Pressure = 50 Pa."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says A heavy body always sinks in water. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Sinking depends on density, not weight alone."
-     },
-     {
-      "en": "A big steel ship floats because its average density is less than water's."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-flu480",
-     "r1-flu481"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Pressure = force / area."
-     },
-     {
-      "en": "Fluid pressure grows with depth."
-     },
-     {
-      "en": "Pascal's law explains hydraulic machines."
-     },
-     {
-      "en": "Archimedes' principle explains floating and sinking."
-     }
-    ]
-   }
-  ]
- }
+  }
 }
