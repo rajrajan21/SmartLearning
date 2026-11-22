@@ -1,314 +1,729 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "real-numbers",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "The number system"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 34,
-   "text": "The number system",
-   "size": 30,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "The number system"
   },
-  {
-   "kind": "rect",
-   "id": "re",
-   "x": 30,
-   "y": 70,
-   "w": 840,
-   "h": 410,
-   "rx": 20,
-   "fill": "#F3E5F5",
-   "stroke": "ink",
-   "width": 4
-  },
-  {
-   "kind": "text",
-   "id": "lre",
-   "x": 450,
-   "y": 98,
-   "text": "Real numbers",
-   "size": 24,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "ra",
-   "x": 60,
-   "y": 115,
-   "w": 500,
-   "h": 345,
-   "rx": 18,
-   "fill": "#E3F2FD",
-   "stroke": "accent",
-   "width": 4
-  },
-  {
-   "kind": "text",
-   "id": "lra",
-   "x": 310,
-   "y": 143,
-   "text": "Rational numbers (p/q)",
-   "size": 22,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "zi",
-   "x": 90,
-   "y": 160,
-   "w": 380,
-   "h": 275,
-   "rx": 16,
-   "fill": "#C8E6C9",
-   "stroke": "good",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "lzi",
-   "x": 280,
-   "y": 188,
-   "text": "Integers",
-   "size": 22,
-   "color": "good",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "wh",
-   "x": 120,
-   "y": 205,
-   "w": 260,
-   "h": 200,
-   "rx": 14,
-   "fill": "#FFF3D6",
-   "stroke": "warm",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "lwh",
-   "x": 250,
-   "y": 232,
-   "text": "Whole numbers",
-   "size": 22,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "na",
-   "x": 150,
-   "y": 250,
-   "w": 200,
-   "h": 130,
-   "rx": 12,
-   "fill": "#FFE0B2",
-   "stroke": "warm",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "lna",
-   "x": 250,
-   "y": 285,
-   "text": "Natural numbers",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "n1",
-   "x": 250,
-   "y": 325,
-   "text": "1, 2, 3 ...",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "ir",
-   "x": 590,
-   "y": 115,
-   "w": 250,
-   "h": 345,
-   "rx": 18,
-   "fill": "#FFCDD2",
-   "stroke": "accent",
-   "width": 4
-  },
-  {
-   "kind": "text",
-   "id": "lir",
-   "x": 715,
-   "y": 143,
-   "text": "Irrational numbers",
-   "size": 22,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "i1",
-   "x": 715,
-   "y": 230,
-   "text": "√2",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "i2",
-   "x": 715,
-   "y": 290,
-   "text": "π",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "i3",
-   "x": 715,
-   "y": 350,
-   "text": "√3",
-   "size": 30,
-   "color": "ink",
-   "anchor": "middle"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "Numbers are grouped in sets. Start with the natural numbers: 1, 2, 3 and so on."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 34,
+      "text": "The number system",
+      "size": 30,
+      "color": "accent",
+      "anchor": "middle"
     },
     {
-     "do": "draw",
-     "target": "na",
-     "at": 0.3
+      "kind": "rect",
+      "id": "re",
+      "x": 30,
+      "y": 70,
+      "w": 840,
+      "h": 410,
+      "rx": 20,
+      "fill": "#F3E5F5",
+      "stroke": "ink",
+      "width": 4
     },
     {
-     "do": "write",
-     "target": "lna",
-     "at": 0.5
+      "kind": "text",
+      "id": "lre",
+      "x": 450,
+      "y": 98,
+      "text": "Real numbers",
+      "size": 24,
+      "color": "ink",
+      "anchor": "middle"
     },
     {
-     "do": "write",
-     "target": "n1",
-     "at": 0.7
+      "kind": "rect",
+      "id": "ra",
+      "x": 60,
+      "y": 115,
+      "w": 500,
+      "h": 345,
+      "rx": 18,
+      "fill": "#E3F2FD",
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "kind": "text",
+      "id": "lra",
+      "x": 310,
+      "y": 143,
+      "text": "Rational numbers (p/q)",
+      "size": 22,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "zi",
+      "x": 90,
+      "y": 160,
+      "w": 380,
+      "h": 275,
+      "rx": 16,
+      "fill": "#C8E6C9",
+      "stroke": "good",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "lzi",
+      "x": 280,
+      "y": 188,
+      "text": "Integers",
+      "size": 22,
+      "color": "good",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "wh",
+      "x": 120,
+      "y": 205,
+      "w": 260,
+      "h": 200,
+      "rx": 14,
+      "fill": "#FFF3D6",
+      "stroke": "warm",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "lwh",
+      "x": 250,
+      "y": 232,
+      "text": "Whole numbers",
+      "size": 22,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "na",
+      "x": 150,
+      "y": 250,
+      "w": 200,
+      "h": 130,
+      "rx": 12,
+      "fill": "#FFE0B2",
+      "stroke": "warm",
+      "width": 3
+    },
+    {
+      "kind": "text",
+      "id": "lna",
+      "x": 250,
+      "y": 285,
+      "text": "Natural numbers",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "n1",
+      "x": 250,
+      "y": 325,
+      "text": "1, 2, 3 ...",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "rect",
+      "id": "ir",
+      "x": 590,
+      "y": 115,
+      "w": 250,
+      "h": 345,
+      "rx": 18,
+      "fill": "#FFCDD2",
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "kind": "text",
+      "id": "lir",
+      "x": 715,
+      "y": 143,
+      "text": "Irrational numbers",
+      "size": 22,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "i1",
+      "x": 715,
+      "y": 230,
+      "text": "√2",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "i2",
+      "x": 715,
+      "y": 290,
+      "text": "π",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "i3",
+      "x": 715,
+      "y": 350,
+      "text": "√3",
+      "size": 30,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realboardtitle",
+      "kind": "text",
+      "x": 450,
+      "y": 54,
+      "text": "Construct a length on the number line",
+      "size": 34,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realntick0",
+      "kind": "line",
+      "x1": 170,
+      "y1": 339,
+      "x2": 170,
+      "y2": 355,
+      "stroke": "ink",
+      "width": 4
+    },
+    {
+      "id": "realnval0",
+      "kind": "text",
+      "x": 170,
+      "y": 384,
+      "text": "0",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realntick1",
+      "kind": "line",
+      "x1": 341,
+      "y1": 339,
+      "x2": 341,
+      "y2": 355,
+      "stroke": "ink",
+      "width": 4
+    },
+    {
+      "id": "realnval1",
+      "kind": "text",
+      "x": 341,
+      "y": 384,
+      "text": "1",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realntick2",
+      "kind": "line",
+      "x1": 512,
+      "y1": 339,
+      "x2": 512,
+      "y2": 355,
+      "stroke": "ink",
+      "width": 4
+    },
+    {
+      "id": "realnval2",
+      "kind": "text",
+      "x": 512,
+      "y": 384,
+      "text": "2",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realntick3",
+      "kind": "line",
+      "x1": 683,
+      "y1": 339,
+      "x2": 683,
+      "y2": 355,
+      "stroke": "ink",
+      "width": 4
+    },
+    {
+      "id": "realnval3",
+      "kind": "text",
+      "x": 683,
+      "y": 384,
+      "text": "3",
+      "size": 22,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realaxis",
+      "kind": "arrow",
+      "x1": 128,
+      "y1": 347,
+      "x2": 760,
+      "y2": 347,
+      "stroke": "ink",
+      "width": 4
+    },
+    {
+      "id": "realleg",
+      "kind": "line",
+      "x1": 341,
+      "y1": 347,
+      "x2": 341,
+      "y2": 176,
+      "stroke": "good",
+      "width": 6
+    },
+    {
+      "id": "realhyp",
+      "kind": "line",
+      "x1": 170,
+      "y1": 347,
+      "x2": 341,
+      "y2": 176,
+      "stroke": "accent",
+      "width": 6
+    },
+    {
+      "id": "realcorner",
+      "kind": "path",
+      "d": "M 324 347 L 324 330 L 341 330",
+      "stroke": "ink",
+      "width": 3
+    },
+    {
+      "id": "realleglabel",
+      "kind": "text",
+      "x": 377,
+      "y": 261.5,
+      "text": "1",
+      "size": 22,
+      "color": "good",
+      "anchor": "middle"
+    },
+    {
+      "id": "realhyplabel",
+      "kind": "text",
+      "x": 225,
+      "y": 245,
+      "text": "√2",
+      "size": 25,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "id": "realsweep",
+      "kind": "path",
+      "d": "M 341 176 L 349 184 L 356 193 L 363 201 L 370 210 L 376 220 L 381 229 L 386 239 L 391 249 L 396 260 L 399 270 L 403 281 L 405 292 L 408 303 L 410 314 L 411 325 L 412 336 L 412 347",
+      "stroke": "warm",
+      "width": 5
+    },
+    {
+      "id": "realquizdot0",
+      "kind": "circle",
+      "cx": 370.07,
+      "cy": 347,
+      "r": 8,
+      "fill": "warm",
+      "stroke": "ink",
+      "width": 2
+    },
+    {
+      "id": "realquizlabel0",
+      "kind": "text",
+      "x": 370.07,
+      "y": 412,
+      "text": "P",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realquizdot1",
+      "kind": "circle",
+      "cx": 411.8305191657993,
+      "cy": 347,
+      "r": 8,
+      "fill": "warm",
+      "stroke": "ink",
+      "width": 2
+    },
+    {
+      "id": "realquizlabel1",
+      "kind": "text",
+      "x": 411.8305191657993,
+      "y": 412,
+      "text": "Q",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "realquizdot2",
+      "kind": "circle",
+      "cx": 460.7,
+      "cy": 347,
+      "r": 8,
+      "fill": "warm",
+      "stroke": "ink",
+      "width": 2
+    },
+    {
+      "id": "realquizlabel2",
+      "kind": "text",
+      "x": 460.7,
+      "y": 412,
+      "text": "R",
+      "size": 23,
+      "color": "ink",
+      "anchor": "middle"
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "Add zero and we get the whole numbers. Add the negative numbers as well and we get the integers."
-   },
-   "actions": [
+  ],
+  "steps": [
     {
-     "do": "draw",
-     "target": "wh",
-     "at": 0.2
+      "id": "s1",
+      "narration": {
+        "en": "Numbers are grouped in sets. Start with the natural numbers: 1, 2, 3 and so on."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        },
+        {
+          "do": "draw",
+          "target": "na",
+          "at": 0.3
+        },
+        {
+          "do": "write",
+          "target": "lna",
+          "at": 0.5
+        },
+        {
+          "do": "write",
+          "target": "n1",
+          "at": 0.7
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "lwh",
-     "at": 0.35
+      "id": "s2",
+      "narration": {
+        "en": "Add zero and we get the whole numbers. Add the negative numbers as well and we get the integers."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "wh",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "lwh",
+          "at": 0.35
+        },
+        {
+          "do": "draw",
+          "target": "zi",
+          "at": 0.55
+        },
+        {
+          "do": "write",
+          "target": "lzi",
+          "at": 0.7
+        }
+      ]
     },
     {
-     "do": "draw",
-     "target": "zi",
-     "at": 0.55
+      "id": "s3",
+      "narration": {
+        "en": "Numbers that can be written as a fraction p over q, with q not zero, are the rational numbers. Every integer is rational."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "ra",
+          "at": 0.25
+        },
+        {
+          "do": "write",
+          "target": "lra",
+          "at": 0.5
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "lzi",
-     "at": 0.7
+      "id": "s4",
+      "narration": {
+        "en": "Numbers that cannot be written as such a fraction, like the square root of 2 and pi, are irrational. Rational and irrational numbers together make the real numbers."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "ir",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "lir",
+          "at": 0.35
+        },
+        {
+          "do": "write",
+          "target": "i1",
+          "at": 0.5
+        },
+        {
+          "do": "write",
+          "target": "i2",
+          "at": 0.6
+        },
+        {
+          "do": "write",
+          "target": "i3",
+          "at": 0.7
+        },
+        {
+          "do": "draw",
+          "target": "re",
+          "at": 0.8
+        },
+        {
+          "do": "write",
+          "target": "lre",
+          "at": 0.9
+        }
+      ]
+    },
+    {
+      "id": "real-unit-triangle",
+      "narration": {
+        "en": "Make a right triangle with two legs of one unit. Its base runs from zero to one. Raise the other leg at one. The hypotenuse has length square root of two by the Pythagorean rule."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "realboardtitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realaxis",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realntick0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realnval0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realntick1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realnval1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realntick2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realnval2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realntick3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realnval3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "realleg",
+          "on": "Raise the other leg",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "realleglabel",
+          "on": "Raise the other leg",
+          "ms": 380
+        },
+        {
+          "do": "show",
+          "target": "realcorner",
+          "on": "Raise the other leg",
+          "ms": 380
+        },
+        {
+          "do": "draw",
+          "target": "realhyp",
+          "on": "hypotenuse",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "realhyplabel",
+          "on": "square root of two",
+          "ms": 430
+        }
+      ]
+    },
+    {
+      "id": "real-transfer-length",
+      "narration": {
+        "en": "Imagine a compass centred at zero and opened to the tip of the hypotenuse. Swing that length down to the number line. The point where the arc meets it is the positive square root of two."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "realsweep",
+          "on": "Swing that length",
+          "ms": 850
+        },
+        {
+          "do": "pulse",
+          "target": "realhyp",
+          "on": "tip of the hypotenuse",
+          "ms": 1000
+        }
+      ]
+    },
+    {
+      "id": "real-picture-check",
+      "narration": {
+        "en": "Find where the orange arc meets the line."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "realquizdot0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realquizlabel0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realquizdot1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realquizlabel1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realquizdot2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "realquizlabel2",
+          "at": 0,
+          "ms": 150
+        }
+      ],
+      "check": {
+        "stem": {
+          "en": "Which marked point is exactly √2 units to the right of zero?"
+        },
+        "explanation": {
+          "en": "The arc transfers the length of the hypotenuse to the number line. It lands on Q."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "P"
+            },
+            "whyWrong": {
+              "en": "P is left of the point where the arc meets the line."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "Q"
+            },
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "R"
+            },
+            "whyWrong": {
+              "en": "R is right of the end of the arc."
+            }
+          }
+        ]
+      }
     }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "Numbers that can be written as a fraction p over q, with q not zero, are the rational numbers. Every integer is rational."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "ra",
-     "at": 0.25
-    },
-    {
-     "do": "write",
-     "target": "lra",
-     "at": 0.5
-    }
-   ]
-  },
-  {
-   "id": "s4",
-   "narration": {
-    "en": "Numbers that cannot be written as such a fraction, like the square root of 2 and pi, are irrational. Rational and irrational numbers together make the real numbers."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "ir",
-     "at": 0.2
-    },
-    {
-     "do": "write",
-     "target": "lir",
-     "at": 0.35
-    },
-    {
-     "do": "write",
-     "target": "i1",
-     "at": 0.5
-    },
-    {
-     "do": "write",
-     "target": "i2",
-     "at": 0.6
-    },
-    {
-     "do": "write",
-     "target": "i3",
-     "at": 0.7
-    },
-    {
-     "do": "draw",
-     "target": "re",
-     "at": 0.8
-    },
-    {
-     "do": "write",
-     "target": "lre",
-     "at": 0.9
-    }
-   ]
-  }
- ]
+  ]
 }

@@ -1,232 +1,577 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "real-numbers",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Real Numbers"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "real-numbers",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Real Numbers"
     },
-    "text": {
-     "en": "Meena asked her teacher, \"Is every number a fraction?\" The teacher smiled and wrote the square root of 2."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "rational number",
-     "irrational number",
-     "real number",
-     "surd",
-     "rationalisation",
-     "scientific notation"
-    ],
-    "text": {
-     "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat. Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi. Together rational and irrational numbers form the real numbers, which fill the number line.\nThe radical notation n-th root of a is written with a radical sign. A surd is an irrational root such as the square root of 3. Surds have properties, and we can add and subtract like surds and multiply any surds. Rationalisation removes the surd from the denominator by multiplying the top and bottom by a suitable surd.\nScientific notation writes a number as a x 10^n with 1 <= a < 10, which helps us write very large and very small numbers such as 5.9 x 10^24."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena asked her teacher, \"Is every number a fraction?\" The teacher smiled and wrote the square root of 2."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "rational number"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "rational number",
+          "irrational number",
+          "real number",
+          "surd",
+          "rationalisation",
+          "scientific notation"
+        ],
+        "text": {
+          "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat. Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi. Together rational and irrational numbers form the real numbers, which fill the number line.\nThe radical notation n-th root of a is written with a radical sign. A surd is an irrational root such as the square root of 3. Simplify surds before adding or subtracting. Like surds use the same radical part. In the positive square-root examples here, we can multiply by multiplying their radicands. Rationalisation rewrites a fraction with a rational denominator by multiplying numerator and denominator by a suitable nonzero factor. For a two-term square-root denominator, a conjugate can help.\nFor a positive number, scientific notation uses a coefficient at least one and less than ten, multiplied by ten raised to an integer power."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "irrational number"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Together rational and irrational numbers form the real numbers, which fill the number line."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Rational numbers can be written as p/q with q not zero, and their decimals either end or repeat."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "rational number"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Irrational numbers cannot be written like this, and their decimals neither end nor repeat, as with the square root of 2 and pi."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "irrational number"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Together rational and irrational numbers form the real numbers, which fill the number line."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "real number"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The radical notation n-th root of a is written with a radical sign."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "surd"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A surd is an irrational root such as the square root of 3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "rationalisation"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Simplify surds before adding or subtracting. Like surds use the same radical part. In the positive square-root examples here, we can multiply by multiplying their radicands."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "scientific notation"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Rationalisation rewrites a fraction with a rational denominator by multiplying numerator and denominator by a suitable nonzero factor. For a two-term square-root denominator, a conjugate can help."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "rational number"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "For a positive number, scientific notation uses a coefficient at least one and less than ten, multiplied by ten raised to an integer power."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "irrational number"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Write an integer as a fraction over one. For example, negative seven equals negative seven divided by one. Every integer therefore fits the rational-number definition."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "−7 = −7/1"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Find a rational number between two and three by averaging them. The mean is five halves. Applying the same idea again produces more rational numbers in ever smaller intervals."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Average of 2 and 3 = 5/2"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Reduce a fraction before testing whether its decimal ends. Three over forty already has no common factor to cancel. Its denominator is a product of powers of two and five."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Lowest terms: 3/40"
+              },
+              {
+                "op": "write",
+                "text": "40 = 2³ × 5"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Multiply numerator and denominator by twenty-five to get seventy-five thousandths. The decimal ends because the denominator can be turned into a power of ten."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "3/40 = 75/1000 = 0.075"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "One sixth has a factor three in its reduced denominator, so its decimal continues with a repeating digit. In long division, a repeated remainder makes the next digits repeat too."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1/6 = 0.1666…"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "To turn zero point four five repeating into a fraction, rename it x. Multiplying by one hundred shifts exactly one repeat block to the left of the decimal point."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "x = 0.454545…"
+              },
+              {
+                "op": "write",
+                "text": "100x = 45.454545…"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "Subtract the original x to cancel the repeating part. Ninety-nine x equals forty-five, so x is forty-five over ninety-nine, which reduces to five elevenths."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "99x = 45 → x = 5/11"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "For square root of two, square the numbers one point four and one point five. Their squares are one point nine six and two point two five. This puts the root between them."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1.4 < √2 < 1.5"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "Let us see why square root of two is irrational. Suppose square root of two were a fraction in lowest terms. Squaring would require the numerator to be even."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Assume √2 = p/q in lowest terms"
+              },
+              {
+                "op": "write",
+                "text": "p² = 2q² implies p is even"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "An even numerator would make its square a multiple of four. In the same equation this forces the denominator to be even as well. That contradicts the claim that the fraction was in lowest terms."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "p and q both even contradict lowest terms"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Use the radical index to name the root. The cube root of twenty-seven is three because three cubed gives twenty-seven. The same number can be written with the exponent one third."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "∛27 = 27^(1/3) = 3"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "For a positive square root, look for perfect-square factors. Seventy-two is thirty-six times two, so its square root simplifies to six times the square root of two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "√72 = √(36 × 2) = 6√2"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Compare square root of fifty with three square root of two. Fifty is twenty-five times two, so the first term becomes five square root of two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "√50 = 5√2"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "The two simplified terms now share the same radical part. Subtract their coefficients, five minus three, leaving two square root of two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "√50 − 3√2 = 2√2"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "For multiplication, square root of three times square root of twelve becomes square root of thirty-six, which is six. Both factors are irrational, and the product is rational in this example."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "√3 × √12 = 6"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "For one over the square root of five, multiply above and below by the square root of five. The new denominator is five and the new numerator is square root of five."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1/√5 = √5/5"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "A denominator of square root of three minus one has two terms. Try its conjugate, square root of three plus one. The middle products cancel when you multiply."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(√3 − 1)(√3 + 1) = 3 − 1 = 2"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Multiplying a numerator and denominator by the same nonzero value leaves the fraction’s value unchanged. Here the new numerator is square root of three plus one, and the denominator is two."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1/(√3 − 1) = (√3 + 1)/2"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Write seventy-two thousand three hundred as seven point two three times ten raised to four. Check by moving the decimal four places to the right when converting back."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "72,300 = 7.23 × 10⁴"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Write zero point zero zero zero four two as four point two times ten raised to minus four. The negative exponent shows division by ten four times."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "0.00042 = 4.2 × 10⁻⁴"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "For multiplication in scientific notation, multiply the coefficients and add the powers of ten. Three times four gives twelve. Move one factor of ten into the exponent so the coefficient returns to standard form."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(3 × 10²)(4 × 10⁻⁵) = 1.2 × 10⁻²"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Finish by sorting your answers. Ask whether you used a fraction test, an exact radical form or an approximation for location. A decimal bound helps place a surd while its radical preserves the exact value."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Classify · simplify · locate · estimate"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "real number"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "The radical notation n-th root of a is written with a radical sign."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Rationalise the denominator of one divided by the quantity square root of three minus one."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Multiply the numerator and the denominator by square root of three plus one."
+            },
+            "why": {
+              "en": "This factor is the conjugate and is nonzero."
+            }
+          },
+          {
+            "text": {
+              "en": "Use the difference of squares to simplify the denominator to three minus one."
+            },
+            "why": {
+              "en": "The two middle products cancel and the denominator becomes two."
+            }
+          },
+          {
+            "text": {
+              "en": "Write square root of three plus one, all divided by two."
+            },
+            "why": {
+              "en": "The expression has the same value and its denominator is rational."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "surd"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "A surd is an irrational root such as the square root of 3."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Every real number is rational. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Numbers like the square root of 2 are irrational."
+          },
+          {
+            "en": "Real numbers include both."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "rationalisation"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Surds have properties, and we can add and subtract like surds and multiply any surds."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-rea700",
+          "r1-rea701",
+          "tnm9-real-decimal-1",
+          "tnm9-real-conjugate-1",
+          "tnm9-real-scientific-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "scientific notation"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "Rationalisation removes the surd from the denominator by multiplying the top and bottom by a suitable surd."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "rational number"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "Scientific notation writes a number as a x 10^n with 1 <= a < 10, which helps us write very large and very small numbers such as 5.9 x 10^24."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "irrational number"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Rationalise 1 / sqrt(2)."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Multiply top and bottom by sqrt(2)."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Rational: p/q form."
+          },
+          {
+            "en": "Irrational decimals never end or repeat."
+          },
+          {
+            "en": "Rationalisation clears a surd in the denominator."
+          },
+          {
+            "en": "Scientific notation uses a x 10^n."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "The denominator becomes 2."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "So 1 / sqrt(2) = sqrt(2) / 2."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Every real number is rational. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Numbers like the square root of 2 are irrational."
-     },
-     {
-      "en": "Real numbers include both."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-rea700",
-     "r1-rea701"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Rational: p/q form."
-     },
-     {
-      "en": "Irrational decimals never end or repeat."
-     },
-     {
-      "en": "Rationalisation clears a surd in the denominator."
-     },
-     {
-      "en": "Scientific notation uses a x 10^n."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

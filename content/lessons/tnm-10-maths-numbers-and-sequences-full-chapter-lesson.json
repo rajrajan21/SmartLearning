@@ -34,7 +34,7 @@
      "sum of n terms"
     ],
     "text": {
-     "en": "Euclid's division lemma says that for positive integers a and b there are unique q and r with a = bq + r and 0 <= r < b. It is used in Euclid's division algorithm to find the HCF of two numbers. The fundamental theorem of arithmetic says every composite number is a product of primes in a unique way.\nA sequence is a list of numbers in a definite order. An arithmetic progression (AP) has a constant difference d, with the n-th term a + (n - 1)d and sum S(n) = n/2 [2a + (n - 1)d]. A geometric progression (GP) has a constant ratio r, with the n-th term a r^(n-1) and sum a(r^n - 1)/(r - 1).\nSome special series are the sum of the first n natural numbers n(n + 1)/2, the sum of their squares and the sum of their cubes, which is the square of the first sum. Modular arithmetic with congruence also appears in this unit."
+     "en": "Euclid's division lemma says that for positive integers a and b there are unique q and r with a = bq + r and 0 <= r < b. It is used in Euclid's division algorithm to find the HCF of two numbers. The fundamental theorem of arithmetic says every composite number is a product of primes in a unique way.\nA sequence is a list of numbers in a definite order. An arithmetic progression (AP) has a constant difference d, with the n-th term a + (n - 1)d and sum S(n) = n/2 [2a + (n - 1)d]. A geometric progression (GP) has a constant ratio r, with the n-th term a r^(n-1) and sum a(r^n − 1)/(r − 1) when r ≠ 1. When r = 1, all terms equal a and the sum is na.\nSome special series are the sum of the first n natural numbers n(n + 1)/2, the sum of their squares and the sum of their cubes, which is the square of the first sum. Modular arithmetic with congruence also appears in this unit."
     }
    },
    {
@@ -109,7 +109,7 @@
      {
       "id": "t6",
       "text": {
-       "en": "A geometric progression (GP) has a constant ratio r, with the n-th term a r^(n-1) and sum a(r^n - 1)/(r - 1)."
+       "en": "A geometric progression, or GP, has a constant ratio r. To find its nth term, subtract one from n, raise r to that power, then multiply by a. For r different from one, start with r to the power n, subtract one, multiply by a, and divide by r minus one to find the sum."
       },
       "board": [
        {
@@ -139,6 +139,285 @@
        {
         "op": "write",
         "text": "HCF"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "Divide eighty-four by thirty. Two full groups of thirty leave twenty-four. The remainder is nonnegative and less than thirty, so the division is complete."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "The remainder is smaller than the divisor"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "A common divisor of eighty-four and thirty also divides twenty-four. The common divisors are unchanged when you use thirty and the remainder instead."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "84 = 30 × 2 + 24"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "Repeat the same step. Divide thirty by twenty-four to leave six, then divide twenty-four by six with no remainder."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "30 = 24 × 1 + 6"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "Six is the last remainder before zero. Check by dividing both eighty-four and thirty by six."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "The last nonzero remainder is the HCF"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "Eighty-four can start as seven times twelve or as four times twenty-one. Both routes finish with two, two, three and seven. Only the order can change."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Different factor trees reach the same primes"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "Thirty-eight and eight both leave remainder three on division by five. In modular arithmetic, they are congruent modulo five."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Numbers can share a remainder"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "Subtract eight from thirty-eight to get thirty. Since thirty is a multiple of five, the two numbers are congruent modulo five."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Congruent if the difference is a multiple"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "Start at ten on a twelve-hour clock and move forward five hours. Fifteen and three differ by twelve, so the clock reads three."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Remainder arithmetic on a clock"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "In the sequence seven, eleven, fifteen, the third term has position three and value fifteen. The input to a term rule is its position."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Term number and term value are different"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "In seven, eleven, fifteen, both gaps are four. In seven, eleven, sixteen, the gaps are four and five, so it is not an arithmetic progression."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Find the difference before calling it an AP"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "In an AP that begins with seven and adds four, the tenth term is seven plus nine groups of four. That gives forty-three."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Count the gaps: the tenth term needs nine"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "For eighteen, fourteen, ten and six, the common difference is minus four. The next term is two."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "An AP can go down"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "Add seven, eleven, fifteen, and nineteen. Pair first with last and second with third. Each pair sums to twenty-six."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Write an AP forwards and backwards"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "Four terms with average thirteen sum to fifty-two. You can use this shortcut when the consecutive differences are equal."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Sum = n times average of first and last"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "In three, six, twelve and twenty-four, each new term is twice the preceding one. The common ratio is two."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Test a GP with ratios"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "In sixty-four, thirty-two, sixteen and eight, each term is half the previous one. Its common ratio is one half."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A GP can shrink"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "From three to the fifth term takes four doublings. Three times two to the fourth power gives forty-eight."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Nth GP term uses n − 1 multiplications"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "For three plus six plus twelve plus twenty-four, doubling the sum and subtracting the original cancels the middle terms. Forty-eight minus three gives forty-five."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Subtract two geometric sums"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "A geometric progression with constant term six has ratio one. Its first four terms sum to twenty-four. The formula with r minus one in the denominator does not apply."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "When r = 1, add n copies of a"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "Pair one with n, two with n minus one, and so on. Each pair has the same total, so the shortcut gives fifty-five for the first ten natural numbers."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Sum of 1 to n = n(n + 1)/2"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "For n equals three, the square sum is one plus four plus nine, or fourteen. Substituting into the formula gives the same total."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Sum of squares = n(n + 1)(2n + 1)/6"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "For one, two and three, the ordinary sum is six. Their cubes add to one plus eight plus twenty-seven, which is thirty-six, or six squared."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Sum of cubes is the square of the ordinary sum"
        }
       ]
      }
@@ -179,6 +458,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Use Euclid’s algorithm to find the HCF of 84 and 30."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Divide: 84 = 30 × 2 + 24, then 30 = 24 × 1 + 6."
+      },
+      "why": {
+       "en": "Use the preceding divisor and remainder at each step."
+      }
+     },
+     {
+      "text": {
+       "en": "24 = 6 × 4 + 0, so the HCF is 6."
+      },
+      "why": {
+       "en": "The last nonzero remainder divides both original numbers."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "The first term of an AP is 7 and the last of four terms is 19. Find the sum."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Pair the terms in opposite order: 7 + 19 and 11 + 15."
+      },
+      "why": {
+       "en": "Every pair has total 26 because the differences are constant."
+      }
+     },
+     {
+      "text": {
+       "en": "The two pairs give a sum of 52."
+      },
+      "why": {
+       "en": "Each of the four terms has been counted once."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Find the sum of the first four terms of the GP 3, 6, 12, 24, …"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Set S = 3 + 6 + 12 + 24. Then 2S = 6 + 12 + 24 + 48."
+      },
+      "why": {
+       "en": "Doubling shifts each term to the position of the next term."
+      }
+     },
+     {
+      "text": {
+       "en": "Subtract S from 2S. Then S = 48 − 3 = 45."
+      },
+      "why": {
+       "en": "All the matching middle terms cancel."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -205,7 +562,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-num400",
-     "r1-num401"
+     "r1-num401",
+     "tnm10-m-nas-1",
+     "tnm10-m-nas-2",
+     "tnm10-m-nas-3",
+     "tnm10-m-nas-4",
+     "tnm10-m-nas-5",
+     "tnm10-m-nas-6"
     ]
    },
    {
