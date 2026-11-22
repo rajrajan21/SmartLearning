@@ -242,6 +242,180 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 56,
+   "text": "Blood glucose and negative feedback",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 458,
+   "text": "The response reduces the original rise in blood glucose.",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nmeal",
+   "x": 49,
+   "y": 178,
+   "w": 188,
+   "h": 119,
+   "fill": "#E2EEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nmealT",
+   "x": 143,
+   "y": 218,
+   "text": "After a meal",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nmealD",
+   "x": 143,
+   "y": 264,
+   "text": "Glucose rises",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext0",
+   "x1": 237,
+   "y1": 239,
+   "x2": 254,
+   "y2": 239,
+   "stroke": "accent",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "npancreas",
+   "x": 254,
+   "y": 178,
+   "w": 188,
+   "h": 119,
+   "fill": "#E2EEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "npancreasT",
+   "x": 348,
+   "y": 218,
+   "text": "Pancreas",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "npancreasD",
+   "x": 348,
+   "y": 264,
+   "text": "Insulin increases",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext1",
+   "x1": 442,
+   "y1": 239,
+   "x2": 459,
+   "y2": 239,
+   "stroke": "accent",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "ntissues",
+   "x": 459,
+   "y": 178,
+   "w": 188,
+   "h": 119,
+   "fill": "#E2EEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ntissuesT",
+   "x": 553,
+   "y": 218,
+   "text": "Target tissues",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntissuesD",
+   "x": 553,
+   "y": 264,
+   "text": "Use or store glucose",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext2",
+   "x1": 647,
+   "y1": 239,
+   "x2": 664,
+   "y2": 239,
+   "stroke": "accent",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "nsteady",
+   "x": 664,
+   "y": 178,
+   "w": 188,
+   "h": 119,
+   "fill": "#E2EEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nsteadyT",
+   "x": 758,
+   "y": 218,
+   "text": "Blood glucose",
+   "size": 20,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsteadyD",
+   "x": 758,
+   "y": 264,
+   "text": "Moves toward usual range",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -416,6 +590,133 @@
      "target": "n5",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "hormone1",
+   "narration": {
+    "en": "After a meal, blood glucose rises. In response, the pancreas can release more insulin into the blood."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nmeal",
+     "at": 0.19,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nmealT",
+     "at": 0.27
+    },
+    {
+     "do": "show",
+     "target": "nmealD",
+     "at": 0.33999999999999997
+    },
+    {
+     "do": "draw",
+     "target": "nnext0",
+     "at": 0.43,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "npancreas",
+     "at": 0.59,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "npancreasT",
+     "at": 0.6699999999999999
+    },
+    {
+     "do": "show",
+     "target": "npancreasD",
+     "at": 0.74
+    }
+   ]
+  },
+  {
+   "id": "hormone2",
+   "narration": {
+    "en": "Insulin signals target tissues. These tissues can take up or store glucose, so the amount in the blood begins moving back towards its usual range."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext1",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "ntissues",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ntissuesT",
+     "at": 0.35000000000000003
+    },
+    {
+     "do": "show",
+     "target": "ntissuesD",
+     "at": 0.42000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "nnext2",
+     "at": 0.54,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nsteady",
+     "at": 0.65,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsteadyT",
+     "at": 0.73
+    },
+    {
+     "do": "show",
+     "target": "nsteadyD",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "hormone3",
+   "narration": {
+    "en": "As that rise is reduced, so is the stimulus for extra insulin release. The effect reduces the original change, which is why we call it negative feedback."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "nsteady",
+     "at": 0.2,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.69,
+     "ms": 450
     }
    ]
   }
