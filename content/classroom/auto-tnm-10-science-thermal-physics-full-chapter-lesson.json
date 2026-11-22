@@ -172,6 +172,226 @@
    "size": 20,
    "color": "soft",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "Boyle’s law at constant temperature",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "noldLabel",
+   "x": 273,
+   "y": 125,
+   "text": "Initial volume: 6 L",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnewLabel",
+   "x": 630,
+   "y": 125,
+   "text": "Compressed volume: 3 L",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ntankA",
+   "x": 161,
+   "y": 150,
+   "w": 222,
+   "h": 220,
+   "fill": "#E3EEFB",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "rect",
+   "id": "ntankB",
+   "x": 519,
+   "y": 260,
+   "w": 222,
+   "h": 110,
+   "fill": "#E3EEFB",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "line",
+   "id": "npistonA",
+   "x1": 162,
+   "y1": 150,
+   "x2": 382,
+   "y2": 150,
+   "stroke": "warm",
+   "width": 7
+  },
+  {
+   "kind": "line",
+   "id": "npistonB",
+   "x1": 521,
+   "y1": 260,
+   "x2": 740,
+   "y2": 260,
+   "stroke": "warm",
+   "width": 7
+  },
+  {
+   "kind": "arrow",
+   "id": "npush",
+   "x1": 629,
+   "y1": 155,
+   "x2": 629,
+   "y2": 245,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "npA",
+   "x": 272,
+   "y": 413,
+   "text": "Pressure: 2 atm",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "npB",
+   "x": 631,
+   "y": 413,
+   "text": "Pressure: 4 atm",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nconstant",
+   "x": 450,
+   "y": 473,
+   "text": "2 × 6 = 4 × 3 = 12 atmosphere-litres",
+   "size": 25,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle00",
+   "cx": 200,
+   "cy": 190,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle01",
+   "cx": 304,
+   "cy": 193,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle02",
+   "cx": 254,
+   "cy": 232,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle03",
+   "cx": 341,
+   "cy": 267,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle04",
+   "cx": 206,
+   "cy": 309,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle05",
+   "cx": 294,
+   "cy": 337,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle10",
+   "cx": 551,
+   "cy": 288,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle11",
+   "cx": 650,
+   "cy": 286,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle12",
+   "cx": 590,
+   "cy": 313,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle13",
+   "cx": 704,
+   "cy": 316,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle14",
+   "cx": 562,
+   "cy": 347,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "nparticle15",
+   "cx": 661,
+   "cy": 345,
+   "r": 7,
+   "fill": "accent",
+   "stroke": "accent"
   }
  ],
  "steps": [
@@ -276,6 +496,167 @@
      "do": "write",
      "target": "t3b",
      "at": 0.7
+    }
+   ]
+  },
+  {
+   "id": "thermal1",
+   "narration": {
+    "en": "Start with six litres of gas at two atmospheres. The six dots stand for the same fixed sample of gas throughout this model."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "show",
+     "target": "noldLabel",
+     "at": 0.13
+    },
+    {
+     "do": "draw",
+     "target": "ntankA",
+     "at": 0.19,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "npistonA",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nparticle00",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "nparticle01",
+     "at": 0.445
+    },
+    {
+     "do": "show",
+     "target": "nparticle02",
+     "at": 0.49
+    },
+    {
+     "do": "show",
+     "target": "nparticle03",
+     "at": 0.535
+    },
+    {
+     "do": "show",
+     "target": "nparticle04",
+     "at": 0.5800000000000001
+    },
+    {
+     "do": "show",
+     "target": "nparticle05",
+     "at": 0.625
+    },
+    {
+     "do": "show",
+     "target": "npA",
+     "at": 0.72
+    }
+   ]
+  },
+  {
+   "id": "thermal2",
+   "narration": {
+    "en": "The second piston compresses the gas to half the volume. The amount of gas and its temperature are unchanged. Pressure doubles to four atmospheres."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "nnewLabel",
+     "at": 0.13
+    },
+    {
+     "do": "draw",
+     "target": "npush",
+     "at": 0.22,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "ntankB",
+     "at": 0.32,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "npistonB",
+     "at": 0.38,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nparticle10",
+     "at": 0.44
+    },
+    {
+     "do": "show",
+     "target": "nparticle11",
+     "at": 0.485
+    },
+    {
+     "do": "show",
+     "target": "nparticle12",
+     "at": 0.53
+    },
+    {
+     "do": "show",
+     "target": "nparticle13",
+     "at": 0.575
+    },
+    {
+     "do": "show",
+     "target": "nparticle14",
+     "at": 0.62
+    },
+    {
+     "do": "show",
+     "target": "nparticle15",
+     "at": 0.665
+    },
+    {
+     "do": "show",
+     "target": "npB",
+     "at": 0.76
+    }
+   ]
+  },
+  {
+   "id": "thermal3",
+   "narration": {
+    "en": "Compare the pressure-volume products. Two times six and four times three both equal twelve. The two pressures differ, but the product stays constant."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "npA",
+     "at": 0.13,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "npB",
+     "at": 0.3,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "nconstant",
+     "at": 0.65,
+     "ms": 450
     }
    ]
   }
