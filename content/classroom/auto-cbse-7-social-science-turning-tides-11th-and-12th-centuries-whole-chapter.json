@@ -10,261 +10,477 @@
  },
  "objects": [
   {
+   "id": "mmapTitle",
    "kind": "text",
-   "id": "ttl",
    "x": 450,
-   "y": 44,
-   "text": "Timeline",
-   "size": 34,
+   "y": 51,
+   "text": "Chola connections across the Bay of Bengal",
    "color": "accent",
+   "size": 34,
    "anchor": "middle"
   },
   {
+   "id": "mcaptionBox",
+   "kind": "rect",
+   "x": 25,
+   "y": 451,
+   "w": 850,
+   "h": 32,
+   "fill": "#E6F1F4",
+   "stroke": "#E6F1F4",
+   "rx": 10
+  },
+  {
+   "id": "mcaption",
+   "kind": "text",
+   "x": 450,
+   "y": 473,
+   "text": "North up · Sea arrows show broad connections · Coastlines simplified",
+   "color": "#244961",
+   "size": 17,
+   "anchor": "middle"
+  },
+  {
+   "id": "mnorthLine",
    "kind": "line",
-   "id": "ax",
-   "x1": 60,
-   "y1": 260,
-   "x2": 840,
-   "y2": 260,
+   "x1": 839,
+   "y1": 136,
+   "x2": 839,
+   "y2": 103,
    "stroke": "ink",
-   "width": 6
+   "width": 2
   },
   {
-   "kind": "circle",
-   "id": "d0",
-   "cx": 110,
-   "cy": 260,
-   "r": 13,
-   "fill": "#FF8A65",
-   "stroke": "warm",
-   "width": 3
+   "id": "mnorthHead",
+   "kind": "poly",
+   "points": [
+    [
+     831,
+     106
+    ],
+    [
+     839,
+     89
+    ],
+    [
+     847,
+     106
+    ]
+   ],
+   "stroke": "ink",
+   "fill": "ink",
+   "width": 1
   },
   {
-   "kind": "line",
-   "id": "s0",
-   "x1": 110,
-   "y1": 260,
-   "x2": 110,
-   "y2": 215,
+   "id": "mnorthLabel",
+   "kind": "text",
+   "x": 839,
+   "y": 77,
+   "text": "N",
+   "color": "ink",
+   "size": 19,
+   "anchor": "middle"
+  },
+  {
+   "id": "mcholaCoast",
+   "kind": "path",
+   "d": "M 216 141 L 224 148 L 240 150 L 250 154 L 241 158 L 251 167 L 269 167 L 280 159 L 283 168 L 284 182 L 293 199 L 299 213 L 311 234 L 320 247 L 333 259 L 344 273 L 350 276 L 360 269 L 377 266 L 382 254 L 388 232 L 390 211 L 403 205 L 433 193 L 463 177 L 482 168 L 504 160",
    "stroke": "soft",
    "width": 3
   },
   {
-   "kind": "text",
-   "id": "w0",
-   "x": 110,
-   "y": 195,
-   "text": "1055",
-   "size": 26,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "t0x0",
-   "x": 110,
-   "y": 150,
-   "text": "Chola",
-   "size": 21,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "d1",
-   "cx": 450,
-   "cy": 260,
-   "r": 13,
-   "fill": "#FF8A65",
-   "stroke": "warm",
-   "width": 3
-  },
-  {
-   "kind": "line",
-   "id": "s1",
-   "x1": 450,
-   "y1": 260,
-   "x2": 450,
-   "y2": 305,
+   "id": "mcholaCoastP",
+   "kind": "path",
+   "d": "M 124 130 L 143 129 L 168 129 L 194 131 L 201 132 L 216 141",
    "stroke": "soft",
    "width": 3
   },
   {
-   "kind": "text",
-   "id": "w1",
-   "x": 450,
-   "y": 335,
-   "text": "1206",
-   "size": 26,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "t1x0",
-   "x": 450,
-   "y": 372,
-   "text": "Muhammad of Ghor",
-   "size": 21,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "d2",
-   "cx": 790,
-   "cy": 260,
-   "r": 13,
-   "fill": "#FF8A65",
-   "stroke": "warm",
-   "width": 3
-  },
-  {
-   "kind": "line",
-   "id": "s2",
-   "x1": 790,
-   "y1": 260,
-   "x2": 790,
-   "y2": 215,
+   "id": "mcholaCoastE",
+   "kind": "path",
+   "d": "M 504 160 L 523 158 L 540 157 L 553 154 L 556 162 L 562 174 L 583 180 L 587 189 L 593 207 L 617 210 L 636 203 L 639 216 L 652 234 L 649 259 L 650 271 L 658 279 L 678 293 L 706 313 L 719 332",
    "stroke": "soft",
    "width": 3
   },
   {
+   "id": "mcholaCoastS",
+   "kind": "path",
+   "d": "M 605 298 L 623 301 L 643 306 L 672 321 L 705 333 L 733 354 L 758 377 L 752 394 L 723 388 L 686 370 L 658 345 L 625 320 L 605 298",
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "id": "mcholaCoastL",
+   "kind": "path",
+   "d": "M 383 262 L 394 261 L 406 272 L 413 282 L 403 292 L 389 294 L 384 287 L 382 274 L 383 262",
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "id": "mchola",
+   "kind": "circle",
+   "cx": 378,
+   "cy": 249,
+   "r": 6,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "id": "mcholaL",
+   "kind": "line",
+   "x1": 378,
+   "y1": 249,
+   "x2": 352,
+   "y2": 210,
+   "stroke": "accent",
+   "width": 1
+  },
+  {
+   "id": "mcholaT",
    "kind": "text",
-   "id": "w2",
-   "x": 790,
-   "y": 195,
-   "text": "13th century",
-   "size": 26,
-   "color": "warm",
+   "x": 349,
+   "y": 217,
+   "text": "Gangaikondacholapuram",
+   "color": "ink",
+   "size": 19,
+   "anchor": "end"
+  },
+  {
+   "id": "manu",
+   "kind": "circle",
+   "cx": 392,
+   "cy": 274,
+   "r": 6,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "id": "manuL",
+   "kind": "line",
+   "x1": 392,
+   "y1": 274,
+   "x2": 364,
+   "y2": 303,
+   "stroke": "accent",
+   "width": 1
+  },
+  {
+   "id": "manuT",
+   "kind": "text",
+   "x": 361,
+   "y": 310,
+   "text": "Anuradhapura",
+   "color": "ink",
+   "size": 18,
+   "anchor": "end"
+  },
+  {
+   "id": "mmal",
+   "kind": "circle",
+   "cx": 293,
+   "cy": 309,
+   "r": 6,
+   "fill": "accent",
+   "stroke": "accent"
+  },
+  {
+   "id": "mmalL",
+   "kind": "line",
+   "x1": 293,
+   "y1": 309,
+   "x2": 279,
+   "y2": 350,
+   "stroke": "accent",
+   "width": 1
+  },
+  {
+   "id": "mmalT",
+   "kind": "text",
+   "x": 276,
+   "y": 357,
+   "text": "Maldives",
+   "color": "ink",
+   "size": 17,
+   "anchor": "end"
+  },
+  {
+   "id": "msum",
+   "kind": "circle",
+   "cx": 658,
+   "cy": 323,
+   "r": 6,
+   "fill": "warm",
+   "stroke": "warm"
+  },
+  {
+   "id": "msumL",
+   "kind": "line",
+   "x1": 658,
+   "y1": 323,
+   "x2": 680,
+   "y2": 350,
+   "stroke": "warm",
+   "width": 1
+  },
+  {
+   "id": "msumT",
+   "kind": "text",
+   "x": 683,
+   "y": 357,
+   "text": "Sumatra",
+   "color": "ink",
+   "size": 18,
+   "anchor": "start"
+  },
+  {
+   "id": "mstr",
+   "kind": "circle",
+   "cx": 689,
+   "cy": 321,
+   "r": 6,
+   "fill": "warm",
+   "stroke": "warm"
+  },
+  {
+   "id": "mstrL",
+   "kind": "line",
+   "x1": 689,
+   "y1": 321,
+   "x2": 739,
+   "y2": 270,
+   "stroke": "warm",
+   "width": 1
+  },
+  {
+   "id": "mstrT",
+   "kind": "text",
+   "x": 742,
+   "y": 277,
+   "text": "Strait of Malacca",
+   "color": "ink",
+   "size": 18,
+   "anchor": "start"
+  },
+  {
+   "id": "mocean",
+   "kind": "text",
+   "x": 525,
+   "y": 210,
+   "text": "Bay of Bengal",
+   "color": "water",
+   "size": 20,
    "anchor": "middle"
   },
   {
-   "kind": "text",
-   "id": "t2x0",
-   "x": 790,
-   "y": 150,
-   "text": "Kakatiyas and",
-   "size": 21,
-   "color": "ink",
-   "anchor": "middle"
+   "id": "msriLink",
+   "kind": "arrow",
+   "x1": 380,
+   "y1": 252,
+   "x2": 390,
+   "y2": 271,
+   "stroke": "accent",
+   "width": 4
   },
   {
-   "kind": "text",
-   "id": "t2x1",
-   "x": 790,
-   "y": 176.25,
-   "text": "Hoysalas",
-   "size": 21,
-   "color": "ink",
-   "anchor": "middle"
+   "id": "mmalLink",
+   "kind": "arrow",
+   "x1": 372,
+   "y1": 261,
+   "x2": 305,
+   "y2": 307,
+   "stroke": "water",
+   "width": 4
+  },
+  {
+   "id": "mbayLink",
+   "kind": "arrow",
+   "x1": 408,
+   "y1": 253,
+   "x2": 671,
+   "y2": 314,
+   "stroke": "water",
+   "width": 5
   }
  ],
  "steps": [
   {
-   "id": "d1",
+   "id": "map-chola-capital",
    "narration": {
-    "en": "A timeline puts events in order, from the oldest on the left to the newest on the right."
+    "en": "Find Rajendra Chola’s new capital, Gangaikondacholapuram, in present-day Tamil Nadu. It was close to the east coast and faced the Bay of Bengal."
    },
    "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
     {
      "do": "show",
-     "target": "ttl",
-     "at": 0.05
+     "target": "mmapTitle",
+     "at": 0.03
     },
     {
-     "do": "draw",
-     "target": "ax",
-     "at": 0.3
+     "do": "show",
+     "target": "mcaptionBox",
+     "at": 0.06
+    },
+    {
+     "do": "show",
+     "target": "mcaption",
+     "at": 0.08
+    },
+    {
+     "do": "show",
+     "target": "mnorthLabel",
+     "at": 0.11
+    },
+    {
+     "do": "show",
+     "target": "mnorthLine",
+     "at": 0.11
+    },
+    {
+     "do": "show",
+     "target": "mnorthHead",
+     "at": 0.11
+    },
+    {
+     "do": "show",
+     "target": "mcholaCoast",
+     "at": 0.14
+    },
+    {
+     "do": "show",
+     "target": "mcholaCoastP",
+     "at": 0.17300000000000001
+    },
+    {
+     "do": "show",
+     "target": "mcholaCoastE",
+     "at": 0.20600000000000002
+    },
+    {
+     "do": "show",
+     "target": "mcholaCoastS",
+     "at": 0.23900000000000002
+    },
+    {
+     "do": "show",
+     "target": "mcholaCoastL",
+     "at": 0.272
+    },
+    {
+     "do": "show",
+     "target": "mchola",
+     "at": 0.36
+    },
+    {
+     "do": "show",
+     "target": "mcholaL",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "show",
+     "target": "mcholaT",
+     "at": 0.54
+    },
+    {
+     "do": "show",
+     "target": "mocean",
+     "at": 0.72
     }
    ]
   },
   {
-   "id": "d2",
+   "id": "map-southern-islands",
    "narration": {
-    "en": "The Paramaras of Malwa under King Bhoja, a scholar-king who wrote on many subjects, began the impressive Bhojeshwar temple, which remains a marvel although never completed. After Bhoja's death in 1055 the Paramaras gradually."
+    "en": "Move across the narrow waters to Anuradhapura in northern Sri Lanka. Farther southwest lies the Maldives, often identified with islands mentioned in Chola inscriptions."
    },
    "actions": [
     {
      "do": "draw",
-     "target": "d0",
-     "at": 0.1
+     "target": "msriLink",
+     "at": 0.16,
+     "ms": 650
+    },
+    {
+     "do": "show",
+     "target": "manu",
+     "at": 0.28
+    },
+    {
+     "do": "show",
+     "target": "manuL",
+     "at": 0.325
+    },
+    {
+     "do": "show",
+     "target": "manuT",
+     "at": 0.37
     },
     {
      "do": "draw",
-     "target": "s0",
-     "at": 0.15
+     "target": "mmalLink",
+     "at": 0.53,
+     "ms": 650
     },
     {
-     "do": "write",
-     "target": "w0",
-     "at": 0.25
+     "do": "show",
+     "target": "mmal",
+     "at": 0.68
     },
     {
-     "do": "write",
-     "target": "t0x0",
-     "at": 0.4
+     "do": "show",
+     "target": "mmalL",
+     "at": 0.7360000000000001
+    },
+    {
+     "do": "show",
+     "target": "mmalT",
+     "at": 0.792
     }
    ]
   },
   {
-   "id": "d3",
+   "id": "map-chola-bay-link",
    "narration": {
-    "en": "Muhammad of Ghor, a Turkish ruler of Afghanistan, was a turning point. After wars in northern India, he left trusted generals behind when he returned. One was Qutb-ud-din Aibak, who later founded the Delhi Sultanate. Muhammad."
+    "en": "The far side of the Bay leads toward Sumatra and the Strait of Malacca. Rajendra’s overseas expedition and the trading links of merchant guilds connected places across this sea."
    },
    "actions": [
     {
      "do": "draw",
-     "target": "d1",
-     "at": 0.1
+     "target": "mbayLink",
+     "at": 0.15,
+     "ms": 650
     },
     {
-     "do": "draw",
-     "target": "s1",
-     "at": 0.15
+     "do": "show",
+     "target": "msum",
+     "at": 0.45
     },
     {
-     "do": "write",
-     "target": "w1",
-     "at": 0.25
+     "do": "show",
+     "target": "msumL",
+     "at": 0.505
     },
     {
-     "do": "write",
-     "target": "t1x0",
-     "at": 0.4
-    }
-   ]
-  },
-  {
-   "id": "d4",
-   "narration": {
-    "en": "The Eastern Gangas started the Jagannatha temple at Puri and, in the mid-13th century, the grand Sun temple at Konark. In the Deccan the Western Chalukyas faded and the Kakatiyas and Hoysalas grew stronger. The Hoysalas' unique."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "d2",
-     "at": 0.1
+     "do": "show",
+     "target": "msumT",
+     "at": 0.56
     },
     {
-     "do": "draw",
-     "target": "s2",
-     "at": 0.15
+     "do": "show",
+     "target": "mstr",
+     "at": 0.69
     },
     {
-     "do": "write",
-     "target": "w2",
-     "at": 0.25
+     "do": "show",
+     "target": "mstrL",
+     "at": 0.748
     },
     {
-     "do": "write",
-     "target": "t2x0",
-     "at": 0.4
-    },
-    {
-     "do": "write",
-     "target": "t2x1",
-     "at": 0.4
+     "do": "show",
+     "target": "mstrT",
+     "at": 0.8059999999999999
     }
    ]
   }
