@@ -2,7 +2,7 @@ import express, { Router, type NextFunction, type Request, type Response } from 
 import { requireAdmin } from "../settings/admin-auth.js";
 import { BOARDS, CANNED_REASONS, ContribError, LANGS, LICENCES, type ContribService } from "./service.js";
 import { checkUrl, FetchError, parseDomains } from "./ssrf.js";
-import { fetchDetails } from "./pagefetch.js";
+import { extractPdfDetails, fetchDetails } from "./pagefetch.js";
 import { newId, type ContribStore, type Submission } from "./store.js";
 
 export interface ContribRouteDeps {
@@ -83,10 +83,28 @@ export function contribPublicRoutes(d: ContribRouteDeps): Router {
       const allowed = String(v["contrib.licences.allowed"] ?? "").split(",").map((x) => x.trim()).filter((x) => LICENCES[x]);
       const d = await fetchDetails(clip((req.body as { url?: unknown } | undefined)?.url, 600), {
         rules: { httpsOnly: v["contrib.link.httpsOnly"] !== false, allowDomains: parseDomains(String(v["contrib.link.allowDomains"] ?? "")), denyDomains: parseDomains(String(v["contrib.link.denyDomains"] ?? "")) },
-        maxBytes: Number(v["contrib.fetch.maxKB"] ?? 800) * 1024, timeoutMs: Number(v["contrib.fetch.timeoutSec"] ?? 10) * 1000, maxRedirects: Number(v["contrib.link.maxRedirects"] ?? 3),
+        maxBytes: Number(v["contrib.fetch.maxKB"] ?? 800) * 1024, maxPdfBytes: Math.min(20, Number(v["contrib.link.maxMB"] ?? 60)) * 1048576, timeoutMs: Number(v["contrib.fetch.timeoutSec"] ?? 10) * 1000, maxRedirects: Number(v["contrib.link.maxRedirects"] ?? 3),
         respectRobots: v["contrib.link.respectRobots"] !== false, languages: LANGS.filter((l) => l !== "other"), licences: allowed, coverUrl: v["contrib.fetch.cover"] !== false,
       });
       res.set("Cache-Control", "no-store").json(d);
+    } catch (e) { fail(res, e, next); }
+  });
+
+  r.post("/contribute/fetch-pdf-details", fetchSlow, async (req, res, next) => {
+    try {
+      const v = await on(res, "contrib.fetch.enabled"); if (!v) return;
+      if (!await who(req)) return err(res, 401, "signin", "Please sign in to fetch PDF details.");
+      const limit = Math.min(20, Number(v["contrib.maxMB"] ?? 60)) * 1048576;
+      express.raw({ type: "application/pdf", limit })(req, res, async (e?: unknown) => {
+        if (e) return err(res, (e as { status?: number }).status === 413 ? 413 : 400, "bad_upload", "The PDF could not be read for details. You can enter them by hand.");
+        if (!Buffer.isBuffer(req.body)) return err(res, 415, "not_pdf", "Please choose a PDF file.");
+        try {
+          const fileName = decodeURIComponent(req.header("x-pdf-name") ?? "").slice(0, 150);
+          const licences = String(v["contrib.licences.allowed"] ?? "").split(",").map((x) => x.trim()).filter((x) => LICENCES[x]);
+          const details = await extractPdfDetails(req.body, fileName, { languages: LANGS, licences });
+          res.set("Cache-Control", "no-store").json(details);
+        } catch (error) { fail(res, error, next); }
+      });
     } catch (e) { fail(res, e, next); }
   });
 

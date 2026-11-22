@@ -10,7 +10,7 @@ import { scanContributionPdf } from "./pdfscan.js";
 import { extractPdf, type Extracted } from "./textextract.js";
 import { reviewSubmission, type Declared, type ExistingBook, type Report } from "./review.js";
 import { cleanTerms, maskPii, scanContent } from "./detectors.js";
-import type { LibraryStore } from "../library/store.js";
+import { cleanBook, type LibraryStore } from "../library/store.js";
 
 export class ContribError extends Error { constructor(public code: string, message: string, public status = 400) { super(message); } }
 
@@ -69,6 +69,24 @@ const bandOf = (cls: string): "4-6" | "7-9" | "10-12" | "13+" => { const n = Num
 
 export function createContribService(d: ContribDeps): ContribService {
   const { store } = d;
+
+  // Repair public attribution for verified publisher PDFs submitted before evidence was available.
+  let repairedCredit = false;
+  for (const submission of store.db.submissions) {
+    if (submission.status !== "published" || !submission.bookId) continue;
+    const publisher = publisherBook(submission.sha256);
+    const book = publisher ? store.db.books.find((entry) => entry.id === submission.bookId) : undefined;
+    const previous = cleanBook(book, 0, false);
+    if (!publisher || !book || !previous || previous.licence.code !== "own") continue;
+    const licence = LICENCES[publisher.licence]!;
+    book.title = publisher.title;
+    book.authors = [publisher.author];
+    book.licence = { code: publisher.licence, name: licence.name, url: licence.url };
+    book.source = { ...previous.source, url: publisher.url };
+    if (previous.contributed) book.contributed = { ...previous.contributed, licenceNote: "Licence verified on the publisher’s page." };
+    repairedCredit = true;
+  }
+  if (repairedCredit) store.save();
   const log = d.log ?? (() => {});
   const hashIp = (ip: string) => hashOf(d.secret, `ip:${ip}`);
   const handleOf = (userId: string) => hashOf(d.secret, `user:${userId}`).slice(0, 12);

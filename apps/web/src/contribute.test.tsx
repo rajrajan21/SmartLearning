@@ -17,6 +17,7 @@ function mount(path: string, over: Record<string, unknown> = {}, cfg: unknown = 
     const j = (o: unknown, status = 200) => new Response(JSON.stringify(o), { status });
     if (url.includes("/settings/public")) return j({ values: { "feature.library": true, "contrib.enabled": true, ...over } });
     if (url.includes("/contribute/config")) return j(cfg);
+    if (url.includes("/contribute/fetch-pdf-details")) return j({ kind: "pdf", fields: { title: "The Tiny Seed", author: "Asha Rao" }, confidence: { title: "high", author: "high" }, origin: {}, pdfLinks: [], notes: [] });
     if (url.includes("/contribute/fetch-details")) return j({ finalUrl: "https://books.example/b/1", kind: "page", notes: [], fields: { title: "The Tiny Seed", author: "Asha Rao", language: "en", licence: "cc0", sourceUrl: "https://books.example/b/1", classLevel: "Ages 4-6", coverUrl: "https://books.example/c.jpg" }, confidence: { title: "high", author: "high", licence: "medium", classLevel: "low" }, origin: {}, pdfLinks: [{ url: "https://books.example/f/seed.pdf", label: "PDF" }] });
     if (url.includes("/contribute/upload") || url.includes("/contribute/link")) return j({ id: "s-1", status: "received" }, 202);
     if (url.includes("/contribute/mine")) return j({ submissions: [{ id: "s-1", status: "rejected", createdAt: "", updatedAt: "", title: "Bad Book", author: "x", licence: "own", source: "upload", bookId: "", reasons: ["It looks like a copyrighted textbook."], history: [], checks: [{ id: "c", label: "Copyright", status: "fail", detail: "d" }], score: 40 }, { id: "s-2", status: "published", createdAt: "", updatedAt: "", title: "Good Book", author: "x", licence: "cc0", source: "link", bookId: "c-aaaaaaaaaaaa", reasons: [], history: [], checks: [], score: 100 }], notices: [] });
@@ -41,6 +42,7 @@ describe("Contribute page", () => {
     fireEvent.change(screen.getByLabelText(/^A link to a PDF/, { selector: "input[type=url]" }), { target: { value: "https://example.org/a.pdf" } });
     fireEvent.change(screen.getByLabelText(/Book title/), { target: { value: "T" } });
     fireEvent.change(screen.getByLabelText(/Author/), { target: { value: "A" } });
+    fireEvent.change(screen.getByLabelText(/^Licence$/), { target: { value: "own" } });
     fireEvent.change(screen.getByLabelText(/What is 3/), { target: { value: "7" } });
     fireEvent.click(screen.getByRole("checkbox"));
     fireEvent.submit(screen.getByRole("button", { name: "Send for checking" }).closest("form")!);
@@ -51,6 +53,28 @@ describe("Contribute page", () => {
     expect(body.consent).toBe(true);
     expect(body.token).toBe("t");
   });
+  it("explains why sending is blocked and leaves the licence unselected", async () => {
+    mount("/library/contribute");
+    const send = await screen.findByRole("button", { name: "Send for checking" });
+    expect((send as HTMLButtonElement).disabled).toBe(false);
+    expect((screen.getByLabelText(/^Licence$/) as HTMLSelectElement).value).toBe("");
+    fireEvent.submit(send.closest("form")!);
+    expect(await screen.findByText(/Tick the box above/)).toBeTruthy();
+    expect(calls.some((c) => c.url.includes("/contribute/upload"))).toBe(false);
+  });
+
+  it("suggests an author from the selected PDF and lets the contributor edit it", async () => {
+    mount("/library/contribute");
+    await screen.findByText("What is 3 + 4?");
+    fireEvent.change(screen.getByLabelText("A PDF file", { selector: "input[type=file]" }), { target: { files: [new File(["PDF"], "seed.pdf", { type: "application/pdf" })] } });
+    fireEvent.click(screen.getByTestId("fetch-details"));
+    await screen.findByTestId("fetch-result");
+    const field = screen.getByLabelText(/Author/) as HTMLInputElement;
+    expect(field.value).toBe("Asha Rao");
+    fireEvent.change(field, { target: { value: "Asha Rao and Mina" } });
+    expect(field.value).toBe("Asha Rao and Mina");
+  });
+
   it("Fetch details fills the form from a page, marks how sure each field is, and lets the person edit", async () => {
     mount("/library/contribute");
     await screen.findByText("What is 3 + 4?");

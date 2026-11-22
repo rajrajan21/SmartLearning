@@ -16,7 +16,7 @@ export interface Extracted {
   /** page widths/heights in points (first 3 pages), used for a sanity check */
   error?: string;
 }
-export interface ExtractOptions { maxPages: number; maxMs: number; cover: boolean; charsPerPage?: number }
+export interface ExtractOptions { maxPages: number; maxMs: number; cover: boolean; lastPages?: number; charsPerPage?: number }
 
 type Pdfjs = { getDocument(o: unknown): { promise: Promise<any>; destroy?: () => void } };
 let pdfjsP: Promise<{ pdfjs: Pdfjs; fonts: string } | null> | null = null;
@@ -58,8 +58,10 @@ export async function extractPdf(buf: Buffer, o: ExtractOptions): Promise<Extrac
     } catch { /* no metadata */ }
     const limit = Math.min(pageCount, o.maxPages);
     const cap = o.charsPerPage ?? 20000;
-    for (let p = 1; p <= limit; p++) {
-      if (Date.now() - started > o.maxMs) { out.error = `Only the first ${p - 1} pages were read (time limit).`; break; }
+    const pageNumbers = Array.from({ length: limit }, (_, index) => index + 1);
+    for (let p = Math.max(limit + 1, pageCount - (o.lastPages ?? 0) + 1); p <= pageCount; p++) pageNumbers.push(p);
+    for (const p of pageNumbers) {
+      if (Date.now() - started > o.maxMs) { out.error = `Only ${out.pages.length} pages were read (time limit).`; break; }
       try {
         const page = await doc.getPage(p);
         const tc = await page.getTextContent();

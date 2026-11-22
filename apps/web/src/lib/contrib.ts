@@ -26,14 +26,27 @@ async function parse<T>(res: Response): Promise<T> {
 const J = (body: unknown): RequestInit => ({ method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify(body) });
 const B = "/api/v1/library";
 
+async function receipt(response: Response) {
+  const result = await parse<{ id?: string; status?: string }>(response);
+  if (typeof result.id !== "string" || !result.id || typeof result.status !== "string") {
+    throw new TypeError("No contribution receipt");
+  }
+  return result;
+}
+
+
 export const contribApi = {
   config: () => fetch(`${B}/contribute/config`).then((r) => parse<ContribConfig>(r)),
   upload: (file: File, meta: Record<string, unknown>) => {
     const head = btoa(unescape(encodeURIComponent(JSON.stringify({ ...meta, fileName: file.name })))).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "");
-    return fetch(`${B}/contribute/upload`, { method: "POST", headers: { "content-type": "application/pdf", "x-contrib-meta": head }, body: file }).then((r) => parse<{ id: string; status: string }>(r));
+    return fetch(`${B}/contribute/upload`, { method: "POST", headers: { "content-type": "application/pdf", "x-contrib-meta": head }, body: file, signal: AbortSignal.timeout(120_000) }).then(receipt);
   },
-  link: (meta: Record<string, unknown>) => fetch(`${B}/contribute/link`, J(meta)).then((r) => parse<{ id: string; status: string }>(r)),
+  link: (meta: Record<string, unknown>) => fetch(`${B}/contribute/link`, { ...J(meta), signal: AbortSignal.timeout(30_000) }).then(receipt),
   fetchDetails: (url: string) => fetch(`${B}/contribute/fetch-details`, J({ url })).then((r) => parse<FetchedDetails>(r)),
+  fetchPdfDetails: (file: File) => fetch(`${B}/contribute/fetch-pdf-details`, {
+    method: "POST", headers: { "content-type": "application/pdf", "x-pdf-name": encodeURIComponent(file.name) },
+    body: file, signal: AbortSignal.timeout(90_000),
+  }).then((r) => parse<FetchedDetails>(r)),
   mine: () => fetch(`${B}/contribute/mine`).then((r) => parse<{ submissions: MySub[]; notices: Notice[] }>(r)),
   withdraw: (id: string) => fetch(`${B}/contribute/${id}/withdraw`, J({})).then((r) => parse<MySub>(r)),
   readNotices: () => fetch(`${B}/contribute/notices/read`, J({})).then((r) => parse<unknown>(r)),
@@ -59,6 +72,11 @@ const T = {
   attr: { en: "Credit me as", ta: "என்னை இவ்வாறு குறிப்பிடுங்கள்" }, byName: { en: "My name", ta: "என் பெயர்" }, anon: { en: "Anonymous", ta: "பெயர் இல்லாமல்" }, nick: { en: "Name to show", ta: "காட்டும் பெயர்" },
   consent: { en: "I confirm the book is my own work, or I have the right to share it under the licence I chose. I understand it can be removed at any time.", ta: "இந்த நூல் என் சொந்தப் படைப்பு அல்லது நான் தேர்ந்த உரிமத்தின் கீழ் பகிர எனக்கு உரிமை உண்டு என உறுதி செய்கிறேன். எப்போது வேண்டுமானாலும் நீக்கப்படலாம் என்பதை அறிவேன்." },
   send: { en: "Send for checking", ta: "சரிபார்க்க அனுப்பு" }, sending: { en: "Sending…", ta: "அனுப்புகிறது…" },
+  chooseLicence: { en: "Choose the book’s licence", ta: "நூலின் உரிமத்தைத் தேர்வு செய்யுங்கள்" },
+  challengeRequired: { en: "Answer the verification question above.", ta: "மேலுள்ள சரிபார்ப்புக் கேள்விக்குப் பதில் அளிக்கவும்." },
+  consentRequired: { en: "Tick the box above to confirm you can share this book.", ta: "நூலைப் பகிர உரிமை உள்ளதை உறுதிசெய்ய மேலுள்ள பெட்டியைத் தேர்ந்தெடுக்கவும்." },
+  fieldRequired: { en: "Complete the highlighted field before sending.", ta: "அனுப்புவதற்கு முன் சுட்டிக்காட்டப்பட்ட புலத்தை நிரப்பவும்." },
+  sendUnknown: { en: "We could not confirm receipt. Check My contributions before sending again.", ta: "நூல் பெறப்பட்டதா என்பதை உறுதிசெய்ய முடியவில்லை. மீண்டும் அனுப்பும்முன் என் பங்களிப்புகளைப் பார்க்கவும்." },
   thanks: { en: "Received. We are checking it now. Follow it in My contributions.", ta: "பெறப்பட்டது. இப்போது சரிபார்க்கிறோம். என் பங்களிப்புகளில் பாருங்கள்." },
   mine: { en: "My contributions", ta: "என் பங்களிப்புகள்" }, none: { en: "You have not sent anything yet.", ta: "இன்னும் எதுவும் அனுப்பவில்லை." },
   withdraw: { en: "Withdraw", ta: "திரும்பப் பெறு" }, open: { en: "Open in library", ta: "நூலகத்தில் திற" }, left: { en: "left today", ta: "இன்று மீதம்" },

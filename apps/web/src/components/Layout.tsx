@@ -56,7 +56,8 @@ export function Layout({ children }: { children: ReactNode }) {
   useEffect(() => { const r = document.documentElement; if (app) r.setAttribute("data-app", "true"); else r.removeAttribute("data-app"); return () => r.removeAttribute("data-app"); }, [app]);
   const picker = s.get<string>("layout.picker");
   const classroomLesson = loc.startsWith("/classroom/");
-  const onLesson = classroomLesson || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
+  const libraryReader = /^\/library\/(?!contribute(?:\/|$)|my-contributions(?:\/|$))[^/]+\/?$/.test(loc);
+  const onLesson = libraryReader || classroomLesson || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <PresetContext.Provider value={preset}>

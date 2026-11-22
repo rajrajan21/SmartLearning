@@ -181,8 +181,12 @@ describe("Contribute to the E-Library", () => {
     expect(priv.status).toBe(400); expect(priv.body.error.code).toBe("private_host");
     expect((await post("https://scribd.com/doc/1")).body.error.code).toBe("denied_domain");
     expect((await post("not a link")).body.error.code).toBe("bad_url");
-    const pdfLink = await post("https://files.example.org/the_fox.pdf");
-    expect(pdfLink.body).toMatchObject({ kind: "pdf", fields: { title: "The Fox" } });
+    const preview = await request(app).post("/api/v1/library/contribute/fetch-pdf-details").set("Cookie", cookie)
+      .set("Content-Type", "application/pdf").set("X-PDF-Name", "The_Fox.pdf")
+      .send(await cleanPdf(["Written by Asha Rao", "This work is licensed under CC BY-SA."]));
+    expect(preview.status).toBe(200);
+    expect(preview.body).toMatchObject({ kind: "pdf", fields: { title: "The Fox", author: "Asha Rao", licence: "by-sa" } });
+    expect(await mine()).toEqual([]);
     expect((await request(app).get("/api/v1/library/contribute/config").set("Cookie", cookie)).body.fetchEnabled).toBe(true);
     await m.settings.update({ "contrib.fetch.enabled": false }, "test");
     expect((await post("https://files.example.org/x")).status).toBe(404);

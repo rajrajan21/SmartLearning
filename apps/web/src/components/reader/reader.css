@@ -584,3 +584,27 @@
     display: inline-flex !important; flex-direction: column; align-items: center; justify-content: center; gap: 2px; width: auto !important; height: auto !important; min-width: 46px; min-height: 52px; padding: .25rem .4rem !important }
   .rd-top .rd-stylepick select { width: 2.4rem; min-width: 0; padding: 0 .2rem; text-overflow: clip; font-weight: 800 }
 }
+
+/* Reader chrome owns its heading and keeps controls readable inside the page width. */
+html .page .rd-wrap .rd-reader header h1 {
+  font-size: clamp(1.08rem, 2vw, 1.5rem);
+  line-height: 1.16;
+  letter-spacing: normal;
+  color: var(--ink);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  overflow-wrap: anywhere;
+}
+.rd-wrap .rd-reader :is(.rd-top, .rd-shelf) { flex-wrap: wrap; }
+.rd-wrap .rd-reader :is(.rd-top, .rd-shelf) h1 { flex: 1 1 12rem; }
+.rd-wrap .rd-reader :is(.rd-top, .rd-shelf) :is(button, a, .rd-stylepick) { flex: none; }
+@media (min-width: 641px) {
+  .rd-wrap .rd-reader .rd-nav { flex-wrap: wrap; }
+  .rd-wrap .rd-reader .rd-nav :is(button, .rd-goto) { flex-shrink: 0; }
+}
+@media (max-width: 1200px) {
+  .rd-wrap .rd-reader .rd-shelf .rd-spines { display: none; }
+}
+@media (max-width: 640px) {
+  .rd-wrap .rd-reader :is(.rd-top, .rd-shelf) h1 { flex-basis: calc(100% - 5rem); }
+}

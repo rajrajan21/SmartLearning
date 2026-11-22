@@ -1,6 +1,11 @@
 // "Fetch details": reads a public web page (never anything private) and suggests the contribution form fields from the
 // page's own labels (JSON-LD, citation_*, Dublin Core, OpenGraph, schema.org microdata, plain text). Nothing is saved:
 // the contributor checks and edits every field, and the normal review pipeline is unchanged.
+import { createHash } from "node:crypto";
+import { cleanTerms, detectLanguage, scanCopyright } from "./detectors.js";
+import { scanContributionPdf } from "./pdfscan.js";
+import { publisherBook } from "./publisher-evidence.js";
+import { extractPdf } from "./textextract.js";
 import { checkUrl, FetchError, guardedLookup, httpGet, robotsAllows, type LinkRules, type LookupFn } from "./ssrf.js";
 
 export type Conf = "high" | "medium" | "low";
@@ -16,7 +21,7 @@ export interface Details {
 }
 export interface PageOptions {
   rules: LinkRules; maxBytes: number; timeoutMs: number; maxRedirects: number; respectRobots: boolean;
-  languages?: string[]; licences?: string[]; coverUrl?: boolean; lookup?: LookupFn; transport?: typeof httpGet; userAgent?: string;
+  languages?: string[]; licences?: string[]; coverUrl?: boolean; maxPdfBytes?: number; lookup?: LookupFn; transport?: typeof httpGet; userAgent?: string;
 }
 const UA = "SharpStudyBot/1.0 (+https://sharpstudy.in/library/contribute)";
 const ENT: Record<string, string> = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", rsquo: "’", lsquo: "‘", rdquo: "”", ldquo: "“", ndash: "–", mdash: "—", hellip: "…" };
@@ -135,6 +140,9 @@ export function extractDetails(html: string, finalUrl: string, o: Pick<PageOptio
   for (const n of ld) { const a = [...new Set([...names(n.author), ...names(n.creator)])]; if (a.length) { put("author", a.slice(0, 4).join(", "), "high", "JSON-LD"); break; } }
   const cit = [...new Set(mAll("citation_author", "dc.creator", "dcterms.creator", "book:author"))];
   put("author", cit.slice(0, 4).join(", "), "high", "citation / Dublin Core");
+  const credited = [...head.matchAll(/<p(?:\s[^>]*)?>([\s\S]*?)<\/p>/gi)].map((m) => clean(m[1], 150))
+    .map((line) => line.match(/^(?:written|created|text|story) by\s+([\p{L} .’'-]{2,95})\.?$/iu)?.[1]?.replace(/\.$/, ""));
+  put("author", credited.find(Boolean) ?? "", "medium", "book credit");
   const ma = m1("author", "article:author", "twitter:creator");
   if (ma && !/^https?:|^@/i.test(ma)) put("author", ma, "medium", "page meta");
   const byline = clean(head.replace(/<(script|style)[\s\S]*?<\/\1>/gi, " ").replace(/<[^>]+>/g, " "), 6000).match(/\b(?:written\s+)?by\s+([A-Z][\p{L}.'’-]+(?:\s+[A-Z][\p{L}.'’-]+){0,3})/u);
@@ -206,7 +214,7 @@ export async function fetchDetails(link: string, o: PageOptions): Promise<Detail
   const lookup = o.lookup ?? guardedLookup(); const get = o.transport ?? httpGet; const ua = o.userAgent ?? UA;
   const deadline = Date.now() + o.timeoutMs;
   let u = checkUrl(link, o.rules);
-  if (/\.pdf$/i.test(u.pathname)) return pdfOnly(u);
+  if (!o.maxPdfBytes && /\.pdf$/i.test(u.pathname)) return pdfOnly(u);
   if (o.respectRobots) {
     try {
       const rb = await get(new URL("/robots.txt", u), { maxBytes: 200_000, deadline: Math.min(deadline, Date.now() + 8000), lookup, ua });
@@ -215,7 +223,7 @@ export async function fetchDetails(link: string, o: PageOptions): Promise<Detail
   }
   for (let hop = 0; hop <= o.maxRedirects; hop++) {
     let r;
-    try { r = await get(u, { maxBytes: o.maxBytes, deadline, lookup, ua, accept: "text/html,application/xhtml+xml;q=0.9,*/*;q=0.1" }); }
+    try { r = await get(u, { maxBytes: /\.pdf$/i.test(u.pathname) ? (o.maxPdfBytes ?? o.maxBytes) : o.maxBytes, deadline, lookup, ua, accept: "text/html,application/xhtml+xml,application/pdf,*/*;q=0.1" }); }
     catch (e) { if (e instanceof FetchError && e.code === "too_big") throw new FetchError("too_big", "That page is too large to read. Please type the details in."); throw e; }
     if (r.status >= 300 && r.status < 400) {
       const loc = r.headers.location;
@@ -225,7 +233,7 @@ export async function fetchDetails(link: string, o: PageOptions): Promise<Detail
     }
     if (r.status < 200 || r.status >= 300) throw new FetchError("http", `The website answered with an error (${r.status}). Please type the details in.`);
     const ct = String(r.headers["content-type"] ?? "").toLowerCase().split(";")[0]!.trim();
-    if (/pdf/.test(ct) || r.body.subarray(0, 8).toString("latin1").startsWith("%PDF-")) return pdfOnly(u);
+    if (/pdf/.test(ct) || r.body.subarray(0, 8).toString("latin1").startsWith("%PDF-")) return o.maxPdfBytes ? extractPdfDetails(r.body, u.pathname.split("/").pop() ?? "", o, u.toString()) : pdfOnly(u);
     if (ct && !/^(text\/html|application\/xhtml\+xml|text\/plain)$/.test(ct)) throw new FetchError("not_page", "That link is not a web page, so there is nothing to read details from.");
     const charset = String(r.headers["content-type"] ?? "").match(/charset=([\w-]+)/i)?.[1]?.toLowerCase() ?? r.body.subarray(0, 2048).toString("latin1").match(/<meta[^>]+charset=["']?([\w-]+)/i)?.[1]?.toLowerCase() ?? "utf-8";
     let html: string; try { html = new TextDecoder(/^(utf-?8|)$/.test(charset) ? "utf-8" : charset).decode(r.body); } catch { html = r.body.toString("utf8"); }
@@ -239,5 +247,39 @@ function pdfOnly(u: URL): Details {
   const base = decodeURIComponent(u.pathname.split("/").pop() ?? "").replace(/\.pdf$/i, "").replace(/[_+]+|-{1,}/g, " ").replace(/\s+/g, " ").trim();
   const d: Details = { finalUrl: u.toString(), kind: "pdf", fields: {}, confidence: {}, origin: {}, pdfLinks: [], notes: ["That link goes straight to a PDF file, so there is no web page to read. To fill in details automatically, paste the address of the page where the book is described."] };
   if (base.length >= 4 && !/^\d+$/.test(base)) { d.fields.title = base.replace(/\b\w/g, (c) => c.toUpperCase()).slice(0, 150); d.confidence.title = "low"; d.origin.title = "file name"; }
+  return d;
+}
+
+/** Uses front and back matter as suggestions. The full review still runs on submission. */
+export async function extractPdfDetails(buf: Buffer, fileName: string, o: Pick<PageOptions, "languages" | "licences">, finalUrl = ""): Promise<Details> {
+  const d: Details = { finalUrl, kind: "pdf", fields: {}, confidence: {}, origin: {}, pdfLinks: [], notes: [] };
+  const put = (key: keyof Details["fields"], value: string | undefined, confidence: Conf, origin: string) => {
+    const text = clean(value, key === "title" ? 150 : 120);
+    if (!text) return;
+    d.fields[key] = text; d.confidence[key] = confidence; d.origin[key] = origin;
+  };
+  const scan = await scanContributionPdf(buf);
+  if (!scan.ok) { d.notes.push("This PDF could not be checked safely. Enter the details by hand or choose a different PDF."); return d; }
+
+  const known = publisherBook(createHash("sha256").update(buf).digest("hex"));
+  const ex = await extractPdf(buf, { maxPages: 4, lastPages: 2, maxMs: 8000, cover: false, charsPerPage: 4000 });
+  const metadataTitle = clean(ex.info.title, 150);
+  const metadataAuthor = clean(ex.info.author, 100);
+  const byline = ex.pages.flatMap((page) => page.split("\n")).map((line) =>
+    line.match(/^\s*(?:story by|written by|author\s*:)\s*(.+?)(?:\s*(?:©|\(c\)|\b20\d{2}\b).*)?$/i)?.[1]?.trim()).find((line) => line && line.length <= 100);
+  const filenameTitle = fileName.replace(/\.pdf$/i, "").replace(/[_+]+|-{1,}/g, " ").replace(/\s+/g, " ").trim();
+  put("title", known?.title ?? (metadataTitle || filenameTitle), known ? "high" : metadataTitle ? "medium" : "low", known ? "publisher" : metadataTitle ? "PDF metadata" : "file name");
+  put("author", known?.author ?? (byline || metadataAuthor), known ? "high" : byline ? "medium" : "low", known ? "publisher" : byline ? "PDF byline" : "PDF metadata");
+  const language = detectLanguage(ex.pages.join("\n"));
+  if (language.share > 0.7 && o.languages?.includes(language.code)) put("language", language.code, "medium", "PDF text");
+  const rights = scanCopyright(ex.pages, d.fields.title ?? "", cleanTerms(null));
+  const licence = known?.licence ?? (!rights.allRightsReserved && rights.detectedLicences.length === 1 ? rights.detectedLicences[0] : undefined);
+  if (licence && o.licences?.includes(licence)) {
+    put("licence", licence, known ? "high" : "medium", known ? "publisher" : "PDF licence notice");
+    put("licenceProof", known ? "The publication page confirms this book is shared under the author’s CC BY-SA licence." :
+      `The PDF’s licence notice appears to specify ${licence}. Please verify it against the publisher’s source.`, known ? "high" : "medium", known ? "publisher" : "PDF licence notice");
+  }
+  put("sourceUrl", known?.url, "high", "publisher");
+  if (!ex.engine && !known) d.notes.push("This PDF has no readable metadata or text. Enter the remaining details by hand.");
   return d;
 }

@@ -32,6 +32,7 @@ export interface ReaderBook {
   toc?: TocEntry[];
   /** false hides the Download button for this book (E-Library books follow their licence); default follows the reader setting */
   download?: boolean;
+  readAloudInitiallyOpen?: boolean;
   /** pages drawn ahead of the one being read (0 to 8, default 3) */
   prefetch?: number;
 }
@@ -188,7 +189,7 @@ export function Reader({ book, open, onFail }: Props) {
   const [voiceNames, setVoiceNames] = useState<Record<ReadLang, string | null>>(() => ({ en: readerStore.voice("en"), ta: readerStore.voice("ta") }));
   const [rate, setRate] = useState(() => clampRate(readerStore.rate(), clampRate(s.get<number>("reader.defaultSpeed"), 0.9)));
   const [autoTurn, setAutoTurn] = useState(() => readerStore.autoTurn() ?? s.get("reader.autoTurn") !== false);
-  const [aloudOpen, setAloudOpen] = useState(() => typeof window === "undefined" || window.innerWidth >= SINGLE_BELOW);
+  const [aloudOpen, setAloudOpen] = useState(() => book.readAloudInitiallyOpen ?? (typeof window === "undefined" || window.innerWidth >= SINGLE_BELOW));
   const [ttsState, setTtsState] = useState<TtsState>("idle");
   const [ttsI, setTtsI] = useState(0);
   const [ttsMsg, setTtsMsg] = useState<UiKey | null>(null);

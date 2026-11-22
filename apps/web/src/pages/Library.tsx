@@ -216,9 +216,9 @@ export function LibraryBookPage() {
   const canDownload = book.contributed ? book.contributed.download : s.get("library.reader.showDownload") === true;
   const pages = book.pages || info?.fast?.pages || pdf?.numPages || 0;
   const details = (
-    <main className="books library lib-book" data-testid="library-book">
+    <section className="books library lib-book" aria-label={book.title} data-testid="library-book">
       {!useReader && <Crumbs items={[{ href: "/", label: "Home" }, { href: "/library", label: lt("title", s.lang) }, { label: book.title }]} />}
-      <h1 className={useReader ? "lib-book-h" : undefined}>{book.title}</h1>
+      {!useReader && <h1>{book.title}</h1>}
       <p className="small lib-credit">
         {book.authors.length > 0 && <>{lt("by", s.lang)} {book.authors.join(", ")} · </>}
         {book.ageBand}{book.ageSource === "guess" ? ` (${lt("ageGuess", s.lang)})` : ""} · {book.language}{book.pages ? ` · ${book.pages} ${lt("pages", s.lang)}` : ""} · {mb(book.bytes)}
@@ -229,7 +229,7 @@ export function LibraryBookPage() {
       {book.contributed && pages > 0 && <BookTools id={book.id} pages={pages} canTakedown={s.get("contrib.takedown.enabled") !== false} />}
       {!useReader && (fail ? <p className="empty">{lt("loadFail", s.lang)}</p> : !pdf ? <Loading /> : <PdfScroller book={pdf} id={book.id} name={book.title} />)}
       <p className="small">{lt("credit", s.lang)}</p>
-    </main>
+    </section>
   );
   if (!info) return <Loading />;
   if (!useReader) return details;
@@ -239,7 +239,7 @@ export function LibraryBookPage() {
       <Suspense fallback={<div className="paper"><Loading /></div>}>
         <Reader key={book.id} onFail={info.fallbackPdf ? () => setForcePdf(true) : undefined} book={{
           id: `lib-${book.id}`, title: book.title, subtitle: [book.authors.join(", "), book.licence.name].filter(Boolean).join(" · "), url: fileUrl(book.id), fileName: `${book.id}.pdf`,
-          language: book.language, subject: book.ageBand, backHref: "/library", fast: info.fast, download: canDownload, prefetch: Number.isFinite(prefetch) ? prefetch : 3,
+          language: book.language, subject: book.ageBand, readAloudInitiallyOpen: false, backHref: "/library", fast: info.fast, download: canDownload, prefetch: Number.isFinite(prefetch) ? prefetch : 3,
         }} />
       </Suspense>
       {details}

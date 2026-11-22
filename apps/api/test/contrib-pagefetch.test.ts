@@ -1,3 +1,4 @@
+import { cleanPdf } from "./contrib-fixtures.js";
 import { describe, expect, it } from "vitest";
 import { extractDetails, fetchDetails, langCode, licenceId } from "../src/modules/contrib/pagefetch.js";
 
@@ -60,6 +61,12 @@ describe("fetchDetails", () => {
     await expect(fetchDetails("https://a.example/private/x", opt(robots, { respectRobots: true }))).rejects.toMatchObject({ code: "robots" });
     expect((await fetchDetails("https://a.example/public", opt(robots, { respectRobots: true }))).fields.title).toBe("The Tiny Seed");
     await expect(fetchDetails("https://a.example/x", opt((async () => page("x", "image/png")) as never))).rejects.toMatchObject({ code: "not_page" });
+  });
+  it("extracts an editable byline and licence from a guarded direct PDF download", async () => {
+    const body = await cleanPdf(["Written by Asha Rao", "This work is licensed under CC BY-SA."]);
+    const t = (async () => ({ status: 200, headers: { "content-type": "application/pdf" }, body })) as never;
+    const d = await fetchDetails("https://a.example/story.pdf", opt(t, { maxPdfBytes: 200_000, licences: ["by-sa"] }));
+    expect(d).toMatchObject({ kind: "pdf", fields: { author: "Asha Rao", licence: "by-sa" } });
   });
   it("a direct PDF link gives only a file-name hint and a note, without downloading it", async () => {
     const t = (async () => { throw new Error("no fetch"); }) as never;
