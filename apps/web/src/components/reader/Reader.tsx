@@ -602,7 +602,7 @@ export function Reader({ book, open, onFail }: Props) {
       {discText && discOpen && <p className="rd-disc" role="note"><span>{discText}</span><button type="button" aria-label="Close" onClick={() => setDiscOpen(false)}>✕</button></p>}
     </>
   );
-  const heading = <h1>{book.title} <small>{book.subtitle}</small></h1>;
+  const heading = <h1 aria-label={book.title}>{book.title} <small>{book.subtitle}</small></h1>;
 
   const hl = (n: number) => (
     <div className="rd-hl">
