@@ -1,5 +1,6 @@
 import { SpeakAnswer } from "./SpeakAnswer";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { recordLessonOpened } from "../lib/lesson-guide";
 import { Link } from "wouter";
 import type { ContentBlock, PublicQuestion, TopicLesson } from "@studysmart/shared";
 import { AskTeacher } from "./AskTeacher";
@@ -150,6 +151,7 @@ function Block({ block, questions, pictures, register }: { block: ContentBlock; 
 }
 
 export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicLesson; links: PlayerLinks; questions?: PublicQuestion[] }) {
+  useEffect(() => { recordLessonOpened(lesson.topicId); }, [lesson.topicId]);
   const s = useSettings();
   const { lang } = s;
   const save = s.get("lesson.progress.save");

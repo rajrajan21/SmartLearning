@@ -1,4 +1,5 @@
 import { ShareLink } from "../components/ShareLink";
+import { ChapterLessonGuide } from "../components/ChapterLessonGuide";
 import { ParentNote } from "../components/ParentNote";
 import { MindMap } from "../components/MindMap";
 import { TopicTabs } from "../components/TopicTabs";
@@ -161,6 +162,9 @@ export function ChapterPage() {
   const base = `/${board}/${level}/${sub.slug}`;
   const showTopicSearch = s.get("browse.topics.search") === true && ch.topics.length > 4;
   const visibleTopics = showTopicSearch ? ch.topics.filter((t) => matches(topicQuery, t.name.en, t.name.ta)) : ch.topics;
+  const guideTopic = s.get("feature.lessons") && !topicQuery ? visibleTopics.find((topic) => lessonIds.has(topic.id)) : undefined;
+  const chapterPath = `${base}/${ch.slug}`;
+  const progressCount = Object.keys(progress).length;
   return (
     <div className="paper" style={{ ["--cover" as string]: subjectVar(sub.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: `/${board}/${level}`, label: `${ui("classWord", s.lang)} ${level}` }, { href: base, label: s.name(sub.name) }, { label: s.name(ch.name) }]} />
@@ -194,7 +198,8 @@ export function ChapterPage() {
             <ul className={`chapter-topic-list ${s.get<string>("browse.topics.layout") === "list" ? "rows" : "cards"}`}>
               {visibleTopics.map((t) => (
                 <li key={t.id}>
-                  <Link className="chapter-topic-link" href={`${base}/${ch.slug}/${t.slug}`}>
+                  {guideTopic?.id === t.id && <ChapterLessonGuide key={chapterPath} chapter={chapterPath} progressCount={progressCount} targetId="chapter-first-lesson" tamil={s.lang === "ta"} />}
+                  <Link id={guideTopic?.id === t.id ? "chapter-first-lesson" : undefined} className="chapter-topic-link" href={`${chapterPath}/${t.slug}`}>
                     <Title name={t.name} /><span aria-hidden="true">→</span>
                   </Link>
                   {s.get("feature.lessons") && lessonIds.has(t.id) && <span className="tag">{ui("hasLesson", s.lang)}</span>}

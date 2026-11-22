@@ -1,0 +1,49 @@
+.chapter-lesson-guide {
+  width: fit-content;
+  max-width: 100%;
+  margin: 0 0 0.85rem;
+}
+
+.chapter-lesson-guide-bubble {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.35rem 0.45rem 0.35rem 0.85rem;
+  border: 1px solid currentColor;
+  border-radius: 0.8rem;
+  background: var(--surface, Canvas);
+  color: var(--brand);
+  box-shadow: 0 3px 12px #0001;
+  font-size: 0.9rem;
+}
+
+.chapter-lesson-guide-bubble::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 1.15rem;
+  bottom: -0.35rem;
+  width: 0.6rem;
+  height: 0.6rem;
+  border: solid currentColor;
+  border-width: 0 1px 1px 0;
+  background: inherit;
+  transform: rotate(45deg);
+}
+
+.chapter-lesson-guide-bubble a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.chapter-lesson-guide-bubble button {
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: 0;
+  border: 0;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: inherit;
+  font-size: 1.3rem;
+  cursor: pointer;
+}

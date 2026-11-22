@@ -1,5 +1,6 @@
 import { ReportProblem } from "../components/ReportProblem";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { recordLessonOpened } from "../lib/lesson-guide";
 import { Link, useParams } from "wouter";
 import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
@@ -164,7 +165,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
   const cur = lesson.steps[step]!;
   const text = cur.narration[narrationLang] ?? cur.narration.en;
   const rec = mute ? undefined : cur.audio?.[narrationLang] ?? (narrationLang !== "en" ? undefined : cur.audio?.en);
-  const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en) / rate;
+  const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en);
   const words = rec?.words;
 
   // refs so the animation loop never sees stale values
@@ -196,6 +197,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
   }, []);
 
   const begin = useCallback((i: number) => {
+    recordLessonOpened(`classroom:${back}`);
     run.current++; stopVoice(); clearTimer();
     const stp = R.current.lesson.steps[i]!;
     tRef.current = 0; setT(0); setStep(i); setPicked(null); setWrongNote(null); setWordIdx(-1); setPhase("playing");
@@ -203,10 +205,10 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
     speechDone.current = !(!rr && R.current.browserVoice && hasSpeech() && !R.current.mute);
     const id = run.current;
     bound.current = null;
-    if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); try { a.currentTime = 0; } catch { /* not loaded yet */ } a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { /* blocked: the virtual clock still runs */ }); }
+    if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); try { a.currentTime = 0; } catch { /* not loaded yet */ } a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { if (run.current === id && audioEl.current === a) audioEl.current = null; }); }
     else if (!speechDone.current) {
       const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate;
-      const total = stp.narration.en.length, dur = estimateDurationMs(stp.narration.en) / R.current.rate;
+      const total = stp.narration.en.length, dur = estimateDurationMs(stp.narration.en);
       u.onboundary = (e) => { if (run.current === id) bound.current = { t: (e.charIndex / Math.max(1, total)) * dur, at: performance.now() }; };
       u.onend = () => { if (run.current === id) speechDone.current = true; }; u.onerror = u.onend; speechSynthesis.speak(u);
     }
@@ -215,7 +217,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
       const nx = R.current.lesson.steps[n]!, ref = nx.audio?.[narrationLang] ?? nx.audio?.en;
       if (ref && !pre.current.has(ref.url)) { const pa = new Audio(); pa.preload = "auto"; pa.src = ref.url; pre.current.set(ref.url, pa); }
     }
-  }, [narrationLang, stopVoice]);
+  }, [back, narrationLang, stopVoice]);
 
   const afterNarration = useCallback(() => {
     const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
@@ -239,12 +241,15 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
     const tick = (now: number) => {
       const dt = now - last; last = now;
       const a = audioEl.current, r = R.current;
+      const previousTime = tRef.current;
       let ms: number;
       if (a && r.rec) ms = a.currentTime * 1000;
-      else if (!speechDone.current && bound.current) ms = Math.max(tRef.current, bound.current.t + Math.min(now - bound.current.at, 320));
+      else if (!speechDone.current && bound.current) ms = Math.max(tRef.current, bound.current.t + Math.min(now - bound.current.at, 320) * r.rate);
       else if (!speechDone.current && R.current.browserVoice && tRef.current < 1) ms = tRef.current; // the device voice has not started yet
       else { tRef.current += dt * r.rate; ms = tRef.current; }
-      tRef.current = ms; setT(ms); setClock((c) => c + dt / 1000);
+      tRef.current = ms; setT(ms);
+      const elapsed = Math.max(0, ms - previousTime);
+      if (elapsed) setClock((c) => c + elapsed / 1000);
       if (a && r.rec) { const w = r.rec.words; let k = -1; for (let n = 0; n < w.length; n++) if (w[n]!.t <= ms) k = n; setWordIdx(k); }
       else if (!speechDone.current && ms > r.durMs * 2.5) speechDone.current = true;
       const over = a && r.rec ? a.ended || ms >= r.durMs + 50 : speechDone.current && (bound.current !== null || ms >= r.durMs);
@@ -376,8 +381,16 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
         <button type="button" className="btn ghost" onClick={() => go(step + 1)} disabled={!started || step + 1 >= lesson.steps.length}>{L("next")} →</button>
         <button type="button" className="btn ghost" onClick={() => go(0)} disabled={!started}>⟲ {L("classroomRestart")}</button>
         <label className="class-rate">{L("classroomSpeed")}
-          <select value={rate} onChange={(e) => { const r = Number(e.target.value); setRate(r); if (audioEl.current) audioEl.current.playbackRate = r; }}>
-            <option value={0.75}>0.75×</option><option value={1}>1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
+          <select value={rate} onChange={(e) => {
+            const nextRate = Number(e.target.value);
+            const restartSpeech = !speechDone.current && !audioEl.current;
+            R.current.rate = nextRate;
+            setRate(nextRate);
+            if (audioEl.current) audioEl.current.playbackRate = nextRate;
+            else if (restartSpeech && playing) begin(step);
+            else if (restartSpeech) stopVoice();
+          }}>
+            <option value={0.75}>0.75×</option><option value={0.85}>0.85×</option><option value={1}>1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
           </select>
         </label>
         <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
