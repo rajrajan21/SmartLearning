@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// SharpStudy question-paper collector. Run by Harvest-Question-Papers.bat (3 times a day) on the owner PC.
+// SharpStudy question-paper collector. Oracle runs the scheduled job; the batch file is available for local use.
 //   node tools/papers/harvest.mjs [--max 10] [--site cbse-academic] [--dry] [--local <folder> --board cbse]
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync, renameSync } from "node:fs";
 import { dirname, join, basename } from "node:path";
 import { fileURLToPath } from "node:url";
 import { loadConfig } from "./lib/config.mjs";
 import { get } from "./lib/http.mjs";
-import { crawlSite, ingest, planCandidates } from "./lib/core.mjs";
+import { crawlSite, ingest, isCollectionGrade, planCandidates } from "./lib/core.mjs";
 import { PAPERS_DIR, dirSizeMB, readIndex, loadState, saveState, sha } from "./lib/store.mjs";
 import { chapterMatcher, loadCurriculum } from "./lib/match.mjs";
 import { inferMeta } from "./lib/parse.mjs";
@@ -128,23 +128,23 @@ for (const site of sites) {
   }
   if (st.day?.date !== today) st.day = { date: today, n: 0 };
   const retryOk = (i) => !st.failed?.[sha(i.url)] || Date.now() - Date.parse(st.failed[sha(i.url)]) > cfg.retryHours * 36e5;
-  const pending = (st.items ?? []).filter((i) => !i.skip && !state.seen[sha(i.url)] && retryOk(i));
+  const pending = (st.items ?? []).filter((i) => !i.skip && isCollectionGrade(i.meta?.cls) && !state.seen[sha(i.url)] && retryOk(i));
   log(`${site.id}: ${pending.length} papers not collected yet.`);
   batches.push({ site, st, fetcher, pending, added: 0 });
 }
-const priority = (board, cls) => {
-  if (board === "cbse" || board === "ncert") {
+const priority = (site, cls) => {
+  if (site.board === "cbse") {
     const rank = [6, 7, 3, 4].indexOf(cls);
     if (rank >= 0) return rank;
   }
-  if (board === "matric" || board === "stateboard") {
+  if (site.board === "matric" || (site.board === "stateboard" && site.state === "tamil-nadu")) {
     if (cls === 9) return 4;
     if (cls === 10) return 5;
   }
   return 6;
 };
 const candidates = batches.flatMap((batch) => batch.pending.map((item) => ({ batch, item })));
-candidates.sort((a, b) => priority(a.batch.site.board, a.item.meta.cls) - priority(b.batch.site.board, b.item.meta.cls));
+candidates.sort((a, b) => priority(a.batch.site, a.item.meta.cls) - priority(b.batch.site, b.item.meta.cls));
 for (const { batch, item } of candidates) {
     const { site, st, fetcher } = batch;
     if (state.seen[sha(item.url)]) continue;
@@ -166,9 +166,9 @@ for (const { batch, item } of candidates) {
     saveState(state);
 }
 for (const { site, st, added } of batches) {
-  if (!(st.items ?? []).some((i) => !i.skip && !state.seen[sha(i.url)])) log(`${site.id}: finished (every paper on the site has been collected or skipped). Moving on.`);
+  if (!(st.items ?? []).some((i) => !i.skip && isCollectionGrade(i.meta?.cls) && !state.seen[sha(i.url)])) log(`${site.id}: finished (every paper on the site has been collected or skipped). Moving on.`);
   saveState(state);
-  const left = (st.items ?? []).filter((i) => !i.skip && !state.seen[sha(i.url)]).length;
+  const left = (st.items ?? []).filter((i) => !i.skip && isCollectionGrade(i.meta?.cls) && !state.seen[sha(i.url)]).length;
   siteRows[site.id] = { id: site.id, name: site.name, status: st.status === "ok" ? (left ? `${left} papers still to collect` : "finished") : st.status, added, note: st.pdfs != null ? `${st.pdfs} PDFs found on ${st.pages} pages` : "" };
 }
 await browserClose();

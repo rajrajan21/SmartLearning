@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import { gunzipSync } from "node:zlib";
 import { applyKey, inferMeta, pairKey, parseKey, parsePaper, splitOptions } from "../lib/parse.mjs";
 import { parseRobots } from "../lib/http.mjs";
-import { crawlSite, ingest, planCandidates } from "../lib/core.mjs";
+import { crawlSite, ingest, isCollectionGrade, planCandidates } from "../lib/core.mjs";
 import { pdfToText } from "../lib/pdf.mjs";
 import { readIndex, savePaper, validate } from "../lib/store.mjs";
 import { chapterMatcher } from "../lib/match.mjs";
@@ -106,4 +106,15 @@ test("term and year are read from the title; a Drive sign-in page is skipped, no
   assert.equal(inferMeta("Class 12 Chemistry Pre-Board 2026").term, "pre-board");
   const r = await ingest({ url: "https://drive.google.com/uc?export=download&id=1AbCdEfGhIjKlMnOpQrStUv", pageUrl: "https://blog.example/p", drive: true, name: "x", meta: { cls: 10, subject: "Science", kind: "test" }, key: null }, { name: "T", board: "stateboard" }, { fetcher: async () => ({ ok: true, buf: Buffer.from("<html>" + " ".repeat(1200) + "<a href='https://accounts.google.com/ServiceLogin'>Sign in</a></html>"), type: "text/html" }), matcherFor: null, dir: mkdtempSync(join(tmpdir(), "pp-")) });
   assert.equal(r.result, "skipped"); assert.match(r.detail, /never bypassed/);
+});
+
+test("scheduled collection limits new papers to Grades 3–10", () => {
+  const candidates = [2, 3, 10, 11, 12].map((grade) => ({
+    url: `https://example.test/Class-${grade}-Maths-Model-Paper.pdf`,
+    text: `Class ${grade} Maths Model Paper`,
+    page: "",
+  }));
+  const plan = planCandidates(candidates, {}, { classes: [2, 3, 10, 11, 12] });
+  assert.deepEqual(plan.filter((item) => !item.skip).map((item) => item.meta.cls), [3, 10]);
+  assert.deepEqual([2, 3, 10, 11, 12].filter(isCollectionGrade), [3, 10]);
 });

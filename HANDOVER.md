@@ -1,5 +1,7 @@
 # SharpStudy (sharpstudy.in) — HANDOVER FOR ANOTHER AI
 
+**Start here for the latest job state and owner instructions.** [Current Codex handover](HANDOVER-CODEX-2026-11-21.md) (November 21, 2026). The following sections record earlier project history.
+
 Written 16 Nov 2026 by Claude (Anthropic) because the owner's Claude Pro subscription is ending. Read this file first, then `JOBS_AND_IMPACT.md` (batch/manual jobs and what each change affects), `ADMIN_SETTINGS.pdf` (every admin setting) and `CONVERSATION_HISTORY.md` (what was decided and why). **Whoever works on the project must keep this file updated** (see section 13).
 
 ---

@@ -46,6 +46,8 @@ export async function crawlSite(site, { fetcher, maxPages = 40 }) {
 }
 
 const base = (u) => decodeURIComponent(u.split("?")[0].split("/").pop() ?? "");
+export const isCollectionGrade = (grade) => Number.isInteger(grade) && grade >= 3 && grade <= 10;
+
 /** Splits the PDF list into papers and their marking schemes and pairs them. */
 export function planCandidates(cands, site, cfg) {
   const items = cands.map((c) => ({ ...c, name: c.drive ? (c.text || "drive-file") : base(c.url), isKey: isKeyName(`${c.text} ${base(c.url)}`), meta: inferMeta(`${c.page} ${c.text} ${base(c.url)}`) }));
@@ -54,7 +56,7 @@ export function planCandidates(cands, site, cfg) {
   for (const p of items.filter((i) => !i.isKey)) {
     const cls = p.meta.cls ?? site.defaults?.cls; const subject = p.meta.subject ?? site.defaults?.subject;
     if (!cls || !subject) { plan.push({ ...p, skip: "no-class-or-subject" }); continue; }
-    if (cfg.classes?.length && !cfg.classes.includes(cls)) { plan.push({ ...p, skip: "class-not-selected" }); continue; }
+    if (!isCollectionGrade(cls) || (cfg.classes?.length && !cfg.classes.includes(cls))) { plan.push({ ...p, skip: "class-not-selected" }); continue; }
     if (cfg.subjects?.length && !cfg.subjects.some((x) => x.toLowerCase() === String(subject).toLowerCase())) { plan.push({ ...p, skip: "subject-not-selected" }); continue; }
     if (cfg.kinds?.length && !cfg.kinds.includes(p.meta.kind)) { plan.push({ ...p, skip: "kind-not-selected" }); continue; }
     const k = pairKey(p.name);
