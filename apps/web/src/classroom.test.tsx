@@ -1,4 +1,4 @@
-import { cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
 import { Router } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -25,7 +25,7 @@ function mount(path: string) {
     return new Response("{}", { status: 404 });
   }));
   const { hook } = memoryLocation({ path, static: false });
-  return render(<Router hook={hook}><SettingsProvider><AccountProvider><Layout><Routes /></Layout></AccountProvider></SettingsProvider></Router>);
+  return render(<Router hook={hook}><SettingsProvider waitForLatest><AccountProvider><Layout><Routes /></Layout></AccountProvider></SettingsProvider></Router>);
 }
 beforeEach(() => { cleanup(); localStorage.clear(); settings = { "classroom.browserVoice": false }; vi.stubGlobal("matchMedia", (q: string) => ({ matches: q.includes("reduce"), addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} })); });
 
@@ -95,9 +95,15 @@ describe("classroom", () => {
   it("pauses at the question until it is answered, explains a wrong answer, then continues", async () => {
     mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
     await screen.findByText("Halves and quarters");
-    fireEvent.click(screen.getAllByRole("button", { name: /Start the lesson/ })[0]!);
-    fireEvent.click(await screen.findByRole("button", { name: /^Next/ }));
-    expect(await screen.findByText("How many quarters make one whole?", {}, { timeout: 6000 })).toBeTruthy();
+    vi.useFakeTimers({ toFake: ["requestAnimationFrame", "cancelAnimationFrame", "performance"] });
+    try {
+      fireEvent.click(screen.getAllByRole("button", { name: /Start the lesson/ })[0]!);
+      fireEvent.click(screen.getByRole("button", { name: /^Next/ }));
+      act(() => { vi.advanceTimersByTime(5000); });
+      expect(screen.getByText("How many quarters make one whole?")).toBeTruthy();
+    } finally {
+      vi.useRealTimers();
+    }
     fireEvent.click(screen.getByRole("button", { name: "2" }));
     expect(await screen.findByText(/Only a half/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "4" }));
