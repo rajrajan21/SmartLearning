@@ -1,182 +1,431 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "social-science",
- "chapter": "geography-lithosphere-i-endogenetic-processes",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "Inside the Earth"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 34,
-   "text": "Layers inside the Earth",
-   "size": 30,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "social-science",
+  "chapter": "geography-lithosphere-i-endogenetic-processes",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "Inside the Earth"
   },
-  {
-   "kind": "circle",
-   "id": "crust",
-   "cx": 330,
-   "cy": 265,
-   "r": 190,
-   "fill": "#D7CCC8",
-   "stroke": "earth",
-   "width": 4
-  },
-  {
-   "kind": "circle",
-   "id": "mantle",
-   "cx": 330,
-   "cy": 265,
-   "r": 160,
-   "fill": "#FFCC80",
-   "stroke": "warm",
-   "width": 4
-  },
-  {
-   "kind": "circle",
-   "id": "oc",
-   "cx": 330,
-   "cy": 265,
-   "r": 100,
-   "fill": "#FF8A65",
-   "stroke": "accent",
-   "width": 4
-  },
-  {
-   "kind": "circle",
-   "id": "ic",
-   "cx": 330,
-   "cy": 265,
-   "r": 48,
-   "fill": "#FFEE58",
-   "stroke": "sun",
-   "width": 4
-  },
-  {
-   "kind": "text",
-   "id": "l1",
-   "x": 640,
-   "y": 120,
-   "text": "Crust: the thin outer skin",
-   "size": 22,
-   "color": "earth",
-   "anchor": "start"
-  },
-  {
-   "kind": "text",
-   "id": "l2",
-   "x": 640,
-   "y": 190,
-   "text": "Mantle: hot, thick, rocky layer",
-   "size": 22,
-   "color": "warm",
-   "anchor": "start"
-  },
-  {
-   "kind": "text",
-   "id": "l3",
-   "x": 640,
-   "y": 260,
-   "text": "Outer core: liquid metal",
-   "size": 22,
-   "color": "accent",
-   "anchor": "start"
-  },
-  {
-   "kind": "text",
-   "id": "l4",
-   "x": 640,
-   "y": 330,
-   "text": "Inner core: solid metal",
-   "size": 22,
-   "color": "sun",
-   "anchor": "start"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "The Earth is made of layers, like an onion. We cannot dig into them, but scientists study earthquake waves to learn about them."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 34,
+      "text": "Layers inside the Earth",
+      "size": 30,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "kind": "circle",
+      "id": "crust",
+      "cx": 330,
+      "cy": 265,
+      "r": 190,
+      "fill": "#D7CCC8",
+      "stroke": "earth",
+      "width": 4
+    },
+    {
+      "kind": "circle",
+      "id": "mantle",
+      "cx": 330,
+      "cy": 265,
+      "r": 160,
+      "fill": "#FFCC80",
+      "stroke": "warm",
+      "width": 4
+    },
+    {
+      "kind": "circle",
+      "id": "oc",
+      "cx": 330,
+      "cy": 265,
+      "r": 100,
+      "fill": "#FF8A65",
+      "stroke": "accent",
+      "width": 4
+    },
+    {
+      "kind": "circle",
+      "id": "ic",
+      "cx": 330,
+      "cy": 265,
+      "r": 48,
+      "fill": "#FFEE58",
+      "stroke": "sun",
+      "width": 4
+    },
+    {
+      "kind": "text",
+      "id": "l1",
+      "x": 640,
+      "y": 120,
+      "text": "Crust: the thin outer skin",
+      "size": 22,
+      "color": "earth",
+      "anchor": "start"
+    },
+    {
+      "kind": "text",
+      "id": "l2",
+      "x": 640,
+      "y": 190,
+      "text": "Mantle: hot, thick, rocky layer",
+      "size": 22,
+      "color": "warm",
+      "anchor": "start"
+    },
+    {
+      "kind": "text",
+      "id": "l3",
+      "x": 640,
+      "y": 260,
+      "text": "Outer core: liquid metal",
+      "size": 22,
+      "color": "accent",
+      "anchor": "start"
+    },
+    {
+      "kind": "text",
+      "id": "l4",
+      "x": 640,
+      "y": 330,
+      "text": "Inner core: solid metal",
+      "size": 22,
+      "color": "sun",
+      "anchor": "start"
+    },
+    {
+      "id": "lithtitle",
+      "kind": "text",
+      "x": 450,
+      "y": 57,
+      "text": "Read a diagram of an earthquake",
+      "size": 34,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lithrock",
+      "kind": "path",
+      "d": "M 120 179 L 780 179 L 780 430 L 120 430 Z",
+      "stroke": "earth",
+      "width": 3,
+      "fill": "#EFE1CA"
+    },
+    {
+      "id": "lithground",
+      "kind": "line",
+      "x1": 120,
+      "y1": 179,
+      "x2": 780,
+      "y2": 179,
+      "stroke": "ink",
+      "width": 5
+    },
+    {
+      "id": "lithfault",
+      "kind": "line",
+      "x1": 299,
+      "y1": 425,
+      "x2": 625,
+      "y2": 180,
+      "stroke": "warm",
+      "width": 5
+    },
+    {
+      "id": "lithf",
+      "kind": "circle",
+      "cx": 447,
+      "cy": 314,
+      "r": 8,
+      "fill": "warm",
+      "stroke": "ink",
+      "width": 2
+    },
+    {
+      "id": "lithe",
+      "kind": "circle",
+      "cx": 447,
+      "cy": 179,
+      "r": 8,
+      "fill": "accent",
+      "stroke": "ink",
+      "width": 2
+    },
+    {
+      "id": "lithvert",
+      "kind": "line",
+      "x1": 447,
+      "y1": 306,
+      "x2": 447,
+      "y2": 187,
+      "stroke": "accent",
+      "width": 3
+    },
+    {
+      "id": "lithfocuslabel",
+      "kind": "text",
+      "x": 356,
+      "y": 322,
+      "text": "F",
+      "size": 25,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lithepilabel",
+      "kind": "text",
+      "x": 445,
+      "y": 155,
+      "text": "E",
+      "size": 25,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "lithwave0",
+      "kind": "circle",
+      "cx": 447,
+      "cy": 314,
+      "r": 35,
+      "stroke": "#936D49",
+      "width": 2
+    },
+    {
+      "id": "lithwave1",
+      "kind": "circle",
+      "cx": 447,
+      "cy": 314,
+      "r": 69,
+      "stroke": "#936D49",
+      "width": 2
+    },
+    {
+      "id": "lithwave2",
+      "kind": "circle",
+      "cx": 447,
+      "cy": 314,
+      "r": 103,
+      "stroke": "#936D49",
+      "width": 2
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "On the outside is the crust, a thin, hard layer. We live on it."
-   },
-   "actions": [
+  ],
+  "steps": [
     {
-     "do": "draw",
-     "target": "crust",
-     "at": 0.2
+      "id": "s1",
+      "narration": {
+        "en": "The Earth is made of layers, like an onion. We cannot dig into them, but scientists study earthquake waves to learn about them."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "l1",
-     "at": 0.5
+      "id": "s2",
+      "narration": {
+        "en": "On the outside is the crust, a thin, hard layer. We live on it."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "crust",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "l1",
+          "at": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "narration": {
+        "en": "Below it is the mantle, a thick layer of hot rock."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "mantle",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "l2",
+          "at": 0.5
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "narration": {
+        "en": "At the centre is the core. The outer core is liquid metal, mostly iron and nickel, and the inner core is solid."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "oc",
+          "at": 0.15
+        },
+        {
+          "do": "write",
+          "target": "l3",
+          "at": 0.35
+        },
+        {
+          "do": "draw",
+          "target": "ic",
+          "at": 0.55
+        },
+        {
+          "do": "write",
+          "target": "l4",
+          "at": 0.75
+        }
+      ]
+    },
+    {
+      "id": "lith-focus",
+      "narration": {
+        "en": "The sloping orange line represents a fault. F marks where the earthquake begins below the surface. Seismic waves spread outward from that starting region."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "lithtitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lithrock",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lithground",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "lithfault",
+          "on": "fault",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "lithf",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "lithfocuslabel",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "draw",
+          "target": "lithwave0",
+          "at": 0.56,
+          "ms": 650
+        },
+        {
+          "do": "draw",
+          "target": "lithwave1",
+          "at": 0.65,
+          "ms": 650
+        },
+        {
+          "do": "draw",
+          "target": "lithwave2",
+          "at": 0.74,
+          "ms": 650
+        }
+      ]
+    },
+    {
+      "id": "lith-epicentre",
+      "narration": {
+        "en": "Follow the vertical blue guide from F to the ground surface. The surface point directly above the focus is the epicentre. It is marked E."
+      },
+      "actions": [
+        {
+          "do": "draw",
+          "target": "lithvert",
+          "on": "vertical blue guide",
+          "ms": 850
+        },
+        {
+          "do": "show",
+          "target": "lithe",
+          "on": "marked E",
+          "ms": 400
+        },
+        {
+          "do": "show",
+          "target": "lithepilabel",
+          "on": "marked E",
+          "ms": 400
+        }
+      ]
+    },
+    {
+      "id": "lith-picture-check",
+      "narration": {
+        "en": "Use the surface line and the two letters."
+      },
+      "actions": [],
+      "check": {
+        "stem": {
+          "en": "Which letter marks the point on the surface directly above the focus?"
+        },
+        "explanation": {
+          "en": "E lies on the surface above F. This position is the epicentre."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "F"
+            },
+            "whyWrong": {
+              "en": "F lies below ground, where the earthquake starts."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "E"
+            },
+            "correct": true
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "Both letters"
+            },
+            "whyWrong": {
+              "en": "Only one point is on the surface."
+            }
+          }
+        ]
+      }
     }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "Below it is the mantle, a thick layer of hot rock."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "mantle",
-     "at": 0.2
-    },
-    {
-     "do": "write",
-     "target": "l2",
-     "at": 0.5
-    }
-   ]
-  },
-  {
-   "id": "s4",
-   "narration": {
-    "en": "At the centre is the core. The outer core is liquid metal, mostly iron and nickel, and the inner core is solid."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "oc",
-     "at": 0.15
-    },
-    {
-     "do": "write",
-     "target": "l3",
-     "at": 0.35
-    },
-    {
-     "do": "draw",
-     "target": "ic",
-     "at": 0.55
-    },
-    {
-     "do": "write",
-     "target": "l4",
-     "at": 0.75
-    }
-   ]
-  }
- ]
+  ]
 }

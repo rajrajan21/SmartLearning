@@ -144,6 +144,180 @@
    "size": 18,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "The usual route for an ordinary Bill",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 462,
+   "text": "Money Bills follow a different route.",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nstart",
+   "x": 41,
+   "y": 164,
+   "w": 188,
+   "h": 136,
+   "fill": "#E0ECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nstartA",
+   "x": 135,
+   "y": 212,
+   "text": "Introduce",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nstartB",
+   "x": 135,
+   "y": 262,
+   "text": "Either House",
+   "size": 16,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext0",
+   "x1": 229,
+   "y1": 230,
+   "x2": 245,
+   "y2": 230,
+   "stroke": "good",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "nfirst",
+   "x": 246,
+   "y": 164,
+   "w": 188,
+   "h": 136,
+   "fill": "#E0ECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nfirstA",
+   "x": 340,
+   "y": 212,
+   "text": "First House",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nfirstB",
+   "x": 340,
+   "y": 262,
+   "text": "Debates and passes",
+   "size": 16,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext1",
+   "x1": 434,
+   "y1": 230,
+   "x2": 450,
+   "y2": 230,
+   "stroke": "good",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "nsecond",
+   "x": 451,
+   "y": 164,
+   "w": 188,
+   "h": 136,
+   "fill": "#E0ECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nsecondA",
+   "x": 545,
+   "y": 212,
+   "text": "Other House",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsecondB",
+   "x": 545,
+   "y": 262,
+   "text": "Agrees to same text",
+   "size": 16,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext2",
+   "x1": 639,
+   "y1": 230,
+   "x2": 655,
+   "y2": 230,
+   "stroke": "good",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "nassent",
+   "x": 656,
+   "y": 164,
+   "w": 188,
+   "h": 136,
+   "fill": "#E0ECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nassentA",
+   "x": 750,
+   "y": 212,
+   "text": "President",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nassentB",
+   "x": 750,
+   "y": 262,
+   "text": "Consider assent",
+   "size": 16,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -233,6 +407,127 @@
      "do": "write",
      "target": "d2",
      "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "parliament1",
+   "narration": {
+    "en": "An ordinary Bill can usually be introduced in either House. The first House considers the proposal and votes on whether to pass it."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nstart",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nstartA",
+     "at": 0.22
+    },
+    {
+     "do": "show",
+     "target": "nstartB",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "nnext0",
+     "at": 0.42,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nfirst",
+     "at": 0.55,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nfirstA",
+     "at": 0.6200000000000001
+    },
+    {
+     "do": "show",
+     "target": "nfirstB",
+     "at": 0.7000000000000001
+    }
+   ]
+  },
+  {
+   "id": "parliament2",
+   "narration": {
+    "en": "The Bill goes to the other House. On this usual route both Houses agree to the same text."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext1",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nsecond",
+     "at": 0.4,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsecondA",
+     "at": 0.47000000000000003
+    },
+    {
+     "do": "show",
+     "target": "nsecondB",
+     "at": 0.55
+    }
+   ]
+  },
+  {
+   "id": "parliament3",
+   "narration": {
+    "en": "The Bill is presented to the President for assent. If assent is given, it becomes an Act. Money Bills follow a different route."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext2",
+     "at": 0.13,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nassent",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nassentA",
+     "at": 0.34
+    },
+    {
+     "do": "show",
+     "target": "nassentB",
+     "at": 0.42000000000000004
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.69,
+     "ms": 450
     }
    ]
   }

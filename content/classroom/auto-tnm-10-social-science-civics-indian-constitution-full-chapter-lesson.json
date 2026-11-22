@@ -253,6 +253,149 @@
    "src": "parliament-india",
    "alt": "The Parliament building in New Delhi",
    "caption": "Parliament House, New Delhi"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "Rights, principles and duties",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 458,
+   "text": "Ask whom each provision protects, guides or calls on to act.",
+   "size": 23,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nright",
+   "x": 48,
+   "y": 156,
+   "w": 259,
+   "h": 170,
+   "fill": "#DEECFA",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nrightA",
+   "x": 177,
+   "y": 198,
+   "text": "Fundamental Rights",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nrightB",
+   "x": 177,
+   "y": 246,
+   "text": "Part III",
+   "size": 19,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nrightC",
+   "x": 177,
+   "y": 289,
+   "text": "Protect people and citizens",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nguide",
+   "x": 320,
+   "y": 156,
+   "w": 259,
+   "h": 170,
+   "fill": "#E7F2DE",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nguideA",
+   "x": 449,
+   "y": 198,
+   "text": "Directive Principles",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nguideB",
+   "x": 449,
+   "y": 246,
+   "text": "Part IV",
+   "size": 19,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nguideC",
+   "x": 449,
+   "y": 289,
+   "text": "Guide the State in policy",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nduty",
+   "x": 592,
+   "y": 156,
+   "w": 259,
+   "h": 170,
+   "fill": "#FCE9D9",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ndutyA",
+   "x": 721,
+   "y": 198,
+   "text": "Fundamental Duties",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndutyB",
+   "x": 721,
+   "y": 246,
+   "text": "Part IV A",
+   "size": 19,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndutyC",
+   "x": 721,
+   "y": 289,
+   "text": "Call on citizens to act",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -445,6 +588,108 @@
      "target": "pic",
      "at": 0.15,
      "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "constitution1",
+   "narration": {
+    "en": "Start with Fundamental Rights in Part Three. They protect people or citizens, depending on the article, and can be enforced through courts."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nright",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nrightA",
+     "at": 0.35000000000000003
+    },
+    {
+     "do": "show",
+     "target": "nrightB",
+     "at": 0.43000000000000005
+    },
+    {
+     "do": "show",
+     "target": "nrightC",
+     "at": 0.51
+    }
+   ]
+  },
+  {
+   "id": "constitution2",
+   "narration": {
+    "en": "Directive Principles in Part Four set goals for the State when it makes laws and policies. Courts do not directly enforce them as rights."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nguide",
+     "at": 0.2,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nguideA",
+     "at": 0.28
+    },
+    {
+     "do": "show",
+     "target": "nguideB",
+     "at": 0.36
+    },
+    {
+     "do": "show",
+     "target": "nguideC",
+     "at": 0.44
+    }
+   ]
+  },
+  {
+   "id": "constitution3",
+   "narration": {
+    "en": "Fundamental Duties in Part Four A describe responsibilities of citizens. Compare the three cards by asking who is protected, guided or called on to act."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nduty",
+     "at": 0.14,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ndutyA",
+     "at": 0.22000000000000003
+    },
+    {
+     "do": "show",
+     "target": "ndutyB",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "show",
+     "target": "ndutyC",
+     "at": 0.38
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.68,
+     "ms": 450
     }
    ]
   }
