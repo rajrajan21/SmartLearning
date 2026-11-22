@@ -1,232 +1,557 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "science",
- "chapter": "world-of-microbes",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "World of Microbes"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "science",
+  "chapter": "world-of-microbes",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "World of Microbes"
     },
-    "text": {
-     "en": "Meena saw a green fuzz on stale bread. \"Tiny living things grew there,\" her teacher said."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "bacteria",
-     "virus",
-     "fungi",
-     "biofertiliser",
-     "incubation period",
-     "immunisation"
-    ],
-    "text": {
-     "en": "Microbes are tiny organisms seen only under a microscope. The main groups are bacteria, viruses, fungi and prions. A fungus has a body called a thallus, which is a mycelium in multicellular forms. Fungi living on living hosts are parasites and those on dead matter are saprophytes.\nMicrobes are useful. Biofertilisers enrich the soil, microbes are used in industries such as making curd and bread, and in medicine such as antibiotics. They also cause diseases. The gap between infection and the first sign of disease is the incubation period.\nAirborne diseases spread through the air, waterborne through unclean water, and vector-borne diseases such as malaria, dengue, chikungunya and filaria through mosquitoes. AIDS and hepatitis-B are among the diseases spread by other routes. Immunisation with vaccines gives protection."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Microbes are tiny organisms seen only under a microscope."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena saw a green fuzz on stale bread. \"Tiny living things grew there,\" her teacher said."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "bacteria"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "The main groups are bacteria, viruses, fungi and prions."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "bacteria",
+          "virus",
+          "fungi",
+          "biofertiliser",
+          "incubation period",
+          "immunisation"
+        ],
+        "text": {
+          "en": "Microorganisms are living things that are usually too small to see unaided. Microbiology also studies noncellular entities such as viruses and prions. Microbiology covers bacteria and many microscopic fungi, protists and algae. It also studies viruses and prions, which do not have cellular organisation. Many fungi grow as threads called hyphae. A network of hyphae is a mycelium. Yeasts are single-celled fungi. Some fungi obtain material from living hosts as parasites. Others, called saprotrophs, obtain nutrients from dead or decaying organic matter.\nMicrobes are useful. Biofertilisers enrich the soil, microbes are used in industries such as making curd and bread, and in medicine such as antibiotics. Some microbes can cause disease, while many do not. The word pathogen refers to an agent capable of causing disease. The incubation period is the time from infection to the first symptoms, when symptoms develop.\nAirborne diseases spread through the air, waterborne through unclean water, and vector-borne diseases such as malaria, dengue, chikungunya and filaria through mosquitoes. AIDS and hepatitis-B are among the diseases spread by other routes. Immunisation with vaccines gives protection."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "virus"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "A fungus has a body called a thallus, which is a mycelium in multicellular forms."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Microorganisms are living things that are usually too small to see unaided. Microbiology also studies noncellular entities such as viruses and prions."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "bacteria"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Microbiology covers bacteria and many microscopic fungi, protists and algae. It also studies viruses and prions, which do not have cellular organisation."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "virus"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Many fungi grow as threads called hyphae. A network of hyphae is a mycelium. Yeasts are single-celled fungi."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "fungi"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Some fungi obtain material from living hosts as parasites. Others, called saprotrophs, obtain nutrients from dead or decaying organic matter."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "biofertiliser"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "Microbes are useful."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "incubation period"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Biofertilisers enrich the soil, microbes are used in industries such as making curd and bread, and in medicine such as antibiotics."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "immunisation"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Some microbes can cause disease, while many do not. The word pathogen refers to an agent capable of causing disease."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "bacteria"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "The incubation period is the time from infection to the first symptoms, when symptoms develop."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "virus"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "A microscope can let us study objects too small for our eyes to resolve. A single dot in a sketch may stand for a cell with many components."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A diagram represents structures we cannot see unaided"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "Bacteria are usually single cells. A bacterial cell has genetic material but no membrane-bound nucleus. Study these features in a diagram."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Bacterium: a cell without a membrane-bound nucleus"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Some bacterial cells look round, rod-shaped or curved under a microscope. Shape is one clue. Many different kinds of bacteria can share a similar outline."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Shapes: round, rod or curved"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "A virus particle has genetic material inside a protein coat. Some also have an outer envelope. The drawn particle does not have the structures of a complete cell."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Virus: genetic material and a coat"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "A prion is an abnormally folded protein associated with particular diseases. A protein alone is not a cell, and a prion is different from a bacterium or virus."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Prion: misfolded protein"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "One yeast cell contains a nucleus. Many moulds look different because they form networks of threads. Yeasts and moulds belong to the fungi."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Yeast and mould are both fungi"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "In a mould drawing, a single thread is a hypha. Many threads together form a mycelium. A stalk or spore structure is only one part of the drawing."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Hypha: one thread · mycelium: many threads"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Some protists are single-celled organisms with a nucleus. Amoeba is one example taught in school. Microscopic algae can also live in water and some carry out photosynthesis."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Microscopic life includes several groups"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "A comparison with a bacterium helps show what the nucleus does as a structural clue. Microscopic size does not tell us whether a cell has a nucleus."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Size alone does not identify a group"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Decomposers help recycle material from dead plants and animals. They can return nutrients to the surroundings. Many fungi and bacteria take part in this process."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Decomposition supports nutrient cycles"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Some soil microorganisms live in close association with roots. Their roles can affect how certain nutrients become available to plants."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Soil organisms can affect nutrient availability"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Some food industries use microbial activity. Bread and curd are familiar products. The examples show that differing kinds of microbes can cause different changes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Food production can use microbial activity"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "Some substances discovered in microorganisms have been developed into antibiotics. Antibiotics act against susceptible bacteria. Viruses have different structures and are not the target of antibiotics."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Antibiotics and viruses involve different targets"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Microbes also contribute to food breakdown and other changes people can observe. Seeing one change in a material does not by itself show which organism caused it."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A visible change is a clue rather than an identification"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "The word infection refers to an infectious agent becoming established in a host. Some infections cause symptoms and some do not. Compare these ideas with the term disease."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Infection and symptoms describe different observations"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "In a health timeline, exposure, infection and symptoms are separate labels. The incubation period is measured from infection to first symptoms. Its length can vary."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Incubation period: infection → first symptoms"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "People working in public health classify illnesses by patterns. Endemic describes an expected presence in a place or population. An epidemic is more cases than expected in a particular setting."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Population patterns compare observed and expected cases"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "A vector is a living carrier involved in transmission. A textbook example is a mosquito carrying a disease-causing agent. The carrier and the agent are different organisms."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Vector is the carrier"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Transmission categories can include spread through air, contaminated water or a vector. The route depends on the agent. Prevention needs to address the relevant route."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Route names describe how transmission can occur"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Vaccination helps the immune system recognise a particular target. The protection is directed at the disease or agent involved. Study vaccine roles separately from antibiotic roles."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Vaccines prepare an immune response"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Protection can also involve public measures such as safe water and clean handling of food. Different measures address different sources of risk."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Public health measures address exposure"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "When a claim says all microbes are harmful, compare the evidence from decomposition and food production. The word microbe covers many kinds of organisms with different effects."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Some cause illness; others are useful or have little effect on us"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "fungi"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Fungi living on living hosts are parasites and those on dead matter are saprophytes."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "One diagram shows a bacterial cell and another shows a virus particle. Which structural clues help distinguish them?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Find the drawing with a cell boundary and internal cell contents."
+            },
+            "why": {
+              "en": "A bacterium is a cell, with genetic material outside a nucleus."
+            }
+          },
+          {
+            "text": {
+              "en": "Find the particle drawn with a protein coat around genetic material."
+            },
+            "why": {
+              "en": "The picture shows a virus particle rather than a complete cell."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "biofertiliser"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "Microbes are useful."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says All microbes cause disease. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Many microbes are useful."
+          },
+          {
+            "en": "They make curd, biofertilisers and medicines."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "incubation period"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Biofertilisers enrich the soil, microbes are used in industries such as making curd and bread, and in medicine such as antibiotics."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-wor270",
+          "r1-wor271",
+          "tnm9-microbe-hypha-1",
+          "tnm9-microbe-compare-1",
+          "tnm9-microbe-cycle-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "immunisation"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "They also cause diseases."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "bacteria"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "The gap between infection and the first sign of disease is the incubation period."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "virus"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Which insect spreads malaria?"
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Malaria is a vector-borne disease."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Microbiology studies tiny cellular organisms and noncellular agents such as viruses."
+          },
+          {
+            "en": "Many are useful."
+          },
+          {
+            "en": "Mosquitoes are vectors of disease."
+          },
+          {
+            "en": "Vaccines can prepare the immune system for a particular target."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "The vector is a mosquito."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "The female Anopheles mosquito spreads it."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says All microbes cause disease. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Many microbes are useful."
-     },
-     {
-      "en": "They make curd, biofertilisers and medicines."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-wor270",
-     "r1-wor271"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Microbes are bacteria, viruses, fungi and more."
-     },
-     {
-      "en": "Many are useful."
-     },
-     {
-      "en": "Mosquitoes are vectors of disease."
-     },
-     {
-      "en": "Vaccines protect us."
-     }
-    ]
-   }
-  ]
- }
+  }
 }
