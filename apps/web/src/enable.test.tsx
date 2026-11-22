@@ -9,7 +9,7 @@ import { Routes } from "./App";
 function mount(settings: Record<string, unknown> = {}, path = "/") {
   vi.stubGlobal("fetch", vi.fn(async (url: string) => (url.includes("/settings/public") ? new Response(JSON.stringify({ values: settings })) : new Response(JSON.stringify({}), { status: 404 }))));
   const { hook } = memoryLocation({ path, static: false });
-  return render(<Router hook={hook}><SettingsProvider><Layout><Routes /></Layout></SettingsProvider></Router>);
+  return render(<Router hook={hook}><SettingsProvider waitForLatest><Layout><Routes /></Layout></SettingsProvider></Router>);
 }
 beforeEach(() => { cleanup(); localStorage.clear(); });
 

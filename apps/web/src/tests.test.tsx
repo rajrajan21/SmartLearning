@@ -35,7 +35,7 @@ function mount(path: string, settings: Record<string, unknown> = {}) {
     return new Response("{}", { status: 404 });
   }));
   const { hook } = memoryLocation({ path, static: false });
-  return render(<Router hook={hook}><SettingsProvider><AccountProvider><Layout><Routes /></Layout></AccountProvider></SettingsProvider></Router>);
+  return render(<Router hook={hook}><SettingsProvider waitForLatest><AccountProvider><Layout><Routes /></Layout></AccountProvider></SettingsProvider></Router>);
 }
 beforeEach(() => { cleanup(); localStorage.clear(); signedIn = false; });
 
