@@ -34,7 +34,7 @@
      "addition theorem"
     ],
     "text": {
-     "en": "Measures of dispersion show how far the data is spread. The range is the largest minus the smallest value. The variance is the mean of the squares of the deviations from the mean, and the standard deviation is its square root, so it has the same unit as the data.\nThe coefficient of variation CV = (standard deviation / mean) x 100 percent compares the consistency of two data sets. The set with the smaller CV is more consistent.\nIn probability, we use the sample space and events, with P(E) = favourable / total. The addition theorem says P(A or B) = P(A) + P(B) - P(A and B), and for mutually exclusive events P(A or B) = P(A) + P(B). Venn diagrams help in these problems."
+     "en": "Measures of dispersion show how far the data is spread. The range is the largest minus the smallest value. The variance is the mean of the squares of the deviations from the mean, and the standard deviation is its square root, so it has the same unit as the data.\nFor comparable data sets with positive means, CV = (standard deviation / mean) × 100 percent compares the spread relative to the mean. The set with the smaller CV is more consistent.\nIn probability, if every outcome in the sample space is equally likely, P(E) = favourable outcomes divided by total outcomes. The addition theorem says P(A or B) = P(A) + P(B) - P(A and B), and for mutually exclusive events P(A or B) = P(A) + P(B). Venn diagrams help in these problems."
     }
    },
    {
@@ -85,7 +85,7 @@
      {
       "id": "t4",
       "text": {
-       "en": "The coefficient of variation CV = (standard deviation / mean) x 100 percent compares the consistency of two data sets."
+       "en": "For comparable data with positive means, the coefficient of variation compares relative spread. Divide the standard deviation by the mean, then multiply by one hundred percent."
       },
       "board": [
        {
@@ -109,7 +109,7 @@
      {
       "id": "t6",
       "text": {
-       "en": "In probability, we use the sample space and events, with P(E) = favourable / total."
+       "en": "Start with the sample space and an event. If all outcomes are equally likely, divide the number of outcomes in the event by the total number of possible outcomes."
       },
       "board": [
        {
@@ -139,6 +139,285 @@
        {
         "op": "write",
         "text": "range"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "The values four, five and six have mean five. The values one, five and nine also have mean five, but they spread farther from the centre."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "A mean alone can hide the spread"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "For one, five and nine, the range is nine minus one, or eight. This tells us the length of the span."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Range uses the two extreme values"
+       }
+      ]
+     },
+     {
+      "id": "t11",
+      "text": {
+       "en": "If nine is replaced by nineteen, the range becomes eighteen. The range is quick to calculate but depends only on two values."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "One unusually large value can move the range"
+       }
+      ]
+     },
+     {
+      "id": "t12",
+      "text": {
+       "en": "For two, four and six, add the observations and divide by three. The mean is four."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "First find the mean"
+       }
+      ]
+     },
+     {
+      "id": "t13",
+      "text": {
+       "en": "Subtract four from each observation to get minus two, zero and two. Adding the signed deviations would hide the spread because they cancel."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Compute signed deviations"
+       }
+      ]
+     },
+     {
+      "id": "t14",
+      "text": {
+       "en": "The squared deviations are four, zero and four. Their mean is eight thirds, which is the variance when treating these as the whole data set."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Square before averaging"
+       }
+      ]
+     },
+     {
+      "id": "t15",
+      "text": {
+       "en": "The standard deviation is the square root of eight thirds. If the original measurements used metres, variance is in square metres and standard deviation in metres."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Take the square root to recover the units"
+       }
+      ]
+     },
+     {
+      "id": "t16",
+      "text": {
+       "en": "If every observation equals five, every deviation from the mean is zero. Both variance and standard deviation are zero."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Identical values have standard deviation zero"
+       }
+      ]
+     },
+     {
+      "id": "t17",
+      "text": {
+       "en": "A value that occurs three times contributes three copies to the total. Multiply the value by its frequency when finding the mean."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Frequencies count repeated values"
+       }
+      ]
+     },
+     {
+      "id": "t18",
+      "text": {
+       "en": "For values with frequencies, multiply each squared deviation by its frequency, add the products and divide by the total frequency."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Weight the squared deviations too"
+       }
+      ]
+     },
+     {
+      "id": "t19",
+      "text": {
+       "en": "If the original values inside each interval are unavailable, represent each interval by its midpoint. Calculations from those midpoints give an estimate."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Grouped intervals use class midpoints"
+       }
+      ]
+     },
+     {
+      "id": "t20",
+      "text": {
+       "en": "Standard deviation two with mean twenty gives a CV of ten percent. Standard deviation three with mean sixty gives five percent."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "CV compares spread relative to the mean"
+       }
+      ]
+     },
+     {
+      "id": "t21",
+      "text": {
+       "en": "In the comparison, the second set has the larger standard deviation but the smaller relative spread because its mean is larger."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Smaller CV means a smaller relative spread"
+       }
+      ]
+     },
+     {
+      "id": "t22",
+      "text": {
+       "en": "When one fair six-sided die is rolled, list one through six. An event is a subset of that list."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "The sample space contains every possible outcome"
+       }
+      ]
+     },
+     {
+      "id": "t23",
+      "text": {
+       "en": "Three outcomes satisfy the event. The die is fair, so the probability of an even result is three sixths, or one half."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Even outcomes are two, four and six"
+       }
+      ]
+     },
+     {
+      "id": "t24",
+      "text": {
+       "en": "The complement of even is odd in this experiment. Its probability equals one minus the probability of even."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "A complement contains the remaining outcomes"
+       }
+      ]
+     },
+     {
+      "id": "t25",
+      "text": {
+       "en": "Let A be an even result, and B be a result above three. Four and six are both even and above three."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Intersection means both events happen"
+       }
+      ]
+     },
+     {
+      "id": "t26",
+      "text": {
+       "en": "An outcome belongs to A or B if it belongs to A, B, or both. Here the union contains two, four, five and six."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Union means at least one event happens"
+       }
+      ]
+     },
+     {
+      "id": "t27",
+      "text": {
+       "en": "Adding three even numbers and three numbers above three counts four and six twice. Subtract two counts to get four different outcomes."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Subtract the overlap once"
+       }
+      ]
+     },
+     {
+      "id": "t28",
+      "text": {
+       "en": "One roll cannot be both one and six. Their event sets are disjoint, so their probabilities add directly."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Mutually exclusive events have no overlap"
+       }
+      ]
+     },
+     {
+      "id": "t29",
+      "text": {
+       "en": "A result is either below four or at least four. Together these events include every outcome, so their union has probability one."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Exhaustive events cover the sample space"
+       }
+      ]
+     },
+     {
+      "id": "t30",
+      "text": {
+       "en": "Probabilities run from zero to one. If your addition formula gives more than one, check the overlap and whether the sample space was counted correctly."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Check probability bounds"
        }
       ]
      }
@@ -179,6 +458,84 @@
     ]
    },
    {
+    "id": "practiceExample2",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "The complete set of observations is 2, 4, 6. Find its variance and standard deviation."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Find mean 4. Squared deviations are 4, 0 and 4."
+      },
+      "why": {
+       "en": "Subtract the mean before squaring."
+      }
+     },
+     {
+      "text": {
+       "en": "Variance = 8/3. Standard deviation = √(8/3), about 1.63."
+      },
+      "why": {
+       "en": "Taking the square root restores the original measurement unit."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample3",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Data set A has mean 20 and standard deviation 2. B has mean 60 and standard deviation 3. Which has smaller relative spread?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "A has CV 2/20 × 100% = 10%, and B has 3/60 × 100% = 5%."
+      },
+      "why": {
+       "en": "Use each set’s own positive mean."
+      }
+     },
+     {
+      "text": {
+       "en": "B has the smaller relative spread."
+      },
+      "why": {
+       "en": "Its standard deviation is larger in absolute terms, but smaller relative to its mean."
+      }
+     }
+    ]
+   },
+   {
+    "id": "practiceExample4",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Roll one fair die. What is the probability of an even result or a result above three?"
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Even outcomes are {2, 4, 6}. Outcomes above three are {4, 5, 6}."
+      },
+      "why": {
+       "en": "The intersection {4, 6} was counted in both sets."
+      }
+     },
+     {
+      "text": {
+       "en": "The union is {2, 4, 5, 6}, so the probability is 4/6 = 2/3."
+      },
+      "why": {
+       "en": "Count each favourable outcome once."
+      }
+     }
+    ]
+   },
+   {
     "id": "teachback",
     "type": "teach_back",
     "provenance": "original",
@@ -205,7 +562,13 @@
     "provenance": "original",
     "questionIds": [
      "r1-sta400",
-     "r1-sta401"
+     "r1-sta401",
+     "tnm10-m-sap-1",
+     "tnm10-m-sap-2",
+     "tnm10-m-sap-3",
+     "tnm10-m-sap-4",
+     "tnm10-m-sap-5",
+     "tnm10-m-sap-6"
     ]
    },
    {

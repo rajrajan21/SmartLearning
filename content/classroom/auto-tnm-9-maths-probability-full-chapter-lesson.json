@@ -1,144 +1,499 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "probability",
- "topic": "full-chapter-lesson",
- "status": "published",
- "title": {
-  "en": "Probability"
- },
- "objects": [
-  {
-   "kind": "text",
-   "id": "ttl",
-   "x": 450,
-   "y": 40,
-   "text": "Probability",
-   "size": 34,
-   "color": "accent",
-   "anchor": "middle"
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "full-chapter-lesson",
+  "status": "published",
+  "title": {
+    "en": "Probability"
   },
-  {
-   "kind": "text",
-   "id": "f",
-   "x": 450,
-   "y": 110,
-   "text": "P(event) = favourable outcomes ÷ all outcomes",
-   "size": 30,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "c",
-   "x": 450,
-   "y": 180,
-   "text": "Toss a coin: P(head) = 1/2",
-   "size": 28,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "d",
-   "x": 450,
-   "y": 235,
-   "text": "Roll a die: P(an even number) = 3/6 = 1/2",
-   "size": 28,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "s",
-   "x": 450,
-   "y": 300,
-   "text": "Sure event: probability 1",
-   "size": 26,
-   "color": "good",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "i",
-   "x": 450,
-   "y": 345,
-   "text": "Impossible event (a 7 on a die): probability 0",
-   "size": 26,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "r",
-   "x": 450,
-   "y": 410,
-   "text": "Probability always lies between 0 and 1",
-   "size": 28,
-   "color": "accent",
-   "anchor": "middle"
-  }
- ],
- "steps": [
-  {
-   "id": "s1",
-   "narration": {
-    "en": "Probability measures how likely an event is. It is the number of outcomes we want divided by the number of all possible outcomes."
-   },
-   "actions": [
+  "objects": [
     {
-     "do": "show",
-     "target": "ttl",
-     "at": 0.05
+      "kind": "text",
+      "id": "ttl",
+      "x": 450,
+      "y": 40,
+      "text": "Probability",
+      "size": 34,
+      "color": "accent",
+      "anchor": "middle"
     },
     {
-     "do": "write",
-     "target": "f",
-     "at": 0.5
+      "kind": "text",
+      "id": "f",
+      "x": 450,
+      "y": 110,
+      "text": "P(event) = favourable outcomes ÷ all outcomes",
+      "size": 30,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "c",
+      "x": 450,
+      "y": 180,
+      "text": "Toss a coin: P(head) = 1/2",
+      "size": 28,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "d",
+      "x": 450,
+      "y": 235,
+      "text": "Roll a die: P(an even number) = 3/6 = 1/2",
+      "size": 28,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "s",
+      "x": 450,
+      "y": 300,
+      "text": "Sure event: probability 1",
+      "size": 26,
+      "color": "good",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "i",
+      "x": 450,
+      "y": 345,
+      "text": "Impossible event (a 7 on a die): probability 0",
+      "size": 26,
+      "color": "warm",
+      "anchor": "middle"
+    },
+    {
+      "kind": "text",
+      "id": "r",
+      "x": 450,
+      "y": 410,
+      "text": "Probability always lies between 0 and 1",
+      "size": 28,
+      "color": "accent",
+      "anchor": "middle"
+    },
+    {
+      "id": "probtitle",
+      "kind": "text",
+      "x": 450,
+      "y": 55,
+      "text": "List the outcomes of two fair coin tosses",
+      "size": 34,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probfirst",
+      "kind": "text",
+      "x": 180,
+      "y": 159,
+      "text": "First toss",
+      "size": 24,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probsecond",
+      "kind": "text",
+      "x": 518,
+      "y": 104,
+      "text": "Second toss",
+      "size": 24,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probrowh",
+      "kind": "text",
+      "x": 223,
+      "y": 254,
+      "text": "H",
+      "size": 27,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probrowt",
+      "kind": "text",
+      "x": 223,
+      "y": 385,
+      "text": "T",
+      "size": 27,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probcolh",
+      "kind": "text",
+      "x": 407,
+      "y": 151,
+      "text": "H",
+      "size": 27,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probcolt",
+      "kind": "text",
+      "x": 632,
+      "y": 151,
+      "text": "T",
+      "size": 27,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probc0",
+      "kind": "path",
+      "d": "M 297 176 L 517 176 L 517 302 L 297 302 Z",
+      "stroke": "#8296AA",
+      "width": 2
+    },
+    {
+      "id": "probv0",
+      "kind": "text",
+      "x": 407,
+      "y": 253,
+      "text": "HH",
+      "size": 32,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probc1",
+      "kind": "path",
+      "d": "M 522 176 L 742 176 L 742 302 L 522 302 Z",
+      "stroke": "#8296AA",
+      "width": 2
+    },
+    {
+      "id": "probf1",
+      "kind": "path",
+      "d": "M 522 176 L 742 176 L 742 302 L 522 302 Z",
+      "stroke": "#268754",
+      "width": 3,
+      "fill": "#CCECD8"
+    },
+    {
+      "id": "probv1",
+      "kind": "text",
+      "x": 632,
+      "y": 253,
+      "text": "HT",
+      "size": 32,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probc2",
+      "kind": "path",
+      "d": "M 297 307 L 517 307 L 517 433 L 297 433 Z",
+      "stroke": "#8296AA",
+      "width": 2
+    },
+    {
+      "id": "probf2",
+      "kind": "path",
+      "d": "M 297 307 L 517 307 L 517 433 L 297 433 Z",
+      "stroke": "#268754",
+      "width": 3,
+      "fill": "#CCECD8"
+    },
+    {
+      "id": "probv2",
+      "kind": "text",
+      "x": 407,
+      "y": 384,
+      "text": "TH",
+      "size": 32,
+      "color": "ink",
+      "anchor": "middle"
+    },
+    {
+      "id": "probc3",
+      "kind": "path",
+      "d": "M 522 307 L 742 307 L 742 433 L 522 433 Z",
+      "stroke": "#8296AA",
+      "width": 2
+    },
+    {
+      "id": "probv3",
+      "kind": "text",
+      "x": 632,
+      "y": 384,
+      "text": "TT",
+      "size": 32,
+      "color": "ink",
+      "anchor": "middle"
     }
-   ]
-  },
-  {
-   "id": "s2",
-   "narration": {
-    "en": "A coin has two equally likely outcomes, so the probability of a head is one half. A die has six outcomes, three of them even, so the probability of an even number is three sixths, which is also one half."
-   },
-   "actions": [
+  ],
+  "steps": [
     {
-     "do": "write",
-     "target": "c",
-     "at": 0.25
+      "id": "s1",
+      "narration": {
+        "en": "Probability measures how likely an event is. It is the number of outcomes we want divided by the number of all possible outcomes."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "ttl",
+          "at": 0.05
+        },
+        {
+          "do": "write",
+          "target": "f",
+          "at": 0.5
+        }
+      ]
     },
     {
-     "do": "write",
-     "target": "d",
-     "at": 0.7
+      "id": "s2",
+      "narration": {
+        "en": "A coin has two equally likely outcomes, so the probability of a head is one half. A die has six outcomes, three of them even, so the probability of an even number is three sixths, which is also one half."
+      },
+      "actions": [
+        {
+          "do": "write",
+          "target": "c",
+          "at": 0.25
+        },
+        {
+          "do": "write",
+          "target": "d",
+          "at": 0.7
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "narration": {
+        "en": "An event that is certain has probability 1, and an impossible event has probability 0. So a probability is never less than 0 or more than 1."
+      },
+      "actions": [
+        {
+          "do": "write",
+          "target": "s",
+          "at": 0.2
+        },
+        {
+          "do": "write",
+          "target": "i",
+          "at": 0.5
+        },
+        {
+          "do": "write",
+          "target": "r",
+          "at": 0.8
+        }
+      ]
+    },
+    {
+      "id": "probability-list",
+      "narration": {
+        "en": "Read the first toss down the left and the second toss along the top. With fair independent tosses, the four ordered results shown in the cells have the same probability."
+      },
+      "actions": [
+        {
+          "do": "clear",
+          "at": 0
+        },
+        {
+          "do": "show",
+          "target": "probtitle",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probfirst",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probsecond",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probrowh",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probrowt",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probcolh",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probcolt",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probc0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probc1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probc2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probc3",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probv0",
+          "at": 0.28,
+          "ms": 310
+        },
+        {
+          "do": "show",
+          "target": "probv1",
+          "at": 0.4,
+          "ms": 310
+        },
+        {
+          "do": "show",
+          "target": "probv2",
+          "at": 0.52,
+          "ms": 310
+        },
+        {
+          "do": "show",
+          "target": "probv3",
+          "at": 0.64,
+          "ms": 310
+        }
+      ]
+    },
+    {
+      "id": "probability-event",
+      "narration": {
+        "en": "Exactly one head happens in either order. Highlight head then tail and tail then head. Two of the four equally likely outcomes belong to that event."
+      },
+      "actions": [
+        {
+          "do": "show",
+          "target": "probf1",
+          "on": "head then tail",
+          "ms": 420
+        },
+        {
+          "do": "show",
+          "target": "probf2",
+          "on": "tail then head",
+          "ms": 420
+        },
+        {
+          "do": "show",
+          "target": "probv0",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probv1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probv2",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "show",
+          "target": "probv3",
+          "at": 0,
+          "ms": 150
+        }
+      ]
+    },
+    {
+      "id": "probability-picture-check",
+      "narration": {
+        "en": "Use all four cells to find the chance of at least one tail."
+      },
+      "actions": [
+        {
+          "do": "hide",
+          "target": "probf1",
+          "at": 0,
+          "ms": 150
+        },
+        {
+          "do": "hide",
+          "target": "probf2",
+          "at": 0,
+          "ms": 150
+        }
+      ],
+      "check": {
+        "stem": {
+          "en": "What is the probability of at least one tail in the two tosses?"
+        },
+        "explanation": {
+          "en": "HT, TH and TT contain one or more tails. Three of the four equally likely outcomes qualify."
+        },
+        "options": [
+          {
+            "id": "o1",
+            "text": {
+              "en": "1/2"
+            },
+            "whyWrong": {
+              "en": "This counts exactly one tail. The event at least one also includes two tails."
+            }
+          },
+          {
+            "id": "o2",
+            "text": {
+              "en": "1/4"
+            },
+            "whyWrong": {
+              "en": "This counts just one of the qualifying outcomes."
+            }
+          },
+          {
+            "id": "o3",
+            "text": {
+              "en": "3/4"
+            },
+            "correct": true
+          }
+        ]
+      }
     }
-   ]
-  },
-  {
-   "id": "s3",
-   "narration": {
-    "en": "An event that is certain has probability 1, and an impossible event has probability 0. So a probability is never less than 0 or more than 1."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "s",
-     "at": 0.2
-    },
-    {
-     "do": "write",
-     "target": "i",
-     "at": 0.5
-    },
-    {
-     "do": "write",
-     "target": "r",
-     "at": 0.8
-    }
-   ]
-  }
- ]
+  ]
 }

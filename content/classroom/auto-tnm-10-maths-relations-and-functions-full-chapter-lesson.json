@@ -168,6 +168,207 @@
    "size": 26,
    "color": "good",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nrelationTitle",
+   "x": 450,
+   "y": 55,
+   "text": "Which outputs does the function reach?",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ninputs",
+   "x": 207,
+   "y": 115,
+   "w": 125,
+   "h": 275,
+   "fill": "#DFECFB",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "rect",
+   "id": "noutputs",
+   "x": 561,
+   "y": 115,
+   "w": 125,
+   "h": 275,
+   "fill": "#E5F0DE",
+   "stroke": "good",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ninputT",
+   "x": 270,
+   "y": 104,
+   "text": "Domain",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "noutputT",
+   "x": 622,
+   "y": 104,
+   "text": "Codomain",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nunused",
+   "x": 718,
+   "y": 354,
+   "text": "Unreached",
+   "size": 21,
+   "color": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "nrange",
+   "x": 450,
+   "y": 451,
+   "text": "Range = {2, 4, 6}",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "norderTitle",
+   "x": 450,
+   "y": 54,
+   "text": "Composition follows the inner rule first",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "norderA",
+   "x": 450,
+   "y": 210,
+   "text": "3  →  add 1  →  4  →  double  →  8",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "norderB",
+   "x": 450,
+   "y": 330,
+   "text": "3  →  double  →  6  →  add 1  →  7",
+   "size": 32,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nout0",
+   "x": 623,
+   "y": 162,
+   "text": "2",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nin0",
+   "x": 270,
+   "y": 162,
+   "text": "1",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "narr0",
+   "x1": 331,
+   "y1": 154,
+   "x2": 559,
+   "y2": 154,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nout1",
+   "x": 623,
+   "y": 222,
+   "text": "4",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nin1",
+   "x": 270,
+   "y": 222,
+   "text": "2",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "narr1",
+   "x1": 331,
+   "y1": 214,
+   "x2": 559,
+   "y2": 214,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nout2",
+   "x": 623,
+   "y": 282,
+   "text": "6",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nin2",
+   "x": 270,
+   "y": 282,
+   "text": "3",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "narr2",
+   "x1": 331,
+   "y1": 274,
+   "x2": 559,
+   "y2": 274,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nout3",
+   "x": 623,
+   "y": 342,
+   "text": "8",
+   "size": 27,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -272,6 +473,152 @@
      "do": "write",
      "target": "n",
      "at": 0.4
+    }
+   ]
+  },
+  {
+   "id": "relation1",
+   "narration": {
+    "en": "The rule doubles its input. Follow one to two, two to four and three to six. Every input has exactly one arrow."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "nrelationTitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "ninputs",
+     "at": 0.12,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "noutputs",
+     "at": 0.16,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ninputT",
+     "at": 0.18
+    },
+    {
+     "do": "show",
+     "target": "noutputT",
+     "at": 0.21
+    },
+    {
+     "do": "show",
+     "target": "nout0",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "nout1",
+     "at": 0.33499999999999996
+    },
+    {
+     "do": "show",
+     "target": "nout2",
+     "at": 0.37
+    },
+    {
+     "do": "show",
+     "target": "nout3",
+     "at": 0.405
+    },
+    {
+     "do": "show",
+     "target": "nin0",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "narr0",
+     "at": 0.42,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nin1",
+     "at": 0.48
+    },
+    {
+     "do": "draw",
+     "target": "narr1",
+     "at": 0.55,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nin2",
+     "at": 0.61
+    },
+    {
+     "do": "draw",
+     "target": "narr2",
+     "at": 0.6799999999999999,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "relation2",
+   "narration": {
+    "en": "The range contains the reached values two, four and six. Eight is in the codomain but has no incoming arrow, so the function is not onto."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "nout3",
+     "at": 0.27,
+     "color": "warm"
+    },
+    {
+     "do": "show",
+     "target": "nunused",
+     "at": 0.39
+    },
+    {
+     "do": "write",
+     "target": "nrange",
+     "at": 0.63,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "relation3",
+   "narration": {
+    "en": "Now compare two orders of composition. Adding one first and then doubling gives eight. Doubling first and then adding one gives seven."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "norderTitle",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "norderA",
+     "at": 0.25,
+     "ms": 450
+    },
+    {
+     "do": "write",
+     "target": "norderB",
+     "at": 0.64,
+     "ms": 450
     }
    ]
   }

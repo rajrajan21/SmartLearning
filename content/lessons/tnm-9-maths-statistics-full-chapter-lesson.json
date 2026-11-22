@@ -1,232 +1,581 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "statistics",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Statistics"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "statistics",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Statistics"
     },
-    "text": {
-     "en": "Meena asked each classmate their height and wrote the numbers down. \"What is the typical height?\" she wondered."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "data",
-     "frequency",
-     "mean",
-     "median",
-     "mode",
-     "central tendency"
-    ],
-    "text": {
-     "en": "Statistics deals with collecting, organising and understanding data. Data collected first-hand is primary data and data taken from published sources is secondary data. Raw data is arranged in frequency tables to see patterns.\nA measure of central tendency gives one value that represents the data. The arithmetic mean is the sum of all values divided by the number of values. The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often.\nFor an even number of values, the median is the average of the two middle values. These measures help us compare data sets."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Statistics deals with collecting, organising and understanding data."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Meena asked each classmate their height and wrote the numbers down. \"What is the typical height?\" she wondered."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "data"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "Data collected first-hand is primary data and data taken from published sources is secondary data."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "data",
+          "frequency",
+          "mean",
+          "median",
+          "mode",
+          "central tendency"
+        ],
+        "text": {
+          "en": "Statistics deals with collecting, organising and understanding data. Data collected first-hand is primary data and data taken from published sources is secondary data. Raw data is arranged in frequency tables to see patterns.\nA measure of central tendency gives one value that represents the data. The arithmetic mean is the sum of all values divided by the number of values. The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often.\nFor an even number of values, the median is the average of the two middle values. These measures help us compare data sets."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "frequency"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Raw data is arranged in frequency tables to see patterns."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Statistics deals with collecting, organising and understanding data."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "data"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "Data collected first-hand is primary data and data taken from published sources is secondary data."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "frequency"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Raw data is arranged in frequency tables to see patterns."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mean"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "A measure of central tendency gives one value that represents the data."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "median"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The arithmetic mean is the sum of all values divided by the number of values."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "mode"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "central tendency"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "For an even number of values, the median is the average of the two middle values."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "data"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "These measures help us compare data sets."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "frequency"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "A school club measures how long ten journeys take. The values are primary data for the club because it records them directly. An existing school transport register would be secondary data for this investigation."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Collect directly → primary"
+              },
+              {
+                "op": "write",
+                "text": "Use an existing source → secondary"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "A table for whole number scores can list each distinct score and how many times it occurred. Add the frequencies to check that every recorded observation has been counted."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Frequency = number of occurrences"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "For a raw list of two, three, three and eight, the sum is sixteen and there are four observations. The mean is four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mean = (2 + 3 + 3 + 8)/4 = 4"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "For the same ordered list, the second and third observations are both three, so the median is three. Three also occurs most often, making it the mode."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Median = (3 + 3)/2 = 3"
+              },
+              {
+                "op": "write",
+                "text": "Mode = 3"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "If eight is replaced by forty, the new mean is twelve and the median is still three. A large high value has changed the total while leaving the middle positions unchanged."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "New list: 2, 3, 3, 40"
+              },
+              {
+                "op": "write",
+                "text": "Mean = 12; median = 3"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "An ungrouped frequency table can display two once, three twice and eight once. Multiply each value by its frequency to find its full contribution to the sum."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Sum = (2 × 1) + (3 × 2) + (8 × 1)"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "Use a running frequency to locate positions without writing the whole list. Our running totals are one, three and four, so positions two and three both carry the value three."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Running totals: 1, 3, 4"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Sometimes two values tie for the greatest frequency. In five, five, seven, seven and nine, both five and seven are modes. Check for ties before naming one."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Two modes: 5 and 7"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "In a grouped table, put measurements into intervals that have no overlap. A time of twenty minutes goes in twenty to under thirty, so it appears in only one interval."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "20 is included in 20 to under 30"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "To estimate the grouped mean, represent each interval by its midpoint. For twenty to under thirty, add twenty and thirty and divide by two. The midpoint is twenty-five."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Class midpoint = (20 + 30)/2 = 25"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "For five intervals from zero to under fifty with frequencies two, three, seven, four, four, the midpoints are five, fifteen, twenty-five, thirty-five and forty-five."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Midpoints: 5, 15, 25, 35, 45"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "Multiply each midpoint by its frequency. The five products are ten, forty-five, one hundred seventy-five, one hundred forty and one hundred eighty. They add to five hundred fifty."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Σfm = 550"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "The total frequency is twenty. Divide five hundred fifty by twenty to get an estimated mean of twenty-seven point five. This estimate uses midpoints for all observations in a class."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Grouped mean = 550/20 = 27.5"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "For the assumed-mean method, take twenty-five as a convenient starting value. The midpoint deviations are minus twenty, minus ten, zero, ten and twenty. Their weighted sum is fifty."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Assumed mean 25"
+              },
+              {
+                "op": "write",
+                "text": "Σfd = 50"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "Divide fifty by the total frequency twenty and add the result to twenty-five. With class widths of ten, you can also divide each deviation by ten first and multiply back at the end."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "25 + 50/20 = 27.5"
+              },
+              {
+                "op": "write",
+                "text": "Step deviation gives the same estimate"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Now use the grouped table to estimate the median. The running frequencies are two, five, twelve, sixteen and twenty. The middle lies in twenty to under thirty because the tally first passes ten there."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Cumulative counts: 2, 5, 12, 16, 20"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "There are five observations before the median class, seven in it, and its width is ten. Move the remaining five sevenths of that width from the lower boundary twenty."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Median estimate = 20 + ((10 − 5)/7) × 10 ≈ 27.14"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "For grouped mode, start by finding the class with the largest frequency. Our modal class is twenty to under thirty with frequency seven. The previous frequency is three and the next is four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Modal class: 20 to under 30"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Use the differences four and three between the modal frequency and its neighbours. The estimated mode is the lower boundary plus four sevenths of the class width."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mode estimate = 20 + ((7 − 3)/(14 − 3 − 4)) × 10 ≈ 25.71"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "The empirical rule sometimes estimates mode as three times the median minus twice the mean. It is an approximation for suitable data and can differ from the grouped mode formula."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Mode ≈ 3 × median − 2 × mean"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Choose a measure that answers the question. For the most common shirt size use the mode. For the middle journey time in a list with an unusually long delay, consider the median."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Most common → mode"
+              },
+              {
+                "op": "write",
+                "text": "Middle position → median"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Label the method and units in your answer. A mean computed from exact observations can be exact. A mean from class midpoints is an estimate unless the grouped information fully determines it."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Report whether the result is exact or estimated"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "mean"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "A measure of central tendency gives one value that represents the data."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Estimate the mean of five classes with midpoints 5, 15, 25, 35 and 45 and frequencies 2, 3, 7, 4 and 4."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Multiply each midpoint by its frequency, then add those products."
+            },
+            "why": {
+              "en": "This gives five hundred fifty as the estimated total across all observations."
+            }
+          },
+          {
+            "text": {
+              "en": "Add the frequencies to get twenty, then divide the estimated total by twenty."
+            },
+            "why": {
+              "en": "The midpoint-based mean estimate is twenty-seven point five."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "median"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "The arithmetic mean is the sum of all values divided by the number of values."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says The mode is the middle value. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "The median is the middle value."
+          },
+          {
+            "en": "The mode occurs most often."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "mode"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-sta540",
+          "r1-sta541",
+          "tnm9-stats-outlier-1",
+          "tnm9-stats-weighted-1",
+          "tnm9-stats-grouped-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "central tendency"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "For an even number of values, the median is the average of the two middle values."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "data"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "These measures help us compare data sets."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "frequency"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Find the mean of 2, 4, 6, 8."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Add the values: 2 + 4 + 6 + 8 = 20."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Mean = sum / count."
+          },
+          {
+            "en": "Median is the middle value."
+          },
+          {
+            "en": "Mode is the most frequent value."
+          },
+          {
+            "en": "Data can be primary or secondary."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "There are 4 values."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "Mean = 20 / 4 = 5."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says The mode is the middle value. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "The median is the middle value."
-     },
-     {
-      "en": "The mode occurs most often."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-sta540",
-     "r1-sta541"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Mean = sum / count."
-     },
-     {
-      "en": "Median is the middle value."
-     },
-     {
-      "en": "Mode is the most frequent value."
-     },
-     {
-      "en": "Data can be primary or secondary."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

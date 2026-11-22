@@ -270,6 +270,178 @@
    "size": 17,
    "color": "warm",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nconeTitle",
+   "x": 450,
+   "y": 56,
+   "text": "A cone has two different heights",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "poly",
+   "id": "ncone",
+   "points": [
+    [
+     416,
+     124
+    ],
+    [
+     239,
+     360
+    ],
+    [
+     593,
+     360
+    ]
+   ],
+   "fill": "#DEF2F5",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "nvertical",
+   "x1": 416,
+   "y1": 124,
+   "x2": 416,
+   "y2": 360,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "nslant",
+   "x1": 416,
+   "y1": 124,
+   "x2": 593,
+   "y2": 360,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "nradius",
+   "x1": 416,
+   "y1": 360,
+   "x2": 593,
+   "y2": 360,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nh",
+   "x": 390,
+   "y": 258,
+   "text": "h = 4",
+   "size": 25,
+   "color": "good",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "nell",
+   "x": 547,
+   "y": 225,
+   "text": "l = 5",
+   "size": 25,
+   "color": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "nr",
+   "x": 504,
+   "y": 400,
+   "text": "r = 3",
+   "size": 25,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 469,
+   "text": "Area uses the slant. Volume uses the vertical height.",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ndomeTitle",
+   "x": 450,
+   "y": 55,
+   "text": "Count only the surfaces that are exposed",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nwall",
+   "x": 311,
+   "y": 238,
+   "w": 278,
+   "h": 157,
+   "fill": "#DDF3E6",
+   "stroke": "good",
+   "rx": 10
+  },
+  {
+   "kind": "sector",
+   "id": "ndome",
+   "cx": 450,
+   "cy": 238,
+   "r": 139,
+   "from": 270,
+   "to": 90,
+   "fill": "#DCEAFF",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "njoint",
+   "x1": 311,
+   "y1": 238,
+   "x2": 589,
+   "y2": 238,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "nbottom",
+   "x1": 311,
+   "y1": 395,
+   "x2": 589,
+   "y2": 395,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "njointT",
+   "x": 617,
+   "y": 243,
+   "text": "Hidden join",
+   "size": 23,
+   "color": "warm"
+  },
+  {
+   "kind": "text",
+   "id": "noutside",
+   "x": 450,
+   "y": 463,
+   "text": "Outside: curved dome + wall + uncovered base",
+   "size": 25,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -465,6 +637,148 @@
      "target": "c0",
      "at": 0.2,
      "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "measure1",
+   "narration": {
+    "en": "Look at the cross-section of a cone through its centre. The radius is three and the vertical height is four. They form a right angle at the centre of the base."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "nconeTitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "ncone",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nvertical",
+     "at": 0.34,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nh",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "nradius",
+     "at": 0.57,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nr",
+     "at": 0.64
+    }
+   ]
+  },
+  {
+   "id": "measure2",
+   "narration": {
+    "en": "The slant height is the third side. It equals five by Pythagoras. Use the slant for curved area and the vertical height for volume."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nslant",
+     "at": 0.2,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nell",
+     "at": 0.37
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.67,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "measure3",
+   "narration": {
+    "en": "Place a hemispherical dome on a cylinder with the same radius. The two circles at the joint touch each other inside the solid."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ndomeTitle",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "nwall",
+     "at": 0.18,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "ndome",
+     "at": 0.39,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "njoint",
+     "at": 0.61,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "njointT",
+     "at": 0.67
+    }
+   ]
+  },
+  {
+   "id": "measure4",
+   "narration": {
+    "en": "The outside consists of the rounded dome, the side wall and the uncovered bottom. The hidden join adds no outside area."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "ndome",
+     "at": 0.16,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "nwall",
+     "at": 0.33,
+     "color": "accent"
+    },
+    {
+     "do": "draw",
+     "target": "nbottom",
+     "at": 0.51,
+     "ms": 450
+    },
+    {
+     "do": "write",
+     "target": "noutside",
+     "at": 0.75,
+     "ms": 450
     }
    ]
   }

@@ -78,6 +78,114 @@
    "size": 28,
    "color": "accent",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "One fair die: count each outcome once",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nspace",
+   "x": 114,
+   "y": 102,
+   "w": 672,
+   "h": 322,
+   "fill": "#FBF5E7",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "circle",
+   "id": "neven",
+   "cx": 363,
+   "cy": 264,
+   "r": 121,
+   "fill": "#BDDDFA",
+   "stroke": "accent"
+  },
+  {
+   "kind": "circle",
+   "id": "ngreater",
+   "cx": 536,
+   "cy": 264,
+   "r": 121,
+   "fill": "#C4EDD3",
+   "stroke": "good"
+  },
+  {
+   "kind": "text",
+   "id": "nevenT",
+   "x": 348,
+   "y": 130,
+   "text": "A: even",
+   "size": 21,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ngreaterT",
+   "x": 555,
+   "y": 130,
+   "text": "B: above 3",
+   "size": 21,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "noutside",
+   "x": 170,
+   "y": 151,
+   "text": "1, 3",
+   "size": 25,
+   "color": "ink"
+  },
+  {
+   "kind": "text",
+   "id": "nonlyA",
+   "x": 305,
+   "y": 275,
+   "text": "2",
+   "size": 31,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nboth",
+   "x": 449,
+   "y": 275,
+   "text": "4, 6",
+   "size": 31,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nonlyB",
+   "x": 586,
+   "y": 275,
+   "text": "5",
+   "size": 31,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nanswer",
+   "x": 450,
+   "y": 470,
+   "text": "P(A or B) = (3 + 3 − 2) / 6 = 2/3",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -137,6 +245,105 @@
      "do": "write",
      "target": "r",
      "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "probability1",
+   "narration": {
+    "en": "Draw two overlapping circles. A contains the even die results. B contains results above three."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nspace",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "neven",
+     "at": 0.26,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nevenT",
+     "at": 0.33
+    },
+    {
+     "do": "draw",
+     "target": "ngreater",
+     "at": 0.45,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ngreaterT",
+     "at": 0.54
+    }
+   ]
+  },
+  {
+   "id": "probability2",
+   "narration": {
+    "en": "Two belongs only to A and five belongs only to B. Four and six belong to both, so put them in the overlap."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "nonlyA",
+     "at": 0.13
+    },
+    {
+     "do": "show",
+     "target": "nonlyB",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "nboth",
+     "at": 0.58
+    },
+    {
+     "do": "pulse",
+     "target": "nboth",
+     "at": 0.71,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "probability3",
+   "narration": {
+    "en": "One and three belong to neither circle. For the union, add the three in each circle and subtract the two counted twice. Four out of six gives two thirds."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "noutside",
+     "at": 0.14
+    },
+    {
+     "do": "pulse",
+     "target": "nboth",
+     "at": 0.57,
+     "color": "accent"
+    },
+    {
+     "do": "write",
+     "target": "nanswer",
+     "at": 0.78,
+     "ms": 450
     }
    ]
   }

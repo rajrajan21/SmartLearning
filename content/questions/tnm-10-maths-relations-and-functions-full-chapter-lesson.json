@@ -239,6 +239,258 @@
    "explanation": {
     "en": "Yes."
    }
+  },
+  {
+   "key": "tnm10-m-raf-1",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "For A = {a, b} and B = {1, 2}, which pair belongs to A × B?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "(b, 1)"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "(1, b)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The first entry comes from A and the second from B."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "(a, b)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The first entry comes from A and the second from B."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The first entry comes from A and the second from B."
+   }
+  },
+  {
+   "key": "tnm10-m-raf-2",
+   "round": 1,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Which relation from {1, 2} is a function?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "{(1, 4), (1, 5), (2, 4)}"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each input needs exactly one output. Sharing an output is allowed."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "{(2, 4)}"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each input needs exactly one output. Sharing an output is allowed."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "{(1, 4), (2, 4)}"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Each input needs exactly one output. Sharing an output is allowed."
+   }
+  },
+  {
+   "key": "tnm10-m-raf-3",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "A function has codomain {4, 5, 6} and range {4, 6}. Is it onto?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Yes, two outputs are enough"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Onto means every element of the codomain is reached."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "No, 5 has no input mapping to it"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "Yes, every input has an output"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Onto means every element of the codomain is reached."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Onto means every element of the codomain is reached."
+   }
+  },
+  {
+   "key": "tnm10-m-raf-4",
+   "round": 2,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "If f(x) = x + 1 and g(x) = 2x, what is g(f(4))?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "10"
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Add one first to get five, then double."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Add one first to get five, then double."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Add one first to get five, then double."
+   }
+  },
+  {
+   "key": "tnm10-m-raf-5",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Which x-value is excluded from the domain of f(x) = 1/x?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Division by zero is undefined."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "−1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Division by zero is undefined."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "0"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "Division by zero is undefined."
+   }
+  },
+  {
+   "key": "tnm10-m-raf-6",
+   "round": 3,
+   "type": "mcq",
+   "provenance": "original",
+   "status": "published",
+   "stem": {
+    "en": "Which test determines if a real function is one-to-one using its graph?"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Check whether it crosses the origin"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Two intersections with a horizontal line indicate two inputs share an image."
+     }
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "Horizontal line test"
+     },
+     "correct": true
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "Vertical line test"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Two intersections with a horizontal line indicate two inputs share an image."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Two intersections with a horizontal line indicate two inputs share an image."
+   }
   }
  ]
 }

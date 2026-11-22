@@ -1,208 +1,599 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "probability",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Probability"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "probability",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Probability"
     },
-    "text": {
-     "en": "Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "sample space",
-     "event",
-     "classical probability",
-     "empirical probability",
-     "sure event",
-     "complementary event"
-    ],
-    "text": {
-     "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space. An event is a part of the sample space. In the classical approach, probability P(E) = number of favourable outcomes / total number of outcomes, so it lies between 0 and 1.\nThe empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials. The more trials, the closer it comes to the classical value.\nTypes of events include the sure event with probability 1, the impossible event with probability 0 and equally likely, mutually exclusive and complementary events, where P(E) + P(not E) = 1."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "sample space"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "An event is a part of the sample space."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "sample space",
+          "event",
+          "classical probability",
+          "empirical probability",
+          "sure event",
+          "complementary event"
+        ],
+        "text": {
+          "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space. An event is a part of the sample space. For a finite set of equally likely outcomes, the classical probability is the number of outcomes in the event divided by the total number of outcomes. It lies between zero and one.\nThe empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials. With many comparable independent trials, the observed frequency tends to settle closer to the underlying chance. The fraction can still move closer or farther away in any particular run.\nA sure event has probability one and an impossible event has probability zero. An event and its complement are mutually exclusive and together cover all outcomes, so their probabilities add to one."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "event"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "In the classical approach, probability P(E) = number of favourable outcomes / total number of outcomes, so it lies between 0 and 1."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "sample space"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "An event is a part of the sample space."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "event"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "For a finite set of equally likely outcomes, the classical probability is the number of outcomes in the event divided by the total number of outcomes. It lies between zero and one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "classical probability"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "empirical probability"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "With many comparable independent trials, the observed frequency tends to settle closer to the underlying chance. The fraction can still move closer or farther away in any particular run."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "sure event"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "A sure event has probability one and an impossible event has probability zero. An event and its complement are mutually exclusive and together cover all outcomes, so their probabilities add to one."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "complementary event"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Tossing a coin once is one trial. Head and tail are possible outcomes. Listing both gives the sample space for the ordinary coin model."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Trial: one toss"
+              },
+              {
+                "op": "write",
+                "text": "S = {H, T}"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "Roll a common six-sided die once. Write the six face values, from one to six. A fair die model gives every face the same chance."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "S = {1, 2, 3, 4, 5, 6}"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "The event of rolling an even number consists of outcomes two, four and six. These are three members of the sample space."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Even = {2, 4, 6}"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an even number is a compound event because it includes several outcomes."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "One outcome → simple event"
+              },
+              {
+                "op": "write",
+                "text": "Several outcomes → compound event"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "In the fair die model, the chance of an even roll is three favourable outcomes over six total outcomes. Reduce the result to one half."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P(even) = 3/6 = 1/2"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "For a sure event, every outcome is favourable. Rolling a number from one to six on the model die is sure. Rolling seven has no favourable outcomes and is impossible."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Sure: 6/6 = 1"
+              },
+              {
+                "op": "write",
+                "text": "Impossible: 0/6 = 0"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "A spinner with unequal sectors requires another check. There might be three labels, but a label on a wider sector has a better chance. Counting each label once would lose that distinction."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Check equal likelihood before counting"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Suppose a blind draw is modelled as equally likely for each counter. A bag contains two red counters and three blue counters. Count the counters as outcomes, even if some share a colour."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Five equally likely counters"
+              },
+              {
+                "op": "write",
+                "text": "Two red, three blue"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "For that model, the chance of red is two fifths and the chance of blue is three fifths. The two colours exhaust the possible outcomes in the bag."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P(red) = 2/5"
+              },
+              {
+                "op": "write",
+                "text": "P(blue) = 3/5"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Two events are mutually exclusive if they cannot both happen on the same trial. On one roll, getting a two and getting a five cannot happen together."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{2} and {5}: no overlap"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "Those two events still leave the other four rolls uncovered. Mutually exclusive events are complementary only if they also cover the whole sample space."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Complementary means no overlap and full coverage"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "Rolling at most four and rolling more than four divide the die outcomes into two separate groups that cover all rolls. Either one is the complement of the other."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{1, 2, 3, 4} and {5, 6} are complements"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "The chance of more than four is two sixths. To get the chance of at most four, subtract from one. The remaining four sixths agrees with a direct count."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "1 − 2/6 = 4/6"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "On a single fair die, rolling an even number and rolling a number greater than three can happen together. Four and six lie in both events, so these events overlap."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Even ∩ greater than 3 = {4, 6}"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "For two ordinary fair independent coin tosses, list one result at a time in order. Head then tail and tail then head are distinct because they describe different sequences."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "HH, HT, TH, TT"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "Exactly one head means head then tail or tail then head. At least one head also includes two heads. Read the event wording before counting."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Exactly one head: 2 outcomes"
+              },
+              {
+                "op": "write",
+                "text": "At least one head: 3 outcomes"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "For at least one tail, use the complement if that is easier. The only sequence without any tail is head then head. Subtract its one quarter from one."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P(at least one tail) = 1 − 1/4 = 3/4"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "In an experiment, record how often a selected event occurs. If heads appears fourteen times in twenty tosses, the observed relative frequency is fourteen divided by twenty."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Observed heads: 14/20 = 0.70"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "For a model fair coin, the classical probability is one half. In a short trial run the observed fraction can differ. The model and the observed tally answer related questions."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Model chance: 0.50"
+              },
+              {
+                "op": "write",
+                "text": "One observed fraction: 0.70"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "Combine a run of fourteen heads in twenty tosses and a run of ten in twenty. Add the heads together and add the number of tosses together. The pooled observed frequency is twenty-four over forty."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Pooled relative frequency = 24/40 = 0.60"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "If one run has more trials than another, calculate from their pooled totals. Averaging the two fractions without accounting for different run sizes can give a different result."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Use total successes ÷ total trials"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "If many recorded runs disagree with a fair model, examine how the data were gathered and whether the model makes sense. A small run can also differ just by chance."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Consider the model, tally and sample size"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "Probabilities of one half can describe very different events, such as a head on a fair coin or an even roll on a fair die. Equal probabilities compare chances across models."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Equal probability can describe different events"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Before solving a question, write the possible outcomes or the trial counts. Check whether the outcomes are equally likely, then choose a classical calculation or an observed relative frequency."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Choose a model → identify the event → calculate"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "classical probability"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "Find the probability of at least one tail in two fair independent coin tosses."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "List head-head, head-tail, tail-head and tail-tail."
+            },
+            "why": {
+              "en": "All four ordered results have the same chance in this model."
+            }
+          },
+          {
+            "text": {
+              "en": "Choose the three results that contain at least one tail."
+            },
+            "why": {
+              "en": "The result with two tails also meets the condition."
+            }
+          },
+          {
+            "text": {
+              "en": "Divide the three qualifying outcomes by the four total outcomes."
+            },
+            "why": {
+              "en": "The probability is three quarters."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "empirical probability"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "The more trials, the closer it comes to the classical value."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Probability can be 2. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Probability lies from 0 to 1."
+          },
+          {
+            "en": "A value of 2 is impossible."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "sure event"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Types of events include the sure event with probability 1, the impossible event with probability 0 and equally likely, mutually exclusive and complementary events, where P(E) + P(not E) = 1."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-pro210",
+          "r1-pro211",
+          "tnm9-prob-complement-1",
+          "tnm9-prob-observed-1",
+          "tnm9-prob-overlap-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "complementary event"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "A die is thrown. Find the probability of getting an even number."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "There are 6 equally likely outcomes."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "P(E) lies between 0 and 1."
+          },
+          {
+            "en": "P(E) = favourable / total."
+          },
+          {
+            "en": "Sure event: 1; impossible event: 0."
+          },
+          {
+            "en": "P(E) + P(not E) = 1."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "Even numbers are 2, 4 and 6, that is 3."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "P = 3/6 = 1/2."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Probability can be 2. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Probability lies from 0 to 1."
-     },
-     {
-      "en": "A value of 2 is impossible."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-pro210",
-     "r1-pro211"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "P(E) lies between 0 and 1."
-     },
-     {
-      "en": "P(E) = favourable / total."
-     },
-     {
-      "en": "Sure event: 1; impossible event: 0."
-     },
-     {
-      "en": "P(E) + P(not E) = 1."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

@@ -1,232 +1,577 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "set-language",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Set Language"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "set-language",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Set Language"
     },
-    "text": {
-     "en": "Asha sorted her class into the group of students who like cricket and the group who like football. \"Some are in both groups,\" she noticed."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "set",
-     "subset",
-     "power set",
-     "union",
-     "intersection",
-     "De Morgan's laws"
-    ],
-    "text": {
-     "en": "A set is a well-defined collection of objects. A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}. Sets are named by capital letters and their members are called elements, which belong to the set.\nThere are many types of sets. The empty set has no element, a finite set has a countable number of elements and an infinite set does not end. Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements.\nSet operations are the union (all elements of A or B), intersection (elements common to both), difference and complement. De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'. For two finite sets, n(A union B) = n(A) + n(B) - n(A intersect B)."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "A set is a well-defined collection of objects."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Asha sorted her class into the group of students who like cricket and the group who like football. \"Some are in both groups,\" she noticed."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "set"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "set",
+          "subset",
+          "power set",
+          "union",
+          "intersection",
+          "De Morgan's laws"
+        ],
+        "text": {
+          "en": "A set is a well-defined collection of objects. A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}. Sets are named by capital letters and their members are called elements, which belong to the set.\nThere are many types of sets. The empty set has no elements. A finite set has some whole number of elements, possibly zero. An infinite set has no finite number of elements. Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements.\nSet operations are the union (all elements of A or B), intersection (elements common to both), difference and complement. De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'. For two finite sets, n(A union B) = n(A) + n(B) - n(A intersect B)."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "subset"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "Sets are named by capital letters and their members are called elements, which belong to the set."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "A set is a well-defined collection of objects."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "set"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "A set can be written in descriptive form, in set-builder form such as {x : x is a vowel} or in roster form such as {a, e, i, o, u}."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "subset"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "Sets are named by capital letters and their members are called elements, which belong to the set."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "power set"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "There are many types of sets."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "union"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "The empty set has no elements. A finite set has some whole number of elements, possibly zero. An infinite set has no finite number of elements."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "intersection"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "De Morgan's laws"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Set operations are the union (all elements of A or B), intersection (elements common to both), difference and complement."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "set"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "subset"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "A description is well-defined when we can decide whether each candidate belongs. The positive even numbers below ten have a clear rule, so we can list them."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Positive even numbers below 10: {2, 4, 6, 8}"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "In roster form, braces enclose members. Listing an element twice leaves the set unchanged, and changing the order of its members also leaves the set unchanged."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{2, 6, 2} = {2, 6} = {6, 2}"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "In set-builder form, state the kind of number and then the rule it must satisfy. Read x belongs to the positive integers and is even and less than ten."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{x ∈ ℕ : x is even and x < 10}"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Two belongs to the list, so write two is an element of A. Five is outside the list, so write five is not an element of A."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "2 ∈ A"
+              },
+              {
+                "op": "write",
+                "text": "5 ∉ A"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "The empty set has no members. A set containing the number zero has one member. A set containing the empty set also has one member, and that member is itself a set."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "∅ has 0 members"
+              },
+              {
+                "op": "write",
+                "text": "{0} and {∅} each have 1"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "Equal sets have the same members. Equivalent finite sets can have different members but the same number of members. A set of two letters and a set of two numbers illustrate this distinction."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{a, b} and {2, 3} each have 2 members"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "A is a subset of B if every member of A belongs to B. The set containing two and four is a subset of the even numbers below ten."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "{2, 4} ⊆ {2, 4, 6, 8}"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Every set is a subset of itself. A proper subset omits at least one member. The empty set is a subset of any set because it has no member that violates the rule."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Proper subset: contained and different"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "For the set containing a and b, list all its subsets: the empty set, the two singletons and the entire set. These four sets are the elements of its power set."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "P({a, b}) = {∅, {a}, {b}, {a, b}}"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "For each of three elements of a finite set, a subset can include it or leave it out. Two choices per element give two times two times two, or eight subsets."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "3 elements → 2³ = 8 subsets"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Use the universal set from one through eight. Take A to be the even members and B to be the members greater than four. Keep this same universe in all the next operations."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "U = {1, 2, 3, 4, 5, 6, 7, 8}"
+              },
+              {
+                "op": "write",
+                "text": "A = {2, 4, 6, 8}, B = {5, 6, 7, 8}"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "The union includes members in A or in B, including those that are in both. List each member once. Here the union contains two, four, five, six, seven and eight."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A ∪ B = {2, 4, 5, 6, 7, 8}"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "The intersection contains only members that satisfy both conditions. Six and eight are even and greater than four."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A ∩ B = {6, 8}"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "To find A minus B, start with A and cross out its members also found in B. Start with B instead for B minus A. This shows that the order of a difference matters."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A ∖ B = {2, 4}"
+              },
+              {
+                "op": "write",
+                "text": "B ∖ A = {5, 7}"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "The complement of A contains the members of the universe outside A. In our universe, they are one, three, five and seven. A different universe can change the complement."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A′ = {1, 3, 5, 7} in this universe"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Switching A and B leaves the union and intersection unchanged. This is the commutative property. The difference example shows a case where switching does change the result."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A ∪ B = B ∪ A"
+              },
+              {
+                "op": "write",
+                "text": "A ∩ B = B ∩ A"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "A member of A intersected with B union C must belong to A and at least one of B and C. This splits the condition into belonging to A with B, or belonging to A with C."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "A member outside A union B lies in neither set. That means it belongs to the complement of A and to the complement of B. This is the first De Morgan law."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(A ∪ B)′ = A′ ∩ B′"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Using the same universe, A union B omits just one and three. These also belong to both complements, which checks the first law for our example."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(A ∪ B)′ = {1, 3} = A′ ∩ B′"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "Outside the intersection means at least one of the two membership conditions fails. This is the union of the two complements, the second De Morgan law."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "(A ∩ B)′ = A′ ∪ B′"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "If sixty students choose art and forty-five choose music, adding the two counts includes the overlap twice. Subtract the twenty-five who chose both to count each person once."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "n(A ∪ B) = 60 + 45 − 25 = 80"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "In a class of one hundred, eighty chose at least one, so twenty chose neither. The art-only and music-only counts are thirty-five and twenty. All four regions total one hundred."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "35 only art + 25 both + 20 only music + 20 neither"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "power set"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "There are many types of sets."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "In a class of 100, 60 students choose art, 45 choose music and 25 choose both. How many choose neither?"
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Subtract the twenty-five who chose both from sixty plus forty-five."
+            },
+            "why": {
+              "en": "The overlap would otherwise be counted twice, so eighty chose at least one."
+            }
+          },
+          {
+            "text": {
+              "en": "Subtract eighty from the class total of one hundred."
+            },
+            "why": {
+              "en": "The twenty remaining students lie outside both sets."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "union"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "The empty set has no element, a finite set has a countable number of elements and an infinite set does not end."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says The empty set has one element. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "The empty set has no elements."
+          },
+          {
+            "en": "Its cardinality is 0."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "intersection"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Equal sets have the same elements, equivalent sets have the same number of elements, a subset is contained in another set and the power set of A is the set of all subsets of A, with 2^n elements if A has n elements."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-set40",
+          "r1-set41",
+          "tnm9-set-empty-1",
+          "tnm9-set-difference-1",
+          "tnm9-set-count-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "De Morgan's laws"
-       }
-      ]
-     },
-     {
-      "id": "t7",
-      "text": {
-       "en": "Set operations are the union (all elements of A or B), intersection (elements common to both), difference and complement."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "set"
-       }
-      ]
-     },
-     {
-      "id": "t8",
-      "text": {
-       "en": "De Morgan's laws say (A union B)' = A' intersect B' and (A intersect B)' = A' union B'."
-      },
-      "board": [
-       {
-        "op": "write",
-        "text": "subset"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "If n(A) = 10, n(B) = 8 and n(A intersect B) = 3, find n(A union B)."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Use n(A union B) = n(A) + n(B) - n(A intersect B)."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "A set is a well-defined collection."
+          },
+          {
+            "en": "Sets have roster, set-builder and descriptive forms."
+          },
+          {
+            "en": "A set with n elements has 2^n subsets."
+          },
+          {
+            "en": "n(A union B) = n(A) + n(B) - n(A intersect B)."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "10 + 8 - 3 = 15."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "So n(A union B) = 15."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says The empty set has one element. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "The empty set has no elements."
-     },
-     {
-      "en": "Its cardinality is 0."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-set40",
-     "r1-set41"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "A set is a well-defined collection."
-     },
-     {
-      "en": "Sets have roster, set-builder and descriptive forms."
-     },
-     {
-      "en": "A set with n elements has 2^n subsets."
-     },
-     {
-      "en": "n(A union B) = n(A) + n(B) - n(A intersect B)."
-     }
-    ]
-   }
-  ]
- }
+  }
 }

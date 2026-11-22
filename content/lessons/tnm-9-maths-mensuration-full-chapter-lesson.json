@@ -1,208 +1,571 @@
 {
- "board": "TNMATRIC",
- "classLevel": 9,
- "subject": "maths",
- "chapter": "mensuration",
- "topic": "full-chapter-lesson",
- "lesson": {
-  "status": "published",
-  "title": {
-   "en": "Mensuration"
-  },
-  "blocks": [
-   {
-    "id": "story",
-    "type": "story",
-    "provenance": "original",
+  "board": "TNMATRIC",
+  "classLevel": 9,
+  "subject": "maths",
+  "chapter": "mensuration",
+  "topic": "full-chapter-lesson",
+  "lesson": {
+    "status": "published",
     "title": {
-     "en": "A short story"
+      "en": "Mensuration"
     },
-    "text": {
-     "en": "Asha wanted to paint a box-shaped cupboard. \"How much paint?\" she asked. \"Find the surface area,\" said her teacher."
-    }
-   },
-   {
-    "id": "explain",
-    "type": "explanation",
-    "provenance": "original",
-    "keepEnglishTerms": [
-     "Heron's formula",
-     "semi-perimeter",
-     "cuboid",
-     "lateral surface area",
-     "cube",
-     "volume"
-    ],
-    "text": {
-     "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter. It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles.\nA cuboid has length l, breadth b and height h. Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h. A cube of side a has surface area 6a^2 and volume a^3.\nArea is measured in square units and volume in cubic units."
-    }
-   },
-   {
-    "id": "teacher",
-    "type": "teacher_narration",
-    "provenance": "original",
-    "teacher": "malar",
-    "sentences": [
-     {
-      "id": "t1",
-      "text": {
-       "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter."
+    "blocks": [
+      {
+        "id": "story",
+        "type": "story",
+        "provenance": "original",
+        "title": {
+          "en": "A short story"
+        },
+        "text": {
+          "en": "Asha wanted to paint a box-shaped cupboard. \"How much paint?\" she asked. \"Find the surface area,\" said her teacher."
+        }
       },
-      "board": [
-       {
-        "op": "clear"
-       },
-       {
-        "op": "write",
-        "text": "Heron's formula"
-       }
-      ]
-     },
-     {
-      "id": "t2",
-      "text": {
-       "en": "It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles."
+      {
+        "id": "explain",
+        "type": "explanation",
+        "provenance": "original",
+        "keepEnglishTerms": [
+          "Heron's formula",
+          "semi-perimeter",
+          "cuboid",
+          "lateral surface area",
+          "cube",
+          "volume"
+        ],
+        "text": {
+          "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter. It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles.\nA cuboid has length l, breadth b and height h. Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h. A cube of side a has surface area 6a^2 and volume a^3.\nArea is measured in square units and volume in cubic units."
+        }
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "semi-perimeter"
-       }
-      ]
-     },
-     {
-      "id": "t3",
-      "text": {
-       "en": "A cuboid has length l, breadth b and height h."
+      {
+        "id": "teacher",
+        "type": "teacher_narration",
+        "provenance": "original",
+        "teacher": "malar",
+        "sentences": [
+          {
+            "id": "t1",
+            "text": {
+              "en": "Heron's formula gives the area of a triangle from its three sides a, b and c: area = sqrt(s(s - a)(s - b)(s - c)) where s is half the perimeter."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Heron's formula"
+              }
+            ]
+          },
+          {
+            "id": "t2",
+            "text": {
+              "en": "It is used to find the area of a triangle when no height is known, and to find the area of a quadrilateral by splitting it into two triangles."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "semi-perimeter"
+              }
+            ]
+          },
+          {
+            "id": "t3",
+            "text": {
+              "en": "A cuboid has length l, breadth b and height h."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cuboid"
+              }
+            ]
+          },
+          {
+            "id": "t4",
+            "text": {
+              "en": "Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "lateral surface area"
+              }
+            ]
+          },
+          {
+            "id": "t5",
+            "text": {
+              "en": "A cube of side a has surface area 6a^2 and volume a^3."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "cube"
+              }
+            ]
+          },
+          {
+            "id": "t6",
+            "text": {
+              "en": "Area is measured in square units and volume in cubic units."
+            },
+            "board": [
+              {
+                "op": "write",
+                "text": "volume"
+              }
+            ]
+          },
+          {
+            "id": "t7",
+            "text": {
+              "en": "Choose what to measure before choosing a formula. A ribbon around a shape measures perimeter, paper covering its face measures area, and space inside a solid measures volume."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Perimeter · area · volume"
+              }
+            ]
+          },
+          {
+            "id": "t8",
+            "text": {
+              "en": "A triangle with sides six, seven and nine has perimeter twenty-two. The semiperimeter is half of that, so s is eleven."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "s = (6 + 7 + 9)/2 = 11"
+              }
+            ]
+          },
+          {
+            "id": "t9",
+            "text": {
+              "en": "Check that the two shorter sides add to more than the longest side before applying Heron’s formula. For six, seven and nine, thirteen is greater than nine."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Triangle check: 6 + 7 > 9"
+              }
+            ]
+          },
+          {
+            "id": "t10",
+            "text": {
+              "en": "In Heron’s expression, subtract each side from eleven. The resulting factors are five, four and two, and we multiply them by eleven."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area² = 11 × 5 × 4 × 2 = 440"
+              }
+            ]
+          },
+          {
+            "id": "t11",
+            "text": {
+              "en": "Take the square root last. The exact area is two times the square root of one hundred ten. A decimal approximation is about twenty point nine eight square units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area = √440 = 2√110 ≈ 20.98"
+              }
+            ]
+          },
+          {
+            "id": "t12",
+            "text": {
+              "en": "Try sides four, four and eight. The two shortest lengths add to exactly eight. The sides can lie in a straight line but do not enclose a triangle of positive area."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "4 + 4 = 8 gives a flattened shape"
+              }
+            ]
+          },
+          {
+            "id": "t13",
+            "text": {
+              "en": "For three, four and five, the semiperimeter is six. Heron’s formula gives the square root of six times three times two times one, which is six square units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Area = √36 = 6"
+              }
+            ]
+          },
+          {
+            "id": "t14",
+            "text": {
+              "en": "If a triangle is already right-angled and its perpendicular sides are three and four, half their product gives the same area. This is a useful independent check."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "½ × 3 × 4 = 6"
+              }
+            ]
+          },
+          {
+            "id": "t15",
+            "text": {
+              "en": "To find a quadrilateral’s area, choose a diagonal that lies inside the shape and separates it into distinct triangles. Count the diagonal as a side in each calculation."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Internal diagonal → two triangles"
+              }
+            ]
+          },
+          {
+            "id": "t16",
+            "text": {
+              "en": "Two triangles can share the same diagonal and still have different perimeters. Calculate one semiperimeter for each triangle using its own three side lengths."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Use a separate s for each triangle"
+              }
+            ]
+          },
+          {
+            "id": "t17",
+            "text": {
+              "en": "After finding both triangle areas, add them for the whole quadrilateral. The diagonal itself contributes length to the calculations without adding a strip of area."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Whole area = area₁ + area₂"
+              }
+            ]
+          },
+          {
+            "id": "t18",
+            "text": {
+              "en": "For a cuboid, unfold the six faces in your mind. The top and bottom have dimensions length by breadth. The four other faces have height as one of their dimensions."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Top and bottom: l × b"
+              }
+            ]
+          },
+          {
+            "id": "t19",
+            "text": {
+              "en": "Two of the upright faces are length by height. The other two are breadth by height. Counting all six faces gives the total surface area."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Total surface area = 2(lb + lh + bh)"
+              }
+            ]
+          },
+          {
+            "id": "t20",
+            "text": {
+              "en": "The lateral surface of a box with a designated base is the set of side faces. Leave the top and bottom out of this measurement."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Lateral surface area = 2h(l + b)"
+              }
+            ]
+          },
+          {
+            "id": "t21",
+            "text": {
+              "en": "For eight by five by three centimetres, the side faces total two times three times thirteen, which is seventy-eight square centimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Lateral area = 2 × 3 × (8 + 5) = 78 cm²"
+              }
+            ]
+          },
+          {
+            "id": "t22",
+            "text": {
+              "en": "The top and bottom each cover forty square centimetres. Add both faces to seventy-eight to get one hundred fifty-eight square centimetres for the closed box."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Total area = 78 + 2 × 40 = 158 cm²"
+              }
+            ]
+          },
+          {
+            "id": "t23",
+            "text": {
+              "en": "If that same box has no lid, subtract only the top face of forty square centimetres from the closed total. The bottom is still present."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Open-top surface area = 158 − 40 = 118 cm²"
+              }
+            ]
+          },
+          {
+            "id": "t24",
+            "text": {
+              "en": "Volume counts how many unit cubes could fit inside. A base eight by five holds forty cubes in each layer. Three layers make one hundred twenty cubic centimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Volume = 8 × 5 × 3 = 120 cm³"
+              }
+            ]
+          },
+          {
+            "id": "t25",
+            "text": {
+              "en": "A cube has three equal dimensions. With side four centimetres, each face covers sixteen square centimetres and there are six faces."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Cube total surface area = 6 × 4² = 96 cm²"
+              }
+            ]
+          },
+          {
+            "id": "t26",
+            "text": {
+              "en": "The same cube has four layers of sixteen unit cubes. It has volume sixty-four cubic centimetres, using cubic units rather than square units."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Cube volume = 4³ = 64 cm³"
+              }
+            ]
+          },
+          {
+            "id": "t27",
+            "text": {
+              "en": "Double every edge of a cube. Each square face becomes four times as large, and cubic volume becomes eight times as large. Follow the two or three length factors to see why."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Scale factor 2 → area factor 4, volume factor 8"
+              }
+            ]
+          },
+          {
+            "id": "t28",
+            "text": {
+              "en": "When a rectangular box’s volume and base dimensions are known, divide volume by base area to find its height. A volume of one hundred twenty over base area forty gives height three centimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Height = 120 cm³ ÷ 40 cm² = 3 cm"
+              }
+            ]
+          },
+          {
+            "id": "t29",
+            "text": {
+              "en": "If measurements use mixed units, convert before substituting. A length of one metre and a breadth of fifty centimetres become one hundred centimetres and fifty centimetres when computing square centimetres."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "Choose one length unit before multiplying"
+              }
+            ]
+          },
+          {
+            "id": "t30",
+            "text": {
+              "en": "Check your answer by naming the actual surface or space measured. A box label needs area, a ribbon around its base needs length, and storage capacity needs volume."
+            },
+            "board": [
+              {
+                "op": "clear"
+              },
+              {
+                "op": "write",
+                "text": "State what you measured and its unit"
+              }
+            ]
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "cuboid"
-       }
-      ]
-     },
-     {
-      "id": "t4",
-      "text": {
-       "en": "Its total surface area is 2(lb + bh + hl), its lateral surface area is 2h(l + b) and its volume is l x b x h."
+      {
+        "id": "example",
+        "type": "worked_example",
+        "provenance": "original",
+        "problem": {
+          "en": "A rectangular box is 8 cm long, 5 cm broad and 3 cm high. Find its lateral area, closed total surface area and volume."
+        },
+        "steps": [
+          {
+            "text": {
+              "en": "Find the four side areas. Multiply twice the height by the sum of length and breadth."
+            },
+            "why": {
+              "en": "Two times three times thirteen gives seventy-eight square centimetres."
+            }
+          },
+          {
+            "text": {
+              "en": "Add two faces of eight by five to the lateral area."
+            },
+            "why": {
+              "en": "The closed box has one hundred fifty-eight square centimetres of surface area."
+            }
+          },
+          {
+            "text": {
+              "en": "Multiply eight by five by three to find the space within the box."
+            },
+            "why": {
+              "en": "The volume is one hundred twenty cubic centimetres."
+            }
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "lateral surface area"
-       }
-      ]
-     },
-     {
-      "id": "t5",
-      "text": {
-       "en": "A cube of side a has surface area 6a^2 and volume a^3."
+      {
+        "id": "teachback",
+        "type": "teach_back",
+        "provenance": "original",
+        "prompt": {
+          "en": "A friend says Volume of a cuboid is l + b + h. How will you reply?"
+        },
+        "requiredIdeas": [
+          {
+            "en": "Volume is the product l x b x h."
+          },
+          {
+            "en": "Adding does not give volume."
+          }
+        ],
+        "commonMisconceptions": [
+          {
+            "en": "Check the idea again."
+          }
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "cube"
-       }
-      ]
-     },
-     {
-      "id": "t6",
-      "text": {
-       "en": "Area is measured in square units and volume in cubic units."
+      {
+        "id": "quiz",
+        "type": "quiz",
+        "provenance": "original",
+        "questionIds": [
+          "r1-men400",
+          "r1-men401",
+          "tnm9-mens-heron-1",
+          "tnm9-mens-box-1",
+          "tnm9-mens-scale-1"
+        ]
       },
-      "board": [
-       {
-        "op": "write",
-        "text": "volume"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "id": "example",
-    "type": "worked_example",
-    "provenance": "original",
-    "problem": {
-     "en": "Find the volume of a cube of side 4 cm."
-    },
-    "steps": [
-     {
-      "text": {
-       "en": "Volume = a^3."
-      },
-      "why": {
-       "en": "Step 1."
+      {
+        "id": "summary",
+        "type": "summary",
+        "provenance": "original",
+        "points": [
+          {
+            "en": "Heron's formula uses s."
+          },
+          {
+            "en": "Cuboid volume = lbh."
+          },
+          {
+            "en": "Cube surface area = 6a^2."
+          },
+          {
+            "en": "Volume is in cubic units."
+          }
+        ]
       }
-     },
-     {
-      "text": {
-       "en": "4 x 4 x 4 = 64."
-      },
-      "why": {
-       "en": "Step 2."
-      }
-     },
-     {
-      "text": {
-       "en": "The volume is 64 cubic cm."
-      },
-      "why": {
-       "en": "Step 3."
-      }
-     }
     ]
-   },
-   {
-    "id": "teachback",
-    "type": "teach_back",
-    "provenance": "original",
-    "prompt": {
-     "en": "A friend says Volume of a cuboid is l + b + h. How will you reply?"
-    },
-    "requiredIdeas": [
-     {
-      "en": "Volume is the product l x b x h."
-     },
-     {
-      "en": "Adding does not give volume."
-     }
-    ],
-    "commonMisconceptions": [
-     {
-      "en": "Check the idea again."
-     }
-    ]
-   },
-   {
-    "id": "quiz",
-    "type": "quiz",
-    "provenance": "original",
-    "questionIds": [
-     "r1-men400",
-     "r1-men401"
-    ]
-   },
-   {
-    "id": "summary",
-    "type": "summary",
-    "provenance": "original",
-    "points": [
-     {
-      "en": "Heron's formula uses s."
-     },
-     {
-      "en": "Cuboid volume = lbh."
-     },
-     {
-      "en": "Cube surface area = 6a^2."
-     },
-     {
-      "en": "Volume is in cubic units."
-     }
-    ]
-   }
-  ]
- }
+  }
 }
