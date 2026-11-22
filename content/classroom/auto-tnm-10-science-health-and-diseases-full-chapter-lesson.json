@@ -232,6 +232,139 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "Getting help when a situation feels unsafe",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 445,
+   "text": "Adults are responsible for helping you stay safe.",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nnotice",
+   "x": 43,
+   "y": 176,
+   "w": 246,
+   "h": 128,
+   "fill": "#DCECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nnoticeT",
+   "x": 166,
+   "y": 223,
+   "text": "Notice the concern",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnoticeD",
+   "x": 166,
+   "y": 268,
+   "text": "You can ask for help",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext0",
+   "x1": 292,
+   "y1": 240,
+   "x2": 318,
+   "y2": 240,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "ntell",
+   "x": 320,
+   "y": 176,
+   "w": 246,
+   "h": 128,
+   "fill": "#DCECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ntellT",
+   "x": 443,
+   "y": 223,
+   "text": "Tell a trusted adult",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntellD",
+   "x": 443,
+   "y": 268,
+   "text": "Teacher, family member, counsellor",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nnext1",
+   "x1": 569,
+   "y1": 240,
+   "x2": 595,
+   "y2": 240,
+   "stroke": "good",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "nagain",
+   "x": 597,
+   "y": 176,
+   "w": 246,
+   "h": 128,
+   "fill": "#DCECF9",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nagainT",
+   "x": 720,
+   "y": 223,
+   "text": "Ask again if needed",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nagainD",
+   "x": 720,
+   "y": 268,
+   "text": "Try another trusted adult",
+   "size": 14,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -401,6 +534,105 @@
      "target": "n5",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "health1",
+   "narration": {
+    "en": "If a situation feels unsafe, notice the concern. You can ask for help even if you are unsure how to describe everything."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nnotice",
+     "at": 0.3,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nnoticeT",
+     "at": 0.38
+    },
+    {
+     "do": "show",
+     "target": "nnoticeD",
+     "at": 0.45999999999999996
+    }
+   ]
+  },
+  {
+   "id": "health2",
+   "narration": {
+    "en": "Tell a trusted adult who can listen and act, such as a teacher or counsellor."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext0",
+     "at": 0.16,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "ntell",
+     "at": 0.38,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ntellT",
+     "at": 0.46
+    },
+    {
+     "do": "show",
+     "target": "ntellD",
+     "at": 0.54
+    }
+   ]
+  },
+  {
+   "id": "health3",
+   "narration": {
+    "en": "If you still need help, tell another trusted adult. Adults have a responsibility to help children stay safe."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnext1",
+     "at": 0.14,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nagain",
+     "at": 0.35,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nagainT",
+     "at": 0.43
+    },
+    {
+     "do": "show",
+     "target": "nagainD",
+     "at": 0.51
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.74,
+     "ms": 450
     }
    ]
   }
