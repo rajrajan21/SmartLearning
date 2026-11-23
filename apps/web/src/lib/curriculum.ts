@@ -64,20 +64,25 @@ export function useSearch(board: string, query: string, limit: number, minChars:
   return { hits, busy };
 }
 
+/** Keep a response tied to its request, including route changes and retries. */
+export function useLessonRequest<T>(url: string, parse: (raw: unknown) => T, enabled: boolean, attempt = 0): Load<T | null> {
+  const [response, setResponse] = useState<{ url: string; attempt: number; state: Load<T | null> } | null>(null);
+  useEffect(() => {
+    if (!enabled) { setResponse(null); return; }
+    let alive = true;
+    fetch(url)
+      .then((r) => r.status === 404 ? null : r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
+      .then((raw) => { if (alive) setResponse({ url, attempt, state: { status: "ready", data: raw === null ? null : parse(raw) } }); })
+      .catch(() => { if (alive) setResponse({ url, attempt, state: { status: "error" } }); });
+    return () => { alive = false; };
+  }, [url, parse, enabled, attempt]);
+  if (!enabled) return { status: "ready", data: null };
+  return response?.url === url && response.attempt === attempt ? response.state : { status: "loading" };
+}
+
 /** Published lesson for a topic: null when the topic has none yet. */
 export function useLesson(board: string, cls: number, subject: string, chapter: string, topic: string, enabled = true): Load<TopicLesson | null> {
-  const [state, setState] = useState<Load<TopicLesson | null>>({ status: "loading" });
-  useEffect(() => {
-    if (!enabled) { setState({ status: "ready", data: null }); return; }
-    let alive = true;
-    setState({ status: "loading" });
-    fetch(`/api/v1/lessons/boards/${board}/${cls}/${subject}/${chapter}/${topic}`)
-      .then((r) => r.status === 404 ? null : r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
-      .then((raw) => { if (alive) setState({ status: "ready", data: raw ? TopicLesson.parse(raw) : null }); })
-      .catch(() => { if (alive) setState({ status: "error" }); });
-    return () => { alive = false; };
-  }, [board, cls, subject, chapter, topic, enabled]);
-  return state;
+  return useLessonRequest(`/api/v1/lessons/boards/${board}/${cls}/${subject}/${chapter}/${topic}`, TopicLesson.parse, enabled);
 }
 
 /** Ids of topics that have a published lesson (cached for offline). */

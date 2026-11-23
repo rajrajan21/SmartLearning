@@ -127,7 +127,7 @@ export function ClassroomPage() {
   const chosen = voices.some((v) => v.id === voice && v.ready) ? voice : "";
   const st = useClassroom(board, cls, subject, chapter, topic, on && idx.status !== "loading", attempt, chosen);
   if (!on) return <NotFound />;
-  if (st.status === "loading") return <Loading />;
+  if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
   return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;

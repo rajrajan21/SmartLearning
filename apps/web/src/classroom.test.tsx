@@ -1,4 +1,4 @@
-import { act, cleanup, fireEvent, render, screen } from "@testing-library/react";
+import { act, cleanup, fireEvent, render, renderHook, screen } from "@testing-library/react";
 import { Router } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -6,6 +6,7 @@ import { SettingsProvider } from "./lib/settings";
 import { AccountProvider } from "./lib/account";
 import { Layout } from "./components/Layout";
 import { Routes } from "./App";
+import { useClassroom } from "./lib/classroom";
 
 const lesson = {
   board: "CBSE", classLevel: 3, subject: "maths", chapter: "fair-share", topic: "halves-and-quarters", status: "published", title: { en: "Halves and quarters" },
@@ -30,6 +31,30 @@ function mount(path: string) {
 beforeEach(() => { cleanup(); localStorage.clear(); settings = { "classroom.browserVoice": false }; vi.stubGlobal("matchMedia", (q: string) => ({ matches: q.includes("reduce"), addEventListener() {}, removeEventListener() {}, addListener() {}, removeListener() {} })); });
 
 describe("classroom", () => {
+  it("loads a newly enabled request and does not show a previous lesson's missing result", async () => {
+    const fetchLesson = vi.fn((url: string) => {
+      if (url.endsWith("/missing")) return Promise.resolve(new Response(null, { status: 404 }));
+      return new Promise<Response>(() => {});
+    });
+    vi.stubGlobal("fetch", fetchLesson);
+    const rendered: string[] = [];
+    const { result, rerender } = renderHook(({ enabled, topic }) => {
+      const state = useClassroom("cbse", "3", "maths", "fair-share", topic, enabled);
+      rendered.push(state.status);
+      return state;
+    }, { initialProps: { enabled: false, topic: "missing" } });
+
+    expect(fetchLesson).not.toHaveBeenCalled();
+    rendered.length = 0;
+    await act(async () => { rerender({ enabled: true, topic: "missing" }); });
+    expect(rendered[0]).toBe("loading");
+    expect(result.current).toEqual({ status: "ready", data: null });
+
+    rendered.length = 0;
+    rerender({ enabled: true, topic: "halves-and-quarters" });
+    expect(rendered).toEqual(["loading"]);
+  });
+
   it("lets the server choose the lesson voice when no preference is saved", async () => {
     const path = "/classroom/cbse/3/maths/fair-share/halves-and-quarters";
     mount(path);
