@@ -155,6 +155,149 @@
    "src": "parliament-india",
    "alt": "The Parliament building in New Delhi",
    "caption": "Parliament House, New Delhi"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "How voters and the state ministry connect",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 457,
+   "text": "The ministry answers to the Legislative Assembly.",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "npeople",
+   "x": 50,
+   "y": 163,
+   "w": 250,
+   "h": 128,
+   "fill": "#DFEEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "npeopleA",
+   "x": 175,
+   "y": 211,
+   "text": "Voters",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "npeopleB",
+   "x": 175,
+   "y": 252,
+   "text": "Elect MLAs",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nhouse",
+   "x": 322,
+   "y": 163,
+   "w": 250,
+   "h": 128,
+   "fill": "#DFEEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nhouseA",
+   "x": 447,
+   "y": 211,
+   "text": "Assembly",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nhouseB",
+   "x": 447,
+   "y": 252,
+   "text": "Debates and scrutinises",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nministry",
+   "x": 594,
+   "y": 163,
+   "w": 250,
+   "h": 128,
+   "fill": "#DFEEFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nministryA",
+   "x": 719,
+   "y": 211,
+   "text": "Council of Ministers",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nministryB",
+   "x": 719,
+   "y": 252,
+   "text": "Runs state administration",
+   "size": 17,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "nvote",
+   "x1": 301,
+   "y1": 224,
+   "x2": 319,
+   "y2": 224,
+   "stroke": "good",
+   "width": 2
+  },
+  {
+   "kind": "arrow",
+   "id": "nanswer",
+   "x1": 680,
+   "y1": 333,
+   "x2": 455,
+   "y2": 333,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nanswerT",
+   "x": 565,
+   "y": 382,
+   "text": "Collective responsibility",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -262,6 +405,110 @@
      "target": "pic",
      "at": 0.15,
      "ms": 700
+    }
+   ]
+  },
+  {
+   "id": "state1",
+   "narration": {
+    "en": "Voters choose the members of the Legislative Assembly. Their representatives debate laws and scrutinise government work."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "npeople",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "npeopleA",
+     "at": 0.22
+    },
+    {
+     "do": "show",
+     "target": "npeopleB",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "nvote",
+     "at": 0.39,
+     "ms": 450
+    },
+    {
+     "do": "draw",
+     "target": "nhouse",
+     "at": 0.52,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nhouseA",
+     "at": 0.5900000000000001
+    },
+    {
+     "do": "show",
+     "target": "nhouseB",
+     "at": 0.67
+    }
+   ]
+  },
+  {
+   "id": "state2",
+   "narration": {
+    "en": "The Chief Minister leads the Council of Ministers. The ministry carries out laws and runs state administration."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nministry",
+     "at": 0.28,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nministryA",
+     "at": 0.35000000000000003
+    },
+    {
+     "do": "show",
+     "target": "nministryB",
+     "at": 0.43000000000000005
+    }
+   ]
+  },
+  {
+   "id": "state3",
+   "narration": {
+    "en": "Follow the arrow from the ministry back to the Assembly. The Council of Ministers is collectively responsible to that elected House."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nanswer",
+     "at": 0.25,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nanswerT",
+     "at": 0.44
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.71,
+     "ms": 450
     }
    ]
   }
