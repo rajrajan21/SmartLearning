@@ -7,7 +7,7 @@ import { Layout } from "./components/Layout";
 import { Routes } from "./App";
 
 const topic = { topic: { id: "t1", slug: "sides", name: { en: "Sides and corners" } }, chapter: { slug: "shapes", position: 1, name: { en: "Shapes" } }, subject: { slug: "maths", name: { en: "Mathematics" } }, classLevel: 3, objectives: [], prerequisites: [], unlocks: [], previous: null, next: null };
-const tree = { boardCode: "CBSE", boardName: "CBSE", academicYear: "2026-27", classes: [{ classLevel: 3, subjects: [{ id: "s", slug: "maths", name: { en: "Mathematics" }, chapters: [{ id: "c", slug: "shapes", position: 1, name: { en: "Shapes" }, topics: [{ id: "t1", slug: "sides", name: { en: "Sides and corners" } }] }] }] }] };
+const tree = { boardCode: "CBSE", boardName: "CBSE", academicYear: "2026-27", classes: [{ classLevel: 3, subjects: [{ id: "s", slug: "maths", name: { en: "Mathematics" }, chapters: [{ id: "c", slug: "shapes", position: 1, name: { en: "Shapes" }, topics: [{ id: "t1", slug: "sides", name: { en: "Sides and corners" } }] }, { id: "c2", slug: "patterns", position: 2, name: { en: "Patterns" }, topics: [{ id: "t2", slug: "repeating-patterns", name: { en: "Repeating patterns" } }] }] }] }] };
 const id = (n: number) => `00000000-0000-4000-8000-00000000000${n}`;
 const qs = [
   { id: id(1), key: "a", round: 1, type: "true_false", stem: { en: "A square has 4 corners." }, hints: [{ en: "Count them." }] },
@@ -61,6 +61,7 @@ describe("practice", () => {
     expect(screen.getByText(/the right one/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "See my result" }));
     await screen.findByText(/You got 1 out of 2 \(50%\)/);
+    expect(screen.getByRole("link", { name: /Next chapter/ }).getAttribute("href")).toBe("/cbse/3/maths/patterns");
     expect(screen.getByText(/Not passed yet/)).toBeTruthy(); // below the 70% pass mark
     expect(JSON.parse(localStorage.getItem("ss_practice_v1")!).t1[1]).toMatchObject({ best: 50, passed: false });
   });

@@ -26,6 +26,7 @@ function mount(path: string) {
   vi.stubGlobal("fetch", vi.fn(async (url: string) => {
     const ok = (b: unknown, status = 200) => new Response(JSON.stringify(b), { status });
     if (url.includes("/settings/public")) return ok({ values: settings });
+    if (url.includes("/practice/boards")) return ok({ topicId, questions: [{ id: topicId, key: "q", round: 1, type: "true_false", stem: { en: "Four quarters make a whole." }, hints: [] }] });
     if (url.includes("/classroom/index")) return ok({ items: [{ board: "CBSE", classLevel: 3, subject: "maths", chapter: "fair-share", topic: "halves-and-quarters", title: lesson.title, steps: 2 }] });
     if (url.includes("/classroom/CBSE/3/maths/fair-share/halves-and-quarters") || url.includes("/classroom/cbse/3/maths/fair-share/halves-and-quarters")) return ok(lesson);
     return new Response("{}", { status: 404 });
@@ -125,6 +126,18 @@ describe("classroom", () => {
     expect(dayNumber(started!.updatedAt)).toBe(dayNumber(Date.now()));
     expect(screen.getByRole("button", { name: /Pause/ })).toBeTruthy();
   });
+  it("seeks forward and back on the lesson timeline without autoplaying when paused", async () => {
+    mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
+    await screen.findByText("Halves and quarters");
+    fireEvent.click(screen.getAllByRole("button", { name: /Start the lesson/ })[0]!);
+    fireEvent.click(screen.getByRole("button", { name: /Pause/ }));
+    const slider = screen.getByRole<HTMLInputElement>("slider", { name: "Lesson timeline" });
+    fireEvent.change(slider, { target: { value: slider.max } });
+    expect(screen.getByLabelText("What the teacher is saying").textContent).toContain("Think about it");
+    expect(screen.getByRole("button", { name: "▶ Play" })).toBeTruthy();
+    fireEvent.change(slider, { target: { value: "0" } });
+    expect(screen.getByText(/Step 1 of 2/)).toBeTruthy();
+  });
   it("pauses at the question until it is answered, explains a wrong answer, then continues", async () => {
     mount("/classroom/cbse/3/maths/fair-share/halves-and-quarters");
     await screen.findByText("Halves and quarters");
@@ -144,6 +157,11 @@ describe("classroom", () => {
     fireEvent.click(screen.getByRole("button", { name: /Finish/ }));
     expect(await screen.findByText(/Lesson finished/)).toBeTruthy();
     expect(getProgress(topicId)?.done).toBe(true);
+    const practice = await screen.findByRole("link", { name: /Start practice/ });
+    expect(practice.getAttribute("href")).toBe("/cbse/3/maths/fair-share/halves-and-quarters/practice");
+    fireEvent.click(screen.getByRole("button", { name: "Dismiss next-step tip" }));
+    expect(screen.queryByRole("complementary", { name: "What to do next" })).toBeNull();
+    expect(screen.getByRole("link", { name: /Start practice/ })).toBeTruthy();
   });
   it("is hidden when the admin switches it off", async () => {
     settings = { "feature.classroom": false };

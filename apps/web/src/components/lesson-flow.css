@@ -1,0 +1,8 @@
+.lesson-timeline { margin: .6rem 0 .8rem; }
+.lesson-timeline label { display: grid; grid-template-columns: 1fr auto; gap: .1rem .8rem; font-size: .88em; }
+.lesson-timeline input { grid-column: 1 / -1; width: 100%; min-height: 2.75rem; margin: 0; accent-color: var(--brand, #2d684f); touch-action: pan-y; cursor: pointer; }
+.lesson-next { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: .4rem .85rem; align-items: center; padding: .85rem 1rem; margin: .85rem 0; max-width: 23rem; border: 1px solid var(--brand, #2d684f); border-radius: .85rem; background: var(--paper, #fff); color: var(--ink); text-align: start; }
+.lesson-next .btn { grid-row: 2; justify-self: start; }
+.lesson-next-close { grid-area: 1 / 2; width: 2.75rem; height: 2.75rem; border: 0; border-radius: .5rem; background: transparent; color: inherit; font-size: 1.4rem; cursor: pointer; }
+.lesson-next-close:hover { background: color-mix(in srgb, currentColor 10%, transparent); }
+.lesson-next-link { margin-block: .55rem; }

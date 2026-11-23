@@ -17,7 +17,9 @@ import { getProgress, saveProgress, clearProgress } from "../lib/progress";
 
 const KIND: Record<ContentBlock["type"], UiKey> = { story: "kindStory", explanation: "kindIdea", worked_example: "kindExample", image: "kindPicture", diagram: "kindPicture", teacher_narration: "kindTeacher", quiz: "kindCheck", teach_back: "kindExplain", summary: "kindSummary" };
 export interface BarListen { playing: boolean; toggle: () => void }
-export interface PlayerLinks { chapterHref: string; nextHref: string | null; nextLabel: string | null; note?: { href: string; subject: { en: string; ta?: string } } }
+import { LessonPractice, Timeline } from "./LessonFlow";
+
+export interface PlayerLinks { topicHref?: string; chapterHref: string; nextHref: string | null; nextLabel: string | null; note?: { href: string; subject: { en: string; ta?: string } } }
 
 const paragraphs = (t: string) => t.split("\n").filter((p) => p.trim().length > 0);
 
@@ -165,6 +167,8 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
   const [resumed, setResumed] = useState(() => step > 0);
   const [done, setDone] = useState(false);
   const head = useRef<HTMLHeadingElement>(null);
+  const sections = useRef<Array<HTMLDivElement | null>>([]);
+  const timeline = useRef<HTMLDivElement>(null);
   const notes = useNotebook();
   const [listen, setListen] = useState<BarListen | null>(null);
   const register = useCallback((c: BarListen | null) => setListen((prev) => (c === null ? (prev === null ? prev : null) : prev && prev.playing === c.playing ? prev : c)), []);
@@ -173,7 +177,7 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
   const saved = !!notes[lesson.topicId];
 
   useEffect(() => { if (save && !done) saveProgress(lesson.topicId, { step, total, done: false }); }, [save, step, total, done, lesson.topicId]);
-  useEffect(() => { head.current?.focus({ preventScroll: false }); }, [step, done]);
+  useEffect(() => { if (!timeline.current?.contains(document.activeElement)) head.current?.focus(); }, [step, done]);
 
   const finish = useCallback(() => { setDone(true); if (save) saveProgress(lesson.topicId, { step: total - 1, total, done: true }); }, [save, lesson.topicId, total]);
   const go = useCallback((d: number) => { setResumed(false); setStep((n) => { const x = n + d; return Math.max(0, Math.min(total - 1, x)); }); }, [total]);
@@ -194,6 +198,7 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
         <h1 ref={head} tabIndex={-1}>{ui("lessonDone", lang)}</h1>
         {s.get("lesson.celebrate") && <p className="party" aria-hidden="true">★ ★ ★</p>}
         <p className="lead">{s.text("lesson.complete.message")}</p>
+        {links.topicHref && <LessonPractice topicHref={links.topicHref} fallback={{ href: links.nextHref ?? links.chapterHref, label: ui(links.nextHref ? "nextTopic" : "backToChapter", lang) }} />}
         <div className="actions">
           {links.nextHref && <Link className="btn" href={links.nextHref}>{ui("nextTopic", lang)}{links.nextLabel ? `: ${links.nextLabel}` : ""}</Link>}
           <Link className="btn ghost" href={links.chapterHref}>{ui("backToChapter", lang)}</Link>
@@ -205,7 +210,6 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
 
   const last = step === total - 1;
   const ask = s.get("feature.aiTutor") === true && s.get("tutor.inLessons") === true ? <AskTeacher topicId={lesson.topicId} about={s.name(lesson.title)} /> : null;
-  const pct = Math.round(((scroll ? total : step + 1) / total) * 100);
   const readable = s.get("lesson.readable") === true, bigNext = s.get("lesson.nextButton.big") === true;
   const split = s.get("lesson.split.enabled") === true && !scroll;
   const barListen = s.get("lesson.listen.inBar") === true && s.get("feature.teacherNarration") === true && blocks.some((b) => b.type === "teacher_narration");
@@ -218,22 +222,28 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
       </div>
       <h1 ref={head} tabIndex={-1}>{s.name(lesson.title)}</h1>
       {s.get("lesson.progress.bar") && (
-        <div className="meter" role="progressbar" aria-valuemin={0} aria-valuemax={total} aria-valuenow={scroll ? total : step + 1} aria-label={`${ui("stepOf", lang)} ${step + 1} ${ui("ofWord", lang)} ${total}`}>
-          <span style={{ width: `${pct}%` }} />
+        <div ref={timeline}>
+          <Timeline value={step} max={total - 1} step={1}
+            describe={at => `${ui("stepOf", lang)} ${at + 1} ${ui("ofWord", lang)} ${total} · ${ui(KIND[blocks[at]!.type], lang)}`}
+            onSeek={at => {
+              setResumed(false);
+              setStep(at);
+              if (scroll) sections.current[at]?.scrollIntoView({ block: "start" });
+            }} />
         </div>
       )}
       {!scroll && s.get("lesson.dots.show") === true && <StepDots total={total} step={step} lang={lang} />}
       {resumed && <p className="small" role="status">{ui("resumed", lang)}</p>}
       {scroll ? (
         <>
-          {blocks.map((b) => <Block key={b.id} block={b} questions={questions} pictures={pictures} />)}
+          {blocks.map((b, i) => <div key={b.id} ref={el => { sections.current[i] = el; }}><Block block={b} questions={questions} pictures={pictures} /></div>)}
           {ask}
           <div className="lesson-nav"><span /><button type="button" className="btn" onClick={finish}>{ui("finish", lang)}</button></div>
         </>
       ) : (
         <div className={split ? "lesson-grid" : undefined}>
          <div className="lesson-main">
-          <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>
+          {!s.get("lesson.progress.bar") && <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>}
           <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} pictures={pictures} register={register} />
           {!split && ask}
           <div className={bigNext ? "lesson-nav big-next" : "lesson-nav"}>

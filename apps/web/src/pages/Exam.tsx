@@ -6,6 +6,7 @@ import { ui } from "../lib/i18n";
 import { useBoard, useRetry } from "../lib/curriculum";
 import { sendAnswer, shuffled } from "../lib/practice";
 import { saveScore, scopeKey, useChapterPool, getScore } from "../lib/chapterTools";
+import { NextStep, nextChapter } from "../components/LessonFlow";
 import { QuestionCard } from "../components/QuestionCard";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
@@ -134,6 +135,7 @@ export function ExamPage() {
   if (phase === "marking") return <div className="paper"><p role="status">{ui("markingTest", lang)}</p></div>;
 
   if (failed) return <div className="paper"><ErrorBox onRetry={() => void finish(paper)} /></div>;
+  const next = nextChapter(sc.tree.data, sc.board, Number(sc.cls), sc.subject, sc.chapter, ui("nextChapter", lang));
   const right = marked.filter((m) => m.fb?.correct).length, pct = Math.round((right / Math.max(1, marked.length)) * 100), pass = pct >= s.get<number>("exams.passPercent");
   return (
     <div className="paper exam">
@@ -142,6 +144,7 @@ export function ExamPage() {
       {diag && <p className="lead" role="status">{startAt(marked, s.get<number>("exams.diagnostic.passPercent"), lang)}</p>}
       {!diag && <p>{pass ? `🎉 ${ui("testPassed", lang)}` : ui("testTryAgain", lang)}{saved?.isNewBest ? ` ${ui("newBest", lang)}` : ""}</p>}
       {timeUp && <p className="small">{ui("timeUp", lang)}</p>}
+      {!diag && next && <NextStep action={next} />}
       {s.get("exams.showReview") === true && (
         <ol className="review">
           {marked.map((m) => (

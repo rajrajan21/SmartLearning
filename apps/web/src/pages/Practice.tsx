@@ -6,6 +6,7 @@ import { ui, type UiKey } from "../lib/i18n";
 import { useBoard, useRetry, useTopic } from "../lib/curriculum";
 import { TopicTabs } from "../components/TopicTabs";
 import { pickRound, shuffled, saveRound, starsFor, usePractice, usePracticeResults } from "../lib/practice";
+import { NextStep, nextChapter, type NextLink } from "../components/LessonFlow";
 import { QuestionCard } from "../components/QuestionCard";
 import { subjectVar } from "../lib/theme";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
@@ -17,7 +18,7 @@ export function PracticePage() {
   const { board = "cbse", cls = "0", subject = "", chapter = "", topic = "" } = useParams<{ board: string; cls: string; subject: string; chapter: string; topic: string }>();
   const level = Number(cls);
   const [attempt, retry] = useRetry();
-  useBoard(board, attempt);
+  const tree = useBoard(board, attempt);
   const allowed = s.get<number[]>("catalog.openClasses").includes(level);
   const detail = useTopic(board, level, subject, chapter, topic);
   const on = s.get("feature.practice");
@@ -30,6 +31,7 @@ export function PracticePage() {
   if (detail.status === "loading" || set.status === "loading") return <Loading />;
   if (detail.status === "error" || set.status === "error") return <ErrorBox onRetry={retry} />;
   const d = detail.data, base = `/${board}/${level}/${d.subject.slug}`, topicHref = `${base}/${d.chapter.slug}/${d.topic.slug}`;
+  const next = tree.status === "ready" ? nextChapter(tree.data, board, level, subject, chapter, ui("nextChapter", s.lang)) : undefined;
   const crumbs = [{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { href: topicHref, label: s.name(d.topic.name) }, { label: ui("practiceTitle", s.lang) }];
   if (!set.data) return <div className="paper"><Crumbs items={crumbs} /><h1 className="cover-title"><Title name={d.topic.name} /></h1><p className="soon-note">{ui("practiceSoon", s.lang)}</p></div>;
 
@@ -63,13 +65,13 @@ export function PracticePage() {
         <QuickCheck key={run} pool={set.data.questions} onExit={() => setRound(null)} onStart={(r) => setRound(r)} />
       ) : (
         <Round key={`${round}-${run}`} topicId={set.data.topicId} round={round} pool={set.data.questions} per={per} pass={pass} nextRound={rounds[rounds.indexOf(round) + 1] ?? null}
-          onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} />
+          onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} nextChapterLink={next} />
       )}
     </div>
   );
 }
 
-function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, lessonHref }: { topicId: string; round: number; pool: PublicQuestion[]; per: number; pass: number; nextRound: number | null; onExit: () => void; onNext: (r: number) => void; lessonHref: string }) {
+function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, lessonHref, nextChapterLink }: { topicId: string; round: number; pool: PublicQuestion[]; per: number; pass: number; nextRound: number | null; onExit: () => void; onNext: (r: number) => void; lessonHref: string; nextChapterLink?: NextLink }) {
   const s = useSettings();
   const mix = s.get("practice.shuffleQuestions");
   const [list, setList] = useState<PublicQuestion[]>(() => pickRound(pool, round, per, mix));
@@ -113,6 +115,7 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
         <p className="lead">{ui("roundScore", s.lang)} {score.got} {ui("outOf", s.lang)} {score.total} ({score.pct}%)</p>
         {s.get("practice.stars") && <p className="stars big" role="img" aria-label={`${score.stars} ${ui("starsLabel", s.lang)}`}>{stars(score.stars)}</p>}
         {!passed && <p className="soon-note">{ui("notYetPassed", s.lang)}</p>}
+        {nextChapterLink && <NextStep action={nextChapterLink} />}
         <div className="actions">
           {missed.length > 0 && s.get("practice.allowRetry") && <button type="button" className="btn" onClick={() => { setList(missed); setMissed([]); setI(0); setRight(0); setFirst(false); }}>{ui("retryMissed", s.lang)}</button>}
           {passed && nextRound && <button type="button" className="btn" onClick={() => onNext(nextRound)}>{ui("nextRound", s.lang)}</button>}

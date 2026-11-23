@@ -312,6 +312,7 @@ export function LessonPage() {
         questions={checkpoints.status === "ready" && checkpoints.data ? checkpoints.data.questions : []}
         links={{
           chapterHref: `${base}/${d.chapter.slug}`,
+          topicHref: `${base}/${d.chapter.slug}/${d.topic.slug}`,
           nextHref: next ? `/${board}/${next.classLevel}/${next.subjectSlug}/${next.chapterSlug}/${next.topicSlug}` : null,
           nextLabel: next ? s.name(next.name) : null,
           note: { href: `${base}/${d.chapter.slug}/${d.topic.slug}/learn`, subject: d.subject.name },

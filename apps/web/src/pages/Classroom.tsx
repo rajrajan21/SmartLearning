@@ -1,3 +1,4 @@
+import { LessonPractice, Timeline } from "../components/LessonFlow";
 import { ReportProblem } from "../components/ReportProblem";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useAccountOptional } from "../lib/account";
@@ -137,6 +138,13 @@ export function ClassroomPage() {
   return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
 }
 
+const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;
+function timeIndex<T>(entries: readonly T[], at: number, start: (entry: T) => number) {
+  const next = entries.findIndex(entry => start(entry) > at);
+  return (next < 0 ? entries.length : next) - 1;
+}
+const timelineTime = (ms: number) => { const seconds = Math.floor(ms / 1000); return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`; };
+
 function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
   const s = useSettings();
   const { lang } = s;
@@ -168,9 +176,18 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
 
   const cur = lesson.steps[step]!;
   const text = cur.narration[narrationLang] ?? cur.narration.en;
-  const rec = mute ? undefined : cur.audio?.[narrationLang] ?? (narrationLang !== "en" ? undefined : cur.audio?.en);
+  const rec = recording(cur, narrationLang, mute);
   const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en);
   const words = rec?.words;
+  const timeline = useMemo(() => {
+    let total = 0;
+    const starts = lesson.steps.map(item => {
+      const start = total;
+      total += recording(item, narrationLang, mute)?.durationMs ?? estimateDurationMs(item.narration.en);
+      return start;
+    });
+    return { starts, total };
+  }, [lesson.steps, narrationLang, mute]);
 
   // refs so the animation loop never sees stale values
   const R = useRef({ phase, step, rate, mute, durMs, rec, lesson, autoAdvance, pauseMs, browserVoice });
@@ -200,7 +217,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     end();
   }, []);
 
-  const begin = useCallback((i: number) => {
+  const begin = useCallback((i: number, offset = 0, autoplay = true) => {
     recordLessonOpened(`classroom:${back}`);
     const topicId = R.current.lesson.topicId;
     if (topicId) {
@@ -211,12 +228,17 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     }
     run.current++; stopVoice(); clearTimer();
     const stp = R.current.lesson.steps[i]!;
-    tRef.current = 0; setT(0); setStep(i); setPicked(null); setWrongNote(null); setWordIdx(-1); setPhase("playing");
-    const rr = R.current.mute ? undefined : stp.audio?.[narrationLang] ?? stp.audio?.en;
-    speechDone.current = !(!rr && R.current.browserVoice && hasSpeech() && !R.current.mute);
+    const rr = recording(stp, narrationLang, R.current.mute);
+    const deviceVoice = !rr && R.current.browserVoice && hasSpeech() && !R.current.mute;
+    const start = deviceVoice ? 0 : offset;
+    tRef.current = start; setT(start); setStep(i); setPicked(null); setWrongNote(null); setTalking(false);
+    setWordIdx(rr ? timeIndex(rr.words, start, word => word.t) : -1);
+    setPhase(autoplay ? "playing" : "paused");
+    speechDone.current = !autoplay || !deviceVoice;
+    if (!autoplay) return;
     const id = run.current;
     bound.current = null;
-    if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); try { a.currentTime = 0; } catch { /* not loaded yet */ } a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { if (run.current === id && audioEl.current === a) audioEl.current = null; }); }
+    if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); a.currentTime = start / 1000; a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { if (run.current === id && audioEl.current === a) audioEl.current = null; }); }
     else if (!speechDone.current) {
       const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate;
       const total = stp.narration.en.length, dur = estimateDurationMs(stp.narration.en);
@@ -280,6 +302,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     if (phase === "idle" || phase === "done") { begin(0); return; }
     if (phase === "paused") {
       if (tRef.current >= durMs - 30) { if (step + 1 < lesson.steps.length) begin(step + 1); else setPhase("done"); return; }
+      if (!audioEl.current && speechDone.current) { begin(step, tRef.current); return; }
       setPhase("playing"); void audioEl.current?.play().catch(() => {}); if (hasSpeech()) speechSynthesis.resume(); return;
     }
   };
@@ -341,6 +364,12 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   }, [step, resume, started]);
   const nextPart = sections.find((x) => x.first > step);
   const savedSection = lesson.steps[seen.last]?.section;
+  const locate = (at: number) => Math.max(0, timeIndex(timeline.starts, at, start => start));
+  const seek = (at: number) => {
+    const i = locate(at);
+    setClock(at / 1000);
+    begin(i, Math.max(0, Math.min(at, (timeline.starts[i + 1] ?? timeline.total) - 1) - timeline.starts[i]!), phase === "playing" || phase === "gap");
+  };
 
   return (
     <div className="paper classroom" ref={frame} data-sample={related ? "true" : undefined}>
@@ -390,6 +419,10 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
         )}
       </div>
 
+      <Timeline value={phase === "done" ? timeline.total : timeline.starts[step]! + shownT} max={timeline.total}
+        describe={at => `${lesson.steps[locate(at)]?.section ?? L("stepOf") + " " + (locate(at) + 1)} · ${timelineTime(at)} / ${timelineTime(timeline.total)}`}
+        onSeek={seek} />
+      {phase === "done" && <LessonPractice topicHref={back} fallback={{ href: back.split("/").slice(0, -1).join("/"), label: L("backToChapter") }} />}
       <div className="class-controls" role="group" aria-label={L("classroomControls")}>
         {playing ? <button type="button" className="btn" onClick={pause}>⏸ {L("classroomPause")}</button> : <button type="button" className="btn" onClick={play} disabled={phase === "check" || phase === "feedback"}>▶ {started ? L("classroomResume") : L("classroomStart")}</button>}
         <button type="button" className="btn ghost" onClick={() => begin(step)} disabled={!started}>↺ {L("classroomReplay")}</button>
