@@ -210,6 +210,150 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "Four questions about food security",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 467,
+   "text": "Reliable food security needs all four dimensions.",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nstock",
+   "x": 56,
+   "y": 126,
+   "w": 386,
+   "h": 119,
+   "fill": "#DFECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nstockA",
+   "x": 249,
+   "y": 170,
+   "text": "Availability",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nstockB",
+   "x": 249,
+   "y": 212,
+   "text": "Is enough food supplied?",
+   "size": 18,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nreach",
+   "x": 458,
+   "y": 126,
+   "w": 386,
+   "h": 119,
+   "fill": "#DFECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nreachA",
+   "x": 651,
+   "y": 170,
+   "text": "Access",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nreachB",
+   "x": 651,
+   "y": 212,
+   "text": "Can people obtain it?",
+   "size": 18,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nuse",
+   "x": 56,
+   "y": 270,
+   "w": 386,
+   "h": 119,
+   "fill": "#DFECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nuseA",
+   "x": 249,
+   "y": 314,
+   "text": "Utilisation",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nuseB",
+   "x": 249,
+   "y": 356,
+   "text": "Is it safe and nutritious?",
+   "size": 18,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ntime",
+   "x": 458,
+   "y": 270,
+   "w": 386,
+   "h": 119,
+   "fill": "#E8F2DD",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ntimeA",
+   "x": 651,
+   "y": 314,
+   "text": "Stability",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntimeB",
+   "x": 651,
+   "y": 356,
+   "text": "Does this last over time?",
+   "size": 18,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -375,6 +519,109 @@
      "target": "cn",
      "at": 0.2,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "security1",
+   "narration": {
+    "en": "Food can be available in a market. Access asks whether people can afford it and reach it."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nstock",
+     "at": 0.19,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nstockA",
+     "at": 0.27
+    },
+    {
+     "do": "show",
+     "target": "nstockB",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "nreach",
+     "at": 0.56,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nreachA",
+     "at": 0.64
+    },
+    {
+     "do": "show",
+     "target": "nreachB",
+     "at": 0.7200000000000001
+    }
+   ]
+  },
+  {
+   "id": "security2",
+   "narration": {
+    "en": "Utilisation asks whether food is safe, provides needed nutrients and can support healthy living."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nuse",
+     "at": 0.32,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nuseA",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "nuseB",
+     "at": 0.48
+    }
+   ]
+  },
+  {
+   "id": "security3",
+   "narration": {
+    "en": "Stability asks whether those conditions last through the year and during disruptions. Food security needs the four dimensions together."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ntime",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ntimeA",
+     "at": 0.35000000000000003
+    },
+    {
+     "do": "show",
+     "target": "ntimeB",
+     "at": 0.43000000000000005
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.7,
+     "ms": 450
     }
    ]
   }
