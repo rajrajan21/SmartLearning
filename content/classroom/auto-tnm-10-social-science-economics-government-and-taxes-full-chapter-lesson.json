@@ -102,6 +102,116 @@
    "size": 17,
    "color": "warm",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "Read a simple government budget",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 461,
+   "text": "Fiscal deficit = ₹100 − ₹80 = ₹20",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nincome",
+   "x": 128,
+   "y": 117,
+   "w": 644,
+   "h": 80,
+   "fill": "#DFECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nincomeA",
+   "x": 174,
+   "y": 162,
+   "text": "Receipts other than borrowing",
+   "size": 22,
+   "color": "#16253F"
+  },
+  {
+   "kind": "text",
+   "id": "nincomeB",
+   "x": 667,
+   "y": 162,
+   "text": "₹80",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nspending",
+   "x": 128,
+   "y": 215,
+   "w": 644,
+   "h": 80,
+   "fill": "#DFECFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nspendingA",
+   "x": 174,
+   "y": 260,
+   "text": "Total expenditure",
+   "size": 22,
+   "color": "#16253F"
+  },
+  {
+   "kind": "text",
+   "id": "nspendingB",
+   "x": 667,
+   "y": 260,
+   "text": "₹100",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ngap",
+   "x": 128,
+   "y": 313,
+   "w": 644,
+   "h": 80,
+   "fill": "#E5F2E0",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ngapA",
+   "x": 174,
+   "y": 358,
+   "text": "Fiscal deficit",
+   "size": 22,
+   "color": "#16253F"
+  },
+  {
+   "kind": "text",
+   "id": "ngapB",
+   "x": 667,
+   "y": 358,
+   "text": "₹20",
+   "size": 24,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -185,6 +295,93 @@
      "target": "c0",
      "at": 0.2,
      "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "tax1",
+   "narration": {
+    "en": "Start with the receipts other than borrowing. This example has eighty rupees from sources such as taxes and fees."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nincome",
+     "at": 0.27,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nincomeA",
+     "at": 0.36
+    },
+    {
+     "do": "show",
+     "target": "nincomeB",
+     "at": 0.45
+    }
+   ]
+  },
+  {
+   "id": "tax2",
+   "narration": {
+    "en": "The example plans to spend one hundred rupees. Compare it with the eighty already available from non-borrowing receipts."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nspending",
+     "at": 0.25,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nspendingA",
+     "at": 0.33999999999999997
+    },
+    {
+     "do": "show",
+     "target": "nspendingB",
+     "at": 0.43
+    }
+   ]
+  },
+  {
+   "id": "tax3",
+   "narration": {
+    "en": "Subtract eighty from one hundred. The gap is twenty rupees. This is the fiscal deficit in the model."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ngap",
+     "at": 0.22,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ngapA",
+     "at": 0.31
+    },
+    {
+     "do": "show",
+     "target": "ngapB",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.68,
+     "ms": 450
     }
    ]
   }
