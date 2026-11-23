@@ -270,6 +270,153 @@
    "size": 17,
    "color": "warm",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 55,
+   "text": "Where peninsular rivers reach the sea",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 466,
+   "text": "Schematic river directions · no administrative boundaries",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nwest",
+   "x": 159,
+   "y": 253,
+   "text": "Arabian Sea",
+   "size": 23,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "neast",
+   "x": 742,
+   "y": 253,
+   "text": "Bay of Bengal",
+   "size": 23,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "ncoast",
+   "d": "M 267 101 L 289 149 L 308 187 L 329 239 L 353 289 L 388 340 L 442 420 L 482 379 L 513 330 L 547 285 L 576 237 L 628 191 L 674 146",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nnarmada",
+   "x1": 460,
+   "y1": 160,
+   "x2": 294,
+   "y2": 153,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ntapi",
+   "x1": 446,
+   "y1": 190,
+   "x2": 310,
+   "y2": 185,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ngodavari",
+   "x1": 352,
+   "y1": 208,
+   "x2": 568,
+   "y2": 237,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "nkrishna",
+   "x1": 373,
+   "y1": 257,
+   "x2": 547,
+   "y2": 285,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ncauvery",
+   "x1": 392,
+   "y1": 324,
+   "x2": 506,
+   "y2": 346,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nnarmadaT",
+   "x": 426,
+   "y": 149,
+   "text": "Narmada",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntapiT",
+   "x": 419,
+   "y": 183,
+   "text": "Tapi",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ngodavariT",
+   "x": 493,
+   "y": 212,
+   "text": "Godavari",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nkrishnaT",
+   "x": 488,
+   "y": 267,
+   "text": "Krishna",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncauveryT",
+   "x": 456,
+   "y": 323,
+   "text": "Cauvery",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -465,6 +612,116 @@
      "target": "c0",
      "at": 0.2,
      "color": "good"
+    }
+   ]
+  },
+  {
+   "id": "drainage1",
+   "narration": {
+    "en": "Imagine the Indian peninsula with north at the top. The Arabian Sea lies to the west, and the Bay of Bengal lies to the east."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "ncoast",
+     "at": 0.19,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nwest",
+     "at": 0.43
+    },
+    {
+     "do": "show",
+     "target": "neast",
+     "at": 0.69
+    }
+   ]
+  },
+  {
+   "id": "drainage2",
+   "narration": {
+    "en": "Trace the Godavari, Krishna and Cauvery towards the east coast. Their waters reach the Bay of Bengal."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ngodavari",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ngodavariT",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "nkrishna",
+     "at": 0.34,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nkrishnaT",
+     "at": 0.42
+    },
+    {
+     "do": "draw",
+     "target": "ncauvery",
+     "at": 0.53,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ncauveryT",
+     "at": 0.61
+    }
+   ]
+  },
+  {
+   "id": "drainage3",
+   "narration": {
+    "en": "Trace two rivers in the opposite direction. The Narmada and Tapi flow west towards the Arabian Sea. These arrows show broad directions."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nnarmada",
+     "at": 0.14,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nnarmadaT",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "ntapi",
+     "at": 0.35,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ntapiT",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.75,
+     "ms": 450
     }
    ]
   }
