@@ -195,7 +195,7 @@ export function createApp(deps: AppDeps) {
 
   app.use("/api/v1/lessons", lessonRoutes(deps.lessons, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
 
-  if (deps.classroom) app.use("/api/v1/classroom", classroomRoutes(deps.classroom, async () => (await deps.settings.all())["feature.classroom"] === true, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"])));
+  if (deps.classroom) app.use("/api/v1/classroom", classroomRoutes(deps.classroom, async () => (await deps.settings.all())["feature.classroom"] === true, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"]), deps.curriculum));
 
   app.use("/api/v1/practice", practiceRoutes(deps.practice, async () => Number((await deps.settings.all())["site.cache.maxAgeSeconds"]), async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null), async (req) => {
     if (!deps.accounts) return false;

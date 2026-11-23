@@ -27,7 +27,7 @@ interface Ctx {
   addChild(c: ChildInput): Promise<Result>;
   updateChild(id: string, c: ChildInput): Promise<Result>;
   removeChild(id: string): Promise<Result>;
-  select(id: string): Promise<Result>;
+  select(id: string, childMode?: boolean): Promise<Result>;
   deleteAccount(password: string): Promise<Result>;
 }
 const AccountContext = createContext<Ctx | null>(null);
@@ -37,9 +37,9 @@ export const useAccount = () => { const c = useContext(AccountContext); if (!c) 
 
 const OWNER = "ss_sync_owner";
 const API = "/api/v1/account";
-async function call(method: string, path: string, body?: unknown): Promise<{ ok: boolean; status: number; data: unknown }> {
+async function call(method: string, path: string, body?: unknown, profile?: string): Promise<{ ok: boolean; status: number; data: unknown }> {
   try {
-    const r = await fetch(`${API}${path}`, { method, headers: body === undefined ? undefined : { "content-type": "application/json" }, body: body === undefined ? undefined : JSON.stringify(body) });
+    const r = await fetch(`${API}${path}`, { method, headers: { ...(body === undefined ? {} : { "content-type": "application/json" }), ...(profile ? { "x-study-profile": profile } : {}) }, body: body === undefined ? undefined : JSON.stringify(body) });
     const text = r.status === 204 ? "" : await r.text();
     return { ok: r.ok, status: r.status, data: text ? JSON.parse(text) : null };
   } catch { return { ok: false, status: 0, data: null }; }
@@ -65,26 +65,33 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   }, [on]);
 
   const push = useCallback(async (): Promise<boolean> => {
+    if (!activeId || store.get(OWNER) !== activeId) return false;
     setSync("syncing");
-    const r = await call("PUT", "/sync", local());
+    const r = await call("PUT", "/sync", local(), activeId);
     setSync(r.ok ? "saved" : "offline");
     return r.ok;
-  }, []);
+  }, [activeId]);
 
   // When a child becomes the active learner: bring their saved progress here (merging this device's own only if it is not another child's).
   useEffect(() => {
     if (!on || !activeId) return;
     let alive = true;
     (async () => {
+      const owner = store.get(OWNER);
+      if (owner && owner !== activeId) {
+        adopting.current = true;
+        writeLocal(emptySync());
+        adopting.current = false;
+      }
+      store.set(OWNER, activeId);
       setSync("syncing");
       const r = await call("GET", "/sync");
       if (!alive) return;
       if (!r.ok) { setSync("offline"); return; }
       const server = SyncData.parse(r.data);
-      const owner = store.get(OWNER);
-      const merged = owner && owner !== activeId ? server : mergeSync(local(), server); // never leak one child's progress into another's
+      if (store.get(OWNER) !== activeId) return;
+      const merged = mergeSync(local(), server);
       adopting.current = true; writeLocal(merged); adopting.current = false;
-      store.set(OWNER, activeId);
       await push();
     })();
     return () => { alive = false; };
@@ -117,14 +124,24 @@ export function AccountProvider({ children }: { children: ReactNode }) {
     childQuestion: async (email, nickname) => { const r = await call("POST", "/child-question", { email, nickname }); return r.ok ? ((r.data as { question: string | null }).question ?? null) : null; },
     setContacts: async (c) => accept(await call("PUT", "/contacts", { fatherEmail: c.fatherEmail ?? "", motherEmail: c.motherEmail ?? "" })),
     login: async (email, password) => accept(await call("POST", "/login", { email, password })),
-    logout: async () => { await call("POST", "/logout", {}); clearDevice(); setMe(null); }, // progress stays safe in the account; the shared device starts clean
+    logout: async () => {
+      if (activeId && store.get(OWNER) === activeId) await push();
+      await call("POST", "/logout", {});
+      clearDevice();
+      setMe(null);
+    },
     addChild: async (c) => accept(await call("POST", "/children", c)),
     updateChild: async (id, c) => accept(await call("PUT", `/children/${id}`, c)),
     removeChild: async (id) => accept(await call("DELETE", `/children/${id}`)),
-    select: async (id) => accept(await call("POST", `/children/${id}/select`, {})),
+    select: async (id, childMode = false) => {
+      // Flush the current learner before the server changes where subsequent writes go.
+      if (activeId && store.get(OWNER) === activeId && !(await push())) return { ok: false, message: "Could not save the current learner. Please try again." };
+      const r = await call("POST", `/children/${id}/select`, { childMode });
+      if (r.ok && activeId && id !== activeId) clearDevice();
+      return accept(r);
+    },
     deleteAccount: async (password) => { const r = await call("POST", "/delete", { password }); if (r.ok) { clearDevice(); setMe(null); return { ok: true }; } return { ok: false, message: messageOf(r) }; },
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }), [me, activeId, sync]);
-  void emptySync;
+  }), [me, activeId, sync, push]);
   return <AccountContext.Provider value={ctx}>{children}</AccountContext.Provider>;
 }

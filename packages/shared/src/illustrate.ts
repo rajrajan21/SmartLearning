@@ -23,7 +23,14 @@ const RAW: Record<string, string> = {
   king: "👑", queen: "👑", crown: "👑", castle: "🏰", fort: "🏰", palace: "🏯", mosque: "🕌", church: "⛪", globe: "🌐", parliament: "🏛️", court: "⚖️", vote: "🗳️", election: "🗳️", police: "👮", soldier: "🪖", scroll: "📜", pottery: "🏺", jewel: "💎", gold: "🪙", silver: "🪙", arrow: "🏹", sword: "⚔️", shield: "🛡️", trade: "🛒", harvest: "🌾", crop: "🌾", field: "🌾", canal: "🏞️", well: "🪣", pond: "💧", lake: "🏞️", waterfall: "🏞️", coast: "🏖️", beach: "🏖️", hill: "⛰️", valley: "🏞️", plateau: "⛰️", plain: "🌾", monument: "🏛️", statue: "🗿", newspaper: "📰", letter: "✉️", post: "📮", tower: "🗼", ladder: "🪜", tent: "⛺", cave: "🕳️",
 };
 // words that are not worth a picture on their own: ideas, actions and feelings are said, not drawn
-const SKIP = new Set(["plastic", "pot", "cell", "scale", "post", "field", "well", "spring", "sky", "sound", "cotton", "side", "edge", "corner", "number", "count", "time", "light", "air", "shape", "group", "pair", "share", "add", "plus", "minus", "subtract", "multiply", "divide", "equal", "season", "people", "plastic", "waste", "reduce", "reuse", "colour", "color", "page", "drop", "play", "think", "laugh", "smile", "happy", "sad", "angry", "cry", "dream", "cut", "wash", "clean", "run", "walk", "jump", "sing", "dance", "swim", "exercise", "sleep", "sick", "wave", "half", "quarter", "key", "ice", "wind", "wall", "skin", "pen", "map", "bell", "state", "family", "friend", "child", "children", "kid", "man", "woman", "boy", "girl", "finger", "hand", "foot", "eye", "ear", "nose", "mouth", "book", "paper", "table", "chair", "box", "ball"]);
+const SKIP = new Set(["plastic", "pot", "cell", "scale", "post", "field", "well", "spring", "sky", "sound", "cotton", "side", "edge", "corner", "number", "count", "time", "light", "air", "shape", "group", "pair", "share", "add", "plus", "minus", "subtract", "multiply", "divide", "equal", "season", "people", "plastic", "waste", "reduce", "reuse", "colour", "color", "page", "drop", "play", "think", "laugh", "smile", "happy", "sad", "angry", "cry", "dream", "cut", "wash", "clean", "run", "walk", "jump", "sing", "dance", "swim", "exercise", "sleep", "sick", "wave", "half", "quarter", "key", "ice", "wind", "wall", "skin", "pen", "map", "bell", "state", "family", "friend", "child", "children", "kid", "man", "woman", "boy", "girl", "finger", "hand", "foot", "eye", "ear", "nose", "mouth", "book", "paper", "table", "chair", "box", "ball", "root", "cone", "pyramid", "cylinder", "iron", "pulley", "lever", "court", "plain", "arrow", "market", "bat", "plane", "cycle", "train", "park", "orange", "salt", "crown", "seed"]);
+// Require an explicit sense for words that otherwise produce a misleading picture.
+function pictureFor(word: string, context: string): string | undefined {
+  if (word !== "letter") return RAW[word];
+  if (/\b(?:alphabet|vowels?|consonants?|spell(?:ing)?|[a-z]+case|letters? (?:in|of|make)|(?:count|counting|most|fewest|capital|small) (?:the )?letters?|names? (?:are|is) made of letters?)\b/i.test(context)) return "A B C";
+  if (/\b(?:envelopes?|post(?:al|man|box| office)|mail(?:ed|ing|box)|(?:send|sent|write|wrote|receive|received) (?:a |the )?letters?)\b/i.test(context)) return RAW.letter;
+  return undefined;
+}
 const STOP = new Set(["the", "a", "an", "and", "of", "to", "in", "is", "are"]);
 const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];
 
@@ -38,11 +45,12 @@ export function picturesFor(text: string, max = 2): Pic[] {
   const out: Pic[] = []; const seen = new Set<string>();
   for (let i = 0; i < toks.length; i++) {
     const raw = toks[i]!; const w = stem(raw.toLowerCase());
-    if (STOP.has(w) || SKIP.has(w) || !RAW[w] || seen.has(w)) continue;
-    if (out.some((x) => x.emoji === RAW[w])) continue;
+    if (STOP.has(w) || SKIP.has(w) || seen.has(w)) continue;
+    const emoji = pictureFor(w, toks.slice(Math.max(0, i - 7), i + 8).join(" "));
+    if (!emoji || out.some((x) => x.emoji === emoji)) continue;
     seen.add(w);
     const prev = toks[i - 1]?.toLowerCase() ?? ""; const n = /^\d+$/.test(prev) ? Number(prev) : WORDS.indexOf(prev);
-    out.push({ emoji: RAW[w]!, word: w, count: n >= 2 && n <= 10 && !SHAPES.has(w) ? n : 1, at: raw });
+    out.push({ emoji, word: w, count: w !== "letter" && n >= 2 && n <= 10 && !SHAPES.has(w) ? n : 1, at: raw });
     if (out.length >= max) break;
   }
   return out;

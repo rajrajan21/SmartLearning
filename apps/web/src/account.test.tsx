@@ -27,7 +27,7 @@ function mount(path: string, settings: Record<string, unknown> = {}) {
     if (url.endsWith("/login")) { if (body.password !== "right-password") return ok({ error: { message: "Email or password is not right." } }, 401); signedIn = id1; return ok(meWith(id1)); }
     if (url.endsWith("/register")) { signedIn = id1; return ok(meWith(id1), 201); }
     if (url.endsWith("/logout")) { signedIn = false; return new Response(null, { status: 204 }); }
-    if (url.includes("/select")) { signedIn = url.includes(id2) ? id2 : id1; return ok(meWith(signedIn)); }
+    if (url.includes("/select")) { signedIn = url.includes(id2) ? id2 : id1; return ok(body.childMode ? { ...meWith(signedIn), childMode: true, profiles: meWith(signedIn).profiles.filter(p => p.id === signedIn) } : meWith(signedIn)); }
     if (url.endsWith("/sync") && method === "GET") return ok(serverSync);
     if (url.endsWith("/sync") && method === "PUT") return ok(body);
     return new Response("{}", { status: 404 });
@@ -96,10 +96,20 @@ describe("accounts", () => {
     expect(JSON.parse(localStorage.getItem("ss_progress_v1") ?? "{}")).toEqual({});
   });
 
-  it("header shows the learner, and everything disappears when accounts are switched off", async () => {
+  it("hides parent controls after entering student mode", async () => {
+    signedIn = id1;
+    mount("/account");
+    fireEvent.click((await screen.findAllByRole("button", { name: "Start student mode" }))[0]!);
+    await screen.findByText("Riya", { selector: ".acct-link" });
+    expect(screen.queryByRole("button", { name: "Edit" })).toBeNull();
+    expect(screen.queryByRole("button", { name: "Remove" })).toBeNull();
+    expect(screen.queryByRole("link", { name: /Parent dashboard/ })).toBeNull();
+  });
+
+  it("header shows the parent account, and everything disappears when accounts are switched off", async () => {
     signedIn = id1;
     mount("/");
-    await screen.findByText("Riya", { selector: ".acct-link" });
+    await waitFor(() => expect(screen.getByText("Account", { selector: ".acct-link" })).toBeTruthy());
     cleanup();
     mount("/account", { "feature.accounts": false });
     await screen.findByText(/could not find that page/i);

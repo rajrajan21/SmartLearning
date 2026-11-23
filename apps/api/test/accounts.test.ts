@@ -65,6 +65,23 @@ describe("accounts API", () => {
     expect(last).toBe(429);
   });
 
+  it("locks an existing parent session to a single learner in student mode", async () => {
+    const { cookie, r } = await signUp();
+    const id = r.body.activeProfileId;
+    await request(app).post("/api/v1/account/children").set("Cookie", cookie).send({ nickname: "Sibling", classLevel: 5 }).expect(201);
+    const selected = await request(app).post(`/api/v1/account/children/${id}/select`).set("Cookie", cookie).send({ childMode: true }).expect(200);
+    expect(selected.body.childMode).toBe(true);
+    expect(selected.body.profiles.map((p: { id: string }) => p.id)).toEqual([id]);
+    expect(selected.body.user.email).toBe("");
+    await request(app).put(`/api/v1/account/children/${id}`).set("Cookie", cookie).send({}).expect(403);
+    await request(app).delete(`/api/v1/account/children/${id}`).set("Cookie", cookie).expect(403);
+    await request(app).post(`/api/v1/account/children/${id}/select`).set("Cookie", cookie).send({}).expect(403);
+    await request(app).get("/api/v1/account/dashboard").set("Cookie", cookie).expect(403);
+    await request(app).get("/api/v1/account/export").set("Cookie", cookie).expect(403);
+    await request(app).put("/api/v1/account/sync").set("Cookie", cookie).set("X-Study-Profile", "another-profile").send({}).expect(409);
+    await request(app).put("/api/v1/account/sync").set("Cookie", cookie).set("X-Study-Profile", id).send({}).expect(200);
+  });
+
   it("adds, switches, edits and removes children, up to the admin's limit, and only your own", async () => {
     const { cookie, r } = await signUp();
     const add = await request(app).post("/api/v1/account/children").set("Cookie", cookie).send({ nickname: "Arun", classLevel: 3, avatar: "lion", language: "ta" });

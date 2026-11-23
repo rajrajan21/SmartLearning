@@ -132,7 +132,9 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
   }));
   r.post("/children/:id/select", needSession, parentOnly, guard(async (req, res) => {
     const id = z.string().uuid().safeParse(req.params.id); if (!id.success) return err(res, 400, "bad_request", "Invalid child");
-    res.json(await svc.select(auth(res).session, auth(res).token, id.data));
+    const choice = z.object({ childMode: z.boolean().optional() }).safeParse(req.body ?? {});
+    if (!choice.success) return bad(res, choice.error);
+    res.json(await svc.select(auth(res).session, auth(res).token, id.data, choice.data.childMode));
   }));
 
   r.post("/delete", sensitive, needSession, parentOnly, guard(async (req, res) => {
@@ -156,7 +158,10 @@ export function accountRoutes(svc: AccountService, settings: SettingsService, se
   r.get("/sync", needSession, guard(async (req, res) => void res.json(await svc.getSync(auth(res).session))));
   r.put("/sync", rateLimit({ windowMs: 60_000, max: 60 }), needSession, guard(async (req, res) => {
     const b = SyncData.safeParse(req.body); if (!b.success) return bad(res, b.error);
-    res.json(await svc.putSync(auth(res).session, b.data));
+    const session = auth(res).session;
+    const profile = req.get("x-study-profile");
+    if (profile && profile !== session.studentId) return err(res, 409, "conflict", "The active learner changed. Refresh and try again.");
+    res.json(await svc.putSync(session, b.data));
   }));
   return r;
 }

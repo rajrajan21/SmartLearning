@@ -116,7 +116,7 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         a.push({ do: "draw", target: o, ...(when.on ? { on: when.on } : { at: when.at }), ms: 800 } as ClassAction);
         const l = id("c"); objects.push({ kind: "text", id: l, x: cx, y: y + 100, text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction);
         return;
-      } else { const o = id("p"); ids.push(o); objects.push({ kind: "text", id: o, x: cx, y: cy + size * 0.35, text: it.emoji, size, anchor: "middle" } as BoardObject); }
+      } else { const o = id("p"); ids.push(o); objects.push({ kind: "text", id: o, x: cx, y: cy + size * 0.35, text: it.emoji, size: it.emoji === "A B C" ? 68 : size, anchor: "middle" } as BoardObject); }
       ids.forEach((o, k) => a.push({ do: "write", target: o, ...(when.on ? { on: when.on } : { at: (when.at ?? 0.1) + k * 0.02 }), ms: 350 } as ClassAction));
       let lab = ""; if (it.word) { const l = id("c"); lab = l; objects.push({ kind: "text", id: l, x: cx, y: cy + size * 0.35 + (it.count > 1 ? 70 : 52), text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction); }
       if (BRIEF.has(it.word)) { for (const o of ids) a.push({ do: "hide", target: o, at: 0.62 } as ClassAction); if (lab) a.push({ do: "hide", target: lab, at: 0.62 } as ClassAction); }

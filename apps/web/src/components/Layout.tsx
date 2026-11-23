@@ -88,7 +88,7 @@ export function Layout({ children }: { children: ReactNode }) {
           )}
           {showAcct && (
             <Link href="/account" className="btn ghost acct-link">
-              {acct?.active ? <><span aria-hidden="true">{AVATAR_EMOJI[acct.active.avatar] ?? "🙂"}</span> {acct.active.nickname}</> : acct?.me ? ui("account", lang) : ui("signIn", lang)}
+              {acct?.me?.childMode && acct.active ? <><span aria-hidden="true">{AVATAR_EMOJI[acct.active.avatar] ?? "🙂"}</span> {acct.active.nickname}</> : acct?.me ? ui("account", lang) : ui("signIn", lang)}
             </Link>
           )}
         </nav>

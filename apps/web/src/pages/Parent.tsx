@@ -214,7 +214,7 @@ export function ParentPage() {
   const on = s.get("feature.parentDashboard") === true;
 
   useEffect(() => {
-    if (!on || !acct.me) return;
+    if (!on || !acct.me || acct.me.childMode) return;
     let alive = true;
     fetch(`/api/v1/account/dashboard?tz=${new Date().getTimezoneOffset()}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
@@ -231,10 +231,10 @@ export function ParentPage() {
       .catch(() => { if (alive) setData("error"); });
     return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [on, acct.me?.user.id, attempt]);
+  }, [on, acct.me?.user.id, acct.me?.childMode, attempt]);
 
   const kids = useMemo(() => (data && data !== "error" ? data.children : []), [data]);
-  if (!on) return <NotFound />;
+  if (!on || acct.me?.childMode) return <NotFound />;
   if (acct.me === undefined) return <Loading />;
   if (!acct.me) return <div className="paper"><h1>{ui("parentArea", lang)}</h1><p>{ui("parentSignIn", lang)}</p><Link className="btn" href="/account">{ui("signIn", lang)}</Link></div>;
   if (data === "error") return <ErrorBox onRetry={retry} />;

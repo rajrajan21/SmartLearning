@@ -1,3 +1,4 @@
+import { picturesFor } from "../src/illustrate.js";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -59,4 +60,11 @@ describe("composeClassroom", () => {
       sceneAt(out, out.steps.length - 1, 99999, { durMs: 5000 }); // the whole lesson plays through
     }
   });
+});
+
+
+it("draws letters as alphabet symbols or postal mail according to the sentence", () => {
+  expect(picturesFor("Names are made of letters, and we can count the letters in a name.")[0]?.emoji).toBe("A B C");
+  expect(picturesFor("Write a letter and put it in an envelope.")[0]?.emoji).toBe("✉️");
+  expect(picturesFor("Consider these letters.")).toEqual([]);
 });

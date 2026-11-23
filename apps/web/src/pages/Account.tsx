@@ -192,6 +192,12 @@ function SignedIn() {
   const acct = useAccount();
   const me = acct.me!;
   const [editing, setEditing] = useState<string | "new" | null>(null);
+  const [entering, setEntering] = useState(false), [switchError, setSwitchError] = useState("");
+  const startStudent = async (id: string) => {
+    setEntering(true); setSwitchError("");
+    try { const result = await acct.select(id, true); if (!result.ok) setSwitchError(result.message); }
+    finally { setEntering(false); }
+  };
   const [confirmRemove, setConfirmRemove] = useState<string | null>(null);
   const [delOpen, setDelOpen] = useState(false), [pw, setPw] = useState(""), [delErr, setDelErr] = useState("");
   const max = s.get<number>("accounts.maxChildren");
@@ -208,6 +214,8 @@ function SignedIn() {
     <div className="paper acct">
       <h1>{ui("whoLearning", lang)}</h1>
       <p className="small">{me.user.email}</p>
+      {me.profiles.length > 0 && <p className="small">{lang === "ta" ? "குழந்தையிடம் கொடுக்கும் முன் மாணவர் முறையைத் தொடங்குங்கள்." : "Start student mode before handing the device to a child. To manage profiles again, sign out and sign in as a parent."}</p>}
+      {switchError && <p role="alert">{switchError}</p>}
       <ul className="kids">
         {me.profiles.map((p) => (
           <li key={p.id} className={p.id === me.activeProfileId ? "kid on" : "kid"}>
@@ -216,7 +224,7 @@ function SignedIn() {
                 <span className="kid-av" aria-hidden="true">{AVATAR_EMOJI[p.avatar] ?? "🙂"}</span>
                 <div className="kid-info"><b>{p.nickname}</b><span className="small">{ui("classWord", lang)} {p.classes.length > 1 ? p.classes.join(", ") : p.classLevel}{p.hasPin ? ` · ${st("hasPin", lang)}` : ""}{p.id === me.activeProfileId ? ` · ${ui("learningNow", lang)}` : ""}</span></div>
                 <div className="kid-actions">
-                  {p.id !== me.activeProfileId && <button type="button" className="btn sm" onClick={() => void acct.select(p.id)}>{ui("chooseThis", lang)}</button>}
+                  <button type="button" className="btn sm" disabled={entering} onClick={() => void startStudent(p.id)}>{lang === "ta" ? "மாணவர் முறையைத் தொடங்கு" : "Start student mode"}</button>
                   <button type="button" className="btn ghost sm" onClick={() => setEditing(p.id)}>{ui("edit", lang)}</button>
                   {confirmRemove === p.id ? (
                     <span role="alert" className="confirm"><span className="small">{ui("removeChildAsk", lang)}</span> <button type="button" className="btn sm danger" onClick={() => { setConfirmRemove(null); void acct.removeChild(p.id); }}>{ui("remove", lang)}</button> <button type="button" className="btn ghost sm" onClick={() => setConfirmRemove(null)}>{ui("cancel", lang)}</button></span>

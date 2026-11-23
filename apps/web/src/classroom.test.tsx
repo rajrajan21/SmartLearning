@@ -8,7 +8,12 @@ import { Layout } from "./components/Layout";
 import { Routes } from "./App";
 import { useClassroom } from "./lib/classroom";
 
+import { getProgress } from "./lib/progress";
+import { dayNumber } from "./lib/streak";
+
+const topicId = "752e3212-58ce-4c0f-98bc-890d594339ca";
 const lesson = {
+  topicId,
   board: "CBSE", classLevel: 3, subject: "maths", chapter: "fair-share", topic: "halves-and-quarters", status: "published", title: { en: "Halves and quarters" },
   objects: [{ kind: "circle", id: "whole", cx: 250, cy: 270, r: 160 }, { kind: "text", id: "t", x: 600, y: 100, text: "1 whole" }],
   steps: [
@@ -115,6 +120,9 @@ describe("classroom", () => {
     await screen.findByText("Halves and quarters");
     fireEvent.click(screen.getAllByRole("button", { name: /Start the lesson/ })[0]!);
     expect(await screen.findByText(/Step 1 of 2/)).toBeTruthy();
+    const started = getProgress(topicId);
+    expect(started?.done).toBe(false);
+    expect(dayNumber(started!.updatedAt)).toBe(dayNumber(Date.now()));
     expect(screen.getByRole("button", { name: /Pause/ })).toBeTruthy();
   });
   it("pauses at the question until it is answered, explains a wrong answer, then continues", async () => {
@@ -135,6 +143,7 @@ describe("classroom", () => {
     expect(await screen.findByText(/Four quarters make one whole/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: /Finish/ }));
     expect(await screen.findByText(/Lesson finished/)).toBeTruthy();
+    expect(getProgress(topicId)?.done).toBe(true);
   });
   it("is hidden when the admin switches it off", async () => {
     settings = { "feature.classroom": false };

@@ -28,7 +28,7 @@ export interface AccountService {
   addChild(sess: Session, c: ChildData, l: Limits): Promise<Me>;
   updateChild(sess: Session, id: string, c: ChildData): Promise<Me>;
   removeChild(sess: Session, id: string, token: string): Promise<Me>;
-  select(sess: Session, token: string, id: string): Promise<Me>;
+  select(sess: Session, token: string, id: string, childMode?: boolean): Promise<Me>;
   deleteAccount(sess: Session, password: string): Promise<void>;
   getSync(sess: Session): Promise<SyncData>;
   putSync(sess: Session, d: SyncData): Promise<SyncData>;
@@ -180,10 +180,12 @@ export function createAccountService(db: Db): AccountService {
       return build(sess.userId, next);
     },
 
-    async select(sess, token, id) {
+    async select(sess, token, id, childMode = false) {
+      if (sess.child) throw new AccountError("Ask your parent to do this.", 403);
       if (!(await owns(sess.userId, id))) throw new AccountError("Child not found", 404);
-      await db.update(s.sessions).set({ studentId: id }).where(eq(s.sessions.tokenHash, hashToken(token)));
-      return build(sess.userId, id);
+      const [selected] = await db.update(s.sessions).set({ studentId: id, child: childMode }).where(and(eq(s.sessions.tokenHash, hashToken(token)), eq(s.sessions.child, false), gt(s.sessions.expiresAt, new Date()))).returning({ studentId: s.sessions.studentId });
+      if (!selected) throw new AccountError("Please sign in as a parent.", 403);
+      return build(sess.userId, id, childMode);
     },
 
     async deleteAccount(sess, password) {

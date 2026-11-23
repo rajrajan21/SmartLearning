@@ -1,3 +1,4 @@
+import { useAccountOptional } from "../lib/account";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { detectPhone, resolveApp, setThemePref, setViewPref, useThemePref, useViewPref, type ThemePref } from "../lib/appview";
@@ -21,6 +22,7 @@ export function InstallCard() {
 /** Colours (Light / Dark / Auto), text size, language and the app / full-website switch. */
 export function MeSettings({ compact = false }: { compact?: boolean }) {
   const s = useSettings();
+  const parent = useAccountOptional()?.me?.childMode === false;
   const pref = useThemePref();
   const [view] = useViewPref();
   const app = resolveApp({ enabled: s.get("app.view.enabled") === true, auto: s.get("app.view.autoPhone") === true, pref: view, phone: detectPhone() });
@@ -53,7 +55,7 @@ export function MeSettings({ compact = false }: { compact?: boolean }) {
       {!compact && app && s.get("app.me.links.show") === true && (
         <ul className="me-links">
           {s.get("notebook.enabled") === true && s.get("feature.lessons") === true && <li><Link href="/notebook" className="btn ghost">📓 {ui("meNotebookLink", s.lang)} ({Object.keys(notes).length})</Link></li>}
-          {s.get("feature.accounts") === true && s.get("feature.parentDashboard") === true && <li><Link href="/parent" className="btn ghost">👪 {ui("meParentLink", s.lang)}</Link></li>}
+          {parent && s.get("feature.accounts") === true && s.get("feature.parentDashboard") === true && <li><Link href="/parent" className="btn ghost">👪 {ui("meParentLink", s.lang)}</Link></li>}
         </ul>
       )}
       {compact ? <InstallTrigger /> : <InstallCard />}

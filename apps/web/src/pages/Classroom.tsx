@@ -1,5 +1,8 @@
 import { ReportProblem } from "../components/ReportProblem";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
+import { useAccountOptional } from "../lib/account";
+import { getProgress, saveProgress } from "../lib/progress";
+import { dayNumber } from "../lib/streak";
 import { recordLessonOpened } from "../lib/lesson-guide";
 import { Link, useParams } from "wouter";
 import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
@@ -116,6 +119,7 @@ export function ClassroomHub() {
 
 export function ClassroomPage() {
   const s = useSettings();
+  const profile = useAccountOptional()?.me?.activeProfileId ?? "guest";
   const { board = "", cls = "", subject = "", chapter = "", topic = "" } = useParams<{ board: string; cls: string; subject: string; chapter: string; topic: string }>();
   const on = s.get("feature.classroom") === true;
   const [attempt, retry] = useRetry();
@@ -130,10 +134,10 @@ export function ClassroomPage() {
   if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
-  return <Player lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
+  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
 }
 
-function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
+function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
   const s = useSettings();
   const { lang } = s;
   const narrationLang = related ? "en" : lang;
@@ -198,6 +202,13 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
 
   const begin = useCallback((i: number) => {
     recordLessonOpened(`classroom:${back}`);
+    const topicId = R.current.lesson.topicId;
+    if (topicId) {
+      const progress = getProgress(topicId);
+      if (!progress || dayNumber(progress.updatedAt) !== dayNumber(Date.now())) {
+        saveProgress(topicId, { step: progress?.step ?? 0, total: progress?.total ?? 1, done: progress?.done ?? false });
+      }
+    }
     run.current++; stopVoice(); clearTimer();
     const stp = R.current.lesson.steps[i]!;
     tRef.current = 0; setT(0); setStep(i); setPicked(null); setWrongNote(null); setWordIdx(-1); setPhase("playing");
@@ -308,12 +319,17 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related }: { l
   const tokens = text.split(/\s+/);
   const wordsMatch = !!words && words.length === tokens.length;
   const playing = phase === "playing", started = phase !== "idle";
+  useEffect(() => {
+    if (phase !== "done" || !lesson.topicId) return;
+    const progress = getProgress(lesson.topicId);
+    if (!progress?.done) saveProgress(lesson.topicId, { step: progress?.step ?? 0, total: progress?.total ?? 1, done: true });
+  }, [phase, lesson.topicId]);
   const speaking = (playing && !mute) || talking;
   const sections = lesson.steps.reduce<{ name: string; first: number }[]>((acc, st, i) => { const n = st.section ?? ""; if (n && acc[acc.length - 1]?.name !== n) acc.push({ name: n, first: i }); return acc; }, []);
   const curSection = lesson.steps[step]?.section;
   const notes = useNotebook(), noteOn = s.get("notebook.enabled") === true;
   const noteId = ("cr:" + back.replace(/^\//, "").replace(/\//g, "-")).slice(0, 60), noteSaved = !!notes[noteId], subjectSlug = back.split("/")[3] ?? "";
-  const resume = s.get("classroom.resume") === true, saveKey = `ss.class.${lesson.title.en}`;
+  const resume = s.get("classroom.resume") === true, saveKey = `ss.class.${profile}.${back}`;
   const [seen, setSeen] = useState<{ last: number; done: string[] }>(() => { try { return JSON.parse(localStorage.getItem(saveKey) ?? "") as { last: number; done: string[] }; } catch { return { last: 0, done: [] }; } });
   useEffect(() => {
     if (!resume || !started) return;
