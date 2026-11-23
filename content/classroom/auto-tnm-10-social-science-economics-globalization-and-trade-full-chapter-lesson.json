@@ -242,6 +242,108 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "One shipment, two viewpoints",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 455,
+   "text": "Trade balances compare values across many shipments.",
+   "size": 23,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nseller",
+   "x": 55,
+   "y": 159,
+   "w": 275,
+   "h": 128,
+   "fill": "#DFEDFA",
+   "stroke": "accent",
+   "rx": 10
+  },
+  {
+   "kind": "rect",
+   "id": "nbuyer",
+   "x": 570,
+   "y": 159,
+   "w": 275,
+   "h": 128,
+   "fill": "#E4F1DF",
+   "stroke": "good",
+   "rx": 10
+  },
+  {
+   "kind": "arrow",
+   "id": "nshipment",
+   "x1": 338,
+   "y1": 219,
+   "x2": 562,
+   "y2": 219,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nsellerT",
+   "x": 192,
+   "y": 211,
+   "text": "Seller in India",
+   "size": 25,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nbuyerT",
+   "x": 707,
+   "y": 211,
+   "text": "Buyer abroad",
+   "size": 25,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nout",
+   "x": 192,
+   "y": 328,
+   "text": "Export from India",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nin",
+   "x": 707,
+   "y": 328,
+   "text": "Import into buyer’s country",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ngoods",
+   "x": 450,
+   "y": 199,
+   "text": "Textile shipment",
+   "size": 19,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -422,6 +524,90 @@
      "target": "n4",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "trade1",
+   "narration": {
+    "en": "Imagine a seller in India shipping cloth to a customer in another country. Follow the arrow from the seller to the buyer."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nseller",
+     "at": 0.15,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsellerT",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "nbuyer",
+     "at": 0.36,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nbuyerT",
+     "at": 0.43
+    },
+    {
+     "do": "draw",
+     "target": "nshipment",
+     "at": 0.54,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ngoods",
+     "at": 0.63
+    }
+   ]
+  },
+  {
+   "id": "trade2",
+   "narration": {
+    "en": "For India the cloth is an export because it is sold abroad. For the buyer’s country it is an import because it arrives from abroad."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nout",
+     "at": 0.24,
+     "ms": 450
+    },
+    {
+     "do": "write",
+     "target": "nin",
+     "at": 0.65,
+     "ms": 450
+    }
+   ]
+  },
+  {
+   "id": "trade3",
+   "narration": {
+    "en": "This was one shipment. To find a trade balance we compare the value of exports and imports for a defined period."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.63,
+     "ms": 450
     }
    ]
   }
