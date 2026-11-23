@@ -242,6 +242,190 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 53,
+   "text": "Price changes and real output growth",
+   "size": 33,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 466,
+   "text": "Real growth in this example: 20%",
+   "size": 25,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nlabel",
+   "x": 105,
+   "y": 103,
+   "w": 690,
+   "h": 65,
+   "fill": "#DBE9F9",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nlabelA",
+   "x": 253,
+   "y": 143,
+   "text": "Valuation",
+   "size": 21,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nlabelB",
+   "x": 488,
+   "y": 143,
+   "text": "Year 1",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nlabelC",
+   "x": 679,
+   "y": 143,
+   "text": "Year 2",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ncount",
+   "x": 105,
+   "y": 186,
+   "w": 690,
+   "h": 65,
+   "fill": "#E3F2E3",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ncountA",
+   "x": 253,
+   "y": 226,
+   "text": "Loaves made",
+   "size": 21,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncountB",
+   "x": 488,
+   "y": 226,
+   "text": "10",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncountC",
+   "x": 679,
+   "y": 226,
+   "text": "12",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "ncurrent",
+   "x": 105,
+   "y": 269,
+   "w": 690,
+   "h": 65,
+   "fill": "#E3F2E3",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "ncurrentA",
+   "x": 253,
+   "y": 309,
+   "text": "At each year’s price",
+   "size": 21,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncurrentB",
+   "x": 488,
+   "y": 309,
+   "text": "₹1,000",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ncurrentC",
+   "x": 679,
+   "y": 309,
+   "text": "₹1,440",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "nsame",
+   "x": 105,
+   "y": 352,
+   "w": 690,
+   "h": 65,
+   "fill": "#E3F2E3",
+   "stroke": "soft",
+   "rx": 10
+  },
+  {
+   "kind": "text",
+   "id": "nsameA",
+   "x": 253,
+   "y": 392,
+   "text": "At ₹100 per loaf",
+   "size": 21,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsameB",
+   "x": 488,
+   "y": 392,
+   "text": "₹1,000",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsameC",
+   "x": 679,
+   "y": 392,
+   "text": "₹1,200",
+   "size": 22,
+   "color": "#16253F",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -380,7 +564,7 @@
   {
    "id": "d3",
    "narration": {
-    "en": "GNP adds foreign income."
+    "en": "Gross national product adjusts G D P by net primary income from abroad."
    },
    "actions": [
     {
@@ -422,6 +606,129 @@
      "target": "n4",
      "at": 0.35,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "gdp1",
+   "narration": {
+    "en": "A model economy produces ten loaves in year one and twelve in year two. First compare the physical output."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "nlabel",
+     "at": 0.16,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nlabelA",
+     "at": 0.21000000000000002
+    },
+    {
+     "do": "show",
+     "target": "nlabelB",
+     "at": 0.28
+    },
+    {
+     "do": "show",
+     "target": "nlabelC",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "ncount",
+     "at": 0.42,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ncountA",
+     "at": 0.47
+    },
+    {
+     "do": "show",
+     "target": "ncountB",
+     "at": 0.54
+    },
+    {
+     "do": "show",
+     "target": "ncountC",
+     "at": 0.61
+    }
+   ]
+  },
+  {
+   "id": "gdp2",
+   "narration": {
+    "en": "The price rises from one hundred rupees to one hundred and twenty rupees. At each year’s own price, the values are one thousand and one thousand four hundred and forty."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ncurrent",
+     "at": 0.3,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "ncurrentA",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "ncurrentB",
+     "at": 0.42
+    },
+    {
+     "do": "show",
+     "target": "ncurrentC",
+     "at": 0.49
+    }
+   ]
+  },
+  {
+   "id": "gdp3",
+   "narration": {
+    "en": "Use one hundred rupees for both years. The values become one thousand and one thousand two hundred. At the same price the value rises by twenty percent."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "nsame",
+     "at": 0.26,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsameA",
+     "at": 0.31
+    },
+    {
+     "do": "show",
+     "target": "nsameB",
+     "at": 0.38
+    },
+    {
+     "do": "show",
+     "target": "nsameC",
+     "at": 0.45
+    },
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.75,
+     "ms": 450
     }
    ]
   }

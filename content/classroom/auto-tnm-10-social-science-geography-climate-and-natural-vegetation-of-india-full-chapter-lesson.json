@@ -242,6 +242,123 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntitle",
+   "x": 450,
+   "y": 54,
+   "text": "Two paths for monsoon rain",
+   "size": 35,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nnote",
+   "x": 450,
+   "y": 464,
+   "text": "Schematic wind directions · north is up",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "ncoast",
+   "d": "M 286 109 L 306 158 L 319 227 L 353 293 L 390 363 L 440 422 L 475 387 L 526 330 L 570 256 L 627 184 L 673 135",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "nghats",
+   "x1": 325,
+   "y1": 151,
+   "x2": 401,
+   "y2": 353,
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "nsouthwest",
+   "x1": 152,
+   "y1": 278,
+   "x2": 329,
+   "y2": 210,
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "nnortheast",
+   "x1": 681,
+   "y1": 302,
+   "x2": 500,
+   "y2": 360,
+   "stroke": "good",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "nsea",
+   "x": 174,
+   "y": 209,
+   "text": "Arabian Sea",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nbay",
+   "x": 716,
+   "y": 236,
+   "text": "Bay of Bengal",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nsw",
+   "x": 184,
+   "y": 324,
+   "text": "June–September",
+   "size": 20,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nne",
+   "x": 672,
+   "y": 352,
+   "text": "October–December",
+   "size": 20,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "nghatsT",
+   "x": 433,
+   "y": 184,
+   "text": "Western Ghats",
+   "size": 21,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ntn",
+   "x": 543,
+   "y": 412,
+   "text": "Tamil Nadu coast",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
@@ -422,6 +539,99 @@
      "target": "n4",
      "at": 0.15,
      "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "monsoon1",
+   "narration": {
+    "en": "Moist southwest winds reach western India from the Arabian Sea. The western slopes of the Ghats receive heavy rain in many places."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "ntitle",
+     "at": 0.04
+    },
+    {
+     "do": "draw",
+     "target": "ncoast",
+     "at": 0.13,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsea",
+     "at": 0.22
+    },
+    {
+     "do": "draw",
+     "target": "nsouthwest",
+     "at": 0.37,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nsw",
+     "at": 0.45
+    },
+    {
+     "do": "draw",
+     "target": "nghats",
+     "at": 0.62,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nghatsT",
+     "at": 0.68
+    }
+   ]
+  },
+  {
+   "id": "monsoon2",
+   "narration": {
+    "en": "Later in the year, moisture from the Bay of Bengal can reach the coast of Tamil Nadu during the northeast monsoon."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "nbay",
+     "at": 0.14
+    },
+    {
+     "do": "draw",
+     "target": "nnortheast",
+     "at": 0.38,
+     "ms": 450
+    },
+    {
+     "do": "show",
+     "target": "nne",
+     "at": 0.48
+    },
+    {
+     "do": "show",
+     "target": "ntn",
+     "at": 0.72
+    }
+   ]
+  },
+  {
+   "id": "monsoon3",
+   "narration": {
+    "en": "Compare the two arrows and the dates. Important rainy seasons differ across the peninsula."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "nnote",
+     "at": 0.62,
+     "ms": 450
     }
    ]
   }
