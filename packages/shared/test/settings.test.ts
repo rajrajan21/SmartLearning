@@ -111,6 +111,7 @@ describe("lesson completion hub and spotlight tour settings", () => {
     expect(v["ux.helpHub.position"]).toBe("right");
     expect(v["ux.helpHub.title"]).toEqual({ en: "Study help", ta: "படிப்பு உதவி" });
     expect(v["classroom.fitViewport"]).toBe(true);
+    expect(v["classroom.smartVisuals"]).toBe(true);
 
     expect(parseSetting("ux.spotlightTour.maxAutoPerSession", 0)).toBe(0);
     expect(() => parseSetting("ux.spotlightTour.maxAutoPerSession", 9)).toThrow(/between/);

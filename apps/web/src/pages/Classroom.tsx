@@ -488,7 +488,11 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
             <option value={0.75}>0.75×</option><option value={0.85}>0.85×</option><option value={1}>1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
           </select>
         </label>
-        <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
+        <label className="class-rate">{L("classroomLanguage")}
+          <select value={both ? "both" : "en"} onChange={(e) => setBoth(e.target.value === "both")}>
+            <option value="en">English</option><option value="both">English + தமிழ்</option>
+          </select>
+        </label>
         {pickable.length > 1 && s.get("classroom.voicePicker") === true && (
           <label className="class-rate">{L("classroomTeacher")}
             <select value={lessonIn.voiceUsed ?? voice} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
@@ -496,14 +500,12 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
             </select>
           </label>
         )}
-        <label className="class-rate">{L("classroomLanguage")}
-          <select value={both ? "both" : "en"} onChange={(e) => setBoth(e.target.value === "both")}>
-            <option value="en">English</option><option value="both">English + தமிழ்</option>
-          </select>
-        </label>
+      </div>
+      <div className="class-sub-controls">
+        <button type="button" className="btn ghost" aria-pressed={mute} onClick={toggleMute}>{mute ? "🔇" : "🔊"} {mute ? L("classroomVoiceOff") : L("classroomVoiceOn")}</button>
+        <ReportProblem kind="lesson" about={back} where="onLessons" />
       </div>
       {related && <p className="actions"><Link className="btn ghost" href={related}>{lang === "ta" ? "காந்தங்கள் பற்றிய பிற பாடங்கள்" : "Explore more lessons about magnets"} →</Link></p>}
-      <ReportProblem kind="lesson" about={back} where="onLessons" />
       <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
 
     </div>

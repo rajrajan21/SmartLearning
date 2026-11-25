@@ -2,6 +2,7 @@ import type { ClassroomLesson, ClassroomStep, BoardObject, ClassAction } from ".
 import type { TopicLesson } from "./lesson.js";
 import type { Question } from "./question.js";
 import { picturesFor, expressionIn, SECTION_ICON, SHAPES } from "./illustrate.js";
+import { smartVisualFor } from "./smartVisuals.js";
 
 /**
  * Builds a whole-lesson board presentation from a lesson that already exists (story, explanation, narration, worked
@@ -92,8 +93,18 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
     const pics = picturesFor(text, 2).filter((p) => !shown.has(p.word)); const expr = expressionIn(text);
     const fn = ((a: ClassAction[]) => {
     const items: { emoji: string; word: string; count: number; at: string }[] = pics.length ? [...pics] : [];
+    const hasSimplePic = items.length > 0 || extraPics.length > 0 || Boolean(expr);
+    // Rich animated diagrams (percentage bars, layers, comparisons) beat a lone generic emoji;
+    // when no picture matches, flow/concept-card ensures the board is never blank.
+    if (extraPics.length === 0 && !expr) {
+      const smart = smartVisualFor(text, section, hasSimplePic, id);
+      if (smart) {
+        for (const o of smart.objects) objects.push(o);
+        for (const act of smart.actions) a.push(act);
+        return;
+      }
+    }
     if (!items.length && extraPics.length === 0 && !expr) {
-      // nothing relevant to draw: the board is simply cleared, never a leftover or unrelated picture
       return;
     }
     for (const e of extraPics) items.push({ emoji: e, word: "", count: 1, at: "" });

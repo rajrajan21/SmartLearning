@@ -1,4 +1,5 @@
 import { picturesFor } from "../src/illustrate.js";
+import { smartVisualFor } from "../src/smartVisuals.js";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
@@ -97,4 +98,25 @@ it("avoids misleading homonym pictures across geography, history, science and ma
   expect(picturesFor("Surface area of a cube and sphere in square centimetres.").some((p) => ["cube", "sphere", "square"].includes(p.word))).toBe(false);
   expect(picturesFor("In 1944 the Bretton Woods conference met.").some((p) => p.word === "wood")).toBe(false);
   expect(picturesFor("Flower beds in the park and cotton plug in a funnel.").some((p) => ["bed", "plug"].includes(p.word))).toBe(false);
+});
+
+it("generates animated concept diagrams for percentages, layers, comparisons, flows, and blank-board fallbacks", () => {
+  let n = 0;
+  const id = (p: string) => `${p}${++n}`;
+  const pct = smartVisualFor("The atmosphere is made mainly of nitrogen, about 78 percent, and oxygen, about 21 percent.", "Learn", true, id);
+  expect(pct?.kind).toBe("percent-bars");
+  expect(pct?.objects.length).toBeGreaterThan(6);
+
+  const layers = smartVisualFor("It has layers: troposphere, stratosphere, mesosphere, thermosphere and exosphere.", "Learn", false, id);
+  expect(layers?.kind).toBe("layers");
+  expect(layers?.objects.length).toBeGreaterThan(8);
+
+  const cmp = smartVisualFor("The Earth's surface is shaped by forces from inside, called endogenic, and forces from outside, called exogenic.", "Learn", false, id);
+  expect(cmp?.kind).toBe("compare");
+
+  const flow = smartVisualFor("These movements cause earthquakes, volcanoes and mountain building.", "Learn", false, id);
+  expect(flow?.kind).toBe("flow");
+
+  const card = smartVisualFor("Understanding landforms helps us plan settlements and protect lives.", "Learn", false, id);
+  expect(card?.kind).toBe("concept-card");
 });
