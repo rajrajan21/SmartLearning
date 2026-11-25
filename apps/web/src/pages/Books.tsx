@@ -98,6 +98,13 @@ export function BooksPage() {
           </section>
         );
       })}
+      {s.get("reader.disclaimer.show") !== false && (
+        <footer className="small muted books-disclaimer">
+          {s.lang === "ta"
+            ? (s.text("reader.disclaimer.text") || "பாடப்புத்தகங்கள் மாணவர்களின் தனிப்பட்ட படிப்புக்காக மட்டும். மறுபதிப்பு செய்யவோ வணிக நோக்கங்களுக்குப் பயன்படுத்தவோ கூடாது.")
+            : (s.text("reader.disclaimer.text") || "Textbooks are provided for students’ personal study only. No republication, redistribution, or commercial use.")}
+        </footer>
+      )}
     </div>
   );
 }
@@ -111,7 +118,10 @@ export function BookReaderPage() {
   if (!on) return <div className="paper"><NotFound /></div>;
   if (status === "loading") return <div className="paper"><Loading /></div>;
   const name = decodeURIComponent(file), part = chapter ? decodeURIComponent(chapter) : undefined;
-  const book = books.find((b) => String(b.classLevel) === cls && b.file === name && s.get<number[]>("catalog.openClasses").includes(b.classLevel));
+  const openClass = s.get<number[]>("catalog.openClasses").includes(Number(cls));
+  const sameClass = (b: Book) => String(b.classLevel) === cls;
+  const book = openClass ? (books.find((b) => sameClass(b) && b.file === name)
+    ?? books.find((b) => sameClass(b) && b.aliases?.includes(name))) : undefined;
   let ch: BookChapter | undefined, at = -1;
   if (book?.chapters) { at = part ? book.chapters.findIndex((c) => c.file === part) : 0; ch = book.chapters[at]; }
   const url = book ? (book.chapters ? ch?.url : book.url) : null;
@@ -119,7 +129,7 @@ export function BookReaderPage() {
   const sub = [book.subject, `${ui("classWord", s.lang)} ${book.classLevel}`, ch && book.chapters ? `${ui("booksPart", s.lang)} ${at + 1} / ${book.chapters.length}` : ""].filter(Boolean).join(", ");
   return (
     <Suspense fallback={<div className="paper"><Loading /></div>}>
-      <Reader key={url} book={{ id: ch ? `${book.id}${ch.file}` : book.id, title: book.title, subtitle: sub, url, fileName: ch ? `${book.file}-${ch.file}` : book.file, language: book.language, subject: book.subject, backHref: shelfHref(book.classLevel), fast: ch ? null : book.fast ?? null, toc: ch ? undefined : book.toc }} />
+      <Reader key={url} book={{ id: ch ? `${book.id}${ch.file}` : book.id, title: book.title, subtitle: sub, url, fileName: ch ? `${book.file}-${ch.file}` : book.file, language: book.language, textbookCredit: { publisher: book.publisher }, subject: book.subject, backHref: shelfHref(book.classLevel), fast: ch ? null : book.fast ?? null, toc: ch ? undefined : book.toc }} />
     </Suspense>
   );
 }

@@ -1262,26 +1262,6 @@ html .home-top .hero .lead, .hero .lead { max-width: none; }
 }
 @media (min-width: 1760px) { header.top .main-nav { justify-content: flex-start; } }
 
-/* header-fit: the tabs never run over the logo. Wide screens: one row. Narrower: logo, search and buttons on row one, tabs on row two. */
-@media (min-width: 900px) and (max-width: 1759px) {
-  header.top { flex-wrap: wrap; row-gap: .15rem; }
-  header.top .brand { order: 1; flex: 0 0 auto; }
-  header.top .search.compact { order: 2; flex: 1 1 10rem; min-width: 7rem; }
-  header.top .top-actions { order: 3; margin-left: auto; flex: 0 0 auto; }
-  header.top .main-nav { order: 4; flex: 1 1 100%; justify-content: flex-start; flex-wrap: wrap; min-width: 0; }
-}
-@media (min-width: 1760px) { header.top .main-nav { justify-content: flex-start; } }
-
-/* header-fit: the tabs never run over the logo. Wide screens: one row. Narrower: logo, search and buttons on row one, tabs on row two. */
-@media (min-width: 900px) and (max-width: 1759px) {
-  header.top { flex-wrap: wrap; row-gap: .15rem; }
-  header.top .brand { order: 1; flex: 0 0 auto; }
-  header.top .search.compact { order: 2; flex: 1 1 10rem; min-width: 7rem; }
-  header.top .top-actions { order: 3; margin-left: auto; flex: 0 0 auto; }
-  header.top .main-nav { order: 4; flex: 1 1 100%; justify-content: flex-start; flex-wrap: wrap; min-width: 0; }
-}
-@media (min-width: 1760px) { header.top .main-nav { justify-content: flex-start; } }
-
 /* scroll-aids: reading progress line and back-to-top button */
 .scroll-track { position: fixed; top: 0; left: 0; width: 100%; height: 3px; background: transparent; z-index: 60; pointer-events: none; }
 .scroll-fill { height: 100%; width: 0; background: var(--brand); transition: width .12s linear; }
