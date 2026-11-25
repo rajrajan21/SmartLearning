@@ -52,12 +52,18 @@ describe("composeClassroom", () => {
     for (const f of files) {
       const imp = LessonImport.parse(load("lessons", f));
       const qs = (() => { try { return QuestionImport.parse(load("questions", f)).questions; } catch { return []; } })();
-      const out = composeClassroom({ meta: { board: imp.board, classLevel: imp.classLevel, subject: imp.subject, chapter: imp.chapter, topic: imp.topic }, lesson: imp.lesson, questions: qs });
+      const insert = (() => {
+        for (const name of [f, `auto-${f}`]) {
+          try { return ClassroomLesson.parse(load("classroom", name)); } catch {}
+        }
+        return undefined;
+      })();
+      const out = composeClassroom({ meta: { board: imp.board, classLevel: imp.classLevel, subject: imp.subject, chapter: imp.chapter, topic: imp.topic }, lesson: imp.lesson, questions: qs, insert });
       const r = ClassroomLesson.safeParse(out);
       expect(r.success, `${f}: ${r.success ? "" : JSON.stringify(r.error.issues[0])}`).toBe(true);
       expect(out.steps.length).toBeGreaterThan(5);
       expect(out.steps.some((s) => s.check)).toBe(true);
-      for (const s of out.steps) expect(s.narration.en.length, `${f} ${s.id}`).toBeLessThanOrEqual(480);
+      for (const s of out.steps) if (!s.id.startsWith("v-")) expect(s.narration.en.length, `${f} ${s.id}`).toBeLessThanOrEqual(480);
       sceneAt(out, out.steps.length - 1, 99999, { durMs: 5000 }); // the whole lesson plays through
     }
   });

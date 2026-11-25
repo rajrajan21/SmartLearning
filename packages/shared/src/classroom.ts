@@ -75,8 +75,8 @@ const ClassroomShape = z.object({
   board: z.string().min(1).max(30), classLevel: z.number().int().min(1).max(12), subject: Slug, chapter: Slug, topic: Slug,
   status: ContentStatus.default("published"),
   title: LocalizedText,
-  objects: z.array(BoardObject).max(700),
-  steps: z.array(ClassroomStep).min(1).max(160),
+  objects: z.array(BoardObject).max(1400),
+  steps: z.array(ClassroomStep).min(1).max(240),
 });
 
 export const VoiceInfo = z.object({ id: z.string(), label: z.string(), gender: z.enum(["female", "male"]), accent: z.enum(["us", "uk", "in"]), langs: z.array(z.enum(["en", "ta"])), ready: z.boolean() });
