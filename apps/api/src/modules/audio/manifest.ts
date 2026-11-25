@@ -99,10 +99,10 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
   };
   const candidates = (fallbackTeacher: string, lang: Lang = "en"): string[] => {
     if (lang === "ta") {
-      const defTa = perf().defaultTamilVoice || "pallavi";
+      const defTa = perf().defaultTamilVoice || "valluvar";
       const list = fallbackTeacher === "malar" || fallbackTeacher === "kani"
-        ? [defTa, "pallavi", "valluvar", "jaya", "murali"]
-        : [fallbackTeacher, defTa, "pallavi", "valluvar", "jaya", "murali"];
+        ? [defTa, "valluvar", "jaya", "murali"]
+        : [fallbackTeacher, defTa, "valluvar", "jaya", "murali"];
       return [...new Set(list)];
     }
     const def = perf().defaultAudioVoice || "kani";

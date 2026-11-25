@@ -127,8 +127,10 @@ it("generates animated concept diagrams for percentages, layers, comparisons, fl
   expect(card?.kind).toBe("concept-card");
 });
 
-it("preserves full bilingual Tamil and English narration and checks on complete sample Tamil lessons", () => {
-  for (const file of ["tnm-10-tamil-iyal-1-annai-mozhiye.json", "tnm-10-tamil-iyal-3-thirukkural-iyal3.json"]) {
+it("preserves full bilingual Tamil and English narration and checks on all 72 Tamil lessons", () => {
+  const tamilFiles = readdirSync(join(root, "lessons")).filter((f) => /^tnm-(9|10)-tamil-.*\.json$/.test(f)).sort();
+  expect(tamilFiles.length).toBe(72);
+  for (const file of tamilFiles) {
     const imp = LessonImport.parse(load("lessons", file));
     const qs = QuestionImport.parse(load("questions", file)).questions;
     const out = composeClassroom({ meta: { board: imp.board, classLevel: imp.classLevel, subject: imp.subject, chapter: imp.chapter, topic: imp.topic }, lesson: imp.lesson, questions: qs });
@@ -141,8 +143,8 @@ it("preserves full bilingual Tamil and English narration and checks on complete 
     const checks = out.steps.filter((s) => s.check);
     expect(checks.length).toBeGreaterThanOrEqual(4);
     for (const c of checks) {
-      expect(c.check!.stem.ta?.trim().length).toBeGreaterThan(0);
-      expect(c.check!.explanation.ta?.trim().length).toBeGreaterThan(0);
+      expect(c.check!.stem.ta?.trim().length, `${file} check stem missing ta`).toBeGreaterThan(0);
+      expect(c.check!.explanation.ta?.trim().length, `${file} check explanation missing ta`).toBeGreaterThan(0);
     }
   }
 });

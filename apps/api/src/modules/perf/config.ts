@@ -21,7 +21,7 @@ export interface PerfConfig {
   defaultTamilVoice: string;
 }
 /** Used until the server has read the admin settings (and in tests): behaves exactly as before. The admin setting defaults are in perf-settings.ts. */
-export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false, defaultAudioVoice: "kani", defaultTamilVoice: "pallavi" };
+export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false, defaultAudioVoice: "kani", defaultTamilVoice: "valluvar" };
 
 let current: PerfConfig = { ...PERF_DEFAULTS };
 export const perf = (): PerfConfig => current;

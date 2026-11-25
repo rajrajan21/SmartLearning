@@ -46,7 +46,7 @@ const tamilLesson = {
   status: "published",
   title: { en: "Annai Mozhiye", ta: "அன்னை மொழியே" },
   voiceUsed: "kani",
-  voicesReady: ["kani", "pallavi"],
+  voicesReady: ["kani", "valluvar"],
   objects: [{ kind: "text", id: "t", x: 100, y: 100, text: "அன்னை மொழியே" }],
   steps: [
     {
@@ -54,7 +54,7 @@ const tamilLesson = {
       section: "Start",
       narration: { en: "Hello! Today's lesson is Annai Mozhiye.", ta: "வணக்கம்! இன்றைய பாடம் அன்னை மொழியே." },
       audio: {
-        ta: { url: "/api/v1/audio/pallavi-s1-ta.mp3", durationMs: 3200, words: [] },
+        ta: { url: "/api/v1/audio/valluvar-s1-ta.mp3", durationMs: 3200, words: [] },
         en: { url: "/api/v1/audio/kani-s1-en.mp3", durationMs: 3000, words: [] },
       },
       actions: [],
@@ -64,7 +64,7 @@ const tamilLesson = {
       section: "Learn",
       narration: { en: "Pavalareru Perunchithiranar wrote this poem.", ta: "பாவலரேறு பெருஞ்சித்திரனார் இப்பாடலை இயற்றினார்." },
       audio: {
-        ta: { url: "/api/v1/audio/pallavi-s2-ta.mp3", durationMs: 3500, words: [] },
+        ta: { url: "/api/v1/audio/valluvar-s2-ta.mp3", durationMs: 3500, words: [] },
         en: { url: "/api/v1/audio/kani-s2-en.mp3", durationMs: 3100, words: [] },
       },
       actions: [],
@@ -88,7 +88,7 @@ function mountTamil(settings: Record<string, unknown> = {}) {
           items: [],
           voices: [
             { id: "kani", label: "Lakshmi", gender: "female", accent: "in", langs: ["en"], ready: true },
-            { id: "pallavi", label: "Pallavi", gender: "female", accent: "in", langs: ["ta"], ready: true },
+            { id: "valluvar", label: "Valluvar", gender: "male", accent: "in", langs: ["ta"], ready: true },
           ],
           defaultVoice: "kani",
         });
@@ -168,7 +168,7 @@ describe("Tamil Classroom dual Tamil -> English mode", () => {
     fireEvent.click(startBtns[0]!);
 
     await waitFor(() => {
-      expect(audioInstances.some((a) => a.src.includes("pallavi-s1-ta.mp3") && a.play.mock.calls.length > 0)).toBe(true);
+      expect(audioInstances.some((a) => a.src.includes("valluvar-s1-ta.mp3") && a.play.mock.calls.length > 0)).toBe(true);
     });
 
     // Switch to English only and confirm selector accepts all four modes

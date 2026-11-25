@@ -228,9 +228,8 @@ export const SETTINGS: SettingDef[] = [
       { value: "malar", label: "Malar (American English)" },
     ],
     help: "Used first across Games, Practice, Revision, Reading Lessons, GK, Praise Phrases and Classroom whenever recordings exist; falls back to another recorded voice if needed." },
-  { key: "audio.defaultTamilVoice", panel: "classroom", section: "Voice", label: "Default natural Tamil teacher voice", public: true, type: "select", default: "pallavi",
+  { key: "audio.defaultTamilVoice", panel: "classroom", section: "Voice", label: "Default natural Tamil teacher voice", public: true, type: "select", default: "valluvar",
     options: [
-      { value: "pallavi", label: "Pallavi (natural Indian Tamil, Female)" },
       { value: "valluvar", label: "Valluvar (natural Indian Tamil, Male)" },
       { value: "jaya", label: "Jaya (Parler Tamil Female)" },
       { value: "murali", label: "Murali (Parler Tamil Male)" },
