@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classifyOracleJob } from "./oracle-jobs.js";
+import { classifyOracleJob, collectDescendantComms } from "./oracle-jobs.js";
 
 describe("classifyOracleJob (OPS-02)", () => {
   const now = "2026-11-25T05:30:00.000Z";
@@ -37,5 +37,25 @@ describe("classifyOracleJob (OPS-02)", () => {
     );
     expect(job?.status).toBe("waiting");
     expect(job?.phase).toBe("Waiting on shared audio lock");
+  });
+
+  it("collects multi-hop descendants so bash -> sudo -> node classifies as Recording audio", () => {
+    const psOut = [
+      "  100     1 systemd",
+      "349968    1 bash",
+      "350220 349968 sudo",
+      "350221 350220 node",
+      "370267 350221 python3",
+    ].join("\n");
+    const comms = collectDescendantComms(psOut, 349968);
+    expect(comms).toEqual(["sudo", "node", "python3"]);
+    const job = classifyOracleJob(
+      { Id: "sharpstudy-quiet-voices.service", ActiveState: "active", SubState: "running", ExecMainStartTimestamp: start },
+      null,
+      now,
+      comms,
+    );
+    expect(job?.status).toBe("running");
+    expect(job?.phase).toBe("Recording audio");
   });
 });

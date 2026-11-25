@@ -11458,7 +11458,7 @@
    "id": "f6-compare",
    "section": "6 Equivalent fractions",
    "narration": {
-    "en": "Now we use equal shares to compare. One chikki shared between two children, or five chikkis among eight children. In which group does each child get more? One half equals four eighths, and four eighths is less than five eighths. So the eight children get more. Another pair: one chikki among two, or four chikkis among seven. One half is four eighths. Four sevenths is bigger than four eighths, since sharing four chikkis among fewer children gives a bigger share. So four sevenths is greater than one half.",
+    "en": "Now we use equal shares to compare. One chikki shared between two children, or five chikkis among eight children. In which group does each child get more? One half equals four eighths, and four eighths is less than five eighths. So the eight children get more.",
     "ta": "இப்போது சம பங்குகளைக் கொண்டு ஒப்பிடுவோம். இரண்டு குழந்தைகளுக்கு ஒரு சிக்கி, அல்லது எட்டுக் குழந்தைகளுக்கு ஐந்து சிக்கிகள். எந்தக் குழுவில் ஒவ்வொரு குழந்தைக்கும் அதிகம் கிடைக்கும்? அரை என்பது எட்டில் நான்கு, எட்டில் நான்கு எட்டில் ஐந்தை விடக் குறைவு. எனவே எட்டுக் குழந்தைகளுக்கு அதிகம். இன்னொரு ஜோடி: இரண்டு குழந்தைகளுக்கு ஒரு சிக்கி, அல்லது ஏழு குழந்தைகளுக்கு நான்கு சிக்கிகள். அரை என்பது எட்டில் நான்கு. ஏழில் நான்கு எட்டில் நான்கை விடப் பெரியது, ஏனெனில் நான்கு சிக்கிகளைக் குறைவான குழந்தைகள் பகிரும்போது பங்கு பெரியது. எனவே ஏழில் நான்கு அரையை விடப் பெரியது."
    },
    "actions": [
@@ -11469,19 +11469,28 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.039,
      "ms": 500
-    },
+    }
+   ]
+  },
+  {
+   "id": "f6-compare-b",
+   "section": "6 Equivalent fractions",
+   "narration": {
+    "en": "Another pair: one chikki among two, or four chikkis among seven. One half is four eighths. Four sevenths is bigger than four eighths, since sharing four chikkis among fewer children gives a bigger share. So four sevenths is greater than one half."
+   },
+   "actions": [
     {
      "do": "write",
      "target": "tCmp1",
-     "at": 0.6,
+     "at": 0.177,
      "ms": 900
     }
    ]
@@ -11490,7 +11499,7 @@
    "id": "f6-lowest",
    "section": "6 Equivalent fractions",
    "narration": {
-    "en": "Every fraction has a simplest form, or lowest terms. A fraction is in lowest terms when the numerator and denominator have no common factor other than one. Take thirty-six sixtieths. Both are even, so divide by two: eighteen thirtieths. Both are even again, so divide by two again: nine fifteenths. Nine and fifteen are both multiples of three, so divide by three: three fifths. Three and five have no common factor, so three fifths is the simplest form. We could also notice that thirty-six is three times twelve and sixty is five times twelve, and reach three fifths at once.",
+    "en": "Every fraction has a simplest form, or lowest terms. A fraction is in lowest terms when the numerator and denominator have no common factor other than one. Take thirty-six sixtieths. Both are even, so divide by two: eighteen thirtieths. Both are even again, so divide by two again: nine fifteenths.",
     "ta": "ஒவ்வொரு பின்னத்துக்கும் எளிய வடிவம் அல்லது எளிய நிலை உண்டு. தொகுதியும் பகுதியும் ஒன்றைத் தவிர பொதுக் காரணி இல்லாதபோது பின்னம் எளிய நிலையில் உள்ளது. அறுபதில் முப்பத்தாறை எடுப்போம். இரண்டும் இரட்டைப்படை, எனவே இரண்டால் வகுத்தால் முப்பதில் பதினெட்டு. மீண்டும் இரண்டும் இரட்டைப்படை, மீண்டும் இரண்டால் வகுத்தால் பதினைந்தில் ஒன்பது. ஒன்பதும் பதினைந்தும் மூன்றின் மடங்குகள், மூன்றால் வகுத்தால் ஐந்தில் மூன்று. மூன்றுக்கும் ஐந்துக்கும் பொதுக் காரணி இல்லை, எனவே ஐந்தில் மூன்று எளிய வடிவம். முப்பத்தாறு என்பது பன்னிரண்டின் மூன்று மடங்கு, அறுபது ஐந்து மடங்கு என்று கவனித்து உடனே ஐந்தில் மூன்று என்றும் காணலாம்."
    },
    "actions": [
@@ -11501,31 +11510,40 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.039,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tLow",
-     "at": 0.1,
+     "at": 0.193,
      "ms": 2500
     },
     {
      "do": "write",
      "target": "tLow2",
-     "at": 0.5,
+     "at": 0.95,
      "ms": 1000
-    },
+    }
+   ]
+  },
+  {
+   "id": "f6-lowest-b",
+   "section": "6 Equivalent fractions",
+   "narration": {
+    "en": "Nine and fifteen are both multiples of three, so divide by three: three fifths. Three and five have no common factor, so three fifths is the simplest form. We could also notice that thirty-six is three times twelve and sixty is five times twelve, and reach three fifths at once."
+   },
+   "actions": [
     {
      "do": "write",
      "target": "tLow3",
-     "at": 0.8,
+     "at": 0.586,
      "ms": 1000
     }
    ]
@@ -12253,7 +12271,7 @@
    "id": "f7-common",
    "section": "7 Comparing fractions",
    "narration": {
-    "en": "When both the numerator and the denominator are different, we make the denominators equal using a common multiple. Compare four fifths and seven ninths. Forty-five is a common multiple of five and nine. Four fifths becomes thirty-six forty-fifths. Seven ninths becomes thirty-five forty-fifths. Thirty-six is more than thirty-five, so four fifths is greater. Try seven ninths and seventeen twenty-firsts. Sixty-three is a common multiple. We get forty-nine sixty-thirds and fifty-one sixty-thirds. Forty-nine is less than fifty-one, so seven ninths is smaller.",
+    "en": "When both the numerator and the denominator are different, we make the denominators equal using a common multiple. Compare four fifths and seven ninths. Forty-five is a common multiple of five and nine. Four fifths becomes thirty-six forty-fifths. Seven ninths becomes thirty-five forty-fifths.",
     "ta": "தொகுதியும் பகுதியும் இரண்டுமே வேறுபடும்போது, பொது மடங்கைப் பயன்படுத்திப் பகுதிகளைச் சமமாக்குவோம். ஐந்தில் நான்கையும் ஒன்பதில் ஏழையும் ஒப்பிடுவோம். நாற்பத்தைந்து ஐந்துக்கும் ஒன்பதுக்கும் பொது மடங்கு. ஐந்தில் நான்கு நாற்பத்தைந்தில் முப்பத்தாறு ஆகிறது. ஒன்பதில் ஏழு நாற்பத்தைந்தில் முப்பத்தைந்து ஆகிறது. முப்பத்தாறு முப்பத்தைந்தை விட அதிகம், எனவே ஐந்தில் நான்கு பெரியது. ஒன்பதில் ஏழையும் இருபத்தொன்றில் பதினேழையும் முயலுங்கள். அறுபத்து மூன்று பொது மடங்கு. அறுபத்து மூன்றில் நாற்பத்தொன்பதும் அறுபத்து மூன்றில் ஐம்பத்தொன்றும் கிடைக்கும். நாற்பத்தொன்பது ஐம்பத்தொன்றை விடக் குறைவு, எனவே ஒன்பதில் ஏழு சிறியது."
    },
    "actions": [
@@ -12264,34 +12282,42 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.038,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tCmp1",
-     "at": 0.05,
+     "at": 0.095,
      "ms": 1500
     },
     {
      "do": "write",
      "target": "tCmp2",
-     "at": 0.5,
+     "at": 0.95,
      "ms": 1500
     }
    ]
   },
   {
+   "id": "f7-common-b",
+   "section": "7 Comparing fractions",
+   "narration": {
+    "en": "Thirty-six is more than thirty-five, so four fifths is greater. Try seven ninths and seventeen twenty-firsts. Sixty-three is a common multiple. We get forty-nine sixty-thirds and fifty-one sixty-thirds. Forty-nine is less than fifty-one, so seven ninths is smaller."
+   },
+   "actions": []
+  },
+  {
    "id": "f7-steps",
    "section": "7 Comparing fractions",
    "narration": {
-    "en": "Let us summarise the steps. Step one: change the fractions to equivalent fractions with the same denominator, the same fractional unit. Step two: compare the numerators, which count the fractional units. Look at three fourths and seven tenths. The product of the two denominators, forty, works as the common denominator. Three fourths is thirty fortieths and seven tenths is twenty-eight fortieths, so three fourths is greater. To put fractions in ascending order, use the same idea. Two fifths, seven tenths and eleven fifteenths all become thirtieths: twelve, twenty-one and twenty-two. So the ascending order is two fifths, seven tenths, eleven fifteenths.",
+    "en": "Let us summarise the steps. Step one: change the fractions to equivalent fractions with the same denominator, the same fractional unit. Step two: compare the numerators, which count the fractional units. Look at three fourths and seven tenths. The product of the two denominators, forty, works as the common denominator.",
     "ta": "படிகளைச் சுருக்கமாகப் பார்ப்போம். படி ஒன்று: பின்னங்களை ஒரே பகுதி, அதாவது ஒரே பின்ன அலகு, உள்ள சமான பின்னங்களாக மாற்றுங்கள். படி இரண்டு: தொகுதிகளை ஒப்பிடுங்கள், அவை பின்ன அலகுகளை எண்ணுகின்றன. நான்கில் மூன்று, பத்தில் ஏழு ஆகியவற்றைப் பாருங்கள். இரண்டு பகுதிகளின் பெருக்கற்பலன் நாற்பது பொதுப் பகுதியாகப் பயன்படும். நான்கில் மூன்று நாற்பதில் முப்பது, பத்தில் ஏழு நாற்பதில் இருபத்தெட்டு, எனவே நான்கில் மூன்று பெரியது. ஏறுவரிசையில் அடுக்கவும் இதே யோசனைதான். ஐந்தில் இரண்டு, பத்தில் ஏழு, பதினைந்தில் பதினொன்று மூன்றும் முப்பதில் பன்னிரண்டு, இருபத்தொன்று, இருபத்திரண்டு ஆகின்றன. எனவே ஏறுவரிசை: ஐந்தில் இரண்டு, பத்தில் ஏழு, பதினைந்தில் பதினொன்று."
    },
    "actions": [
@@ -12302,31 +12328,40 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.041,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tCmp3",
-     "at": 0.05,
+     "at": 0.103,
      "ms": 1500
     },
     {
      "do": "write",
      "target": "tCmp4",
-     "at": 0.4,
+     "at": 0.823,
      "ms": 1500
-    },
+    }
+   ]
+  },
+  {
+   "id": "f7-steps-b",
+   "section": "7 Comparing fractions",
+   "narration": {
+    "en": "Three fourths is thirty fortieths and seven tenths is twenty-eight fortieths, so three fourths is greater. To put fractions in ascending order, use the same idea. Two fifths, seven tenths and eleven fifteenths all become thirtieths: twelve, twenty-one and twenty-two. So the ascending order is two fifths, seven tenths, eleven fifteenths."
+   },
+   "actions": [
     {
      "do": "write",
      "target": "tCmp5",
-     "at": 0.8,
+     "at": 0.611,
      "ms": 1500
     }
    ]
@@ -14084,7 +14119,7 @@
    "id": "f8-method",
    "section": "8 Add and subtract",
    "narration": {
-    "en": "Let us write Brahmagupta's method in three steps. One: find equivalent fractions with a common denominator. You can use the product of the denominators, or the smallest common multiple. Two: add the numerators and keep the denominator. Three: write the answer in lowest terms if needed. For two thirds plus one fifth, the smallest common multiple of three and five is fifteen: ten fifteenths plus three fifteenths is thirteen fifteenths. For one sixth plus one third, the common denominator is six: one sixth plus two sixths is three sixths. Divide top and bottom by three: one half.",
+    "en": "Let us write Brahmagupta's method in three steps. One: find equivalent fractions with a common denominator. You can use the product of the denominators, or the smallest common multiple. Two: add the numerators and keep the denominator. Three: write the answer in lowest terms if needed.",
     "ta": "பிரம்மகுப்தர் முறையை மூன்று படிகளில் எழுதுவோம். ஒன்று: பொதுப் பகுதி உள்ள சமான பின்னங்களைக் காணுங்கள். பகுதிகளின் பெருக்கற்பலனையோ சிறிய பொது மடங்கையோ பயன்படுத்தலாம். இரண்டு: தொகுதிகளைக் கூட்டி பகுதியை அப்படியே வைக்கவும். மூன்று: தேவைப்பட்டால் விடையை எளிய வடிவில் எழுதவும். மூன்றில் இரண்டு கூட்டல் ஐந்தில் ஒன்றுக்கு, மூன்றுக்கும் ஐந்துக்கும் சிறிய பொது மடங்கு பதினைந்து: பதினைந்தில் பத்து கூட்டல் பதினைந்தில் மூன்று பதினைந்தில் பதின்மூன்று. ஆறில் ஒன்று கூட்டல் மூன்றில் ஒன்றுக்குப் பொதுப் பகுதி ஆறு: ஆறில் ஒன்று கூட்டல் ஆறில் இரண்டு ஆறில் மூன்று. மேலும் கீழும் மூன்றால் வகுத்தால் அரை."
    },
    "actions": [
@@ -14095,31 +14130,40 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.041,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tBr2",
-     "at": 0.1,
+     "at": 0.203,
      "ms": 1500
-    },
+    }
+   ]
+  },
+  {
+   "id": "f8-method-b",
+   "section": "8 Add and subtract",
+   "narration": {
+    "en": "For two thirds plus one fifth, the smallest common multiple of three and five is fifteen: ten fifteenths plus three fifteenths is thirteen fifteenths. For one sixth plus one third, the common denominator is six: one sixth plus two sixths is three sixths. Divide top and bottom by three: one half."
+   },
+   "actions": [
     {
      "do": "write",
      "target": "tBr3",
-     "at": 0.5,
+     "at": 0.04,
      "ms": 1500
     },
     {
      "do": "write",
      "target": "tBr4",
-     "at": 0.85,
+     "at": 0.705,
      "ms": 1000
     }
    ]
@@ -14281,7 +14325,7 @@
    "id": "f8-sub2",
    "section": "8 Add and subtract",
    "narration": {
-    "en": "Now subtraction. Six sevenths take away four sevenths. Both use the unit one seventh. Show six shaded parts and remove four of them. Two parts are left. So six sevenths minus four sevenths is two sevenths. With different denominators, three fourths minus two thirds, we convert both. Three fourths is nine twelfths. Two thirds is eight twelfths. Nine twelfths minus eight twelfths is one twelfth. Brahmagupta's method for subtraction: make the fractional unit common, subtract the numerators, keep the denominator, and write the answer in lowest terms.",
+    "en": "Now subtraction. Six sevenths take away four sevenths. Both use the unit one seventh. Show six shaded parts and remove four of them. Two parts are left. So six sevenths minus four sevenths is two sevenths. With different denominators, three fourths minus two thirds, we convert both.",
     "ta": "இப்போது கழித்தல். ஏழில் ஆறு கழித்தல் ஏழில் நான்கு. இரண்டும் ஏழில் ஒன்று என்ற அலகைப் பயன்படுத்துகின்றன. ஆறு நிழலிட்ட பகுதிகளைக் காட்டி அவற்றில் நான்கை நீக்குங்கள். இரண்டு பகுதிகள் மிஞ்சும். எனவே ஏழில் ஆறு கழித்தல் ஏழில் நான்கு ஏழில் இரண்டு. வெவ்வேறு பகுதிகளுக்கு, நான்கில் மூன்று கழித்தல் மூன்றில் இரண்டுக்கு, இரண்டையும் மாற்றுவோம். நான்கில் மூன்று பன்னிரண்டில் ஒன்பது. மூன்றில் இரண்டு பன்னிரண்டில் எட்டு. பன்னிரண்டில் ஒன்பது கழித்தல் பன்னிரண்டில் எட்டு பன்னிரண்டில் ஒன்று. கழித்தலுக்கான பிரம்மகுப்தர் முறை: பொதுப் பின்ன அலகை உருவாக்கி, தொகுதிகளைக் கழித்து, பகுதியை அப்படியே வைத்து, விடையை எளிய வடிவில் எழுதுங்கள்."
    },
    "actions": [
@@ -14292,325 +14336,334 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.039,
      "ms": 500
     },
     {
      "do": "show",
      "target": "t7Frame",
-     "at": 0.02,
+     "at": 0.039,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7Frame",
-     "at": 0.03,
+     "at": 0.058,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B1",
-     "at": 0.06,
+     "at": 0.117,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B2",
-     "at": 0.09,
+     "at": 0.175,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B3",
-     "at": 0.12,
+     "at": 0.234,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B4",
-     "at": 0.15,
+     "at": 0.292,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B5",
-     "at": 0.18,
+     "at": 0.35,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B6",
-     "at": 0.21,
+     "at": 0.409,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t7B7",
-     "at": 0.24,
+     "at": 0.467,
      "ms": 300
     },
     {
      "do": "fill",
      "target": "t7B1",
-     "at": 0.13,
+     "at": 0.253,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B2",
-     "at": 0.16,
+     "at": 0.312,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B3",
-     "at": 0.19,
+     "at": 0.37,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B4",
-     "at": 0.22,
+     "at": 0.428,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B5",
-     "at": 0.25,
+     "at": 0.487,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B6",
-     "at": 0.28,
+     "at": 0.545,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t7B1",
-     "at": 0.42000000000000004,
+     "at": 0.818,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t7B2",
-     "at": 0.44,
+     "at": 0.857,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t7B3",
-     "at": 0.46,
+     "at": 0.896,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t7B4",
-     "at": 0.48000000000000004,
+     "at": 0.935,
      "color": "#CFD8DC"
     },
     {
      "do": "write",
      "target": "tT7",
-     "at": 0.5,
+     "at": 0.95,
      "ms": 800
-    },
+    }
+   ]
+  },
+  {
+   "id": "f8-sub2-b",
+   "section": "8 Add and subtract",
+   "narration": {
+    "en": "Three fourths is nine twelfths. Two thirds is eight twelfths. Nine twelfths minus eight twelfths is one twelfth. Brahmagupta's method for subtraction: make the fractional unit common, subtract the numerators, keep the denominator, and write the answer in lowest terms."
+   },
+   "actions": [
     {
      "do": "show",
      "target": "t12Frame",
-     "at": 0.55,
+     "at": 0.075,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12Frame",
-     "at": 0.55,
+     "at": 0.075,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B1",
-     "at": 0.5800000000000001,
+     "at": 0.136,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B2",
-     "at": 0.6100000000000001,
+     "at": 0.198,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B3",
-     "at": 0.64,
+     "at": 0.26,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B4",
-     "at": 0.67,
+     "at": 0.322,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B5",
-     "at": 0.7000000000000001,
+     "at": 0.383,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B6",
-     "at": 0.73,
+     "at": 0.445,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B7",
-     "at": 0.76,
+     "at": 0.507,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B8",
-     "at": 0.79,
+     "at": 0.568,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B9",
-     "at": 0.8200000000000001,
+     "at": 0.63,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B10",
-     "at": 0.8500000000000001,
+     "at": 0.692,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B11",
-     "at": 0.88,
+     "at": 0.753,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "t12B12",
-     "at": 0.91,
+     "at": 0.815,
      "ms": 300
     },
     {
      "do": "fill",
      "target": "t12B1",
-     "at": 0.61,
+     "at": 0.198,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B2",
-     "at": 0.62,
+     "at": 0.219,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B3",
-     "at": 0.63,
+     "at": 0.239,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B4",
-     "at": 0.64,
+     "at": 0.26,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B5",
-     "at": 0.65,
+     "at": 0.28,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B6",
-     "at": 0.6599999999999999,
+     "at": 0.301,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B7",
-     "at": 0.6699999999999999,
+     "at": 0.322,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B8",
-     "at": 0.6799999999999999,
+     "at": 0.342,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B9",
-     "at": 0.69,
+     "at": 0.363,
      "color": "#FF8A65"
     },
     {
      "do": "fill",
      "target": "t12B1",
-     "at": 0.76,
+     "at": 0.507,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B2",
-     "at": 0.77,
+     "at": 0.527,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B3",
-     "at": 0.78,
+     "at": 0.548,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B4",
-     "at": 0.79,
+     "at": 0.568,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B5",
-     "at": 0.8,
+     "at": 0.589,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B6",
-     "at": 0.81,
+     "at": 0.609,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B7",
-     "at": 0.8200000000000001,
+     "at": 0.63,
      "color": "#CFD8DC"
     },
     {
      "do": "fill",
      "target": "t12B8",
-     "at": 0.83,
+     "at": 0.65,
      "color": "#CFD8DC"
     },
     {
      "do": "write",
      "target": "tT12",
-     "at": 0.85,
+     "at": 0.692,
      "ms": 1000
     }
    ]
@@ -14721,7 +14774,7 @@
    "id": "h-names",
    "section": "9 A pinch of history",
    "narration": {
-    "en": "Let us end with a pinch of history. In ancient India a fraction was called bhinna in Sanskrit, which means broken. It was also called bhaga or ansha, meaning part or piece. The way we write fractions today began in India. The Bakshali manuscript, from around the year three hundred, wrote one half in nearly the same way we do. Later, Aryabhata, Brahmagupta, Sridharacharya and Mahaviracharya used the same method. The line between the numerator and denominator was added by the Moroccan mathematician Al-Hassar in the twelfth century.",
+    "en": "Let us end with a pinch of history. In ancient India a fraction was called bhinna in Sanskrit, which means broken. It was also called bhaga or ansha, meaning part or piece. The way we write fractions today began in India.",
     "ta": "இறுதியாக ஒரு சிறிய வரலாறு. பண்டைய இந்தியாவில் பின்னம் சமஸ்கிருதத்தில் பின்ன என்று அழைக்கப்பட்டது, அதன் பொருள் உடைந்தது. பாக அல்லது அம்ச என்றும் சொல்லப்பட்டது, அதன் பொருள் பகுதி அல்லது துண்டு. இன்று பின்னங்களை எழுதும் முறை இந்தியாவில் தொடங்கியது. சுமார் கி.பி. முந்நூறைச் சேர்ந்த பக்ஷாலி கையெழுத்துப் பிரதி அரையை நாம் எழுதுவது போலவே எழுதியது. பிற்காலத்தில் ஆர்யபட்டர், பிரம்மகுப்தர், ஸ்ரீதராச்சாரியர், மகாவீராச்சாரியர் ஆகியோரும் அதே முறையைப் பயன்படுத்தினர். தொகுதிக்கும் பகுதிக்கும் இடையிலான கோட்டை பன்னிரண்டாம் நூற்றாண்டில் மொராக்கோ கணிதவியலாளர் அல்-ஹசார் சேர்த்தார்."
    },
    "actions": [
@@ -14732,43 +14785,52 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.012,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.048,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tH1b",
-     "at": 0.1,
+     "at": 0.242,
      "ms": 1200
     },
     {
      "do": "write",
      "target": "tH2b",
-     "at": 0.3,
+     "at": 0.725,
      "ms": 1200
-    },
+    }
+   ]
+  },
+  {
+   "id": "h-names-b",
+   "section": "9 A pinch of history",
+   "narration": {
+    "en": "The Bakshali manuscript, from around the year three hundred, wrote one half in nearly the same way we do. Later, Aryabhata, Brahmagupta, Sridharacharya and Mahaviracharya used the same method. The line between the numerator and denominator was added by the Moroccan mathematician Al-Hassar in the twelfth century."
+   },
+   "actions": [
     {
      "do": "write",
      "target": "tH3b",
-     "at": 0.5,
+     "at": 0.147,
      "ms": 1200
     },
     {
      "do": "write",
      "target": "tH4b",
-     "at": 0.7,
+     "at": 0.488,
      "ms": 1200
     },
     {
      "do": "write",
      "target": "tH4c",
-     "at": 0.85,
+     "at": 0.744,
      "ms": 1200
     }
    ]
@@ -14777,7 +14839,7 @@
    "id": "h-egypt",
    "section": "9 A pinch of history",
    "narration": {
-    "en": "Other cultures used fractions too. The ancient Egyptians and Babylonians mostly used fractional units, with a one on top. A general fraction was written as a sum of fractional units. These are called Egyptian fractions. For example, nineteen twenty-fourths is one half plus one sixth plus one eighth. General fractions, and rules for adding, subtracting, multiplying and dividing them, were first introduced in India. They appear in the Sulba-sutras of Vedic times, and Brahmagupta described them in the form we still use. The ideas travelled to Europe through the Arabs and came into general use there around the seventeenth century.",
+    "en": "Other cultures used fractions too. The ancient Egyptians and Babylonians mostly used fractional units, with a one on top. A general fraction was written as a sum of fractional units. These are called Egyptian fractions. For example, nineteen twenty-fourths is one half plus one sixth plus one eighth.",
     "ta": "மற்றப் பண்பாடுகளிலும் பின்னங்கள் பயன்படுத்தப்பட்டன. பண்டைய எகிப்தியர்களும் பாபிலோனியர்களும் பெரும்பாலும் மேலே ஒன்று உள்ள பின்ன அலகுகளையே பயன்படுத்தினர். பொதுப் பின்னம் பின்ன அலகுகளின் கூட்டுத்தொகையாக எழுதப்பட்டது. இவை எகிப்தியப் பின்னங்கள் எனப்படுகின்றன. எடுத்துக்காட்டாக, இருபத்து நான்கில் பத்தொன்பது என்பது அரை கூட்டல் ஆறில் ஒன்று கூட்டல் எட்டில் ஒன்று. பொதுப் பின்னங்களும் அவற்றைக் கூட்டல், கழித்தல், பெருக்கல், வகுத்தல் விதிகளும் முதலில் இந்தியாவில் அறிமுகமாயின. வேத காலச் சுல்பசூத்திரங்களில் அவை உள்ளன, இன்றும் நாம் பயன்படுத்தும் வடிவில் பிரம்மகுப்தர் அவற்றை விவரித்தார். இந்தக் கருத்துகள் அரேபியர் வழியாக ஐரோப்பாவுக்குச் சென்று பதினேழாம் நூற்றாண்டளவில் அங்கு பரவலாகப் பயன்பட்டன."
    },
    "actions": [
@@ -14788,28 +14850,36 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.011,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.042,
      "ms": 500
     },
     {
      "do": "write",
      "target": "tH5b",
-     "at": 0.2,
+     "at": 0.422,
      "ms": 1500
     }
    ]
   },
   {
+   "id": "h-egypt-b",
+   "section": "9 A pinch of history",
+   "narration": {
+    "en": "General fractions, and rules for adding, subtracting, multiplying and dividing them, were first introduced in India. They appear in the Sulba-sutras of Vedic times, and Brahmagupta described them in the form we still use. The ideas travelled to Europe through the Arabs and came into general use there around the seventeenth century."
+   },
+   "actions": []
+  },
+  {
    "id": "h-puzzle",
    "section": "9 A pinch of history",
    "narration": {
-    "en": "Here is a puzzle. It is easy to add the same fractional unit to make one: half plus half, or a third three times. Can we add different fractional units to make one? Two different units cannot, because one half is the biggest unit, and any smaller unit would leave the sum below one. With three different units there is exactly one answer: one half, plus one third, plus one sixth. In sixths, that is three sixths, plus two sixths, plus one sixth, which makes six sixths, one whole.",
+    "en": "Here is a puzzle. It is easy to add the same fractional unit to make one: half plus half, or a third three times. Can we add different fractional units to make one? Two different units cannot, because one half is the biggest unit, and any smaller unit would leave the sum below one.",
     "ta": "இதோ ஒரு புதிர். ஒரே பின்ன அலகைக் கூட்டி ஒன்று பெறுவது எளிது: அரை கூட்டல் அரை, அல்லது மூன்றில் ஒன்றை மூன்று முறை. வெவ்வேறு பின்ன அலகுகளைக் கூட்டி ஒன்று பெற முடியுமா? இரண்டு வெவ்வேறு அலகுகளால் முடியாது, ஏனெனில் அரை மிகப் பெரிய அலகு, அதை விடச் சிறிய எந்த அலகும் கூட்டுத்தொகையை ஒன்றுக்குக் கீழே கொண்டுவரும். மூன்று வெவ்வேறு அலகுகளுக்குச் சரியாக ஒரே விடை உண்டு: அரை, கூட்டல் மூன்றில் ஒன்று, கூட்டல் ஆறில் ஒன்று. ஆறில் அது ஆறில் மூன்று, கூட்டல் ஆறில் இரண்டு, கூட்டல் ஆறில் ஒன்று, ஆறில் ஆறு, ஒரு முழுமை."
    },
    "actions": [
@@ -14820,103 +14890,112 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.009,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.034,
      "ms": 500
     },
     {
      "do": "show",
      "target": "pzFrame",
-     "at": 0.02,
+     "at": 0.034,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzFrame",
-     "at": 0.03,
+     "at": 0.051,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB1",
-     "at": 0.06,
+     "at": 0.102,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB2",
-     "at": 0.09,
+     "at": 0.153,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB3",
-     "at": 0.12,
+     "at": 0.204,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB4",
-     "at": 0.15,
+     "at": 0.255,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB5",
-     "at": 0.18,
+     "at": 0.306,
      "ms": 300
     },
     {
      "do": "draw",
      "target": "pzB6",
-     "at": 0.21,
+     "at": 0.357,
      "ms": 300
     },
     {
      "do": "fill",
      "target": "pzB1",
-     "at": 0.44,
+     "at": 0.749,
      "color": "#FFD166"
     },
     {
      "do": "fill",
      "target": "pzB2",
-     "at": 0.48000000000000004,
+     "at": 0.817,
      "color": "#FFD166"
     },
     {
      "do": "fill",
      "target": "pzB3",
-     "at": 0.52,
+     "at": 0.885,
      "color": "#FFD166"
-    },
+    }
+   ]
+  },
+  {
+   "id": "h-puzzle-b",
+   "section": "9 A pinch of history",
+   "narration": {
+    "en": "With three different units there is exactly one answer: one half, plus one third, plus one sixth. In sixths, that is three sixths, plus two sixths, plus one sixth, which makes six sixths, one whole."
+   },
+   "actions": [
     {
      "do": "fill",
      "target": "pzB4",
-     "at": 0.76,
+     "at": 0.418,
      "color": "#6EC6FF"
     },
     {
      "do": "fill",
      "target": "pzB5",
-     "at": 0.8,
+     "at": 0.515,
      "color": "#6EC6FF"
     },
     {
      "do": "fill",
      "target": "pzB6",
-     "at": 0.8,
+     "at": 0.515,
      "color": "#7BE0AD"
     },
     {
      "do": "write",
      "target": "tPz",
-     "at": 0.9,
+     "at": 0.758,
      "ms": 1000
     }
    ]

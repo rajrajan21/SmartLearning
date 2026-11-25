@@ -6217,7 +6217,7 @@
    "id": "c13-house",
    "section": "13 Construct a house",
    "narration": {
-    "en": "Constructing a house. Find the sequence of lines and curves first. The square BCED has all sides of 5 cm. The roof point A must be 5 cm from B and 5 cm from C. Take a compass radius of 5 cm. Draw an arc from B, then an arc from C. Where the arcs cross is A. Join A to B and A to C. Then, with A as centre and the same radius, draw an arc joining B and C. You never needed trial and error with a ruler, and you needed only parts of the circles. For a bigger house with 7 cm sides, use a radius of 7 cm throughout.",
+    "en": "Constructing a house. Find the sequence of lines and curves first. The square BCED has all sides of 5 cm. The roof point A must be 5 cm from B and 5 cm from C. Take a compass radius of 5 cm. Draw an arc from B, then an arc from C. Where the arcs cross is A.",
     "ta": "வீடு கட்டுமானம். முதலில் கோடுகளும் வளைவுகளும் வரையும் வரிசையைக் கண்டறியுங்கள். சதுரம் BCED இன் எல்லாப் பக்கங்களும் 5 செ.மீ. கூரைப் புள்ளி A, B யிலிருந்தும் C யிலிருந்தும் 5 செ.மீ தொலைவில் இருக்க வேண்டும். கவராய ஆரம் 5 செ.மீ எடுங்கள். B இலிருந்து ஒரு வில், C இலிருந்து ஒரு வில் வரையுங்கள். வில்கள் சந்திக்கும் இடம் A. A ஐ B, C உடன் இணையுங்கள். பிறகு A மையமாக அதே ஆரத்தில் B, C ஐ இணைக்கும் வில் வரையுங்கள். அளவுகோலால் சோதனை முயற்சி தேவையில்லை, வட்டங்களின் பகுதிகள் மட்டும் போதும். 7 செ.மீ பக்கம் கொண்ட பெரிய வீட்டுக்கு முழுவதும் 7 செ.மீ ஆரம் பயன்படுத்துங்கள்."
    },
    "actions": [
@@ -6228,115 +6228,124 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.04,
      "ms": 500
     },
     {
      "do": "write",
      "target": "hh0",
-     "at": 0.02,
+     "at": 0.04,
      "ms": 800
     },
     {
      "do": "show",
      "target": "hsq",
-     "at": 0.08,
+     "at": 0.159,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hBp",
-     "at": 0.12,
+     "at": 0.239,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hBpn",
-     "at": 0.16,
+     "at": 0.318,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hCp",
-     "at": 0.2,
+     "at": 0.398,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hCpn",
-     "at": 0.24,
+     "at": 0.477,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hDn",
-     "at": 0.28,
+     "at": 0.557,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hEn",
-     "at": 0.32,
+     "at": 0.636,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hb",
-     "at": 0.35,
+     "at": 0.696,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hc",
-     "at": 0.45,
+     "at": 0.895,
      "ms": 300
-    },
+    }
+   ]
+  },
+  {
+   "id": "c13-house-b",
+   "section": "13 Construct a house",
+   "narration": {
+    "en": "Join A to B and A to C. Then, with A as centre and the same radius, draw an arc joining B and C. You never needed trial and error with a ruler, and you needed only parts of the circles. For a bigger house with 7 cm sides, use a radius of 7 cm throughout."
+   },
+   "actions": [
     {
      "do": "show",
      "target": "hAp",
-     "at": 0.55,
+     "at": 0.095,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hAn",
-     "at": 0.6,
+     "at": 0.195,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hab",
-     "at": 0.65,
+     "at": 0.296,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hac",
-     "at": 0.7,
+     "at": 0.396,
      "ms": 300
     },
     {
      "do": "show",
      "target": "hroof",
-     "at": 0.78,
+     "at": 0.557,
      "ms": 300
     },
     {
      "do": "write",
      "target": "hh1",
-     "at": 0.85,
+     "at": 0.698,
      "ms": 800
     },
     {
      "do": "write",
      "target": "hh2",
-     "at": 0.92,
+     "at": 0.839,
      "ms": 800
     }
    ]
@@ -6481,7 +6490,7 @@
    "id": "c14-eyes",
    "section": "14 Eyes, waves, rhombus",
    "narration": {
-    "en": "Eyes, waves and a rhombus. For the eye, draw two arcs of the same radius, one with its centre at A below the middle line and one with its centre at B above it. If A and B are the same distance from the middle line, the two arcs mirror each other and the eye is symmetrical. A supporting line, drawn lightly, helps. The wavy wave is three half-circles of the same radius, one above the line, one below, one above again, with each centre at the middle of an equal part of the central line.",
+    "en": "Eyes, waves and a rhombus. For the eye, draw two arcs of the same radius, one with its centre at A below the middle line and one with its centre at B above it. If A and B are the same distance from the middle line, the two arcs mirror each other and the eye is symmetrical.",
     "ta": "கண்கள், அலைகள், சாய்சதுரம். கண்ணுக்கு ஒரே ஆரம் கொண்ட இரு வில்களை வரையுங்கள், ஒன்றின் மையம் நடுக்கோட்டுக்குக் கீழே A இல், மற்றொன்றின் மையம் மேலே B இல். A, B இரண்டும் நடுக்கோட்டிலிருந்து சம தொலைவில் இருந்தால் இரு வில்களும் ஒன்றையொன்று பிரதிபலிக்கும், கண் சமச்சீராக இருக்கும். மெலிதாக வரையும் துணைக்கோடு உதவும். அலைவளைவு என்பது ஒரே ஆரம் கொண்ட மூன்று அரை வட்டங்கள்: ஒன்று கோட்டுக்கு மேல், ஒன்று கீழ், மீண்டும் மேல், ஒவ்வொரு மையமும் மையக்கோட்டின் சம பகுதியின் நடுவில்."
    },
    "actions": [
@@ -6492,73 +6501,82 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.009,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.036,
      "ms": 500
     },
     {
      "do": "write",
      "target": "eyT",
-     "at": 0.02,
+     "at": 0.036,
      "ms": 800
     },
     {
      "do": "show",
      "target": "ey0",
-     "at": 0.1,
+     "at": 0.178,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyu",
-     "at": 0.18,
+     "at": 0.32,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyl",
-     "at": 0.26,
+     "at": 0.463,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyA",
-     "at": 0.34,
+     "at": 0.605,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyAn",
-     "at": 0.42,
+     "at": 0.748,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyB",
-     "at": 0.5,
+     "at": 0.89,
      "ms": 300
-    },
+    }
+   ]
+  },
+  {
+   "id": "c14-eyes-b",
+   "section": "14 Eyes, waves, rhombus",
+   "narration": {
+    "en": "A supporting line, drawn lightly, helps. The wavy wave is three half-circles of the same radius, one above the line, one below, one above again, with each centre at the middle of an equal part of the central line."
+   },
+   "actions": [
     {
      "do": "show",
      "target": "eyBn",
-     "at": 0.58,
+     "at": 0.042,
      "ms": 300
     },
     {
      "do": "show",
      "target": "eyc",
-     "at": 0.66,
+     "at": 0.224,
      "ms": 300
     },
     {
      "do": "write",
      "target": "eyU",
-     "at": 0.85,
+     "at": 0.658,
      "ms": 800
     }
    ]
@@ -7199,7 +7217,7 @@
    "id": "c15-person",
    "section": "15 A Person and waves",
    "narration": {
-    "en": "Now the figure called A Person. It has two parts. The head is a circle with a short stem. The body is a rectangle whose top edge curves inward like a scoop. To draw that curve, put the compass tip above the body on the centre line, and take a radius so that the arc passes through both top corners. Try different tip positions until the arc touches both corners and the curve is neither too deep nor too flat. Here the tip is a little above the head and the radius is bigger than the body is wide.",
+    "en": "Now the figure called A Person. It has two parts. The head is a circle with a short stem. The body is a rectangle whose top edge curves inward like a scoop. To draw that curve, put the compass tip above the body on the centre line, and take a radius so that the arc passes through both top corners.",
     "ta": "இப்போது மனிதன் என்ற உருவம். இதில் இரண்டு பகுதிகள். தலை ஒரு சிறிய தண்டுடன் கூடிய வட்டம். உடல் ஒரு செவ்வகம், அதன் மேல் விளிம்பு கரண்டி போல உள்நோக்கி வளைந்தது. அந்த வளைவை வரைய, உடலுக்கு மேலே நடுக்கோட்டில் கவராய முனையை வைத்து, வில் இரு மேல் மூலைகளையும் தொடும்படி ஆரம் எடுங்கள். வில் இரு மூலைகளையும் தொடும் வரை முனையின் இடத்தை மாற்றிப் பாருங்கள். இங்கே முனை தலைக்குச் சற்று மேலே, ஆரம் உடலின் அகலத்தை விடப் பெரியது."
    },
    "actions": [
@@ -7210,85 +7228,94 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.008,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.033,
      "ms": 500
     },
     {
      "do": "write",
      "target": "pT0",
-     "at": 0.02,
+     "at": 0.033,
      "ms": 800
     },
     {
      "do": "show",
      "target": "phd",
-     "at": 0.1,
+     "at": 0.166,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pst",
-     "at": 0.16,
+     "at": 0.266,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pb0",
-     "at": 0.22,
+     "at": 0.366,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pb1",
-     "at": 0.28,
+     "at": 0.466,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pb2",
-     "at": 0.34,
+     "at": 0.566,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pct",
-     "at": 0.45,
+     "at": 0.749,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pct1",
-     "at": 0.5,
+     "at": 0.832,
      "ms": 300
     },
     {
      "do": "show",
      "target": "prd",
-     "at": 0.55,
+     "at": 0.915,
      "ms": 300
-    },
+    }
+   ]
+  },
+  {
+   "id": "c15-person-b",
+   "section": "15 A Person and waves",
+   "narration": {
+    "en": "Try different tip positions until the arc touches both corners and the curve is neither too deep nor too flat. Here the tip is a little above the head and the radius is bigger than the body is wide."
+   },
+   "actions": [
     {
      "do": "show",
      "target": "pne",
-     "at": 0.7,
+     "at": 0.248,
      "ms": 300
     },
     {
      "do": "write",
      "target": "pT1",
-     "at": 0.82,
+     "at": 0.549,
      "ms": 800
     },
     {
      "do": "write",
      "target": "pT2",
-     "at": 0.9,
+     "at": 0.749,
      "ms": 800
     }
    ]

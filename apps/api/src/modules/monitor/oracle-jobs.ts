@@ -73,6 +73,32 @@ export function classifyOracleJob(
   return { id, status, phase, startedAt, finishedAt, elapsedSeconds, nextRunAt };
 }
 
+/** Walks all descendant process command names rooted at rootPid from `ps -e -o pid=,ppid=,comm=` output. */
+export function collectDescendantComms(psOutput: string, rootPid: number): string[] {
+  if (!Number.isInteger(rootPid) || rootPid <= 1) return [];
+  const children = new Map<number, { pid: number; comm: string }[]>();
+  for (const line of psOutput.split(/\r?\n/)) {
+    const m = /^\s*(\d+)\s+(\d+)\s+(.+?)\s*$/.exec(line);
+    if (!m) continue;
+    const pid = Number(m[1]), ppid = Number(m[2]), comm = m[3]!.trim().toLowerCase();
+    if (!comm) continue;
+    let list = children.get(ppid);
+    if (!list) { list = []; children.set(ppid, list); }
+    list.push({ pid, comm });
+  }
+  const comms: string[] = [];
+  const seen = new Set<number>([rootPid]);
+  const queue = [rootPid];
+  while (queue.length > 0) {
+    const cur = queue.shift()!;
+    for (const ch of children.get(cur) ?? []) {
+      comms.push(ch.comm);
+      if (!seen.has(ch.pid)) { seen.add(ch.pid); queue.push(ch.pid); }
+    }
+  }
+  return comms;
+}
+
 /** Read only unit metadata. Logs, command lines and service environments never enter the admin response. */
 export async function readOracleJobs() {
   if (process.platform !== "linux") return null;
@@ -80,14 +106,11 @@ export async function readOracleJobs() {
     env: { ...process.env, LC_ALL: "C", TZ: "UTC", SYSTEMD_COLORS: "0" },
     timeout: 2500, maxBuffer: 256 * 1024,
   }).then((result) => result.stdout);
-  const readChildComms = async (pidRaw?: string): Promise<string[]> => {
-    const pid = Number(pidRaw ?? 0);
-    if (!Number.isInteger(pid) || pid <= 1) return [];
+  const readProcessTable = async (): Promise<string> => {
     try {
-      const out = await exec("ps", ["-o", "comm=", "--ppid", String(pid)], { timeout: 1000, maxBuffer: 64 * 1024 }).then((r) => r.stdout);
-      return out.split(/\r?\n/).map((s) => s.trim().toLowerCase()).filter(Boolean);
+      return await exec("ps", ["-e", "-o", "pid=,ppid=,comm="], { timeout: 1000, maxBuffer: 256 * 1024 }).then((r) => r.stdout);
     } catch {
-      return [];
+      return "";
     }
   };
   try {
@@ -106,6 +129,7 @@ export async function readOracleJobs() {
         if (!previous || next < previous) nextRuns.set(target, next);
       }
     }
+    const psTable = units.some((u) => u.ActiveState === "active" && u.SubState !== "exited") ? await readProcessTable() : "";
     const jobs: OracleJobEntry[] = [];
     for (const u of units) {
       const id = u.Id;
@@ -113,7 +137,7 @@ export async function readOracleJobs() {
       const nextRunAt = nextRuns.get(id) ?? null;
       nextRuns.delete(id);
       const active = u.ActiveState === "active" && u.SubState !== "exited";
-      const comms = active ? await readChildComms(u.ExecMainPID) : [];
+      const comms = active ? collectDescendantComms(psTable, Number(u.ExecMainPID ?? 0)) : [];
       const entry = classifyOracleJob(u, nextRunAt, checkedAt, comms);
       if (entry) jobs.push(entry);
     }

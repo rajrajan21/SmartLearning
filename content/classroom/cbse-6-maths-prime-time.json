@@ -17738,7 +17738,7 @@
    "id": "p18-puzzle",
    "section": "18 The prime puzzle",
    "narration": {
-    "en": "A prime puzzle. Fill the grid with prime numbers so that the product of each row is the number at the right, and the product of each column is the number below. Look at the first row: seventy-five equals five times five times three. The second row: forty-two equals two times three times seven. The third: one hundred two equals seventeen times two times three. Check the columns: five times two times seventeen is one hundred seventy, five times three times two is thirty, and three times seven times three is sixty-three. Prime factorisation solves the puzzle.",
+    "en": "A prime puzzle. Fill the grid with prime numbers so that the product of each row is the number at the right, and the product of each column is the number below. Look at the first row: seventy-five equals five times five times three. The second row: forty-two equals two times three times seven.",
     "ta": "பகா எண் புதிர். ஒவ்வொரு வரிசையின் பெருக்கல் வலப்புறம் உள்ள எண்ணாகவும், ஒவ்வொரு நெடுவரிசையின் பெருக்கல் கீழே உள்ள எண்ணாகவும் வரும்படி பகா எண்களால் கட்டங்களை நிரப்புங்கள். முதல் வரிசை: 75 = 5×5×3. இரண்டாவது: 42 = 2×3×7. மூன்றாவது: 102 = 17×2×3. நெடுவரிசைகள்: 5×2×17 = 170; 5×3×2 = 30; 3×7×3 = 63. பகாக் காரணிப்படுத்தல் புதிரைத் தீர்க்கிறது."
    },
    "actions": [
@@ -17749,109 +17749,118 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.01,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.038,
      "ms": 500
     },
     {
      "do": "write",
      "target": "pzT",
-     "at": 0.02,
+     "at": 0.038,
      "ms": 500
     },
     {
      "do": "show",
      "target": "pzr0",
-     "at": 0.3,
+     "at": 0.572,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzr1",
-     "at": 0.34,
+     "at": 0.649,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzr2",
-     "at": 0.38,
+     "at": 0.725,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzc0",
-     "at": 0.42,
+     "at": 0.801,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzc1",
-     "at": 0.46,
+     "at": 0.878,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzc2",
-     "at": 0.5,
+     "at": 0.95,
      "ms": 250
     },
     {
      "do": "show",
      "target": "pzn00",
-     "at": 0.5,
+     "at": 0.95,
      "ms": 300
-    },
+    }
+   ]
+  },
+  {
+   "id": "p18-puzzle-b",
+   "section": "18 The prime puzzle",
+   "narration": {
+    "en": "The third: one hundred two equals seventeen times two times three. Check the columns: five times two times seventeen is one hundred seventy, five times three times two is thirty, and three times seven times three is sixty-three. Prime factorisation solves the puzzle."
+   },
+   "actions": [
     {
      "do": "show",
      "target": "pzn01",
-     "at": 0.54,
+     "at": 0.04,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn02",
-     "at": 0.58,
+     "at": 0.118,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn10",
-     "at": 0.65,
+     "at": 0.265,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn11",
-     "at": 0.69,
+     "at": 0.349,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn12",
-     "at": 0.73,
+     "at": 0.433,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn20",
-     "at": 0.8,
+     "at": 0.58,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn21",
-     "at": 0.84,
+     "at": 0.664,
      "ms": 300
     },
     {
      "do": "show",
      "target": "pzn22",
-     "at": 0.88,
+     "at": 0.748,
      "ms": 300
     }
    ]
@@ -17928,7 +17937,7 @@
    "id": "p19-summary",
    "section": "19 Chapter summary",
    "narration": {
-    "en": "Chapter summary. If a number is divisible by another, the second is a factor of the first. Prime numbers have exactly two factors, one and the number itself. Composite numbers have more than two factors. Every number greater than one can be written as a product of primes, and that is its prime factorisation. There is only one way to factorise a number into primes, except for the order. Two numbers with no common prime factor are co-prime. To check if one number is divisible by another, see whether the prime factorisation of the second is included in the first.",
+    "en": "Chapter summary. If a number is divisible by another, the second is a factor of the first. Prime numbers have exactly two factors, one and the number itself. Composite numbers have more than two factors. Every number greater than one can be written as a product of primes, and that is its prime factorisation.",
     "ta": "அத்தியாயச் சுருக்கம். ஒரு எண்ணை மற்றொன்றால் வகுக்க முடிந்தால் இரண்டாவது முதலின் காரணி. பகா எண்களுக்கு சரியாக இரண்டு காரணிகள்: 1 மற்றும் அதே எண். பகு எண்களுக்கு இரண்டுக்கும் மேல். 1 ஐ விடப் பெரிய ஒவ்வொரு எண்ணையும் பகா எண்களின் பெருக்கலாக எழுதலாம்; அதுவே பகாக் காரணிப்படுத்தல்; வரிசையைத் தவிர ஒரே வழிதான். பொதுப் பகாக் காரணி இல்லாத இரு எண்கள் ஒன்றுக்கொன்று பகா எண்கள். ஒரு எண் மற்றொன்றால் வகுபடுமா என்று அறிய இரண்டாவதன் பகாக் காரணிகள் முதலில் உள்ளனவா எனப் பார்க்கவும்."
    },
    "actions": [
@@ -17939,28 +17948,36 @@
     {
      "do": "show",
      "target": "bg",
-     "at": 0.005,
+     "at": 0.009,
      "ms": 200
     },
     {
      "do": "write",
      "target": "title",
-     "at": 0.02,
+     "at": 0.037,
      "ms": 500
     },
     {
      "do": "write",
      "target": "sm0",
-     "at": 0.1,
+     "at": 0.183,
      "ms": 800
     },
     {
      "do": "write",
      "target": "sm1",
-     "at": 0.5,
+     "at": 0.914,
      "ms": 800
     }
    ]
+  },
+  {
+   "id": "p19-summary-b",
+   "section": "19 Chapter summary",
+   "narration": {
+    "en": "There is only one way to factorise a number into primes, except for the order. Two numbers with no common prime factor are co-prime. To check if one number is divisible by another, see whether the prime factorisation of the second is included in the first."
+   },
+   "actions": []
   }
  ]
 }
