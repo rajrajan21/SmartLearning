@@ -97,7 +97,14 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     for (const lang of LANGS) { const r = lookup(teacher, lang, text[lang]); if (r) out[lang] = r; }
     return out.en || out.ta ? out : undefined;
   };
-  const candidates = (fallbackTeacher: string): string[] => {
+  const candidates = (fallbackTeacher: string, lang: Lang = "en"): string[] => {
+    if (lang === "ta") {
+      const defTa = perf().defaultTamilVoice || "pallavi";
+      const list = fallbackTeacher === "malar" || fallbackTeacher === "kani"
+        ? [defTa, "pallavi", "valluvar", "jaya", "murali"]
+        : [fallbackTeacher, defTa, "pallavi", "valluvar", "jaya", "murali"];
+      return [...new Set(list)];
+    }
     const def = perf().defaultAudioVoice || "kani";
     const list = fallbackTeacher === "malar"
       ? [def, "kani", "priya2", "malar", "ravi2"]
@@ -106,10 +113,9 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
   };
   const refsPreferred = (fallbackTeacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
     if (!text) return undefined;
-    const order = candidates(fallbackTeacher);
     const out: LangAudio = {};
     for (const lang of LANGS) {
-      for (const t of order) { const r = lookup(t, lang, text[lang]); if (r) { out[lang] = r; break; } }
+      for (const t of candidates(fallbackTeacher, lang)) { const r = lookup(t, lang, text[lang]); if (r) { out[lang] = r; break; } }
     }
     return out.en || out.ta ? out : undefined;
   };
@@ -132,14 +138,15 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
         ...lesson,
         blocks: lesson.blocks.map((b) => {
           if (b.type !== "teacher_narration") return b;
-          const order = candidates(b.teacher);
-          if (!order.some((t) => voices[t])) return b;
+          const enOrder = candidates(b.teacher, "en"), taOrder = candidates(b.teacher, "ta");
+          if (!enOrder.some((t) => voices[t]) && !taOrder.some((t) => voices[t])) return b;
           return {
             ...b,
             sentences: b.sentences.map((sen) => {
               const audio: { en?: AudioRef; ta?: AudioRef } = {};
               for (const lang of LANGS) {
                 const spoken = sen.spoken?.[lang] ?? sen.text[lang];
+                const order = lang === "ta" ? taOrder : enOrder;
                 for (const t of order) { const r = lookup(t, lang, spoken); if (r) { audio[lang] = r; break; } }
               }
               return { ...sen, audio };

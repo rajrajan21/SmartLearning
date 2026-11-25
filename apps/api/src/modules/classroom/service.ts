@@ -83,20 +83,30 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
   };
   const currentStamp = throttled(() => stampOf(dirs));
   const load = () => { const s = currentStamp(); if (s !== stamp) build(s); return cache; };
+  const pairedAudio = (voice: string, text: { en?: string; ta?: string } | undefined): ReturnType<AudioStore["refs"]> => {
+    if (!audio || !text) return undefined;
+    const direct = audio.refs(voice, text);
+    // Pair natural Tamil voices (pallavi/valluvar) with natural English counterparts (kani/arul) so Tamil -> English works seamlessly.
+    const enPref = voice === "valluvar" ? "arul" : voice === "pallavi" ? "kani" : voice;
+    const taPref = voice === "arul" ? "valluvar" : voice === "kani" ? "pallavi" : (perf().defaultTamilVoice || "pallavi");
+    const en = direct?.en ?? audio.refs(enPref, { en: text.en })?.en ?? audio.refsPreferred?.(enPref, { en: text.en })?.en;
+    const ta = direct?.ta ?? audio.refs(taPref, { ta: text.ta })?.ta ?? audio.refsPreferred?.(taPref, { ta: text.ta })?.ta;
+    return en || ta ? { ...(en ? { en } : {}), ...(ta ? { ta } : {}) } : undefined;
+  };
   const withAudio = (l: ClassroomLesson, voice: string): PublicClassroom => ({
     ...l,
     steps: l.steps.map((st) => ({
       ...st,
-      audio: audio?.refs(voice, st.narration),
-      checkAudio: st.check ? { stem: audio?.refs(voice, st.check.stem), explanation: audio?.refs(voice, st.check.explanation) } : undefined,
+      audio: pairedAudio(voice, st.narration),
+      checkAudio: st.check ? { stem: pairedAudio(voice, st.check.stem), explanation: pairedAudio(voice, st.check.explanation) } : undefined,
     })),
   });
   return {
     index() {
       const all = load();
-      // a voice is "ready" when it has been recorded for at least one lesson (not just the first lesson in the list); worked out again only when the lessons or the recordings change
+      // a voice is "ready" when it has been recorded for at least one lesson (checking either English or Tamil tracks); worked out again only when the lessons or the recordings change
       const vk = `${stamp}#${audio?.version?.() ?? Date.now()}`;
-      if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: all.some((l) => !!l.steps[0] && !!audio?.refs(t.id, l.steps[0].narration)) })); voicesKey = vk; }
+      if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: all.some((l) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))) })); voicesKey = vk; }
       const pref = perf().defaultAudioVoice || "kani";
       return { voices, defaultVoice: voices.some((v) => v.id === pref) ? pref : DEFAULT_VOICE, items };
     },

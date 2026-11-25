@@ -126,3 +126,23 @@ it("generates animated concept diagrams for percentages, layers, comparisons, fl
   const card = smartVisualFor("Understanding landforms helps us plan settlements and protect lives.", "Learn", false, id);
   expect(card?.kind).toBe("concept-card");
 });
+
+it("preserves full bilingual Tamil and English narration and checks on complete sample Tamil lessons", () => {
+  for (const file of ["tnm-10-tamil-iyal-1-annai-mozhiye.json", "tnm-10-tamil-iyal-3-thirukkural-iyal3.json"]) {
+    const imp = LessonImport.parse(load("lessons", file));
+    const qs = QuestionImport.parse(load("questions", file)).questions;
+    const out = composeClassroom({ meta: { board: imp.board, classLevel: imp.classLevel, subject: imp.subject, chapter: imp.chapter, topic: imp.topic }, lesson: imp.lesson, questions: qs });
+    expect(ClassroomLesson.parse(out).steps.length).toBeGreaterThanOrEqual(16);
+    for (const s of out.steps) {
+      expect(s.narration.ta?.trim() ?? "", `${file} ${s.id} missing ta`).not.toBe("");
+      expect(s.narration.en.length, `${file} ${s.id} en > 480`).toBeLessThanOrEqual(480);
+      expect((s.narration.ta ?? "").length, `${file} ${s.id} ta > 480`).toBeLessThanOrEqual(480);
+    }
+    const checks = out.steps.filter((s) => s.check);
+    expect(checks.length).toBeGreaterThanOrEqual(4);
+    for (const c of checks) {
+      expect(c.check!.stem.ta?.trim().length).toBeGreaterThan(0);
+      expect(c.check!.explanation.ta?.trim().length).toBeGreaterThan(0);
+    }
+  }
+});

@@ -113,9 +113,13 @@ describe("lesson completion hub and spotlight tour settings", () => {
     expect(v["classroom.fitViewport"]).toBe(true);
     expect(v["classroom.smartVisuals"]).toBe(true);
     expect(v["audio.defaultVoice"]).toBe("kani");
+    expect(v["audio.defaultTamilVoice"]).toBe("pallavi");
+    expect(v["classroom.tamilSubjectLanguage"]).toBe("ta-en");
     expect(v["narration.browserVoice"]).toBe(false);
     expect(v["gk.audio.deviceVoice"]).toBe(false);
     expect(parseSetting("audio.defaultVoice", "priya2")).toBe("priya2");
+    expect(parseSetting("audio.defaultTamilVoice", "valluvar")).toBe("valluvar");
+    expect(parseSetting("classroom.language", "ta-en")).toBe("ta-en");
     expect(() => parseSetting("audio.defaultVoice", "unknown")).toThrow(/options/);
 
     expect(parseSetting("ux.spotlightTour.maxAutoPerSession", 0)).toBe(0);

@@ -17,9 +17,11 @@ export interface PerfConfig {
   compress: boolean;
   /** default natural English teacher voice across Games, Practice, Lessons, GK, Phrases and Classroom */
   defaultAudioVoice: string;
+  /** default natural Tamil teacher voice for Tamil narration and Tamil -> English translation */
+  defaultTamilVoice: string;
 }
 /** Used until the server has read the admin settings (and in tests): behaves exactly as before. The admin setting defaults are in perf-settings.ts. */
-export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false, defaultAudioVoice: "kani" };
+export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false, defaultAudioVoice: "kani", defaultTamilVoice: "pallavi" };
 
 let current: PerfConfig = { ...PERF_DEFAULTS };
 export const perf = (): PerfConfig => current;
@@ -35,5 +37,6 @@ export function setPerf(values: Record<string, unknown>): void {
     staticCacheSeconds: num("perf.static.cacheSeconds", PERF_DEFAULTS.staticCacheSeconds),
     compress: bool("perf.compress.enabled", PERF_DEFAULTS.compress),
     defaultAudioVoice: str("audio.defaultVoice", PERF_DEFAULTS.defaultAudioVoice),
+    defaultTamilVoice: str("audio.defaultTamilVoice", PERF_DEFAULTS.defaultTamilVoice),
   };
 }

@@ -228,8 +228,29 @@ export const SETTINGS: SettingDef[] = [
       { value: "malar", label: "Malar (American English)" },
     ],
     help: "Used first across Games, Practice, Revision, Reading Lessons, GK, Praise Phrases and Classroom whenever recordings exist; falls back to another recorded voice if needed." },
+  { key: "audio.defaultTamilVoice", panel: "classroom", section: "Voice", label: "Default natural Tamil teacher voice", public: true, type: "select", default: "pallavi",
+    options: [
+      { value: "pallavi", label: "Pallavi (natural Indian Tamil, Female)" },
+      { value: "valluvar", label: "Valluvar (natural Indian Tamil, Male)" },
+      { value: "jaya", label: "Jaya (Parler Tamil Female)" },
+      { value: "murali", label: "Murali (Parler Tamil Male)" },
+    ],
+    help: "Used first when playing Tamil lesson narration or the Tamil leg of bilingual Tamil -> English translation audio." },
   { key: "classroom.language", panel: "classroom", section: "Voice", label: "Language", public: true, type: "select", default: "en", dependsOn: "feature.classroom",
-    options: [{ value: "en", label: "English only" }, { value: "both", label: "English, then Tamil (where Tamil is recorded)" }] },
+    options: [
+      { value: "en", label: "English only" },
+      { value: "ta", label: "Tamil only (where Tamil is recorded)" },
+      { value: "ta-en", label: "Tamil, then English translation (where recorded)" },
+      { value: "both", label: "English, then Tamil (where Tamil is recorded)" },
+    ] },
+  { key: "classroom.tamilSubjectLanguage", panel: "classroom", section: "Voice", label: "Tamil subject lessons default language", public: true, type: "select", default: "ta-en", dependsOn: "feature.classroom",
+    options: [
+      { value: "ta-en", label: "Tamil, then English translation" },
+      { value: "ta", label: "Tamil only" },
+      { value: "both", label: "English, then Tamil" },
+      { value: "en", label: "English only" },
+    ],
+    help: "Applied automatically when opening Tamil subject lessons so students hear natural Tamil paired with English translation." },
   bool("classroom.browserVoice", "classroom", "Voice", "Use the browser voice when no recording exists", false, { dependsOn: "feature.classroom", help: "Off by default: the browser voice is often a man's voice and does not match the teacher. Recorded teacher audio is always used first." }),
 
   // ---------------- Lessons ----------------

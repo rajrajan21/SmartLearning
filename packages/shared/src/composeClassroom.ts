@@ -18,13 +18,14 @@ export interface ComposeInput {
 }
 
 const LEAD_INS = ["Let us try a question.", "Here is another question for you.", "Now you try this one.", "One more question. Take your time."];
+const LEAD_INS_TA = ["ஒரு கேள்வியை முயற்சிப்போம்.", "உங்களுக்கான அடுத்த கேள்வி இதோ.", "இப்போது இதை முயற்சிக்கவும்.", "இன்னொரு கேள்வி. நிதானமாகச் சிந்தியுங்கள்."];
 /** story characters: shown for a moment while they are mentioned, then taken away */
 const BRIEF = new Set(["grandfather", "grandmother", "mother", "father", "mom", "dad", "baby", "teacher", "doctor", "farmer"]);
 const BOARD_TOP = 112, LINE_H = 44, BOARD_BOTTOM = 470;
 
 /** Splits a paragraph into sentences. */
 export function sentences(text: string): string[] {
-  return text.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+(?=[A-Z0-9"'(])/).map((x) => x.trim()).filter(Boolean);
+  return text.replace(/\s+/g, " ").trim().split(/(?<=[.!?])\s+(?=[A-Z0-9"'(\u0B80-\u0BFF])/).map((x) => x.trim()).filter(Boolean);
 }
 /** Groups sentences into short spoken chunks (at most two sentences and about 260 characters). */
 export function chunks(text: string, maxChars = 260): string[] {
@@ -59,8 +60,33 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
   };
   const capacity = () => Math.floor((BOARD_BOTTOM - BOARD_TOP) / LINE_H) + 1;
 
+  /** Splits bilingual narration cleanly so both English and Tamil spoken steps stay under the speech limit. */
+  const splitPair = (narration: string | { en: string; ta?: string }): { en: string; ta?: string }[] => {
+    const enRaw = typeof narration === "string" ? narration : narration.en;
+    const taRaw = typeof narration === "string" ? undefined : narration.ta?.trim();
+    const enParts = enRaw.length > 440 ? chunks(enRaw) : [enRaw];
+    if (!taRaw) return enParts.map((en) => ({ en }));
+    const taParts = taRaw.length > 440 ? chunks(taRaw) : [taRaw];
+    while (taParts.length > enParts.length) {
+      let merged = false;
+      for (let i = 0; i < taParts.length - 1; i++) {
+        if (taParts[i]!.length + 1 + taParts[i + 1]!.length <= 440) {
+          taParts.splice(i, 2, `${taParts[i]} ${taParts[i + 1]}`);
+          merged = true;
+          break;
+        }
+      }
+      if (!merged) break;
+    }
+    const n = Math.max(enParts.length, taParts.length);
+    return Array.from({ length: n }, (_, i) => ({
+      en: enParts[Math.min(i, enParts.length - 1)]!,
+      ...(taParts[i] ? { ta: taParts[i] } : {}),
+    }));
+  };
+
   /** One spoken step: what is said, and the lines/shapes written while she says it. */
-  const emit = (section: string, label: string, narration: string, lines: { text: string; color?: string; size?: number }[] = [], extra: (a: ClassAction[]) => void = () => {}, o: { fresh?: boolean; check?: ClassroomStep["check"] } = {}) => {
+  const emit = (section: string, label: string, narration: string | { en: string; ta?: string }, lines: { text: string; color?: string; size?: number }[] = [], extra: (a: ClassAction[]) => void = () => {}, o: { fresh?: boolean; check?: ClassroomStep["check"] } = {}) => {
     const actions: ClassAction[] = [];
     const max = wide ? 46 : 28;
     const wrapped = lines.flatMap((l) => wrap(l.text, max).map((t, i) => ({ ...l, text: t, i })));
@@ -73,12 +99,12 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
       row++;
     });
     extra(actions);
-    const spokenParts = narration.length > 440 ? chunks(narration) : [narration];
+    const spokenParts = splitPair(narration);
     spokenParts.forEach((part, index) => {
       steps.push({
         id: `s${steps.length + 1}`,
         section,
-        narration: { en: part },
+        narration: part,
         actions: index === 0 ? actions : [],
         ...(o.check && index === spokenParts.length - 1 ? { check: o.check } : {}),
       });
@@ -160,7 +186,12 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
   };
 
   const title = inp.lesson.title.en;
-  emit("Start", "Today's lesson", `Hello! Today's lesson is ${title}. Let us begin.`, [], (a) => {
+  const titleTa = inp.lesson.title.ta?.trim();
+  const hasTaContent = Boolean(titleTa || inp.questions?.some((q) => Boolean(q.stem.ta?.trim())));
+  emit("Start", "Today's lesson", {
+    en: `Hello! Today's lesson is ${title}. Let us begin.`,
+    ...(titleTa ? { ta: `வணக்கம்! இன்றைய பாடம் ${titleTa}. தொடங்கலாம்.` } : {}),
+  }, [], (a) => {
     const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: short(title, 34), size: 56, color: "accent", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.25, ms: 1200 });
   });
 
@@ -179,11 +210,69 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
 
   let qn = 0;
   const byKey = new Map((inp.questions ?? []).map((q) => [q.key, q]));
+  const hasTa = hasTaContent || inp.lesson.blocks.some((b) =>
+    (b.type === "teacher_narration" && b.sentences.some((s) => Boolean(s.spoken?.ta || s.text.ta)))
+    || ((b.type === "story" || b.type === "explanation") && Boolean(b.text.ta))
+  );
+  /** Groups bilingual paragraphs into short paired spoken beats under 440 chars per language. */
+  const bilingualChunks = (enText: string, taText?: string): { en: string; ta?: string }[] => {
+    const ta = taText?.trim();
+    if (!ta) return chunks(enText).map((en) => ({ en }));
+    const enSents = sentences(enText);
+    const taSents = sentences(ta);
+    if (enSents.length === taSents.length && enSents.length > 0) {
+      const out: { en: string; ta: string }[] = [];
+      let curEn = "";
+      let curTa = "";
+      for (let i = 0; i < enSents.length; i++) {
+        const es = enSents[i]!;
+        const ts = taSents[i]!;
+        const nextEn = curEn ? `${curEn} ${es}` : es;
+        const nextTa = curTa ? `${curTa} ${ts}` : ts;
+        if (curEn && (nextEn.length > 260 || nextTa.length > 340 || curEn.split(/(?<=[.!?])\s/).length >= 2)) {
+          out.push({ en: curEn, ta: curTa });
+          curEn = es;
+          curTa = ts;
+        } else {
+          curEn = nextEn;
+          curTa = nextTa;
+        }
+      }
+      if (curEn) out.push({ en: curEn, ta: curTa });
+      return out.flatMap((pair) => (pair.en.length <= 440 && pair.ta.length <= 440 ? [pair] : splitPair(pair)));
+    }
+    const enC = chunks(enText);
+    const taC = chunks(ta);
+    while (enC.length > taC.length) {
+      let merged = false;
+      for (let i = 0; i < enC.length - 1; i++) {
+        if (enC[i]!.length + 1 + enC[i + 1]!.length <= 400) {
+          enC.splice(i, 2, `${enC[i]} ${enC[i + 1]}`);
+          merged = true;
+          break;
+        }
+      }
+      if (!merged) break;
+    }
+    while (taC.length > enC.length) {
+      let merged = false;
+      for (let i = 0; i < taC.length - 1; i++) {
+        if (taC[i]!.length + 1 + taC[i + 1]!.length <= 400) {
+          taC.splice(i, 2, `${taC[i]} ${taC[i + 1]}`);
+          merged = true;
+          break;
+        }
+      }
+      if (!merged) break;
+    }
+    return enC.map((en, i) => ({ en, ...(taC[i] ? { ta: taC[i] } : {}) }));
+  };
+
   for (const b of inp.lesson.blocks) {
     if (b.type === "story") {
-      chunks(b.text.en).forEach((c, i) => emit("Story", `Story: ${b.title.en}`, c, [], scene(c, "Story"), { fresh: true }));
+      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Story", `Story: ${b.title.en}`, pair, [], scene(pair.en, "Story"), { fresh: true }));
     } else if (b.type === "explanation") {
-      chunks(b.text.en).forEach((c, i) => emit("Learn", "Let us learn", c, [], scene(c, "Learn"), { fresh: true }));
+      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Learn", "Let us learn", pair, [], scene(pair.en, "Learn"), { fresh: true }));
     } else if (b.type === "teacher_narration") {
       wide = !b.sentences.some((s) => s.board.some((x) => x.op === "draw"));
       let first = true, lastShape: string | undefined;
@@ -192,7 +281,8 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         const draws: Extract<ClassroomStep["actions"][number], object>[] = [];
         for (const op of sen.board) if (op.op === "clear") { fresh = true; figures = 0; }
         for (const op of sen.board) if (op.op === "write") lines.push({ text: op.text, color: "accent" });
-        emit("Learn", "Let us learn", sen.spoken?.en ?? sen.text.en, lines, (acts) => {
+        const taText = sen.spoken?.ta?.trim() || sen.text.ta?.trim();
+        emit("Learn", "Let us learn", { en: sen.spoken?.en ?? sen.text.en, ...(taText ? { ta: taText } : {}) }, lines, (acts) => {
           for (const op of sen.board) {
             if (op.op === "draw") {
               const col = figures % 2, rw = Math.floor(figures / 2) % 3, cx = 600 + col * 150, cy = 170 + rw * 135; figures++;
@@ -210,7 +300,11 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
       wide = true;
       insertPicture();
     } else if (b.type === "worked_example") {
-      emit("Example", "Worked example", `Let us work through an example. ${b.problem.en}`, [], scene(b.problem.en, "Example", [], `Let us work through an example. ${b.problem.en}`), { fresh: true });
+      const probTa = b.problem.ta?.trim();
+      emit("Example", "Worked example", {
+        en: `Let us work through an example. ${b.problem.en}`,
+        ...(probTa ? { ta: `இப்போது ஒரு எடுத்துக்காட்டைப் பார்ப்போம். ${probTa}` } : {}),
+      }, [], scene(b.problem.en, "Example", [], `Let us work through an example. ${b.problem.en}`), { fresh: true });
       b.steps.forEach((st, i) => {
         const text = st.text.en.trim();
         const explanation = st.why?.en?.trim();
@@ -225,32 +319,57 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
           parts.splice(0, parts.length, ...chunks(body, 250));
           parts[0] = `${label} ${parts[0]}`;
         }
-        parts.forEach((c, k) => {
-          const expr = expressionIn(c);
-          if (k === 0) emit("Example", "Worked example", c, [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }], expr ? scene(c, "Example") : undefined, { fresh: true });
-          else emit("Example", "Worked example", c, [], expr ? scene(c, "Example") : undefined);
-        });
+        const taText = st.text.ta?.trim();
+        const taWhy = st.why?.ta?.trim();
+        const taBody = taText ? [taText, taWhy].filter(Boolean).join(" ") : undefined;
+        if (taBody) {
+          const bodyStr = [text, explanation && !labelOnly.test(explanation) ? explanation : undefined].filter(Boolean).join(" ");
+          const pairs = bilingualChunks(bodyStr, taBody);
+          if (pairs.length > 0) {
+            if (!hasLabel) pairs[0]!.en = `${label} ${pairs[0]!.en}`;
+            if (pairs[0]!.ta) pairs[0]!.ta = `படி ${i + 1}. ${pairs[0]!.ta}`;
+          }
+          pairs.forEach((pair, k) => {
+            const expr = expressionIn(pair.en);
+            const lineData = k === 0 ? [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }] : [];
+            emit("Example", "Worked example", pair, lineData, expr ? scene(pair.en, "Example") : undefined, k === 0 ? { fresh: true } : {});
+          });
+        } else {
+          parts.forEach((c, k) => {
+            const expr = expressionIn(c);
+            const lineData = k === 0 ? [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }] : [];
+            emit("Example", "Worked example", c, lineData, expr ? scene(c, "Example") : undefined, k === 0 ? { fresh: true } : {});
+          });
+        }
       });
     } else if (b.type === "teach_back") {
-      emit("Think", "Your turn to explain", b.prompt.en, [], scene(b.prompt.en, "Think"), { fresh: true });
+      emit("Think", "Your turn to explain", { en: b.prompt.en, ...(b.prompt.ta?.trim() ? { ta: b.prompt.ta.trim() } : {}) }, [], scene(b.prompt.en, "Think"), { fresh: true });
     } else if (b.type === "summary") {
-      emit("Remember", "Let us remember", "Let us remember what we learned.", [], undefined, { fresh: true });
-      for (const p of b.points) emit("Remember", "Let us remember", p.en, [], scene(p.en, "Remember"), { fresh: true });
+      emit("Remember", "Let us remember", {
+        en: "Let us remember what we learned.",
+        ...(hasTa ? { ta: "நாம் கற்ற முக்கியக் கருத்துகளை நினைவுகூர்வோம்." } : {}),
+      }, [], undefined, { fresh: true });
+      for (const p of b.points) emit("Remember", "Let us remember", { en: p.en, ...(p.ta?.trim() ? { ta: p.ta.trim() } : {}) }, [], scene(p.en, "Remember"), { fresh: true });
     } else if (b.type === "quiz") {
       for (const key of b.questionIds) {
         const q = byKey.get(key);
         if (!q || (q.type !== "mcq" && q.type !== "true_false")) continue;
         qn++;
         const stem = q.stem.en;
+        const qTa = Boolean(q.stem.ta?.trim());
         const check: ClassroomStep["check"] = q.type === "mcq"
           ? { stem: q.stem, explanation: q.explanation, options: q.options.map((o) => ({ id: o.id, text: o.text, ...(o.correct ? { correct: true } : { whyWrong: o.whyWrong ?? q.explanation }) })) }
-          : { stem: q.stem, explanation: q.explanation, options: [{ id: "t", text: { en: "True" }, ...(q.answer ? { correct: true } : { whyWrong: q.explanation }) }, { id: "f", text: { en: "False" }, ...(!q.answer ? { correct: true } : { whyWrong: q.explanation }) }] };
-        emit("Practice", `Question ${qn}`, LEAD_INS[lead++ % LEAD_INS.length]!, [], scene(stem, "Practice", ["❓"], LEAD_INS[lead % LEAD_INS.length]!), { fresh: true, check });
+          : { stem: q.stem, explanation: q.explanation, options: [{ id: "t", text: { en: "True", ...(qTa ? { ta: "சரி" } : {}) }, ...(q.answer ? { correct: true } : { whyWrong: q.explanation }) }, { id: "f", text: { en: "False", ...(qTa ? { ta: "தவறு" } : {}) }, ...(!q.answer ? { correct: true } : { whyWrong: q.explanation }) }] };
+        const li = lead++ % LEAD_INS.length;
+        emit("Practice", `Question ${qn}`, { en: LEAD_INS[li]!, ...(qTa ? { ta: LEAD_INS_TA[li]! } : {}) }, [], scene(stem, "Practice", ["❓"], LEAD_INS[lead % LEAD_INS.length]!), { fresh: true, check });
       }
     }
   }
   insertPicture(); // lessons without a narration block still get the picture page
-  emit("Done", "Well done", "That is the end of this lesson. Well done! You can watch it again, or try the practice questions.", [], (a) => {
+  emit("Done", "Well done", {
+    en: "That is the end of this lesson. Well done! You can watch it again, or try the practice questions.",
+    ...(hasTa ? { ta: "இந்தப் பாடம் இத்துடன் நிறைவடைந்தது. நன்று! மீண்டும் பார்க்கலாம் அல்லது பயிற்சி வினாக்களை முயற்சிக்கலாம்." } : {}),
+  }, [], (a) => {
     const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: "Well done!", size: 70, color: "good", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.2, ms: 900 });
   }, { fresh: true });
 

@@ -157,7 +157,6 @@ const timelineTime = (ms: number) => { const seconds = Math.floor(ms / 1000); re
 function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile, nextHref, nextLabel }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void; nextHref?: string | null; nextLabel?: string | null }) {
   const s = useSettings();
   const { lang } = s;
-  const narrationLang = related ? "en" : lang;
   const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
   const vp = visualsPolicy(s, lessonIn, reduced());
   const lesson = useMemo(() => (vp.animations ? (vp.generated ? lessonIn : withoutGeneratedSteps(lessonIn)) : withoutVisualSteps(lessonIn)), [lessonIn, vp.animations, vp.generated]);
@@ -165,6 +164,13 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const captions = s.get("classroom.showCaptions") === true, show3d = s.get("classroom.show3d") === true;
   const style = s.get<string>("classroom.boardStyle") as BoardStyle, browserVoice = s.get("classroom.browserVoice") === true;
   const instant = useMemo(reduced, []);
+
+  type ClassLangMode = "en" | "ta" | "ta-en" | "both";
+  const initialLangMode = useMemo<ClassLangMode>(() => {
+    if (related) return "en";
+    const raw = lessonIn.subject === "tamil" ? s.get<string>("classroom.tamilSubjectLanguage") : s.get<string>("classroom.language");
+    return raw === "ta" || raw === "ta-en" || raw === "both" ? raw : "en";
+  }, [lessonIn.subject, related, s]);
 
   const [step, setStep] = useState(0);
   const [phase, setPhase] = useState<Phase>("idle");
@@ -177,22 +183,25 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const [picked, setPicked] = useState<string | null>(null);
   const phrases = usePhrases(true);
   const [wrongNote, setWrongNote] = useState<string | null>(null);
-  const [both, setBoth] = useState(s.get<string>("classroom.language") === "both");
+  const [langMode, setLangMode] = useState<ClassLangMode>(initialLangMode);
   const [talking, setTalking] = useState(false);
-  const bothRef = useRef(both); bothRef.current = both;
+  const langModeRef = useRef(langMode); langModeRef.current = langMode;
+  const narrationLang: "en" | "ta" = related ? "en" : (langMode === "ta" || langMode === "ta-en") ? "ta" : "en";
+  const secondaryLang: "en" | "ta" | null = related ? null : langMode === "ta-en" ? "en" : langMode === "both" ? "ta" : null;
   const info = voices.find((v) => v.id === (lessonIn.voiceUsed ?? voice));
   const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
 
   const cur = lesson.steps[step]!;
   const text = cur.narration[narrationLang] ?? cur.narration.en;
   const rec = recording(cur, narrationLang, mute);
-  const durMs = rec ? rec.durationMs : estimateDurationMs(cur.narration.en);
+  const durMs = rec ? rec.durationMs : estimateDurationMs(text);
   const words = rec?.words;
   const timeline = useMemo(() => {
     let total = 0;
     const starts = lesson.steps.map(item => {
       const start = total;
-      total += recording(item, narrationLang, mute)?.durationMs ?? estimateDurationMs(item.narration.en);
+      const itemText = item.narration[narrationLang] ?? item.narration.en;
+      total += recording(item, narrationLang, mute)?.durationMs ?? estimateDurationMs(itemText);
       return start;
     });
     return { starts, total };
@@ -249,8 +258,9 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     bound.current = null;
     if (rr) { const a = pre.current.get(rr.url) ?? new Audio(rr.url); a.currentTime = start / 1000; a.playbackRate = R.current.rate; audioEl.current = a; void a.play().catch(() => { if (run.current === id && audioEl.current === a) audioEl.current = null; }); }
     else if (!speechDone.current) {
-      const u = new SpeechSynthesisUtterance(stp.narration.en); u.lang = "en-IN"; u.rate = R.current.rate;
-      const total = stp.narration.en.length, dur = estimateDurationMs(stp.narration.en);
+      const spokenText = stp.narration[narrationLang] ?? stp.narration.en;
+      const u = new SpeechSynthesisUtterance(spokenText); u.lang = narrationLang === "ta" ? "ta-IN" : "en-IN"; u.rate = R.current.rate;
+      const total = spokenText.length, dur = estimateDurationMs(spokenText);
       u.onboundary = (e) => { if (run.current === id) bound.current = { t: (e.charIndex / Math.max(1, total)) * dur, at: performance.now() }; };
       u.onend = () => { if (run.current === id) speechDone.current = true; }; u.onerror = u.onend; speechSynthesis.speak(u);
     }
@@ -261,18 +271,42 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     }
   }, [back, narrationLang, stopVoice]);
 
+  const sayInMode = useCallback((
+    audioMap: { en?: { url: string }; ta?: { url: string } } | undefined,
+    textMap: { en: string; ta?: string } | undefined,
+    onEnd?: () => void
+  ) => {
+    const mode = langModeRef.current;
+    const primary = narrationLang;
+    const first = audioMap?.[primary] ?? audioMap?.en;
+    const second = mode === "ta-en" ? (audioMap?.ta ? audioMap?.en : undefined)
+      : mode === "both" ? audioMap?.ta
+      : undefined;
+    const id = run.current;
+    const fallback = textMap?.[primary] ?? textMap?.en;
+    if (first && second && !R.current.mute) {
+      say(first, fallback, () => { if (run.current === id) say(second, textMap?.en, onEnd); });
+      return;
+    }
+    say(first, fallback, onEnd);
+  }, [narrationLang, say]);
+
   const afterNarration = useCallback(() => {
     const { lesson: ls, step: i } = R.current, stp = ls.steps[i]!;
-    if (stp.check) { setPhase("check"); say(stp.checkAudio?.stem?.[narrationLang] ?? stp.checkAudio?.stem?.en, stp.check.stem.en); return; }
+    if (stp.check) { setPhase("check"); sayInMode(stp.checkAudio?.stem, stp.check.stem); return; }
     if (i + 1 >= ls.steps.length) { setPhase("done"); return; }
     if (!R.current.autoAdvance || (!vp.autoplay && ls.steps[i + 1]?.id.startsWith("v-") && !stp.id.startsWith("v-"))) { setPhase("paused"); return; }
     setPhase("gap");
     const id = run.current;
     timer.current = window.setTimeout(() => { if (run.current === id) begin(i + 1); }, R.current.pauseMs);
-  }, [begin, narrationLang, say]);
+  }, [begin, sayInMode]);
   const finishStep = useCallback(() => {
-    const stp = R.current.lesson.steps[R.current.step]!, ta = stp.audio?.ta;
-    if (bothRef.current && ta && !R.current.mute) { setPhase("gap"); const id = run.current; say(ta, undefined, () => { if (run.current === id) afterNarration(); }); return; }
+    const stp = R.current.lesson.steps[R.current.step]!;
+    const mode = langModeRef.current;
+    const secondRef = mode === "ta-en" ? (stp.audio?.ta ? stp.audio?.en : undefined)
+      : mode === "both" ? stp.audio?.ta
+      : undefined;
+    if (secondRef && !R.current.mute) { setPhase("gap"); const id = run.current; say(secondRef, undefined, () => { if (run.current === id) afterNarration(); }); return; }
     afterNarration();
   }, [afterNarration, say]);
 
@@ -325,8 +359,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     stopVoice(); setPicked(id);
     const pick = (list: typeof phrases.praise) => (list && list.length ? list[Math.floor(Math.random() * list.length)] : undefined);
     const sayPhrase = (ph: ReturnType<typeof pick>, then: () => void) => { if (!ph) return then(); say(ph.audio?.[narrationLang] ?? ph.audio?.en, s.name(ph.text), then); };
-    if (o.correct) { setPhase("feedback"); setWrongNote(null); sayPhrase(pick(phrases.praise), () => say(cur.checkAudio?.explanation?.[narrationLang] ?? cur.checkAudio?.explanation?.en, cur.check!.explanation.en)); }
-    else { setWrongNote(s.name(o.whyWrong ?? { en: "" })); sayPhrase(pick(phrases.tryAgain), () => say(undefined, o.whyWrong?.en)); }
+    if (o.correct) { setPhase("feedback"); setWrongNote(null); sayPhrase(pick(phrases.praise), () => sayInMode(cur.checkAudio?.explanation, cur.check!.explanation)); }
+    else { setWrongNote(o.whyWrong?.[narrationLang] ?? s.name(o.whyWrong ?? { en: "" })); sayPhrase(pick(phrases.tryAgain), () => say(undefined, o.whyWrong?.[narrationLang] ?? o.whyWrong?.en)); }
   };
   const proceed = () => { stopVoice(); if (step + 1 >= lesson.steps.length) setPhase("done"); else begin(step + 1); };
 
@@ -346,8 +380,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     if (phase === "idle" && samplePoster >= 0) {
       return sceneAt(lesson, samplePoster, 4000, { durMs: 4000, instant: true });
     }
-    return sceneAt(lesson, step, phase === "idle" ? 0 : shownT, { durMs, words, instant, lang: "en" });
-  }, [lesson, step, shownT, durMs, words, instant, phase, samplePoster]);
+    return sceneAt(lesson, step, phase === "idle" ? 0 : shownT, { durMs, words, instant, lang: narrationLang });
+  }, [lesson, step, shownT, durMs, words, instant, phase, samplePoster, narrationLang]);
   const tokens = text.split(/\s+/);
   const wordsMatch = !!words && words.length === tokens.length;
   const playing = phase === "playing", started = phase !== "idle";
@@ -426,15 +460,19 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
         {cur.check && (phase === "check" || phase === "feedback") && (
         <section className="class-check" aria-label={L("classroomQuestion")}>
           <h2>{L("classroomQuestion")}</h2>
-          <p><b>{s.name(cur.check.stem)}</b></p>
+          <p><b>{cur.check.stem[narrationLang] ?? s.name(cur.check.stem)}</b></p>
+          {langMode === "ta-en" && cur.check.stem.ta && <p className="class-sub muted">{cur.check.stem.en}</p>}
           <ul className="options">
             {cur.check.options.map((o) => {
               const right = phase === "feedback" && o.correct, bad = picked === o.id && !o.correct;
-              return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{s.name(o.text)}</button></li>;
+              const optText = o.text[narrationLang] ?? s.name(o.text);
+              const optLabel = langMode === "ta-en" && o.text.ta && o.text.ta !== o.text.en ? `${o.text.ta} — ${o.text.en}` : optText;
+              return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{optLabel}</button></li>;
             })}
           </ul>
           {wrongNote && <p className="notice" role="alert">{L("classroomTryAgain")} {wrongNote}</p>}
-          {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {s.name(cur.check.explanation)}</p>
+          {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {cur.check.explanation[narrationLang] ?? s.name(cur.check.explanation)}</p>
+            {langMode === "ta-en" && cur.check.explanation.ta && <p className="class-sub muted">{cur.check.explanation.en}</p>}
             <button type="button" className="btn" onClick={proceed}>{step + 1 >= lesson.steps.length ? L("finish") : L("classroomContinue")}</button></div>)}
         </section>
       )}
@@ -459,8 +497,11 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
           <aside className={`class-subs${speaking ? " speaking" : ""}`} aria-label={L("classroomSubtitles")} aria-live="off">
             {started && !mute && !rec && !browserVoice && <p className="class-caption small" role="note">{L("classroomNoRecording")}</p>}
             {started ? (<>
-              <p className="class-caption">{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
-              {(both || (related && lang === "ta")) && cur.narration.ta && <p className="class-caption ta" lang="ta">{cur.narration.ta}</p>}
+              <p className={narrationLang === "ta" ? "class-caption ta" : "class-caption"} lang={narrationLang}>{tokens.map((w, i) => <span key={i} className={wordsMatch && i === wordIdx ? "on" : undefined}>{w} </span>)}</p>
+              {secondaryLang && cur.narration[secondaryLang] && cur.narration[secondaryLang] !== text && (
+                <p className={secondaryLang === "ta" ? "class-caption ta" : "class-caption"} lang={secondaryLang}>{cur.narration[secondaryLang]}</p>
+              )}
+              {!secondaryLang && related && lang === "ta" && cur.narration.ta && <p className="class-caption ta" lang="ta">{cur.narration.ta}</p>}
             </>) : <p className="class-caption small">{L("classroomSubtitlesHint")}</p>}
           </aside>
         )}
@@ -489,8 +530,11 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
           </select>
         </label>
         <label className="class-rate">{L("classroomLanguage")}
-          <select value={both ? "both" : "en"} onChange={(e) => setBoth(e.target.value === "both")}>
-            <option value="en">English</option><option value="both">English + தமிழ்</option>
+          <select value={langMode} onChange={(e) => setLangMode(e.target.value as ClassLangMode)}>
+            <option value="ta-en">தமிழ் → English</option>
+            <option value="ta">தமிழ்</option>
+            <option value="both">English + தமிழ்</option>
+            <option value="en">English</option>
           </select>
         </label>
         {pickable.length > 1 && s.get("classroom.voicePicker") === true && (

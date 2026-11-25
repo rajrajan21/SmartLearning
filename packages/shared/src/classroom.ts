@@ -209,7 +209,7 @@ export function sceneAt(lesson: Pick<ClassroomLesson, "objects" | "steps">, step
     const dur = current ? opts.durMs : 1;
     const timed = step.actions.map((a, i) => {
       const ms = a.ms ?? (a.do === "write" ? Math.min(3000, Math.max(400, ((textLen.get(a.target ?? "") ?? 8) * 55))) : DEFAULT_MS[a.do]);
-      return { a, i, ms, start: current ? startMs(a, step.narration.en, dur, opts.words) : 0 };
+      return { a, i, ms, start: current ? startMs(a, narration, dur, opts.words) : 0 };
     }).sort((x, y) => x.start - y.start || x.i - y.i);
     for (const { a, ms, start } of timed) {
       if (!current) { run(a, 1); continue; }
@@ -217,7 +217,6 @@ export function sceneAt(lesson: Pick<ClassroomLesson, "objects" | "steps">, step
       const raw = ms === 0 || opts.instant ? 1 : clamp01((tMs - start) / ms);
       run(a, a.do === "write" || a.do === "pulse" || a.do === "time" ? raw : ease(raw));
     }
-    void narration;
   }
   return scene;
 }
