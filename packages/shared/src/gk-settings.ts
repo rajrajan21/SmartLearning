@@ -85,7 +85,7 @@ export const GK_SETTINGS: SettingDef[] = [
   bool("gk.slides.fullscreen", "gkmedia", "Slides (presentation view)", "Full screen button", true, { dependsOn: "gk.slides.enabled" }),
   bool("gk.slides.keys", "gkmedia", "Slides (presentation view)", "Arrow keys and space move through slides", true, { dependsOn: "gk.slides.enabled" }),
   bool("gk.audio.enabled", "gkmedia", "Read aloud (teacher voice)", "Listen button on lessons", true, { help: "Plays the teacher's recorded voice (made by Generate-Lesson-Audio.bat). Sentences without a recording are read by the device's own voice when allowed below." }),
-  bool("gk.audio.deviceVoice", "gkmedia", "Read aloud (teacher voice)", "Let the device read sentences that have no recording yet", true, { dependsOn: "gk.audio.enabled" }),
+  bool("gk.audio.deviceVoice", "gkmedia", "Read aloud (teacher voice)", "Let the device read sentences that have no recording yet", false, { dependsOn: "gk.audio.enabled", help: "Off by default so GK lessons play natural recorded teacher audio instead of the browser voice." }),
   bool("gk.audio.autoplay", "gkmedia", "Read aloud (teacher voice)", "Start reading as soon as a lesson opens", false, { dependsOn: "gk.audio.enabled" }),
   sel("gk.audio.rate", "gkmedia", "Read aloud (teacher voice)", "Starting speed of the voice", "1", [{ value: "0.85", label: "Slower" }, { value: "1", label: "Normal" }, { value: "1.15", label: "Faster" }], { dependsOn: "gk.audio.enabled" }),
   bool("gk.quiz.enabled", "gkmedia", "Quiz after the lesson", "Quick quiz after every lesson", true),

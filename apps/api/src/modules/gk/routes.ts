@@ -12,7 +12,7 @@ export function gkRoutes(store: GkStore, enabled: () => Promise<boolean>): Route
   r.get("/index", (_req, res) => void res.set("Cache-Control", "no-cache").json(store.index()));
   r.get("/lessons/:id", (req, res) => {
     const q = id.safeParse(req.params.id);
-    const teacher = z.string().regex(/^[a-z0-9_-]{1,20}$/).safeParse(req.query.teacher ?? "malar");
+    const teacher = req.query.teacher === undefined ? { success: true as const, data: undefined } : z.string().regex(/^[a-z0-9_-]{1,20}$/).safeParse(req.query.teacher);
     const l = q.success && teacher.success ? store.lesson(q.data, teacher.data) : null;
     if (!l) return void res.status(404).json({ error: { code: "not_found", message: "Lesson not found" } });
     res.set("Cache-Control", "public, max-age=120").json(l);

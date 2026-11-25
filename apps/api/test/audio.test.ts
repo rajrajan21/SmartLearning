@@ -156,3 +156,22 @@ describe("onlyJobs", () => {
     expect(onlyJobs(jobs, undefined)).toHaveLength(2);
   });
 });
+
+describe("preferred default natural English voice", () => {
+  it("picks the default natural voice (kani) over malar for phrases and lessons when recorded, and still falls back cleanly", async () => {
+    const { audio, lessons } = setup();
+    writeFileSync(join(audio, "voices.json"), JSON.stringify({
+      malar: { en: { voice: "af_heart", speed: 1 } },
+      kani: { en: { voice: "edge:en-IN-NeerjaNeural", speed: 0.92 } },
+    }));
+    writeFileSync(join(lessons, "a.json"), JSON.stringify(lesson()));
+    writeFileSync(join(audio, "phrases.json"), JSON.stringify({ praise: [{ text: { en: "Well done!" } }] }));
+    await buildAudio({ lessonsDir: lessons, audioDir: audio, teachers: ["kani"], speak: fakeSpeak, langs: ["en"] });
+    const store = createAudioStore({ manifestPath: join(audio, "manifest.json"), voicesPath: join(audio, "voices.json"), phrasesPath: join(audio, "phrases.json"), filesDir: join(audio, "files") });
+    expect(store.phrases().praise?.[0]?.audio?.en?.url).toMatch(/^\/api\/v1\/audio\/[a-f0-9]{16}\.mp3$/);
+    const enriched = store.enrich(lesson().lesson as never);
+    const sents = enriched.blocks[0]!.type === "teacher_narration" ? enriched.blocks[0]!.sentences : [];
+    expect(sents[0]?.audio.en?.url).toMatch(/^\/api\/v1\/audio\/[a-f0-9]{16}\.mp3$/);
+    expect(store.refsPreferred?.("malar", { en: "Look at the corner of your book." })?.en?.url).toBe(sents[0]?.audio.en?.url);
+  });
+});

@@ -97,14 +97,16 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       // a voice is "ready" when it has been recorded for at least one lesson (not just the first lesson in the list); worked out again only when the lessons or the recordings change
       const vk = `${stamp}#${audio?.version?.() ?? Date.now()}`;
       if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: all.some((l) => !!l.steps[0] && !!audio?.refs(t.id, l.steps[0].narration)) })); voicesKey = vk; }
-      return { voices, defaultVoice: DEFAULT_VOICE, items };
+      const pref = perf().defaultAudioVoice || "kani";
+      return { voices, defaultVoice: voices.some((v) => v.id === pref) ? pref : DEFAULT_VOICE, items };
     },
     get(board, classLevel, subject, chapter, topic, voice) {
       load();
       const l = byKey.get(key({ board, classLevel, subject, chapter, topic }));
       if (!l) return null;
       const ready = (audio?.teachers() ?? []).filter((t) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))).map((t) => t.id);
-      const use = voice && ready.includes(voice) ? voice : ((["kani", DEFAULT_VOICE].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
+      const pref = perf().defaultAudioVoice || "kani";
+      const use = voice && ready.includes(voice) ? voice : (([...new Set([pref, "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
       return { ...withAudio(l, use), voicesReady: ready, voiceUsed: use };
     },
     warm() {

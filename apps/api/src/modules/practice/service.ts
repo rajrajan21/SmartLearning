@@ -8,6 +8,9 @@ import { correctAnswerOf, grade, toPublic } from "./grade.js";
 
 export class PracticeError extends Error { constructor(message: string, readonly status: 400 | 404 | 409 = 400) { super(message); } }
 
+const pickAudio = (audio: AudioStore | undefined, text: { en?: string; ta?: string } | undefined) =>
+  audio?.refsPreferred ? audio.refsPreferred("malar", text) : audio?.refs("malar", text);
+
 export interface PracticeService {
   importQuestions(raw: unknown): Promise<{ topicId: string; added: number; updated: number; unchanged: number }>;
   getPractice(board: string, classLevel: number, subject: string, chapter: string, topic: string): Promise<PracticeSet | null>;
@@ -61,7 +64,7 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
       const questions: PublicQuestion[] = rows.map((r) => {
         const q = Question.parse(JSON.parse(r.bodyJson));
         const pub = toPublic(r.id, q);
-        const stem = audio?.refs("malar", q.stem);
+        const stem = pickAudio(audio, q.stem);
         return stem ? { ...pub, audio: { stem } } : pub;
       });
       return PracticeSet.parse({ topicId: detail.topic.id, questions });
@@ -85,7 +88,7 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
       const rows = await db.select().from(s.questions).where(and(inArray(s.questions.id, ids), eq(s.questions.status, "published")));
       return rows.map((r) => {
         const q = Question.parse(JSON.parse(r.bodyJson));
-        const pub = toPublic(r.id, q), stem = audio?.refs("malar", q.stem);
+        const pub = toPublic(r.id, q), stem = pickAudio(audio, q.stem);
         return stem ? { ...pub, audio: { stem } } : pub;
       });
     },
@@ -132,8 +135,8 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
 }
 
 function build(attemptId: string, questionId: string, q: Question, g: Exclude<ReturnType<typeof grade>, { error: string }>, replay: boolean, audio?: AudioStore): AnswerFeedback {
-  const explanation = audio?.refs("malar", q.explanation);
-  const whyWrong = g.whyWrong ? audio?.refs("malar", g.whyWrong) : undefined;
+  const explanation = pickAudio(audio, q.explanation);
+  const whyWrong = g.whyWrong ? pickAudio(audio, g.whyWrong) : undefined;
   const clips = { ...(explanation ? { explanation } : {}), ...(whyWrong ? { whyWrong } : {}) };
   return AnswerFeedback.parse({ attemptId, questionId, correct: g.correct, explanation: q.explanation, ...(g.whyWrong ? { whyWrong: g.whyWrong } : {}), correctAnswer: g.correctAnswer, replay, ...(Object.keys(clips).length ? { audio: clips } : {}) });
 }

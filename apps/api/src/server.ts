@@ -30,6 +30,7 @@ import { resolveAdminKey, resolveAdminUserId } from "./modules/settings/admin-au
 import { createAccessService, resolveAccessSecret } from "./modules/access/service.js";
 import { createSettingsService } from "./modules/settings/service.js";
 import { migrateEnablePapersJob, migrateEnableSections } from "./modules/settings/migrate-enable.js";
+import { setPerf } from "./modules/perf/config.js";
 
 async function connect(): Promise<Db> {
   if (process.env.DATABASE_URL) {
@@ -56,6 +57,7 @@ const lessonSvc = createLessonService(db, curriculum, audio);
 const settingsSvc = createSettingsService(db);
 await migrateEnableSections(settingsSvc, process.env.MIGRATIONS_DIR ? resolve(process.env.MIGRATIONS_DIR, "enable-sections-v1.json") : resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/migrations/enable-sections-v1.json"));
 await migrateEnablePapersJob(settingsSvc, process.env.MIGRATIONS_DIR ? resolve(process.env.MIGRATIONS_DIR, "enable-papers-job-v1.json") : resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/migrations/enable-papers-job-v1.json"));
+setPerf(await settingsSvc.all());
 const mailSvc = createMailService(db, settingsSvc, process.env.MAIL_STATE_FILE ?? resolve(dirname(fileURLToPath(import.meta.url)), "../../../data/mail-state.json"));
 startTimers(settingsSvc, mailSvc);
 const socialStore = createSocialStore(socialDir);

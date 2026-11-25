@@ -20,7 +20,7 @@ export interface GkStore {
 }
 
 /** Reads content/gk once, re-reads when files change (so new lessons appear without a restart). */
-export function createGkStore(dir: string, audio?: Pick<AudioStore, "refs">): GkStore {
+export function createGkStore(dir: string, audio?: Pick<AudioStore, "refs" | "refsPreferred">): GkStore {
   let cats: GkCategory[] = [], lessons = new Map<string, GkLesson>(), invalid: string[] = [], stamp = "", checkedAt = 0;
   const lessonsDir = join(dir, "lessons");
   const signature = (): string => {
@@ -63,17 +63,19 @@ export function createGkStore(dir: string, audio?: Pick<AudioStore, "refs">): Gk
       const used = new Set(items.map((i) => i.category));
       return { categories: cats.filter((c) => used.has(c.id)), items, ages: GK_AGES.filter((a) => items.some((i) => i.age === a)), counts: { lessons: items.filter((i) => i.kind === "lesson").length, puzzles: items.filter((i) => i.kind === "puzzle").length, animations: anims.size } };
     },
-    lesson(id, teacher = "malar") {
+    lesson(id, teacher) {
       fresh();
       const l = lessons.get(id);
       if (!l) return null;
-      return { ...l, steps: l.steps.map((s) => ({ ...s, audio: s.sentences.map((t) => { const a = audio?.refs(teacher, { en: t })?.en; return a ? { en: a } : null; }) })) } as GkLessonOut;
+      const pick = (text: string) => (teacher ? audio?.refs(teacher, { en: text }) : (audio?.refsPreferred?.("malar", { en: text }) ?? audio?.refs("malar", { en: text })))?.en;
+      return { ...l, steps: l.steps.map((s) => ({ ...s, audio: s.sentences.map((t) => { const a = pick(t); return a ? { en: a } : null; }) })) } as GkLessonOut;
     },
     report() {
       fresh();
       const all = [...lessons.values()];
       let sentences = 0, recorded = 0;
-      for (const l of all) for (const s of l.steps) for (const t of s.sentences) { sentences++; if (audio?.refs("malar", { en: t })?.en) recorded++; }
+      const pick = (text: string) => (audio?.refsPreferred?.("malar", { en: text }) ?? audio?.refs("malar", { en: text }))?.en;
+      for (const l of all) for (const s of l.steps) for (const t of s.sentences) { sentences++; if (pick(t)) recorded++; }
       const anims = new Set<string>(); for (const l of all) for (const s of l.steps) if (s.visual && GK_ANIMATED_VISUALS.has(s.visual)) anims.add(s.visual);
       const known = new Set(cats.map((c) => c.id));
       return {

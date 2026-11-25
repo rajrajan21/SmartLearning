@@ -112,6 +112,11 @@ describe("lesson completion hub and spotlight tour settings", () => {
     expect(v["ux.helpHub.title"]).toEqual({ en: "Study help", ta: "படிப்பு உதவி" });
     expect(v["classroom.fitViewport"]).toBe(true);
     expect(v["classroom.smartVisuals"]).toBe(true);
+    expect(v["audio.defaultVoice"]).toBe("kani");
+    expect(v["narration.browserVoice"]).toBe(false);
+    expect(v["gk.audio.deviceVoice"]).toBe(false);
+    expect(parseSetting("audio.defaultVoice", "priya2")).toBe("priya2");
+    expect(() => parseSetting("audio.defaultVoice", "unknown")).toThrow(/options/);
 
     expect(parseSetting("ux.spotlightTour.maxAutoPerSession", 0)).toBe(0);
     expect(() => parseSetting("ux.spotlightTour.maxAutoPerSession", 9)).toThrow(/between/);

@@ -51,6 +51,8 @@ export interface AudioStore {
   /** Recording for any one piece of text (question stems, explanations, phrases); undefined when none exists yet. */
   ref(teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined;
   refs(teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
+  /** Checks the Admin default natural voice first, then fallback teachers, returning the best recorded clip per language. */
+  refsPreferred?(fallbackTeacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
   phrases(): PhraseSet;
   /** The teacher voices that can be chosen (from voices.json). */
   teachers(): { id: string; label: string; gender: "female" | "male"; accent: "us" | "uk" | "in"; langs: Lang[] }[];
@@ -95,17 +97,34 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     for (const lang of LANGS) { const r = lookup(teacher, lang, text[lang]); if (r) out[lang] = r; }
     return out.en || out.ta ? out : undefined;
   };
+  const candidates = (fallbackTeacher: string): string[] => {
+    const def = perf().defaultAudioVoice || "kani";
+    const list = fallbackTeacher === "malar"
+      ? [def, "kani", "priya2", "malar", "ravi2"]
+      : [fallbackTeacher, def, "kani", "malar"];
+    return [...new Set(list)];
+  };
+  const refsPreferred = (fallbackTeacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
+    if (!text) return undefined;
+    const order = candidates(fallbackTeacher);
+    const out: LangAudio = {};
+    for (const lang of LANGS) {
+      for (const t of order) { const r = lookup(t, lang, text[lang]); if (r) { out[lang] = r; break; } }
+    }
+    return out.en || out.ta ? out : undefined;
+  };
   return {
     version() { fresh(); return `${mTime}:${vTime}`; },
     ref: lookup,
     refs,
+    refsPreferred,
     teachers() { fresh(); return Object.entries(voices).map(([id, v]) => ({ id, label: v.label ?? id, gender: v.gender ?? "female", accent: v.accent ?? "us", langs: LANGS.filter((l) => v[l]) })); },
     phrases() {
       fresh();
       if (!existsSync(opts.phrasesPath)) return {};
       const r = PhraseSet.safeParse(JSON.parse(readFileSync(opts.phrasesPath, "utf8")));
       if (!r.success) return {};
-      return Object.fromEntries(Object.entries(r.data).map(([k, list]) => [k, list.map((p) => ({ text: p.text, ...(refs("malar", p.text) ? { audio: refs("malar", p.text) } : {}) }))]));
+      return Object.fromEntries(Object.entries(r.data).map(([k, list]) => [k, list.map((p) => { const a = refsPreferred("malar", p.text); return { text: p.text, ...(a ? { audio: a } : {}) }; })]));
     },
     enrich(lesson) {
       fresh();
@@ -113,15 +132,15 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
         ...lesson,
         blocks: lesson.blocks.map((b) => {
           if (b.type !== "teacher_narration") return b;
-          const v = voices[b.teacher];
-          if (!v) return b;
+          const order = candidates(b.teacher);
+          if (!order.some((t) => voices[t])) return b;
           return {
             ...b,
             sentences: b.sentences.map((sen) => {
               const audio: { en?: AudioRef; ta?: AudioRef } = {};
               for (const lang of LANGS) {
-                const r = lookup(b.teacher, lang, sen.spoken?.[lang] ?? sen.text[lang]);
-                if (r) audio[lang] = r;
+                const spoken = sen.spoken?.[lang] ?? sen.text[lang];
+                for (const t of order) { const r = lookup(t, lang, spoken); if (r) { audio[lang] = r; break; } }
               }
               return { ...sen, audio };
             }),

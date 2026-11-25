@@ -15,15 +15,18 @@ export interface PerfConfig {
   staticCacheSeconds: number;
   /** send API answers and website text files compressed (gzip / brotli) */
   compress: boolean;
+  /** default natural English teacher voice across Games, Practice, Lessons, GK, Phrases and Classroom */
+  defaultAudioVoice: string;
 }
 /** Used until the server has read the admin settings (and in tests): behaves exactly as before. The admin setting defaults are in perf-settings.ts. */
-export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false };
+export const PERF_DEFAULTS: PerfConfig = { fileCheckSeconds: 0, curriculumCacheSeconds: 0, classroomLazy: false, prewarm: false, staticCacheSeconds: 0, compress: false, defaultAudioVoice: "kani" };
 
 let current: PerfConfig = { ...PERF_DEFAULTS };
 export const perf = (): PerfConfig => current;
 export function setPerf(values: Record<string, unknown>): void {
   const num = (k: string, d: number) => (typeof values[k] === "number" && Number.isFinite(values[k] as number) ? (values[k] as number) : d);
   const bool = (k: string, d: boolean) => (typeof values[k] === "boolean" ? (values[k] as boolean) : d);
+  const str = (k: string, d: string) => (typeof values[k] === "string" && values[k].trim() ? values[k].trim() : d);
   current = {
     fileCheckSeconds: num("perf.fileCheck.seconds", PERF_DEFAULTS.fileCheckSeconds),
     curriculumCacheSeconds: num("perf.curriculumCache.seconds", PERF_DEFAULTS.curriculumCacheSeconds),
@@ -31,5 +34,6 @@ export function setPerf(values: Record<string, unknown>): void {
     prewarm: bool("perf.prewarm", PERF_DEFAULTS.prewarm),
     staticCacheSeconds: num("perf.static.cacheSeconds", PERF_DEFAULTS.staticCacheSeconds),
     compress: bool("perf.compress.enabled", PERF_DEFAULTS.compress),
+    defaultAudioVoice: str("audio.defaultVoice", PERF_DEFAULTS.defaultAudioVoice),
   };
 }

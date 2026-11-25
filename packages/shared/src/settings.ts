@@ -220,6 +220,14 @@ export const SETTINGS: SettingDef[] = [
   bool("classroom.smartVisuals", "classroom", "Board", "Draw animated concept diagrams on explanation steps", true, { dependsOn: "feature.classroom", help: "Automatically draws animated percentage bars, layered stacks, side-by-side comparisons, process arrows and key-idea cards during explanations so the board is never blank." }),
   bool("classroom.voicePicker.onlyRecorded", "classroom", "Voice", "Show only the voices that have audio for this lesson", true, { dependsOn: "classroom.voicePicker", help: "On: the teacher list on a lesson shows only voices that are recorded for that lesson (nothing greyed out). Off: shows every voice, greying out the ones not recorded yet." }),
   bool("classroom.voicePicker", "classroom", "Voice", "Let students choose the teacher voice", true, { dependsOn: "feature.classroom", help: "Shows a list of teacher voices (woman or man, American, British or Indian accent). Voices that have not been recorded yet are greyed out." }),
+  { key: "audio.defaultVoice", panel: "classroom", section: "Voice", label: "Default natural English teacher voice (all pages)", public: true, type: "select", default: "kani",
+    options: [
+      { value: "kani", label: "Lakshmi (natural Indian English)" },
+      { value: "priya2", label: "Priya (Indian English)" },
+      { value: "ravi2", label: "Ram (Indian English)" },
+      { value: "malar", label: "Malar (American English)" },
+    ],
+    help: "Used first across Games, Practice, Revision, Reading Lessons, GK, Praise Phrases and Classroom whenever recordings exist; falls back to another recorded voice if needed." },
   { key: "classroom.language", panel: "classroom", section: "Voice", label: "Language", public: true, type: "select", default: "en", dependsOn: "feature.classroom",
     options: [{ value: "en", label: "English only" }, { value: "both", label: "English, then Tamil (where Tamil is recorded)" }] },
   bool("classroom.browserVoice", "classroom", "Voice", "Use the browser voice when no recording exists", false, { dependsOn: "feature.classroom", help: "Off by default: the browser voice is often a man's voice and does not match the teacher. Recorded teacher audio is always used first." }),
@@ -255,7 +263,7 @@ export const SETTINGS: SettingDef[] = [
   { key: "narration.defaultSpeed", panel: "lessons", section: "Teacher voice", label: "Starting speed", public: true, type: "select", default: "1", dependsOn: "feature.teacherNarration",
     options: [{ value: "0.8", label: "Slow" }, { value: "1", label: "Normal" }, { value: "1.2", label: "Fast" }] },
   { key: "narration.pauseBetweenMs", panel: "lessons", section: "Teacher voice", label: "Pause between sentences", public: true, type: "number", default: 350, min: 0, max: 2000, step: 50, unit: "ms", dependsOn: "feature.teacherNarration", help: "A short breath after each sentence makes the teacher sound calmer and easier to follow." },
-  bool("narration.browserVoice", "lessons", "Teacher voice", "Use the device's own voice when no recorded voice exists", true, { dependsOn: "feature.teacherNarration", help: "Needed for Tamil until recorded Tamil voices are added. Quality depends on the device." }),
+  bool("narration.browserVoice", "lessons", "Teacher voice", "Use the device's own voice when no recorded voice exists", false, { dependsOn: "feature.teacherNarration", help: "Off by default so Games, Practice and Lessons use only natural recorded teacher voices. Switch on only for Tamil or device fallback." }),
 
   // ---------------- Practice ----------------
   { key: "practice.questionsPerRound", panel: "practice", section: "Rounds", label: "Questions in each round", public: true, type: "number", default: 5, min: 3, max: 15, step: 1, dependsOn: "feature.practice", help: "If a round has fewer questions written, all of them are used." },
