@@ -1,0 +1,265 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "patterns-in-numbers",
+ "lesson": {
+  "status": "published",
+  "title": {
+   "en": "Number Play: patterns in numbers"
+  },
+  "blocks": [
+   {
+    "id": "story",
+    "type": "story",
+    "provenance": "original",
+    "title": {
+     "en": "The mystery number 6174"
+    },
+    "text": {
+     "en": "Pick almost any 4-digit number, rearrange largest minus smallest digits repeatedly, and wait.\n\"Why does everyone land on 6174?!\" gasped Tara."
+    }
+   },
+   {
+    "id": "explain",
+    "type": "explanation",
+    "provenance": "original",
+    "keepEnglishTerms": [
+     "supercell",
+     "palindrome",
+     "Kaprekar constant",
+     "Collatz",
+     "estimation"
+    ],
+    "text": {
+     "en": "Numbers are full of surprising playgrounds! A supercell in a grid is a number bigger than every touching neighbour. A palindrome reads identical forwards and backwards, like 121 or 4554.\nIndian mathematician D. R. Kaprekar discovered 6174: take any 4-digit number (not all equal digits), subtract smallest arrangement from largest arrangement, and repeat—you reach 6174 within steps!\nAnd in Collatz steps (halve even numbers, triple-plus-1 odd numbers), chains bounce up and down until landing cleanly at 1!"
+    }
+   },
+   {
+    "id": "teacher",
+    "type": "teacher_narration",
+    "provenance": "original",
+    "teacher": "malar",
+    "sentences": [
+     {
+      "id": "t1",
+      "text": {
+       "en": "Maths isn't only sums in notebooks—numbers hide clever puzzles discovered by playful curiosity."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Discovering playful number patterns"
+       }
+      ]
+     },
+     {
+      "id": "t2",
+      "text": {
+       "en": "Try a Supercell grid: circle any cell that is strictly greater than all its side-by-side neighbours!"
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Supercell > every touching neighbour"
+       }
+      ]
+     },
+     {
+      "id": "t3",
+      "text": {
+       "en": "Notice digits tell stories too! How many numbers from 1 to 100 contain the digit 7? Ten in the units place, ten in the 70s, minus double-counted 77 = 19 numbers."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Digit counting without double-counting"
+       }
+      ]
+     },
+     {
+      "id": "t4",
+      "text": {
+       "en": "Now test a Palindrome—a number reading the same forwards and backwards, like 121, 585 or clock time 12:21."
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Palindromes: 121, 585, 4554"
+       }
+      ]
+     },
+     {
+      "id": "t5",
+      "text": {
+       "en": "Take any 2-digit number like 38, reverse it (83) and add: 38 + 83 = 121—an instant palindrome!"
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Reverse-and-add creates palindromes"
+       }
+      ]
+     },
+     {
+      "id": "t6",
+      "text": {
+       "en": "Now meet Maharashtrian teacher D. R. Kaprekar's magic number 6174! Pick 3524 -> biggest 5432 minus smallest 2345 = 3087."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Kaprekar magic constant: 6174"
+       }
+      ]
+     },
+     {
+      "id": "t7",
+      "text": {
+       "en": "Repeat once more with 3087: 8730 - 0378 = 8352, then 8532 - 2358 = 6174—and 7641 - 1467 locks on 6174 forever!"
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "7641 - 1467 = 6174 (Kaprekar loop)"
+       }
+      ]
+     },
+     {
+      "id": "t8",
+      "text": {
+       "en": "Next try the Collatz conjecture: start anywhere—if even, divide by 2; if odd, multiply by 3 and add 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Collatz: Even ÷ 2, Odd × 3 + 1"
+       }
+      ]
+     },
+     {
+      "id": "t9",
+      "text": {
+       "en": "For example 6 -> 3 -> 10 -> 5 -> 16 -> 8 -> 4 -> 2 -> 1! Mathematicians still try to prove every starting number hits 1."
+      },
+      "board": [
+       {
+        "op": "write",
+        "text": "Every tested Collatz chain hits 1"
+       }
+      ]
+     },
+     {
+      "id": "t10",
+      "text": {
+       "en": "Finally, quick mental estimation—like checking if 4,980 + 3,015 is near 8,000—catches calculator typos in seconds!"
+      },
+      "board": [
+       {
+        "op": "clear"
+       },
+       {
+        "op": "write",
+        "text": "Mental estimation catches mistakes fast"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "example",
+    "type": "worked_example",
+    "provenance": "original",
+    "problem": {
+     "en": "Apply one Kaprekar step to 2,025 (digits not all the same) and see what number appears next."
+    },
+    "steps": [
+     {
+      "text": {
+       "en": "Arrange the digits of 2025 from largest to smallest."
+      },
+      "why": {
+       "en": "Largest arrangement = 5220."
+      }
+     },
+     {
+      "text": {
+       "en": "Arrange the digits from smallest to largest."
+      },
+      "why": {
+       "en": "Smallest arrangement = 0225 (which is 225)."
+      }
+     },
+     {
+      "text": {
+       "en": "Subtract smallest from largest."
+      },
+      "why": {
+       "en": "5220 - 225 = 4995."
+      }
+     }
+    ]
+   },
+   {
+    "id": "teachback",
+    "type": "teach_back",
+    "provenance": "original",
+    "prompt": {
+     "en": "Why do 4-digit numbers like 4444 fail to reach 6174 in the Kaprekar routine?"
+    },
+    "requiredIdeas": [
+     {
+      "en": "All four digits are identical."
+     },
+     {
+      "en": "Largest minus smallest gives 4444 - 4444 = 0000."
+     }
+    ],
+    "commonMisconceptions": [
+     {
+      "en": "6174 works even when all 4 digits match."
+     }
+    ]
+   },
+   {
+    "id": "quiz",
+    "type": "quiz",
+    "provenance": "original",
+    "questionIds": [
+     "c6m-np-1",
+     "c6m-np-2",
+     "c6m-np-3"
+    ]
+   },
+   {
+    "id": "summary",
+    "type": "summary",
+    "provenance": "original",
+    "points": [
+     {
+      "en": "Supercell: larger than all adjacent neighbours."
+     },
+     {
+      "en": "Palindrome: reads the same forwards and backwards."
+     },
+     {
+      "en": "Kaprekar's 6174: biggest minus smallest repeats to 6174."
+     },
+     {
+      "en": "Collatz rule: even ÷ 2, odd × 3 + 1."
+     }
+    ]
+   }
+  ]
+ }
+}

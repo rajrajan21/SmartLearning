@@ -1,0 +1,355 @@
+{
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "patterns-in-numbers",
+ "questions": [
+  {
+   "key": "c6m-np-1",
+   "round": 1,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which number is a palindrome?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "737"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "738"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Reversed, 738 reads 837."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "123"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Reversed, 123 reads 321."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "737 reads identical left-to-right and right-to-left."
+   }
+  },
+  {
+   "key": "c6m-np-2",
+   "round": 1,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "In D. R. Kaprekar's 4-digit magic routine, repeating largest-digit order minus smallest-digit order lands on 6174."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Every 4-digit number without all identical digits reaches 6174 in at most 7 steps."
+   }
+  },
+  {
+   "key": "c6m-np-3",
+   "round": 1,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Under the Collatz rule, what number comes right after the odd number 5?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "16"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "10"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Doubling 5 ignores the +1 part of 3n + 1."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "5 is odd, so we use 3×5 + 1, not divide by 2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Because 5 is odd, compute 3 × 5 + 1 = 16."
+   }
+  },
+  {
+   "key": "c6m-np-4",
+   "round": 2,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Look at a row of boxes: [140, 290, 210, 850, 400]. Which numbers are supercells in this 1D row?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "290 and 850"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "Only 850"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "290 is greater than both 140 and 210, so it is also a supercell."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "140 and 400"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "140 < 290 and 400 < 850."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "290 > 140 & 210, and 850 > 210 & 400."
+   }
+  },
+  {
+   "key": "c6m-np-5",
+   "round": 2,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "If you reverse 14 and add (14 + 41), the sum 55 is a palindrome."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "55 reads the same backwards and forwards."
+   }
+  },
+  {
+   "key": "c6m-np-6",
+   "round": 2,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Using quick estimation, 49,850 + 20,120 is closest to which answer?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "70,000"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "50,000"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "50,000 ignores adding ~20,000."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "90,000"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "50,000 + 20,000 is 70,000, not 90,000."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "49,850 ≈ 50,000 and 20,120 ≈ 20,000, giving ≈ 70,000."
+   }
+  },
+  {
+   "key": "c6m-np-7",
+   "round": 3,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Under the Collatz rule starting at 12, what are the next two numbers?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "6, then 3"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "37, then 112"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "12 is even, so divide by 2 rather than using 3n+1."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "6, then 19"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "6 is still even, so divide by 2 again to get 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "12 ÷ 2 = 6, and 6 ÷ 2 = 3."
+   }
+  },
+  {
+   "key": "c6m-np-8",
+   "round": 3,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Every 4-digit number—even 1111—reaches 6174 via Kaprekar's rule."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "Numbers with all 4 identical digits give 1111 - 1111 = 0."
+   }
+  },
+  {
+   "key": "c6m-np-9",
+   "round": 3,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which clock time looks like a palindrome?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "10:01"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "10:10"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Reversed, 1010 reads 0101."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "11:22"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Reversed, 1122 reads 2211."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Reading digits left-to-right or right-to-left gives 1-0-0-1."
+   }
+  },
+  {
+   "key": "c6m-np-10",
+   "round": 3,
+   "hints": [],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If you apply one Kaprekar step to 6174 itself (7641 - 1467), what do you get?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "6174"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3087"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "7641 - 1467 loops right back to 6174."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The digits are distinct, so it never becomes 0."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "7641 - 1467 = 6174, which is why it is Kaprekar's constant!"
+   }
+  }
+ ]
+}
