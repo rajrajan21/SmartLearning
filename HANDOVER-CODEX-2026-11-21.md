@@ -10,6 +10,7 @@ This handover records the owner’s operating instructions and the latest verifi
   - **Spotlight Navigation Tour & Persistent `?` Help Hub** (`SITE-01` upgraded): multi-page tour (Home, Subject, Chapter, Lesson, Results), anti-fatigue & Classroom audio guards, keyboard/mobile support, 13 Admin controls under **Layout and navigation → Guided tour and help hub** (including `? Help Hub corner position` and EN/TA `Help Hub menu heading`).
   - **Today's goal alignment fix** (`apps/web/src/styles.css`): `.goal-chip` wraps cleanly inside `.home-side` with 0 horizontal overflow across `1280×800`, `1024×768`, and `390×844`.
   - **Vite dev fix** (`apps/web/src/App.tsx`): moved `TourPage = named(...)` below `import { lazy }`.
+  - **Classroom one-screen fit** (`classroom.fitViewport`, default `true` in **Admin → Classroom → Board**): keeps title, phase pills, board, Lesson timeline, and bottom playback controls visible together above the fold without scrolling.
 - **Owner standing reminder**: Always add Admin customization controls for every new feature so behavior/copy/position can be adjusted without code changes, and keep `SharpStudy Project Backlog.xlsx` and handover files updated after every verified checkpoint.
 - **Note for local tests on Windows Node 26**: set `NODE_OPTIONS=--no-experimental-webstorage` when running `@studysmart/web` Vitest tests so Node 26's built-in WebStorage doesn't shadow jsdom `localStorage`.
 

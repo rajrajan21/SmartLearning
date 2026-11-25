@@ -63,7 +63,7 @@ export function Layout({ children }: { children: ReactNode }) {
   return (
     <PresetContext.Provider value={preset}>
     <SpotlightProvider>
-    <div className="shell" data-site-preset={preset} data-classroom-lesson={classroomLesson || undefined} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
+    <div className="shell" data-site-preset={preset} data-classroom-lesson={classroomLesson || undefined} data-classroom-fit={classroomLesson && s.get("classroom.fitViewport") !== false ? "true" : undefined} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
       <ScrollToTop />
       <ScrollAids />
       <InstallPopup />

@@ -412,6 +412,7 @@ Implemented the SharpStudy admin overview, separate Site settings dropdown, sear
 - **Layout & Dev Fixes**:
   - Fixed `Today's goal` `.goal-chip` right-edge clipping in `apps/web/src/styles.css` (replaced `white-space: nowrap` with responsive wrapping, `max-width: 100%`, `min-width: 0` on `.home-side`, and desktop `justify-self: end`) — verified inside `.paper.home` with 0 horizontal overflow at `1280×800`, `1024×768`, and `390×844`.
   - Fixed Vite dev `ReferenceError: Cannot access 'lazy' before initialization` in `apps/web/src/App.tsx` by moving `const TourPage = named(...)` below `import { lazy } from "react"`.
+  - Fixed Classroom one-screen above-the-fold layout (`apps/web/src/components/sitePresets.css`, `apps/web/src/components/Layout.tsx`, `packages/shared/src/settings.ts` setting `classroom.fitViewport` under **Admin → Classroom → Board**, default `true`) so the title, phase pills, board stage, Lesson timeline, and bottom playback controls all fit in one laptop viewport without scrolling.
 - **Admin settings (19 public settings total)**:
   - **Lessons → Finish**: `lesson.completionHub.{enabled,progressStrip,adaptivePrimary,showWorksheet,showGames,showNextLesson}` (6 settings).
   - **Layout and navigation → Guided tour and help hub**: `ux.spotlightTour.{enabled,autoOpen,maxAutoPerSession,autoDelayMs,pages.{home,subject,chapter,lesson,results}}` + `ux.helpHub.{enabled,quickJumps,position,title}` (13 settings, including corner position Bottom-right/Bottom-left and EN/TA menu heading).
