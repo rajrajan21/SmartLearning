@@ -30,7 +30,7 @@ if (-not (Test-Parler)) {
   Write-Host "[$(Get-Date -Format s)] Starting Indic Parler-TTS server on port 8090..."
   $outLog = Join-Path $Stage "parler-server.out.log"
   $errLog = Join-Path $Stage "parler-server.err.log"
-  Start-Process -FilePath $VenvPy -ArgumentList $ServePy -WorkingDirectory $Root -WindowStyle Hidden -RedirectStandardOutput $outLog -RedirectStandardError $errLog
+  Start-Process -FilePath $VenvPy -ArgumentList ('"{0}"' -f $ServePy) -WorkingDirectory $Root -WindowStyle Hidden -RedirectStandardOutput $outLog -RedirectStandardError $errLog
   for ($i = 0; $i -lt 90; $i++) {
     if (Test-Parler) { break }
     Start-Sleep -Seconds 2
