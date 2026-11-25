@@ -23,13 +23,86 @@ const RAW: Record<string, string> = {
   king: "👑", queen: "👑", crown: "👑", castle: "🏰", fort: "🏰", palace: "🏯", mosque: "🕌", church: "⛪", globe: "🌐", parliament: "🏛️", court: "⚖️", vote: "🗳️", election: "🗳️", police: "👮", soldier: "🪖", scroll: "📜", pottery: "🏺", jewel: "💎", gold: "🪙", silver: "🪙", arrow: "🏹", sword: "⚔️", shield: "🛡️", trade: "🛒", harvest: "🌾", crop: "🌾", field: "🌾", canal: "🏞️", well: "🪣", pond: "💧", lake: "🏞️", waterfall: "🏞️", coast: "🏖️", beach: "🏖️", hill: "⛰️", valley: "🏞️", plateau: "⛰️", plain: "🌾", monument: "🏛️", statue: "🗿", newspaper: "📰", letter: "✉️", post: "📮", tower: "🗼", ladder: "🪜", tent: "⛺", cave: "🕳️",
 };
 // words that are not worth a picture on their own: ideas, actions and feelings are said, not drawn
-const SKIP = new Set(["plastic", "pot", "cell", "scale", "post", "field", "well", "spring", "sky", "sound", "cotton", "side", "edge", "corner", "number", "count", "time", "light", "air", "shape", "group", "pair", "share", "add", "plus", "minus", "subtract", "multiply", "divide", "equal", "season", "people", "plastic", "waste", "reduce", "reuse", "colour", "color", "page", "drop", "play", "think", "laugh", "smile", "happy", "sad", "angry", "cry", "dream", "cut", "wash", "clean", "run", "walk", "jump", "sing", "dance", "swim", "exercise", "sleep", "sick", "wave", "half", "quarter", "key", "ice", "wind", "wall", "skin", "pen", "map", "bell", "state", "family", "friend", "child", "children", "kid", "man", "woman", "boy", "girl", "finger", "hand", "foot", "eye", "ear", "nose", "mouth", "book", "paper", "table", "chair", "box", "ball", "root", "cone", "pyramid", "cylinder", "iron", "pulley", "lever", "court", "plain", "arrow", "market", "bat", "plane", "cycle", "train", "park", "orange", "salt", "crown", "seed"]);
-// Require an explicit sense for words that otherwise produce a misleading picture.
+const SKIP = new Set(["plastic", "pot", "cell", "scale", "post", "field", "well", "spring", "sky", "sound", "cotton", "side", "edge", "corner", "number", "count", "time", "light", "air", "shape", "group", "pair", "share", "add", "plus", "minus", "subtract", "multiply", "divide", "equal", "season", "people", "waste", "reduce", "reuse", "colour", "color", "page", "drop", "play", "think", "laugh", "smile", "happy", "sad", "angry", "cry", "dream", "cut", "wash", "clean", "run", "walk", "jump", "sing", "dance", "swim", "exercise", "sleep", "sick", "wave", "half", "quarter", "key", "ice", "wind", "wall", "skin", "pen", "map", "bell", "state", "family", "friend", "child", "children", "kid", "man", "woman", "boy", "girl", "finger", "hand", "foot", "eye", "ear", "nose", "mouth", "book", "paper", "table", "chair", "box", "ball", "root", "cone", "pyramid", "cylinder", "iron", "pulley", "lever", "court", "plain", "arrow", "market", "bat", "plane", "cycle", "train", "park", "orange", "salt", "crown", "seed", "sphere", "bottle", "shadow", "steam", "fan", "sand", "cube"]);
+
+// Require an explicit sense (or reject misleading senses) for homonyms so lessons never show unrelated pictures.
 function pictureFor(word: string, context: string): string | undefined {
-  if (word !== "letter") return RAW[word];
-  if (/\b(?:alphabet|vowels?|consonants?|spell(?:ing)?|[a-z]+case|letters? (?:in|of|make)|(?:count|counting|most|fewest|capital|small) (?:the )?letters?|names? (?:are|is) made of letters?)\b/i.test(context)) return "A B C";
-  if (/\b(?:envelopes?|post(?:al|man|box| office)|mail(?:ed|ing|box)|(?:send|sent|write|wrote|receive|received) (?:a |the )?letters?)\b/i.test(context)) return RAW.letter;
-  return undefined;
+  switch (word) {
+    case "letter":
+      if (/\b(?:alphabet|vowels?|consonants?|spell(?:ing)?|[a-z]+case|letters? (?:in|of|make)|(?:count|counting|most|fewest|capital|small) (?:the )?letters?|names? (?:are|is) made of letters?)\b/i.test(context)) return "A B C";
+      if (/\b(?:envelopes?|post(?:al|man|box| office)|mail(?:ed|ing|box)|(?:send|sent|write|wrote|receive|received) (?:a |the )?letters?)\b/i.test(context)) return RAW.letter;
+      return undefined;
+    case "plate":
+      if (/\b(?:tectonic|lithospher|crust|boundar(?:y|ies)|converg|diverg|transform|mantle|magma|earth|continent|metal|copper|zinc|steel|battery|electrode|solar|capacitor|armour|bone|number plate|name plate)\b/i.test(context)) return undefined;
+      return /\b(?:food|meal|eat(?:ing|en)?|dinner|lunch|breakfast|dish|rice|roti|dosa|idli|potato|spoon|bowl|fork|serve|kitchen|farm to plate|on your plate|balanced)\b/i.test(context) ? RAW.plate : undefined;
+    case "ruler":
+      return /\b(?:measur\w*|centimet\w*|millimet\w*|inch(?:es)?|length|scale|zero mark|draw(?:ing)? a line|straight|cm|mm|geometry)\b/i.test(context) ? RAW.ruler : undefined;
+    case "glass":
+      if (/\b(?:prism|slab|lens|mirror|light|refract|bend|window|magnifying|dark glasses|spectacles|plastic|waste|biodegradable|rod|beaker|jar|pane|transparent|stained|fibre|fiber|glassware)\b/i.test(context)) return undefined;
+      return /\b(?:glass(?:es)? of (?:water|milk|juice|lassi|lemonade|tea)|drink(?:ing)?|thirst|tumbler)\b/i.test(context) ? RAW.glass : undefined;
+    case "watch":
+      return /\b(?:wrist ?watch|pocket watch|stop ?watch|wear(?:s|ing)? a watch|my watch|shows? the time|clock)\b/i.test(context) ? RAW.watch : undefined;
+    case "tap":
+      return /\b(?:water tap|tap water|running tap|close the tap|turn (?:off|on) the tap|open the tap|leaking tap|dripping tap|faucet)\b/i.test(context) ? RAW.tap : undefined;
+    case "speaker":
+      return /\b(?:loudspeaker|audio|volume|bluetooth|radio|microphone|sound system)\b/i.test(context) ? RAW.speaker : undefined;
+    case "balance":
+      return /\b(?:beam balance|pan balance|weighing balance|balance scale|spring balance)\b/i.test(context) ? RAW.balance : undefined;
+    case "needle":
+      return /\b(?:sew(?:ing)?|tailor|stitch|cloth|thread|embroid|button)\b/i.test(context) ? RAW.needle : undefined;
+    case "nail":
+      if (/\b(?:trim|finger|toe|cut|clean|hand|wash|grow|polish)\b/i.test(context)) return undefined;
+      return /\b(?:iron nail|rusty|hammer|wood|door|hinge|screw|metal|board|magnet)\b/i.test(context) ? RAW.nail : undefined;
+    case "brush":
+      if (/\b(?:commutator|motor|coil|generator|paint|colour|color|art)\b/i.test(context)) return undefined;
+      return /\b(?:tooth|teeth|mouth|paste|morning)\b/i.test(context) ? RAW.brush : undefined;
+    case "tongue":
+      if (/\b(?:mother tongue|tongue twister|native tongue)\b/i.test(context)) return undefined;
+      return /\b(?:taste|chew|mouth|swallow|saliva|lick)\b/i.test(context) ? RAW.tongue : undefined;
+    case "bear":
+      if (/\b(?:could not bear|cannot bear|can't bear|bear to|bear fruit|bear weight|bear in mind|bear the|hard to bear)\b/i.test(context)) return undefined;
+      return /\b(?:polar bear|grizzly|animal|forest|cave|cub|honey|fur|wildlife|crawl|brown bear|black bear)\b/i.test(context) ? RAW.bear : undefined;
+    case "bed":
+      if (/\b(?:flower bed|river ?bed|sea ?bed|seed ?bed|lake ?bed|ocean bed)\b/i.test(context)) return undefined;
+      return /\b(?:sleep|lie|lies|lay|pillow|blanket|bedroom|wake|go(?:es)? to bed|in bed|hospital bed)\b/i.test(context) ? RAW.bed : undefined;
+    case "juice":
+      if (/\b(?:pancreatic|gastric|digestive|intestinal|bile)\b/i.test(context)) return undefined;
+      return RAW.juice;
+    case "plug":
+      return /\b(?:electric|socket|switch|wire|cord|appliance|outlet)\b/i.test(context) ? RAW.plug : undefined;
+    case "sweet":
+      if (/\b(?:sweet smell|sweet water|sweet voice|sweet potato|sweetness)\b/i.test(context)) return undefined;
+      return /\b(?:sweets|eat|ate|food|dessert|sugar|shop|laddu|jalebi|festival|candy|chocolate|tooth)\b/i.test(context) ? RAW.sweet : undefined;
+    case "wood":
+      if (/\bbretton woods\b/i.test(context)) return undefined;
+      return RAW.wood;
+    case "cup":
+      if (/\b(?:world cup|trophy|flower cup|suction cup)\b/i.test(context)) return undefined;
+      return /\b(?:tea|coffee|drink|hot|milk|soup|saucer|measuring cup)\b/i.test(context) ? RAW.cup : undefined;
+    case "bulb":
+      if (/\b(?:onion|garlic|tulip|lily|plant|underground|stem|root)\b/i.test(context)) return undefined;
+      return RAW.bulb;
+    case "shield":
+      if (/\b(?:shields? us|shield volcano|ozone|protect)\b/i.test(context)) return undefined;
+      return RAW.shield;
+    case "square":
+      if (/\b(?:square (?:centi|milli|kilo)?met\w*|square units?|sq\.|squared|r\^2|pi r)\b/i.test(context)) return undefined;
+      return RAW.square;
+    case "tree":
+      if (/\b(?:tree chart|factor tree|family tree|decision tree)\b/i.test(context)) return undefined;
+      return RAW.tree;
+    case "room":
+      if (/\b(?:make room|no room|room for)\b/i.test(context)) return undefined;
+      return RAW.room;
+    case "pin":
+      if (/\b(?:pin leaves|pin it|pin up|pin down)\b/i.test(context)) return undefined;
+      return RAW.pin;
+    case "nut":
+      if (/\b(?:nut and bolt|bolts? and nuts?)\b/i.test(context)) return undefined;
+      return RAW.nut;
+    default:
+      return RAW[word];
+  }
 }
 const STOP = new Set(["the", "a", "an", "and", "of", "to", "in", "is", "are"]);
 const WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"];

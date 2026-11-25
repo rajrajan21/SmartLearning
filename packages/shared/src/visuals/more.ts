@@ -244,6 +244,46 @@ export function landforms(): Frag {
   ] };
 }
 
+/** three kinds of tectonic plate boundaries: divergent, convergent, transform */
+export function plateTectonics(): Frag {
+  return {
+    title: "Tectonic plate boundaries",
+    objects: [
+      T("ttl", 450, 44, "How Earth's tectonic plates move", 30, "accent"),
+      // Divergent (moving apart)
+      R("d1", 60, 175, 100, 60, "#D7CCC8", "earth", 4, 8),
+      R("d2", 185, 175, 100, 60, "#D7CCC8", "earth", 4, 8),
+      AR("da1", 125, 150, 70, 150, "warm", 4),
+      AR("da2", 220, 150, 275, 150, "warm", 4),
+      T("dt", 172, 275, "Divergent", 24, "accent"),
+      T("ds", 172, 305, "plates move apart", 18, "ink"),
+      // Convergent (colliding -> mountain)
+      R("c1", 340, 185, 100, 50, "#BCAAA4", "earth", 4, 8),
+      R("c2", 460, 185, 100, 50, "#BCAAA4", "earth", 4, 8),
+      PA("cm", "M 415 185 L 450 130 L 485 185 Z", "earth", 4, "#A1887F"),
+      AR("ca1", 350, 155, 405, 155, "accent", 4),
+      AR("ca2", 550, 155, 495, 155, "accent", 4),
+      T("ct", 450, 275, "Convergent", 24, "accent"),
+      T("cs", 450, 305, "plates collide", 18, "ink"),
+      // Transform (sliding past)
+      R("t1", 625, 155, 210, 38, "#CFD8DC", "ink", 4, 8),
+      R("t2", 625, 203, 210, 38, "#B0BEC5", "ink", 4, 8),
+      AR("ta1", 650, 140, 810, 140, "good", 4),
+      AR("ta2", 810, 255, 650, 255, "good", 4),
+      T("tt", 730, 290, "Transform", 24, "accent"),
+      T("ts", 730, 320, "plates slide past", 18, "ink"),
+      // Mantle bar at bottom
+      R("mn", 60, 365, 780, 55, "#FFCCBC", "warm", 3, 12),
+      T("ml", 450, 399, "Hot, softer mantle layer below the lithosphere", 21, "warm"),
+    ],
+    steps: [
+      step("Earth's outer shell, the lithosphere, is broken into huge slabs of rock called tectonic plates resting on the softer mantle below.", [show("ttl", 0.1), draw("mn", 0.3), write("ml", 0.5)]),
+      step("At divergent boundaries, plates pull apart and new crust forms. At convergent boundaries, plates collide and push up tall mountains.", [draw("d1", 0.1), draw("d2", 0.15), draw("da1", 0.25), draw("da2", 0.25), write("dt", 0.35), write("ds", 0.4), draw("c1", 0.55), draw("c2", 0.6), draw("cm", 0.68), draw("ca1", 0.72), draw("ca2", 0.72), write("ct", 0.8), write("cs", 0.85)]),
+      step("At transform boundaries, plates slide sideways past one another, building stress that causes earthquakes.", [draw("t1", 0.15), draw("t2", 0.25), draw("ta1", 0.4), draw("ta2", 0.5), write("tt", 0.65), write("ts", 0.75)]),
+    ],
+  };
+}
+
 /** the seven stars of the Great Bear and the Pole Star */
 export function saptarishi(): Frag {
   const s: [number, number][] = [[200, 330], [280, 310], [350, 290], [430, 290], [430, 370], [560, 380], [570, 300]];

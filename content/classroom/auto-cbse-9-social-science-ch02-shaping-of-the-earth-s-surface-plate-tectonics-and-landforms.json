@@ -6,7 +6,7 @@
  "topic": "plate-tectonics-and-landforms",
  "status": "published",
  "title": {
-  "en": "Landforms"
+  "en": "Tectonic plate boundaries"
  },
  "objects": [
   {
@@ -14,58 +14,232 @@
    "id": "ttl",
    "x": 450,
    "y": 44,
-   "text": "Mountains, plateaus and plains",
-   "size": 32,
+   "text": "How Earth's tectonic plates move",
+   "size": 30,
    "color": "accent",
    "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "d1",
+   "x": 60,
+   "y": 175,
+   "w": 100,
+   "h": 60,
+   "rx": 8,
+   "fill": "#D7CCC8",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "d2",
+   "x": 185,
+   "y": 175,
+   "w": 100,
+   "h": 60,
+   "rx": 8,
+   "fill": "#D7CCC8",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "da1",
+   "x1": 125,
+   "y1": 150,
+   "x2": 70,
+   "y2": 150,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "da2",
+   "x1": 220,
+   "y1": 150,
+   "x2": 275,
+   "y2": 150,
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "dt",
+   "x": 172,
+   "y": 275,
+   "text": "Divergent",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ds",
+   "x": 172,
+   "y": 305,
+   "text": "plates move apart",
+   "size": 18,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "c1",
+   "x": 340,
+   "y": 185,
+   "w": 100,
+   "h": 50,
+   "rx": 8,
+   "fill": "#BCAAA4",
+   "stroke": "earth",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "c2",
+   "x": 460,
+   "y": 185,
+   "w": 100,
+   "h": 50,
+   "rx": 8,
+   "fill": "#BCAAA4",
+   "stroke": "earth",
+   "width": 4
   },
   {
    "kind": "path",
-   "id": "pr",
-   "d": "M 40 420 L 160 420 L 260 150 L 360 420 L 430 320 L 600 320 L 660 420 L 860 420",
+   "id": "cm",
+   "d": "M 415 185 L 450 130 L 485 185 Z",
    "stroke": "earth",
-   "width": 6,
-   "fill": "#BCAAA4"
+   "width": 4,
+   "fill": "#A1887F"
+  },
+  {
+   "kind": "arrow",
+   "id": "ca1",
+   "x1": 350,
+   "y1": 155,
+   "x2": 405,
+   "y2": 155,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ca2",
+   "x1": 550,
+   "y1": 155,
+   "x2": 495,
+   "y2": 155,
+   "stroke": "accent",
+   "width": 4
   },
   {
    "kind": "text",
-   "id": "m1",
-   "x": 260,
-   "y": 120,
-   "text": "Mountain",
-   "size": 26,
+   "id": "ct",
+   "x": 450,
+   "y": 275,
+   "text": "Convergent",
+   "size": 24,
    "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "m2",
-   "x": 515,
+   "id": "cs",
+   "x": 450,
+   "y": 305,
+   "text": "plates collide",
+   "size": 18,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t1",
+   "x": 625,
+   "y": 155,
+   "w": 210,
+   "h": 38,
+   "rx": 8,
+   "fill": "#CFD8DC",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "rect",
+   "id": "t2",
+   "x": 625,
+   "y": 203,
+   "w": 210,
+   "h": 38,
+   "rx": 8,
+   "fill": "#B0BEC5",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ta1",
+   "x1": 650,
+   "y1": 140,
+   "x2": 810,
+   "y2": 140,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ta2",
+   "x1": 810,
+   "y1": 255,
+   "x2": 650,
+   "y2": 255,
+   "stroke": "good",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "tt",
+   "x": 730,
    "y": 290,
-   "text": "Plateau",
-   "size": 26,
-   "color": "warm",
+   "text": "Transform",
+   "size": 24,
+   "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "m3",
-   "x": 770,
-   "y": 395,
-   "text": "Plain",
-   "size": 26,
-   "color": "good",
+   "id": "ts",
+   "x": 730,
+   "y": 320,
+   "text": "plates slide past",
+   "size": 18,
+   "color": "ink",
    "anchor": "middle"
   },
   {
-   "kind": "line",
-   "id": "gr",
-   "x1": 40,
-   "y1": 420,
-   "x2": 860,
-   "y2": 420,
-   "stroke": "ink",
+   "kind": "rect",
+   "id": "mn",
+   "x": 60,
+   "y": 365,
+   "w": 780,
+   "h": 55,
+   "rx": 12,
+   "fill": "#FFCCBC",
+   "stroke": "warm",
    "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ml",
+   "x": 450,
+   "y": 399,
+   "text": "Hot, softer mantle layer below the lithosphere",
+   "size": 21,
+   "color": "warm",
+   "anchor": "middle"
   },
   {
    "kind": "image",
@@ -83,54 +257,134 @@
   {
    "id": "s1",
    "narration": {
-    "en": "The land has different shapes, called landforms. Here is a side view."
+    "en": "Earth's outer shell, the lithosphere, is broken into huge slabs of rock called tectonic plates resting on the softer mantle below."
    },
    "actions": [
     {
      "do": "show",
      "target": "ttl",
-     "at": 0.05
+     "at": 0.1
     },
     {
      "do": "draw",
-     "target": "pr",
+     "target": "mn",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ml",
      "at": 0.5
-    },
-    {
-     "do": "draw",
-     "target": "gr",
-     "at": 0.6
     }
    ]
   },
   {
    "id": "s2",
    "narration": {
-    "en": "A mountain is very high land with a pointed top. A plateau is high land that is flat on top, like a table."
+    "en": "At divergent boundaries, plates pull apart and new crust forms. At convergent boundaries, plates collide and push up tall mountains."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "m1",
-     "at": 0.3
+     "do": "draw",
+     "target": "d1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "da1",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "da2",
+     "at": 0.25
     },
     {
      "do": "write",
-     "target": "m2",
-     "at": 0.7
+     "target": "dt",
+     "at": 0.35
+    },
+    {
+     "do": "write",
+     "target": "ds",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "c1",
+     "at": 0.55
+    },
+    {
+     "do": "draw",
+     "target": "c2",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "cm",
+     "at": 0.68
+    },
+    {
+     "do": "draw",
+     "target": "ca1",
+     "at": 0.72
+    },
+    {
+     "do": "draw",
+     "target": "ca2",
+     "at": 0.72
+    },
+    {
+     "do": "write",
+     "target": "ct",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "cs",
+     "at": 0.85
     }
    ]
   },
   {
    "id": "s3",
    "narration": {
-    "en": "A plain is a large flat area of low land. Plains are good for farming and for building towns."
+    "en": "At transform boundaries, plates slide sideways past one another, building stress that causes earthquakes."
    },
    "actions": [
     {
+     "do": "draw",
+     "target": "t1",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "t2",
+     "at": 0.25
+    },
+    {
+     "do": "draw",
+     "target": "ta1",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "ta2",
+     "at": 0.5
+    },
+    {
      "do": "write",
-     "target": "m3",
-     "at": 0.3
+     "target": "tt",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "ts",
+     "at": 0.75
     }
    ]
   },

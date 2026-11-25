@@ -68,3 +68,33 @@ it("draws letters as alphabet symbols or postal mail according to the sentence",
   expect(picturesFor("Write a letter and put it in an envelope.")[0]?.emoji).toBe("✉️");
   expect(picturesFor("Consider these letters.")).toEqual([]);
 });
+
+it("avoids misleading homonym pictures across geography, history, science and maths", () => {
+  // Tectonic plates must NOT show an eating plate
+  expect(picturesFor("According to plate tectonics, the lithosphere is broken into large and small plates.").some((p) => p.word === "plate")).toBe(false);
+  expect(picturesFor("The potato on your plate comes from a farm.").some((p) => p.word === "plate" && p.emoji === "🍽️")).toBe(true);
+
+  // History rulers must NOT show a measuring ruler
+  expect(picturesFor("The Mughal ruler built forts across the empire.").some((p) => p.word === "ruler")).toBe(false);
+  expect(picturesFor("Measure the line in centimetres using a ruler.").some((p) => p.word === "ruler" && p.emoji === "📏")).toBe(true);
+
+  // Optical glass must NOT show a glass of milk
+  expect(picturesFor("Going from air to glass, light bends towards the normal.").some((p) => p.word === "glass")).toBe(false);
+  expect(picturesFor("Drink a clean glass of water every hour.").some((p) => p.word === "glass" && p.emoji === "🥛")).toBe(true);
+
+  // Verbs and scientific/abstract homonyms must NOT trigger unrelated icons
+  expect(picturesFor("Watch carefully and describe the result.").some((p) => p.word === "watch")).toBe(false);
+  expect(picturesFor("Gently tap the spoon on each object.").some((p) => p.word === "tap")).toBe(false);
+  expect(picturesFor("Close the running tap to save water.").some((p) => p.word === "tap" && p.emoji === "🚰")).toBe(true);
+  expect(picturesFor("Dialogues need a speaker and listener.").some((p) => p.word === "speaker")).toBe(false);
+  expect(picturesFor("Pancreatic juice has trypsin and lipase.").some((p) => p.word === "juice")).toBe(false);
+  expect(picturesFor("We speak our mother tongue at home.").some((p) => p.word === "tongue")).toBe(false);
+  expect(picturesFor("Prabhat could not bear to lose.").some((p) => p.word === "bear")).toBe(false);
+  expect(picturesFor("A motor uses a coil, magnet, commutator and brushes.").some((p) => p.word === "brush")).toBe(false);
+  expect(picturesFor("Brush your teeth every morning.").some((p) => p.word === "brush" && p.emoji === "🪥")).toBe(true);
+  expect(picturesFor("A compass needle moves near a wire.").some((p) => p.word === "needle")).toBe(false);
+  expect(picturesFor("Are my nails trimmed cleanly?").some((p) => p.word === "nail")).toBe(false);
+  expect(picturesFor("Surface area of a cube and sphere in square centimetres.").some((p) => ["cube", "sphere", "square"].includes(p.word))).toBe(false);
+  expect(picturesFor("In 1944 the Bretton Woods conference met.").some((p) => p.word === "wood")).toBe(false);
+  expect(picturesFor("Flower beds in the park and cotton plug in a funnel.").some((p) => ["bed", "plug"].includes(p.word))).toBe(false);
+});
