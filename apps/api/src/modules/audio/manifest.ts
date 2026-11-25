@@ -101,8 +101,8 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     if (lang === "ta") {
       const defTa = perf().defaultTamilVoice || "valluvar";
       const list = fallbackTeacher === "malar" || fallbackTeacher === "kani"
-        ? [defTa, "valluvar", "jaya", "murali"]
-        : [fallbackTeacher, defTa, "valluvar", "jaya", "murali"];
+        ? [defTa, "valluvar", "divya", "jaya", "murali"]
+        : [fallbackTeacher, defTa, "valluvar", "divya", "jaya", "murali"];
       return [...new Set(list)];
     }
     const def = perf().defaultAudioVoice || "kani";

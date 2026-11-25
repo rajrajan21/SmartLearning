@@ -29,9 +29,9 @@ if (needEdge) {
   const ok = spawnSync(py, ["-c", "import edge_tts, miniaudio"], { stdio: "ignore" });
   if (ok.status !== 0) { console.error(`The Kani/Arul voices need Python with two small packages. Run this once, then try again:\n  ${py} -m pip install edge-tts miniaudio`); process.exit(2); }
 }
-if (teachers?.some((t) => ["jaya", "murali"].includes(t)) || args.includes("--all-voices")) {
+if (wantedIds.some((v) => v.startsWith("parler:"))) {
   const ph = await fetch(`${process.env.PARLER_URL ?? "http://localhost:8090"}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);
-  if (!ph?.tts) { console.error("The Tamil-teacher voice server (port 8090) is not running. Use Generate-Lesson-Audio.bat, which starts it."); process.exit(2); }
+  if (!ph?.tts) { console.error("The Tamil-teacher voice server (port 8090) is not running. Start tools/tamil-voice-trial/serve.py first."); process.exit(2); }
 }
 if (needMalar) {
   const health = await fetch(`${server}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);

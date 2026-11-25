@@ -119,6 +119,7 @@ describe("lesson completion hub and spotlight tour settings", () => {
     expect(v["gk.audio.deviceVoice"]).toBe(false);
     expect(parseSetting("audio.defaultVoice", "priya2")).toBe("priya2");
     expect(parseSetting("audio.defaultTamilVoice", "valluvar")).toBe("valluvar");
+    expect(parseSetting("audio.defaultTamilVoice", "divya")).toBe("divya");
     expect(parseSetting("classroom.language", "ta-en")).toBe("ta-en");
     expect(() => parseSetting("audio.defaultVoice", "unknown")).toThrow(/options/);
 

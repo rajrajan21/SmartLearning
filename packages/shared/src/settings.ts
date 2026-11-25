@@ -231,6 +231,7 @@ export const SETTINGS: SettingDef[] = [
   { key: "audio.defaultTamilVoice", panel: "classroom", section: "Voice", label: "Default natural Tamil teacher voice", public: true, type: "select", default: "valluvar",
     options: [
       { value: "valluvar", label: "Valluvar (natural Indian Tamil, Male)" },
+      { value: "divya", label: "Divya (Parler natural Indian Tamil, Female)" },
       { value: "jaya", label: "Jaya (Parler Tamil Female)" },
       { value: "murali", label: "Murali (Parler Tamil Male)" },
     ],

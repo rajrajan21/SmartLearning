@@ -17,6 +17,7 @@ tok = load_tok(loc, "<unk>"); dtok = load_tok(t5, "<pad>")
 DESC = {
  "parler:woman": "Jaya speaks in a clear, warm, friendly Indian English accent like a Tamil school teacher, at a slow and steady pace, with very clear pronunciation. The recording is very high quality with no background noise.",
  "parler:woman-ta": "Jaya speaks Tamil in a clear, warm, friendly voice like a Tamil school teacher, at a slow and steady pace, with very clear pronunciation. The recording is very high quality with no background noise.",
+ "parler:divya-ta": "Divya speaks Tamil with natural warmth, conversational expression, and clear Tamil Nadu classroom diction, close-sounding studio recording with no background noise.",
  "parler:man-ta": "Karthik speaks Tamil in a clear, calm, friendly voice like a Tamil school teacher, at a slow and steady pace, with very clear pronunciation. The recording is very high quality with no background noise.",
  "parler:man": "A male Indian teacher speaks in a clear, calm, friendly Indian English accent like a Tamil school teacher, at a slow and steady pace, with very clear pronunciation. The recording is very high quality with no background noise.",
 }
@@ -28,10 +29,19 @@ def speak(text, voice):
         g = model.generate(input_ids=d.input_ids, attention_mask=d.attention_mask, prompt_input_ids=p.input_ids, prompt_attention_mask=p.attention_mask)
     a = g.cpu().numpy().squeeze().astype("float32")
     a = np.clip(a, -1, 1); pcm = (a * 32767).astype("<i2")
+    sr = model.config.sampling_rate
     b = io.BytesIO()
     with wave.open(b, "wb") as w:
-        w.setnchannels(1); w.setsampwidth(2); w.setframerate(model.config.sampling_rate); w.writeframes(pcm.tobytes())
-    return base64.b64encode(b.getvalue()).decode()
+        w.setnchannels(1); w.setsampwidth(2); w.setframerate(sr); w.writeframes(pcm.tobytes())
+    dur_ms = max(1, int(round(len(pcm) / sr * 1000)))
+    words = [w for w in text.split() if w]
+    step = dur_ms / max(1, len(words))
+    return {
+        "audio": base64.b64encode(b.getvalue()).decode(),
+        "words": words,
+        "wtimes": [int(round(i * step)) for i in range(len(words))],
+        "wdurations": [int(round(step)) for _ in words],
+    }
 class H(BaseHTTPRequestHandler):
     def log_message(self, *a): pass
     def _send(self, code, obj):
@@ -41,9 +51,9 @@ class H(BaseHTTPRequestHandler):
     def do_POST(self):
         try:
             n = int(self.headers.get("content-length", "0")); req = json.loads(self.rfile.read(n))
-            v = req.get("voice", "parler:woman")
+            v = req.get("voice", "parler:divya-ta")
             if v not in DESC: return self._send(400, {"error": "unknown voice"})
-            self._send(200, {"audio": speak(req["text"], v)})
+            self._send(200, speak(req["text"], v))
         except Exception as e:
             self._send(500, {"error": str(e)})
 print("Tamil-teacher voices ready on port 8090", flush=True)

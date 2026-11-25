@@ -86,9 +86,9 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
   const pairedAudio = (voice: string, text: { en?: string; ta?: string } | undefined): ReturnType<AudioStore["refs"]> => {
     if (!audio || !text) return undefined;
     const direct = audio.refs(voice, text);
-    // Pair natural Tamil voice (valluvar) with natural English counterparts (kani/arul) so Tamil -> English works seamlessly.
-    const enPref = voice === "valluvar" ? "arul" : voice;
-    const taPref = voice === "arul" || voice === "kani" ? (perf().defaultTamilVoice || "valluvar") : (perf().defaultTamilVoice || "valluvar");
+    // Pair natural Tamil voices (valluvar/divya) with natural English counterparts (arul/kani) so Tamil -> English works seamlessly.
+    const enPref = voice === "valluvar" ? "arul" : voice === "divya" ? "kani" : voice;
+    const taPref = voice === "arul" ? "valluvar" : voice === "kani" ? (perf().defaultTamilVoice || "divya") : (perf().defaultTamilVoice || "valluvar");
     const en = direct?.en ?? audio.refs(enPref, { en: text.en })?.en ?? audio.refsPreferred?.(enPref, { en: text.en })?.en;
     const ta = direct?.ta ?? audio.refs(taPref, { ta: text.ta })?.ta ?? audio.refsPreferred?.(taPref, { ta: text.ta })?.ta;
     return en || ta ? { ...(en ? { en } : {}), ...(ta ? { ta } : {}) } : undefined;
