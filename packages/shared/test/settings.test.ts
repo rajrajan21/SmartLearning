@@ -87,3 +87,38 @@ describe("textbook reader settings", () => {
     expect(pub["reader.defaultSpeed"]).toBe(0.9);
   });
 });
+
+describe("lesson completion hub and spotlight tour settings", () => {
+  it("registers all public completion hub and spotlight tour settings with valid defaults", () => {
+    const v = defaults();
+    expect(v["lesson.completionHub.enabled"]).toBe(true);
+    expect(v["lesson.completionHub.progressStrip"]).toBe(true);
+    expect(v["lesson.completionHub.adaptivePrimary"]).toBe(true);
+    expect(v["lesson.completionHub.showWorksheet"]).toBe(true);
+    expect(v["lesson.completionHub.showGames"]).toBe(true);
+    expect(v["lesson.completionHub.showNextLesson"]).toBe(true);
+    expect(v["ux.spotlightTour.enabled"]).toBe(true);
+    expect(v["ux.spotlightTour.autoOpen"]).toBe(true);
+    expect(v["ux.spotlightTour.maxAutoPerSession"]).toBe(1);
+    expect(v["ux.spotlightTour.autoDelayMs"]).toBe(900);
+    expect(v["ux.spotlightTour.pages.home"]).toBe(true);
+    expect(v["ux.spotlightTour.pages.subject"]).toBe(true);
+    expect(v["ux.spotlightTour.pages.chapter"]).toBe(true);
+    expect(v["ux.spotlightTour.pages.lesson"]).toBe(true);
+    expect(v["ux.spotlightTour.pages.results"]).toBe(true);
+    expect(v["ux.helpHub.enabled"]).toBe(true);
+    expect(v["ux.helpHub.quickJumps"]).toBe(true);
+    expect(v["ux.helpHub.position"]).toBe("right");
+    expect(v["ux.helpHub.title"]).toEqual({ en: "Study help", ta: "படிப்பு உதவி" });
+
+    expect(parseSetting("ux.spotlightTour.maxAutoPerSession", 0)).toBe(0);
+    expect(() => parseSetting("ux.spotlightTour.maxAutoPerSession", 9)).toThrow(/between/);
+    expect(parseSetting("ux.spotlightTour.autoDelayMs", 1200)).toBe(1200);
+    expect(() => parseSetting("ux.spotlightTour.autoDelayMs", -100)).toThrow(/between/);
+
+    const pub = publicSettings(resolveSettings({ "lesson.completionHub.showGames": false, "ux.helpHub.enabled": false }));
+    expect(pub["lesson.completionHub.showGames"]).toBe(false);
+    expect(pub["ux.helpHub.enabled"]).toBe(false);
+    expect(pub["ux.spotlightTour.enabled"]).toBe(true);
+  });
+});

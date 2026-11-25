@@ -7,6 +7,8 @@ import { useBoard, useRetry, useTopic } from "../lib/curriculum";
 import { TopicTabs } from "../components/TopicTabs";
 import { pickRound, shuffled, saveRound, starsFor, usePractice, usePracticeResults } from "../lib/practice";
 import { NextStep, nextChapter, type NextLink } from "../components/LessonFlow";
+import { usePageTour } from "../components/SpotlightTour";
+import type { HelpQuickJump } from "../lib/spotlightTour";
 import { QuestionCard } from "../components/QuestionCard";
 import { subjectVar } from "../lib/theme";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
@@ -27,11 +29,25 @@ export function PracticePage() {
   const [round, setRoundState] = useState<number | null>(null);
   const [run, setRun] = useState(0);
   const setRound = (r: number | null) => { setRoundState(r); setRun((n) => n + 1); }; // a new run always remounts, so "play again" reshuffles
+  const next = tree.status === "ready" ? nextChapter(tree.data, board, level, subject, chapter, ui("nextChapter", s.lang)) : undefined;
+  const quickJumps = useMemo<HelpQuickJump[]>(() => {
+    const items: HelpQuickJump[] = [
+      { id: "topics", href: `/${board}/${level}/${subject}/${chapter}`, icon: "📚", label: ui("topics", s.lang) },
+    ];
+    if (s.get("feature.exams") === true) items.push({ id: "exam", href: `/exam/${board}/${level}/${subject}/${chapter}`, icon: "📝", label: ui("chapterTest", s.lang) });
+    if (s.get("feature.worksheets") === true) items.push({ id: "worksheet", href: `/worksheet/${board}/${level}/${subject}/${chapter}`, icon: "📄", label: ui("worksheetWord", s.lang) });
+    if (s.get("feature.games") === true && (s.get("games.quickfire") === true || s.get("games.survival") === true)) {
+      const mode = s.get("games.quickfire") === true ? "quickfire" : "survival";
+      items.push({ id: "games", href: `/play/${mode}/${board}/${level}/${subject}/${chapter}`, icon: "🎮", label: ui("gamesWord", s.lang) });
+    }
+    if (next) items.push({ id: "next", href: next.href, icon: "➡️", label: next.label });
+    return items;
+  }, [board, chapter, level, next, s, subject]);
+  usePageTour(allowed && on && detail.status === "ready" && set.status === "ready" && set.data && round === null ? { pageType: "results", tourActive: false, quickJumps } : null);
   if (!allowed || !on) return <NotFound />;
   if (detail.status === "loading" || set.status === "loading") return <Loading />;
   if (detail.status === "error" || set.status === "error") return <ErrorBox onRetry={retry} />;
   const d = detail.data, base = `/${board}/${level}/${d.subject.slug}`, topicHref = `${base}/${d.chapter.slug}/${d.topic.slug}`;
-  const next = tree.status === "ready" ? nextChapter(tree.data, board, level, subject, chapter, ui("nextChapter", s.lang)) : undefined;
   const crumbs = [{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { href: topicHref, label: s.name(d.topic.name) }, { label: ui("practiceTitle", s.lang) }];
   if (!set.data) return <div className="paper"><Crumbs items={crumbs} /><h1 className="cover-title"><Title name={d.topic.name} /></h1><p className="soon-note">{ui("practiceSoon", s.lang)}</p></div>;
 
@@ -65,13 +81,13 @@ export function PracticePage() {
         <QuickCheck key={run} pool={set.data.questions} onExit={() => setRound(null)} onStart={(r) => setRound(r)} />
       ) : (
         <Round key={`${round}-${run}`} topicId={set.data.topicId} round={round} pool={set.data.questions} per={per} pass={pass} nextRound={rounds[rounds.indexOf(round) + 1] ?? null}
-          onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} nextChapterLink={next} />
+          onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} nextChapterLink={next} quickJumps={quickJumps} />
       )}
     </div>
   );
 }
 
-function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, lessonHref, nextChapterLink }: { topicId: string; round: number; pool: PublicQuestion[]; per: number; pass: number; nextRound: number | null; onExit: () => void; onNext: (r: number) => void; lessonHref: string; nextChapterLink?: NextLink }) {
+function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, lessonHref, nextChapterLink, quickJumps }: { topicId: string; round: number; pool: PublicQuestion[]; per: number; pass: number; nextRound: number | null; onExit: () => void; onNext: (r: number) => void; lessonHref: string; nextChapterLink?: NextLink; quickJumps?: HelpQuickJump[] }) {
   const s = useSettings();
   const mix = s.get("practice.shuffleQuestions");
   const [list, setList] = useState<PublicQuestion[]>(() => pickRound(pool, round, per, mix));
@@ -82,6 +98,7 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
   const [first, setFirst] = useState(true); // the saved score is the first pass through the round; retries are for learning
   const [score, setScore] = useState<{ pct: number; stars: number; got: number; total: number } | null>(null);
   const total = list.length;
+  usePageTour({ pageType: "results", tourActive: i >= total && Boolean(score), quickJumps });
 
   const answered = (q: PublicQuestion, correct: boolean) => {
     const nr = right + (correct ? 1 : 0), nm = correct ? missed : [...missed, q];
@@ -110,18 +127,20 @@ function Round({ topicId, round, pool, per, pass, nextRound, onExit, onNext, les
   if (i >= total && score) {
     const passed = score.pct >= pass;
     return (
-      <div className="roundend" aria-live="polite">
+      <div className="roundend" aria-live="polite" data-tour="results-review">
         <h2>{passed ? ui("passedRound", s.lang) : ui("roundWord", s.lang) + " " + round}</h2>
         <p className="lead">{ui("roundScore", s.lang)} {score.got} {ui("outOf", s.lang)} {score.total} ({score.pct}%)</p>
         {s.get("practice.stars") && <p className="stars big" role="img" aria-label={`${score.stars} ${ui("starsLabel", s.lang)}`}>{stars(score.stars)}</p>}
         {!passed && <p className="soon-note">{ui("notYetPassed", s.lang)}</p>}
-        {nextChapterLink && <NextStep action={nextChapterLink} />}
-        <div className="actions">
-          {missed.length > 0 && s.get("practice.allowRetry") && <button type="button" className="btn" onClick={() => { setList(missed); setMissed([]); setI(0); setRight(0); setFirst(false); }}>{ui("retryMissed", s.lang)}</button>}
-          {passed && nextRound && <button type="button" className="btn" onClick={() => onNext(nextRound)}>{ui("nextRound", s.lang)}</button>}
-          {!passed && <Link className="btn ghost" href={lessonHref}>{ui("reviewLesson", s.lang)}</Link>}
-          {s.get("practice.allowRetry") && <button type="button" className="btn ghost" onClick={() => onNext(round)}>{ui("playAgain", s.lang)}</button>}
-          <button type="button" className="btn ghost" onClick={onExit}>{ui("allRounds", s.lang)}</button>
+        <div data-tour="results-next">
+          {nextChapterLink && <NextStep action={nextChapterLink} />}
+          <div className="actions">
+            {missed.length > 0 && s.get("practice.allowRetry") && <button type="button" className="btn" onClick={() => { setList(missed); setMissed([]); setI(0); setRight(0); setFirst(false); }}>{ui("retryMissed", s.lang)}</button>}
+            {passed && nextRound && <button type="button" className="btn" onClick={() => onNext(nextRound)}>{ui("nextRound", s.lang)}</button>}
+            {!passed && <Link className="btn ghost" href={lessonHref}>{ui("reviewLesson", s.lang)}</Link>}
+            {s.get("practice.allowRetry") && <button type="button" className="btn ghost" onClick={() => onNext(round)}>{ui("playAgain", s.lang)}</button>}
+            <button type="button" className="btn ghost" onClick={onExit}>{ui("allRounds", s.lang)}</button>
+          </div>
         </div>
       </div>
     );

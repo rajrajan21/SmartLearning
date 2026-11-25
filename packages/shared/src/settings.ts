@@ -238,6 +238,12 @@ export const SETTINGS: SettingDef[] = [
   bool("lesson.celebrate", "lessons", "Finish", "Show a celebration when a lesson is finished", true, { dependsOn: "feature.lessons" }),
   { key: "lesson.complete.message", panel: "lessons", section: "Finish", label: "Message after finishing", public: true, type: "localized", maxLength: 120, multiline: true, dependsOn: "feature.lessons",
     default: { en: "Well done! You finished this lesson.", ta: "நன்று! இந்தப் பாடத்தை முடித்துவிட்டீர்கள்." } },
+  bool("lesson.completionHub.enabled", "lessons", "Finish", "Show the in-canvas lesson completion hub", true, { dependsOn: "feature.lessons", help: "Shows Start practice, Chapter test, Watch again and Back to the topic right inside the Well done! completion view on both Classroom and Reading lessons." }),
+  bool("lesson.completionHub.progressStrip", "lessons", "Finish", "Show the one-line progress strip when a lesson finishes", true, { dependsOn: "lesson.completionHub.enabled", help: "Displays Lesson, Practice, Chapter test and Next topic status ticks in a single compact line inside the completion view." }),
+  bool("lesson.completionHub.adaptivePrimary", "lessons", "Finish", "Automatically highlight the next uncompleted step", true, { dependsOn: "lesson.completionHub.enabled", help: "Promotes Start practice first, then Chapter test once practice is passed, and Next lesson once both are done." }),
+  bool("lesson.completionHub.showWorksheet", "lessons", "Finish", "Show a Worksheet link in the completion hub", true, { dependsOn: "lesson.completionHub.enabled", help: "Adds a subtle Worksheet shortcut link below the main buttons when printable worksheets are enabled." }),
+  bool("lesson.completionHub.showGames", "lessons", "Finish", "Show a Games link in the completion hub", true, { dependsOn: "lesson.completionHub.enabled", help: "Adds a subtle Games shortcut link below the main buttons when chapter games are enabled." }),
+  bool("lesson.completionHub.showNextLesson", "lessons", "Finish", "Show a Next lesson link in the completion hub", true, { dependsOn: "lesson.completionHub.enabled", help: "Adds a Next lesson shortcut link when another topic follows in the curriculum." }),
 
   { key: "narration.teacherName", panel: "lessons", section: "Teacher voice", label: "Teacher name shown to students", public: true, type: "localized", maxLength: 30, dependsOn: "feature.teacherNarration", default: { en: "Malar Teacher", ta: "மலர் டீச்சர்" } },
   bool("narration.autoAdvance", "lessons", "Teacher voice", "Play the next sentence automatically", true, { dependsOn: "feature.teacherNarration" }),
@@ -576,6 +582,24 @@ export const SETTINGS: SettingDef[] = [
   bool("parent.subjectCards.show", "layout", "Parent weekly summary", "One card per subject in the parent view", true, { dependsOn: "feature.parentDashboard" }),
   bool("explore.tryIt.show", "layout", "Try-it activities", "Tiny interactive 'try it' activities (groups, scrub slider)", true, { help: "Plain tap-and-drag activities with no scores sent anywhere." }),
   bool("ui.pageTransition", "layout", "Phones", "Gentle fade when a page opens (off when the device asks for less motion)", true),
+
+  // ---- Guided spotlight tour & Help Hub (SITE-01 upgrade) ----
+  bool("ux.spotlightTour.enabled", "layout", "Guided tour and help hub", "Interactive spotlight navigation tour", true, { help: "Highlights key buttons on Home, Subject, Chapter, Classroom/Lesson and Practice/Exam results pages with short step-by-step cards." }),
+  bool("ux.spotlightTour.autoOpen", "layout", "Guided tour and help hub", "Auto-open the spotlight tour on first visit to each page type", true, { dependsOn: "ux.spotlightTour.enabled", help: "Opens once per page type for new visitors, remembers Skip or Got it permanently, and never interrupts active Classroom audio." }),
+  { key: "ux.spotlightTour.maxAutoPerSession", panel: "layout", section: "Guided tour and help hub", label: "Most tours that may auto-open in one session", public: true, type: "number", default: 1, min: 0, max: 5, step: 1, dependsOn: "ux.spotlightTour.autoOpen", help: "Anti-fatigue limit per browser session. 0 disables automatic popups while keeping manual replay available." },
+  { key: "ux.spotlightTour.autoDelayMs", panel: "layout", section: "Guided tour and help hub", label: "Delay before auto-opening the spotlight tour", public: true, type: "number", default: 900, min: 0, max: 5000, step: 100, unit: "ms", dependsOn: "ux.spotlightTour.autoOpen", help: "Gives the page a moment to settle before showing the first-visit spotlight." },
+  bool("ux.spotlightTour.pages.home", "layout", "Guided tour and help hub", "Spotlight tour on the Home page", true, { dependsOn: "ux.spotlightTour.enabled", help: "Guides students through the Board/Class picker, Today's widgets, E-Library and Question papers." }),
+  bool("ux.spotlightTour.pages.subject", "layout", "Guided tour and help hub", "Spotlight tour on Subject pages", true, { dependsOn: "ux.spotlightTour.enabled", help: "Guides students through chapter progress rings, search/filter, Term papers and Study Path." }),
+  bool("ux.spotlightTour.pages.chapter", "layout", "Guided tour and help hub", "Spotlight tour on Chapter pages", true, { dependsOn: "ux.spotlightTour.enabled", help: "Upgrades the chapter onboarding guide to cover Topics, Practice, Chapter test/Worksheets/Games and Next chapter." }),
+  bool("ux.spotlightTour.pages.lesson", "layout", "Guided tour and help hub", "Spotlight tour on Classroom and Reading lesson pages", true, { dependsOn: "ux.spotlightTour.enabled", help: "Guides students through the timeline seek bar, 0.85x speed and Teacher voice controls, and Done screen next steps." }),
+  bool("ux.spotlightTour.pages.results", "layout", "Guided tour and help hub", "Spotlight tour on Practice and Exam results screens", true, { dependsOn: "ux.spotlightTour.enabled", help: "Highlights answer explanations/mistake review and the next-step jump to Chapter test or Next chapter." }),
+  bool("ux.helpHub.enabled", "layout", "Guided tour and help hub", "Show the persistent ? Help Hub button", true, { help: "Places a small floating ? button in the corner on supported pages to replay the page tour or jump to key study actions." }),
+  bool("ux.helpHub.quickJumps", "layout", "Guided tour and help hub", "Show quick-jump shortcuts in the ? Help Hub", true, { dependsOn: "ux.helpHub.enabled", help: "Adds direct links to Topics, Practice, Chapter test, Worksheet, Games and Next chapter inside the Help Hub menu." }),
+  { key: "ux.helpHub.position", panel: "layout", section: "Guided tour and help hub", label: "? Help Hub corner position", public: true, type: "select", default: "right", dependsOn: "ux.helpHub.enabled",
+    options: [{ value: "right", label: "Bottom-right" }, { value: "left", label: "Bottom-left" }],
+    help: "Choose which bottom corner shows the floating ? Help Hub button." },
+  { key: "ux.helpHub.title", panel: "layout", section: "Guided tour and help hub", label: "Help Hub menu heading", public: true, type: "localized", maxLength: 40, dependsOn: "ux.helpHub.enabled",
+    default: { en: "Study help", ta: "படிப்பு உதவி" }, help: "Heading shown at the top of the ? Help Hub popup menu." },
 
   // ---------------- Phone app view ----------------
   bool("app.view.enabled", "app", "App view", "Offer the phone app view", true, { help: "Master switch. Off = everyone always sees the normal website." }),

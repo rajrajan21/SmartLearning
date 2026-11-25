@@ -902,8 +902,10 @@ html[data-theme] .hero .lead .hl { font-weight: 700; }
 .social-fb { background: #1877F2; border-color: #1877F2; color: #fff; border-radius: 999px; min-width: 280px; gap: .6rem; } .social-fb b { font: 900 1.2rem Georgia, serif; }
 .contacts { margin: 1rem 0; padding: .8rem; border: 1px solid var(--rule); border-radius: 12px; }
 
-/* today's goal stays on one line */
-.home-side .goal-chip { white-space: nowrap; }
+/* today's goal fits cleanly inside the hero card at every screen width */
+.home-side { min-width: 0; max-width: 100%; }
+.home-side .goal-chip { white-space: normal; max-width: 100%; width: fit-content; flex-wrap: wrap; border-radius: 1.25rem; line-height: 1.35; overflow-wrap: anywhere; text-align: left; }
+@media (min-width: 900px) { .home-side .goal-chip { justify-self: end; } }
 @media (min-width: 900px) { .home-top { grid-template-columns: minmax(0, 2.1fr) minmax(15rem, 1fr); } }
 
 /* home headline: fit on two lines */

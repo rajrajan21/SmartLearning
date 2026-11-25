@@ -4,6 +4,7 @@ import { useActiveBoard } from "../lib/activeBoard";
 import { SearchBox } from "./SearchBox";
 import { InstallPopup, InstallTrigger } from "./InstallPopup";
 import { ScrollAids } from "./ScrollAids";
+import { SpotlightProvider } from "./SpotlightTour";
 import { useId, useState, type CSSProperties, type ReactNode } from "react";
 import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -61,6 +62,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <PresetContext.Provider value={preset}>
+    <SpotlightProvider>
     <div className="shell" data-site-preset={preset} data-classroom-lesson={classroomLesson || undefined} data-route={loc.endsWith("/learn") || (preset !== "classic" && loc.startsWith("/classroom/")) ? "lesson" : preset !== "classic" && /^\/[^/]+\/\d+\/[^/]+$/.test(loc) ? "subject" : undefined}>
       <ScrollToTop />
       <ScrollAids />
@@ -111,6 +113,7 @@ export function Layout({ children }: { children: ReactNode }) {
       {!app && phone && pref === "site" && <button type="button" className="app-pill noprint" onClick={() => setViewPref("app")}>📱 {ui("appViewApp", lang)}</button>}
       <BottomNav />
     </div>
+    </SpotlightProvider>
     </PresetContext.Provider>
   );
 }

@@ -1,10 +1,10 @@
-const TourPage = named(() => import("./pages/Tour"), "TourPage");
 import { Route, Switch, Router } from "wouter";
 import { lazy, Suspense, type ComponentType } from "react";
 import type { ReactElement } from "react";
 /** Pages that most visitors never open are loaded the first time they are visited, so the first page opens faster. */
 function named<M extends Record<string, unknown>>(load: () => Promise<M>, name: keyof M & string) { return lazy(() => load().then((m) => ({ default: m[name] as ComponentType<any> }))); }
 const Loading = (): ReactElement => <p role="status" style={{ padding: "2rem", textAlign: "center" }}>Loading…</p>;
+const TourPage = named(() => import("./pages/Tour"), "TourPage");
 import { SettingsProvider } from "./lib/settings";
 import { Layout } from "./components/Layout";
 import { NotFound } from "./components/bits";

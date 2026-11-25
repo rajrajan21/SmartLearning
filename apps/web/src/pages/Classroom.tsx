@@ -1,4 +1,6 @@
-import { LessonPractice, Timeline } from "../components/LessonFlow";
+import { LessonCompletionHub, Timeline } from "../components/LessonFlow";
+import { usePageTour } from "../components/SpotlightTour";
+import { setClassroomAudioPlaying, type HelpQuickJump } from "../lib/spotlightTour";
 import { ReportProblem } from "../components/ReportProblem";
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from "react";
 import { useAccountOptional } from "../lib/account";
@@ -135,7 +137,14 @@ export function ClassroomPage() {
   if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
-  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} />;
+  const sameSubject = idx.status === "ready"
+    ? idx.data.items.filter((i) => i.board.toLowerCase() === board.toLowerCase() && String(i.classLevel) === String(cls) && i.subject === subject)
+    : [];
+  const curIdx = sameSubject.findIndex((i) => i.chapter === chapter && i.topic === topic);
+  const nextItem = curIdx >= 0 ? sameSubject[curIdx + 1] : undefined;
+  const nextHref = nextItem ? `/classroom/${nextItem.board.toLowerCase()}/${nextItem.classLevel}/${nextItem.subject}/${nextItem.chapter}/${nextItem.topic}` : null;
+  const nextLabel = nextItem ? s.name(nextItem.title) : null;
+  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} />;
 }
 
 const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;
@@ -145,7 +154,7 @@ function timeIndex<T>(entries: readonly T[], at: number, start: (entry: T) => nu
 }
 const timelineTime = (ms: number) => { const seconds = Math.floor(ms / 1000); return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`; };
 
-function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void }) {
+function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile, nextHref, nextLabel }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void; nextHref?: string | null; nextLabel?: string | null }) {
   const s = useSettings();
   const { lang } = s;
   const narrationLang = related ? "en" : lang;
@@ -348,6 +357,36 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     if (!progress?.done) saveProgress(lesson.topicId, { step: progress?.step ?? 0, total: progress?.total ?? 1, done: true });
   }, [phase, lesson.topicId]);
   const speaking = (playing && !mute) || talking;
+  useEffect(() => {
+    setClassroomAudioPlaying(playing || talking);
+    return () => setClassroomAudioPlaying(false);
+  }, [playing, talking]);
+  const [, routeBoard = "", routeCls = "", routeSubject = "", routeChapter = ""] = back.split("/");
+  const chapterHref = back.split("/").slice(0, -1).join("/");
+  const quickJumps = useMemo<HelpQuickJump[]>(() => {
+    const ta = lang === "ta";
+    const items: HelpQuickJump[] = [
+      { id: "topics", href: chapterHref, icon: "📚", label: ui("topics", lang) },
+    ];
+    if (s.get("feature.practice") === true) {
+      items.push({ id: "practice", href: `${back}/practice`, icon: "✏️", label: ta ? "பயிற்சியைத் தொடங்கு" : "Start practice" });
+      if (s.get("feature.exams") === true) {
+        items.push({ id: "exam", href: `/exam/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "📝", label: ui("chapterTest", lang) });
+      }
+      if (s.get("feature.worksheets") === true) {
+        items.push({ id: "worksheet", href: `/worksheet/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "📄", label: ui("worksheetWord", lang) });
+      }
+      if (s.get("feature.games") === true && (s.get("games.quickfire") === true || s.get("games.survival") === true)) {
+        const mode = s.get("games.quickfire") === true ? "quickfire" : "survival";
+        items.push({ id: "games", href: `/play/${mode}/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "🎮", label: ui("gamesWord", lang) });
+      }
+    }
+    if (nextHref) {
+      items.push({ id: "next", href: nextHref, icon: "➡️", label: nextLabel ? `${ui("nextTopic", lang)}: ${nextLabel}` : (ta ? "அடுத்த பாடம்" : "Next lesson") });
+    }
+    return items;
+  }, [back, chapterHref, lang, nextHref, nextLabel, routeBoard, routeChapter, routeCls, routeSubject, s]);
+  usePageTour({ pageType: "lesson", tourActive: phase === "idle", quickJumps });
   const sections = lesson.steps.reduce<{ name: string; first: number }[]>((acc, st, i) => { const n = st.section ?? ""; if (n && acc[acc.length - 1]?.name !== n) acc.push({ name: n, first: i }); return acc; }, []);
   const curSection = lesson.steps[step]?.section;
   const notes = useNotebook(), noteOn = s.get("notebook.enabled") === true;
@@ -400,12 +439,20 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
         </section>
       )}
 
-        <div className="class-stage">
+        <div className="class-stage" data-tour="lesson-stage">
           <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(related ? sample.title : lesson.title)} />
           {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
           {phase === "done" && (
-            <div className="class-done" role="status"><b>{L("classroomDone")}</b>
-              <div className="chips-row"><button type="button" className="btn" onClick={() => begin(0)}>{L("classroomAgain")}</button><Link className="btn ghost" href={back}>{L("classroomBack")}</Link></div></div>
+            <LessonCompletionHub
+              mode="classroom"
+              topicId={lesson.topicId}
+              topicHref={back}
+              chapterHref={chapterHref}
+              nextHref={nextHref}
+              nextLabel={nextLabel}
+              heading={L("classroomDone")}
+              onReplay={() => begin(0)}
+            />
           )}
         </div>
         {captions && (
@@ -422,8 +469,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
       <Timeline value={phase === "done" ? timeline.total : timeline.starts[step]! + shownT} max={timeline.total}
         describe={at => `${lesson.steps[locate(at)]?.section ?? L("stepOf") + " " + (locate(at) + 1)} · ${timelineTime(at)} / ${timelineTime(timeline.total)}`}
         onSeek={seek} />
-      {phase === "done" && <LessonPractice topicHref={back} fallback={{ href: back.split("/").slice(0, -1).join("/"), label: L("backToChapter") }} />}
-      <div className="class-controls" role="group" aria-label={L("classroomControls")}>
+      <div className="class-controls" role="group" aria-label={L("classroomControls")} data-tour="lesson-controls">
         {playing ? <button type="button" className="btn" onClick={pause}>⏸ {L("classroomPause")}</button> : <button type="button" className="btn" onClick={play} disabled={phase === "check" || phase === "feedback"}>▶ {started ? L("classroomResume") : L("classroomStart")}</button>}
         <button type="button" className="btn ghost" onClick={() => begin(step)} disabled={!started}>↺ {L("classroomReplay")}</button>
         <button type="button" className="btn ghost" onClick={() => go(step - 1)} disabled={!started || step === 0}>← {L("back")}</button>

@@ -17,7 +17,9 @@ import { getProgress, saveProgress, clearProgress } from "../lib/progress";
 
 const KIND: Record<ContentBlock["type"], UiKey> = { story: "kindStory", explanation: "kindIdea", worked_example: "kindExample", image: "kindPicture", diagram: "kindPicture", teacher_narration: "kindTeacher", quiz: "kindCheck", teach_back: "kindExplain", summary: "kindSummary" };
 export interface BarListen { playing: boolean; toggle: () => void }
-import { LessonPractice, Timeline } from "./LessonFlow";
+import { LessonCompletionHub, Timeline } from "./LessonFlow";
+import { usePageTour } from "./SpotlightTour";
+import type { HelpQuickJump } from "../lib/spotlightTour";
 
 export interface PlayerLinks { topicHref?: string; chapterHref: string; nextHref: string | null; nextLabel: string | null; note?: { href: string; subject: { en: string; ta?: string } } }
 
@@ -42,7 +44,7 @@ function Narration({ block, register }: { block: Extract<ContentBlock, { type: "
     <article className="blk narration">
       <h2>{s.text("narration.teacherName")}</h2>
       {canSpeak && (
-        <div className={s.get("lesson.listen.stable") === true ? "narr-controls stable" : "narr-controls"}>
+        <div className={s.get("lesson.listen.stable") === true ? "narr-controls stable" : "narr-controls"} data-tour="lesson-controls">
           <button type="button" className="btn listen-btn" onClick={() => (n.playing ? n.pause() : n.play())} aria-pressed={n.playing}>{n.playing ? `❚❚ ${ui("pause", lang)}` : `▶ ${ui("listen", lang)}`}</button>
           <button type="button" className="btn ghost" onClick={n.restart}>{ui("listenAgain", lang)}</button>
           {s.get("narration.speedControl") && (
@@ -191,19 +193,42 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
     addEventListener("keydown", h); return () => removeEventListener("keydown", h);
   }, [onKey, done, go, step, total]);
 
+  const [, routeBoard = "", routeCls = "", routeSubject = "", routeChapter = ""] = (links.topicHref ?? "").split("/");
+  const hasRouteParts = Boolean(routeBoard && routeCls && routeSubject && routeChapter);
+  const quickJumps = useMemo<HelpQuickJump[]>(() => {
+    const ta = lang === "ta";
+    const items: HelpQuickJump[] = [{ id: "topics", href: links.chapterHref, icon: "📚", label: ui("topics", lang) }];
+    if (s.get("feature.practice") === true) {
+      if (links.topicHref) items.push({ id: "practice", href: `${links.topicHref}/practice`, icon: "✏️", label: ta ? "பயிற்சியைத் தொடங்கு" : "Start practice" });
+      if (hasRouteParts && s.get("feature.exams") === true) items.push({ id: "exam", href: `/exam/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "📝", label: ui("chapterTest", lang) });
+      if (hasRouteParts && s.get("feature.worksheets") === true) items.push({ id: "worksheet", href: `/worksheet/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "📄", label: ui("worksheetWord", lang) });
+      if (hasRouteParts && s.get("feature.games") === true && (s.get("games.quickfire") === true || s.get("games.survival") === true)) {
+        const mode = s.get("games.quickfire") === true ? "quickfire" : "survival";
+        items.push({ id: "games", href: `/play/${mode}/${routeBoard}/${routeCls}/${routeSubject}/${routeChapter}`, icon: "🎮", label: ui("gamesWord", lang) });
+      }
+    }
+    if (links.nextHref) items.push({ id: "next", href: links.nextHref, icon: "➡️", label: links.nextLabel ? `${ui("nextTopic", lang)}: ${links.nextLabel}` : ui("nextTopic", lang) });
+    return items;
+  }, [hasRouteParts, lang, links.chapterHref, links.nextHref, links.nextLabel, links.topicHref, routeBoard, routeChapter, routeCls, routeSubject, s]);
+  usePageTour(total > 0 ? { pageType: "lesson", tourActive: !done && step === 0, quickJumps } : null);
+
   if (total === 0) return <div className="paper lesson"><p className="soon-note">{ui("lessonsPreparing", lang)}</p></div>;
   if (done) {
     return (
       <div className="paper lesson done" aria-live="polite">
-        <h1 ref={head} tabIndex={-1}>{ui("lessonDone", lang)}</h1>
-        {s.get("lesson.celebrate") && <p className="party" aria-hidden="true">★ ★ ★</p>}
-        <p className="lead">{s.text("lesson.complete.message")}</p>
-        {links.topicHref && <LessonPractice topicHref={links.topicHref} fallback={{ href: links.nextHref ?? links.chapterHref, label: ui(links.nextHref ? "nextTopic" : "backToChapter", lang) }} />}
-        <div className="actions">
-          {links.nextHref && <Link className="btn" href={links.nextHref}>{ui("nextTopic", lang)}{links.nextLabel ? `: ${links.nextLabel}` : ""}</Link>}
-          <Link className="btn ghost" href={links.chapterHref}>{ui("backToChapter", lang)}</Link>
-          <button type="button" className="btn ghost" onClick={() => { setDone(false); setStep(0); }}>{ui("reviewLesson", lang)}</button>
-        </div>
+        <LessonCompletionHub
+          mode="reading"
+          topicId={lesson.topicId}
+          topicHref={links.topicHref}
+          chapterHref={links.chapterHref}
+          nextHref={links.nextHref}
+          nextLabel={links.nextLabel}
+          heading={ui("lessonDone", lang)}
+          headingRef={head}
+          celebrate={s.get("lesson.celebrate") === true}
+          message={s.text("lesson.complete.message")}
+          onReplay={() => { setDone(false); setStep(0); }}
+        />
       </div>
     );
   }
@@ -246,7 +271,7 @@ export function LessonPlayer({ lesson, links, questions = [] }: { lesson: TopicL
           {!s.get("lesson.progress.bar") && <p className="small step-count">{ui("stepOf", lang)} {step + 1} {ui("ofWord", lang)} {total}</p>}
           <Block key={blocks[step]!.id} block={blocks[step]!} questions={questions} pictures={pictures} register={register} />
           {!split && ask}
-          <div className={bigNext ? "lesson-nav big-next" : "lesson-nav"}>
+          <div className={bigNext ? "lesson-nav big-next" : "lesson-nav"} data-tour="lesson-stage">
             <button type="button" className="btn ghost back-btn" onClick={() => go(-1)} disabled={step === 0}>← {ui("back", lang)}</button>
             {barListen && (
               <span className="bar-slot">

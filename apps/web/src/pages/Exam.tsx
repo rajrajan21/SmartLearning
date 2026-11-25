@@ -7,6 +7,8 @@ import { useBoard, useRetry } from "../lib/curriculum";
 import { sendAnswer, shuffled } from "../lib/practice";
 import { saveScore, scopeKey, useChapterPool, getScore } from "../lib/chapterTools";
 import { NextStep, nextChapter } from "../components/LessonFlow";
+import { usePageTour } from "../components/SpotlightTour";
+import type { HelpQuickJump } from "../lib/spotlightTour";
 import { QuestionCard } from "../components/QuestionCard";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
@@ -98,6 +100,19 @@ export function ExamPage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phase, left, timed]);
 
+  const next = sc.tree.status === "ready" ? nextChapter(sc.tree.data, sc.board, Number(sc.cls), sc.subject, sc.chapter, ui("nextChapter", lang)) : undefined;
+  const quickJumps = useMemo<HelpQuickJump[]>(() => {
+    const items: HelpQuickJump[] = [{ id: "topics", href: sc.back, icon: "📚", label: ui("topics", lang) }];
+    if (s.get("feature.worksheets") === true) items.push({ id: "worksheet", href: `/worksheet/${sc.board}/${sc.cls}/${sc.subject}/${sc.chapter}`, icon: "📄", label: ui("worksheetWord", lang) });
+    if (s.get("feature.games") === true && (s.get("games.quickfire") === true || s.get("games.survival") === true)) {
+      const mode = s.get("games.quickfire") === true ? "quickfire" : "survival";
+      items.push({ id: "games", href: `/play/${mode}/${sc.board}/${sc.cls}/${sc.subject}/${sc.chapter}`, icon: "🎮", label: ui("gamesWord", lang) });
+    }
+    if (next) items.push({ id: "next", href: next.href, icon: "➡️", label: next.label });
+    return items;
+  }, [lang, next, s, sc.back, sc.board, sc.chapter, sc.cls, sc.subject]);
+  usePageTour(on && sc.tree.status === "ready" && pool.status === "ready" && sc.ch ? { pageType: "results", tourActive: phase === "done" && !failed, quickJumps } : null);
+
   if (!on) return <NotFound />;
   if (sc.tree.status === "loading" || pool.status === "loading") return <Loading />;
   if (sc.tree.status === "error" || pool.status === "error") return <ErrorBox onRetry={sc.retry} />;
@@ -135,18 +150,19 @@ export function ExamPage() {
   if (phase === "marking") return <div className="paper"><p role="status">{ui("markingTest", lang)}</p></div>;
 
   if (failed) return <div className="paper"><ErrorBox onRetry={() => void finish(paper)} /></div>;
-  const next = nextChapter(sc.tree.data, sc.board, Number(sc.cls), sc.subject, sc.chapter, ui("nextChapter", lang));
   const right = marked.filter((m) => m.fb?.correct).length, pct = Math.round((right / Math.max(1, marked.length)) * 100), pass = pct >= s.get<number>("exams.passPercent");
   return (
     <div className="paper exam">
       <h1>{ui("chapterTest", lang)}: {name}</h1>
-      <p className="lead" role="status">{ui("testScore", lang).replace("{a}", String(right)).replace("{b}", String(marked.length))} ({pct}%)</p>
+      <p className="lead" role="status" data-tour={s.get("exams.showReview") === true ? undefined : "results-review"}>{ui("testScore", lang).replace("{a}", String(right)).replace("{b}", String(marked.length))} ({pct}%)</p>
       {diag && <p className="lead" role="status">{startAt(marked, s.get<number>("exams.diagnostic.passPercent"), lang)}</p>}
       {!diag && <p>{pass ? `🎉 ${ui("testPassed", lang)}` : ui("testTryAgain", lang)}{saved?.isNewBest ? ` ${ui("newBest", lang)}` : ""}</p>}
       {timeUp && <p className="small">{ui("timeUp", lang)}</p>}
-      {!diag && next && <NextStep action={next} />}
+      <div data-tour="results-next">
+        {!diag && next && <NextStep action={next} />}
+      </div>
       {s.get("exams.showReview") === true && (
-        <ol className="review">
+        <ol className="review" data-tour="results-review">
           {marked.map((m) => (
             <li key={m.q.id} className={m.fb?.correct ? "ok" : "miss"}>
               <p className="problem">{flags.has(m.q.id) ? "🚩 " : ""}{s.name(m.q.stem)}</p>

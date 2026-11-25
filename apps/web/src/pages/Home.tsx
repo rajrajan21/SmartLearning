@@ -26,7 +26,9 @@ import { PuzzleOfDay } from "../components/PuzzleOfDay";
 import { Rich } from "../components/Rich";
 import { WaterCycle } from "../components/TryIt";
 import { gt } from "../lib/gk";
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useMemo } from "react";
+import { usePageTour } from "../components/SpotlightTour";
+import type { HelpQuickJump } from "../lib/spotlightTour";
 const GkTodayCards = lazy(() => import("./Gk").then((m) => ({ default: m.GkTodayCards }))); // the GK page code is loaded only when the cards are shown
 
 const COMING_BOARDS = [
@@ -79,10 +81,16 @@ export function Home() {
   const gkEnabled = s.get("feature.gk") === true && s.get("gk.home.show") !== false;
   const gk = gkEnabled && <Suspense fallback={null}><GkTodayCards home /></Suspense>;
   const activityGk = gkEnabled ? <Suspense fallback={<PuzzleOfDay />}><GkTodayCards home preferPuzzle /></Suspense> : <PuzzleOfDay />;
+  const homeQuickJumps = useMemo<HelpQuickJump[]>(
+    () => quick.slice(0, 6).map((q, idx) => ({ id: `home-${idx}`, href: q.href, icon: q.icon, label: q.label })),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [quick.map((q) => `${q.href}:${q.label}`).join("|")],
+  );
+  usePageTour(app && s.get("app.feed.enabled") === true ? null : { pageType: "home", quickJumps: homeQuickJumps });
   if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} dailyGk={gk} />;
   const fact = s.get("home.didYouKnow.show") === true && <DidYouKnow />;
   const today = (
-    <details className="preset-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
+    <details className="preset-today" data-tour="home-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
       <summary>{s.lang === "ta" ? "இன்றைய செயல்பாடுகள்" : "Today's activities"}</summary>
       {preset === "activity" ? <div className="today-items activity-rows">
         {challenge}{fact}{activityGk}
@@ -91,7 +99,7 @@ export function Home() {
   );
   const headline = <h1 data-size={String(s.get("home.hero.size") ?? "m")}><Rich text={preset === "activity" ? heroTitle.replace(/\s*\|+\s*/g, " ") : heroTitle} /></h1>;
   const quickLinks = s.get("home.quickLinks.show") === true && quick.length > 1 && (
-        <nav className="quick" aria-label={ui("quickLinks", s.lang)}>
+        <nav className="quick" aria-label={ui("quickLinks", s.lang)} data-tour="home-library-papers">
           {quick.map((q) => <Link key={q.href} href={q.href} className="quick-tile"><span aria-hidden="true">{q.icon}</span><b>{q.label}</b></Link>)}
         </nav>
       );
@@ -154,13 +162,13 @@ export function Home() {
         </section>
       )}
       {preset !== "activity" && quickLinks}
-      {preset === "classic" ? <>
+      {preset === "classic" ? <div data-tour="home-today">
       <DailyChallenge due={mastery ? due : 0} next={path.find((n) => n.state === "now") ?? path.find((n) => n.state === "todo")} lessonsToday={doneToday} />
       <Reminder goalMet={doneToday >= goal} />
       {s.get("feature.gk") === true && s.get("gk.home.show") !== false && <Suspense fallback={null}><GkTodayCards home /></Suspense>}
       <PuzzleOfDay />
       {s.get("home.didYouKnow.show") === true && <DidYouKnow />}
-      </> : <>
+      </div> : <>
         {preset !== "activity" && today}
         <Reminder goalMet={doneToday >= goal} />
       </>}
@@ -179,13 +187,13 @@ export function Home() {
       )}
       {s.get("home.search.show") && s.get("feature.search") && <SearchBox board={board} />}
       {s.get("home.boardPicker.show") && (
-        <section className={preset === "classic" ? undefined : "preset-boards"} aria-labelledby="boards-h">
+        <section className={preset === "classic" ? undefined : "preset-boards"} aria-labelledby="boards-h" data-tour={!s.get("home.classPicker.show") ? "home-pickers" : undefined}>
           <h2 id="boards-h">{ui("board", s.lang)}</h2>
           <BoardChips />
         </section>
       )}
       {s.get("home.classPicker.show") && (
-        <section className={preset === "classic" ? undefined : "preset-classes"} aria-labelledby="classes-h">
+        <section className={preset === "classic" ? undefined : "preset-classes"} aria-labelledby="classes-h" data-tour="home-pickers">
           <h2 id="classes-h">{ui("classWord", s.lang)}</h2>
           {state.status === "loading" && <Loading />}
           {state.status === "error" && <ErrorBox onRetry={retry} />}

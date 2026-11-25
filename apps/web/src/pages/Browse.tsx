@@ -1,5 +1,7 @@
 import { ShareLink } from "../components/ShareLink";
 import { ChapterLessonGuide } from "../components/ChapterLessonGuide";
+import { usePageTour } from "../components/SpotlightTour";
+import type { HelpQuickJump } from "../lib/spotlightTour";
 import { ParentNote } from "../components/ParentNote";
 import { MindMap } from "../components/MindMap";
 import { TopicTabs } from "../components/TopicTabs";
@@ -22,7 +24,7 @@ import { JourneyMap } from "../components/JourneyMap";
 import { roughMinutes, THEMES, toggleNote, useNotebook } from "../lib/tier2";
 import { BottomSheet } from "../components/BottomSheet";
 import { useApp } from "../lib/useApp";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { FilterBox, matches } from "../components/SearchBox";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
 import { TextbookEntry } from "../components/reader/TextbookEntry";
@@ -91,9 +93,24 @@ export function SubjectPage() {
   const mapOn = s.get("browse.path.show") === true && s.get<string>("browse.path.style") !== "zigzag";
   const { subject = "" } = useParams<{ subject: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
+  const sub = state.status === "ready" ? state.data.classes.find((c) => c.classLevel === level)?.subjects.find((x) => x.slug === subject) : undefined;
+  const subjectQuickJumps = useMemo<HelpQuickJump[]>(() => {
+    if (!allowed || !sub) return [];
+    const items: HelpQuickJump[] = [];
+    const firstCh = sub.chapters.find((c) => c.topics.length > 0) ?? sub.chapters[0];
+    if (firstCh) items.push({ id: "topics", href: `/${board}/${level}/${sub.slug}/${firstCh.slug}`, icon: "📚", label: `${ui("chapter", s.lang)} 1: ${s.name(firstCh.name)}` });
+    if (s.get("terms.enabled") === true && s.get("feature.practice") === true && sub.chapters.length > 0) {
+      items.push({ id: "term", href: `/term/${board}/${level}/${sub.slug}`, icon: "📝", label: ui("termPapers", s.lang) });
+    }
+    if (s.get("browse.crossGrade.show") === true && sub.chapters.length > 0) {
+      items.push({ id: "path", href: `/path/${board}/${sub.slug}`, icon: "🧭", label: ui("gradePathLink", s.lang) });
+    }
+    items.push({ id: "class", href: `/${board}/${level}`, icon: "🏫", label: `${ui("classWord", s.lang)} ${level}` });
+    return items;
+  }, [allowed, board, level, s, sub]);
+  usePageTour(allowed && sub ? { pageType: "subject", quickJumps: subjectQuickJumps } : null);
   if (state.status === "loading") return <Loading />;
   if (state.status === "error") return <ErrorBox onRetry={retry} />;
-  const sub = state.data.classes.find((c) => c.classLevel === level)?.subjects.find((x) => x.slug === subject);
   if (!allowed || !sub) return <NotFound />;
   return (
     <div className="paper" style={{ ["--cover" as string]: subjectVar(sub.slug) }}>
@@ -101,17 +118,23 @@ export function SubjectPage() {
       <h1 className="cover-title"><Title name={sub.name} /></h1>
       {s.get("home.footer.showSources") && sub.textbook && <p className="small">{ui("textbook", s.lang)}: {sub.textbook.title}{sub.textbook.publisher ? ` (${sub.textbook.publisher})` : ""}</p>}
       <ParentNote />
-      {s.get("browse.crossGrade.show") === true && sub.chapters.length > 0 && <p className="actions"><Link className="btn ghost" href={`/path/${board}/${sub.slug}`}>🧭 {ui("gradePathLink", s.lang)}</Link></p>}
-      {s.get("terms.enabled") === true && s.get("feature.practice") === true && sub.chapters.length > 0 && <p className="actions"><Link className="btn ghost" href={`/term/${board}/${level}/${sub.slug}`}>📝 {ui("termPapers", s.lang)}</Link></p>}
-      {s.get("browse.journey.show") === true && s.get("feature.lessons") === true && sub.chapters.length > 0 && <JourneyMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} />}
-      {mapOn && <CourseMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} showTopics={s.get("browse.path.topics") === true} onPreview={app && s.get("app.learn.chapterSheet.show") === true ? setPreview : undefined} />}
-      {!mapOn && s.get("browse.journey.show") !== true && s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
-        const fr = sub.chapters.map((c) => chapterFrac(c.topics, progress));
-        const nowIdx = fr.findIndex((x, i) => sub.chapters[i]!.topics.length > 0 && x.pct < 100);
-        const nodes = sub.chapters.map((c, i) => ({ id: c.id, href: `/${board}/${level}/${sub.slug}/${c.slug}`, name: c.name, subject: sub.name, state: (c.topics.length > 0 && fr[i]!.pct === 100 ? "done" : i === nowIdx ? "now" : "todo") as "done" | "now" | "todo" }));
-        return <BoardPath nodes={nodes} streak={0} title="pathSubject" />;
-      })()}
-      {sub.chapters.length > 3 && <FilterBox value={fq} onChange={setFq} />}
+      {((s.get("browse.crossGrade.show") === true || (s.get("terms.enabled") === true && s.get("feature.practice") === true)) && sub.chapters.length > 0) && (
+        <div data-tour="subject-paths">
+          {s.get("browse.crossGrade.show") === true && <p className="actions"><Link className="btn ghost" href={`/path/${board}/${sub.slug}`}>🧭 {ui("gradePathLink", s.lang)}</Link></p>}
+          {s.get("terms.enabled") === true && s.get("feature.practice") === true && <p className="actions"><Link className="btn ghost" href={`/term/${board}/${level}/${sub.slug}`}>📝 {ui("termPapers", s.lang)}</Link></p>}
+        </div>
+      )}
+      <div data-tour="subject-progress">
+        {s.get("browse.journey.show") === true && s.get("feature.lessons") === true && sub.chapters.length > 0 && <JourneyMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} />}
+        {mapOn && <CourseMap chapters={sub.chapters} base={`/${board}/${level}/${sub.slug}`} progress={progress} lessonIds={lessonIds} showTopics={s.get("browse.path.topics") === true} onPreview={app && s.get("app.learn.chapterSheet.show") === true ? setPreview : undefined} />}
+        {!mapOn && s.get("browse.journey.show") !== true && s.get("browse.path.show") === true && s.get("feature.lessons") === true && sub.chapters.some((c) => c.topics.length > 0) && (() => {
+          const fr = sub.chapters.map((c) => chapterFrac(c.topics, progress));
+          const nowIdx = fr.findIndex((x, i) => sub.chapters[i]!.topics.length > 0 && x.pct < 100);
+          const nodes = sub.chapters.map((c, i) => ({ id: c.id, href: `/${board}/${level}/${sub.slug}/${c.slug}`, name: c.name, subject: sub.name, state: (c.topics.length > 0 && fr[i]!.pct === 100 ? "done" : i === nowIdx ? "now" : "todo") as "done" | "now" | "todo" }));
+          return <BoardPath nodes={nodes} streak={0} title="pathSubject" />;
+        })()}
+      </div>
+      {sub.chapters.length > 3 && <div data-tour="subject-filter"><FilterBox value={fq} onChange={setFq} /></div>}
       {!mapOn && fq && !sub.chapters.some((c) => matches(fq, c.name.en, c.name.ta, ...c.topics.flatMap((x) => [x.name.en, x.name.ta]))) && <p className="filter-none" role="status">{ui("filterNone", s.lang)}</p>}
       {!mapOn && <ol className="chapters">
         {sub.chapters.filter((c) => matches(fq, c.name.en, c.name.ta, ...c.topics.flatMap((x) => [x.name.en, x.name.ta]))).map((ch) => (
@@ -152,19 +175,41 @@ export function ChapterPage() {
   const [topicQuery, setTopicQuery] = useState("");
   const { subject = "", chapter = "" } = useParams<{ subject: string; chapter: string }>();
   const { board, level, allowed, state, retry } = useCurriculum();
+  const sub = state.status === "ready" ? state.data.classes.find((c) => c.classLevel === level)?.subjects.find((x) => x.slug === subject) : undefined;
+  const idx = sub?.chapters.findIndex((c) => c.slug === chapter) ?? -1;
+  const ch = idx >= 0 && sub ? sub.chapters[idx] : undefined;
+  const prev = idx > 0 && sub ? sub.chapters[idx - 1] : undefined;
+  const next = idx >= 0 && sub ? sub.chapters[idx + 1] : undefined;
+  const base = sub ? `/${board}/${level}/${sub.slug}` : "";
+  const chapterPath = ch ? `${base}/${ch.slug}` : "";
+  const chapterQuickJumps = useMemo<HelpQuickJump[]>(() => {
+    if (!allowed || !sub || !ch) return [];
+    const items: HelpQuickJump[] = [];
+    const firstTopic = ch.topics[0];
+    if (firstTopic) {
+      items.push({ id: "topics", href: `${chapterPath}/${firstTopic.slug}`, icon: "📚", label: ui("topics", s.lang) });
+    }
+    if (ch.topics.length > 0 && s.get("feature.practice") === true) {
+      if (firstTopic) items.push({ id: "practice", href: `${chapterPath}/${firstTopic.slug}/practice`, icon: "✏️", label: ui("practice", s.lang) });
+      if (s.get("feature.exams") === true) items.push({ id: "exam", href: `/exam/${board}/${level}/${sub.slug}/${ch.slug}`, icon: "📝", label: ui("chapterTest", s.lang) });
+      if (s.get("feature.worksheets") === true) items.push({ id: "worksheet", href: `/worksheet/${board}/${level}/${sub.slug}/${ch.slug}`, icon: "📄", label: ui("worksheetWord", s.lang) });
+      if (s.get("feature.games") === true && (s.get("games.quickfire") === true || s.get("games.survival") === true)) {
+        const mode = s.get("games.quickfire") === true ? "quickfire" : "survival";
+        items.push({ id: "games", href: `/play/${mode}/${board}/${level}/${sub.slug}/${ch.slug}`, icon: "🎮", label: ui("gamesWord", s.lang) });
+      }
+    }
+    if (next) items.push({ id: "next", href: `${base}/${next.slug}`, icon: "➡️", label: ui("nextChapter", s.lang) });
+    return items;
+  }, [allowed, base, board, ch, chapterPath, level, next, s, sub]);
+  usePageTour(allowed && sub && ch ? { pageType: "chapter", quickJumps: chapterQuickJumps } : null);
   if (state.status === "loading") return <Loading />;
   if (state.status === "error") return <ErrorBox onRetry={retry} />;
-  const sub = state.data.classes.find((c) => c.classLevel === level)?.subjects.find((x) => x.slug === subject);
-  const idx = sub?.chapters.findIndex((c) => c.slug === chapter) ?? -1;
-  if (!allowed || !sub || idx < 0) return <NotFound />;
-  const ch = sub.chapters[idx]!;
-  const prev = sub.chapters[idx - 1], next = sub.chapters[idx + 1];
-  const base = `/${board}/${level}/${sub.slug}`;
+  if (!allowed || !sub || !ch) return <NotFound />;
   const showTopicSearch = s.get("browse.topics.search") === true && ch.topics.length > 4;
   const visibleTopics = showTopicSearch ? ch.topics.filter((t) => matches(topicQuery, t.name.en, t.name.ta)) : ch.topics;
   const guideTopic = s.get("feature.lessons") && !topicQuery ? visibleTopics.find((topic) => lessonIds.has(topic.id)) : undefined;
-  const chapterPath = `${base}/${ch.slug}`;
   const progressCount = Object.keys(progress).length;
+  const legacyGuide = s.get("ux.spotlightTour.enabled") !== true;
   return (
     <div className="paper" style={{ ["--cover" as string]: subjectVar(sub.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: `/${board}/${level}`, label: `${ui("classWord", s.lang)} ${level}` }, { href: base, label: s.name(sub.name) }, { label: s.name(ch.name) }]} />
@@ -190,7 +235,7 @@ export function ChapterPage() {
       <ShareLink what={`${ui("classWord", s.lang)} ${level} ${s.name(sub.name)}: ${s.name(ch.name)}`} />
       {s.get("feature.chapterTopics") && (
         ch.topics.length === 0 ? <p className="soon-note">{ui("lessonsPreparing", s.lang)}</p> : (
-          <section className="chapter-topics" aria-labelledby="chapter-topics-heading">
+          <section className="chapter-topics" aria-labelledby="chapter-topics-heading" data-tour="chapter-topics">
             <h2 id="chapter-topics-heading">{ui("topics", s.lang)}</h2>
             {s.get("rewards.masteryBar.show") === true && s.get("feature.mastery") === true && <MasteryBar list={ch.topics.map((t) => masteryOf(t.id)).filter((m): m is NonNullable<typeof m> => m !== null)} label={ui("mbTitle", s.lang)} />}
             {showTopicSearch && <FilterBox value={topicQuery} onChange={setTopicQuery} />}
@@ -198,7 +243,7 @@ export function ChapterPage() {
             <ul className={`chapter-topic-list ${s.get<string>("browse.topics.layout") === "list" ? "rows" : "cards"}`}>
               {visibleTopics.map((t) => (
                 <li key={t.id}>
-                  {guideTopic?.id === t.id && <ChapterLessonGuide key={chapterPath} chapter={chapterPath} progressCount={progressCount} targetId="chapter-first-lesson" tamil={s.lang === "ta"} />}
+                  {legacyGuide && guideTopic?.id === t.id && <ChapterLessonGuide key={chapterPath} chapter={chapterPath} progressCount={progressCount} targetId="chapter-first-lesson" tamil={s.lang === "ta"} />}
                   <Link id={guideTopic?.id === t.id ? "chapter-first-lesson" : undefined} className="chapter-topic-link" href={`${chapterPath}/${t.slug}`}>
                     <Title name={t.name} /><span aria-hidden="true">→</span>
                   </Link>
@@ -211,9 +256,11 @@ export function ChapterPage() {
           </section>
         )
       )}
-      <MindMap title={s.name(ch.name)} topics={ch.topics.map((t) => ({ id: t.id, label: s.name(t.name), href: `${base}/${ch.slug}/${t.slug}`, done: progress[t.id]?.done === true }))} />
+      <div data-tour="chapter-practice">
+        <MindMap title={s.name(ch.name)} topics={ch.topics.map((t) => ({ id: t.id, label: s.name(t.name), href: `${base}/${ch.slug}/${t.slug}`, done: progress[t.id]?.done === true }))} />
+      </div>
       {ch.topics.length > 0 && s.get("feature.practice") === true && (s.get("feature.exams") === true || s.get("feature.worksheets") === true || s.get("feature.games") === true) && (
-        <>
+        <section data-tour="chapter-tools">
           <h2>{ui("chapterTest", s.lang)}</h2>
           <div className="actions">
             {s.get("feature.exams") === true && <Link className="btn" href={`/exam/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("chapterTest", s.lang)}</Link>}
@@ -221,9 +268,9 @@ export function ChapterPage() {
             {s.get("feature.games") === true && s.get("games.quickfire") === true && <Link className="btn ghost" href={`/play/quickfire/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("quickFire", s.lang)}</Link>}
             {s.get("feature.games") === true && s.get("games.survival") === true && <Link className="btn ghost" href={`/play/survival/${board}/${level}/${sub.slug}/${ch.slug}`}>{ui("survival", s.lang)}</Link>}
           </div>
-        </>
+        </section>
       )}
-      <nav className="pager" aria-label="Chapters">
+      <nav className="pager" aria-label="Chapters" data-tour="chapter-pager">
         {prev ? <Link href={`${base}/${prev.slug}`}>← {ui("prevChapter", s.lang)}: {s.name(prev.name)}</Link> : <span />}
         {next ? <Link href={`${base}/${next.slug}`}>{ui("nextChapter", s.lang)}: {s.name(next.name)} →</Link> : <span />}
       </nav>

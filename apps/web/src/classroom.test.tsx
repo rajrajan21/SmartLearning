@@ -159,9 +159,11 @@ describe("classroom", () => {
     expect(getProgress(topicId)?.done).toBe(true);
     const practice = await screen.findByRole("link", { name: /Start practice/ });
     expect(practice.getAttribute("href")).toBe("/cbse/3/maths/fair-share/halves-and-quarters/practice");
-    fireEvent.click(screen.getByRole("button", { name: "Dismiss next-step tip" }));
+    expect(screen.getByRole("link", { name: /Chapter test/ }).getAttribute("href")).toBe("/exam/cbse/3/maths/fair-share");
+    expect(screen.getByRole("button", { name: /Watch again/ })).toBeTruthy();
+    expect(screen.getAllByRole("link", { name: /Back to the topic/ }).length).toBeGreaterThan(0);
+    expect(screen.getByRole("list", { name: "Lesson progress" }).textContent).toContain("Lesson ✓");
     expect(screen.queryByRole("complementary", { name: "What to do next" })).toBeNull();
-    expect(screen.getByRole("link", { name: /Start practice/ })).toBeTruthy();
   });
   it("is hidden when the admin switches it off", async () => {
     settings = { "feature.classroom": false };
