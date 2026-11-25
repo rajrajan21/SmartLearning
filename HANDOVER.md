@@ -432,6 +432,8 @@ Implemented the SharpStudy admin overview, separate Site settings dropdown, sear
     - Expanded 4 more Grade 9 chapters (*Understanding Development*, *Forms of Government & Democracy*, *Election, Political Parties & Pressure Groups*, *Human Rights*) to **30 narration beats** + **10 rich practice questions** each (validated with Zod + `compose.test.ts`). **24 chapters remain.**
   - **Matric Social Science depth batch 3 (`CONTENT-01`: 33/57 → 37/57, 64.9%)**:
     - Expanded 4 more Grade 9 Civics & Geography chapters (*Forms of Government*, *Local Self Government*, *Road Safety*, *Disaster Management: Responding to Disasters*) to **30 narration beats** + **10 rich practice questions** each (validated with Zod + `compose.test.ts`). **20 chapters remain** (5 Grade 9 History + 15 Grade 10).
+  - **Matric Social Science depth batch 4 (`CONTENT-01`: 37/57 → 42/57, 73.7% — 100% of Grade 9 done)**:
+    - Expanded all 5 remaining Grade 9 History chapters (*Intellectual Awakening and Socio-Political Changes*, *State and Society in Medieval India*, *The Age of Revolutions*, *Industrial Revolution*, *Colonialism in Asia and Africa*) to **30 narration beats** + **10 rich practice questions** each (validated with `compose.test.ts`). **15 Grade 10 chapters remain.**
 - **Admin settings (19 public settings total)**:
   - **Lessons → Finish**: `lesson.completionHub.{enabled,progressStrip,adaptivePrimary,showWorksheet,showGames,showNextLesson}` (6 settings).
   - **Layout and navigation → Guided tour and help hub**: `ux.spotlightTour.{enabled,autoOpen,maxAutoPerSession,autoDelayMs,pages.{home,subject,chapter,lesson,results}}` + `ux.helpHub.{enabled,quickJumps,position,title}` (13 settings, including corner position Bottom-right/Bottom-left and EN/TA menu heading).
