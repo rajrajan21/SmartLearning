@@ -2,7 +2,26 @@
 
 This handover records the owner’s operating instructions and the latest verified project state as of November 21, 2026, America/Chicago. Use it to resume work. Read current job state and Git history before acting because jobs can finish after this snapshot. The older handovers contain background and historical procedures. Use current owner instructions and confirmed server state to resolve any discrepancies.
 
+## November 24 night checkpoint
+
+- **Live release `c0bae4f` deployed on `https://sharpstudy.in`** (pushed to `origin/main`, `/opt/studysmart` re-attached from detached HEAD to `main`, `deploy/update.sh` built web + migrated/seeded DB + restarted `studysmart`, health check `{"status":"ok","service":"studysmart-api"}`).
+- **What shipped in `c0bae4f`**:
+  - **In-Canvas Lesson Completion Hub** (Classroom Done + Reading `/learn` Done): adaptive primary CTA (`Start practice → Chapter test → Next lesson → Replay`), 1-line progress strip, Worksheet/Games/Next links, 6 Admin switches under **Lessons → Finish**.
+  - **Spotlight Navigation Tour & Persistent `?` Help Hub** (`SITE-01` upgraded): multi-page tour (Home, Subject, Chapter, Lesson, Results), anti-fatigue & Classroom audio guards, keyboard/mobile support, 13 Admin controls under **Layout and navigation → Guided tour and help hub** (including `? Help Hub corner position` and EN/TA `Help Hub menu heading`).
+  - **Today's goal alignment fix** (`apps/web/src/styles.css`): `.goal-chip` wraps cleanly inside `.home-side` with 0 horizontal overflow across `1280×800`, `1024×768`, and `390×844`.
+  - **Vite dev fix** (`apps/web/src/App.tsx`): moved `TourPage = named(...)` below `import { lazy }`.
+- **Owner standing reminder**: Always add Admin customization controls for every new feature so behavior/copy/position can be adjusted without code changes, and keep `SharpStudy Project Backlog.xlsx` and handover files updated after every verified checkpoint.
+- **Note for local tests on Windows Node 26**: set `NODE_OPTIONS=--no-experimental-webstorage` when running `@studysmart/web` Vitest tests so Node 26's built-in WebStorage doesn't shadow jsdom `localStorage`.
+
+## November 22 evening checkpoint
+
+- Publish each validated batch to the live site as soon as its exact GitHub CI run passes and the preceding Oracle content import succeeds. Text and questions go live first. Start the CPU-limited Lakshmi generation and playback verification independently on Oracle, with one shared audio lock. Existing question-paper scheduling may overlap. Priya and Ram wait at clip boundaries for higher-priority work. Textbook rendering stays paused.
+- Matric Science authoring meets the 30-entry target across all 46 existing whole-chapter lessons. All four Science releases are live, through `6921c7d`. The first Social Science batch, `7e1aa00`, is live with four of 57 chapters meeting the depth target. Oracle handles audio after each import. Consult the private project checkpoint and release logs for the latest verified status.
+- The Library reader and contribution improvements are live. Auto-approval is enabled for CC0, public domain, CC BY, and CC BY-SA. The live book The Fool and The Wise is credited to Alexander Hadian under CC BY-SA. The two email alerts were caused by the shared Library accessible-heading test. The source heading fix passed both replacement full CI runs.
+
 ## Where to resume
+
+- Maintain the [SharpStudy Project Backlog](SharpStudy%20Project%20Backlog.xlsx) after verified checkpoints. Read and follow its Working Rules tab before starting. Update the Backlog status and evidence and the chapter-level release status. Use the private JSON checkpoint and job logs for technical details and confirm current production state before marking work live.
 
 - Live site: [SharpStudy](https://sharpstudy.in). Repository: [rajrajan21/SmartLearning](https://github.com/rajrajan21/SmartLearning).
 - Windows project: `D:\Smart Learning Website`. Keep heavy checkouts, packets, logs and generated assets on D:. The private `.codex-project` folder is excluded from local bulk Git adds. Its `work\sharpstudy-depth-checkpoint.json` records validated outputs, CI identifiers, Oracle jobs, and the next batch.
@@ -19,6 +38,8 @@ This handover records the owner’s operating instructions and the latest verifi
 - The owner asked to resume around one minute after a confirmed five-hour reset. Record confirmed reset information when available and resume from the saved state with an available AI session. Oracle jobs continue independently. Respect the weekly allowance as well. Avoid assuming an exact reset time, promising an automatic wake-up without a working scheduler, or assuming Oracle can author reviewed lessons on behalf of an exhausted AI session.
 
 ## GitHub and Oracle release procedure
+
+- For every approved release, apply the same commit to the D: project, GitHub main, and Oracle production. Verify all three revisions and the live health check, then record the result in the backlog. Preserve unrelated local edits.
 
 1. Check Git status and history, current live revision, and Oracle running, waiting and failed units. Use the logs to distinguish a waiting service from a worker actively producing clips. Let the stable site continue serving traffic.
 2. Stage only intended content and fixes. Validate curriculum registration, lesson and practice schemas, stable IDs, board composition and relevant playback behavior. Keep an isolated commit and push it to a release branch to start GitHub Actions. Use the authenticated GitHub API or a supported CLI for status and logs. Use the browser as a fallback.
