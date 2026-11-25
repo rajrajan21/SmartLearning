@@ -428,6 +428,8 @@ Implemented the SharpStudy admin overview, separate Site settings dropdown, sear
     - Verified: `pnpm -r typecheck`, `@studysmart/shared` 11/11 (139/139 incl. all 1,586 lessons composed), `@studysmart/web` classroom + ux-upgrades (20/20), and production web build all pass.
   - **Matric Social Science depth batch 1 (`CONTENT-01`: 25/57 → 29/57 live, 50.9%)**:
     - Expanded 4 Grade 9 Economics chapters (*Agriculture in Tamil Nadu*, *Employment in India and Tamil Nadu*, *Migration*, *Money and Credit*) to **30 narration beats** + **10 rich practice questions** each (preserving all existing IDs/keys, upgrading worked-example reasoning, validated with Zod + `compose.test.ts`). 28 chapters remain.
+  - **Matric Social Science depth batch 2 (`CONTENT-01`: 29/57 → 33/57, 57.9%)**:
+    - Expanded 4 more Grade 9 chapters (*Understanding Development*, *Forms of Government & Democracy*, *Election, Political Parties & Pressure Groups*, *Human Rights*) to **30 narration beats** + **10 rich practice questions** each (validated with Zod + `compose.test.ts`). **24 chapters remain.**
 - **Admin settings (19 public settings total)**:
   - **Lessons → Finish**: `lesson.completionHub.{enabled,progressStrip,adaptivePrimary,showWorksheet,showGames,showNextLesson}` (6 settings).
   - **Layout and navigation → Guided tour and help hub**: `ux.spotlightTour.{enabled,autoOpen,maxAutoPerSession,autoDelayMs,pages.{home,subject,chapter,lesson,results}}` + `ux.helpHub.{enabled,quickJumps,position,title}` (13 settings, including corner position Bottom-right/Bottom-left and EN/TA menu heading).
