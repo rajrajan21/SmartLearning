@@ -57,6 +57,11 @@ git rev-parse --verify -q origin/main >nul 2>&1 && git reset --soft origin/main 
 git rm -r --cached -q --ignore-unmatch ".transfer" "sync*.tgz" "*__pycache__*" "*.pyc" "Malar Teacher" "malar-teacher/cache" >> "%LOG%" 2>&1
 echo Adding changes...
 git add -A >> "%LOG%" 2>&1
+if errorlevel 1 (
+  echo STOPPED: git add failed. See publish-github-report.txt
+  echo STOPPED: git add failed >> "%LOG%"
+  goto :end
+)
 
 set "MSG=%~1"
 if "%MSG%"=="" set "MSG=SharpStudy update %date% %time%"

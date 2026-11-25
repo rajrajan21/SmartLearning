@@ -85,7 +85,8 @@ export interface OracleJobInventory {
   checkedAt: string;
   jobs: {
     id: string;
-    status: "running" | "starting" | "scheduled" | "complete" | "failed" | "idle";
+    status: "running" | "waiting" | "starting" | "scheduled" | "complete" | "failed" | "idle";
+    phase?: string | null;
     startedAt: string | null;
     finishedAt: string | null;
     elapsedSeconds: number | null;

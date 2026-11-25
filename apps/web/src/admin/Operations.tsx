@@ -16,12 +16,14 @@ const status = (data: JobUpdate | null) => data?.stale ? "Stale" : data ? data.s
 const errors = { speech: "Speech clips were skipped", process: "The build process reported an error", skipped: "Some requested clips are missing" };
 const jobLabels: Record<string, string> = {
   "sharpstudy-papers.service": "Question-paper collection",
+  "sharpstudy-quiet-voices.service": "Quiet voices (Priya & Ram)",
+  "sharpstudy-db-backup.service": "Nightly database backup",
   "sharpstudy-ereader-grade7.service": "Class 7 textbook rendering",
   "sharpstudy-ereader-core.service": "Textbook rendering",
   "sharpstudy-depth-release.service": "Lesson release",
   "sharpstudy-depth-verify.service": "Lesson release verification",
 };
-const jobStatus = { running: "Running", starting: "Starting", scheduled: "Scheduled", complete: "Completed", failed: "Failed", idle: "Idle" };
+const jobStatus = { running: "Running", waiting: "Waiting", starting: "Starting", scheduled: "Scheduled", complete: "Completed", failed: "Failed", idle: "Idle" };
 const jobName = (id: string) => jobLabels[id] ?? id.replace(/^(sharpstudy|studysmart)-/, "").replace(/\.service$/, "").replaceAll("-", " ");
 const jobDuration = (seconds: number) => seconds >= 3600 ? duration(seconds) : `${Math.floor(seconds / 60)}m ${seconds % 60}s`;
 
@@ -53,6 +55,7 @@ function OracleJobs({ inventory, compact }: { inventory?: OracleJobInventory | n
     <h3>Oracle server</h3>
     <div className="admin-metrics">
       <Metric label="Running" value={number(count("running"))} />
+      <Metric label="Waiting" value={number(count("waiting"))} />
       <Metric label="Starting" value={number(count("starting"))} />
       <Metric label="Scheduled" value={number(count("scheduled"))} />
       <Metric label="Failed" value={number(count("failed"))} />
@@ -62,9 +65,10 @@ function OracleJobs({ inventory, compact }: { inventory?: OracleJobInventory | n
       {jobs.map((job) => <article className="admin-metric" key={job.id}>
         <h4>{jobName(job.id)}</h4>
         <span className="ops-status" data-status={job.status}>{jobStatus[job.status]}</span>
-        {job.startedAt && <small>{job.status === "running" ? "Started" : "Last started"} {date(job.startedAt)}</small>}
-        {job.finishedAt && job.status !== "running" && <small>Finished {date(job.finishedAt)}</small>}
-        {job.elapsedSeconds !== null && <small>{job.status === "running" ? "Running for" : "Last runtime"} {jobDuration(job.elapsedSeconds)}</small>}
+        {job.phase && <small>{job.phase}</small>}
+        {job.startedAt && <small>{job.status === "running" || job.status === "waiting" ? "Started" : "Last started"} {date(job.startedAt)}</small>}
+        {job.finishedAt && job.status !== "running" && job.status !== "waiting" && <small>Finished {date(job.finishedAt)}</small>}
+        {job.elapsedSeconds !== null && <small>{job.status === "running" ? "Running for" : job.status === "waiting" ? "Waiting for" : "Last runtime"} {jobDuration(job.elapsedSeconds)}</small>}
         {job.nextRunAt && <small>Next run {date(job.nextRunAt)}</small>}
       </article>)}
       {!jobs.length && <p>No SharpStudy jobs currently listed by Oracle.</p>}
