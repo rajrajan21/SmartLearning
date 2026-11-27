@@ -236,6 +236,12 @@ export const SETTINGS: SettingDef[] = [
       { value: "murali", label: "Murali (Parler Tamil Male)" },
     ],
     help: "Used first when playing Tamil lesson narration or the Tamil leg of bilingual Tamil -> English translation audio." },
+  { key: "audio.defaultHindiVoice", panel: "classroom", section: "Voice", label: "Default natural Hindi teacher voice", public: true, type: "select", default: "swara",
+    options: [
+      { value: "swara", label: "Swara (natural Indian Hindi, Female)" },
+      { value: "madhur", label: "Madhur (natural Indian Hindi, Male)" },
+    ],
+    help: "Used first when playing Hindi lesson narration or the Hindi leg of bilingual Hindi -> English translation audio." },
   { key: "classroom.language", panel: "classroom", section: "Voice", label: "Language", public: true, type: "select", default: "en", dependsOn: "feature.classroom",
     options: [
       { value: "en", label: "English only" },
@@ -251,6 +257,13 @@ export const SETTINGS: SettingDef[] = [
       { value: "en", label: "English only" },
     ],
     help: "Applied automatically when opening Tamil subject lessons so students hear natural Tamil paired with English translation." },
+  { key: "classroom.hindiSubjectLanguage", panel: "classroom", section: "Voice", label: "Hindi subject lessons default language", public: true, type: "select", default: "hi-en", dependsOn: "feature.classroom",
+    options: [
+      { value: "hi-en", label: "Hindi, then English translation" },
+      { value: "hi", label: "Hindi only" },
+      { value: "en", label: "English only" },
+    ],
+    help: "Applied automatically when opening Hindi subject lessons so students hear natural Hindi paired with English translation." },
   bool("classroom.browserVoice", "classroom", "Voice", "Use the browser voice when no recording exists", false, { dependsOn: "feature.classroom", help: "Off by default: the browser voice is often a man's voice and does not match the teacher. Recorded teacher audio is always used first." }),
 
   // ---------------- Lessons ----------------

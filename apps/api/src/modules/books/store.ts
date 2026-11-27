@@ -75,7 +75,7 @@ export function createBookStore(dir: string): BookStore {
       if (!r || typeof r !== "object") continue;
       const level = Number(r.classLevel ?? r.class);
       if (!CLASS.test(String(level)) || typeof r.title !== "string" || typeof r.subject !== "string") continue;
-      if (r.status === "failed" || r.status === "partial") continue;
+      if (r.status === "failed") continue;
       const relPath = typeof r.path === "string" ? r.path.replace(/\\/g, "/") : "";
       const base = { classLevel: level, subject: r.subject, title: r.title, language: typeof r.language === "string" ? r.language : "English", pages: typeof r.pages === "number" && r.pages > 0 ? r.pages : null };
       const publisher = typeof r.publisher === "string" && r.publisher.trim()
@@ -83,6 +83,7 @@ export function createBookStore(dir: string): BookStore {
         : typeof r.source === "string" && /^ncert\b/i.test(r.source) ? "NCERT" : undefined;
       const credit = publisher ? { publisher } : {};
       const chaptersDir = r.kind === "chapters" || Array.isArray(r.chapterFiles) || (relPath !== "" && !/\.pdf$/i.test(relPath) && relPath.includes("/_chapters/"));
+      if (r.status === "partial" && !chaptersDir) continue;
       if (!chaptersDir) {
         let name = typeof r.file === "string" && r.file ? r.file : basename(relPath);
         if (name && !/\.pdf$/i.test(name)) name += ".pdf";

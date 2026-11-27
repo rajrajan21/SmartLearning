@@ -3,6 +3,7 @@ import { z } from "zod";
 export const LocalizedText = z.object({
   en: z.string().min(1),
   ta: z.string().min(1).optional(),
+  hi: z.string().min(1).optional(),
 });
 export type LocalizedText = z.infer<typeof LocalizedText>;
 

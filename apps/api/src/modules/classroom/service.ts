@@ -83,15 +83,17 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
   };
   const currentStamp = throttled(() => stampOf(dirs));
   const load = () => { const s = currentStamp(); if (s !== stamp) build(s); return cache; };
-  const pairedAudio = (voice: string, text: { en?: string; ta?: string } | undefined): ReturnType<AudioStore["refs"]> => {
+  const pairedAudio = (voice: string, text: { en?: string; ta?: string; hi?: string } | undefined): ReturnType<AudioStore["refs"]> => {
     if (!audio || !text) return undefined;
     const direct = audio.refs(voice, text);
-    // Pair natural Tamil voices (valluvar/divya) with natural English counterparts (arul/kani) so Tamil -> English works seamlessly.
-    const enPref = voice === "valluvar" ? "arul" : voice === "divya" ? "kani" : voice;
+    // Pair natural Tamil/Hindi voices (valluvar/divya/swara/madhur) with natural English counterparts (arul/kani) so bilingual translation works seamlessly.
+    const enPref = (voice === "valluvar" || voice === "madhur") ? "arul" : (voice === "divya" || voice === "swara") ? "kani" : voice;
     const taPref = voice === "arul" ? "valluvar" : voice === "kani" ? (perf().defaultTamilVoice || "divya") : (perf().defaultTamilVoice || "valluvar");
+    const hiPref = voice === "arul" ? "madhur" : voice === "kani" ? (perf().defaultHindiVoice || "swara") : (perf().defaultHindiVoice || "swara");
     const en = direct?.en ?? audio.refs(enPref, { en: text.en })?.en ?? audio.refsPreferred?.(enPref, { en: text.en })?.en;
     const ta = direct?.ta ?? audio.refs(taPref, { ta: text.ta })?.ta ?? audio.refsPreferred?.(taPref, { ta: text.ta })?.ta;
-    return en || ta ? { ...(en ? { en } : {}), ...(ta ? { ta } : {}) } : undefined;
+    const hi = direct?.hi ?? audio.refs(hiPref, { hi: text.hi })?.hi ?? audio.refsPreferred?.(hiPref, { hi: text.hi })?.hi;
+    return en || ta || hi ? { ...(en ? { en } : {}), ...(ta ? { ta } : {}), ...(hi ? { hi } : {}) } : undefined;
   };
   const withAudio = (l: ClassroomLesson, voice: string): PublicClassroom => ({
     ...l,

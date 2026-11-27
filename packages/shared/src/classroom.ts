@@ -79,7 +79,7 @@ const ClassroomShape = z.object({
   steps: z.array(ClassroomStep).min(1).max(240),
 });
 
-export const VoiceInfo = z.object({ id: z.string(), label: z.string(), gender: z.enum(["female", "male"]), accent: z.enum(["us", "uk", "in"]), langs: z.array(z.enum(["en", "ta"])), ready: z.boolean() });
+export const VoiceInfo = z.object({ id: z.string(), label: z.string(), gender: z.enum(["female", "male"]), accent: z.enum(["us", "uk", "in"]), langs: z.array(z.enum(["en", "ta", "hi"])), ready: z.boolean() });
 export type VoiceInfo = z.infer<typeof VoiceInfo>;
 
 const needs: Record<z.infer<typeof ActionKind>, string[] | "any" | "none"> = {
@@ -179,7 +179,7 @@ export function startMs(a: ClassAction, narration: string, durMs: number, words?
 }
 
 /** Everything on the board after steps 0..stepIndex-1 are finished and the current step is tMs in. */
-export function sceneAt(lesson: Pick<ClassroomLesson, "objects" | "steps">, stepIndex: number, tMs: number, opts: { durMs: number; words?: WordTime[]; instant?: boolean; lang?: "en" | "ta" }): Record<string, ObjState> {
+export function sceneAt(lesson: Pick<ClassroomLesson, "objects" | "steps">, stepIndex: number, tMs: number, opts: { durMs: number; words?: WordTime[]; instant?: boolean; lang?: "en" | "ta" | "hi" }): Record<string, ObjState> {
   const scene: Record<string, ObjState> = {};
   for (const o of lesson.objects) scene[o.id] = blank();
   const textLen = new Map(lesson.objects.filter((o) => o.kind === "text").map((o) => [o.id, (o as { text: string }).text.length]));

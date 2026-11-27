@@ -14,7 +14,7 @@ describe("seed file", () => {
   it("is valid and has the verified chapter counts", () => {
     const d = CurriculumImport.parse(shippedSeedFile());
     const subjects = d.classes.find((c) => c.classLevel === 3)!.subjects;
-    expect(subjects.map((s) => [s.slug, s.chapters.length])).toEqual([["maths", 14], ["evs", 12], ["english", 15]]);
+    expect(subjects.map((s) => [s.slug, s.chapters.length])).toEqual([["maths", 14], ["evs", 12], ["english", 15], ["tamil", 3]]);
     expect(d.verifiedOn).toBeTruthy();
   });
 });

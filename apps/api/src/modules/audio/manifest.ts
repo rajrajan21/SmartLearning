@@ -5,11 +5,11 @@ import { z } from "zod";
 import { perf } from "../perf/config.js";
 import { PhraseSet, type AudioRef, type LangAudio, type TopicLesson } from "@studysmart/shared";
 
-export type Lang = "en" | "ta";
-export const LANGS: Lang[] = ["en", "ta"];
+export type Lang = "en" | "ta" | "hi";
+export const LANGS: Lang[] = ["en", "ta", "hi"];
 
 /** Teacher id (used in lesson files) -> the speech-engine voice per language. Edit content/audio/voices.json to add teachers. */
-export const VoiceMap = z.record(z.string(), z.object({ label: z.string().optional(), gender: z.enum(["female", "male"]).optional(), accent: z.enum(["us", "uk", "in"]).optional(), en: z.object({ voice: z.string(), speed: z.number().default(1) }).optional(), ta: z.object({ voice: z.string(), speed: z.number().default(1) }).optional() }));
+export const VoiceMap = z.record(z.string(), z.object({ label: z.string().optional(), gender: z.enum(["female", "male"]).optional(), accent: z.enum(["us", "uk", "in"]).optional(), en: z.object({ voice: z.string(), speed: z.number().default(1) }).optional(), ta: z.object({ voice: z.string(), speed: z.number().default(1) }).optional(), hi: z.object({ voice: z.string(), speed: z.number().default(1) }).optional() }));
 export type VoiceMap = z.infer<typeof VoiceMap>;
 
 export const ManifestEntry = z.object({
@@ -17,7 +17,7 @@ export const ManifestEntry = z.object({
   durationMs: z.number().int().positive(),
   bytes: z.number().int().nonnegative(),
   voice: z.string(),
-  lang: z.enum(["en", "ta"]),
+  lang: z.enum(["en", "ta", "hi"]),
   text: z.string(), // kept so a person can see what each clip says
   words: z.array(z.object({ w: z.string(), t: z.number(), d: z.number() })).default([]),
 });
@@ -50,9 +50,9 @@ export function speechText(text: string, lang: Lang = "en"): string {
 export interface AudioStore {
   /** Recording for any one piece of text (question stems, explanations, phrases); undefined when none exists yet. */
   ref(teacher: string, lang: Lang, text: string | undefined): AudioRef | undefined;
-  refs(teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
+  refs(teacher: string, text: { en?: string; ta?: string; hi?: string } | undefined): LangAudio | undefined;
   /** Checks the Admin default natural voice first, then fallback teachers, returning the best recorded clip per language. */
-  refsPreferred?(fallbackTeacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined;
+  refsPreferred?(fallbackTeacher: string, text: { en?: string; ta?: string; hi?: string } | undefined): LangAudio | undefined;
   phrases(): PhraseSet;
   /** The teacher voices that can be chosen (from voices.json). */
   teachers(): { id: string; label: string; gender: "female" | "male"; accent: "us" | "uk" | "in"; langs: Lang[] }[];
@@ -91,11 +91,11 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     const e = manifest.entries[audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text: speechText(text, lang) })];
     return e && hasFile(e.file) ? { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words } : undefined;
   };
-  const refs = (teacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
+  const refs = (teacher: string, text: { en?: string; ta?: string; hi?: string } | undefined): LangAudio | undefined => {
     if (!text) return undefined;
     const out: LangAudio = {};
     for (const lang of LANGS) { const r = lookup(teacher, lang, text[lang]); if (r) out[lang] = r; }
-    return out.en || out.ta ? out : undefined;
+    return out.en || out.ta || out.hi ? out : undefined;
   };
   const candidates = (fallbackTeacher: string, lang: Lang = "en"): string[] => {
     if (lang === "ta") {
@@ -105,19 +105,26 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
         : [fallbackTeacher, defTa, "valluvar", "divya", "jaya", "murali"];
       return [...new Set(list)];
     }
+    if (lang === "hi") {
+      const defHi = perf().defaultHindiVoice || "swara";
+      const list = fallbackTeacher === "malar" || fallbackTeacher === "kani"
+        ? [defHi, "swara", "madhur"]
+        : [fallbackTeacher, defHi, "swara", "madhur"];
+      return [...new Set(list)];
+    }
     const def = perf().defaultAudioVoice || "kani";
     const list = fallbackTeacher === "malar"
       ? [def, "kani", "priya2", "malar", "ravi2"]
       : [fallbackTeacher, def, "kani", "malar"];
     return [...new Set(list)];
   };
-  const refsPreferred = (fallbackTeacher: string, text: { en?: string; ta?: string } | undefined): LangAudio | undefined => {
+  const refsPreferred = (fallbackTeacher: string, text: { en?: string; ta?: string; hi?: string } | undefined): LangAudio | undefined => {
     if (!text) return undefined;
     const out: LangAudio = {};
     for (const lang of LANGS) {
       for (const t of candidates(fallbackTeacher, lang)) { const r = lookup(t, lang, text[lang]); if (r) { out[lang] = r; break; } }
     }
-    return out.en || out.ta ? out : undefined;
+    return out.en || out.ta || out.hi ? out : undefined;
   };
   return {
     version() { fresh(); return `${mTime}:${vTime}`; },
@@ -138,15 +145,15 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
         ...lesson,
         blocks: lesson.blocks.map((b) => {
           if (b.type !== "teacher_narration") return b;
-          const enOrder = candidates(b.teacher, "en"), taOrder = candidates(b.teacher, "ta");
-          if (!enOrder.some((t) => voices[t]) && !taOrder.some((t) => voices[t])) return b;
+          const enOrder = candidates(b.teacher, "en"), taOrder = candidates(b.teacher, "ta"), hiOrder = candidates(b.teacher, "hi");
+          if (!enOrder.some((t) => voices[t]) && !taOrder.some((t) => voices[t]) && !hiOrder.some((t) => voices[t])) return b;
           return {
             ...b,
             sentences: b.sentences.map((sen) => {
-              const audio: { en?: AudioRef; ta?: AudioRef } = {};
+              const audio: { en?: AudioRef; ta?: AudioRef; hi?: AudioRef } = {};
               for (const lang of LANGS) {
                 const spoken = sen.spoken?.[lang] ?? sen.text[lang];
-                const order = lang === "ta" ? taOrder : enOrder;
+                const order = lang === "ta" ? taOrder : lang === "hi" ? hiOrder : enOrder;
                 for (const t of order) { const r = lookup(t, lang, spoken); if (r) { audio[lang] = r; break; } }
               }
               return { ...sen, audio };

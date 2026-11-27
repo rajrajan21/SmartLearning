@@ -18,8 +18,8 @@ const only = opt("only");
 const teachers = args.includes("--all-voices") ? Object.keys(JSON.parse(readFileSync(`${audioDir}/voices.json`, "utf8"))) : voicesOpt ? voicesOpt.split(",") : undefined;
 
 // which engines are needed for the voices chosen (so a run of only Kani/Arul does not need the Malar speech server)
-const voiceMap = JSON.parse(readFileSync(`${audioDir}/voices.json`, "utf8")) as Record<string, { en?: { voice: string }; ta?: { voice: string } }>;
-const wantedIds = (teachers ?? ["malar"]).flatMap((t) => (lang ? [voiceMap[t]?.[lang]?.voice] : [voiceMap[t]?.en?.voice, voiceMap[t]?.ta?.voice])).filter((v): v is string => !!v);
+const voiceMap = JSON.parse(readFileSync(`${audioDir}/voices.json`, "utf8")) as Record<string, { en?: { voice: string }; ta?: { voice: string }; hi?: { voice: string } }>;
+const wantedIds = (teachers ?? ["malar"]).flatMap((t) => (lang ? [voiceMap[t]?.[lang]?.voice] : [voiceMap[t]?.en?.voice, voiceMap[t]?.ta?.voice, voiceMap[t]?.hi?.voice])).filter((v): v is string => !!v);
 const needEdge = wantedIds.some((v) => v.startsWith("edge:"));
 const needMalar = wantedIds.length === 0 || wantedIds.some((v) => !v.startsWith("edge:") && !v.startsWith("parler:"));
 

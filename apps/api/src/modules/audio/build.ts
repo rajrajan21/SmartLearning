@@ -99,12 +99,12 @@ export const onlyJobs = <T extends { where: string }>(jobs: T[], only?: string):
 /** Everything the teacher says: lesson sentences, question stems and feedback, and stock phrases. */
 export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "gkDir" | "audioDir">, langs: Lang[]): Job[] {
   const jobs: Job[] = [];
-  const add = (where: string, teacher: string, t: { en?: string; ta?: string } | undefined) => { for (const lang of langs) { const text = t?.[lang]?.trim(); if (text) jobs.push({ where, teacher, lang, text }); } };
+  const add = (where: string, teacher: string, t: { en?: string; ta?: string; hi?: string } | undefined) => { for (const lang of langs) { const text = t?.[lang]?.trim(); if (text) jobs.push({ where, teacher, lang, text }); } };
   for (const f of jsonFiles(o.lessonsDir)) {
     const lessonR = LessonImport.safeParse(readJson(join(o.lessonsDir, f)));
     if (!lessonR.success) { console.warn(`SKIPPED lesson file ${f}: ${lessonR.error.issues.map((i) => i.path.join(".") + " " + i.message).join("; ")}`); continue; }
     const lesson = lessonR.data;
-    for (const b of lesson.lesson.blocks) if (b.type === "teacher_narration") for (const sen of b.sentences) add(`${f} ${sen.id}`, b.teacher, { en: sen.spoken?.en ?? sen.text.en, ta: sen.spoken?.ta ?? sen.text.ta });
+    for (const b of lesson.lesson.blocks) if (b.type === "teacher_narration") for (const sen of b.sentences) add(`${f} ${sen.id}`, b.teacher, { en: sen.spoken?.en ?? sen.text.en, ta: sen.spoken?.ta ?? sen.text.ta, hi: sen.spoken?.hi ?? sen.text.hi });
   }
   for (const f of jsonFiles(o.questionsDir)) {
     const qsR = QuestionImport.safeParse(readJson(join(o.questionsDir!, f)));

@@ -35,14 +35,14 @@ export const AudioRef = z.object({
 });
 export type AudioRef = z.infer<typeof AudioRef>;
 
-export const LangAudio = z.object({ en: AudioRef.optional(), ta: AudioRef.optional() });
+export const LangAudio = z.object({ en: AudioRef.optional(), ta: AudioRef.optional(), hi: AudioRef.optional() });
 export type LangAudio = z.infer<typeof LangAudio>;
 
 export const NarrationSentence = z.object({
   id: z.string(),
   text: LocalizedText,
   /** How it is SPOKEN when that differs from how it is written (numbers, symbols, hard words). Defaults to `text`. */
-  spoken: z.object({ en: z.string().optional(), ta: z.string().optional() }).optional(),
+  spoken: z.object({ en: z.string().optional(), ta: z.string().optional(), hi: z.string().optional() }).optional(),
   /** Pause after this sentence (ms) to let the student act; overrides the site-wide gap. */
   pauseAfterMs: z.number().int().min(0).max(15000).optional(),
   audioKey: z.string().nullable().default(null),

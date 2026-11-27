@@ -147,7 +147,7 @@ export function ClassroomPage() {
   return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} />;
 }
 
-const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;
+const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta" | "hi", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;
 function timeIndex<T>(entries: readonly T[], at: number, start: (entry: T) => number) {
   const next = entries.findIndex(entry => start(entry) > at);
   return (next < 0 ? entries.length : next) - 1;
@@ -165,9 +165,14 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const style = s.get<string>("classroom.boardStyle") as BoardStyle, browserVoice = s.get("classroom.browserVoice") === true;
   const instant = useMemo(reduced, []);
 
-  type ClassLangMode = "en" | "ta" | "ta-en" | "both";
+  type ClassLangMode = "en" | "ta" | "ta-en" | "both" | "hi" | "hi-en";
+  const isHindiLesson = lessonIn.subject === "hindi";
   const initialLangMode = useMemo<ClassLangMode>(() => {
     if (related) return "en";
+    if (lessonIn.subject === "hindi") {
+      const rawHi = s.get<string>("classroom.hindiSubjectLanguage");
+      return rawHi === "hi" || rawHi === "hi-en" || rawHi === "en" ? rawHi : "hi-en";
+    }
     const raw = lessonIn.subject === "tamil" ? s.get<string>("classroom.tamilSubjectLanguage") : s.get<string>("classroom.language");
     return raw === "ta" || raw === "ta-en" || raw === "both" ? raw : "en";
   }, [lessonIn.subject, related, s]);
@@ -186,8 +191,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const [langMode, setLangMode] = useState<ClassLangMode>(initialLangMode);
   const [talking, setTalking] = useState(false);
   const langModeRef = useRef(langMode); langModeRef.current = langMode;
-  const narrationLang: "en" | "ta" = related ? "en" : (langMode === "ta" || langMode === "ta-en") ? "ta" : "en";
-  const secondaryLang: "en" | "ta" | null = related ? null : langMode === "ta-en" ? "en" : langMode === "both" ? "ta" : null;
+  const narrationLang: "en" | "ta" | "hi" = related ? "en" : (langMode === "ta" || langMode === "ta-en") ? "ta" : (langMode === "hi" || langMode === "hi-en") ? "hi" : "en";
+  const secondaryLang: "en" | "ta" | "hi" | null = related ? null : (langMode === "ta-en" || langMode === "hi-en") ? "en" : langMode === "both" ? "ta" : null;
   const info = voices.find((v) => v.id === (lessonIn.voiceUsed ?? voice));
   const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
 
@@ -272,14 +277,15 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   }, [back, narrationLang, stopVoice]);
 
   const sayInMode = useCallback((
-    audioMap: { en?: { url: string }; ta?: { url: string } } | undefined,
-    textMap: { en: string; ta?: string } | undefined,
+    audioMap: { en?: { url: string }; ta?: { url: string }; hi?: { url: string } } | undefined,
+    textMap: { en: string; ta?: string; hi?: string } | undefined,
     onEnd?: () => void
   ) => {
     const mode = langModeRef.current;
     const primary = narrationLang;
     const first = audioMap?.[primary] ?? audioMap?.en;
     const second = mode === "ta-en" ? (audioMap?.ta ? audioMap?.en : undefined)
+      : mode === "hi-en" ? (audioMap?.hi ? audioMap?.en : undefined)
       : mode === "both" ? audioMap?.ta
       : undefined;
     const id = run.current;
@@ -304,6 +310,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
     const stp = R.current.lesson.steps[R.current.step]!;
     const mode = langModeRef.current;
     const secondRef = mode === "ta-en" ? (stp.audio?.ta ? stp.audio?.en : undefined)
+      : mode === "hi-en" ? (stp.audio?.hi ? stp.audio?.en : undefined)
       : mode === "both" ? stp.audio?.ta
       : undefined;
     if (secondRef && !R.current.mute) { setPhase("gap"); const id = run.current; say(secondRef, undefined, () => { if (run.current === id) afterNarration(); }); return; }
@@ -462,17 +469,19 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
           <h2>{L("classroomQuestion")}</h2>
           <p><b>{cur.check.stem[narrationLang] ?? s.name(cur.check.stem)}</b></p>
           {langMode === "ta-en" && cur.check.stem.ta && <p className="class-sub muted">{cur.check.stem.en}</p>}
+          {langMode === "hi-en" && cur.check.stem.hi && <p className="class-sub muted">{cur.check.stem.en}</p>}
           <ul className="options">
             {cur.check.options.map((o) => {
               const right = phase === "feedback" && o.correct, bad = picked === o.id && !o.correct;
               const optText = o.text[narrationLang] ?? s.name(o.text);
-              const optLabel = langMode === "ta-en" && o.text.ta && o.text.ta !== o.text.en ? `${o.text.ta} — ${o.text.en}` : optText;
+              const optLabel = langMode === "ta-en" && o.text.ta && o.text.ta !== o.text.en ? `${o.text.ta} — ${o.text.en}` : langMode === "hi-en" && o.text.hi && o.text.hi !== o.text.en ? `${o.text.hi} — ${o.text.en}` : optText;
               return <li key={o.id}><button type="button" className={`option${right ? " right" : ""}${bad ? " wrong" : ""}`} disabled={phase === "feedback"} onClick={() => choose(o.id)}>{optLabel}</button></li>;
             })}
           </ul>
           {wrongNote && <p className="notice" role="alert">{L("classroomTryAgain")} {wrongNote}</p>}
           {phase === "feedback" && (<div role="status"><p className="good"><b>{L("classroomCorrect")}</b> {cur.check.explanation[narrationLang] ?? s.name(cur.check.explanation)}</p>
             {langMode === "ta-en" && cur.check.explanation.ta && <p className="class-sub muted">{cur.check.explanation.en}</p>}
+            {langMode === "hi-en" && cur.check.explanation.hi && <p className="class-sub muted">{cur.check.explanation.en}</p>}
             <button type="button" className="btn" onClick={proceed}>{step + 1 >= lesson.steps.length ? L("finish") : L("classroomContinue")}</button></div>)}
         </section>
       )}
@@ -531,10 +540,20 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
         </label>
         <label className="class-rate">{L("classroomLanguage")}
           <select value={langMode} onChange={(e) => setLangMode(e.target.value as ClassLangMode)}>
-            <option value="ta-en">தமிழ் → English</option>
-            <option value="ta">தமிழ்</option>
-            <option value="both">English + தமிழ்</option>
-            <option value="en">English</option>
+            {isHindiLesson ? (
+              <>
+                <option value="hi-en">हिन्दी → English</option>
+                <option value="hi">हिन्दी</option>
+                <option value="en">English</option>
+              </>
+            ) : (
+              <>
+                <option value="ta-en">தமிழ் → English</option>
+                <option value="ta">தமிழ்</option>
+                <option value="both">English + தமிழ்</option>
+                <option value="en">English</option>
+              </>
+            )}
           </select>
         </label>
         {pickable.length > 1 && s.get("classroom.voicePicker") === true && (
