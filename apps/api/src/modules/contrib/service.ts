@@ -221,7 +221,7 @@ export function createContribService(d: ContribDeps): ContribService {
         ...d.library.list().books.map((b) => ({ id: b.id, title: b.title, authors: b.authors })),
         ...store.db.submissions.filter((s) => s.id !== id && s.report && ["published", "in_review", "checking", "changes_requested"].includes(s.status)).map((s) => ({ id: s.id, title: s.meta.title, authors: s.meta.author ? [s.meta.author] : [], sha256: s.sha256, simhash: s.report!.simhash })),
       ];
-      const report = reviewSubmission({ meta: sub.meta, scan, ex, sha256: sub.sha256, bytes: buf.length, values: v, terms: store.terms(), existing });
+      const report = reviewSubmission({ source: sub.source, meta: sub.meta, scan, ex, sha256: sub.sha256, bytes: buf.length, values: v, terms: store.terms(), existing });
       sub.report = report;
       if (report.outcome === "reject") { sub.reasons = report.reasons; return finishReject(sub, v, "system", "Failed checks"); }
       // keep what the reader needs next to the quarantined file (never in a public folder)

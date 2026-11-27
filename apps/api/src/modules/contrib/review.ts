@@ -30,7 +30,7 @@ const on = (v: Vals, k: string) => v[k] !== false;
 const PII_LABEL: Record<string, string> = { aadhaar: "Aadhaar-style numbers", pan: "PAN card numbers", passport: "passport numbers", voter: "voter ID numbers", driving: "driving licence numbers", phone: "phone numbers", email: "email addresses", bank: "bank account numbers", ifsc: "bank IFSC codes", card: "payment card numbers", upi: "UPI payment IDs", dob: "dates of birth next to labels", idcard: "mark sheets or ID forms with names", medical: "medical records", legal: "legal case records", secret: "passwords or private keys" };
 const piiItems = (p: PiiResult) => Object.keys(p.counts).filter((k) => k !== "ifsc" || p.counts.ifsc).map((k) => `${p.counts[k as keyof PiiResult["counts"]]} ${PII_LABEL[k] ?? k} (page${(p.pages[k as keyof PiiResult["pages"]] ?? []).length > 1 ? "s" : ""} ${(p.pages[k as keyof PiiResult["pages"]] ?? []).slice(0, 6).join(", ")})${p.samples[k as keyof PiiResult["samples"]]?.[0] ? ` e.g. ${p.samples[k as keyof PiiResult["samples"]]![0]}` : ""}`);
 
-export interface ReviewInput { meta: Declared; scan: PdfScan; ex: Extracted; sha256: string; bytes: number; values: Vals; terms: TermLists; existing: ExistingBook[] }
+export interface ReviewInput { source?: "upload" | "link"; meta: Declared; scan: PdfScan; ex: Extracted; sha256: string; bytes: number; values: Vals; terms: TermLists; existing: ExistingBook[] }
 
 export function reviewSubmission(inp: ReviewInput): Report {
   const { meta, scan, ex, values: v, terms } = inp;
@@ -48,7 +48,8 @@ export function reviewSubmission(inp: ReviewInput): Report {
   const totalChars = pages.reduce((s, p) => s + p.trim().length, 0);
   const avgChars = pages.length ? Math.round(totalChars / pages.length) : 0;
   const blank = pages.filter((p) => p.trim().length < 5).length;
-  const textLayer = ex.engine && avgChars >= num(v, "contrib.quality.minCharsPerPage", 40);
+  const briefText = totalChars >= 100 && pages.length > 0 && (pages.length - blank) / pages.length >= 0.8;
+  const textLayer = ex.engine && (avgChars >= num(v, "contrib.quality.minCharsPerPage", 40) || (on(v, "contrib.autoApprove.shortBooks") && briefText));
   const allText = pages.join("\n");
   const lang = detectLanguage(allText.slice(0, 200000));
 
@@ -156,11 +157,12 @@ export function reviewSubmission(inp: ReviewInput): Report {
   const fails = checks.filter((c) => c.status === "fail").length, warns = checks.filter((c) => c.status === "warn").length;
   const score = Math.max(0, 100 - fails * 40 - warns * 12);
   let outcome: Outcome = fails ? "reject" : "review";
-  if (!fails && v["contrib.autoApprove.enabled"] === true) {
+  const allowSource = on(v, inp.source === "link" ? "contrib.autoApprove.links" : "contrib.autoApprove.uploads");
+  if (!fails && allowSource && v["contrib.autoApprove.enabled"] === true) {
     const allowed = String(v["contrib.autoApprove.licences"] ?? "").split(",").map((s) => s.trim());
     const verified = detected.includes(meta.licence as LicenceId) && allowed.includes(meta.licence);
     const evaluated = checks.filter((c) => ["copyright", "pii", "content", "duplicates", "quality", "structure"].includes(c.id));
-    if (verified && textLayer && !ex.error && ex.pages.length === ex.pageCount && evaluated.every((c) => c.status === "pass")) outcome = "approve";
+    if (verified && (v["contrib.autoApprove.publisherOnly"] !== true || publisher?.licence === meta.licence) && textLayer && !ex.error && ex.pages.length === ex.pageCount && evaluated.every((c) => c.status === "pass")) outcome = "approve";
   }
   if (!fails && outcome === "review") {
     for (const c of checks) if (c.status === "warn" && c.id !== "language") reasons.push(c.detail);

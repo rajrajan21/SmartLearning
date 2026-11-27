@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { admin, type PapersSiteRow, type PapersStatus } from "./api";
 
@@ -89,7 +90,7 @@ export function PapersAdmin() {
       </div>
       <h4>Papers (newest 400)</h4>
       <p>
-        <input aria-label="Search papers" placeholder="Search title, site, subject" value={q} onChange={(e) => setQ(e.target.value)} />{" "}
+        <VoiceSearchInput aria-label="Search papers" placeholder="Search title, site, subject" onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} />{" "}
         <button type="button" disabled={!pick.size} className="btn sm" onClick={() => void run(() => admin.papersHide([...pick]), `Hidden ${pick.size}.`)}>Hide selected</button>{" "}
         <button type="button" disabled={!pick.size} className="btn ghost sm" onClick={() => void run(() => admin.papersShow([...pick]), `Showing ${pick.size} again.`)}>Show selected</button>
       </p>

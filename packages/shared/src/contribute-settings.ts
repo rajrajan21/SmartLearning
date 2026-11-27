@@ -43,6 +43,10 @@ export const CONTRIB_SETTINGS: SettingDef[] = [
   b("contrib.fetch.cover", "contrib", "Fetch details", "Also suggest the cover picture address", true, "Only the address is suggested (shown as a link). Nothing is downloaded or stored from it. The website's own domain rules above also apply to fetching."),
   // ---- Review checks
   b("contrib.autoApprove.enabled", "contribchecks", "Approval", "Publish eligible openly licensed books automatically", true, "Required: a verified open licence, a readable and safe PDF, and cleared copyright, duplicate, privacy and child-safety checks. Advisory language and layout notes do not block approval."),
+  b("contrib.autoApprove.uploads", "contribchecks", "Approval", "Auto-publish qualifying PDF uploads", true, "Off sends otherwise eligible uploads to manual review.", false, "contrib.autoApprove.enabled"),
+  b("contrib.autoApprove.links", "contribchecks", "Approval", "Auto-publish qualifying PDF links", true, "Off sends otherwise eligible linked PDFs to manual review.", false, "contrib.autoApprove.enabled"),
+  b("contrib.autoApprove.shortBooks", "contribchecks", "Approval", "Auto-publish qualifying short-text picture books", true, "Requires 100 extracted characters and readable text on at least 80% of pages. Other checks still apply.", false, "contrib.autoApprove.enabled"),
+  b("contrib.autoApprove.publisherOnly", "contribchecks", "Approval", "Require exact publisher-verified copies for auto-publication", false, "Off also accepts a matching, unambiguous open licence printed in the book.", false, "contrib.autoApprove.enabled"),
   t("contrib.autoApprove.licences", "contribchecks", "Approval", "Licences that may be auto-approved", "cc0,pd,by,by-sa", 60, "Comma separated licence ids."),
   b("contrib.check.duplicates", "contribchecks", "Checks", "Duplicate check (same file, same text, same title and author)", true),
   b("contrib.check.copyright", "contribchecks", "Checks", "Copyright check", true),

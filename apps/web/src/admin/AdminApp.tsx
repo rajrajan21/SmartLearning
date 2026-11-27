@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DEFAULT_ADMIN_USER_ID, THEME_PRESETS, SETTINGS, type PanelId, type SettingDef, type SettingValue } from "@studysmart/shared";
 import { admin, adminKey, adminUser, AdminError, type AdminData, type AuditEntry, type Values } from "./api";
@@ -214,7 +215,7 @@ function Console({ onSignOut }: { onSignOut: () => void }) {
         <AdminTitle />
         <div className="a-search" role="search">
           <label htmlFor="a-q" className="sr-only">Search settings</label>
-          <input id="a-q" ref={searchRef} type="search" placeholder="Search settings, tools and layouts" value={q} onChange={(e) => setQ(e.target.value)}
+          <VoiceSearchInput id="a-q" ref={searchRef} placeholder="Search settings, tools and layouts" onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)}
             onKeyDown={(e) => {
               if (e.key === "Escape") setQ("");
               if ((e.key === "ArrowDown" || e.key === "Enter") && resultsRef.current) {

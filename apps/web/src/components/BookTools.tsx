@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "./VoiceSearchInput";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useSettings } from "../lib/settings";
 import { contribApi, ct } from "../lib/contrib";
@@ -74,7 +75,7 @@ export function BookTools({ id, pages, canTakedown }: { id: string; pages: numbe
         {on("contrib.reader.reportButton") && <button type="button" className="btn" onClick={() => setDlg("problem")}>⚑ {ct("report", lang)}</button>}
         {canTakedown && <button type="button" className="btn" onClick={() => setDlg("takedown")}>{ct("takedown", lang)}</button>}
       </div>
-      {text && <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={ct("searchIn", lang)} aria-label={ct("searchIn", lang)} />}
+      {text && <VoiceSearchInput onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} placeholder={ct("searchIn", lang)} aria-label={ct("searchIn", lang)} />}
       {hits.length > 0 && <ul className="small">{hits.map((h) => <li key={h.page}><button type="button" className="linklike" onClick={() => goTo(h.page)}>p.{h.page}</button> …{h.snip}…</li>)}</ul>}
       {text && text.outline.length > 0 && <details><summary>{ct("contents", lang)}</summary><ul>{text.outline.map((o, i) => <li key={i}><button type="button" className="linklike" onClick={() => goTo(o.page)}>{o.title}</button> <span className="small">p.{o.page}</span></li>)}</ul></details>}
       {marks.length > 0 && <p className="small">{ct("bookmarks", lang)}: {marks.map((m) => <button key={m} type="button" className="chip" onClick={() => goTo(m)}>{m}</button>)}</p>}

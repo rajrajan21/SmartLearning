@@ -1,3 +1,5 @@
+import { matches as matchSearch } from "../components/SearchBox";
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { LessonCompletionHub, Timeline } from "../components/LessonFlow";
 import { usePageTour } from "../components/SpotlightTour";
 import { setClassroomAudioPlaying, type HelpQuickJump } from "../lib/spotlightTour";
@@ -63,9 +65,9 @@ export function ClassroomHub() {
   const items = idx.data.items;
   const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
   const matches = items.filter((item) => {
-    const text = [item.title.en, item.title.ta, item.chapter, item.topic, item.board, item.classLevel, item.subject].join(" ").toLowerCase().replace(/-/g, " ");
+    const text = [item.title.en, item.title.ta, item.chapter, item.topic, item.board, item.classLevel, item.subject].join(" ");
     return (!board || item.board === board) && (!grade || String(item.classLevel) === grade)
-      && (!subject || item.subject === subject) && words.every((word) => text.includes(word));
+      && (!subject || item.subject === subject) && matchSearch(query, text);
   });
   const classes = classroomGroups(matches, (item) => item.classLevel).sort(([a], [b]) => a - b);
   const openMatches = words.length > 0 || Boolean(grade);
@@ -79,7 +81,7 @@ export function ClassroomHub() {
       <p className="lead">{ui("classroomIntro", s.lang)}</p>
       {items.length > 0 && <>
         <div className="classroom-filters" role="group" aria-label={ta ? "பாட வடிகட்டிகள்" : "Lesson filters"}>
-          <label className="classroom-query">{ta ? "வகுப்பறைப் பாடத்தைத் தேடுங்கள்" : "Find a Classroom lesson"}<input type="search" value={query} onChange={(event) => setQuery(event.target.value)} placeholder={ta ? "பாடம் அல்லது தலைப்பு" : "Try magnets, fractions, or English"} /></label>
+          <label className="classroom-query">{ta ? "வகுப்பறைப் பாடத்தைத் தேடுங்கள்" : "Find a Classroom lesson"}<VoiceSearchInput onVoice={setQuery} value={query} onChange={(event) => setQuery(event.target.value)} placeholder={ta ? "பாடம் அல்லது தலைப்பு" : "Try magnets, fractions, or English"} /></label>
           <label>{ta ? "பாடத்திட்டம்" : "Board"}<select value={board} onChange={(event) => setBoard(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All boards"}</option>{boards.map((value) => <option key={value}>{value}</option>)}</select></label>
           <label>{ta ? "வகுப்பு" : "Class"}<select value={grade} onChange={(event) => setGrade(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All classes"}</option>{grades.map((value) => <option key={value} value={value}>{ui("classWord", s.lang)} {value}</option>)}</select></label>
           <label>{ta ? "பாடம்" : "Subject"}<select value={subject} onChange={(event) => setSubject(event.target.value)}><option value="">{ta ? "அனைத்தும்" : "All subjects"}</option>{subjects.map((value) => <option key={value} value={value}>{value.replace(/-/g, " ")}</option>)}</select></label>

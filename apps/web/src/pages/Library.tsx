@@ -1,3 +1,5 @@
+import { matches as matchSearch } from "../components/SearchBox";
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -64,7 +66,7 @@ export function LibraryPage() {
   const rows = useMemo(() => {
     if (!data) return [];
     const needle = q.trim().toLowerCase();
-    let r = data.books.filter((b) => (age === "all" || b.ageBand === age) && (!lang || b.language === lang) && (!langsOn.length || langsOn.includes(b.language)) && (!needle || `${b.title} ${b.authors.join(" ")} ${b.tags.join(" ")}`.toLowerCase().includes(needle)));
+    let r = data.books.filter((b) => (age === "all" || b.ageBand === age) && (!lang || b.language === lang) && (!langsOn.length || langsOn.includes(b.language)) && matchSearch(needle, b.title, b.authors.join(" "), b.tags.join(" ")));
     r = [...r].sort(sort === "title" ? (a, b) => a.title.localeCompare(b.title) : sort === "short" ? (a, b) => (a.pages ?? 9999) - (b.pages ?? 9999) : (a, b) => b.addedAt.localeCompare(a.addedAt));
     return r;
   }, [data, age, lang, q, sort, langsOn.join()]);
@@ -92,7 +94,7 @@ export function LibraryPage() {
             <div className="lib-row">
               {langs.length > 1 && <label>{lt("lang", s.lang)} <select value={lang} onChange={(e) => setLang(e.target.value)}><option value="">{lt("anyLang", s.lang)}</option>{langs.map((l) => <option key={l.code} value={l.code}>{l.code} ({l.count})</option>)}</select></label>}
               <label>{lt("sort", s.lang)} <select value={sort} onChange={(e) => setSort(e.target.value)}><option value="new">{lt("sNew", s.lang)}</option><option value="title">{lt("sTitle", s.lang)}</option><option value="short">{lt("sShort", s.lang)}</option></select></label>
-              {s.get("library.search.enabled") === true && <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={lt("search", s.lang)} aria-label={lt("search", s.lang)} />}
+              {s.get("library.search.enabled") === true && <VoiceSearchInput onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} placeholder={lt("search", s.lang)} aria-label={lt("search", s.lang)} />}
             </div>
           </div>
           <InBookSearch q={q} on={s.get("contrib.publish.crossLibrarySearch") !== false && s.get("contrib.enabled") === true} lang={s.lang} />

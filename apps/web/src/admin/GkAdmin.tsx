@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { admin, adminKey, adminUser } from "./api";
 
@@ -60,7 +61,7 @@ export function GkAdmin() {
       </ul>
       <h3>Lessons</h3>
       <p className="small">“On” lists the lesson. “★” pins it to the Featured row at the top (up to the limit in the GK page settings). Ids are shown so you can use them in the other GK settings.</p>
-      <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search lessons" aria-label="Search lessons" />
+      <VoiceSearchInput onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} placeholder="Search lessons" aria-label="Search lessons" />
       <table className="gk-admin-table">
         <thead><tr><th>On</th><th>★</th><th>Lesson</th><th>Type</th><th>Age</th><th>Category</th></tr></thead>
         <tbody>

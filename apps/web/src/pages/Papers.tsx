@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link } from "wouter";
 import { qKey, scoreByChapter, scorePaper, type Paper, type PaperAttempt, type PaperIndex, type PaperIndexEntry } from "@studysmart/shared";
@@ -60,7 +61,7 @@ export function PapersListPage() {
         <select aria-label="Class" value={f.cls} onChange={set("cls")}><option value="">{T(lang, "All classes", "எல்லா வகுப்புகள்")}</option>{[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => <option key={n} value={n}>{T(lang, "Class", "வகுப்பு")} {n}</option>)}</select>
         <select aria-label="Subject" value={f.subject} onChange={set("subject")}><option value="">{T(lang, "All subjects", "எல்லா பாடங்கள்")}</option>{subjects.map((x) => <option key={x}>{x}</option>)}</select>
         <select aria-label="Kind" value={f.kind} onChange={set("kind")}><option value="">{T(lang, "All kinds", "எல்லா வகை")}</option>{Object.entries(KIND_NAME).map(([k, v]) => <option key={k} value={k}>{v}</option>)}</select>
-        <input type="search" aria-label="Search" placeholder={T(lang, "Search title or chapter", "தேடுக")} value={f.q} onChange={set("q")} />
+        <VoiceSearchInput onVoice={q => setF(prev => ({ ...prev, q }))} aria-label="Search" placeholder={T(lang, "Search title or chapter", "தேடுக")} value={f.q} onChange={set("q")} />
       </div>}
       <p className="papers-count small" role="status">{rows.length} {T(lang, rows.length === 1 ? "paper" : "papers", "வினாத்தாள்கள்")}</p>
       {rows.length === 0 ? <div className="notice"><p>{all.length === 0 ? T(lang, "No papers yet. They appear here after the collector job runs.", "இன்னும் வினாத்தாள்கள் இல்லை.") : T(lang, "No papers match these filters.", "பொருந்தும் வினாத்தாள் இல்லை.")}</p></div> : (

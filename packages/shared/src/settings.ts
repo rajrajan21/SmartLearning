@@ -96,6 +96,7 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.search", "features", "Learning", "Search", true, { help: "Search box for chapters and topics." }),
   bool("search.header.show", "features", "Learning", "Search box in the top bar of every page", true, { dependsOn: "feature.search", help: "Lets students find any subject, chapter or topic from any page." }),
   bool("search.filter.show", "features", "Learning", "Filter box on subject, chapter and notebook lists", true, { dependsOn: "feature.search", help: "Type a word to narrow the list on the page you are on." }),
+  bool("search.voice.enabled", "features", "Learning", "Microphone in search fields", true, { help: "Uses speech recognition provided by the browser. Typed search remains available." }),
   bool("search.shortcut.enabled", "features", "Learning", "Press / to jump to the search box", true, { dependsOn: "feature.search" }),
   bool("feature.breadcrumbs", "features", "Learning", "Breadcrumb trail", true),
   bool("feature.chapterTopics", "features", "Learning", "Show topics and learning goals on chapter pages", true),

@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useEffect, useMemo, useState } from "react";
 
 interface Report {
@@ -57,7 +58,7 @@ export function VisualsAdmin() {
       )}
       {pending.length > 0 && <p className="small">{pending.length} pictures still show a labelled frame on the board until they are downloaded.</p>}
       <h3>Lessons with no topic animation or picture ({none.length})</h3>
-      <label className="small">Search <input type="search" value={q} onChange={(e) => setQ(e.target.value)} /></label>
+      <label className="small">Search <VoiceSearchInput onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} /></label>
       <ul className="small" style={{ maxHeight: 280, overflow: "auto" }}>{none.slice(0, 400).map((x) => <li key={x}>{x}</li>)}</ul>
       {rep.problems.length > 0 && <><h3>Could not build</h3><ul className="small">{rep.problems.map((x) => <li key={x}>{x}</li>)}</ul></>}
     </div>

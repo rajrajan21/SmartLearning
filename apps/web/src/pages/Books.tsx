@@ -1,3 +1,5 @@
+import { matches as matchSearch } from "../components/SearchBox";
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useActiveBoard } from "../lib/activeBoard";
 import { lazy, Suspense, useEffect, useRef, useState } from "react";
 import { Link, useParams, useSearch } from "wouter";
@@ -70,10 +72,10 @@ export function BooksPage() {
   const open = s.get<number[]>("catalog.openClasses");
   const available = books.filter((b) => open.includes(b.classLevel));
   const classes = [...new Set(available.map((b) => b.classLevel))].sort((a, b) => a - b);
-  const words = query.trim().toLowerCase().split(/\s+/).filter(Boolean);
+
   const selected = wanted || Number(classFilter);
   const shown = available.filter((b) => (!selected || b.classLevel === selected) &&
-    words.every((word) => [b.title, b.subject, b.language].join(" ").toLowerCase().includes(word)));
+    matchSearch(query, b.title, b.subject, b.language));
   const levels = [...new Set(shown.map((b) => b.classLevel))].sort((a, b) => a - b);
   const board = activeBoard.toLowerCase();
   return (
@@ -82,7 +84,7 @@ export function BooksPage() {
       <h1>{ui("textbooks", s.lang)}{wanted ? ` · ${ui("classWord", s.lang)} ${wanted}` : ""}</h1>
       <p className="lead">{ui("booksIntro", s.lang)}</p>
       {!wanted && <div className="book-catalog-filters">
-        <label>{s.lang === "ta" ? "பாடப்புத்தகங்களைத் தேடுங்கள்" : "Search textbooks"}<input type="search" value={query} onChange={(e) => setQuery(e.target.value)} /></label>
+        <label>{s.lang === "ta" ? "பாடப்புத்தகங்களைத் தேடுங்கள்" : "Search textbooks"}<VoiceSearchInput onVoice={setQuery} value={query} onChange={(e) => setQuery(e.target.value)} /></label>
         <label>{ui("classWord", s.lang)}<select value={classFilter} onChange={(e) => setClassFilter(e.target.value)}>
           <option value="">{s.lang === "ta" ? "அனைத்து வகுப்புகள்" : "All classes"}</option>
           {classes.map((n) => <option value={n} key={n}>{ui("classWord", s.lang)} {n}</option>)}

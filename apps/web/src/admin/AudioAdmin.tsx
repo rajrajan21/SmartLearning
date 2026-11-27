@@ -1,3 +1,4 @@
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { admin, type AudioCoverage, type AudioCoverageRow } from "./api";
 
@@ -49,7 +50,7 @@ export function AudioAdmin({ perPage = 50, defaultFilter = "all" }: { perPage?: 
         <select aria-label="Show" value={status} onChange={(e) => setStatus(e.target.value)}><option value="all">All</option><option value="none">No audio</option><option value="partial">Some audio</option><option value="complete">All audio</option></select>
         {classes.length > 0 && <select aria-label="Class" value={cls} onChange={(e) => setCls(e.target.value)}><option value="">All classes</option>{classes.map((c) => <option key={c} value={c}>Class {c}</option>)}</select>}
         {subjects.length > 0 && <select aria-label="Subject" value={subject} onChange={(e) => setSubject(e.target.value)}><option value="">All subjects</option>{subjects.map((s) => <option key={s}>{s}</option>)}</select>}
-        <input type="search" aria-label="Search" placeholder="Search name" value={q} onChange={(e) => setQ(e.target.value)} />
+        <VoiceSearchInput aria-label="Search" placeholder="Search name" onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} />
         <button type="button" className="btn ghost sm" onClick={() => download()}>Download this list (CSV)</button>
         <button type="button" className="btn ghost sm" onClick={() => download(true)}>Download everything (CSV)</button>
       </div>

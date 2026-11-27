@@ -1,3 +1,4 @@
+import { normalizeSearch, searchCost } from "@studysmart/shared";
 import {
   BoardCurriculum, CoverageReport, SearchHit, TopicDetail, YearDiff,
   type LocalizedText, type TopicRef,
@@ -76,17 +77,18 @@ export function topicDetail(g: Graph, classLevel: number, subjectSlug: string, c
   });
 }
 
-const norm = (s: string) => s.toLocaleLowerCase("en").normalize("NFC");
+
 
 export function search(g: Graph, query: string, limit = 20): SearchHit[] {
-  const tokens = norm(query).split(/\s+/).filter(Boolean);
+  const tokens = normalizeSearch(query).split(" ").filter(Boolean);
   if (tokens.length === 0) return [];
   const hits: { hit: SearchHit; score: number }[] = [];
   const consider = (name: LocalizedText, make: () => SearchHit) => {
-    const hay = norm(`${name.en} ${name.ta ?? ""}`);
-    if (!tokens.every((t) => hay.includes(t))) return;
-    const starts = norm(name.en).startsWith(tokens[0]!) || norm(name.ta ?? "").startsWith(tokens[0]!);
-    hits.push({ hit: make(), score: starts ? 0 : 1 });
+    const hay = normalizeSearch(`${name.en} ${name.ta ?? ""}`);
+    const cost = searchCost(tokens, hay);
+    if (!Number.isFinite(cost)) return;
+    const starts = normalizeSearch(name.en).startsWith(tokens[0]!) || normalizeSearch(name.ta ?? "").startsWith(tokens[0]!);
+    hits.push({ hit: make(), score: cost * 2 + (starts ? 0 : 1) });
   };
   for (const s of g.subjects) {
     consider(s.name, () => SearchHit.parse({ kind: "subject", classLevel: s.classLevel, subjectSlug: s.slug, name: s.name, context: `Class ${s.classLevel}` }));

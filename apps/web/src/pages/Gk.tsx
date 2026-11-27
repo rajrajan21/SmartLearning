@@ -1,3 +1,5 @@
+import { matches as matchSearch } from "../components/SearchBox";
+import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { PuzzleOfDay } from "../components/PuzzleOfDay";
 import { ProjectOfWeek } from "../components/ProjectOfWeek";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -167,7 +169,7 @@ export function GkPage() {
   const lang = s.lang;
   const filtered = useMemo(() => {
     const n = q.trim().toLowerCase();
-    const f = all.filter((i) => (!age || i.age === age) && (kind === "all" || i.kind === kind) && (!cat || i.category === cat) && (!n || `${i.title} ${i.summary} ${i.tags.join(" ")}`.toLowerCase().includes(n)));
+    const f = all.filter((i) => (!age || i.age === age) && (kind === "all" || i.kind === kind) && (!cat || i.category === cat) && matchSearch(n, i.title, i.summary, i.tags.join(" ")));
     return sortItems(f, String(s.get("gk.sort")));
   }, [all, age, kind, cat, q, s]);
 
@@ -199,7 +201,7 @@ export function GkPage() {
       <GkTodayCards />
       <ProjectOfWeek />
       <div className="gk-filters noprint">
-        {s.get("gk.showSearch") === true && <input type="search" className="gk-search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={gt("search", lang)} aria-label={gt("search", lang)} />}
+        {s.get("gk.showSearch") === true && <VoiceSearchInput className="gk-search" onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} placeholder={gt("search", lang)} aria-label={gt("search", lang)} />}
         {s.get("gk.showAgeFilter") === true && (
           <div className="gk-chips" role="group" aria-label={gt("age", lang)}>
             <button type="button" className={`chip${age === "" ? " on" : ""}`} aria-pressed={age === ""} onClick={() => chooseAge("")}>{gt("anyAge", lang)}</button>

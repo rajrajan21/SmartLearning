@@ -17,3 +17,4 @@ export { mixHex, fitColor, readableOn } from "./color.js";
 export * from "./papers.js";
 export * from "./gk.js";
 export { SOCIAL_DEFAULT_FB_CAPTION, SOCIAL_DEFAULT_IG_CAPTION } from "./social-settings.js";
+export * from "./search-normalize.js";

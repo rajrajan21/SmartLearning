@@ -1,3 +1,5 @@
+import { normalizeSearch, searchCost, type SearchHit } from "@studysmart/shared";
+import { VoiceSearchInput } from "./VoiceSearchInput";
 import { useEffect, useId, useRef, useState } from "react";
 import { Link, useLocation } from "wouter";
 import { useSettings } from "../lib/settings";
@@ -23,12 +25,22 @@ export function SearchBox({ board, compact }: { board: string; compact?: boolean
     window.addEventListener("keydown", on);
     return () => window.removeEventListener("keydown", on);
   }, [shortcut]);
+  const chooseVoice = async (alternatives: string[], signal: AbortSignal) => {
+    const ranked = await Promise.all([...new Set(alternatives)].slice(0, 3).map(async text => {
+      const r = await fetch(`/api/v1/curriculum/boards/${board}/search?q=${encodeURIComponent(text)}&limit=5`, { signal });
+      if (!r.ok) return { text, cost: Infinity };
+      const { hits } = await r.json() as { hits: SearchHit[] };
+      const tokens = normalizeSearch(text).split(" ").filter(Boolean);
+      return { text, cost: Math.min(...hits.map(hit => searchCost(tokens, normalizeSearch(`${hit.name.en} ${hit.name.ta ?? ""}`)))) };
+    }));
+    return ranked.sort((a, b) => a.cost - b.cost)[0]?.text ?? alternatives[0]!;
+  };
   if (!s.get("feature.search")) return null;
   const searching = q.trim().length >= s.get<number>("site.search.minChars");
   return (
     <div className={`search${compact ? " compact" : ""}`} role="search">
       <label htmlFor={id} className="sr">{ui("search", s.lang)}</label>
-      <input ref={ref} id={id} type="search" value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") setQ(""); }} placeholder={ui("search", s.lang)} autoComplete="off" />
+      <VoiceSearchInput ref={ref} id={id} chooseVoice={chooseVoice} onVoice={setQ} value={q} onChange={(e) => setQ(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") setQ(""); }} placeholder={ui("search", s.lang)} autoComplete="off" />
       {searching && (
         <ul className="hits" aria-live="polite">
           {hits.map((h, i) => {
@@ -51,15 +63,14 @@ export function FilterBox({ value, onChange, label }: { value: string; onChange:
   return (
     <div className="filter" role="search">
       <label htmlFor={id} className="sr">{text}</label>
-      <input id={id} type="search" value={value} onChange={(e) => onChange(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") onChange(""); }} placeholder={text} autoComplete="off" />
+      <VoiceSearchInput id={id} onVoice={onChange} value={value} onChange={(e) => onChange(e.target.value)} onKeyDown={(e) => { if (e.key === "Escape") onChange(""); }} placeholder={text} autoComplete="off" />
     </div>
   );
 }
 
 /** True when every word typed appears in the text. */
 export function matches(q: string, ...texts: (string | undefined)[]): boolean {
-  const words = q.toLocaleLowerCase("en").split(/\s+/).filter(Boolean);
+  const words = normalizeSearch(q).split(" ").filter(Boolean);
   if (words.length === 0) return true;
-  const hay = texts.filter(Boolean).join(" ").toLocaleLowerCase("en");
-  return words.every((w) => hay.includes(w));
+  return Number.isFinite(searchCost(words, normalizeSearch(texts.filter(Boolean).join(" "))));
 }
