@@ -19,6 +19,7 @@ export interface Candidate {
   points: string[];
   /** the classroom board (picture/animation) exists for this lesson */
   hasBoard: boolean;
+  boardFile?: string;
   /** site path of the lesson page */
   path: string;
 }
@@ -36,6 +37,9 @@ export interface LedgerEntry {
   createdAt: string;
   postedAt?: string;
   remoteId?: string;
+  /** Set before handing off publication. An uncertain result stays reserved across retries and restarts. */
+  deliveryPending?: boolean;
+  deliveryStartedAt?: string;
   remoteUrl?: string;
   caption: string;
   alt: string;
@@ -61,5 +65,5 @@ export interface SocialState {
   consecutiveFailures: number;
   pausedReason?: string;
 }
-export interface SocialSecrets { fbPageId?: string; fbPageToken?: string; igUserId?: string; appId?: string; appSecret?: string }
+export interface SocialSecrets { fbPageId?: string; fbPageToken?: string; igUserId?: string; igToken?: string; appId?: string; appSecret?: string }
 export type SettingsMap = Record<string, unknown>;

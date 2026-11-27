@@ -30,6 +30,7 @@ describe("social: everything is off by default", () => {
     expect(v["social.enabled"]).toBe(false); expect(v["social.approved"]).toBe(false); expect(v["social.dryRunOnly"]).toBe(true);
     expect(v["social.fb.enabled"]).toBe(false); expect(v["social.ig.enabled"]).toBe(false); expect(v["social.killswitch"]).toBe(false);
     expect(v["social.runsPerDay"]).toBe(4); expect(v["social.postsPerRun"]).toBe(5);
+    expect(v["social.fb.format"]).toBe("reel"); expect(v["social.maxPostsPerDay"]).toBe(20);
   });
 });
 
@@ -79,7 +80,7 @@ describe("social: lessons, rotation and the never-posted ledger", () => {
     const r2 = pickLessons({ candidates: [c], ledger: [{ ...base, rid: "3", status: "posted", postedAt: new Date().toISOString() }], state: empty(), settings: defaults(), count: 1, platforms: [] });
     expect(r2.picks.length).toBe(0); expect(r2.exhausted).toBe(true);
     const r3 = pickLessons({ candidates: [c], ledger: [{ ...base, rid: "3", status: "posted", postedAt: "2020-01-01T00:00:00Z" }], state: empty(), settings: { ...defaults(), "social.recycle.enabled": true, "social.recycle.afterDays": 30 }, count: 1, platforms: [] });
-    expect(r3.picks.length).toBe(1);
+    expect(r3.picks.length).toBe(0);
   });
   it("applies include / exclude filters", () => {
     const c = cands.find((x) => x.cls === 5)!;
@@ -107,18 +108,18 @@ describe("social: captions are safe", () => {
   });
   it("keeps the link and hashtags when the caption is too long", () => {
     const cap = buildCaption(c, { ...defaults(), "social.caption.maxLength": 260 }, "facebook", "https://sharpstudy.in");
-    expect(cap.length).toBeLessThanOrEqual(300); expect(cap).toContain("https://sharpstudy.in/"); expect(cap).toContain("#");
+    expect(cap.length).toBeLessThanOrEqual(260); expect(cap).toContain("https://sharpstudy.in/"); expect(cap).toContain("#");
   });
 });
 
 describe("social: pictures and reels are drawn locally", () => {
   const cands = loadCandidates(dirs, defaults());
-  const withBoard = cands.find((c) => c.id === "cbse-3-evs-water-a-precious-gift-saving-water") ?? cands.find((c) => c.hasBoard)!;
+  const withBoard = cands.find((c) => c.id === "cbse-6-science-a-journey-through-states-of-water-the-water-cycle") ?? cands.find((c) => c.hasBoard)!;
   const plain = cands.find((c) => !c.hasBoard && c.cls === 5)!;
   let tmp: string; beforeEach(() => { tmp = mkdtempSync(join(tmpdir(), "social-")); }); afterEach(() => rmSync(tmp, { recursive: true, force: true }));
   const keep = (name: string, buf: Buffer | string) => { if (!out) return; mkdirSync(out, { recursive: true }); typeof buf === "string" ? copyFileSync(buf, join(out, name)) : writeFileSync(join(out, name), buf); };
   it("draws a classroom picture and a lesson card as JPEG in the chosen size", () => {
-    const board = loadBoard(dirs.classroomDir, withBoard.id)!; expect(board).not.toBeNull();
+    const board = loadBoard(dirs.classroomDir, withBoard.boardFile!)!; expect(board).not.toBeNull();
     const a = renderImage({ cand: withBoard, board, settings: defaults(), siteUrl: "https://sharpstudy.in" });
     const b = renderImage({ cand: plain, board: null, settings: defaults(), siteUrl: "https://sharpstudy.in" });
     for (const x of [a, b]) { expect(x[0]).toBe(0xff); expect(x[1]).toBe(0xd8); expect(x.length).toBeGreaterThan(20000); expect(x.length).toBeLessThan(600000); }
@@ -127,16 +128,28 @@ describe("social: pictures and reels are drawn locally", () => {
   });
   it("builds a 9:16 reel (silent when there is no audio) that is small", async () => {
     if (!(await ffmpegAvailable())) return;
-    const board = loadBoard(dirs.classroomDir, withBoard.id)!;
+    const board = loadBoard(dirs.classroomDir, withBoard.boardFile!)!;
     for (const [name, cand, b] of [["reel-board.mp4", withBoard, board], ["reel-card.mp4", plain, null]] as const) {
       const outFile = join(tmp, name);
-      const r = await renderReel({ cand, board: b, settings: { ...defaults(), "social.reel.seconds": 20 }, siteUrl: "https://sharpstudy.in", out: outFile, audioFiles: [], audioMs: 0 });
+      const r = await renderReel({ cand, board: b, settings: { ...defaults(), "social.reel.seconds": 20 }, siteUrl: "https://sharpstudy.in", out: outFile });
       expect(r.error).toBeUndefined(); expect(r.ok).toBe(true); expect(r.hasAudio).toBe(false);
       expect(statSync(outFile).size).toBeGreaterThan(10000); expect(statSync(outFile).size).toBeLessThan(12 * 1024 * 1024);
-      const pr = spawnSync("ffprobe", ["-v", "error", "-show_entries", "stream=width,height,codec_name,duration", "-of", "csv=p=0", outFile], { encoding: "utf8" });
-      if (pr.status === 0) { expect(pr.stdout).toContain("1080,1920"); expect(pr.stdout).toContain("h264"); }
+      const pr = spawnSync("ffprobe", ["-v", "error", "-show_entries", "stream=width,height,codec_name,duration,r_frame_rate,sample_rate,channels", "-of", "csv=p=0", outFile], { encoding: "utf8" });
+      if (pr.status === 0) { expect(pr.stdout).toContain("1080,1920"); expect(pr.stdout).toContain("h264"); expect(pr.stdout).toContain("30/1"); expect(pr.stdout).toContain("48000"); }
       keep(name, outFile);
     }
+  }, 120000);
+  it("keeps matching recordings on their own slides and preserves the full reel duration", async () => {
+    if (!(await ffmpegAvailable())) return;
+    const tone = join(tmp, "voice-fixture.wav");
+    expect(spawnSync("ffmpeg", ["-v", "error", "-f", "lavfi", "-i", "sine=frequency=440:duration=1", tone]).status).toBe(0);
+    const outFile = join(tmp, "voiced.mp4");
+    const result = await renderReel({
+      cand: withBoard, board: loadBoard(dirs.classroomDir, withBoard.boardFile!),
+      settings: { ...defaults(), "social.reel.seconds": 12 }, siteUrl: "https://sharpstudy.in",
+      out: outFile, audio: () => ({ file: tone, ms: 1000 }),
+    });
+    expect(result, result.error).toMatchObject({ ok: true, seconds: 12, hasAudio: true });
   }, 120000);
 });
 
@@ -144,20 +157,32 @@ describe("social: pictures and reels are drawn locally", () => {
 function setup(over: Record<string, unknown> = {}, withKeys = true) {
   const dir = mkdtempSync(join(tmpdir(), "social-svc-")); const store: SocialStore = createSocialStore(dir);
   if (withKeys) store.saveSecrets({ fbPageId: "123456789", fbPageToken: "TOKEN-SECRET-VALUE-xyz", igUserId: "987654321", appSecret: "APP-SECRET-VALUE" });
-  const calls: { url: string; method: string; auth: string | null }[] = []; let failAll = false;
+  const calls: { url: string; method: string; auth: string | null; phase?: string }[] = [];
+  let failAll = false, uncertain = false;
   const fetchImpl = (async (url: string, init: RequestInit) => {
-    calls.push({ url: String(url), method: String(init.method), auth: new Headers(init.headers).get("authorization") });
+    const phase = init.body instanceof URLSearchParams ? init.body.get("upload_phase") ?? undefined : undefined;
+    calls.push({ url: String(url), method: String(init.method), auth: new Headers(init.headers).get("authorization"), phase });
     if (failAll) return new Response(JSON.stringify({ error: { message: "Invalid OAuth access token TOKEN-SECRET-VALUE-xyz", code: 190 } }), { status: 400 });
     const u = String(url);
+    if (u.includes("/video_reels")) {
+      if (phase === "start") return Response.json({ video_id: "12342", upload_url: "https://rupload.facebook.com/video-upload/v27.0/12342" });
+      if (uncertain) throw new Error("Connection closed after Meta received the request");
+      return Response.json({ success: true });
+    }
+    if (u.startsWith("https://rupload.facebook.com/")) return Response.json({ success: true });
     if (u.includes("/photos")) return new Response(JSON.stringify({ id: "11", post_id: "123_" + calls.length }));
     if (u.includes("/media_publish")) return new Response(JSON.stringify({ id: "ig-m" + calls.length }));
     if (u.includes("/media?") || u.endsWith("/media")) return new Response(JSON.stringify({ id: "container" + calls.length }));
     if (u.includes("status_code")) return new Response(JSON.stringify({ status_code: "FINISHED" }));
     return new Response(JSON.stringify({ permalink: "https://www.instagram.com/reel/abc/", name: "SharpStudy", username: "sharpstudy" }));
   }) as unknown as typeof fetch;
-  const settings = { ...defaults(), "social.enabled": true, "social.minSecondsBetweenPosts": 10, ...over };
-  const svc = createSocialService({ store, dirs, settings: async () => settings, fetchImpl, sleep: async () => undefined });
-  return { dir, store, svc, calls, settings, fail: () => { failAll = true; } };
+  const settings = { ...defaults(), "social.enabled": true, "social.minSecondsBetweenPosts": 10, "social.fb.format": "photo", ...over };
+  const svc = createSocialService({ store, dirs, settings: async () => settings, fetchImpl, sleep: async () => undefined, renderVideo: async ({ out }) => {
+    writeFileSync(out, "fixture video", "utf8");
+    return { ok: true, seconds: 30, bytes: 13, hasAudio: false };
+  } });
+
+  return { dir, store, svc, calls, settings, fail: () => { failAll = true; }, timeoutOnPublish: () => { uncertain = true; } };
 }
 
 describe("social service: nothing is published unless every gate is open", () => {
@@ -167,7 +192,7 @@ describe("social service: nothing is published unless every gate is open", () =>
     const r = await t.svc.run({ live: true }); expect(r.planned).toBe(0); expect(t.calls.length).toBe(0);
   });
   it("preview only (default): builds the posts, publishes nothing, even if asked to go live", async () => {
-    const t = setup(); dirsToClean.push(t.dir);
+    const t = setup({ "social.fb.enabled": true }); dirsToClean.push(t.dir);
     const r = await t.svc.run({ live: true }); expect(r.mode).toBe("preview"); expect(r.planned).toBeGreaterThan(0); expect(t.calls.length).toBe(0);
     const h = t.svc.history(50); expect(h.length).toBeGreaterThan(0); expect(h.every((e) => e.status === "preview" || e.status === "held")).toBe(true);
     const fb = h.filter((e) => e.platform === "facebook"); expect(fb.length).toBe(5); expect(fb.every((e) => e.status === "preview" && e.image && existsSync(t.store.mediaPath(e.image!)) && e.alt && e.caption.includes("sharpstudy.in"))).toBe(true);
@@ -204,14 +229,47 @@ describe("social service: live posting with a pretend Meta", () => {
     const r2 = await t.svc.run({ live: true }); expect(r2.posted).toBe(5);
     const all = t.svc.history(50, "posted"); expect(new Set(all.map((e) => e.lessonId)).size).toBe(10);
     const files = readdirSync(t.dir).filter((f) => f.endsWith(".json")); for (const f of files) { const txt = readFileSync(join(t.dir, f), "utf8"); if (f !== "secrets.json") { expect(txt).not.toContain("TOKEN-SECRET"); expect(txt).not.toContain("APP-SECRET"); } }
-    expect(statSync(join(t.dir, "secrets.json")).mode & 0o077).toBe(0);
+    if (process.platform !== "win32") expect(statSync(join(t.dir, "secrets.json")).mode & 0o077).toBe(0);
+  });
+  it("alternates platforms across a five-lesson reel batch and uses a separate Instagram token", async () => {
+    const t = setup({ ...live, "social.fb.format": "reel", "social.ig.enabled": true }); dirsToClean.push(t.dir);
+    t.store.saveSecrets({ igToken: "IG-TEST-TOKEN", fbPageToken: "FB-TEST-TOKEN" });
+    const run = await t.svc.run({ live: true });
+    expect(run).toMatchObject({ posted: 5, planned: 5 });
+    const entries = t.svc.byRun(run.id);
+    expect(entries.map((e) => e.platform)).toEqual(["facebook", "instagram", "facebook", "instagram", "facebook"]);
+    expect(new Set(entries.map((e) => e.lessonId)).size).toBe(5);
+    expect(new Set(entries.map((e) => e.cls)).size).toBe(5);
+    expect(new Set(entries.map((e) => e.subject)).size).toBe(5);
+    expect(t.calls.filter((c) => c.phase === "finish")).toHaveLength(3);
+    expect(t.calls.filter((c) => c.url.startsWith("https://rupload.facebook.com/")).every((c) => c.auth === "OAuth FB-TEST-TOKEN")).toBe(true);
+    expect(t.calls.filter((c) => c.url.includes("/987654321/")).every((c) => c.auth === "Bearer IG-TEST-TOKEN")).toBe(true);
+  });
+  it("holds uncertain deliveries across restarts, failed-post cleanup and retries", async () => {
+    const t = setup({ ...live, "social.fb.format": "reel", "social.postsPerRun": 1 }); dirsToClean.push(t.dir);
+    t.timeoutOnPublish();
+    const first = await t.svc.run({ live: true });
+    expect(first.held).toBe(1);
+    const held = t.svc.byRun(first.id)[0]!;
+    expect(held).toMatchObject({ status: "held", deliveryPending: true, remoteId: "12342" });
+    t.svc.resetLedger("failed");
+    await expect(t.svc.retry(held.rid)).rejects.toThrow("unconfirmed delivery");
+    const again = await t.svc.run({ live: true });
+    expect(t.svc.byRun(again.id)[0]!.lessonId).not.toBe(held.lessonId);
+  });
+  it("uses the existing water-cycle board in a targeted preview with publishing off", async () => {
+    const t = setup({ "social.enabled": false }, false); dirsToClean.push(t.dir);
+    const lessonId = "cbse-6-science-a-journey-through-states-of-water-the-water-cycle";
+    const run = await t.svc.run({ live: false, lessonId });
+    expect(t.svc.byRun(run.id)).toMatchObject([{ lessonId, status: "preview" }]);
+    expect(t.calls).toHaveLength(0);
   });
   it("respects the daily limit and the posts-per-run setting", async () => {
     const t = setup({ ...live, "social.postsPerRun": 3, "social.maxPostsPerDay": 4 }); dirsToClean.push(t.dir);
     expect((await t.svc.run({ live: true })).posted).toBe(3); expect((await t.svc.run({ live: true })).posted).toBe(1); expect((await t.svc.run({ live: true })).posted).toBe(0);
   });
   it("Instagram needs the public address and a voice-over: otherwise the reel is held ('needs audio'), nothing is posted", async () => {
-    const t = setup({ ...live, "social.fb.enabled": false, "social.ig.enabled": true, "social.postsPerRun": 2 }); dirsToClean.push(t.dir);
+    const t = setup({ ...live, "social.fb.enabled": false, "social.ig.enabled": true, "social.reel.requireAudio": true, "social.postsPerRun": 2 }); dirsToClean.push(t.dir);
     const r = await t.svc.run({ live: true }); expect(r.posted).toBe(0);
     const h = t.svc.history(10); expect(h.length).toBe(2); expect(h.every((e) => e.status === "held" && (e.needsAudio === true || !!e.hold))).toBe(true);
     if (h[0]!.video) expect(h[0]!.hold).toContain("Needs audio");
@@ -237,16 +295,23 @@ describe("social service: live posting with a pretend Meta", () => {
   it("auto runs only when a time slot is due, once per slot", async () => {
     const dir = mkdtempSync(join(tmpdir(), "social-svc-")); dirsToClean.push(dir); const store = createSocialStore(dir);
     const settings = { ...defaults(), "social.enabled": true, "social.runTimes": "08:00", "social.jitterMinutes": 0 };
-    let nowMs = Date.UTC(2026, 10, 20, 8, 5) - 5.5 * 3600000 - 3 * 3600000 * 0; const svc = createSocialService({ store, dirs, settings: async () => settings, now: () => nowMs, sleep: async () => undefined });
+    let nowMs = Date.UTC(2026, 10, 20, 8, 5) - 5.5 * 3600000 - 3 * 3600000 * 0; const svc = createSocialService({ store, dirs, settings: async () => settings, now: () => nowMs, sleep: async () => undefined, renderVideo: async ({ out }) => {
+      writeFileSync(out, "video fixture"); return { ok: true, seconds: 30, bytes: 13, hasAudio: false };
+    } });
     nowMs = Date.UTC(2026, 10, 20, 2, 0); // 07:30 IST: not due
     expect((await svc.run({ auto: true })).note).toBe("No run is due now.");
     nowMs = Date.UTC(2026, 10, 20, 2, 45); // 08:15 IST: due
     const r = await svc.run({ auto: true }); expect(r.slot).toBe("2026-11-20@08:00"); expect(r.planned).toBeGreaterThan(0);
     expect((await svc.run({ auto: true })).note).toBe("No run is due now.");
   });
-  it("reset: previews / failed / all", async () => {
-    const t = setup(); dirsToClean.push(t.dir); await t.svc.run({ live: false });
-    expect(t.svc.resetLedger("previews")).toBeGreaterThan(0); expect(t.svc.history(100).filter((e) => e.status === "preview").length).toBe(0); t.svc.resetLedger("failed"); expect(t.svc.history(100).filter((e) => e.status === "failed" || e.status === "held").length).toBe(0); t.svc.resetLedger("all"); expect(t.svc.history(100).length).toBe(0);
+  it("clears drafts without purging previously published lessons", async () => {
+    const t = setup(live); dirsToClean.push(t.dir);
+    await t.svc.run({ live: true });
+    await t.svc.run({ live: false });
+    expect(t.svc.resetLedger("previews")).toBeGreaterThan(0);
+    expect(t.svc.history(100, "preview")).toHaveLength(0);
+    t.svc.resetLedger("failed");
+    expect(t.svc.history(100, "posted")).toHaveLength(5);
   });
 });
 

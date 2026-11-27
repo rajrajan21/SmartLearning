@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import { adminKey, adminUser } from "./api";
 
 interface Gate { id: string; label: string; open: boolean; why: string }
-interface Entry { rid: string; lessonId: string; platform: string; status: string; board: string; cls: number; subject: string; title: string; createdAt: string; postedAt?: string; remoteUrl?: string; caption: string; alt: string; needsAudio?: boolean; hold?: string; error?: string; attempts: number }
+interface Entry { rid: string; lessonId: string; platform: string; status: string; board: string; cls: number; subject: string; title: string; createdAt: string; postedAt?: string; remoteId?: string; remoteUrl?: string; image?: string; video?: string; deliveryPending?: boolean; caption: string; alt: string; needsAudio?: boolean; hold?: string; error?: string; attempts: number }
 interface Status {
   gates: Gate[]; liveReady: boolean; times: string[]; today: { date: string; posted: number; slotsDone: string[] }; paused: string | null;
   lessons: { total: number; withBoard: number; posted: number; left: number }; secrets: Record<string, boolean>; ffmpeg: boolean;
@@ -24,6 +24,7 @@ async function call<T>(method: string, path: string, body?: unknown): Promise<T>
 const FIELDS: { key: string; label: string; secret: boolean; hint: string }[] = [
   { key: "fbPageId", label: "Facebook Page id", secret: false, hint: "Digits only. Page > About > Page transparency, or the Page's 'Page ID' in Meta Business Suite." },
   { key: "fbPageToken", label: "Facebook Page access token (long-lived)", secret: true, hint: "Never shown again after you save it." },
+  { key: "igToken", label: "Instagram publishing token (optional)", secret: true, hint: "Supply a Graph API token for the linked professional account. Leave this blank to use the Facebook Page token." },
   { key: "igUserId", label: "Instagram Business account id", secret: false, hint: "Digits only. Comes from the Graph API Explorer (step 6 below)." },
   { key: "appId", label: "Meta app id", secret: false, hint: "Digits only. From the app's Settings > Basic page." },
   { key: "appSecret", label: "Meta app secret", secret: true, hint: "Never shown again after you save it." },
@@ -41,10 +42,10 @@ function Gates({ s }: { s: Status }) {
 
 const HELP = [
   "Open developers.facebook.com, log in with the Facebook account that owns the SharpStudy Page, and choose My Apps > Create App. Pick the 'Business' type and name it SharpStudy Posting.",
-  "In the app, add the product 'Facebook Login for Business' (or 'Facebook Login') and keep the app in Development mode. You are an admin of the app, so you do not need app review to post to your own Page.",
+  "In the app, add the product 'Facebook Login for Business' (or 'Facebook Login') and keep the app in Development mode. Use an account with the required app and Page roles for testing. Check the app dashboard for any permission or App Review requirements before enabling live posting.",
   "Make sure the Instagram account is a Business or Creator account (Instagram app > Settings > Account type), and link it to the Facebook Page (Page > Settings > Linked accounts > Instagram).",
   "Open the Graph API Explorer (developers.facebook.com/tools/explorer). Choose your app, then 'Get User Access Token' and tick: pages_show_list, pages_read_engagement, pages_manage_posts, instagram_basic, instagram_content_publish, business_management. Generate it.",
-  "Make the token long-lived: in the Access Token Debugger press 'Extend Access Token' (or exchange it with the app id and secret). Then call GET /me/accounts: the answer lists your Page with its id and a Page access token. Use that Page token here (a Page token made from a long-lived user token does not expire).",
+  "Make the token long-lived: in the Access Token Debugger press 'Extend Access Token' (or exchange it with the app id and secret). Then call GET /me/accounts: the answer lists your Page with its id and a Page access token. Use that Page token here and verify its scopes and expiry before enabling posting.",
   "Call GET /{page-id}?fields=instagram_business_account: the 'id' inside is your Instagram Business account id.",
   "Paste the Facebook Page id, Page access token, Instagram id, app id and app secret in the boxes above and press Save. Then press 'Test connection'. Both should say connected.",
   "Instagram downloads each reel from the public address of this website, so the website must be reachable on the internet over https (the live server, not your PC). Check 'Public address of this website' above.",
@@ -56,6 +57,7 @@ export function SocialAdmin({ mode }: { mode: "gates" | "accounts" | "queue" }) 
   const [s, setS] = useState<Status | null>(null);
   const [hist, setHist] = useState<Entry[]>([]);
   const [filter, setFilter] = useState("");
+  const [previewLesson, setPreviewLesson] = useState("");
   const [err, setErr] = useState(""); const [msg, setMsg] = useState("");
   const [vals, setVals] = useState<Record<string, string>>({});
   const [busy, setBusy] = useState(false);
@@ -64,7 +66,7 @@ export function SocialAdmin({ mode }: { mode: "gates" | "accounts" | "queue" }) 
     if (mode === "queue") call<{ entries: Entry[] }>("GET", `/history?limit=200${filter ? `&status=${filter}` : ""}`).then((x) => setHist(x.entries), () => undefined);
   }, [mode, filter]);
   useEffect(load, [load]);
-  const act = async (fn: () => Promise<unknown>, ok: string) => { setBusy(true); setMsg(""); setErr(""); try { await fn(); setMsg(ok); load(); } catch (e) { setErr((e as Error).message); } finally { setBusy(false); } };
+  const act = async (fn: () => Promise<unknown>, ok: string) => { setBusy(true); setMsg(""); setErr(""); try { await fn(); if (ok) setMsg(ok); load(); } catch (e) { setErr((e as Error).message); } finally { setBusy(false); } };
   if (err && !s) return <p className="error" role="alert">{err}</p>;
   if (!s) return <p className="loading">Loading…</p>;
   return (
@@ -81,7 +83,7 @@ export function SocialAdmin({ mode }: { mode: "gates" | "accounts" | "queue" }) 
       {mode === "accounts" && (
         <>
           <h3>Account ids and keys</h3>
-          <p className="small">They are saved on the server only, never shown again, never logged and never put in git. Fill only the boxes you want to change; saving an empty box removes that value.</p>
+          <p className="small">They are saved on the server only, never shown again, never logged and never put in git. Fill only the boxes you want to change. Blank fields keep existing values.</p>
           {FIELDS.map((f) => (
             <p key={f.key}>
               <label>{f.label}{" "}
@@ -104,7 +106,11 @@ export function SocialAdmin({ mode }: { mode: "gates" | "accounts" | "queue" }) 
           <Gates s={s} />
           <p>Posts on record: {Object.entries(s.counts).map(([k, v]) => `${k} ${v}`).join(" · ") || "none yet"}.</p>
           <p className="actions">
-            <button type="button" className="btn" disabled={busy} onClick={() => void act(() => call("POST", "/preview"), "Preview built. Nothing was published.")}>Build a preview (never posts)</button>{" "}
+            <label>Specific lesson ID (optional) <input value={previewLesson} onChange={(event) => setPreviewLesson(event.target.value)} placeholder="For example, gk-why-moon-changes-shape" /></label>{" "}
+            <button type="button" className="btn" disabled={busy} onClick={() => void act(async () => {
+              const result = await call<{ run: { note?: string; planned: number } }>("POST", "/preview", { lessonId: previewLesson.trim() || undefined });
+              setMsg(result.run.note || `Built ${result.run.planned} previews.`);
+            }, "")}>Build a preview</button>{" "}
             <button type="button" className="btn" disabled={busy || !s.liveReady} title={s.liveReady ? "" : "Open every safety gate first"} onClick={() => { if (window.confirm("Run now for real? This publishes posts to your Facebook Page / Instagram.")) void act(() => call("POST", "/run", { live: true }), "Run finished."); }}>Run now (live)</button>{" "}
             <label>Show <select value={filter} onChange={(e) => setFilter(e.target.value)}><option value="">all</option><option value="preview">previews</option><option value="posted">posted</option><option value="failed">failed</option><option value="held">held back</option></select></label>
           </p>
@@ -115,17 +121,21 @@ export function SocialAdmin({ mode }: { mode: "gates" | "accounts" | "queue" }) 
               <tbody>{hist.map((e) => (
                 <tr key={e.rid}>
                   <td>{new Date(e.postedAt ?? e.createdAt).toLocaleString()}</td><td>{e.platform}</td>
-                  <td>{e.board.toUpperCase()} · Class {e.cls} · {e.subject}<br />{e.title}</td>
-                  <td>{e.status}{e.needsAudio ? " (needs audio)" : ""}{e.attempts > 1 ? ` · ${e.attempts} tries` : ""}</td>
-                  <td><details><summary>{e.error ?? e.hold ?? "caption"}</summary><pre className="small">{e.caption}</pre><p className="small">Alt text: {e.alt}</p>{e.remoteUrl && <p className="small">{e.remoteUrl}</p>}</details></td>
-                  <td>{(e.status === "failed" || e.status === "held") && <button type="button" className="btn" disabled={busy} onClick={() => void act(() => call("POST", `/retry/${e.rid}`), "Retry done.")}>Retry</button>}</td>
+                  <td>{e.board.toUpperCase()} · Class {e.cls} · {e.subject}<br />{e.title}<br /><small>{e.lessonId}</small></td>
+                  <td>{e.deliveryPending ? "Delivery unconfirmed" : e.status}{e.needsAudio ? " · captions only" : ""}{e.attempts > 1 ? ` · ${e.attempts} tries` : ""}</td>
+                  <td><details><summary>{e.error ?? e.hold ?? "caption"}</summary><pre className="small">{e.caption}</pre><p className="small">Alt text: {e.alt}</p>{e.remoteUrl && <p><a href={e.remoteUrl} target="_blank" rel="noreferrer">View on {e.platform}</a></p>}
+                    {e.deliveryPending && e.remoteId && <p>Meta reference {e.remoteId}</p>}
+                    {e.video && e.status !== "posted" && <video controls preload="none" src={`/social-media/${e.video}`} width={180} aria-label={`Video preview for ${e.title}`} />}
+                    {e.image && e.status !== "posted" && <img src={`/social-media/${e.image}`} alt={e.alt} width={180} loading="lazy" />}
+                    </details></td>
+                  <td>{!e.deliveryPending && (e.status === "failed" || e.status === "held") && <button type="button" className="btn" disabled={busy} onClick={() => void act(() => call("POST", `/retry/${e.rid}`), "Retry done.")}>Retry</button>}</td>
                 </tr>
               ))}</tbody></table>
           )}
-          <h3>Reset the record</h3>
-          <p className="small">The record is what keeps every lesson from being posted twice. Removing previews or failed posts is safe. 'Everything' lets already-posted lessons be posted again.</p>
+          <h3>Clear drafts and failed posts</h3>
+          <p className="small">Published lessons and unconfirmed deliveries stay in the history to prevent duplicates.</p>
           <p className="actions">
-            {(["previews", "failed", "all"] as const).map((sc) => <span key={sc}><button type="button" className="btn" disabled={busy} onClick={() => { if (window.confirm(sc === "all" ? "Forget EVERYTHING that was posted? Lessons may then be posted again." : `Remove all ${sc}?`)) void act(async () => { const r = await call<{ removed: number }>("POST", "/ledger/reset", { scope: sc, confirm: true }); setMsg(`Removed ${r.removed}.`); }, ""); }}>{sc === "previews" ? "Clear previews" : sc === "failed" ? "Clear failed" : "Forget everything"}</button>{" "}</span>)}
+            {(["previews", "failed"] as const).map((sc) => <span key={sc}><button type="button" className="btn" disabled={busy} onClick={() => { if (window.confirm(`Clear ${sc}?`)) void act(async () => { const r = await call<{ removed: number }>("POST", "/ledger/reset", { scope: sc, confirm: true }); setMsg(`Removed ${r.removed}.`); }, ""); }}>{sc === "previews" ? "Clear previews" : "Clear failed"}</button>{" "}</span>)}
           </p>
         </>
       )}

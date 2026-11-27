@@ -22,13 +22,14 @@ export interface Dirs { lessonsDir: string; classroomDir: string; gkDir?: string
 export function loadCandidates(dirs: Dirs, s: SettingsMap): Candidate[] {
   const out: Candidate[] = [];
   const onlyPub = on(s["social.pick.onlyPublished"], true);
+  const boardFiles = new Set(existsSync(dirs.classroomDir) ? readdirSync(dirs.classroomDir) : []);
   if (on(s["social.source.lessons"], true) && existsSync(dirs.lessonsDir)) {
     for (const f of readdirSync(dirs.lessonsDir)) {
       if (!f.endsWith(".json")) continue;
       try {
         const d = JSON.parse(readFileSync(join(dirs.lessonsDir, f), "utf8"));
         const stem = f.slice(0, -5);
-        if (onlyPub && d.lesson?.status && d.lesson.status !== "published") continue;
+        if (!d.lesson || (onlyPub && d.lesson.status !== "published")) continue;
         const blocks: any[] = d.lesson?.blocks ?? [];
         const expl = blocks.filter((b) => b.type === "explanation").map((b) => loc(b.text)).join("\n");
         const story = blocks.filter((b) => b.type === "story").map((b) => loc(b.text)).join("\n");
@@ -40,7 +41,8 @@ export function loadCandidates(dirs: Dirs, s: SettingsMap): Candidate[] {
         const title = loc(d.lesson?.title) || stem;
         if (!title) continue;
         const board = String(d.board ?? "").toLowerCase();
-        out.push({ id: stem, source: "lesson", board, cls: Number(d.classLevel), subject: String(d.subject), chapter: String(d.chapter), topic: String(d.topic), title, sentences: sents, narration, points: points.length ? points : sents.slice(0, 3), hasBoard: existsSync(join(dirs.classroomDir, stem + ".json")), path: `/${board}/${d.classLevel}/${d.subject}/${d.chapter}/${d.topic}/learn` });
+        const boardFile = [stem, `auto-${stem}`].find((id) => boardFiles.has(`${id}.json`));
+        out.push({ id: stem, source: "lesson", board, cls: Number(d.classLevel), subject: String(d.subject), chapter: String(d.chapter), topic: String(d.topic), title, sentences: sents, narration, points: points.length ? points : sents.slice(0, 3), hasBoard: !!boardFile, boardFile, path: `/${board}/${d.classLevel}/${d.subject}/${d.chapter}/${d.topic}/learn` });
       } catch { /* a broken lesson file is skipped */ }
     }
   }
@@ -51,9 +53,10 @@ export function loadCandidates(dirs: Dirs, s: SettingsMap): Candidate[] {
         const d = JSON.parse(readFileSync(join(dirs.gkDir, f), "utf8"));
         const id = String(d.id ?? f.slice(0, -5));
         const title = loc(d.title);
-        if (!title || (onlyPub && d.status && d.status !== "published")) continue;
-        const text = [loc(d.summary), loc(d.intro), ...(Array.isArray(d.sections) ? d.sections.map((x: any) => loc(x.text ?? x.body)) : []), ...(Array.isArray(d.facts) ? d.facts.map((x: unknown) => loc(x)) : [])].filter(Boolean).join("\n");
-        const sents = sentences(text);
+        if (!title || d.kind !== "lesson" || (onlyPub && d.status && d.status !== "published")) continue;
+        if (s["feature.gk"] === false || csv(s["gk.lessonsHidden"]).includes(id) || csv(s["gk.categoriesHidden"]).includes(String(d.category))) continue;
+        const lines = (Array.isArray(d.steps) ? d.steps : []).flatMap((step: { sentences?: unknown[] }) => (step.sentences ?? []).map(loc)).filter(Boolean) as string[];
+        const sents = lines.length ? lines : sentences(loc(d.summary));
         out.push({ id: "gk-" + id, source: "gk", board: "gk", cls: 0, subject: String(d.category ?? "gk"), chapter: String(d.category ?? "gk"), topic: id, title, sentences: sents, narration: sents.map((t) => ({ teacher: "malar", text: t })), points: sents.slice(0, 3), hasBoard: false, path: `/gk/${id}` });
       } catch { /* skip */ }
     }
@@ -91,16 +94,14 @@ export interface PickInput { candidates: Candidate[]; ledger: LedgerEntry[]; sta
  */
 export function pickLessons(inp: PickInput): { picks: Candidate[]; state: SocialState; exhausted: boolean } {
   const { settings: s } = inp;
-  const recycleDays = on(s["social.recycle.enabled"]) ? num(s["social.recycle.afterDays"], 180) : 0;
-  const now = inp.now ?? Date.now();
-  const posted = new Map<string, number>();
-  for (const e of inp.ledger) if (e.status === "posted") { const t = Date.parse(e.postedAt ?? e.createdAt); posted.set(e.lessonId, Math.max(posted.get(e.lessonId) ?? 0, t)); }
-  const unposted = (c: Candidate) => { const t = posted.get(c.id); return t === undefined || (recycleDays > 0 && now - t > recycleDays * 86400000); };
-  const pool = inp.candidates.filter((c) => eligible(c, s) && unposted(c) && !inp.avoid?.has(c.id));
+  const reserved = new Set(inp.ledger.filter((entry) => entry.status === "posted" || entry.deliveryPending).map((entry) => entry.lessonId));
+  const pool = inp.candidates.filter((c) => eligible(c, s) && !reserved.has(c.id) && !inp.avoid?.has(c.id));
   const byBucket = new Map<string, Candidate[]>();
   for (const c of pool) { const k = bucketKey(c); (byBucket.get(k) ?? byBucket.set(k, []).get(k)!).push(c); }
   const prefer = on(s["social.pick.preferPictures"], true);
-  for (const list of byBucket.values()) list.sort((a, b) => (prefer ? Number(b.hasBoard) - Number(a.hasBoard) : 0) || a.id.localeCompare(b.id));
+  const featured = new Map(csv(s["social.pick.featuredLessons"]).map((id, i) => [id, i]));
+  const rank = (c: Candidate) => featured.get(c.id) ?? Number.MAX_SAFE_INTEGER;
+  for (const list of byBucket.values()) list.sort((a, b) => rank(a) - rank(b) || (prefer ? Number(b.hasBoard) - Number(a.hasBoard) : 0) || a.id.localeCompare(b.id));
   const st: SocialState = { ...inp.state, bucketUsed: { ...inp.state.bucketUsed }, recent: [...inp.state.recent] };
   const picks: Candidate[] = [];
   const noSameGrade = on(s["social.rotate.avoidSameGrade"], true), noSameSub = on(s["social.rotate.avoidSameSubject"], true), gap = num(s["social.rotate.minGapPosts"], 6);
@@ -108,15 +109,18 @@ export function pickLessons(inp: PickInput): { picks: Candidate[]; state: Social
     const keys = [...byBucket.entries()].filter(([, l]) => l.length > 0).map(([k]) => k);
     if (keys.length === 0) break;
     const last = st.recent[st.recent.length - 1];
-    const recentKeys = new Set(st.recent.slice(-gap).map((r) => `${r.board}|${r.cls}|${r.subject}`));
+    const recentKeys = new Set((gap ? st.recent.slice(-gap) : []).map(bucketKey));
+    const grades = new Set(picks.map((c) => c.cls));
+    const subjects = new Set(picks.map((c) => c.subject));
     const score = (k: string, strict: number): boolean => {
-      const [board, cls, subject] = k.split("|");
+      const [, cls, subject] = k.split("|");
+      if (strict >= 3 && ((noSameGrade && grades.has(Number(cls))) || (noSameSub && subjects.has(subject!)))) return false;
       if (strict >= 2 && recentKeys.has(k)) return false;
-      if (strict >= 1 && last) { if (noSameGrade && String(last.cls) === cls && last.board === board && cls !== "0") return false; if (noSameSub && last.subject === subject) return false; }
+      if (strict >= 1 && last) { if (noSameGrade && String(last.cls) === cls) return false; if (noSameSub && last.subject === subject) return false; }
       return true;
     };
     let usable: string[] = [];
-    for (const strict of [2, 1, 0]) { usable = keys.filter((k) => score(k, strict)); if (usable.length) break; }
+    for (const strict of [3, 2, 1, 0]) { usable = keys.filter((k) => score(k, strict)); if (usable.length) break; }
     // longest-waiting bucket first (never used = 0), then prefer buckets that still have a picture lesson, then a stable order
     usable.sort((a, b) => (st.bucketUsed[a] ?? 0) - (st.bucketUsed[b] ?? 0) || Number(byBucket.get(b)![0]!.hasBoard) - Number(byBucket.get(a)![0]!.hasBoard) || a.localeCompare(b));
     const k = usable[0]!;
@@ -167,19 +171,29 @@ export function captionVars(c: Candidate, s: SettingsMap, platform: Platform, ba
 
 export function buildCaption(c: Candidate, s: SettingsMap, platform: Platform, base: string): string {
   const tpl = str(s[platform === "facebook" ? "social.caption.fb" : "social.caption.ig"]);
-  let cap = fill(tpl, captionVars(c, s, platform, base));
-  const max = num(s["social.caption.maxLength"], 1800);
-  if (cap.length > max) { // shorten the summary part, never cut the link or hashtags
-    const v = captionVars(c, s, platform, base); const over = cap.length - max;
-    const sm = v.summary ?? ""; v.summary = sm.length > over + 1 ? sm.slice(0, sm.length - over - 1).replace(/\s+\S*$/, "") + "…" : "";
-    cap = fill(tpl, v);
+  const vars = captionVars(c, s, platform, base);
+  const max = Math.min(2200, num(s["social.caption.maxLength"], 1800));
+  const long = fill(tpl, vars);
+  if (long.length <= max) return long;
+  const shorten = (value: string, budget: number) =>
+    value.length <= budget ? value : budget > 1 ? value.slice(0, budget - 1).trimEnd() + "…" : "";
+  const short = fill(tpl, { ...vars, summary: shorten(vars.summary!, vars.summary!.length - (long.length - max)) });
+  if (short.length <= max) return short;
+  const link = tpl.includes("{link}") ? vars.link! : "";
+  const tags: string[] = [];
+  if (tpl.includes("{hashtags}")) for (const tag of vars.hashtags!.split(" ").filter(Boolean)) {
+    if ([link, ...tags, tag].filter(Boolean).join("\n").length > max - 8) break;
+    tags.push(tag);
   }
-  return cap.slice(0, 2200);
+  const suffix = [link, tags.join(" ")].filter(Boolean).join("\n");
+  const title = shorten(c.title, max - suffix.length - (suffix ? 1 : 0));
+  return [title, suffix].filter(Boolean).join("\n");
 }
 export const buildAlt = (c: Candidate, s: SettingsMap): string => fill(str(s["social.alt.template"], "{title}"), captionVars(c, s, "facebook", "https://x.invalid")).slice(0, 400);
 
 /** Why this caption must not be posted ("" = fine). */
 export function captionProblem(caption: string, s: SettingsMap, siteBase: string): string {
+  if (!caption.trim() || caption.length > Math.min(2200, num(s["social.caption.maxLength"], 1800))) return "is empty or exceeds its configured length";
   if (on(s["social.onlyOwnLinks"], true)) {
     const host = (() => { try { return new URL(siteBase).host.replace(/^www\./, ""); } catch { return ""; } })();
     for (const m of caption.matchAll(/https?:\/\/[^\s)]+|\bwww\.[^\s)]+/gi)) {
@@ -205,7 +219,7 @@ export function runTimes(s: SettingsMap): string[] {
   const runs = Math.max(1, Math.min(12, num(s["social.runsPerDay"], 4)));
   const a = Math.max(0, Math.min(23, num(s["social.window.startHour"], 7))) * 60, b = Math.max(a + 30, Math.min(24, num(s["social.window.endHour"], 21)) * 60);
   if (runs === 1) return [hhmm(Math.round((a + b) / 2))];
-  return Array.from({ length: runs }, (_v, i) => hhmm(Math.round(a + ((b - a) * i) / (runs - 1))));
+  return Array.from({ length: runs }, (_v, i) => hhmm(Math.min(1439, Math.round(a + ((b - a) * i) / (runs - 1)))));
 }
 
 /** which slot (if any) is due now: the earliest run time already passed today that has not run yet (within 3 hours of its time) */

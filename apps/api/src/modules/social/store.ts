@@ -3,7 +3,7 @@ import { join } from "node:path";
 import type { LedgerEntry, RunRecord, SocialSecrets, SocialState } from "./types.js";
 
 const emptyState = (): SocialState => ({ bucketUsed: {}, counter: 0, recent: [], slotsDone: [], consecutiveFailures: 0 });
-const SECRET_FIELDS = ["fbPageId", "fbPageToken", "igUserId", "appId", "appSecret"] as const;
+const SECRET_FIELDS = ["fbPageId", "fbPageToken", "igUserId", "igToken", "appId", "appSecret"] as const;
 export type SecretField = (typeof SECRET_FIELDS)[number];
 export const isSecretField = (k: string): k is SecretField => (SECRET_FIELDS as readonly string[]).includes(k);
 
@@ -27,7 +27,13 @@ export function createSocialStore(dir: string): SocialStore {
   const f = (n: string) => join(dir, n);
   return {
     dir, mediaDir,
-    ledger: () => readJson<LedgerEntry[]>(f("ledger.json"), []),
+    ledger() {
+      const path = f("ledger.json");
+      if (!existsSync(path)) return [];
+      const entries: unknown = JSON.parse(readFileSync(path, "utf8"));
+      if (!Array.isArray(entries)) throw new Error("Social posting history could not be read.");
+      return entries as LedgerEntry[];
+    },
     saveLedger: (l) => writeJson(f("ledger.json"), l),
     state: () => ({ ...emptyState(), ...readJson<Partial<SocialState>>(f("state.json"), {}) }),
     saveState: (s) => writeJson(f("state.json"), s),

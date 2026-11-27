@@ -28,7 +28,7 @@ try {
   } else if (has("--preview")) {
     const r = await call("POST", "/preview", {}); console.log(`${stamp()} PREVIEW built: ${r.entries.length} posts (nothing published). Open Admin > Social: queue and history.`);
   } else {
-    const r = await call("POST", "/run", { auto: !has("--live"), live: has("--live") });
+    const r = await call("POST", "/run", { auto: !has("--live"), live: true });
     const run = r.run; console.log(`${stamp()} DONE mode=${run.mode} planned=${run.planned} posted=${run.posted} failed=${run.failed} held=${run.held}${run.note ? " note=" + run.note : ""}`);
   }
 } catch (e) { console.log(`${stamp()} STOPPED: ${e.message}`); process.exit(1); }

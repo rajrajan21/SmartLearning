@@ -158,16 +158,23 @@ export function renderImage(o: ImageOpts): Buffer {
   return cv.toBuffer("image/jpeg", 88);
 }
 
-/* ---------- the reel (Instagram): 1080x1920 slides, joined with the voice-over ---------- */
-export interface Slide { kind: "board" | "text" | "title" | "outro"; text: string; boardStep?: number; emoji?: string; words: number }
+/* ---------- vertical classroom reels for Facebook and Instagram ---------- */
+export interface Slide { kind: "board" | "text" | "title" | "outro"; text: string; boardStep?: number; emoji?: string; words: number; teacher?: string }
 export function reelSlides(c: Candidate, board: BoardFile | null, s: SettingsMap): Slide[] {
   const out: Slide[] = [{ kind: "title", text: c.title, words: 6, emoji: pics(c)[0]?.emoji }];
-  if (board) {
-    const steps = board.steps; const take = Math.min(steps.length, 10); const idx = Array.from({ length: take }, (_v, i) => Math.round((i * (steps.length - 1)) / Math.max(1, take - 1)));
-    for (const i of [...new Set(idx)]) { const n = steps[i]!.narration?.en ?? ""; out.push({ kind: "board", text: n, boardStep: i, words: Math.max(4, n.split(/\s+/).length) }); }
+  const scenes = board && s["social.image.style"] !== "card"
+    ? board.steps.flatMap((step, i) => step.narration?.en ? [{ text: step.narration.en, boardStep: i }] : []).slice(0, 4)
+    : [];
+  if (scenes.length) {
+    for (const { text, boardStep } of scenes) {
+      out.push({ kind: "board", text, boardStep, teacher: "malar", words: Math.max(4, text.split(/\s+/).length) });
+    }
   } else {
-    const sents = (c.sentences.length ? c.sentences : c.points).slice(0, 5); const ps = pics(c);
-    sents.forEach((t, i) => out.push({ kind: "text", text: t, emoji: ps[(i + 1) % Math.max(1, ps.length)]?.emoji, words: Math.max(4, t.split(/\s+/).length) }));
+    const ps = pics(c);
+    const text = c.narration.length ? c.narration : (c.sentences.length ? c.sentences : c.points).map((text) => ({ text, teacher: "malar" }));
+    text.slice(0, 4).forEach(({ text, teacher }, i) => out.push({
+      kind: "text", text, teacher, emoji: ps[(i + 1) % Math.max(1, ps.length)]?.emoji, words: Math.max(4, text.split(/\s+/).length),
+    }));
   }
   out.push({ kind: "outro", text: "Learn the full lesson free", words: 5 });
   return out;
@@ -195,34 +202,52 @@ const run = (cmd: string, args: string[], timeoutMs = 240000): Promise<{ code: n
 });
 export async function ffmpegAvailable(bin = "ffmpeg"): Promise<boolean> { return (await run(bin, ["-version"], 8000)).code === 0; }
 
-export interface ReelOpts { cand: Candidate; board: BoardFile | null; settings: SettingsMap; siteUrl: string; out: string; audioFiles: string[]; audioMs: number; ffmpeg?: string }
+export interface ReelOpts { cand: Candidate; board: BoardFile | null; settings: SettingsMap; siteUrl: string; out: string; audio?: (text: string, teacher: string) => { file: string; ms: number } | undefined; ffmpeg?: string }
 export interface ReelResult { ok: boolean; seconds: number; bytes: number; hasAudio: boolean; error?: string }
 
 /** Draws the slides and joins them (with the voice-over when there is one) into a small H.264 MP4 that Instagram accepts. */
 export async function renderReel(o: ReelOpts): Promise<ReelResult> {
   const ff = o.ffmpeg ?? "ffmpeg"; const size = { w: 1080, h: 1920 }; const dir = mkdtempSync(join(tmpdir(), "ss-reel-"));
   try {
-    const maxSec = Number(o.settings["social.reel.seconds"] ?? 30); const hasAudio = o.audioFiles.length > 0 && o.audioMs > 0;
+    const total = Number(o.settings["social.reel.seconds"] ?? 30);
     const slides = reelSlides(o.cand, o.board, o.settings);
-    const total = Math.max(8, Math.min(maxSec, hasAudio ? o.audioMs / 1000 + 1 : maxSec));
-    const wsum = slides.reduce((a, b) => a + b.words, 0); let durs = slides.map((sl) => Math.max(2.2, (sl.words / wsum) * total));
-    const scale = total / durs.reduce((a, b) => a + b, 0); durs = durs.map((d) => d * scale);
+    const clips = slides.map((slide) => slide.teacher ? o.audio?.(slide.text, slide.teacher) : undefined);
+    const minimum = slides.map((slide, i) => slide.teacher ? (clips[i]?.ms ?? 0) / 1000 + 0.3 : 1.6);
+    const voiceSeconds = minimum.reduce((sum, value) => sum + value, 0);
+    const hasAudio = clips.some(Boolean) && slides.every((slide, i) => !slide.teacher || (clips[i]?.ms ?? 0) > 0) && voiceSeconds <= total;
+    const weights = slides.map((slide) => Math.max(8, slide.words));
+    const weightTotal = weights.reduce((sum, weight) => sum + weight, 0);
+    const durs = weights.map((weight, i) => hasAudio ? minimum[i]! + ((total - voiceSeconds) * weight / weightTotal) : total * weight / weightTotal);
     const snaps = o.board ? boardSnapshots(o.board) : [];
     const lines: string[] = [];
     slides.forEach((sl, i) => {
-      const cv = createCanvas(size.w, size.h); drawSlide(cv.getContext("2d"), size, sl, { cand: o.cand, board: o.board, snaps, settings: o.settings, siteUrl: o.siteUrl, captions: o.settings["social.reel.captions"] !== false });
+      const cv = createCanvas(size.w, size.h); drawSlide(cv.getContext("2d"), size, sl, { cand: o.cand, board: o.board, snaps, settings: o.settings, siteUrl: o.siteUrl, captions: !hasAudio || o.settings["social.reel.captions"] !== false });
       const f = join(dir, `s${String(i).padStart(2, "0")}.png`); writeFileSync(f, cv.toBuffer("image/png")); lines.push(`file '${f.replace(/\\/g, "/")}'`, `duration ${durs[i]!.toFixed(3)}`);
     });
     lines.push(`file '${join(dir, `s${String(slides.length - 1).padStart(2, "0")}.png`).replace(/\\/g, "/")}'`);
     writeFileSync(join(dir, "slides.txt"), lines.join("\n"));
     const args = ["-y", "-hide_banner", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", join(dir, "slides.txt")];
-    if (hasAudio) { const l = o.audioFiles.map((a) => `file '${a.replace(/\\/g, "/")}'`).join("\n"); writeFileSync(join(dir, "audio.txt"), l); args.push("-f", "concat", "-safe", "0", "-i", join(dir, "audio.txt")); }
-    else args.push("-f", "lavfi", "-i", "anullsrc=r=44100:cl=mono");
+    args.push("-f", "lavfi", "-i", "anullsrc=r=48000:cl=stereo");
+    if (hasAudio) {
+      let sourceIndex = 2;
+      const filters = clips.map((clip, i) => {
+        const source = clip ? sourceIndex++ : 1;
+        if (clip) args.push("-i", clip.file);
+        const length = durs[i]!.toFixed(3);
+        return `[${source}:a]aresample=48000,aformat=channel_layouts=stereo,asetpts=PTS-STARTPTS,apad,atrim=duration=${length}[part${i}]`;
+      });
+      args.push("-filter_complex", [...filters, `${slides.map((_, i) => `[part${i}]`).join("")}concat=n=${slides.length}:v=0:a=1[voice]`].join(";"));
+    }
     const kbps = Math.max(300, Math.floor(((Number(o.settings["social.reel.maxMb"] ?? 12) * 8192) / total) * 0.75) - 96);
-    args.push("-map", "0:v", "-map", "1:a", "-t", total.toFixed(2), "-vf", "fps=15,scale=1080:1920,format=yuv420p", "-c:v", "libx264", "-preset", "veryfast", "-crf", "30", "-maxrate", `${Math.min(kbps, 2500)}k`, "-bufsize", `${Math.min(kbps, 2500) * 2}k`, "-c:a", "aac", "-b:a", "64k", "-ar", "44100", "-ac", "1", "-movflags", "+faststart", "-shortest", o.out);
+    args.push("-map", "0:v", "-map", hasAudio ? "[voice]" : "1:a", "-t", total.toFixed(2), "-vf", "fps=30,format=yuv420p", "-c:v", "libx264", "-preset", "veryfast", "-threads", "2", "-g", "60", "-crf", "27", "-maxrate", `${Math.min(kbps, 2500)}k`, "-bufsize", `${Math.min(kbps, 2500) * 2}k`, "-c:a", "aac", "-b:a", "128k", "-ar", "48000", "-ac", "2", "-movflags", "+faststart", o.out);
     const r = await run(ff, args);
     if (r.code !== 0 || !existsSync(o.out)) return { ok: false, seconds: total, bytes: 0, hasAudio, error: r.code === 127 ? "ffmpeg is not installed (needed for reels)" : `ffmpeg failed: ${r.err.slice(-300)}` };
-    return { ok: true, seconds: total, bytes: statSync(o.out).size, hasAudio };
+    const bytes = statSync(o.out).size;
+    if (bytes > Number(o.settings["social.reel.maxMb"] ?? 12) * 1024 * 1024) {
+      rmSync(o.out);
+      return { ok: false, seconds: total, bytes, hasAudio, error: "The reel exceeds the configured file-size limit." };
+    }
+    return { ok: true, seconds: total, bytes, hasAudio };
   } catch (e) { return { ok: false, seconds: 0, bytes: 0, hasAudio: false, error: e instanceof Error ? e.message : "could not build the reel" }; }
   finally { try { rmSync(dir, { recursive: true, force: true }); } catch { /* temp folder */ } }
 }
