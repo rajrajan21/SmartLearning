@@ -1,5 +1,5 @@
 import { monitorRoutes, type MonitorPaths } from "./modules/monitor/routes.js";
-import { existsSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import express, { type NextFunction, type Request, type Response } from "express";
 import type { CurriculumRepository } from "./modules/curriculum/repository.js";
@@ -152,7 +152,15 @@ export function createApp(deps: AppDeps) {
   app.get("/health", (_req, res) => void res.json({ status: "ok", service: "studysmart-api" }));
 
   if (deps.access) {
-    const ao = { service: deps.access, settings: deps.settings, secureCookie: deps.secureCookie ?? false, redeemMax: deps.accessRedeemMax };
+    // Keep site ownership verifiable on the public invite page. Copy only the verification tag.
+    const indexFile = deps.webDir && join(deps.webDir, "index.html");
+    const verification = indexFile && existsSync(indexFile)
+      ? readFileSync(indexFile, "utf8").match(/<meta name="google-site-verification" content="[A-Za-z0-9_-]{1,160}"\s*\/?>/)?.[0]
+      : undefined;
+    const ao = {
+      service: deps.access, settings: deps.settings, secureCookie: deps.secureCookie ?? false, redeemMax: deps.accessRedeemMax,
+      headExtra: verification ? () => `${verification}\n` : undefined,
+    };
     app.use("/api/access", accessRoutes(ao));
     app.use("/api/v1/admin/access", adminAccessRoutes(deps.access, deps.settings, deps.adminKey, deps.adminUserId));
     app.use(accessGate(ao)); // Invitation only: everything below needs the access cookie (health, access, admin, icons are let through)

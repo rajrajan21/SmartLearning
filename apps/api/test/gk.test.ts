@@ -49,6 +49,14 @@ describe("GK routes", () => {
     expect(l.body.steps[0].audio).toHaveLength(l.body.steps[0].sentences.length);
     await request(app).get("/api/v1/gk/lessons/not-there").expect(404);
   });
+  it("serves the new lessons and their curated video metadata", async () => {
+    const ix = await request(app).get("/api/v1/gk/index").expect(200);
+    const newIds = ["chandrayaan-three-moon-landing", "what-is-a-black-hole", "how-pollinators-help-plants"];
+    expect(ix.body.items.map((item: { id: string }) => item.id)).toEqual(expect.arrayContaining(newIds));
+    const res = await request(app).get("/api/v1/gk/lessons/chandrayaan-three-moon-landing").expect(200);
+    expect(res.body.video).toMatchObject({ youtubeId: "KBVk78QO84g", publisher: "ISRO Official" });
+    expect(res.body.quiz).toHaveLength(3);
+  });
   it("is hidden when the feature is switched off", async () => {
     await admin(request(app).put("/api/v1/admin/settings")).send({ changes: { "feature.gk": false } }).expect(200);
     await request(app).get("/api/v1/gk/index").expect(404);

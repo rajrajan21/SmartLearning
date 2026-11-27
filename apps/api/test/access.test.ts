@@ -1,4 +1,4 @@
-import { mkdirSync, mkdtempSync, writeFileSync } from "node:fs";
+import { mkdirSync, mkdtempSync, rmSync, rmdirSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import request from "supertest";
@@ -79,6 +79,23 @@ describe("invite mode: the door", () => {
     expect((await request(app).get("/api/access/status")).body).toMatchObject({ mode: "invite", granted: false });
     await admin(request(app).get("/api/v1/admin/settings")).expect(200);
     await request(app).get("/robots.txt").expect(200).expect((x) => expect(x.text).toContain("Disallow: /"));
+  });
+  it("serves site verification on the invite page while keeping the site gated", async () => {
+    const web = mkdtempSync(join(tmpdir(), "sharpstudy-verification-"));
+    try {
+      const tag = '<meta name="google-site-verification" content="sample-verification_123" />';
+      writeFileSync(join(web, "index.html"), `<html><head>${tag}</head><body>Signed-in app shell</body></html>`);
+      app = build({}, web);
+      await mode("invite");
+      const { text } = await request(app).get("/").expect(200);
+      expect(text).toContain(tag);
+      expect(text).toContain('name="robots" content="noindex"');
+      expect(text).not.toContain("Signed-in app shell");
+      await request(app).get("/api/v1/curriculum/boards").expect(401);
+    } finally {
+      rmSync(join(web, "index.html"), { force: true });
+      rmdirSync(web);
+    }
   });
   it("redeems a good code, sets an httpOnly cookie, and then lets the visitor in", async () => {
     const c = await newCode();

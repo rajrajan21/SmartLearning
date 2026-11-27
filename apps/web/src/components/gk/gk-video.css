@@ -1,0 +1,32 @@
+.gk-video {
+  margin-block: 1.5rem;
+  padding: clamp(.875rem, 2.5vw, 1.5rem);
+  border: 1px solid currentColor;
+  border-radius: 1rem;
+  min-width: 0;
+}
+
+.gk-video h2 {
+  margin-top: 0;
+}
+
+.gk-video-credit {
+  overflow-wrap: anywhere;
+}
+
+.gk-video-player {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  min-height: 200px;
+  margin-top: .75rem;
+  border: 0;
+  border-radius: .5rem;
+  background: #111;
+}
+
+@media print {
+  .gk-video {
+    display: none;
+  }
+}

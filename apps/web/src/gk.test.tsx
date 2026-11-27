@@ -20,6 +20,7 @@ const LESSON = {
     { id: "a", title: "Look up", sentences: ["The Moon shines by sunlight."], points: ["Sunlight bounces off"], visual: "moon-phases", audio: [null] },
     { id: "b", title: "Phases", sentences: ["We see different amounts of the lit half."], points: [], audio: [null] },
   ],
+  video: { youtubeId: "yXe0yxzYkjo", title: "Why Does the Moon Change?", publisher: "SciShow Kids", prompt: "Watch the light reach the Moon." },
   facts: ["The Moon is slowly drifting away from Earth."], quiz: [{ q: "What lights the Moon?", options: ["The Sun", "A lamp"], answer: 0, why: "Sunlight reflects off it." }], notes: "Source: general astronomy.", asOf: "November 2026",
 };
 function mount(path: string, settings: Record<string, unknown> = {}, index: unknown = INDEX) {
@@ -80,6 +81,24 @@ describe("GK lesson", () => {
     expect(screen.getByText(/November 2026/)).toBeTruthy();
     fireEvent.click(screen.getByRole("button", { name: "The Sun" }));
     expect(await screen.findByText(/Sunlight reflects off it/)).toBeTruthy();
+  });
+  it("keeps the video hidden by default", async () => {
+    mount("/gk/moon");
+    await screen.findByRole("heading", { name: /Phases of the Moon/ });
+    expect(screen.queryByRole("button", { name: "Watch video" })).toBeNull();
+    expect(screen.queryByTitle("Why Does the Moon Change?")).toBeNull();
+  });
+  it("loads the privacy-enhanced player in the lesson only when requested", async () => {
+    mount("/gk/moon", { "gk.video.youtube.enabled": true });
+    const watch = await screen.findByRole("button", { name: "Watch video" });
+    expect(screen.queryByTitle("Why Does the Moon Change?")).toBeNull();
+    fireEvent.click(watch);
+    const player = screen.getByTitle("Why Does the Moon Change?");
+    expect(player.tagName).toBe("IFRAME");
+    expect(player.getAttribute("src")).toBe("https://www.youtube-nocookie.com/embed/yXe0yxzYkjo?autoplay=1&playsinline=1&rel=0");
+    expect(player.getAttribute("referrerpolicy")).toBe("strict-origin-when-cross-origin");
+    fireEvent.click(screen.getByRole("button", { name: "Close video" }));
+    expect(screen.queryByTitle("Why Does the Moon Change?")).toBeNull();
   });
   it("plays as slides and moves with the buttons", async () => {
     mount("/gk/moon");
