@@ -10,34 +10,41 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 6 maths · Prime Time · Foundation",
-     "concept": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the f"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Prime Time",
+     "items": [
+      "Prime Time: factors, p",
+      "Prime numbers and the",
+      "Divisibility rules and",
+      "Common multiples, comm",
+      "Prime factorisation"
+     ]
     },
-    "tip": "Focus on the core rule of Prime Time first.",
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Chapter Map",
+     "concept": "Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idli instead of the number, whoever gets a multiple of 5 says vada, and whoever gets a number that is both says idli-vada."
+    },
+    "tip": "Look at how all parts of Prime Time connect together.",
     "beats": [
      {
-      "en": "Welcome to Prime Time. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Prime Time. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Prime Time. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Prime Time. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15. From 1 to 90, idli (",
-      "speakEn": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15. From 1 to 90, idli ("
-     },
-     {
-      "en": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15.",
-      "speakEn": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15."
+      "en": "Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idli instead of the number, whoever gets a multiple of 5 says vada, and whoever gets a number that is both says idli-vada.",
+      "speakEn": "Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idli instead of the number, whoever gets a multiple of 5 says vada, and whoever gets a number that is both says idli-vada."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Prime Time",
        900
       ],
@@ -47,32 +54,134 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and ",
-       1400
+       "ov-s",
+       "Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idli instead of the number,",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Prime Time: factors, p",
+      "Prime numbers and the",
+      "Divisibility rules and",
+      "Common multiples, comm",
+      "Prime factorisation"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Textbook Concepts",
+     "concept": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15.",
+      "speakEn": "In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on. The numbers that are multiples of both 3 and 5 are called common multiples, and the first of them is 15."
+     },
+     {
+      "en": "A number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4. Common factors are the factors shared by two numbers.",
+      "speakEn": "A number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4. Common factors are the factors shared by two numbers."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and so on.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: In the idli-vada game, idli is said at 3, 6, 9, 12 and so on, and vada at 5, 10, 15 and ",
-       1400
+       "c1-b",
+       "Rule: A number is a factor of another if it divides it exactly.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Prime Time: factors, p",
+      "Prime numbers and the",
+      "Divisibility rules and"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 6 maths · Prime Time · Textbook Example",
+     "ref": "CBSE Class 6 maths · Prime Time · Deeper Textbook Ideas",
+     "concept": "A number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19."
+    },
+    "beats": [
+     {
+      "en": "A number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19.",
+      "speakEn": "A number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19."
+     },
+     {
+      "en": "Two numbers are called co-prime if they have no common factor other than 1. In the treasure game with two treasures, a pair is safe from Jumpy only if the numbers are co-prime.",
+      "speakEn": "Two numbers are called co-prime if they have no common factor other than 1. In the treasure game with two treasures, a pair is safe from Jumpy only if the numbers are co-prime."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "A number with exactly two factors, 1 and itself, is called a prime number.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "Two numbers are called co-prime if they have no common factor other than 1.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Textbook Example 1",
      "concept": "A number with exactly two factors, 1 and itself, is called a",
-     "example": "Step 1: Identify the key concept from the question: A number with exactly two factors, 1 and itself, is called a. Step 2"
+     "example": "Step 1: Identify the key concept from the question: A number with exactly two factors, 1 and itself, is called a. Step 2: Examples are 2, 3, 5, 7 and 11."
     },
     "beats": [
      {
@@ -91,7 +200,7 @@
       "type": [
        "ex1-q",
        "Given: A number with exactly two factors, 1 and itself, is called a",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +209,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: A number with exactly two factors, 1 and it",
+       "Step 1: Step 1: Identify the key concept from the question: A number with exactly two factors, 1 and itself, is",
        1400
       ],
       "color": "green"
@@ -109,7 +218,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +250,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 6 maths · Prime Time · Level 2 Challenge",
-     "concept": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number)"
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Level 2 Worked Example",
+     "concept": "How many prime numbers are there from 1 to 100?",
+     "example": "Step 1: Identify the key concept from the question: How many prime numbers are there from 1 to 100?. Step 2: The sieve leaves 25 primes up to 100."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Prime Time. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Prime Time. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Prime Time. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Prime Time. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number) → Step 1: Recall the textbook principle on \"There prime factorisation number\". Step 2: Verify the accurate statement: \"There is only one prime factorisation of a ",
-      "speakEn": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number). Step 1: Recall the textbook principle on \"There prime factorisation number\". Step 2: Verify the accurate statement: \"There is only one prime factorisation of a"
+      "en": "Problem: How many prime numbers are there from 1 to 100?",
+      "speakEn": "Problem: How many prime numbers are there from 1 to 100?"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: How many prime numbers are there from 1 to 100?. Step 2: The sieve leaves 25 primes up to 100.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: How many prime numbers are there from 1 to 100?. Step 2: The sieve leaves 25 primes up to 100."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Prime Time",
-       1000
+       "l2-e-h",
+       "Level 2 · Prime Time",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +297,117 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Prime Time): Which statement best explains a deep principle from this",
-       1300
+       "l2-e-q",
+       "Given: How many prime numbers are there from 1 to 100?",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"There prime factorisation number\". Step 2: ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: How many prime numbers are there from 1 to 100?.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Exam Challenge",
+     "concept": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number)",
+     "example": "Step 1: Recall the textbook principle on \"There prime factorisation number\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"There prime factorisation number\". Step 2: Verify the accurate statement: \"There is only one prime factorisation of a number, apart from the order of the factors.",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"There prime factorisation number\". Step 2: Verify the accurate statement: \"There is only one prime factorisation of a number, apart from the order of the factors."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic?",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"There prime factorisation number\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Prime Time: factors, p",
+      "Prime numbers and the",
+      "Divisibility rules and",
+      "Common multiples, comm",
+      "Prime factorisation"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Prime Time · Complete Summary",
+     "concept": "Anshu wrote 56 = 14 x 4 and 63 = 21 x 3 and claimed there is no common factor, so they are co-prime. But Guna wrote 56 = 7 x 8 and 63 = 9 x 7 and found the common factor 7."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Prime Time: Anshu wrote 56 = 14 x 4 and 63 = 21 x 3 and claimed there is no common factor, so they are co-prime. But Guna wrote 56 = 7 x 8 and 63 = 9 x 7 and found the common factor 7.",
+      "speakEn": "Let us review the key takeaway from Prime Time: Anshu wrote 56  equals  14 x 4 and 63  equals  21 x 3 and claimed there is no common factor, so they are co-prime. But Guna wrote 56  equals  7 x 8 and 63  equals  9 x 7 and found the common factor 7."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: Anshu wrote 56 = 14 x 4 and 63 = 21 x 3 and claimed there is no common factor, so they are co-prime.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

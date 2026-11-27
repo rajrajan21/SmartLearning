@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Foundation",
-     "concept": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain. Experimental probability is found by doing the experiment:"
+    "visual": {
+     "kind": "concept-map",
+     "title": "The Mathematics of Maybe:",
+     "items": [
+      "Probability basics"
+     ]
     },
-    "tip": "Focus on the core rule of The Mathematics of Maybe: Introduction to Probability first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Chapter Map",
+     "concept": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+    },
+    "tip": "Look at how all parts of The Mathematics of Maybe: Introduction to Probability connect together.",
     "beats": [
      {
-      "en": "Welcome to The Mathematics of Maybe: Introduction to Probability. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to The Mathematics of Maybe: Introduction to Probability. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to The Mathematics of Maybe: Introduction to Probability. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to The Mathematics of Maybe: Introduction to Probability. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain. Experimental probability is found by doing the experiment: number of times the event occurred divi",
-      "speakEn": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain. Experimental probability is found by doing the experiment: number of times the event occurred divi"
-     },
-     {
-      "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain.",
-      "speakEn": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+      "en": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are.",
+      "speakEn": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: The Mathematics of Maybe: Introduction to Probability",
        900
       ],
@@ -47,32 +50,130 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Probability measures the likelihood of an event. P(E) lies between 0, which means imposs",
-       1400
+       "ov-s",
+       "Will it rain tomorrow? Will your team win the toss?",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "The Mathematics of Maybe:",
+     "items": [
+      "Probability basics"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Textbook Concepts",
+     "concept": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain.",
+      "speakEn": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+     },
+     {
+      "en": "Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials.",
+      "speakEn": "Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Probability measures the likelihood of an event.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Probability measures the likelihood of an event. P(E) lies between 0, which means imposs",
-       1400
+       "c1-b",
+       "Rule: Experimental probability is found by doing the experiment: number of times the event occurred",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "The Mathematics of Maybe: Introduction to Probability · Step Flow",
+     "items": [
+      "Probability basics",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Textbook Example",
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Deeper Textbook Ideas",
+     "concept": "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+    },
+    "beats": [
+     {
+      "en": "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes.",
+      "speakEn": "Theoretical probability assumes all outcomes are equally likely: P(A)  equals  favourable outcomes / possible outcomes."
+     },
+     {
+      "en": "The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss.",
+      "speakEn": "The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes /",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "The Mathematics of Maybe: Introduction to Probability · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Textbook Example 1",
      "concept": "The probability of an impossible event is",
-     "example": "Step 1: Identify the key concept from the question: The probability of an impossible event is. Step 2: Impossible means "
+     "example": "Step 1: Identify the key concept from the question: The probability of an impossible event is. Step 2: Impossible means no chance."
     },
     "beats": [
      {
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The probability of an impossible event is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The probability of an impossible event is. ",
+       "Step 1: Step 1: Identify the key concept from the question: The probability of an impossible event is.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Level 2 Challenge",
-     "concept": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability ass"
+    "visual": {
+     "kind": "concept-map",
+     "title": "The Mathematics of Maybe:",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Level 2 Worked Example",
+     "concept": "A fair die is rolled. P(getting 5) is",
+     "example": "Step 1: Identify the key concept from the question: A fair die is rolled. P(getting 5) is. Step 2: One favourable outcome out of 6."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for The Mathematics of Maybe: Introduction to Probability. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for The Mathematics of Maybe: Introduction to Probability. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for The Mathematics of Maybe: Introduction to Probability. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for The Mathematics of Maybe: Introduction to Probability. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability assumes outco → Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\". Step 2: Verify the accurate statement: \"Theoretical probability assumes all",
-      "speakEn": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability assumes outco. Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\". Step 2: Verify the accurate statement: \"Theoretical probability assumes all"
+      "en": "Problem: A fair die is rolled. P(getting 5) is",
+      "speakEn": "Problem: A fair die is rolled. P(getting 5) is"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: A fair die is rolled. P(getting 5) is. Step 2: One favourable outcome out of 6.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: A fair die is rolled. P(getting 5) is. Step 2: One favourable outcome out of 6."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · The Mathematics of Maybe: Introduction to Probability",
-       1000
+       "l2-e-h",
+       "Level 2 · The Mathematics of Maybe: Introduction to Probability",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statemen",
-       1300
+       "l2-e-q",
+       "Given: A fair die is rolled. P(getting 5) is",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\". ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: A fair die is rolled. P(getting 5) is.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "The Mathematics of Maybe: Introduction to Probability · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Exam Challenge",
+     "concept": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic?",
+     "example": "Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability assumes outcomes)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability assumes outcomes)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\". Step 2: Verify the accurate statement: \"Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes /",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\". Step 2: Verify the accurate statement: \"Theoretical probability assumes all outcomes are equally likely: P(A)  equals  favourable outcomes /"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "The Mathematics of Maybe: Introduction to Probability · Step Flow",
+     "items": [
+      "Probability basics"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · The Mathematics of Maybe: Introduction to Probability · Complete Summary",
+     "concept": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from The Mathematics of Maybe: Introduction to Probability: An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die.",
+      "speakEn": "Let us review the key takeaway from The Mathematics of Maybe: Introduction to Probability: An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: An event is any outcome or group of outcomes from the sample space, such as getting an even number on a",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

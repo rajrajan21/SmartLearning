@@ -18,6 +18,25 @@ export const Model3Cue = z.object({
 });
 export type Model3Cue = z.infer<typeof Model3Cue>;
 
+export const Model3Visual = z.object({
+  kind: z.enum([
+    "shapes-gallery",
+    "solid-3d",
+    "circle-pi",
+    "fraction-bar",
+    "algebra-balance",
+    "area-grid",
+    "number-line",
+    "circuit",
+    "flow-diagram",
+    "concept-map",
+  ]),
+  title: z.string().optional(),
+  items: z.array(z.string()).optional(),
+  highlight: z.string().optional(),
+});
+export type Model3Visual = z.infer<typeof Model3Visual>;
+
 export const Model3Step = z.object({
   id: z.string().min(1),
   pill: z.string().min(1),
@@ -27,6 +46,7 @@ export const Model3Step = z.object({
   labType: z.string().optional(),
   labTitle: z.string().optional(),
   labParams: z.record(z.string(), z.union([z.number(), z.string(), z.boolean()])).optional(),
+  visual: Model3Visual.optional(),
   textbookBox: z.object({
     ref: z.string().min(1),
     concept: z.string().min(1),

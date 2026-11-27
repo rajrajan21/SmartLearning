@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Foundation",
-     "concept": "A sequence is an ordered list of numbers, and each number is called a term. An explicit formula gives a term from its position n. A recursive formula gives a term from the previous"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Predicting What Comes",
+     "items": [
+      "Sequences, AP and GP"
+     ]
     },
-    "tip": "Focus on the core rule of Predicting What Comes Next: Exploring Sequences and Progressions first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Chapter Map",
+     "concept": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+    },
+    "tip": "Look at how all parts of Predicting What Comes Next: Exploring Sequences and Progressions connect together.",
     "beats": [
      {
-      "en": "Welcome to Predicting What Comes Next: Exploring Sequences and Progressions. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Predicting What Comes Next: Exploring Sequences and Progressions. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Predicting What Comes Next: Exploring Sequences and Progressions. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Predicting What Comes Next: Exploring Sequences and Progressions. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "A sequence is an ordered list of numbers, and each number is called a term. An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms. The triangular numbers 1, 3, 6, ",
-      "speakEn": "A sequence is an ordered list of numbers, and each number is called a term. An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms. The triangular numbers 1, 3, 6,"
-     },
-     {
-      "en": "A sequence is an ordered list of numbers, and each number is called a term.",
-      "speakEn": "A sequence is an ordered list of numbers, and each number is called a term."
+      "en": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all.",
+      "speakEn": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Predicting What Comes Next: Exploring Sequences and Progressions",
        900
       ],
@@ -47,30 +50,128 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: A sequence is an ordered list of numbers, and each number is called a term. An explicit ",
-       1400
+       "ov-s",
+       "1, 3, 6, 10, 15 ... can you guess the next number?",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Predicting What Comes",
+     "items": [
+      "Sequences, AP and GP"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Textbook Concepts",
+     "concept": "A sequence is an ordered list of numbers, and each number is called a term."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "A sequence is an ordered list of numbers, and each number is called a term.",
+      "speakEn": "A sequence is an ordered list of numbers, and each number is called a term."
+     },
+     {
+      "en": "An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms.",
+      "speakEn": "An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: A sequence is an ordered list of numbers, and each number is called a term.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: A sequence is an ordered list of numbers, and each number is called a term.",
-       1400
+       "c1-b",
+       "Rule: An explicit formula gives a term from its position n.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Predicting What Comes Next: Exploring Sequences and Progressions · Step Flow",
+     "items": [
+      "Sequences, AP and GP",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Textbook Example",
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Deeper Textbook Ideas",
+     "concept": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+    },
+    "beats": [
+     {
+      "en": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers.",
+      "speakEn": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+     },
+     {
+      "en": "In an arithmetic progression each term is obtained by adding a fixed number d, the common difference.",
+      "speakEn": "In an arithmetic progression each term is obtained by adding a fixed number d, the common difference."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "In an arithmetic progression each term is obtained by adding a fixed number d, the common",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Predicting What Comes Next: Exploring Sequences and Progressions · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Textbook Example 1",
      "concept": "The common difference of 7, 11, 15, 19 is",
      "example": "Step 1: Identify the key concept from the question: The common difference of 7, 11, 15, 19 is. Step 2: Each term adds 4."
     },
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The common difference of 7, 11, 15, 19 is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The common difference of 7, 11, 15, 19 is. ",
+       "Step 1: Step 1: Identify the key concept from the question: The common difference of 7, 11, 15, 19 is.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Level 2 Challenge",
-     "concept": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Predicting What Comes",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Level 2 Worked Example",
+     "concept": "2, 6, 18, 54 is a",
+     "example": "Step 1: Identify the key concept from the question: 2, 6, 18, 54 is a. Step 2: Each term is multiplied by 3."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Predicting What Comes Next: Exploring Sequences and Progressions. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Predicting What Comes Next: Exploring Sequences and Progressions. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Predicting What Comes Next: Exploring Sequences and Progressions. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Predicting What Comes Next: Exploring Sequences and Progressions. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which) → Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth ",
-      "speakEn": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which). Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth"
+      "en": "Problem: 2, 6, 18, 54 is a",
+      "speakEn": "Problem: 2, 6, 18, 54 is a"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: 2, 6, 18, 54 is a. Step 2: Each term is multiplied by 3.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: 2, 6, 18, 54 is a. Step 2: Each term is multiplied by 3."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Predicting What Comes Next: Exploring Sequences and Progressions",
-       1000
+       "l2-e-h",
+       "Level 2 · Predicting What Comes Next: Exploring Sequences and Progressions",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement be",
-       1300
+       "l2-e-q",
+       "Given: 2, 6, 18, 54 is a",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verif",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: 2, 6, 18, 54 is a.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Predicting What Comes Next: Exploring Sequences and Progressions · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Exam Challenge",
+     "concept": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which)",
+     "example": "Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"triangular numbers 12 which\". Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"triangular numbers 12 which\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Predicting What Comes Next: Exploring Sequences and Progressions · Step Flow",
+     "items": [
+      "Sequences, AP and GP"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Predicting What Comes Next: Exploring Sequences and Progressions · Complete Summary",
+     "concept": "The nth term of an AP is t_n = a + (n - 1)d, where a is the first term."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Predicting What Comes Next: Exploring Sequences and Progressions: The nth term of an AP is t_n = a + (n - 1)d, where a is the first term.",
+      "speakEn": "Let us review the key takeaway from Predicting What Comes Next: Exploring Sequences and Progressions: The nth term of an AP is t_n  equals  a + (n - 1)d, where a is the first term."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: The nth term of an AP is t_n = a + (n - 1)d, where a is the first term.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

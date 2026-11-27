@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Foundation",
-     "concept": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC. sin A = opposite by hypotenuse, cos A = adjace"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Introduction to Trigonomet",
+     "items": [
+      "Trigonometric ratios",
+      "Ratios of 0, 30, 45, 6"
+     ]
     },
-    "tip": "Focus on the core rule of Introduction to Trigonometry first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Chapter Map",
+     "concept": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+    },
+    "tip": "Look at how all parts of Introduction to Trigonometry connect together.",
     "beats": [
      {
-      "en": "Welcome to Introduction to Trigonometry. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Introduction to Trigonometry. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Introduction to Trigonometry. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Introduction to Trigonometry. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC. sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by",
-      "speakEn": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC. sin A  equals  opposite by hypotenuse, cos A  equals  adjacent by hypotenuse and tan A  equals  opposite by"
-     },
-     {
-      "en": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC.",
-      "speakEn": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+      "en": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground.",
+      "speakEn": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Introduction to Trigonometry",
        900
       ],
@@ -47,30 +51,129 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the ",
-       1400
+       "ov-s",
+       "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Introduction to Trigonomet",
+     "items": [
+      "Trigonometric ratios",
+      "Ratios of 0, 30, 45, 6"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Textbook Concepts",
+     "concept": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC.",
+      "speakEn": "Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+     },
+     {
+      "en": "sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent.",
+      "speakEn": "sin A  equals  opposite by hypotenuse, cos A  equals  adjacent by hypotenuse and tan A  equals  opposite by adjacent."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Take a right triangle ABC, right-angled at B.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the ",
-       1400
+       "c1-b",
+       "Rule: sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Introduction to Trigonometry · Step Flow",
+     "items": [
+      "Trigonometric ratios",
+      "Ratios of 0, 30, 45, 6",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Textbook Example",
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Deeper Textbook Ideas",
+     "concept": "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+    },
+    "beats": [
+     {
+      "en": "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.",
+      "speakEn": "The reciprocals are cosec A  equals  1 by sin A, sec A  equals  1 by cos A and cot A  equals  1 by tan A."
+     },
+     {
+      "en": "Also tan A = sin A by cos A, and cot A = cos A by sin A.",
+      "speakEn": "Also tan A  equals  sin A by cos A, and cot A  equals  cos A by sin A."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "Also tan A = sin A by cos A, and cot A = cos A by sin A.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Introduction to Trigonometry · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Textbook Example 1",
      "concept": "In a right triangle, sin A =",
      "example": "Step 1: Identify the key concept from the question: In a right triangle, sin A =. Step 2: Sine uses the opposite side."
     },
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: In a right triangle, sin A =",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: In a right triangle, sin A =. Step 2: Sine ",
+       "Step 1: Step 1: Identify the key concept from the question: In a right triangle, sin A =.",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Level 2 Challenge",
-     "concept": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Introduction to Trigonomet",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Level 2 Worked Example",
+     "concept": "If tan A = 3/4, the hypotenuse for sides 3 and 4 is",
+     "example": "Step 1: Identify the key concept from the question: If tan A = 3/4, the hypotenuse for sides 3 and 4 is. Step 2: root(9 + 16)."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Introduction to Trigonometry. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Introduction to Trigonometry. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Introduction to Trigonometry. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Introduction to Trigonometry. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec) → Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accurate statement: \"The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos",
-      "speakEn": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec). Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accurate statement: \"The reciprocals are cosec A  equals  1 by sin A, sec A  equals  1 by cos"
+      "en": "Problem: If tan A = 3/4, the hypotenuse for sides 3 and 4 is",
+      "speakEn": "Problem: If tan A  equals  3/4, the hypotenuse for sides 3 and 4 is"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: If tan A = 3/4, the hypotenuse for sides 3 and 4 is. Step 2: root(9 + 16).",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: If tan A  equals  3/4, the hypotenuse for sides 3 and 4 is. Step 2: root(9 + 16)."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Introduction to Trigonometry",
-       1000
+       "l2-e-h",
+       "Level 2 · Introduction to Trigonometry",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle",
-       1300
+       "l2-e-q",
+       "Given: If tan A = 3/4, the hypotenuse for sides 3 and 4 is",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accu",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: If tan A = 3/4, the hypotenuse for sides 3 and 4 is.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Introduction to Trigonometry · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Exam Challenge",
+     "concept": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec)",
+     "example": "Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accurate statement: \"The reciprocals are cosec A = 1 by sin A, sec A = 1 by"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accurate statement: \"The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"reciprocals cosec\". Step 2: Verify the accurate statement: \"The reciprocals are cosec A  equals  1 by sin A, sec A  equals  1 by cos A and cot A  equals  1 by tan A.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"reciprocals cosec\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Introduction to Trigonometry · Step Flow",
+     "items": [
+      "Trigonometric ratios",
+      "Ratios of 0, 30, 45, 6"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Introduction to Trigonometry · Complete Summary",
+     "concept": "These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Introduction to Trigonometry: These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides.",
+      "speakEn": "Let us review the key takeaway from Introduction to Trigonometry: These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: These ratios depend only on the angle and not on the size of the triangle, because similar triangles",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

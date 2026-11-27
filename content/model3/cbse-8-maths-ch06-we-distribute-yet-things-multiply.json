@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Foundation",
-     "concept": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac. If 27 grows to 28, the product 23 × 27 grows by 23, because"
+    "visual": {
+     "kind": "concept-map",
+     "title": "We Distribute, Yet Things",
+     "items": [
+      "Distributive property"
+     ]
     },
-    "tip": "Focus on the core rule of We Distribute, Yet Things Multiply first.",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Chapter Map",
+     "concept": "What happens to the product 23 × 27 if one number goes up by 1? And if one goes up by 1 and the other goes down by 1?"
+    },
+    "tip": "Look at how all parts of We Distribute, Yet Things Multiply connect together.",
     "beats": [
      {
-      "en": "Welcome to We Distribute, Yet Things Multiply. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to We Distribute, Yet Things Multiply. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to We Distribute, Yet Things Multiply. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to We Distribute, Yet Things Multiply. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac. If 27 grows to 28, the product 23 × 27 grows by 23, because 23 × 28 = 23 × 27 + 23. We usually skip",
-      "speakEn": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c)  equals  ab + ac. If 27 grows to 28, the product 23  times  27 grows by 23, because 23  times  28  equals  23  times  27 + 23. We usually skip"
-     },
-     {
-      "en": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac.",
-      "speakEn": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c)  equals  ab + ac."
+      "en": "What happens to the product 23 × 27 if one number goes up by 1? And if one goes up by 1 and the other goes down by 1?",
+      "speakEn": "What happens to the product 23  times  27 if one number goes up by 1? And if one goes up by 1 and the other goes down by 1?"
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: We Distribute, Yet Things Multiply",
        900
       ],
@@ -47,32 +50,130 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Algebra writes general statements compactly, and distributivity relates multiplication a",
-       1400
+       "ov-s",
+       "What happens to the product 23 × 27 if one number goes up by 1?",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Distributive property"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Textbook Concepts",
+     "concept": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c) = ab + ac.",
+      "speakEn": "Algebra writes general statements compactly, and distributivity relates multiplication and addition: a(b + c)  equals  ab + ac."
+     },
+     {
+      "en": "If 27 grows to 28, the product 23 × 27 grows by 23, because 23 × 28 = 23 × 27 + 23.",
+      "speakEn": "If 27 grows to 28, the product 23  times  27 grows by 23, because 23  times  28  equals  23  times  27 + 23."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Algebra writes general statements compactly, and distributivity relates multiplication and",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Algebra writes general statements compactly, and distributivity relates multiplication a",
-       1400
+       "c1-b",
+       "Rule: If 27 grows to 28, the product 23 × 27 grows by 23, because 23 × 28 = 23 × 27 + 23.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Distributive property",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Textbook Example",
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Deeper Textbook Ideas",
+     "concept": "We usually skip the multiplication sign before brackets, so a(b + c) means a × (b + c)."
+    },
+    "beats": [
+     {
+      "en": "We usually skip the multiplication sign before brackets, so a(b + c) means a × (b + c).",
+      "speakEn": "We usually skip the multiplication sign before brackets, so a(b + c) means a  times  (b + c)."
+     },
+     {
+      "en": "The same property holds on the other side: (a + b)c = ac + bc.",
+      "speakEn": "The same property holds on the other side: (a + b)c  equals  ac + bc."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "We usually skip the multiplication sign before brackets, so a(b + c) means a × (b + c).",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The same property holds on the other side: (a + b)c = ac + bc.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Textbook Example 1",
      "concept": "a(b + c) equals",
-     "example": "Step 1: Identify the key concept from the question: a(b + c) equals. Step 2: Distributive property multiplies a with eac"
+     "example": "Step 1: Identify the key concept from the question: a(b + c) equals. Step 2: Distributive property multiplies a with each term."
     },
     "beats": [
      {
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: a(b + c) equals",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: a(b + c) equals. Step 2: Distributive prope",
+       "Step 1: Step 1: Identify the key concept from the question: a(b + c) equals.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Level 2 Challenge",
-     "concept": "HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities)"
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Level 2 Worked Example",
+     "concept": "(a + b)² equals",
+     "example": "Step 1: Identify the key concept from the question: (a + b)² equals. Step 2: Expand (a + b)(a + b)."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for We Distribute, Yet Things Multiply. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for We Distribute, Yet Things Multiply. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for We Distribute, Yet Things Multiply. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for We Distribute, Yet Things Multiply. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities) → Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify the accurate statement: \"Special cases give identities: (a + b)² = a² + 2ab ",
-      "speakEn": "HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities). Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify the accurate statement: \"Special cases give identities: (a + b)²  equals  a² + 2ab"
+      "en": "Problem: (a + b)² equals",
+      "speakEn": "Problem: (a + b)² equals"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: (a + b)² equals. Step 2: Expand (a + b)(a + b).",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: (a + b)² equals. Step 2: Expand (a + b)(a + b)."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · We Distribute, Yet Things Multiply",
-       1000
+       "l2-e-h",
+       "Level 2 · We Distribute, Yet Things Multiply",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Distributive property and expanding expressions): Which statement bes",
-       1300
+       "l2-e-q",
+       "Given: (a + b)² equals",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify t",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: (a + b)² equals. Step 2: Expand (a + b)(a + b).",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Exam Challenge",
+     "concept": "HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities)",
+     "example": "Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify the accurate statement: \"Special cases give identities: (a + b)² = a² + 2ab"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Distributive property and expanding expressions): Which statement best explains a deep principle from this topic? (Focus: Special cases identities)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify the accurate statement: \"Special cases give identities: (a + b)² = a² + 2ab + b² and (a − b)² = a² − 2ab + b².\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Special cases identities\". Step 2: Verify the accurate statement: \"Special cases give identities: (a + b)²  equals  a² + 2ab + b² and (a − b)²  equals  a² − 2ab + b².\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Distributive property and expanding expressions): Which statement best",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Special cases identities\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Distributive property"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · We Distribute, Yet Things Multiply · Complete Summary",
+     "concept": "If a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from We Distribute, Yet Things Multiply: If a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1.",
+      "speakEn": "Let us review the key takeaway from We Distribute, Yet Things Multiply: If a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: If a is increased by 1 and b decreased by 1, the product (a + 1)(b − 1) expands to ab − a + b − 1.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

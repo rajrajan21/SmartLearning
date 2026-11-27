@@ -30,6 +30,16 @@ function clean(s) {
   return String(s || "").replace(/\s+/g, " ").trim();
 }
 
+function clipWord(s, maxLen) {
+  const txt = clean(s);
+  if (txt.length <= maxLen) return txt;
+  const sub = txt.slice(0, maxLen);
+  const dot = Math.max(sub.lastIndexOf(". "), sub.lastIndexOf("! "), sub.lastIndexOf("? "));
+  if (dot >= Math.floor(maxLen * 0.45)) return sub.slice(0, dot + 1).trim();
+  const sp = sub.lastIndexOf(" ");
+  return (sp > 20 ? sub.slice(0, sp) : sub).trim();
+}
+
 function toSpeakEn(s) {
   return clean(s)
     .replace(/\bsq\.?\s*cm\b/gi, "square centimetres")
@@ -50,6 +60,51 @@ function pickLabType(subject, chapterSlug, title, classLevel) {
   if (subject === "maths" && /fraction|percent|ratio|proportion|decimal/.test(s)) return "fraction-explorer";
   if (subject === "science" && /electric|circuit|battery|bulb|switch/.test(s)) return "circuit-builder";
   return "concept-explorer";
+}
+
+function pickVisual(ch, stage, items) {
+  const s = `${ch.subject} ${ch.chapter} ${ch.title}`.toLowerCase();
+  const list = (items || []).map((x) => clipWord(x, 22)).filter(Boolean);
+  const safeItems = list.length ? list : [clipWord(ch.title, 22), "Core Rule", "Example"];
+
+  if (stage === "overview") {
+    if (ch.subject === "maths" && /shape|geometry|symmetry|angle|triangle|polygon/.test(s)) {
+      return { kind: "shapes-gallery", title: `${ch.title} · Key Shapes`, items: safeItems };
+    }
+    if (ch.subject === "maths" && /circle|pi\b|circumference|radius|diameter/.test(s)) {
+      return { kind: "circle-pi", title: `${ch.title} · Circle Explorer`, items: safeItems };
+    }
+    return { kind: "concept-map", title: clipWord(ch.title, 26), items: safeItems };
+  }
+
+  if (stage === "part2" && ch.subject === "maths" && /shape|solid|cube|cone|cylinder|3d|net/.test(s)) {
+    return { kind: "solid-3d", title: "Solid Shapes (3D): Faces, Edges & Corners", items: safeItems };
+  }
+  if (ch.subject === "maths" && /circle|pi\b|circumference|radius|diameter/.test(s)) {
+    return { kind: "circle-pi", title: "Circle: Radius, Diameter & Circumference", items: safeItems };
+  }
+  if (ch.subject === "maths" && /shape|geometry|symmetry|angle|triangle|polygon/.test(s)) {
+    return { kind: "shapes-gallery", title: "Flat Shapes: Sides & Corners", items: safeItems };
+  }
+  if (ch.subject === "maths" && ch.classLevel >= 4 && /area|perimeter|mensuration/.test(s)) {
+    return { kind: "area-grid", title: "Area & Perimeter Grid", items: safeItems };
+  }
+  if (ch.subject === "maths" && /fraction|percent|ratio|decimal/.test(s)) {
+    return { kind: "fraction-bar", title: "Fractions & Parts of a Whole", items: safeItems };
+  }
+  if (ch.subject === "maths" && /algebra|equation|expression|polynomial|linear|quadratic/.test(s)) {
+    return { kind: "algebra-balance", title: "Step-by-Step Algebra Balance", items: safeItems };
+  }
+  if (ch.subject === "maths" && /number|integer|addition|subtraction|multipl|division|time|place/.test(s)) {
+    return { kind: "number-line", title: "Number Line & Jumps", items: safeItems };
+  }
+  if (ch.subject === "science" && /electric|circuit|current|magnet/.test(s)) {
+    return { kind: "circuit", title: "Electric Circuit Diagram", items: safeItems };
+  }
+  if (stage === "example" || stage === "part2") {
+    return { kind: "flow-diagram", title: `${ch.title} · Step Flow`, items: safeItems };
+  }
+  return { kind: "concept-map", title: clipWord(ch.title, 26), items: safeItems };
 }
 
 function loadChapters() {
@@ -89,57 +144,77 @@ function matchesFilter(ch) {
 }
 
 function extractChapterContent(ch) {
+  const stories = [];
   const concepts = [];
+  const summaries = [];
   const examples = [];
   const tips = [];
   for (const t of ch.topics) {
     const lf = join(L_DIR, `${ch.board}-${ch.classLevel}-${ch.subject}-${ch.chapter}-${t.slug}.json`);
-    if (!existsSync(lf)) continue;
-    try {
-      const data = JSON.parse(readFileSync(lf, "utf8"));
-      for (const b of data.lesson?.blocks || []) {
-        if ((b.type === "explanation" || b.type === "remember") && b.text?.en) {
-          concepts.push(clean(b.text.en));
-        }
-        if ((b.type === "example" || b.type === "worked") && (b.problem?.en || b.solution?.en)) {
-          examples.push({ q: clean(b.problem?.en || t.title), sol: clean(b.solution?.en || b.answer?.en || "") });
-        }
-        if (b.type === "think" && b.text?.en) tips.push(clean(b.text.en));
-        if (b.type === "teacher_narration" && Array.isArray(b.sentences)) {
-          for (const s of b.sentences) {
-            const txt = clean(s.text?.en || "");
-            if (txt.length >= 28 && !/^hello!? today|^well done|^let us begin/i.test(txt)) {
-              concepts.push(txt);
+    if (existsSync(lf)) {
+      try {
+        const data = JSON.parse(readFileSync(lf, "utf8"));
+        for (const b of data.lesson?.blocks || []) {
+          if (b.type === "story" && b.text?.en) stories.push(clean(b.text.en));
+          if ((b.type === "explanation" || b.type === "remember") && b.text?.en) {
+            for (const line of String(b.text.en).split(/\n+/)) {
+              const c = clean(line);
+              if (c.length >= 20) concepts.push(c);
+            }
+          }
+          if (b.type === "summary" && b.text?.en) summaries.push(clean(b.text.en));
+          if ((b.type === "example" || b.type === "worked") && (b.problem?.en || b.solution?.en)) {
+            examples.push({ q: clean(b.problem?.en || t.title), sol: clean(b.solution?.en || b.answer?.en || ""), tier: "textbook" });
+          }
+          if (b.type === "think" && b.text?.en) tips.push(clean(b.text.en));
+          if (b.type === "teacher_narration" && Array.isArray(b.sentences)) {
+            for (const s of b.sentences) {
+              const txt = clean(s.text?.en || "");
+              if (txt.length >= 28 && !/^hello!? today|^well done|^let us begin/i.test(txt)) {
+                concepts.push(txt);
+              }
             }
           }
         }
-      }
-    } catch {}
+      } catch {}
+    }
     const qf = join(Q_DIR, `${ch.board}-${ch.classLevel}-${ch.subject}-${ch.chapter}-${t.slug}.json`);
     if (existsSync(qf)) {
       try {
         const qData = JSON.parse(readFileSync(qf, "utf8"));
         for (const q of qData.questions || []) {
           const stem = clean(q.stem?.en || "");
-          const steps = (q.solutionSteps || []).map((s) => clean(s?.en || "")).filter(Boolean);
+          const steps = (q.solutionSteps || []).map((s) => clean(s?.en || "")).filter((x) => x && !/^identify the key concept/i.test(x));
           const ans = clean(q.explanation?.en || "");
-          if (stem && (steps.length || ans) && !/^complete the textbook statement|^true or false|^identify the correct/i.test(stem)) {
-            examples.push({ q: stem, sol: steps[0] ? `${steps.join(" ")}` : ans, tier: q.tier || "textbook" });
+          const sol = steps.length ? steps.join(" ") : ans;
+          if (stem && sol && !/^complete the textbook statement|^true or false|^identify the correct/i.test(stem)) {
+            examples.push({ q: stem, sol, tier: q.tier || "textbook" });
           }
         }
       } catch {}
     }
   }
-  return { concepts: [...new Set(concepts)], examples, tips };
+  return {
+    stories: [...new Set(stories)],
+    concepts: [...new Set(concepts)],
+    summaries: [...new Set(summaries)],
+    examples,
+    tips: [...new Set(tips)],
+  };
 }
 
 function buildModel3(ch) {
-  const { concepts, examples, tips } = extractChapterContent(ch);
-  const c1 = concepts[0] || `Let us master ${ch.title} step by step with clear visual examples.`;
-  const c2 = concepts[1] || `Always check units, definitions, and textbook conditions in ${ch.title}.`;
-  const c3 = concepts[2] || `Connecting each step logically makes solving ${ch.title} problems effortless.`;
+  const { stories, concepts, summaries, examples, tips } = extractChapterContent(ch);
+  const topicLabels = ch.topics.filter((t) => t.slug !== "whole-chapter").map((t) => t.title);
+  const s0 = stories[0] || `Let us explore ${ch.title} with real-life examples, drawings, and step-by-step explanations.`;
+  const c1 = concepts[0] || `Start with the foundational definition of ${ch.title} and observe every detail carefully.`;
+  const c2 = concepts[1] || `Notice how the properties and patterns in ${ch.title} connect together.`;
+  const c3 = concepts[2] || `Look at how the textbook applies these ideas to shapes, models, and real objects.`;
+  const c4 = concepts[3] || summaries[0] || `Always verify your answer step by step using the core rule of ${ch.title}.`;
+  const c5 = concepts[4] || concepts[1] || `Check units, labels, and conditions carefully before finalizing your solution.`;
   const ex1 = examples.find((e) => e.tier !== "advanced") || examples[0] || { q: `Apply the core rule of ${ch.title}`, sol: c2 };
-  const ex2 = examples.find((e) => e.tier === "advanced") || examples.find((e) => e !== ex1) || { q: `Solve a reverse problem in ${ch.title}`, sol: c3 };
+  const ex2 = examples.find((e) => e !== ex1 && e.tier !== "advanced") || examples.find((e) => e !== ex1) || { q: `Solve a multi-step textbook problem in ${ch.title}`, sol: c3 };
+  const ex3 = examples.find((e) => e.tier === "advanced") || examples.find((e) => e !== ex1 && e !== ex2) || ex2;
   const labType = pickLabType(ch.subject, ch.chapter, ch.title, ch.classLevel);
   const textbookRef = `${ch.board.toUpperCase()} Class ${ch.classLevel} ${ch.subject} · ${ch.title}`;
 
@@ -155,46 +230,83 @@ function buildModel3(ch) {
     levels: {
       "1": [
         {
-          id: "l1-concept",
-          pill: "1. Core Concept",
+          id: "l1-overview",
+          pill: "1. Chapter Overview",
           kind: "chalkboard",
+          visual: pickVisual(ch, "overview", topicLabels),
           textbookBox: {
-            ref: `${textbookRef} · Foundation`,
-            concept: c1.slice(0, 180),
+            ref: `${textbookRef} · Chapter Map`,
+            concept: clipWord(s0, 200),
           },
-          tip: tips[0]?.slice(0, 140) || `Focus on the core rule of ${ch.title} first.`,
+          tip: clipWord(tips[0] || `Look at how all parts of ${ch.title} connect together.`, 140),
           beats: [
-            { en: `Welcome to ${ch.title}. Today we will write every key step live on the chalkboard.`, speakEn: toSpeakEn(`Welcome to ${ch.title}. Today we will write every key step live on the chalkboard.`) },
-            { en: c1.slice(0, 220), speakEn: toSpeakEn(c1.slice(0, 220)) },
-            { en: c2.slice(0, 220), speakEn: toSpeakEn(c2.slice(0, 220)) },
+            { en: `Welcome to ${ch.title}. Today we will cover the full chapter step by step with visual drawings on the chalkboard.`, speakEn: toSpeakEn(`Welcome to ${ch.title}. Today we will cover the full chapter step by step with visual drawings on the chalkboard.`) },
+            { en: clipWord(s0, 220), speakEn: toSpeakEn(clipWord(s0, 220)) },
           ],
           cues: [
-            { b: 0, at: 0.15, type: ["c1-head", `Topic: ${ch.title}`, 900], color: "yellow" },
-            { b: 1, at: 0.15, type: ["c1-rule", `Key Idea: ${c1.slice(0, 88)}`, 1400], color: "green" },
-            { b: 2, at: 0.2, type: ["c1-note", `Remember: ${c2.slice(0, 88)}`, 1400], color: "cyan" },
+            { b: 0, at: 0.12, type: ["ov-h", `Topic: ${ch.title}`, 900], color: "yellow" },
+            { b: 1, at: 0.15, type: ["ov-s", clipWord(s0, 110), 1200], color: "green" },
+          ],
+        },
+        {
+          id: "l1-core-1",
+          pill: "2. Core Concepts (1)",
+          kind: "chalkboard",
+          visual: pickVisual(ch, "part1", topicLabels),
+          textbookBox: {
+            ref: `${textbookRef} · Textbook Concepts`,
+            concept: clipWord(c1, 200),
+          },
+          tip: `Look closely at the diagram on the board as we explain each property.`,
+          beats: [
+            { en: clipWord(c1, 220), speakEn: toSpeakEn(clipWord(c1, 220)) },
+            { en: clipWord(c2, 220), speakEn: toSpeakEn(clipWord(c2, 220)) },
+          ],
+          cues: [
+            { b: 0, at: 0.15, type: ["c1-a", `Key Concept: ${clipWord(c1, 95)}`, 1200], color: "green" },
+            { b: 1, at: 0.2, type: ["c1-b", `Rule: ${clipWord(c2, 95)}`, 1200], color: "cyan" },
+          ],
+        },
+        {
+          id: "l1-core-2",
+          pill: "3. Core Concepts (2)",
+          kind: "chalkboard",
+          visual: pickVisual(ch, "part2", [topicLabels[0] || "Observe", topicLabels[1] || "Compare", topicLabels[2] || "Apply"]),
+          textbookBox: {
+            ref: `${textbookRef} · Deeper Textbook Ideas`,
+            concept: clipWord(c3, 200),
+          },
+          beats: [
+            { en: clipWord(c3, 220), speakEn: toSpeakEn(clipWord(c3, 220)) },
+            { en: clipWord(c4, 220), speakEn: toSpeakEn(clipWord(c4, 220)) },
+          ],
+          cues: [
+            { b: 0, at: 0.15, type: ["c2-a", clipWord(c3, 100), 1200], color: "yellow" },
+            { b: 1, at: 0.2, type: ["c2-b", clipWord(c4, 100), 1200], color: "green" },
           ],
         },
         {
           id: "l1-example",
-          pill: "2. Worked Example",
+          pill: "4. Worked Example",
           kind: "chalkboard",
+          visual: pickVisual(ch, "example", ["Read Problem", "Apply Rule", "Verify Answer"]),
           textbookBox: {
-            ref: `${textbookRef} · Textbook Example`,
-            concept: ex1.q.slice(0, 160),
-            example: ex1.sol.slice(0, 120),
+            ref: `${textbookRef} · Textbook Example 1`,
+            concept: clipWord(ex1.q, 180),
+            example: clipWord(ex1.sol, 160),
           },
           beats: [
-            { en: `Let us solve a textbook example carefully: ${ex1.q.slice(0, 180)}`, speakEn: toSpeakEn(`Let us solve a textbook example carefully: ${ex1.q.slice(0, 180)}`) },
-            { en: `Step by step: ${ex1.sol.slice(0, 200)}`, speakEn: toSpeakEn(`Step by step: ${ex1.sol.slice(0, 200)}`) },
+            { en: `Let us solve a textbook example carefully: ${clipWord(ex1.q, 200)}`, speakEn: toSpeakEn(`Let us solve a textbook example carefully: ${clipWord(ex1.q, 200)}`) },
+            { en: `Step by step: ${clipWord(ex1.sol, 220)}`, speakEn: toSpeakEn(`Step by step: ${clipWord(ex1.sol, 220)}`) },
           ],
           cues: [
-            { b: 0, at: 0.15, type: ["ex1-q", `Given: ${ex1.q.slice(0, 85)}`, 1200], color: "yellow" },
-            { b: 1, at: 0.2, type: ["ex1-s", `Solution: ${ex1.sol.slice(0, 95)}`, 1400], color: "green" },
+            { b: 0, at: 0.15, type: ["ex1-q", `Given: ${clipWord(ex1.q, 95)}`, 1100], color: "yellow" },
+            { b: 1, at: 0.2, type: ["ex1-s", `Step 1: ${clipWord(ex1.sol, 105)}`, 1400], color: "green" },
           ],
         },
         {
           id: "l1-lab",
-          pill: "3. Interactive Lab",
+          pill: "5. Interactive Lab",
           kind: "interactive-lab",
           autoStop: true,
           confirmPrompt: "Done exploring this Level 1 Interactive Lab?",
@@ -211,27 +323,66 @@ function buildModel3(ch) {
       ],
       "2": [
         {
-          id: "l2-reverse",
-          pill: "1. Reverse & Trap",
+          id: "l2-example-2",
+          pill: "1. Example 2 & Method",
           kind: "chalkboard",
+          visual: pickVisual(ch, "part1", ["Identify Data", "Choose Method", "Check Result"]),
           textbookBox: {
-            ref: `${textbookRef} · Level 2 Challenge`,
-            concept: ex2.q.slice(0, 170),
+            ref: `${textbookRef} · Level 2 Worked Example`,
+            concept: clipWord(ex2.q, 180),
+            example: clipWord(ex2.sol, 160),
           },
-          tip: "Watch out for common exam traps — double-check units and signs!",
+          tip: `Break multi-step textbook problems into small steps on the board.`,
           beats: [
-            { en: `Welcome to Level 2 Advanced Mastery for ${ch.title}. Here we tackle reverse problems and common exam traps.`, speakEn: toSpeakEn(`Welcome to Level 2 Advanced Mastery for ${ch.title}. Here we tackle reverse problems and common exam traps.`) },
-            { en: `${ex2.q.slice(0, 180)} → ${ex2.sol.slice(0, 160)}`, speakEn: toSpeakEn(`${ex2.q.slice(0, 180)}. ${ex2.sol.slice(0, 160)}`) },
+            { en: `Welcome to Level 2 Advanced Mastery for ${ch.title}. Let us work through a deeper textbook problem.`, speakEn: toSpeakEn(`Welcome to Level 2 Advanced Mastery for ${ch.title}. Let us work through a deeper textbook problem.`) },
+            { en: `Problem: ${clipWord(ex2.q, 200)}`, speakEn: toSpeakEn(`Problem: ${clipWord(ex2.q, 200)}`) },
+            { en: `Solution: ${clipWord(ex2.sol, 220)}`, speakEn: toSpeakEn(`Solution: ${clipWord(ex2.sol, 220)}`) },
           ],
           cues: [
-            { b: 0, at: 0.15, type: ["l2-h", `Level 2 Challenge · ${ch.title}`, 1000], color: "pink" },
-            { b: 1, at: 0.15, type: ["l2-q", `Problem: ${ex2.q.slice(0, 85)}`, 1300], color: "yellow" },
-            { b: 1, at: 0.55, type: ["l2-s", `Check: ${ex2.sol.slice(0, 85)}`, 1200], color: "green" },
+            { b: 0, at: 0.12, type: ["l2-e-h", `Level 2 · ${ch.title}`, 900], color: "pink" },
+            { b: 1, at: 0.15, type: ["l2-e-q", `Given: ${clipWord(ex2.q, 95)}`, 1100], color: "yellow" },
+            { b: 2, at: 0.2, type: ["l2-e-s", `Step 1: ${clipWord(ex2.sol, 105)}`, 1400], color: "green" },
+          ],
+        },
+        {
+          id: "l2-reverse",
+          pill: "2. Reverse & Exam Trap",
+          kind: "chalkboard",
+          visual: pickVisual(ch, "example", ["Spot the Trap", "Work Backwards", "Verify"]),
+          textbookBox: {
+            ref: `${textbookRef} · Exam Challenge`,
+            concept: clipWord(ex3.q, 180),
+            example: clipWord(ex3.sol, 160),
+          },
+          tip: "Watch out for common exam traps — double-check units, labels, and signs!",
+          beats: [
+            { en: `Let us test our understanding with a challenge problem: ${clipWord(ex3.q, 200)}`, speakEn: toSpeakEn(`Let us test our understanding with a challenge problem: ${clipWord(ex3.q, 200)}`) },
+            { en: `Check carefully: ${clipWord(ex3.sol, 220)}`, speakEn: toSpeakEn(`Check carefully: ${clipWord(ex3.sol, 220)}`) },
+          ],
+          cues: [
+            { b: 0, at: 0.15, type: ["l2-q", `Challenge: ${clipWord(ex3.q, 95)}`, 1200], color: "yellow" },
+            { b: 1, at: 0.2, type: ["l2-s", `Step 1: ${clipWord(ex3.sol, 105)}`, 1300], color: "green" },
+          ],
+        },
+        {
+          id: "l2-recap",
+          pill: "3. Chapter Recap",
+          kind: "chalkboard",
+          visual: pickVisual(ch, "part2", topicLabels),
+          textbookBox: {
+            ref: `${textbookRef} · Complete Summary`,
+            concept: clipWord(c5, 200),
+          },
+          beats: [
+            { en: `Let us review the key takeaway from ${ch.title}: ${clipWord(c5, 210)}`, speakEn: toSpeakEn(`Let us review the key takeaway from ${ch.title}: ${clipWord(c5, 210)}`) },
+          ],
+          cues: [
+            { b: 0, at: 0.15, type: ["l2-recap", `Summary: ${clipWord(c5, 105)}`, 1200], color: "cyan" },
           ],
         },
         {
           id: "l2-lab",
-          pill: "2. Level 2 Lab",
+          pill: "4. Level 2 Lab",
           kind: "interactive-lab",
           autoStop: true,
           confirmPrompt: "Done with the Level 2 Interactive Lab? Ready for Practice?",

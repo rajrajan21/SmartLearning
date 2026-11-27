@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · Area · Foundation",
-     "concept": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28. Perimeter is the length of the boundary, w"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Area",
+     "items": [
+      "Area of rectangles, tr"
+     ]
     },
-    "tip": "Focus on the core rule of Area first.",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Chapter Map",
+     "concept": "Two rectangles of rangoli: one 3 cm × 8 cm and one 4 cm × 7 cm. Which needs more powder if colouring evenly?"
+    },
+    "tip": "Look at how all parts of Area connect together.",
     "beats": [
      {
-      "en": "Welcome to Area. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Area. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Area. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Area. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28. Perimeter is the length of the boundary, which is not a measure of area, because d",
-      "speakEn": "Area is the number of unit squares that cover a region, so a 3 centimetres by 8 centimetres rectangle has 24 square cm and a 4 centimetres by 7 centimetres rectangle has 28. Perimeter is the length of the boundary, which is not a measure of area, because d"
-     },
-     {
-      "en": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28.",
-      "speakEn": "Area is the number of unit squares that cover a region, so a 3 centimetres by 8 centimetres rectangle has 24 square cm and a 4 centimetres by 7 centimetres rectangle has 28."
+      "en": "Two rectangles of rangoli: one 3 cm × 8 cm and one 4 cm × 7 cm. Which needs more powder if colouring evenly?",
+      "speakEn": "Two rectangles of rangoli: one 3 centimetres  times  8 centimetres and one 4 centimetres  times  7 centimetres. Which needs more powder if colouring evenly?"
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Area",
        900
       ],
@@ -47,32 +50,130 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has ",
-       1400
+       "ov-s",
+       "Two rectangles of rangoli: one 3 cm × 8 cm and one 4 cm × 7 cm. Which needs more powder if colouring evenly?",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Area of rectangles, tr"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Textbook Concepts",
+     "concept": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24 square cm and a 4 cm by 7 cm rectangle has 28.",
+      "speakEn": "Area is the number of unit squares that cover a region, so a 3 centimetres by 8 centimetres rectangle has 24 square cm and a 4 centimetres by 7 centimetres rectangle has 28."
+     },
+     {
+      "en": "Perimeter is the length of the boundary, which is not a measure of area, because different shapes with the same perimeter can have very different areas.",
+      "speakEn": "Perimeter is the length of the boundary, which is not a measure of area, because different shapes with the same perimeter can have very different areas."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has 24",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Area is the number of unit squares that cover a region, so a 3 cm by 8 cm rectangle has ",
-       1400
+       "c1-b",
+       "Rule: Perimeter is the length of the boundary, which is not a measure of area, because different",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Area of rectangles, tr",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 8 maths · Area · Textbook Example",
+     "ref": "CBSE Class 8 maths · Area · Deeper Textbook Ideas",
+     "concept": "A diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the rectangle: ½ × base × height."
+    },
+    "beats": [
+     {
+      "en": "A diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the rectangle: ½ × base × height.",
+      "speakEn": "A diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the rectangle: ½  times  base  times  height."
+     },
+     {
+      "en": "Any triangle with base b and height h has area ½bh, because two copies make a parallelogram.",
+      "speakEn": "Any triangle with base b and height h has area ½bh, because two copies make a parallelogram."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "A diagonal splits a rectangle into two congruent triangles, so a triangle's area is half of the",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "Any triangle with base b and height h has area ½bh, because two copies make a parallelogram.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Textbook Example 1",
      "concept": "The area of a triangle with base 10 cm and height 6 cm is",
-     "example": "Step 1: Identify the key concept from the question: The area of a triangle with base 10 cm and height 6 cm is. Step 2: ½"
+     "example": "Step 1: Identify the key concept from the question: The area of a triangle with base 10 cm and height 6 cm is. Step 2: ½ × 10 × 6 = 30."
     },
     "beats": [
      {
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The area of a triangle with base 10 cm and height 6 cm is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The area of a triangle with base 10 cm and ",
+       "Step 1: Step 1: Identify the key concept from the question: The area of a triangle with base 10 cm and height 6",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · Area · Level 2 Challenge",
-     "concept": "HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic? (Focus: trapezium parallel si"
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Level 2 Worked Example",
+     "concept": "Area of a parallelogram is",
+     "example": "Step 1: Identify the key concept from the question: Area of a parallelogram is. Step 2: Cut and move a triangle to make a rectangle."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Area. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Area. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Area. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Area. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic? (Focus: trapezium parallel sides height → Step 1: Recall the textbook principle on \"trapezium parallel sides height\". Step 2: Verify the accurate statement: \"A trapezium with parallel sides a and b and ",
-      "speakEn": "HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic? (Focus: trapezium parallel sides height. Step 1: Recall the textbook principle on \"trapezium parallel sides height\". Step 2: Verify the accurate statement: \"A trapezium with parallel sides a and b and"
+      "en": "Problem: Area of a parallelogram is",
+      "speakEn": "Problem: Area of a parallelogram is"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: Area of a parallelogram is. Step 2: Cut and move a triangle to make a rectangle.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: Area of a parallelogram is. Step 2: Cut and move a triangle to make a rectangle."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Area",
-       1000
+       "l2-e-h",
+       "Level 2 · Area",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which st",
-       1300
+       "l2-e-q",
+       "Given: Area of a parallelogram is",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"trapezium parallel sides height\". Step 2: V",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: Area of a parallelogram is.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Exam Challenge",
+     "concept": "HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic?",
+     "example": "Step 1: Recall the textbook principle on \"trapezium parallel sides height\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic? (Focus: trapezium parallel sides height)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement best explains a deep principle from this topic? (Focus: trapezium parallel sides height)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"trapezium parallel sides height\". Step 2: Verify the accurate statement: \"A trapezium with parallel sides a and b and height h has area ½(a + b)h, the average of the parallel",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"trapezium parallel sides height\". Step 2: Verify the accurate statement: \"A trapezium with parallel sides a and b and height h has area ½(a + b)h, the average of the parallel"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Area of rectangles, triangles, parallelograms and trapezia): Which statement",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"trapezium parallel sides height\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "area-grid",
+     "title": "Area & Perimeter Grid",
+     "items": [
+      "Area of rectangles, tr"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Area · Complete Summary",
+     "concept": "A parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is base × height."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Area: A parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is base × height.",
+      "speakEn": "Let us review the key takeaway from Area: A parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is base  times  height."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: A parallelogram can be cut and moved to form a rectangle with the same base and height, so its area is",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

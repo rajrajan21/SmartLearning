@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Two Variables, One Line · Foundation",
-     "concept": "An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables. It has infinitely many solutions, and each solution is a pair (x, y). Every point on t"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Two Variables, One Line",
+     "items": [
+      "Linear equations in tw"
+     ]
     },
-    "tip": "Focus on the core rule of Two Variables, One Line first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Chapter Map",
+     "concept": "Pens cost 10 rupees and notebooks 30 rupees. Many combinations cost the same 100 rupees. All of them sit on one straight line."
+    },
+    "tip": "Look at how all parts of Two Variables, One Line connect together.",
     "beats": [
      {
-      "en": "Welcome to Two Variables, One Line. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Two Variables, One Line. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Two Variables, One Line. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Two Variables, One Line. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables. It has infinitely many solutions, and each solution is a pair (x, y). Every point on the graph is a solution and every solutio",
-      "speakEn": "An equation ax + by + c  equals  0 with a and b not both zero is a linear equation in two variables. It has infinitely many solutions, and each solution is a pair (x, y). Every point on the graph is a solution and every solutio"
-     },
-     {
-      "en": "An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables.",
-      "speakEn": "An equation ax + by + c  equals  0 with a and b not both zero is a linear equation in two variables."
+      "en": "Pens cost 10 rupees and notebooks 30 rupees. Many combinations cost the same 100 rupees. All of them sit on one straight line.",
+      "speakEn": "Pens cost 10 rupees and notebooks 30 rupees. Many combinations cost the same 100 rupees. All of them sit on one straight line."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Two Variables, One Line",
        900
       ],
@@ -47,32 +50,130 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: An equation ax + by + c = 0 with a and b not both zero is a linear equation in two varia",
-       1400
+       "ov-s",
+       "Pens cost 10 rupees and notebooks 30 rupees. Many combinations cost the same 100 rupees.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Two Variables, One Line",
+     "items": [
+      "Linear equations in tw"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Textbook Concepts",
+     "concept": "An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables.",
+      "speakEn": "An equation ax + by + c  equals  0 with a and b not both zero is a linear equation in two variables."
+     },
+     {
+      "en": "It has infinitely many solutions, and each solution is a pair (x, y).",
+      "speakEn": "It has infinitely many solutions, and each solution is a pair (x, y)."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: An equation ax + by + c = 0 with a and b not both zero is a linear equation in two variables.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: An equation ax + by + c = 0 with a and b not both zero is a linear equation in two varia",
-       1400
+       "c1-b",
+       "Rule: It has infinitely many solutions, and each solution is a pair (x, y).",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Two Variables, One Line · Step Flow",
+     "items": [
+      "Linear equations in tw",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · Two Variables, One Line · Textbook Example",
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Deeper Textbook Ideas",
+     "concept": "Every point on the graph is a solution and every solution is a point on the graph; the graph is a straight line."
+    },
+    "beats": [
+     {
+      "en": "Every point on the graph is a solution and every solution is a point on the graph; the graph is a straight line.",
+      "speakEn": "Every point on the graph is a solution and every solution is a point on the graph; the graph is a straight line."
+     },
+     {
+      "en": "The slope-intercept form is y = mx + d. Here m is the slope and d the y-intercept; the line cuts the y-axis at (0, d).",
+      "speakEn": "The slope-intercept form is y  equals  mx + d. Here m is the slope and d the y-intercept; the line cuts the y-axis at (0, d)."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "Every point on the graph is a solution and every solution is a point on the graph; the graph is a",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The slope-intercept form is y = mx + d. Here m is the slope and d the y-intercept; the line cuts",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Two Variables, One Line · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Textbook Example 1",
      "concept": "The graph of a linear equation in two variables is",
-     "example": "Step 1: Identify the key concept from the question: The graph of a linear equation in two variables is. Step 2: Linear m"
+     "example": "Step 1: Identify the key concept from the question: The graph of a linear equation in two variables is. Step 2: Linear means a line."
     },
     "beats": [
      {
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The graph of a linear equation in two variables is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The graph of a linear equation in two varia",
+       "Step 1: Step 1: Identify the key concept from the question: The graph of a linear equation in two variables is.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Two Variables, One Line · Level 2 Challenge",
-     "concept": "HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Two Variables, One Line",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Level 2 Worked Example",
+     "concept": "In y = 3x + 2 the y-intercept is",
+     "example": "Step 1: Identify the key concept from the question: In y = 3x + 2 the y-intercept is. Step 2: d = 2."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Two Variables, One Line. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Two Variables, One Line. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Two Variables, One Line. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Two Variables, One Line. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution) → Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify the accurate statement: \"Every point on the graph is a solution and every ",
-      "speakEn": "HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution). Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify the accurate statement: \"Every point on the graph is a solution and every"
+      "en": "Problem: In y = 3x + 2 the y-intercept is",
+      "speakEn": "Problem: In y  equals  3x + 2 the y-intercept is"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: In y = 3x + 2 the y-intercept is. Step 2: d = 2.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: In y  equals  3x + 2 the y-intercept is. Step 2: d  equals  2."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Two Variables, One Line",
-       1000
+       "l2-e-h",
+       "Level 2 · Two Variables, One Line",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Linear equations in two variables and their graphs): Which statement ",
-       1300
+       "l2-e-q",
+       "Given: In y = 3x + 2 the y-intercept is",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: In y = 3x + 2 the y-intercept is. Step 2: d = 2.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Two Variables, One Line · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Exam Challenge",
+     "concept": "HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution)",
+     "example": "Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify the accurate statement: \"Every point on the graph is a solution and every"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Linear equations in two variables and their graphs): Which statement best explains a deep principle from this topic? (Focus: Every point graph solution)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify the accurate statement: \"Every point on the graph is a solution and every solution is a point on the graph; the graph is a straight",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Every point graph solution\". Step 2: Verify the accurate statement: \"Every point on the graph is a solution and every solution is a point on the graph; the graph is a straight"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Linear equations in two variables and their graphs): Which statement best",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Every point graph solution\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Two Variables, One Line · Step Flow",
+     "items": [
+      "Linear equations in tw"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Two Variables, One Line · Complete Summary",
+     "concept": "A pair of linear equations can be solved graphically by finding where the two lines meet."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Two Variables, One Line: A pair of linear equations can be solved graphically by finding where the two lines meet.",
+      "speakEn": "Let us review the key takeaway from Two Variables, One Line: A pair of linear equations can be solved graphically by finding where the two lines meet."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: A pair of linear equations can be solved graphically by finding where the two lines meet.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

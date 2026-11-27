@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Quadrilaterals · Foundation",
-     "concept": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners. It is convex when all internal angles are less than 180 degree"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Quadrilaterals",
+     "items": [
+      "Quadrilaterals and mid"
+     ]
     },
-    "tip": "Focus on the core rule of Quadrilaterals first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Chapter Map",
+     "concept": "Pick four points and join them: you get a four-sided shape. Which shapes become parallelograms, and what can we prove about them?"
+    },
+    "tip": "Look at how all parts of Quadrilaterals connect together.",
     "beats": [
      {
-      "en": "Welcome to Quadrilaterals. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Quadrilaterals. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Quadrilaterals. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Quadrilaterals. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners. It is convex when all internal angles are less than 180 degrees, equivalently when its diagonals inter",
-      "speakEn": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners. It is convex when all internal angles are less than 180 degrees, equivalently when its diagonals inter"
-     },
-     {
-      "en": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners.",
-      "speakEn": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners."
+      "en": "Pick four points and join them: you get a four-sided shape. Which shapes become parallelograms, and what can we prove about them?",
+      "speakEn": "Pick four points and join them: you get a four-sided shape. Which shapes become parallelograms, and what can we prove about them?"
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Quadrilaterals",
        900
       ],
@@ -47,32 +50,130 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA t",
-       1400
+       "ov-s",
+       "Pick four points and join them: you get a four-sided shape.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Quadrilaterals",
+     "items": [
+      "Quadrilaterals and mid"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Textbook Concepts",
+     "concept": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners.",
+      "speakEn": "A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that meet only at the corners."
+     },
+     {
+      "en": "It is convex when all internal angles are less than 180 degrees, equivalently when its diagonals intersect.",
+      "speakEn": "It is convex when all internal angles are less than 180 degrees, equivalently when its diagonals intersect."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA that",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: A quadrilateral ABCD joins four points, no three in a line, by segments AB, BC, CD, DA t",
-       1400
+       "c1-b",
+       "Rule: It is convex when all internal angles are less than 180 degrees, equivalently when its",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Quadrilaterals · Step Flow",
+     "items": [
+      "Quadrilaterals and mid",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · Quadrilaterals · Textbook Example",
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Deeper Textbook Ideas",
+     "concept": "A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal."
+    },
+    "beats": [
+     {
+      "en": "A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal.",
+      "speakEn": "A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal."
+     },
+     {
+      "en": "It is also a parallelogram if its diagonals bisect each other, or if one pair of opposite sides is equal and parallel.",
+      "speakEn": "It is also a parallelogram if its diagonals bisect each other, or if one pair of opposite sides is equal and parallel."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "It is also a parallelogram if its diagonals bisect each other, or if one pair of opposite sides is",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Quadrilaterals · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Textbook Example 1",
      "concept": "The diagonals of a parallelogram",
-     "example": "Step 1: Identify the key concept from the question: The diagonals of a parallelogram. Step 2: This is a property of para"
+     "example": "Step 1: Identify the key concept from the question: The diagonals of a parallelogram. Step 2: This is a property of parallelograms."
     },
     "beats": [
      {
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The diagonals of a parallelogram",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The diagonals of a parallelogram. Step 2: T",
+       "Step 1: Step 1: Identify the key concept from the question: The diagonals of a parallelogram.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Quadrilaterals · Level 2 Challenge",
-     "concept": "HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic? (Focus: 4-gon parallelogram oppo"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Quadrilaterals",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Level 2 Worked Example",
+     "concept": "If diagonals of a 4-gon bisect each other it is a parallelogram.",
+     "example": "Step 1: Identify the key concept from the question: If diagonals of a 4-gon bisect each other it is a parallelogram.. Step 2: The converse holds."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Quadrilaterals. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Quadrilaterals. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Quadrilaterals. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Quadrilaterals. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic? (Focus: 4-gon parallelogram opposite sides → Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\". Step 2: Verify the accurate statement: \"A 4-gon is a parallelogram if its opposit",
-      "speakEn": "HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic? (Focus: 4-gon parallelogram opposite sides. Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\". Step 2: Verify the accurate statement: \"A 4-gon is a parallelogram if its opposit"
+      "en": "Problem: If diagonals of a 4-gon bisect each other it is a parallelogram.",
+      "speakEn": "Problem: If diagonals of a 4-gon bisect each other it is a parallelogram."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: If diagonals of a 4-gon bisect each other it is a parallelogram.. Step 2: The converse holds.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: If diagonals of a 4-gon bisect each other it is a parallelogram.. Step 2: The converse holds."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Quadrilaterals",
-       1000
+       "l2-e-h",
+       "Level 2 · Quadrilaterals",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which state",
-       1300
+       "l2-e-q",
+       "Given: If diagonals of a 4-gon bisect each other it is a parallelogram.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\". Step 2",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: If diagonals of a 4-gon bisect each other it is a",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Quadrilaterals · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Exam Challenge",
+     "concept": "HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic?",
+     "example": "Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic? (Focus: 4-gon parallelogram opposite sides)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best explains a deep principle from this topic? (Focus: 4-gon parallelogram opposite sides)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\". Step 2: Verify the accurate statement: \"A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\". Step 2: Verify the accurate statement: \"A 4-gon is a parallelogram if its opposite sides are equal, or if its opposite angles are equal.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Quadrilaterals, parallelograms and the midpoint theorem): Which statement best",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"4-gon parallelogram opposite sides\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Quadrilaterals · Step Flow",
+     "items": [
+      "Quadrilaterals and mid"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Quadrilaterals · Complete Summary",
+     "concept": "Midpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Quadrilaterals: Midpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length.",
+      "speakEn": "Let us review the key takeaway from Quadrilaterals: Midpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third side and half its length."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: Midpoint theorem: the line joining the midpoints of two sides of a triangle is parallel to the third",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

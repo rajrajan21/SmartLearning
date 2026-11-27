@@ -10,34 +10,41 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 6 maths · Number Play · Foundation",
-     "concept": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neigh"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Number Play",
+     "items": [
+      "Number Play: patterns",
+      "Even, odd and number p",
+      "Simple estimation and",
+      "Palindromes, supercell",
+      "Magic squares and numb"
+     ]
     },
-    "tip": "Focus on the core rule of Number Play first.",
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Chapter Map",
+     "concept": "Take any 4-digit number with at least two different digits, say 6382. Arrange its digits to make the biggest number and the smallest number, and subtract. Repeat with the answer."
+    },
+    "tip": "Look at how all parts of Number Play connect together.",
     "beats": [
      {
-      "en": "Welcome to Number Play. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Number Play. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Number Play. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Number Play. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller. From such numbers we c",
-      "speakEn": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller. From such numbers we c"
-     },
-     {
-      "en": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller.",
-      "speakEn": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller."
+      "en": "Take any 4-digit number with at least two different digits, say 6382. Arrange its digits to make the biggest number and the smallest number, and subtract. Repeat with the answer.",
+      "speakEn": "Take any 4-digit number with at least two different digits, say 6382. Arrange its digits to make the biggest number and the smallest number, and subtract. Repeat with the answer."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Number Play",
        900
       ],
@@ -47,32 +54,134 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Numbers do much more than count. A group of children in a line each says the number of t",
-       1400
+       "ov-s",
+       "Take any 4-digit number with at least two different digits, say 6382.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Number Play: patterns",
+      "Even, odd and number p",
+      "Simple estimation and",
+      "Palindromes, supercell",
+      "Magic squares and numb"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Textbook Concepts",
+     "concept": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller.",
+      "speakEn": "Numbers do much more than count. A group of children in a line each says the number of taller neighbours they have. 0 means no taller neighbour, 1 means one, and 2 means both neighbours are taller."
+     },
+     {
+      "en": "In a table of numbers, a cell is a supercell if its number is greater than all its neighbouring cells. In a row, the neighbours are the cells immediately to the left and right.",
+      "speakEn": "In a table of numbers, a cell is a supercell if its number is greater than all its neighbouring cells. In a row, the neighbours are the cells immediately to the left and right."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Numbers do much more than count. A group of children in a line each says the number of taller",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Numbers do much more than count. A group of children in a line each says the number of t",
-       1400
+       "c1-b",
+       "Rule: In a table of numbers, a cell is a supercell if its number is greater than all its",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Number Play: patterns",
+      "Even, odd and number p",
+      "Simple estimation and"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 6 maths · Number Play · Textbook Example",
+     "ref": "CBSE Class 6 maths · Number Play · Deeper Textbook Ideas",
+     "concept": "On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by finding which thousand they are between and how far along."
+    },
+    "beats": [
+     {
+      "en": "On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by finding which thousand they are between and how far along.",
+      "speakEn": "On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by finding which thousand they are between and how far along."
+     },
+     {
+      "en": "The digit sum of a number is the sum of its digits. The digit sum of 68 is 14, and so is that of 176 (1 + 7 + 6) and 545 (5 + 4 + 5).",
+      "speakEn": "The digit sum of a number is the sum of its digits. The digit sum of 68 is 14, and so is that of 176 (1 + 7 + 6) and 545 (5 + 4 + 5)."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The digit sum of a number is the sum of its digits.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Textbook Example 1",
      "concept": "How many two-digit numbers are there?",
-     "example": "Step 1: Identify the key concept from the question: How many two-digit numbers are there?. Step 2: The two-digit numbers"
+     "example": "Step 1: Identify the key concept from the question: How many two-digit numbers are there?."
     },
     "beats": [
      {
@@ -91,7 +200,7 @@
       "type": [
        "ex1-q",
        "Given: How many two-digit numbers are there?",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +209,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: How many two-digit numbers are there?. Step",
+       "Step 1: Step 1: Identify the key concept from the question: How many two-digit numbers are there?.",
        1400
       ],
       "color": "green"
@@ -109,7 +218,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +250,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 6 maths · Number Play · Level 2 Challenge",
-     "concept": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990)"
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Level 2 Worked Example",
+     "concept": "What is the smallest number whose digits add up to 14?",
+     "example": "Step 1: Identify the key concept from the question: What is the smallest number whose digits add up to 14?."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Number Play. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Number Play. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Number Play. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Number Play. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990) → Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus ",
-      "speakEn": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990). Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus"
+      "en": "Problem: What is the smallest number whose digits add up to 14?",
+      "speakEn": "Problem: What is the smallest number whose digits add up to 14?"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: What is the smallest number whose digits add up to 14?. Step 2: A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: What is the smallest number whose digits add up to 14?. Step 2: A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Number Play",
-       1000
+       "l2-e-h",
+       "Level 2 · Number Play",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +297,117 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Number Play): Which statement best explains a deep principle from thi",
-       1300
+       "l2-e-q",
+       "Given: What is the smallest number whose digits add up to 14?",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: What is the smallest number whose digits add up to",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Exam Challenge",
+     "concept": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990)",
+     "example": "Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round.",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"digits zero nine 9990\". Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic?",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"digits zero nine 9990\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "number-line",
+     "title": "Number Line & Jumps",
+     "items": [
+      "Number Play: patterns",
+      "Even, odd and number p",
+      "Simple estimation and",
+      "Palindromes, supercell",
+      "Magic squares and numb"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 6 maths · Number Play · Complete Summary",
+     "concept": "A palindrome reads the same from left to right and right to left, like 66, 848, 575 and 1111. A 3-digit palindrome is of the form aba."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Number Play: A palindrome reads the same from left to right and right to left, like 66, 848, 575 and 1111. A 3-digit palindrome is of the form aba.",
+      "speakEn": "Let us review the key takeaway from Number Play: A palindrome reads the same from left to right and right to left, like 66, 848, 575 and 1111. A 3-digit palindrome is of the form aba."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: A palindrome reads the same from left to right and right to left, like 66, 848, 575 and 1111.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

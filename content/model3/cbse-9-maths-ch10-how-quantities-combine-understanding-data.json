@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Foundation",
-     "concept": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn). Use it whenever parts of the data have different"
+    "visual": {
+     "kind": "concept-map",
+     "title": "How Quantities Combine:",
+     "items": [
+      "Weighted mean and stac"
+     ]
     },
-    "tip": "Focus on the core rule of How Quantities Combine: Understanding Data first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Chapter Map",
+     "concept": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+    },
+    "tip": "Look at how all parts of How Quantities Combine: Understanding Data connect together.",
     "beats": [
      {
-      "en": "Welcome to How Quantities Combine: Understanding Data. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to How Quantities Combine: Understanding Data. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to How Quantities Combine: Understanding Data. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to How Quantities Combine: Understanding Data. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn). Use it whenever parts of the data have different numbers of values or different importan",
-      "speakEn": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn). Use it whenever parts of the data have different numbers of values or different importan"
-     },
-     {
-      "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn).",
-      "speakEn": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+      "en": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight.",
+      "speakEn": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: How Quantities Combine: Understanding Data",
        900
       ],
@@ -47,30 +50,128 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ..",
-       1400
+       "ov-s",
+       "In a school, the final exam counts for more than a quiz.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "How Quantities Combine:",
+     "items": [
+      "Weighted mean and stac"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Textbook Concepts",
+     "concept": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn).",
+      "speakEn": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+     },
+     {
+      "en": "Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments.",
+      "speakEn": "Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ...",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ..",
-       1400
+       "c1-b",
+       "Rule: Use it whenever parts of the data have different numbers of values or different importance,",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "How Quantities Combine: Understanding Data · Step Flow",
+     "items": [
+      "Weighted mean and stac",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Textbook Example",
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Deeper Textbook Ideas",
+     "concept": "An average of averages can be found with weights equal to the number of values in each group."
+    },
+    "beats": [
+     {
+      "en": "An average of averages can be found with weights equal to the number of values in each group.",
+      "speakEn": "An average of averages can be found with weights equal to the number of values in each group."
+     },
+     {
+      "en": "The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures.",
+      "speakEn": "The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "An average of averages can be found with weights equal to the number of values in each group.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The weighted mean also gives the mean when some values are added or removed, and the concentration",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "How Quantities Combine: Understanding Data · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Textbook Example 1",
      "concept": "A weighted mean is useful when",
      "example": "Step 1: Identify the key concept from the question: A weighted mean is useful when. Step 2: Weights show importance."
     },
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: A weighted mean is useful when",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: A weighted mean is useful when. Step 2: Wei",
+       "Step 1: Step 1: Identify the key concept from the question: A weighted mean is useful when.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Level 2 Challenge",
-     "concept": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "How Quantities Combine:",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Level 2 Worked Example",
+     "concept": "A 100% stacked bar chart shows absolute values.",
+     "example": "Step 1: Identify the key concept from the question: A 100% stacked bar chart shows absolute values.. Step 2: It shows proportions."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for How Quantities Combine: Understanding Data. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for How Quantities Combine: Understanding Data. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for How Quantities Combine: Understanding Data. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for How Quantities Combine: Understanding Data. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights) → Step 1: Recall the textbook principle on \"average averages found weights\". Step 2: Verify the accurate statement: \"An average of averages can be found with weig",
-      "speakEn": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights). Step 1: Recall the textbook principle on \"average averages found weights\". Step 2: Verify the accurate statement: \"An average of averages can be found with weig"
+      "en": "Problem: A 100% stacked bar chart shows absolute values.",
+      "speakEn": "Problem: A 100% stacked bar chart shows absolute values."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: A 100% stacked bar chart shows absolute values.. Step 2: It shows proportions.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: A 100% stacked bar chart shows absolute values.. Step 2: It shows proportions."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · How Quantities Combine: Understanding Data",
-       1000
+       "l2-e-h",
+       "Level 2 · How Quantities Combine: Understanding Data",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains ",
-       1300
+       "l2-e-q",
+       "Given: A 100% stacked bar chart shows absolute values.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"average averages found weights\". Step 2: Ve",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: A 100% stacked bar chart shows absolute values..",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "How Quantities Combine: Understanding Data · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Exam Challenge",
+     "concept": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights)",
+     "example": "Step 1: Recall the textbook principle on \"average averages found weights\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"average averages found weights\". Step 2: Verify the accurate statement: \"An average of averages can be found with weights equal to the number of values in each group.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"average averages found weights\". Step 2: Verify the accurate statement: \"An average of averages can be found with weights equal to the number of values in each group.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"average averages found weights\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "How Quantities Combine: Understanding Data · Step Flow",
+     "items": [
+      "Weighted mean and stac"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · How Quantities Combine: Understanding Data · Complete Summary",
+     "concept": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from How Quantities Combine: Understanding Data: A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters.",
+      "speakEn": "Let us review the key takeaway from How Quantities Combine: Understanding Data: A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

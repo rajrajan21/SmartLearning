@@ -3,10 +3,12 @@ import { Link } from "wouter";
 import type { Model3Lesson, Model3Step } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { store } from "../lib/storage";
+import { ChalkVisual } from "./ChalkVisual";
 import { LessonAssessments, type LessonTab } from "./LessonAssessments";
 
 type LevelKey = "1" | "2";
 type VoiceMode = "tanglish" | "en" | "en-ta" | "ta";
+type BoardEdition = "2.0" | "3.0";
 
 function pickCloudVoices(): SpeechSynthesisVoice[] {
   if (typeof window === "undefined" || !("speechSynthesis" in window)) return [];
@@ -113,8 +115,11 @@ export function Model3Player({
   const [playing, setPlaying] = useState(false);
   const [done, setDone] = useState(false);
   const [lightBoard, setLightBoard] = useState(s.get("classroom.model3.darkBoard") === false);
+  const [edition, setEdition] = useState<BoardEdition>("3.0");
   const [wide, setWide] = useState(false);
-  const [speed, setSpeed] = useState(() => Number(store.get("ss_class_speed")) || Number(s.get<string>("classroom.speed")) || 0.78);
+  const [showTour, setShowTour] = useState(false);
+  const [tourIdx, setTourIdx] = useState(0);
+  const [speed, setSpeed] = useState(() => Number(store.get("ss_class_speed_v2")) || 0.78);
   const [speedSaved, setSpeedSaved] = useState(false);
   const stepPauseMs = s.get<number>("classroom.stepPauseMs") || 1000;
   const [voiceMode, setVoiceMode] = useState<VoiceMode>("en");
@@ -124,7 +129,7 @@ export function Model3Player({
   const [voiceUri, setVoiceUri] = useState("");
   const viewportRef = useRef<HTMLDivElement>(null);
   const runRef = useRef(0);
-  const timerRef = useRef<number | null>(null);
+  const rafRef = useRef<number | null>(null);
 
   const steps = lesson.levels[level];
   const step = steps[stepIdx] ?? steps[0]!;
@@ -148,7 +153,7 @@ export function Model3Player({
 
   const stopSpeech = useCallback(() => {
     runRef.current++;
-    if (timerRef.current !== null) { clearInterval(timerRef.current); timerRef.current = null; }
+    if (rafRef.current !== null) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
     if (typeof window !== "undefined" && "speechSynthesis" in window) window.speechSynthesis.cancel();
   }, []);
 
@@ -184,22 +189,20 @@ export function Model3Player({
       : voiceMode === "tanglish" && curBeat.tanglish ? (curBeat.speakTanglish ?? curBeat.tanglish)
       : (curBeat.speakEn ?? curBeat.en);
 
-    const estMs = Math.max(2400, Math.round((text.length * 78) / speed));
+    const estMs = Math.max(2600, Math.round((text.length * 88) / speed));
     const started = performance.now();
-    timerRef.current = window.setInterval(() => {
-      if (runRef.current !== myRun) return;
-      const p = Math.min(0.98, (performance.now() - started) / estMs);
-      setBeatProg(p);
-    }, 60);
+    let speechDone = mute || typeof window === "undefined" || !("speechSynthesis" in window) || typeof SpeechSynthesisUtterance === "undefined";
+    let animDone = false;
+    let advanced = false;
 
-    const finishBeat = () => {
-      if (runRef.current !== myRun) return;
-      if (timerRef.current !== null) { clearInterval(timerRef.current); timerRef.current = null; }
+    const tryAdvance = () => {
+      if (advanced || runRef.current !== myRun) return;
+      if (!speechDone || !animDone) return;
+      advanced = true;
       setBeatProg(1);
       if (beatIdx + 1 < step.beats.length) {
         window.setTimeout(() => { if (runRef.current === myRun) setBeatIdx((b) => b + 1); }, 450);
       } else if (step.kind === "interactive-lab" && step.autoStop !== false) {
-        // Mandatory Auto-Stop on Interactive Labs in BOTH Level 1 & Level 2
         setPlaying(false);
       } else if (stepIdx + 1 < steps.length) {
         window.setTimeout(() => {
@@ -212,8 +215,21 @@ export function Model3Player({
       }
     };
 
-    if (!mute && typeof window !== "undefined" && "speechSynthesis" in window && typeof SpeechSynthesisUtterance !== "undefined") {
-      // Zero-lag rule: do NOT call speechSynthesis.cancel() on natural beat progression
+    const tick = (now: number) => {
+      if (runRef.current !== myRun) return;
+      const p = Math.min(1, (now - started) / estMs);
+      setBeatProg((prev) => Math.max(prev, p));
+      if (p < 1) {
+        rafRef.current = requestAnimationFrame(tick);
+      } else {
+        rafRef.current = null;
+        animDone = true;
+        tryAdvance();
+      }
+    };
+    rafRef.current = requestAnimationFrame(tick);
+
+    if (!speechDone) {
       const u = new SpeechSynthesisUtterance(text);
       const pickedVoice = voices.find((v) => v.voiceURI === voiceUri);
       if (pickedVoice) u.voice = pickedVoice;
@@ -221,19 +237,26 @@ export function Model3Player({
       u.rate = speed;
       u.pitch = 1;
       u.onboundary = (ev) => {
-        if (runRef.current === myRun && text.length > 0) setBeatProg(Math.min(1, ev.charIndex / text.length));
+        if (runRef.current === myRun && text.length > 0) {
+          setBeatProg((prev) => Math.max(prev, Math.min(0.99, ev.charIndex / text.length)));
+        }
       };
-      u.onend = finishBeat;
-      u.onerror = finishBeat;
+      const markSpeechDone = () => {
+        if (runRef.current !== myRun) return;
+        speechDone = true;
+        tryAdvance();
+      };
+      u.onend = markSpeechDone;
+      u.onerror = markSpeechDone;
       window.speechSynthesis.speak(u);
-    } else {
-      window.setTimeout(finishBeat, estMs);
+      // Safety fallback if a browser TTS engine silently drops onend
+      window.setTimeout(markSpeechDone, estMs + 4000);
     }
 
     return () => {
-      if (timerRef.current !== null) { clearInterval(timerRef.current); timerRef.current = null; }
+      if (rafRef.current !== null) { cancelAnimationFrame(rafRef.current); rafRef.current = null; }
     };
-  }, [playing, tab, done, stepIdx, beatIdx, step, steps.length, speed, voiceMode, mute, voices, voiceUri]);
+  }, [playing, tab, done, stepIdx, beatIdx, step, steps.length, speed, voiceMode, mute, voices, voiceUri, stepPauseMs]);
 
   useEffect(() => () => stopSpeech(), [stopSpeech]);
 
@@ -262,7 +285,8 @@ export function Model3Player({
           <span className="m3-crumb">{lesson.board.toUpperCase()} Class {lesson.classLevel} · {lesson.subject}</span>
           <div className="m3-mode-switch" role="group" aria-label="Lesson teaching mode">
             <button type="button" className="m3-mode-btn" onClick={() => { stopSpeech(); onSwitchModel1(); }}>📚 Foundation</button>
-            <button type="button" className="m3-mode-btn active" aria-current="true">📖 Model 2.0 · Textbook</button>
+            <button type="button" className={`m3-mode-btn${edition === "2.0" ? " active" : ""}`} aria-current={edition === "2.0" ? "true" : undefined} onClick={() => setEdition("2.0")}>📖 Model 2.0 · Textbook</button>
+            <button type="button" className={`m3-mode-btn${edition === "3.0" ? " active" : ""}`} aria-current={edition === "3.0" ? "true" : undefined} onClick={() => setEdition("3.0")}>🎓 Model 3.0 · Khan Classroom</button>
           </div>
         </div>
         <div className="m3-level-bar" role="group" aria-label="Lesson Level">
@@ -333,13 +357,22 @@ export function Model3Player({
                   </div>
                 ) : (
                   <div className="m3-chalk-stage">
+                    {step.visual && (
+                      <ChalkVisual
+                        visual={step.visual}
+                        beatIdx={beatIdx}
+                        beatProg={beatProg}
+                        playing={playing}
+                        lightBoard={lightBoard}
+                      />
+                    )}
                     <div className="m3-chalk-lines">
                       {visibleCues.map((c) => (
                         <div key={c.id} className={`m3-chalk-line chalk-${c.color}`}>
                           {c.text}{!c.done && <span className="m3-cursor">✎</span>}
                         </div>
                       ))}
-                      {visibleCues.length === 0 && (
+                      {visibleCues.length === 0 && !step.visual && (
                         <div className="m3-chalk-line chalk-yellow">{step.beats[beatIdx]?.en}</div>
                       )}
                     </div>
@@ -369,6 +402,22 @@ export function Model3Player({
             </aside>
           </div>
 
+          <div className="m3-timeline-wrap no-print">
+            <div className="m3-timeline-head">
+              <span>Chalkboard timeline ({edition === "3.0" ? "Khan-style live diagrams & equations" : "equations & visuals"} synced to teacher voice)</span>
+              <span>Level {level} · {step.pill} ({stepIdx + 1}/{steps.length})</span>
+            </div>
+            <input
+              type="range"
+              min={0}
+              max={Math.max(0, steps.length - 1)}
+              value={stepIdx}
+              aria-label="Chalkboard lesson timeline"
+              className="m3-timeline"
+              onChange={(e) => jumpTo(Number(e.target.value), 0, playing)}
+            />
+          </div>
+
           <div className="m3-controls no-print">
             <button type="button" className="btn" onClick={() => { if (playing) { stopSpeech(); setPlaying(false); } else { setDone(false); setPlaying(true); } }}>
               {playing ? "⏸ Pause" : "▶ Play"}
@@ -387,7 +436,7 @@ export function Model3Player({
                 <option value="1.25">1.25× Faster</option>
               </select>
             </label>
-            <button type="button" className="btn ghost" onClick={() => { store.set("ss_class_speed", String(speed)); setSpeedSaved(true); }}>
+            <button type="button" className="btn ghost" onClick={() => { store.set("ss_class_speed_v2", String(speed)); setSpeedSaved(true); }}>
               {speedSaved ? "✓ Saved default" : "Set as default"}
             </button>
             <label className="m3-ctrl">Mode
@@ -406,7 +455,22 @@ export function Model3Player({
               </label>
             )}
             <button type="button" className="btn ghost" onClick={() => { stopSpeech(); setMute((m) => !m); }}>{mute ? "🔇 Voice Off" : "🔊 Voice On"}</button>
+            <button type="button" className="btn ghost m3-help-fab" title="Lesson Help Tour" onClick={() => { setShowTour((x) => !x); setTourIdx(0); }}>?</button>
           </div>
+          {showTour && (
+            <div className="m3-tour-pop no-print" role="dialog" aria-label="Classroom Quick Tour">
+              <strong>
+                {tourIdx === 0 && "1/4 · Step Pills & Timeline: Jump directly to any concept, worked example, or interactive lab."}
+                {tourIdx === 1 && "2/4 · Dark & Light Board: Switch between Chalkboard and Light Board anytime using the top-right board button."}
+                {tourIdx === 2 && "3/4 · Calm Pace & Sync: Default is 0.78× Calm Teacher. Adjust speed and click 'Set as default' to save."}
+                {tourIdx === 3 && "4/4 · Level 1 & Level 2: Master Core Concepts in Level 1, then switch to Level 2 Advanced + Practice & Chapter Test."}
+              </strong>
+              <div className="m3-tour-actions">
+                <button type="button" className="btn ghost" onClick={() => setTourIdx((i) => Math.max(0, i - 1))} disabled={tourIdx === 0}>Previous</button>
+                <button type="button" className="btn ghost" onClick={() => tourIdx < 3 ? setTourIdx((i) => i + 1) : setShowTour(false)}>{tourIdx < 3 ? "Next →" : "Done"}</button>
+              </div>
+            </div>
+          )}
         </>
       )}
     </div>

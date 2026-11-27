@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, renameSync, unlinkSync, writeFileSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { Mp3Encoder } from "@breezystack/lamejs";
-import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson, GkLesson } from "@studysmart/shared";
+import { LessonImport, PhraseSet, QuestionImport, ClassroomLesson, GkLesson, Model3Lesson } from "@studysmart/shared";
 import { composeAll } from "../classroom/compose-all.js";
 import { audioKey, emptyManifest, LANGS, Manifest, speechText, VoiceMap, type Lang } from "./manifest.js";
 
@@ -132,6 +132,18 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
       const r = GkLesson.safeParse(readJson(join(o.gkDir, "lessons", f)));
       if (!r.success) continue; // the content check (check-gk) reports broken files
       for (const st of r.data.steps) st.sentences.forEach((t, i) => add(`gk ${r.data.id} ${st.id} ${i + 1}`, "malar", { en: t }));
+    }
+  }
+  const model3Dir = join(dirname(o.lessonsDir), "model3");
+  if (existsSync(model3Dir)) {
+    for (const f of jsonFiles(model3Dir)) {
+      const r = Model3Lesson.safeParse(readJson(join(model3Dir, f)));
+      if (!r.success) continue;
+      for (const lvl of ["1", "2"] as const) {
+        for (const st of r.data.levels[lvl]) {
+          st.beats.forEach((b, i) => add(`model3 ${r.data.id} L${lvl} ${st.id} b${i}`, "malar", { en: b.speakEn ?? b.en, ta: b.speakTa ?? b.ta }));
+        }
+      }
     }
   }
   const phrases = join(o.audioDir, "phrases.json");

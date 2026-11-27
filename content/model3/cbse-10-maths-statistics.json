@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Statistics · Foundation",
-     "concept": "In grouped data, observations are put into class intervals with frequencies. The class mark is the mid-point: (upper limit + lower limit) divided by 2. Direct method: mean = sum of"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Statistics",
+     "items": [
+      "Mean of grouped data",
+      "Mode, median and cumul"
+     ]
     },
-    "tip": "Focus on the core rule of Statistics first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Chapter Map",
+     "concept": "A teacher has marks of 100 students grouped in class intervals. Listing them all is tedious; the mean of grouped data gives a quick average."
+    },
+    "tip": "Look at how all parts of Statistics connect together.",
     "beats": [
      {
-      "en": "Welcome to Statistics. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Statistics. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Statistics. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Statistics. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "In grouped data, observations are put into class intervals with frequencies. The class mark is the mid-point: (upper limit + lower limit) divided by 2. Direct method: mean = sum of f x divided by sum of f, where x is the",
-      "speakEn": "In grouped data, observations are put into class intervals with frequencies. The class mark is the mid-point: (upper limit + lower limit) divided by 2. Direct method: mean  equals  sum of f x divided by sum of f, where x is the"
-     },
-     {
-      "en": "In grouped data, observations are put into class intervals with frequencies.",
-      "speakEn": "In grouped data, observations are put into class intervals with frequencies."
+      "en": "A teacher has marks of 100 students grouped in class intervals. Listing them all is tedious; the mean of grouped data gives a quick average.",
+      "speakEn": "A teacher has marks of 100 students grouped in class intervals. Listing them all is tedious; the mean of grouped data gives a quick average."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Statistics",
        900
       ],
@@ -47,30 +51,129 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: In grouped data, observations are put into class intervals with frequencies. The class m",
-       1400
+       "ov-s",
+       "A teacher has marks of 100 students grouped in class intervals.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Statistics",
+     "items": [
+      "Mean of grouped data",
+      "Mode, median and cumul"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Textbook Concepts",
+     "concept": "In grouped data, observations are put into class intervals with frequencies."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "In grouped data, observations are put into class intervals with frequencies.",
+      "speakEn": "In grouped data, observations are put into class intervals with frequencies."
+     },
+     {
+      "en": "The class mark is the mid-point: (upper limit + lower limit) divided by 2.",
+      "speakEn": "The class mark is the mid-point: (upper limit + lower limit) divided by 2."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: In grouped data, observations are put into class intervals with frequencies.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: In grouped data, observations are put into class intervals with frequencies.",
-       1400
+       "c1-b",
+       "Rule: The class mark is the mid-point: (upper limit + lower limit) divided by 2.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Statistics · Step Flow",
+     "items": [
+      "Mean of grouped data",
+      "Mode, median and cumul",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 maths · Statistics · Textbook Example",
+     "ref": "CBSE Class 10 maths · Statistics · Deeper Textbook Ideas",
+     "concept": "Direct method: mean = sum of f x divided by sum of f, where x is the class mark."
+    },
+    "beats": [
+     {
+      "en": "Direct method: mean = sum of f x divided by sum of f, where x is the class mark.",
+      "speakEn": "Direct method: mean  equals  sum of f x divided by sum of f, where x is the class mark."
+     },
+     {
+      "en": "Assumed mean method: pick a convenient a and let d = x - a. Then mean = a + Σfd / Σf.",
+      "speakEn": "Assumed mean method: pick a convenient a and let d  equals  x - a. Then mean  equals  a + Σfd / Σf."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "Direct method: mean = sum of f x divided by sum of f, where x is the class mark.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "Assumed mean method: pick a convenient a and let d = x - a. Then mean = a + Σfd / Σf.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Statistics · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Textbook Example 1",
      "concept": "Class mark of 10-20",
      "example": "Step 1: Identify the key concept from the question: Class mark of 10-20. Step 2: (10 + 20)/2."
     },
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: Class mark of 10-20",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: Class mark of 10-20. Step 2: (10 + 20)/2.",
+       "Step 1: Step 1: Identify the key concept from the question: Class mark of 10-20. Step 2: (10 + 20)/2.",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Statistics · Level 2 Challenge",
-     "concept": "HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Statistics",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Level 2 Worked Example",
+     "concept": "Mean = Σfx/Σf for grouped data.",
+     "example": "Step 1: Identify the key concept from the question: Mean = Σfx/Σf for grouped data.. Step 2: Direct method."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Statistics. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Statistics. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Statistics. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Statistics. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where) → Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verify the accurate statement: \"Direct method: mean = sum of f x divided by sum ",
-      "speakEn": "HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where). Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verify the accurate statement: \"Direct method: mean  equals  sum of f x divided by sum"
+      "en": "Problem: Mean = Σfx/Σf for grouped data.",
+      "speakEn": "Problem: Mean  equals  Σfx/Σf for grouped data."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: Mean = Σfx/Σf for grouped data.. Step 2: Direct method.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: Mean  equals  Σfx/Σf for grouped data.. Step 2: Direct method."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Statistics",
-       1000
+       "l2-e-h",
+       "Level 2 · Statistics",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle",
-       1300
+       "l2-e-q",
+       "Given: Mean = Σfx/Σf for grouped data.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verif",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: Mean = Σfx/Σf for grouped data..",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Statistics · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Exam Challenge",
+     "concept": "HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where)",
+     "example": "Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verify the accurate statement: \"Direct method: mean = sum of f x divided by sum"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from this topic? (Focus: Direct method divided where)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verify the accurate statement: \"Direct method: mean = sum of f x divided by sum of f, where x is the class mark.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Direct method divided where\". Step 2: Verify the accurate statement: \"Direct method: mean  equals  sum of f x divided by sum of f, where x is the class mark.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Mean of grouped data): Which statement best explains a deep principle from",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Direct method divided where\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Statistics · Step Flow",
+     "items": [
+      "Mean of grouped data",
+      "Mode, median and cumul"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Statistics · Complete Summary",
+     "concept": "Step deviation method: with class width h, let u = (x - a)/h. Then mean = a + (Σfu/Σf) x h."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Statistics: Step deviation method: with class width h, let u = (x - a)/h. Then mean = a + (Σfu/Σf) x h.",
+      "speakEn": "Let us review the key takeaway from Statistics: Step deviation method: with class width h, let u  equals  (x - a)/h. Then mean  equals  a + (Σfu/Σf) x h."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: Step deviation method: with class width h, let u = (x - a)/h. Then mean = a + (Σfu/Σf) x h.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

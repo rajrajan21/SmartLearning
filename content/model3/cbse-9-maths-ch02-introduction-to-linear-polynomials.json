@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Foundation",
-     "concept": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y. A polynomial in one variable is a sum of terms like a x"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Introduction to Linear",
+     "items": [
+      "Linear polynomials and"
+     ]
     },
-    "tip": "Focus on the core rule of Introduction to Linear Polynomials first.",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Chapter Map",
+     "concept": "A club pays 100 rupees as a joining fee and 60 rupees for every day of practice. The total cost grows by the same amount each day. This steady growth is what a linear polynomial describes."
+    },
+    "tip": "Look at how all parts of Introduction to Linear Polynomials connect together.",
     "beats": [
      {
-      "en": "Welcome to Introduction to Linear Polynomials. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Introduction to Linear Polynomials. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Introduction to Linear Polynomials. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Introduction to Linear Polynomials. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y. A polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of t",
-      "speakEn": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y. A polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of t"
-     },
-     {
-      "en": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y.",
-      "speakEn": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y."
+      "en": "A club pays 100 rupees as a joining fee and 60 rupees for every day of practice. The total cost grows by the same amount each day. This steady growth is what a linear polynomial describes.",
+      "speakEn": "A club pays 100 rupees as a joining fee and 60 rupees for every day of practice. The total cost grows by the same amount each day. This steady growth is what a linear polynomial describes."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Introduction to Linear Polynomials",
        900
       ],
@@ -47,30 +50,128 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 an",
-       1400
+       "ov-s",
+       "A club pays 100 rupees as a joining fee and 60 rupees for every day of practice.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Linear polynomials and"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Textbook Concepts",
+     "concept": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y.",
+      "speakEn": "An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 and 5 are the coefficients of x and y."
+     },
+     {
+      "en": "A polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of the variable, so x^2 + 5x + 1 has degree 2.",
+      "speakEn": "A polynomial in one variable is a sum of terms like a x^n. Its degree is the highest power of the variable, so x^2 + 5x + 1 has degree 2."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: An algebraic expression uses letter-numbers such as x and y.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: An algebraic expression uses letter-numbers such as x and y. In 4x + 5y the numbers 4 an",
-       1400
+       "c1-b",
+       "Rule: A polynomial in one variable is a sum of terms like a x^n.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Linear polynomials and",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Textbook Example",
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Deeper Textbook Ideas",
+     "concept": "Polynomials of degree 1, such as 3z + 7, are called linear polynomials. Their general form is a x + b with a not zero."
+    },
+    "beats": [
+     {
+      "en": "Polynomials of degree 1, such as 3z + 7, are called linear polynomials. Their general form is a x + b with a not zero.",
+      "speakEn": "Polynomials of degree 1, such as 3z + 7, are called linear polynomials. Their general form is a x + b with a not zero."
+     },
+     {
+      "en": "If a quantity rises or falls by a fixed amount each step, the pattern is linear. For a taxi fare of 25 rupees plus 15 rupees per extra km the rule is a linear polynomial.",
+      "speakEn": "If a quantity rises or falls by a fixed amount each step, the pattern is linear. For a taxi fare of 25 rupees plus 15 rupees per extra km the rule is a linear polynomial."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "Polynomials of degree 1, such as 3z + 7, are called linear polynomials.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "If a quantity rises or falls by a fixed amount each step, the pattern is linear.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Textbook Example 1",
      "concept": "The degree of 3z + 7 is",
      "example": "Step 1: Identify the key concept from the question: The degree of 3z + 7 is. Step 2: The highest power of z is 1."
     },
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: The degree of 3z + 7 is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The degree of 3z + 7 is. Step 2: The highes",
+       "Step 1: Step 1: Identify the key concept from the question: The degree of 3z + 7 is.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Level 2 Challenge",
-     "concept": "HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear)"
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Level 2 Worked Example",
+     "concept": "The coefficient of x^2 in 4x^3 + 5x^2 - 11 is",
+     "example": "Step 1: Identify the key concept from the question: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is. Step 2: The term 5x^2 has coefficient 5."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Introduction to Linear Polynomials. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Introduction to Linear Polynomials. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Introduction to Linear Polynomials. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Introduction to Linear Polynomials. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear) → Step 1: Recall the textbook principle on \"Polynomials degree called linear\". Step 2: Verify the accurate statement: \"Polynomials of degree 1, such as 3z + 7, ar",
-      "speakEn": "HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear). Step 1: Recall the textbook principle on \"Polynomials degree called linear\". Step 2: Verify the accurate statement: \"Polynomials of degree 1, such as 3z + 7, ar"
+      "en": "Problem: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is",
+      "speakEn": "Problem: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is. Step 2: The term 5x^2 has coefficient 5.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is. Step 2: The term 5x^2 has coefficient 5."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Introduction to Linear Polynomials",
-       1000
+       "l2-e-h",
+       "Level 2 · Introduction to Linear Polynomials",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Linear polynomials and linear patterns): Which statement best explain",
-       1300
+       "l2-e-q",
+       "Given: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Polynomials degree called linear\". Step 2: ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: The coefficient of x^2 in 4x^3 + 5x^2 - 11 is.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Exam Challenge",
+     "concept": "HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear)",
+     "example": "Step 1: Recall the textbook principle on \"Polynomials degree called linear\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep principle from this topic? (Focus: Polynomials degree called linear)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Polynomials degree called linear\". Step 2: Verify the accurate statement: \"Polynomials of degree 1, such as 3z + 7, are called linear polynomials.",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Polynomials degree called linear\". Step 2: Verify the accurate statement: \"Polynomials of degree 1, such as 3z + 7, are called linear polynomials."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Linear polynomials and linear patterns): Which statement best explains a deep",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Polynomials degree called linear\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "algebra-balance",
+     "title": "Step-by-Step Algebra Balance",
+     "items": [
+      "Linear polynomials and"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 9 maths · Introduction to Linear Polynomials · Complete Summary",
+     "concept": "A linear polynomial works like a machine: the input is x and the output is, say, 2x + 3. Input 4 gives 11 and input -6 gives -9."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Introduction to Linear Polynomials: A linear polynomial works like a machine: the input is x and the output is, say, 2x + 3. Input 4 gives 11 and input -6 gives -9.",
+      "speakEn": "Let us review the key takeaway from Introduction to Linear Polynomials: A linear polynomial works like a machine: the input is x and the output is, say, 2x + 3. Input 4 gives 11 and input -6 gives -9."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: A linear polynomial works like a machine: the input is x and the output is, say, 2x + 3.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

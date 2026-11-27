@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Probability · Foundation",
-     "concept": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes. Probability of an event E = number of outcomes favourable to E divided by "
+    "visual": {
+     "kind": "concept-map",
+     "title": "Probability",
+     "items": [
+      "Theoretical probabilit",
+      "Probability with coins"
+     ]
     },
-    "tip": "Focus on the core rule of Probability first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Chapter Map",
+     "concept": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+    },
+    "tip": "Look at how all parts of Probability connect together.",
     "beats": [
      {
-      "en": "Welcome to Probability. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Probability. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Probability. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Probability. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes. Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, whe",
-      "speakEn": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes. Probability of an event E  equals  number of outcomes favourable to E divided by the number of all possible outcomes, whe"
-     },
-     {
-      "en": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes.",
-      "speakEn": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+      "en": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1.",
+      "speakEn": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Probability",
        900
       ],
@@ -47,30 +51,129 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: An experiment such as tossing a coin or rolling a die has outcomes. An event is a collec",
-       1400
+       "ov-s",
+       "Before a cricket match the captains toss a coin. Each side has the same chance.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Probability",
+     "items": [
+      "Theoretical probabilit",
+      "Probability with coins"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Textbook Concepts",
+     "concept": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes.",
+      "speakEn": "An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+     },
+     {
+      "en": "Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely.",
+      "speakEn": "Probability of an event E  equals  number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: An experiment such as tossing a coin or rolling a die has outcomes.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: An experiment such as tossing a coin or rolling a die has outcomes. An event is a collec",
-       1400
+       "c1-b",
+       "Rule: Probability of an event E = number of outcomes favourable to E divided by the number of all",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Probability · Step Flow",
+     "items": [
+      "Theoretical probabilit",
+      "Probability with coins",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 maths · Probability · Textbook Example",
+     "ref": "CBSE Class 10 maths · Probability · Deeper Textbook Ideas",
+     "concept": "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+    },
+    "beats": [
+     {
+      "en": "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.",
+      "speakEn": "For a fair die, P(getting 4)  equals  1/6 and P(even number)  equals  3/6  equals  1/2."
+     },
+     {
+      "en": "An event that is sure to happen has probability 1. An impossible event has probability 0.",
+      "speakEn": "An event that is sure to happen has probability 1. An impossible event has probability 0."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "An event that is sure to happen has probability 1. An impossible event has probability 0.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Probability · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Textbook Example 1",
      "concept": "The probability of a sure event is",
      "example": "Step 1: Identify the key concept from the question: The probability of a sure event is. Step 2: Always happens."
     },
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: The probability of a sure event is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The probability of a sure event is. Step 2:",
+       "Step 1: Step 1: Identify the key concept from the question: The probability of a sure event is.",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Probability · Level 2 Challenge",
-     "concept": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Probability",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Level 2 Worked Example",
+     "concept": "Probability can be greater than 1.",
+     "example": "Step 1: Identify the key concept from the question: Probability can be greater than 1.. Step 2: It lies between 0 and 1."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Probability. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Probability. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Probability. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Probability. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number) → Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the accurate statement: \"For a fair die, P(getting 4) = 1/6 and P(even number) ",
-      "speakEn": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number). Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the accurate statement: \"For a fair die, P(getting 4)  equals  1/6 and P(even number)"
+      "en": "Problem: Probability can be greater than 1.",
+      "speakEn": "Problem: Probability can be greater than 1."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: Probability can be greater than 1.. Step 2: It lies between 0 and 1.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: Probability can be greater than 1.. Step 2: It lies between 0 and 1."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Probability",
-       1000
+       "l2-e-h",
+       "Level 2 · Probability",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Theoretical probability): Which statement best explains a deep princi",
-       1300
+       "l2-e-q",
+       "Given: Probability can be greater than 1.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: Probability can be greater than 1..",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Probability · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Exam Challenge",
+     "concept": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number)",
+     "example": "Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the accurate statement: \"For a fair die, P(getting 4) = 1/6 and P(even number)"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the accurate statement: \"For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Pgetting Peven number\". Step 2: Verify the accurate statement: \"For a fair die, P(getting 4)  equals  1/6 and P(even number)  equals  3/6  equals  1/2.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Pgetting Peven number\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Probability · Step Flow",
+     "items": [
+      "Theoretical probabilit",
+      "Probability with coins"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Probability · Complete Summary",
+     "concept": "So the probability of any event lies between 0 and 1."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Probability: So the probability of any event lies between 0 and 1.",
+      "speakEn": "Let us review the key takeaway from Probability: So the probability of any event lies between 0 and 1."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: So the probability of any event lies between 0 and 1.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

@@ -529,3 +529,12 @@ Implemented the SharpStudy admin overview, separate Site settings dropdown, sear
 - Unblocked `Model3Player` in `apps/web/src/pages/Classroom.tsx` so Model 2.0 lessons render immediately without waiting on `/api/v1/classroom/index`.
 - Fixed `Model3Player.tsx`: `Done — Continue to Next Step →` on the last step now opens the Level Completion Hub cleanly (`setDone(true)`), plain prose renders immediately while only formulas/calculations animate with the `✎` pencil, and default pacing slowed to `0.78× Calm Teacher` (`78ms/char`, `450ms` beat pause, `1000ms` step pause).
 - Updated `tools/model3/generate-model3.mjs` to fix `labType` mismatches and extract real worked examples/solution steps from `content/questions/*.json`, then regenerated and verified all 685 `content/model3/*.json` lessons (`schemaInvalid: 0`, `syncOrSpeechIssues: 0`).
+
+## 2026-11-27 (Part 2) — Model 3.0 ("Khan Classroom"), Animated ChalkVisual Diagrams, Chalkboard Timeline & Full-Chapter Regeneration
+- Added `Model3Visual` schema in `packages/shared/src/model3.ts` and created `apps/web/src/components/ChalkVisual.tsx` rendering 10 dark/light-board-aware animated SVG diagrams (`shapes-gallery`, `solid-3d`, `circle-pi`, `area-grid`, `fraction-bar`, `algebra-balance`, `number-line`, `circuit`, `flow-diagram`, `concept-map`) synced to `beatIdx`/`beatProg`.
+- Upgraded `apps/web/src/components/Model3Player.tsx` & `apps/web/src/styles.css` with:
+  - 3-way mode switcher: `📚 Foundation`, `📖 Model 2.0 · Textbook`, and `🎓 Model 3.0 · Khan Classroom`.
+  - Scrubbable **Chalkboard Timeline** slider (`Level X · Step Title (k/N)`) and **`?` Spotlight Help Tour**.
+  - Calm `0.78×` default (`ss_class_speed_v2`) and `requestAnimationFrame` + `speechSynthesis.onend` dual-gated audio-video sync.
+- Upgraded `tools/model3/generate-model3.mjs` (zero mid-word truncation via `clipWord`, 5 steps in Level 1 + 4 steps in Level 2, multiple worked examples, per-step `visual` diagrams) and regenerated all 685 `content/model3/*.json` lessons (`bad: 0`, `noVis: 0`).
+- Updated `apps/api/src/modules/audio/build.ts` (`collectJobs`) to also index `content/model3/*.json` beats for Oracle natural-voice `audio:build`.

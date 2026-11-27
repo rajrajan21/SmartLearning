@@ -10,34 +10,37 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Foundation",
-     "concept": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales. Ferns, trees and coastlines show this repeating pattern in nature. The Sierpinski carpet "
+    "visual": {
+     "kind": "concept-map",
+     "title": "Exploring Some Geometric",
+     "items": [
+      "Exploring geometric th"
+     ]
     },
-    "tip": "Focus on the core rule of Exploring Some Geometric Themes first.",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Chapter Map",
+     "concept": "Look at a fern: each leaf looks like a small copy of the whole fern, and each small leaf has even smaller copies."
+    },
+    "tip": "Look at how all parts of Exploring Some Geometric Themes connect together.",
     "beats": [
      {
-      "en": "Welcome to Exploring Some Geometric Themes. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Exploring Some Geometric Themes. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Exploring Some Geometric Themes. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Exploring Some Geometric Themes. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales. Ferns, trees and coastlines show this repeating pattern in nature. The Sierpinski carpet starts with a square cut into 9 equal sm",
-      "speakEn": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales. Ferns, trees and coastlines show this repeating pattern in nature. The Sierpinski carpet starts with a square cut into 9 equal sm"
-     },
-     {
-      "en": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales.",
-      "speakEn": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales."
+      "en": "Look at a fern: each leaf looks like a small copy of the whole fern, and each small leaf has even smaller copies.",
+      "speakEn": "Look at a fern: each leaf looks like a small copy of the whole fern, and each small leaf has even smaller copies."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Exploring Some Geometric Themes",
        900
       ],
@@ -47,30 +50,128 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scale",
-       1400
+       "ov-s",
+       "Look at a fern: each leaf looks like a small copy of the whole fern, and each small leaf has even smaller",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Exploring Some Geometric",
+     "items": [
+      "Exploring geometric th"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Textbook Concepts",
+     "concept": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales.",
+      "speakEn": "A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales."
+     },
+     {
+      "en": "Ferns, trees and coastlines show this repeating pattern in nature.",
+      "speakEn": "Ferns, trees and coastlines show this repeating pattern in nature."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scales.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: A fractal is a self-similar shape: the same pattern repeats at smaller and smaller scale",
-       1400
+       "c1-b",
+       "Rule: Ferns, trees and coastlines show this repeating pattern in nature.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Exploring Some Geometric Themes · Step Flow",
+     "items": [
+      "Exploring geometric th",
+      "Compare",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Textbook Example",
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Deeper Textbook Ideas",
+     "concept": "The Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square removed."
+    },
+    "beats": [
+     {
+      "en": "The Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square removed.",
+      "speakEn": "The Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square removed."
+     },
+     {
+      "en": "The same step is repeated on each of the 8 remaining squares, and so on without end.",
+      "speakEn": "The same step is repeated on each of the 8 remaining squares, and so on without end."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "The Sierpinski carpet starts with a square cut into 9 equal smaller squares and the central square",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The same step is repeated on each of the 8 remaining squares, and so on without end.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Exploring Some Geometric Themes · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Textbook Example 1",
      "concept": "A fractal is",
      "example": "Step 1: Identify the key concept from the question: A fractal is. Step 2: It repeats its pattern at smaller scales."
     },
@@ -91,7 +192,7 @@
       "type": [
        "ex1-q",
        "Given: A fractal is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +201,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: A fractal is. Step 2: It repeats its patter",
+       "Step 1: Step 1: Identify the key concept from the question: A fractal is.",
        1400
       ],
       "color": "green"
@@ -109,7 +210,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +242,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Level 2 Challenge",
-     "concept": "HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic? (Focus: Solids visualised di"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Exploring Some Geometric",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Level 2 Worked Example",
+     "concept": "In the Sierpinski carpet, a square is divided into",
+     "example": "Step 1: Identify the key concept from the question: In the Sierpinski carpet, a square is divided into. Step 2: 3 × 3 = 9."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Exploring Some Geometric Themes. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Exploring Some Geometric Themes. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Exploring Some Geometric Themes. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Exploring Some Geometric Themes. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic? (Focus: Solids visualised different di → Step 1: Recall the textbook principle on \"Solids visualised different directions\". Step 2: Verify the accurate statement: \"Solids can be visualised from differe",
-      "speakEn": "HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic? (Focus: Solids visualised different di. Step 1: Recall the textbook principle on \"Solids visualised different directions\". Step 2: Verify the accurate statement: \"Solids can be visualised from differe"
+      "en": "Problem: In the Sierpinski carpet, a square is divided into",
+      "speakEn": "Problem: In the Sierpinski carpet, a square is divided into"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: In the Sierpinski carpet, a square is divided into. Step 2: 3 × 3 = 9.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: In the Sierpinski carpet, a square is divided into. Step 2: 3  times  3  equals  9."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Exploring Some Geometric Themes",
-       1000
+       "l2-e-h",
+       "Level 2 · Exploring Some Geometric Themes",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +289,113 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which s",
-       1300
+       "l2-e-q",
+       "Given: In the Sierpinski carpet, a square is divided into",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Solids visualised different directions\". St",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: In the Sierpinski carpet, a square is divided into.",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Exploring Some Geometric Themes · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Exam Challenge",
+     "concept": "HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic?",
+     "example": "Step 1: Recall the textbook principle on \"Solids visualised different directions\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic? (Focus: Solids visualised different directions)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement best explains a deep principle from this topic? (Focus: Solids visualised different directions)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Solids visualised different directions\". Step 2: Verify the accurate statement: \"Solids can be visualised from different directions: top, front and side views show different",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Solids visualised different directions\". Step 2: Verify the accurate statement: \"Solids can be visualised from different directions: top, front and side views show different"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Exploring geometric themes: fractals and visualising solids): Which statement",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Solids visualised different directions\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Exploring Some Geometric Themes · Step Flow",
+     "items": [
+      "Exploring geometric th"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 8 maths · Exploring Some Geometric Themes · Complete Summary",
+     "concept": "At step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Exploring Some Geometric Themes: At step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on.",
+      "speakEn": "Let us review the key takeaway from Exploring Some Geometric Themes: At step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: At step n the number of remaining squares is 8ⁿ, so it is 1, 8, 64, 512 and so on.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

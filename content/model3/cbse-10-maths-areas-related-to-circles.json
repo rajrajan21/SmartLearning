@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Areas Related to Circles · Foundation",
-     "concept": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius. A sector is the region between two radii and the arc between them. Its angle at the cen"
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Areas Related to Circles · Circle Explorer",
+     "items": [
+      "Length of an arc and a",
+      "Area of a segment and"
+     ]
     },
-    "tip": "Focus on the core rule of Areas Related to Circles first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Chapter Map",
+     "concept": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+    },
+    "tip": "Look at how all parts of Areas Related to Circles connect together.",
     "beats": [
      {
-      "en": "Welcome to Areas Related to Circles. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Areas Related to Circles. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Areas Related to Circles. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Areas Related to Circles. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius. A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees. A sector is theta ",
-      "speakEn": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius. A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees. A sector is theta"
-     },
-     {
-      "en": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius.",
-      "speakEn": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+      "en": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both.",
+      "speakEn": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Areas Related to Circles",
        900
       ],
@@ -47,32 +51,131 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: The circumference of a circle is 2 pi r and its area is pi r squared, where r is the rad",
-       1400
+       "ov-s",
+       "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge?",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Length of an arc and a",
+      "Area of a segment and"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Textbook Concepts",
+     "concept": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius.",
+      "speakEn": "The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+     },
+     {
+      "en": "A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees.",
+      "speakEn": "A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: The circumference of a circle is 2 pi r and its area is pi r squared, where r is the rad",
-       1400
+       "c1-b",
+       "Rule: A sector is the region between two radii and the arc between them.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Length of an arc and a",
+      "Area of a segment and",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 maths · Areas Related to Circles · Textbook Example",
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Deeper Textbook Ideas",
+     "concept": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+    },
+    "beats": [
+     {
+      "en": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.",
+      "speakEn": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+     },
+     {
+      "en": "The length of its arc is theta/360 times 2 pi r.",
+      "speakEn": "The length of its arc is theta/360 times 2 pi r."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "The length of its arc is theta/360 times 2 pi r.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Textbook Example 1",
      "concept": "The area of a sector of angle theta in a circle of radius r is",
-     "example": "Step 1: Identify the key concept from the question: The area of a sector of angle theta in a circle of radius r is. Step"
+     "example": "Step 1: Identify the key concept from the question: The area of a sector of angle theta in a circle of radius r is. Step 2: Fraction of the circle."
     },
     "beats": [
      {
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: The area of a sector of angle theta in a circle of radius r is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The area of a sector of angle theta in a ci",
+       "Step 1: Step 1: Identify the key concept from the question: The area of a sector of angle theta in a circle of",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Areas Related to Circles · Level 2 Challenge",
-     "concept": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle)"
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Level 2 Worked Example",
+     "concept": "Fraction of a circle for a 90 degree sector, as a decimal",
+     "example": "Step 1: Identify the key concept from the question: Fraction of a circle for a 90 degree sector, as a decimal. Step 2: 90/360."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Areas Related to Circles. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Areas Related to Circles. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Areas Related to Circles. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Areas Related to Circles. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle) → Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle. So i",
-      "speakEn": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle). Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle. So i"
+      "en": "Problem: Fraction of a circle for a 90 degree sector, as a decimal",
+      "speakEn": "Problem: Fraction of a circle for a 90 degree sector, as a decimal"
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: Fraction of a circle for a 90 degree sector, as a decimal. Step 2: 90/360.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: Fraction of a circle for a 90 degree sector, as a decimal. Step 2: 90/360."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Areas Related to Circles",
-       1000
+       "l2-e-h",
+       "Level 2 · Areas Related to Circles",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Length of an arc and area of a sector): Which statement best explains",
-       1300
+       "l2-e-q",
+       "Given: Fraction of a circle for a 90 degree sector, as a decimal",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify ",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: Fraction of a circle for a 90 degree sector, as a",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Exam Challenge",
+     "concept": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle)",
+     "example": "Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"sector theta whole circle\". Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"sector theta whole circle\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circle-pi",
+     "title": "Circle: Radius, Diameter & Circumference",
+     "items": [
+      "Length of an arc and a",
+      "Area of a segment and"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Areas Related to Circles · Complete Summary",
+     "concept": "Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Areas Related to Circles: Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared.",
+      "speakEn": "Let us review the key takeaway from Areas Related to Circles: Example: radius 6 centimetres and angle 60 degrees. Area  equals  60/360 x pi x 36  equals  6 pi cm squared."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

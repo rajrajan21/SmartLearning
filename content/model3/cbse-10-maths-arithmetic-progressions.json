@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Foundation",
-     "concept": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term. The fixed number d is called the common diffe"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Arithmetic Progressions",
+     "items": [
+      "Arithmetic progression",
+      "Sum of the first n ter"
+     ]
     },
-    "tip": "Focus on the core rule of Arithmetic Progressions first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Chapter Map",
+     "concept": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+    },
+    "tip": "Look at how all parts of Arithmetic Progressions connect together.",
     "beats": [
      {
-      "en": "Welcome to Arithmetic Progressions. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Arithmetic Progressions. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Arithmetic Progressions. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Arithmetic Progressions. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term. The fixed number d is called the common difference. It can be positive, negative or z",
-      "speakEn": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term. The fixed number d is called the common difference. It can be positive, negative or z"
-     },
-     {
-      "en": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term.",
-      "speakEn": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+      "en": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions.",
+      "speakEn": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Arithmetic Progressions",
        900
       ],
@@ -47,30 +51,129 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: An arithmetic progression, or AP, is a list of numbers in which each term is obtained by",
-       1400
+       "ov-s",
+       "A taxi charges 15 for the first km and 8 for each extra km.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "concept-map",
+     "title": "Arithmetic Progressions",
+     "items": [
+      "Arithmetic progression",
+      "Sum of the first n ter"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Textbook Concepts",
+     "concept": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term.",
+      "speakEn": "An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+     },
+     {
+      "en": "The fixed number d is called the common difference. It can be positive, negative or zero.",
+      "speakEn": "The fixed number d is called the common difference. It can be positive, negative or zero."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: An arithmetic progression, or AP, is a list of numbers in which each term is obtained by",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: An arithmetic progression, or AP, is a list of numbers in which each term is obtained by",
-       1400
+       "c1-b",
+       "Rule: The fixed number d is called the common difference. It can be positive, negative or zero.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Arithmetic Progressions · Step Flow",
+     "items": [
+      "Arithmetic progression",
+      "Sum of the first n ter",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Textbook Example",
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Deeper Textbook Ideas",
+     "concept": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+    },
+    "beats": [
+     {
+      "en": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.",
+      "speakEn": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+     },
+     {
+      "en": "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value.",
+      "speakEn": "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Arithmetic Progressions · Step Flow",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Textbook Example 1",
      "concept": "The common difference of 2, 5, 8, 11 is",
      "example": "Step 1: Identify the key concept from the question: The common difference of 2, 5, 8, 11 is. Step 2: 5 - 2 = 3."
     },
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: The common difference of 2, 5, 8, 11 is",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The common difference of 2, 5, 8, 11 is. St",
+       "Step 1: Step 1: Identify the key concept from the question: The common difference of 2, 5, 8, 11 is.",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Level 2 Challenge",
-     "concept": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first)"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Arithmetic Progressions",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Level 2 Worked Example",
+     "concept": "1, 4, 9, 16 is an AP.",
+     "example": "Step 1: Identify the key concept from the question: 1, 4, 9, 16 is an AP.. Step 2: Differences are 3, 5, 7."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Arithmetic Progressions. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Arithmetic Progressions. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Arithmetic Progressions. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Arithmetic Progressions. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first) → Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\"",
-      "speakEn": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first). Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\""
+      "en": "Problem: 1, 4, 9, 16 is an AP.",
+      "speakEn": "Problem: 1, 4, 9, 16 is an AP."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: 1, 4, 9, 16 is an AP.. Step 2: Differences are 3, 5, 7.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: 1, 4, 9, 16 is an AP.. Step 2: Differences are 3, 5, 7."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Arithmetic Progressions",
-       1000
+       "l2-e-h",
+       "Level 2 · Arithmetic Progressions",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Arithmetic progressions and the nth term): Which statement best expla",
-       1300
+       "l2-e-q",
+       "Given: 1, 4, 9, 16 is an AP.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate stateme",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: 1, 4, 9, 16 is an AP..",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Arithmetic Progressions · Step Flow",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Exam Challenge",
+     "concept": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first)",
+     "example": "Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so"
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\".",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"first\". Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\"."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"first\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "flow-diagram",
+     "title": "Arithmetic Progressions · Step Flow",
+     "items": [
+      "Arithmetic progression",
+      "Sum of the first n ter"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 maths · Arithmetic Progressions · Complete Summary",
+     "concept": "The nth term of an AP is a sub n = a + (n - 1) d."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Arithmetic Progressions: The nth term of an AP is a sub n = a + (n - 1) d.",
+      "speakEn": "Let us review the key takeaway from Arithmetic Progressions: The nth term of an AP is a sub n  equals  a + (n - 1) d."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: The nth term of an AP is a sub n = a + (n - 1) d.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",

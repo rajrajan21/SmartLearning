@@ -10,34 +10,38 @@
  "levels": {
   "1": [
    {
-    "id": "l1-concept",
-    "pill": "1. Core Concept",
+    "id": "l1-overview",
+    "pill": "1. Chapter Overview",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 science · Electricity · Foundation",
-     "concept": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series. Conventional current flows from positive to negativ"
+    "visual": {
+     "kind": "concept-map",
+     "title": "Electricity",
+     "items": [
+      "Current, potential dif",
+      "Resistors in series an"
+     ]
     },
-    "tip": "Focus on the core rule of Electricity first.",
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Chapter Map",
+     "concept": "Electric current flowing in a wire is like water flowing in a pipe. A battery supplies the push, called potential difference."
+    },
+    "tip": "Look at how all parts of Electricity connect together.",
     "beats": [
      {
-      "en": "Welcome to Electricity. Today we will write every key step live on the chalkboard.",
-      "speakEn": "Welcome to Electricity. Today we will write every key step live on the chalkboard."
+      "en": "Welcome to Electricity. Today we will cover the full chapter step by step with visual drawings on the chalkboard.",
+      "speakEn": "Welcome to Electricity. Today we will cover the full chapter step by step with visual drawings on the chalkboard."
      },
      {
-      "en": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series. Conventional current flows from positive to negative terminal; electrons flow the other way",
-      "speakEn": "Electric current is the rate of flow of charge: I  equals  Q/t. Its unit is the ampere (A), measured by an ammeter connected in series. Conventional current flows from positive to negative terminal; electrons flow the other way"
-     },
-     {
-      "en": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series.",
-      "speakEn": "Electric current is the rate of flow of charge: I  equals  Q/t. Its unit is the ampere (A), measured by an ammeter connected in series."
+      "en": "Electric current flowing in a wire is like water flowing in a pipe. A battery supplies the push, called potential difference.",
+      "speakEn": "Electric current flowing in a wire is like water flowing in a pipe. A battery supplies the push, called potential difference."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "c1-head",
+       "ov-h",
        "Topic: Electricity",
        900
       ],
@@ -47,30 +51,129 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "c1-rule",
-       "Key Idea: Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), mea",
-       1400
+       "ov-s",
+       "Electric current flowing in a wire is like water flowing in a pipe.",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-core-1",
+    "pill": "2. Core Concepts (1)",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Current, potential dif",
+      "Resistors in series an"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Textbook Concepts",
+     "concept": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series."
+    },
+    "tip": "Look closely at the diagram on the board as we explain each property.",
+    "beats": [
+     {
+      "en": "Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), measured by an ammeter connected in series.",
+      "speakEn": "Electric current is the rate of flow of charge: I  equals  Q/t. Its unit is the ampere (A), measured by an ammeter connected in series."
+     },
+     {
+      "en": "Conventional current flows from positive to negative terminal; electrons flow the other way.",
+      "speakEn": "Conventional current flows from positive to negative terminal; electrons flow the other way."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c1-a",
+       "Key Concept: Electric current is the rate of flow of charge: I = Q/t.",
+       1200
       ],
       "color": "green"
      },
      {
-      "b": 2,
+      "b": 1,
       "at": 0.2,
       "type": [
-       "c1-note",
-       "Remember: Electric current is the rate of flow of charge: I = Q/t. Its unit is the ampere (A), mea",
-       1400
+       "c1-b",
+       "Rule: Conventional current flows from positive to negative terminal; electrons flow the other way.",
+       1200
       ],
       "color": "cyan"
      }
     ]
    },
    {
-    "id": "l1-example",
-    "pill": "2. Worked Example",
+    "id": "l1-core-2",
+    "pill": "3. Core Concepts (2)",
     "kind": "chalkboard",
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Current, potential dif",
+      "Resistors in series an",
+      "Apply"
+     ]
+    },
     "textbookBox": {
-     "ref": "CBSE Class 10 science · Electricity · Textbook Example",
+     "ref": "CBSE Class 10 science · Electricity · Deeper Textbook Ideas",
+     "concept": "Potential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a voltmeter connected in parallel."
+    },
+    "beats": [
+     {
+      "en": "Potential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a voltmeter connected in parallel.",
+      "speakEn": "Potential difference is the work done to move a unit charge: V  equals  W/Q, in volts, measured by a voltmeter connected in parallel."
+     },
+     {
+      "en": "Ohm's law: at constant temperature, the current through a conductor is proportional to the potential difference, V = IR.",
+      "speakEn": "Ohm's law: at constant temperature, the current through a conductor is proportional to the potential difference, V  equals  IR."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "c2-a",
+       "Potential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "c2-b",
+       "Ohm's law: at constant temperature, the current through a conductor is proportional to the",
+       1200
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l1-example",
+    "pill": "4. Worked Example",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Read Problem",
+      "Apply Rule",
+      "Verify Answer"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Textbook Example 1",
      "concept": "The unit of resistance",
      "example": "Step 1: Identify the key concept from the question: The unit of resistance. Step 2: Ohm."
     },
@@ -91,7 +194,7 @@
       "type": [
        "ex1-q",
        "Given: The unit of resistance",
-       1200
+       1100
       ],
       "color": "yellow"
      },
@@ -100,7 +203,7 @@
       "at": 0.2,
       "type": [
        "ex1-s",
-       "Solution: Step 1: Identify the key concept from the question: The unit of resistance. Step 2: Ohm.",
+       "Step 1: Step 1: Identify the key concept from the question: The unit of resistance. Step 2: Ohm.",
        1400
       ],
       "color": "green"
@@ -109,7 +212,7 @@
    },
    {
     "id": "l1-lab",
-    "pill": "3. Interactive Lab",
+    "pill": "5. Interactive Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done exploring this Level 1 Interactive Lab?",
@@ -141,32 +244,46 @@
   ],
   "2": [
    {
-    "id": "l2-reverse",
-    "pill": "1. Reverse & Trap",
+    "id": "l2-example-2",
+    "pill": "1. Example 2 & Method",
     "kind": "chalkboard",
-    "textbookBox": {
-     "ref": "CBSE Class 10 science · Electricity · Level 2 Challenge",
-     "concept": "HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts)"
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Identify Data",
+      "Choose Method",
+      "Check Result"
+     ]
     },
-    "tip": "Watch out for common exam traps — double-check units and signs!",
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Level 2 Worked Example",
+     "concept": "An ammeter is connected in series.",
+     "example": "Step 1: Identify the key concept from the question: An ammeter is connected in series.. Step 2: It measures current through the circuit."
+    },
+    "tip": "Break multi-step textbook problems into small steps on the board.",
     "beats": [
      {
-      "en": "Welcome to Level 2 Advanced Mastery for Electricity. Here we tackle reverse problems and common exam traps.",
-      "speakEn": "Welcome to Level 2 Advanced Mastery for Electricity. Here we tackle reverse problems and common exam traps."
+      "en": "Welcome to Level 2 Advanced Mastery for Electricity. Let us work through a deeper textbook problem.",
+      "speakEn": "Welcome to Level 2 Advanced Mastery for Electricity. Let us work through a deeper textbook problem."
      },
      {
-      "en": "HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts) → Step 1: Recall the textbook principle on \"Potential difference charge volts\". Step 2: Verify the accurate statement: \"Potential difference is the work done to m",
-      "speakEn": "HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts). Step 1: Recall the textbook principle on \"Potential difference charge volts\". Step 2: Verify the accurate statement: \"Potential difference is the work done to m"
+      "en": "Problem: An ammeter is connected in series.",
+      "speakEn": "Problem: An ammeter is connected in series."
+     },
+     {
+      "en": "Solution: Step 1: Identify the key concept from the question: An ammeter is connected in series.. Step 2: It measures current through the circuit.",
+      "speakEn": "Solution: Step 1: Identify the key concept from the question: An ammeter is connected in series.. Step 2: It measures current through the circuit."
      }
     ],
     "cues": [
      {
       "b": 0,
-      "at": 0.15,
+      "at": 0.12,
       "type": [
-       "l2-h",
-       "Level 2 Challenge · Electricity",
-       1000
+       "l2-e-h",
+       "Level 2 · Electricity",
+       900
       ],
       "color": "pink"
      },
@@ -174,27 +291,114 @@
       "b": 1,
       "at": 0.15,
       "type": [
-       "l2-q",
-       "Problem: HOTS Challenge (Current, potential difference and Ohm's law): Which statement best ex",
-       1300
+       "l2-e-q",
+       "Given: An ammeter is connected in series.",
+       1100
       ],
       "color": "yellow"
      },
      {
-      "b": 1,
-      "at": 0.55,
+      "b": 2,
+      "at": 0.2,
       "type": [
-       "l2-s",
-       "Check: Step 1: Recall the textbook principle on \"Potential difference charge volts\". Step 2:",
-       1200
+       "l2-e-s",
+       "Step 1: Step 1: Identify the key concept from the question: An ammeter is connected in series..",
+       1400
       ],
       "color": "green"
      }
     ]
    },
    {
+    "id": "l2-reverse",
+    "pill": "2. Reverse & Exam Trap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Spot the Trap",
+      "Work Backwards",
+      "Verify"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Exam Challenge",
+     "concept": "HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts)",
+     "example": "Step 1: Recall the textbook principle on \"Potential difference charge volts\"."
+    },
+    "tip": "Watch out for common exam traps — double-check units, labels, and signs!",
+    "beats": [
+     {
+      "en": "Let us test our understanding with a challenge problem: HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts)",
+      "speakEn": "Let us test our understanding with a challenge problem: HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a deep principle from this topic? (Focus: Potential difference charge volts)"
+     },
+     {
+      "en": "Check carefully: Step 1: Recall the textbook principle on \"Potential difference charge volts\". Step 2: Verify the accurate statement: \"Potential difference is the work done to move a unit charge: V = W/Q, in volts, measured by a",
+      "speakEn": "Check carefully: Step 1: Recall the textbook principle on \"Potential difference charge volts\". Step 2: Verify the accurate statement: \"Potential difference is the work done to move a unit charge: V  equals  W/Q, in volts, measured by a"
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-q",
+       "Challenge: HOTS Challenge (Current, potential difference and Ohm's law): Which statement best explains a",
+       1200
+      ],
+      "color": "yellow"
+     },
+     {
+      "b": 1,
+      "at": 0.2,
+      "type": [
+       "l2-s",
+       "Step 1: Step 1: Recall the textbook principle on \"Potential difference charge volts\".",
+       1300
+      ],
+      "color": "green"
+     }
+    ]
+   },
+   {
+    "id": "l2-recap",
+    "pill": "3. Chapter Recap",
+    "kind": "chalkboard",
+    "visual": {
+     "kind": "circuit",
+     "title": "Electric Circuit Diagram",
+     "items": [
+      "Current, potential dif",
+      "Resistors in series an"
+     ]
+    },
+    "textbookBox": {
+     "ref": "CBSE Class 10 science · Electricity · Complete Summary",
+     "concept": "Resistance R is the property that opposes the flow of current. Its unit is the ohm."
+    },
+    "beats": [
+     {
+      "en": "Let us review the key takeaway from Electricity: Resistance R is the property that opposes the flow of current. Its unit is the ohm.",
+      "speakEn": "Let us review the key takeaway from Electricity: Resistance R is the property that opposes the flow of current. Its unit is the ohm."
+     }
+    ],
+    "cues": [
+     {
+      "b": 0,
+      "at": 0.15,
+      "type": [
+       "l2-recap",
+       "Summary: Resistance R is the property that opposes the flow of current. Its unit is the ohm.",
+       1200
+      ],
+      "color": "cyan"
+     }
+    ]
+   },
+   {
     "id": "l2-lab",
-    "pill": "2. Level 2 Lab",
+    "pill": "4. Level 2 Lab",
     "kind": "interactive-lab",
     "autoStop": true,
     "confirmPrompt": "Done with the Level 2 Interactive Lab? Ready for Practice?",
