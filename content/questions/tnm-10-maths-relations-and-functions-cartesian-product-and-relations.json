@@ -1,230 +1,1180 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "relations-and-functions",
-  "topic": "cartesian-product-and-relations",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "relations-and-functions",
+ "topic": "cartesian-product-and-relations",
+ "questions": [
+  {
+   "key": "r1-m10ma542-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10ma542-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If n(A) = 4 and n(B) = 3, how many elements are in A x B?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "12"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "7"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "You added instead of multiplying"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Multiply 4 by 3, not 3 by 3"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not quite - read the explanation and try the working again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The number of pairs is 4 x 3 = 12."
-      }
-    },
-    {
-      "key": "r1-m10ma542-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "(2, 5) and (5, 2) are the same ordered pair."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "Order matters, so they are different pairs unless the two entries are equal."
-      }
-    },
-    {
-      "key": "r1-m10ma542-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A relation from A to B is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "a subset of A x B"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the whole of B"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "B is the codomain, not the relation"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "a number"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A relation is a set of pairs"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "It is any subset of A x B."
-      }
-    },
-    {
-      "key": "r2-m10ma542-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If A = {1,2,3} and B = {a,b}, how many elements has B x A?"
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "B x A also has 2 x 3 = 6 pairs."
-      }
-    },
-    {
-      "key": "r2-m10ma542-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A x B always equals B x A."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "For example A = {1}, B = {2} gives (1,2) and (2,1), which differ."
-      }
-    },
-    {
-      "key": "r2-m10ma542-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "For R = {(1,2),(2,4),(3,6)} the range is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "{2,4,6}"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "{1,2,3}"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the domain"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "{1,2,3,4,6}"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Only second elements form the range"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Range is the set of second elements."
-      }
-    },
-    {
-      "key": "r3-m10ma542-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If A = {1,2,3,4}, B = {5,6}, then n(A x B) ="
-      },
-      "answer": 8,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "4 x 2 = 8."
-      }
-    },
-    {
-      "key": "r3-m10ma542-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "The set of all first elements of a relation is called its (one word)"
-      },
-      "accepted": [
-        "domain"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "The first elements form the domain."
-      }
+     "en": "Focus on this idea: The number of pairs is 4 x 3 = 12."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If n(A) = 4 and n(B) = 3, how many elements are in A x B?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "12"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "You added instead of multiplying"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Multiply 4 by 3, not 3 by 3"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not quite - read the explanation and try the working again."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The number of pairs is 4 x 3 = 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The number of pairs is 4 x 3 = 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If n(A) = 4 and n(B) = 3, how many elements are in A x B?."
+    },
+    {
+     "en": "Step 2: The number of pairs is 4 x 3 = 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma542-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Order matters, so they are different pairs unless the two entries are equal."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "(2, 5) and (5, 2) are the same ordered pair."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "Order matters, so they are different pairs unless the two entries are equal."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Order matters, so they are different pairs unless the two entries are equal."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: (2, 5) and (5, 2) are the same ordered pair.."
+    },
+    {
+     "en": "Step 2: Order matters, so they are different pairs unless the two entries are equal."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma542-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: It is any subset of A x B."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A relation from A to B is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "a subset of A x B"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the whole of B"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "B is the codomain, not the relation"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "a number"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A relation is a set of pairs"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "It is any subset of A x B."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: It is any subset of A x B."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A relation from A to B is."
+    },
+    {
+     "en": "Step 2: It is any subset of A x B."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma542-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: B x A also has 2 x 3 = 6 pairs."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If A = {1,2,3} and B = {a,b}, how many elements has B x A?"
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "B x A also has 2 x 3 = 6 pairs."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: B x A also has 2 x 3 = 6 pairs."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If A = {1,2,3} and B = {a,b}, how many elements has B x A?."
+    },
+    {
+     "en": "Step 2: B x A also has 2 x 3 = 6 pairs."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma542-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: For example A = {1}, B = {2} gives (1,2) and (2,1), which differ."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A x B always equals B x A."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "For example A = {1}, B = {2} gives (1,2) and (2,1), which differ."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: For example A = {1}, B = {2} gives (1,2) and (2,1), which differ."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A x B always equals B x A.."
+    },
+    {
+     "en": "Step 2: For example A = {1}, B = {2} gives (1,2) and (2,1), which differ."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma542-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Range is the set of second elements."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "For R = {(1,2),(2,4),(3,6)} the range is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "{2,4,6}"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "{1,2,3}"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the domain"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "{1,2,3,4,6}"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Only second elements form the range"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Range is the set of second elements."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Range is the set of second elements."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: For R = {(1,2),(2,4),(3,6)} the range is."
+    },
+    {
+     "en": "Step 2: Range is the set of second elements."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10ma542-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If A = {1,2,3,4}, B = {5,6}, then n(A x B) ="
+   },
+   "answer": 8,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "4 x 2 = 8."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If A = {1,2,3,4}, B = {5,6}, then n(A x B) =."
+    },
+    {
+     "en": "Step 2: 4 x 2 = 8."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma542-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"d\" and relates to The set of all first elements of a relation is cal)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "The set of all first elements of a relation is called its (one word)"
+   },
+   "accepted": [
+    "domain"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "The first elements form the domain."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"d\" and relates to The set of all first elements of a relation is cal)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The set of all first elements of a relation is called its (one word)."
+    },
+    {
+     "en": "Step 2: The first elements form the domain."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-pair",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): A class has 3 boys and 2 girls. The teacher wants to list every possible boy-girl ___ for a dance. How many pairs are there, and how do we write them neatly? Mathematics has a tool for exactly this."
+   },
+   "accepted": [
+    "pair"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"p\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A class has 3 boys and 2 girls. The teacher wants to list every possible boy-girl pair for a dance. How many pairs are there, and how do we write them neatly? Mathematics has a tool for exactly this.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"pair\" accurately completes the concept: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-girl pair for a dance. How many pairs are there, and how do we write them neatly? Mathematics has a tool for exactly this."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ordered pairs, Cartesian product and relations): An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ordered pairs, Cartesian product and relations\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Ordered pairs, Cartesian product and relations): Identify the correct statement from this lesson. (Focus: Cartesian product ordered pairs)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Cartesian product ordered pairs\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Cartesian product ordered pairs\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-then",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): If A = {1, 2} and B = {x, y, z}, ___ A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+   },
+   "accepted": [
+    "then"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"then\" accurately completes the concept: If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-elements",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): If A has m elements and B has n elements, then A x B has m x n ___, so here 2 x 3 = 6."
+   },
+   "accepted": [
+    "elements"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"e\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"elements\" accurately completes the concept: If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ordered pairs, Cartesian product and relations): Which of the following statements is scientifically/conceptually accurate? (Focus: general equal unless empty)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In general A x B is not equal to B x A, unless A = B or one of them is empty."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In general A x B is not equal to B x A, unless A = B or one of them is empty. does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In general A x B is not equal to B x A, unless A = B or one of them is empty."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"general equal unless empty\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "In general A x B is not equal to B x A, unless A = B or one of them is empty."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"general equal unless empty\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In general A x B is not equal to B x A, unless A = B or one of them is empty.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ordered pairs, Cartesian product and relations): A relation R from A to B is never any subset of A x B. We pick the pairs that obey some rule."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ordered pairs, Cartesian product and relations\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ordered pairs, Cartesian product and relations): Which of the following statements is scientifically/conceptually accurate? (Focus: first elements pairs domain)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The set of first elements of the pairs is the domain, the whole set B is the codomain, and the  does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"first elements pairs domain\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"first elements pairs domain\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-diagram",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): A relation from A to B can be shown by an arrow ___, a table, a graph or as a set of ordered pairs."
+   },
+   "accepted": [
+    "diagram"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"d\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A relation from A to B can be shown by an arrow diagram, a table, a graph or as a set of ordered pairs.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"diagram\" accurately completes the concept: A relation from A to B can be shown by an arrow diagram, a table, a graph or as a set of ordered pairs."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ordered pairs, Cartesian product and relations): Which of the following statements is scientifically/conceptually accurate? (Focus: ordered where order matters)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2). does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ordered where order matters\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ordered where order matters\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An ordered pair (a, b) is a pair where the order matters, so (2, 5) is not the same as (5, 2).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-19-product",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): For two sets A and B, the Cartesian ___ A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+   },
+   "accepted": [
+    "product"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"p\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"product\" accurately completes the concept: For two sets A and B, the Cartesian product A x B is the set of all ordered pairs (a, b) with a in A and b in B."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ordered pairs, Cartesian product and relations): Which statement best explains a deep principle from this topic? (Focus: 1x 1y 1z 2x)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}. does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"1x 1y 1z 2x\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"1x 1y 1z 2x\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If A = {1, 2} and B = {x, y, z}, then A x B = {(1,x), (1,y), (1,z), (2,x), (2,y), (2,z)}.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ordered pairs, Cartesian product and relations): Which statement best explains a deep principle from this topic? (Focus: elements elements elements)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6. does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"elements elements elements\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"elements elements elements\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If A has m elements and B has n elements, then A x B has m x n elements, so here 2 x 3 = 6.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ordered pairs, Cartesian product and relations): In general A x B is not equal to B x A, unless A = B or one of them is empty."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ordered pairs, Cartesian product and relations\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In general A x B is not equal to B x A, unless A = B or one of them is empty."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ordered pairs, Cartesian product and relations): Which statement best explains a deep principle from this topic? (Focus: relation subset pairs rule)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule. does not apply in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ordered pairs, Cartesian product and relations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ordered pairs, Cartesian product and relations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A class has 3 boys and 2 girls. The teacher wants to list every possible boy-gir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ordered pairs, Cartesian product and relations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"relation subset pairs rule\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ordered pairs, Cartesian product and relations\"."
+    }
+   ],
+   "explanation": {
+    "en": "A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"relation subset pairs rule\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A relation R from A to B is any subset of A x B. We pick the pairs that obey some rule.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-codomain",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Ordered pairs, Cartesian product and relations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ordered pairs, Cartesian product and relations): The set of first elements of the pairs is the domain, the whole set B is the ___, and the set of second elements actually used is the range."
+   },
+   "accepted": [
+    "codomain"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ordered pairs, Cartesian product and relations\": the missing word starts with \"c\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ordered pairs, Cartesian product and relations\"."
+    },
+    {
+     "en": "Step 2: \"codomain\" accurately completes the concept: The set of first elements of the pairs is the domain, the whole set B is the codomain, and the set of second elements actually used is the range."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

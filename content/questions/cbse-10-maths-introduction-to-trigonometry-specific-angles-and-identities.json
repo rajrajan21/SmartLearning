@@ -1,287 +1,1273 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "introduction-to-trigonometry",
-  "topic": "specific-angles-and-identities",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "introduction-to-trigonometry",
+ "topic": "specific-angles-and-identities",
+ "questions": [
+  {
+   "key": "r1-si1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-si1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "sin 30 degrees ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "root 3/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sin 60."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sin 90."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Standard value."
-      }
-    },
-    {
-      "key": "r1-si2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "tan 45 degrees"
-      },
-      "answer": 1,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 0,
-          "why": {
-            "en": "tan 0 = 0."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Equal sides."
-      }
-    },
-    {
-      "key": "r2-si3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "sin^2 60 + cos^2 60 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Identity gives 1."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not 2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Identity."
-      }
-    },
-    {
-      "key": "r2-si4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): sin 30 = cos 60. Reason (R): sin(90 - A) = cos A."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "90 - 30 = 60."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Complementary."
-      }
-    },
-    {
-      "key": "r2-si5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Value of 2 sin 30 + cos 60 as a decimal"
-      },
-      "answer": 1.5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 1,
-          "why": {
-            "en": "Add 1 + 0.5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2(1/2) + 1/2 = 1.5."
-      }
-    },
-    {
-      "key": "r3-si6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If sin A = 3/5 then 1 - cos^2 A ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "9/25"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "16/25"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is cos^2 A."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "3/5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sin A."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 - cos^2 = sin^2."
-      }
-    },
-    {
-      "key": "r3-si7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "tan 90 degrees is not defined."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "cos 90 = 0 so division by zero."
-      }
-    },
-    {
-      "key": "r3-si8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Simplify sec^2 A - tan^2 A"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Identity gives 1."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "-1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Order is sec squared minus tan squared."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "sec^2 A = 1 + tan^2 A."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "sin 30 degrees ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "root 3/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sin 60."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sin 90."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Standard value."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: sin 30 degrees =."
+    },
+    {
+     "en": "Step 2: Standard value."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-si2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "tan 45 degrees"
+   },
+   "answer": 1,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 0,
+     "why": {
+      "en": "tan 0 = 0."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Equal sides."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: tan 45 degrees."
+    },
+    {
+     "en": "Step 2: Equal sides."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-si3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "sin^2 60 + cos^2 60 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Identity gives 1."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"2\" — Identity."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Identity."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: sin^2 60 + cos^2 60 =."
+    },
+    {
+     "en": "Step 2: Identity."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-si4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): sin 30 = cos 60. Reason (R): sin(90 - A) = cos A."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "90 - 30 = 60."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Complementary."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): sin 30 = cos 60. Reason (R): sin(90 - A) = cos A.."
+    },
+    {
+     "en": "Step 2: Complementary."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-si5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Value of 2 sin 30 + cos 60 as a decimal"
+   },
+   "answer": 1.5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 1,
+     "why": {
+      "en": "Add 1 + 0.5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2(1/2) + 1/2 = 1.5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Value of 2 sin 30 + cos 60 as a decimal."
+    },
+    {
+     "en": "Step 2: 2(1/2) + 1/2 = 1.5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-si6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If sin A = 3/5 then 1 - cos^2 A ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "9/25"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "16/25"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is cos^2 A."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3/5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sin A."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 - cos^2 = sin^2."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If sin A = 3/5 then 1 - cos^2 A =."
+    },
+    {
+     "en": "Step 2: 1 - cos^2 = sin^2."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-si7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: cos 90 = 0 so division by zero."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "tan 90 degrees is not defined."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "cos 90 = 0 so division by zero."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: cos 90 = 0 so division by zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: tan 90 degrees is not defined.."
+    },
+    {
+     "en": "Step 2: cos 90 = 0 so division by zero."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-si8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Simplify sec^2 A - tan^2 A"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Identity gives 1."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "-1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Order is sec squared minus tan squared."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "sec^2 A = 1 + tan^2 A."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Simplify sec^2 A - tan^2 A."
+    },
+    {
+     "en": "Step 2: sec^2 A = 1 + tan^2 A."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-90",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Ratios of 0, 30, 45, 60, 90 degrees and identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ratios of 0, 30, 45, 60, 90 degrees and identities): A few angles appear again and again: 0, 30, 45, 60 and ___ degrees. Learn their values once and a whole chapter becomes easy."
+   },
+   "accepted": [
+    "90"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\": the missing word starts with \"9\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"9\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: \"90\" accurately completes the concept: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ratios of 0, 30, 45, 60, 90 degrees and identities): For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Ratios of 0, 30, 45, 60, 90 degrees and identities): Identify the correct statement from this lesson. (Focus: degrees)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3. does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"degrees\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"degrees\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-3",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Ratios of 0, 30, 45, 60, 90 degrees and identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ratios of 0, 30, 45, 60, 90 degrees and identities): For 60 degrees, sin = root ___ by 2, cos = 1/2 and tan = root 3."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Ratios of 0, 30, 45, 60, 90 degrees and identities): Identify the correct statement from this lesson. (Focus: degrees degrees defined)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defin does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"degrees degrees defined\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"degrees degrees defined\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-30",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ratios of 0, 30, 45, 60, 90 degrees and identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ratios of 0, 30, 45, 60, 90 degrees and identities): A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, ___, 45, 60, 90. Cosine is the same list reversed."
+   },
+   "accepted": [
+    "30"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\": the missing word starts with \"3\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: \"30\" accurately completes the concept: A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which of the following statements is scientifically/conceptually accurate? (Focus: Identity squared squared every)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Identity one: sin squared A + cos squared A = 1, true for every angle A."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Identity one: sin squared A + cos squared A = 1, true for every angle A. does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Identity one: sin squared A + cos squared A = 1, true for every angle A."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Identity squared squared every\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Identity one: sin squared A + cos squared A = 1, true for every angle A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Identity squared squared every\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Identity one: sin squared A + cos squared A = 1, true for every angle A.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ratios of 0, 30, 45, 60, 90 degrees and identities): Identity two: sec squared A = 1 + tan squared A, and identity three: cosec squared A = 1 + cot squared A."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Identity two: sec squared A = 1 + tan squared A, and identity three: cosec squared A = 1 + cot squared A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which of the following statements is scientifically/conceptually accurate? (Focus: Complementary angles sin90 cos90)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30. does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Complementary angles sin90 cos90\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Complementary angles sin90 cos90\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Complementary angles: sin(90 - A) = cos A and cos(90 - A) = sin A, so sin 60 = cos 30.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which of the following statements is scientifically/conceptually accurate? (Focus: angles appear again again)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and  does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: For 45 degrees, sin = cos = 1 by root 2 and tan = 1. For 30 degrees, sin = 1/2, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"angles appear again again\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"angles appear again again\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their values once and a whole chapter becomes easy.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which of the following statements is scientifically/conceptually accurate? (Focus: degrees)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For 45 degrees, sin = cos = 1 by root 2 and tan = 1. does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"degrees\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "For 45 degrees, sin = cos = 1 by root 2 and tan = 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"degrees\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For 45 degrees, sin = cos = 1 by root 2 and tan = 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-3",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Ratios of 0, 30, 45, 60, 90 degrees and identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ratios of 0, 30, 45, 60, 90 degrees and identities): For 30 degrees, sin = 1/2, cos = root ___ by 2 and tan = 1 by root 3."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: For 30 degrees, sin = 1/2, cos = root 3 by 2 and tan = 1 by root 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which statement best explains a deep principle from this topic? (Focus: degrees)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3. does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"degrees\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"degrees\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For 60 degrees, sin = root 3 by 2, cos = 1/2 and tan = root 3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ratios of 0, 30, 45, 60, 90 degrees and identities): For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For 0 degrees: sin = 0, cos = 1, tan = 0. For 90 degrees: sin = 1, cos = 0 and tan is not defined."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ratios of 0, 30, 45, 60, 90 degrees and identities): Which statement best explains a deep principle from this topic? (Focus: memory trick sine 1root)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine does not apply in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ratios of 0, 30, 45, 60, 90 degrees and identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A few angles appear again and again: 0, 30, 45, 60 and 90 degrees. Learn their v"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ratios of 0, 30, 45, 60, 90 degrees and identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"memory trick sine 1root\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"memory trick sine 1root\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A memory trick for sine: 0, 1/2, 1/root 2, root 3/2, 1 for the angles 0, 30, 45, 60, 90. Cosine is the same list reversed.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-true",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Ratios of 0, 30, 45, 60, 90 degrees and identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ratios of 0, 30, 45, 60, 90 degrees and identities): Identity one: sin squared A + cos squared A = 1, ___ for every angle A."
+   },
+   "accepted": [
+    "true"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Identity one: sin squared A + cos squared A = 1, true for every angle A.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ratios of 0, 30, 45, 60, 90 degrees and identities\"."
+    },
+    {
+     "en": "Step 2: \"true\" accurately completes the concept: Identity one: sin squared A + cos squared A = 1, true for every angle A."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

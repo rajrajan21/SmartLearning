@@ -42,8 +42,8 @@ function useSpeaker(lang: Lang, deviceFallback: boolean) {
 
 export interface CardResult { correct: boolean; hintsUsed: number }
 
-/** collect: test mode, the answer is kept for marking at the end and nothing is shown. quick: game mode, moves on by itself. */
-export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: { q: PublicQuestion; onDone: (r: CardResult) => void; nextLabel?: string; compact?: boolean; collect?: (r: AnswerResponse) => void; quick?: boolean }) {
+/** collect: test mode, the answer is kept for marking at the end and nothing is shown. quick: game mode, moves on by itself. inline: multi-question sheet mode, hides the Next button. */
+export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick, inline }: { q: PublicQuestion; onDone: (r: CardResult) => void; nextLabel?: string; compact?: boolean; collect?: (r: AnswerResponse) => void; quick?: boolean; inline?: boolean }) {
   const s = useSettings();
   const { lang } = s;
   const attemptId = useRef(crypto.randomUUID()); // one per question shown, so a resend never counts twice
@@ -241,7 +241,7 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
           )}
           {!quick && s.get("feature.aiTutor") === true && s.get("tutor.inPractice") === true && <AskTeacher questionId={q.id} about={stem} afterAnswer />}
           {!quick && !collect && <ReportProblem kind="question" about={`${q.key} (${q.id})`} where="onQuestions" />}
-          <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>
+          {!inline && <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>}
         </div>
       )}
     </section>

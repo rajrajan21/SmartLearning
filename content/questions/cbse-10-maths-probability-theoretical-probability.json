@@ -1,240 +1,1188 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "probability",
-  "topic": "theoretical-probability",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "probability",
+ "topic": "theoretical-probability",
+ "questions": [
+  {
+   "key": "r1-tp1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-tp1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The probability of a sure event is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is an impossible event."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "0.5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is a fair coin."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Always happens."
-      }
-    },
-    {
-      "key": "r1-tp2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Probability can be greater than 1."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It lies between 0 and 1."
-      }
-    },
-    {
-      "key": "r2-tp3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A die is rolled. P(a number greater than 4) as a decimal rounded to 2 places"
-      },
-      "answer": 0.33,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 0.5,
-          "why": {
-            "en": "Count 5 and 6."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2/6."
-      }
-    },
-    {
-      "key": "r2-tp4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): If P(E) = 0.3 then P(not E) = 0.7. Reason (R): P(E) + P(not E) = 1."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1 - 0.3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Complement."
-      }
-    },
-    {
-      "key": "r2-tp5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Bag has 3 red and 5 white balls. Total outcomes"
-      },
-      "answer": 8,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5,
-          "why": {
-            "en": "Count all."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 + 5."
-      }
-    },
-    {
-      "key": "r3-tp6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Probability of getting a head in one toss"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not sure."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not impossible."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Two equally likely outcomes."
-      }
-    },
-    {
-      "key": "r3-tp7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The sum of the probabilities of all elementary events is 1."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Total certainty."
-      }
-    },
-    {
-      "key": "r3-tp8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "P(drawing a king from 52 cards) as the number of kings"
-      },
-      "answer": 4,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 1,
-          "why": {
-            "en": "There are four kings, one in each suit."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4/52."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The probability of a sure event is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is an impossible event."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0.5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is a fair coin."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Always happens."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The probability of a sure event is."
+    },
+    {
+     "en": "Step 2: Always happens."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-tp2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Probability can be greater than 1."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It lies between 0 and 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Probability can be greater than 1.."
+    },
+    {
+     "en": "Step 2: It lies between 0 and 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tp3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A die is rolled. P(a number greater than 4) as a decimal rounded to 2 places"
+   },
+   "answer": 0.33,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 0.5,
+     "why": {
+      "en": "Count 5 and 6."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2/6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A die is rolled. P(a number greater than 4) as a decimal rounded to 2 places."
+    },
+    {
+     "en": "Step 2: 2/6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tp4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): If P(E) = 0.3 then P(not E) = 0.7. Reason (R): P(E) + P(not E) = 1."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"A false, R true\" — Complement."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Complement."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): If P(E) = 0.3 then P(not E) = 0.7. Reason (R): P(E) + P(not E) = 1.."
+    },
+    {
+     "en": "Step 2: Complement."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tp5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Bag has 3 red and 5 white balls. Total outcomes"
+   },
+   "answer": 8,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5,
+     "why": {
+      "en": "Count all."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 + 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Bag has 3 red and 5 white balls. Total outcomes."
+    },
+    {
+     "en": "Step 2: 3 + 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-tp6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Two equally likely outcomes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Probability of getting a head in one toss"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1\" — Two equally likely outcomes."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not impossible."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Two equally likely outcomes."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Two equally likely outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Probability of getting a head in one toss."
+    },
+    {
+     "en": "Step 2: Two equally likely outcomes."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tp7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The sum of the probabilities of all elementary events is 1."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Total certainty."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The sum of the probabilities of all elementary events is 1.."
+    },
+    {
+     "en": "Step 2: Total certainty."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tp8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "P(drawing a king from 52 cards) as the number of kings"
+   },
+   "answer": 4,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 1,
+     "why": {
+      "en": "There are four kings, one in each suit."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4/52."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: P(drawing a king from 52 cards) as the number of kings."
+    },
+    {
+     "en": "Step 2: 4/52."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-same",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Theoretical probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Theoretical probability): Before a cricket match the captains toss a coin. Each side has the ___ chance. Probability measures how likely an event is on a scale of 0 to 1."
+   },
+   "accepted": [
+    "same"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Theoretical probability\": the missing word starts with \"s\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: \"same\" accurately completes the concept: Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Theoretical probability): An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Theoretical probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Theoretical probability): Identify the correct statement from this lesson. (Focus: Probability event number outcomes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Probability of an event E = number of outcomes favourable to E divided by the number of all pos does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Probability event number outcomes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Probability event number outcomes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-4",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Theoretical probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Theoretical probability): For a fair die, P(getting ___) = 1/6 and P(even number) = 3/6 = 1/2."
+   },
+   "accepted": [
+    "4"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Theoretical probability\": the missing word starts with \"4\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"4\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: \"4\" accurately completes the concept: For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Theoretical probability): Identify the correct statement from this lesson. (Focus: event happen probability impossible)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An event that is sure to happen has probability 1. An impossible event has probability 0."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An event that is sure to happen has probability 1. An impossible event has probability 0. does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An event that is sure to happen has probability 1. An impossible event has probability 0."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"event happen probability impossible\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "An event that is sure to happen has probability 1. An impossible event has probability 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"event happen probability impossible\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An event that is sure to happen has probability 1. An impossible event has probability 0.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-event",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Theoretical probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Theoretical probability): So the probability of any ___ lies between 0 and 1."
+   },
+   "accepted": [
+    "event"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Theoretical probability\": the missing word starts with \"e\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"So the probability of any event lies between 0 and 1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: \"event\" accurately completes the concept: So the probability of any event lies between 0 and 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Theoretical probability): Which of the following statements is scientifically/conceptually accurate? (Focus: probabilities elementary events experiment)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The probabilities of all elementary events of an experiment add up to 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The probabilities of all elementary events of an experiment add up to 1. does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The probabilities of all elementary events of an experiment add up to 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"probabilities elementary events experiment\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "The probabilities of all elementary events of an experiment add up to 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"probabilities elementary events experiment\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The probabilities of all elementary events of an experiment add up to 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Theoretical probability): P(E) + P(not E) = 1. The event not E is the complement of E."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Theoretical probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — P(E) + P(not E) = 1. The event not E is the complement of E."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Theoretical probability): Which of the following statements is scientifically/conceptually accurate? (Focus: cards Pred card 2652)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52. does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"cards Pred card 2652\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"cards Pred card 2652\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For a deck of 52 cards, P(red card) = 26/52 = 1/2. P(ace of spades) = 1/52.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Theoretical probability): Which of the following statements is scientifically/conceptually accurate? (Focus: Before cricket match captains)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Before a cricket match the captains toss a coin. Each side has the same chance. Probability mea does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: An experiment such as tossing a coin or rolling a die has outcomes. An event is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Before cricket match captains\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Before cricket match captains\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Before a cricket match the captains toss a coin. Each side has the same chance. Probability measures how likely an event is on a scale of 0 to 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Theoretical probability): An experiment such as tossing a coin or rolling a die has outcomes. An event is never a collection of outcomes."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Theoretical probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: An experiment such as tossing a coin or rolling a die has outcomes. An event is a collection of outcomes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-number",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Theoretical probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Theoretical probability): Probability of an event E = number of outcomes favourable to E divided by the ___ of all possible outcomes, when outcomes are equally likely."
+   },
+   "accepted": [
+    "number"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Theoretical probability\": the missing word starts with \"n\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: \"number\" accurately completes the concept: Probability of an event E = number of outcomes favourable to E divided by the number of all possible outcomes, when outcomes are equally likely."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: Pgetting Peven number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2. does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Pgetting Peven number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Pgetting Peven number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For a fair die, P(getting 4) = 1/6 and P(even number) = 3/6 = 1/2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Theoretical probability): An event that is sure to happen has probability 1. An impossible event has probability 0."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Theoretical probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — An event that is sure to happen has probability 1. An impossible event has probability 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Theoretical probability): Which statement best explains a deep principle from this topic? (Focus: probability event between)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So the probability of any event lies between 0 and 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So the probability of any event lies between 0 and 1. does not apply in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So the probability of any event lies between 0 and 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Theoretical probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Theoretical probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Before a cricket match the captains toss a coin. Each side has the same chance. "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Theoretical probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"probability event between\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Theoretical probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "So the probability of any event lies between 0 and 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"probability event between\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So the probability of any event lies between 0 and 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-events",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Theoretical probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Theoretical probability): The probabilities of all elementary ___ of an experiment add up to 1."
+   },
+   "accepted": [
+    "events"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Theoretical probability\": the missing word starts with \"e\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The probabilities of all elementary events of an experiment add up to 1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Theoretical probability\"."
+    },
+    {
+     "en": "Step 2: \"events\" accurately completes the concept: The probabilities of all elementary events of an experiment add up to 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

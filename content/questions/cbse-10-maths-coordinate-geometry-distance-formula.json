@@ -1,268 +1,1254 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "coordinate-geometry",
-  "topic": "distance-formula",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "coordinate-geometry",
+ "topic": "distance-formula",
+ "questions": [
+  {
+   "key": "r1-df1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-df1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Distance of (3, 4) from the origin"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "Square, then add."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(9 + 16) = 5."
-      }
-    },
-    {
-      "key": "r1-df2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Distance between (0, 0) and (6, 8)"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "10"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "14"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not a sum."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not a difference."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(36 + 64) = 10."
-      }
-    },
-    {
-      "key": "r2-df3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Distance between (1, 2) and (4, 6)"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "Square first."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(9 + 16) = 5."
-      }
-    },
-    {
-      "key": "r2-df4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): Points (0,0), (1,1), (2,2) are collinear. Reason (R): The distances satisfy 2 root 2 = root 2 + root 2."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is a correct check."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "They lie on y = x."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Distances add up."
-      }
-    },
-    {
-      "key": "r2-df5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find x if the distance between (x, 0) and (0, 4) is 5 and x > 0"
-      },
-      "answer": 3,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 9,
-          "why": {
-            "en": "Take the square root."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "x^2 + 16 = 25, x = 3."
-      }
-    },
-    {
-      "key": "r3-df6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A triangle has vertices (0,0), (4,0), (2, 3.46). It is approximately"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "equilateral"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "scalene"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Sides are about 4 each."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "right-angled"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "No side squared equals the sum of the other two."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each side is about 4."
-      }
-    },
-    {
-      "key": "r3-df7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The distance formula follows from the Pythagoras theorem."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Right triangle with legs |x2 - x1| and |y2 - y1|."
-      }
-    },
-    {
-      "key": "r3-df8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: On a grid a school is at (2, 3) and a park at (5, 7). The straight distance is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "5 units"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "7 units"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "3 + 4 is the walk along the grid."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1 unit"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Too short."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(9 + 16) = 5."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Distance of (3, 4) from the origin"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "Square, then add."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(9 + 16) = 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Distance of (3, 4) from the origin."
+    },
+    {
+     "en": "Step 2: root(9 + 16) = 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-df2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Distance between (0, 0) and (6, 8)"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "10"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "14"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not a sum."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not a difference."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(36 + 64) = 10."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Distance between (0, 0) and (6, 8)."
+    },
+    {
+     "en": "Step 2: root(36 + 64) = 10."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-df3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Distance between (1, 2) and (4, 6)"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "Square first."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(9 + 16) = 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Distance between (1, 2) and (4, 6)."
+    },
+    {
+     "en": "Step 2: root(9 + 16) = 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-df4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): Points (0,0), (1,1), (2,2) are collinear. Reason (R): The distances satisfy 2 root 2 = root 2 + root 2."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is a correct check."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "They lie on y = x."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Distances add up."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): Points (0,0), (1,1), (2,2) are collinear. Reason (R): The distances satisfy."
+    },
+    {
+     "en": "Step 2: Distances add up."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-df5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find x if the distance between (x, 0) and (0, 4) is 5 and x > 0"
+   },
+   "answer": 3,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 9,
+     "why": {
+      "en": "Take the square root."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "x^2 + 16 = 25, x = 3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find x if the distance between (x, 0) and (0, 4) is 5 and x > 0."
+    },
+    {
+     "en": "Step 2: x^2 + 16 = 25, x = 3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-df6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A triangle has vertices (0,0), (4,0), (2, 3.46). It is approximately"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "equilateral"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "scalene"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Sides are about 4 each."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "right-angled"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "No side squared equals the sum of the other two."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each side is about 4."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A triangle has vertices (0,0), (4,0), (2, 3.46). It is approximately."
+    },
+    {
+     "en": "Step 2: Each side is about 4."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-df7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Right triangle with legs |x2 - x1| and |y2 - y1|."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The distance formula follows from the Pythagoras theorem."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Right triangle with legs |x2 - x1| and |y2 - y1|."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Right triangle with legs |x2 - x1| and |y2 - y1|."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The distance formula follows from the Pythagoras theorem.."
+    },
+    {
+     "en": "Step 2: Right triangle with legs |x2 - x1| and |y2 - y1|."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-df8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: On a grid a school is at (2, 3) and a park at (5, 7). The straight distance is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "5 units"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "7 units"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "3 + 4 is the walk along the grid."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1 unit"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Too short."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(9 + 16) = 5."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: On a grid a school is at (2, 3) and a park at (5, 7). The straight distance is."
+    },
+    {
+     "en": "Step 2: root(9 + 16) = 5."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-drawn",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Distance formula",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Distance formula): Two friends stand at different points of a school ground ___ on a grid. How far apart are they? The distance formula answers using only coordinates."
+   },
+   "accepted": [
+    "drawn"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Distance formula\": the missing word starts with \"d\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: \"drawn\" accurately completes the concept: Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Distance formula): Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Distance formula\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Distance formula): Identify the correct statement from this lesson. (Focus: distance between Px1 Qx2)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"distance between Px1 Qx2\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"distance between Px1 Qx2\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-triangle",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Distance formula",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Distance formula): This comes from the Pythagoras theorem on a right ___ with horizontal side x2 - x1 and vertical side y2 - y1."
+   },
+   "accepted": [
+    "triangle"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Distance formula\": the missing word starts with \"t\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: \"triangle\" accurately completes the concept: This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Distance formula): Identify the correct statement from this lesson. (Focus: distance point origin square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The distance of a point (x, y) from the origin is the square root of x squared + y squared. does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"distance point origin square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"distance point origin square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The distance of a point (x, y) from the origin is the square root of x squared + y squared.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-4",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Distance formula",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Distance formula): Example: distance between (2, 3) and (4, 1) is the square root of ___ + 4 = root 8 = 2 root 2."
+   },
+   "accepted": [
+    "4"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Distance formula\": the missing word starts with \"4\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"4\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: \"4\" accurately completes the concept: Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Distance formula): Which of the following statements is scientifically/conceptually accurate? (Focus: check three points collinear)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To check that three points are collinear, show that the sum of two of the distances equals the third."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To check that three points are collinear, show that the sum of two of the distances equals the  does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To check that three points are collinear, show that the sum of two of the distances equals the third."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"check three points collinear\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "To check that three points are collinear, show that the sum of two of the distances equals the third."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"check three points collinear\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To check that three points are collinear, show that the sum of two of the distances equals the third.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Distance formula): To identify a triangle: three equal sides - equilateral; two equal - isosceles; Pythagoras holds - right-angled."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Distance formula\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To identify a triangle: three equal sides - equilateral; two equal - isosceles; Pythagoras holds - right-angled."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Distance formula): Which of the following statements is scientifically/conceptually accurate? (Focus: identify quadrilateral equal sides)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite side does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"identify quadrilateral equal sides\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"identify quadrilateral equal sides\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To identify a quadrilateral: equal sides and equal diagonals give a square; equal opposite sides and equal diagonals give a rectangle.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Distance formula): Which of the following statements is scientifically/conceptually accurate? (Focus: friends stand different points)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Two friends stand at different points of a school ground drawn on a grid. How far apart are the does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Every point on the plane has coordinates (x, y), measured from the origin along "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"friends stand different points\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"friends stand different points\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Two friends stand at different points of a school ground drawn on a grid. How far apart are they? The distance formula answers using only coordinates.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Distance formula): Which of the following statements is scientifically/conceptually accurate? (Focus: Every point plane coordinates)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and  does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Every point plane coordinates\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Every point plane coordinates\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Every point on the plane has coordinates (x, y), measured from the origin along the x-axis and y-axis.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-root",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Distance formula",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Distance formula): The distance between P(x1, y1) and Q(x2, y2) is the square ___ of (x2 - x1) squared plus (y2 - y1) squared."
+   },
+   "accepted": [
+    "root"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Distance formula\": the missing word starts with \"r\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"r\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: \"root\" accurately completes the concept: The distance between P(x1, y1) and Q(x2, y2) is the square root of (x2 - x1) squared plus (y2 - y1) squared."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Distance formula): Which statement best explains a deep principle from this topic? (Focus: comes Pythagoras theorem right)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and ver does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"comes Pythagoras theorem right\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"comes Pythagoras theorem right\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"This comes from the Pythagoras theorem on a right triangle with horizontal side x2 - x1 and vertical side y2 - y1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Distance formula): The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Distance formula\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The distance of a point (x, y) from the origin is the square root of x squared + y squared."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Distance formula): Which statement best explains a deep principle from this topic? (Focus: Example distance between square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2. does not apply in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Distance formula."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Distance formula follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two friends stand at different points of a school ground drawn on a grid. How fa"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Distance formula."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Example distance between square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Distance formula\"."
+    }
+   ],
+   "explanation": {
+    "en": "Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Example distance between square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Example: distance between (2, 3) and (4, 1) is the square root of 4 + 4 = root 8 = 2 root 2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-collinear",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Distance formula",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Distance formula): To check that three points are ___, show that the sum of two of the distances equals the third."
+   },
+   "accepted": [
+    "collinear"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Distance formula\": the missing word starts with \"c\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To check that three points are collinear, show that the sum of two of the distances equals the third.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Distance formula\"."
+    },
+    {
+     "en": "Step 2: \"collinear\" accurately completes the concept: To check that three points are collinear, show that the sum of two of the distances equals the third."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

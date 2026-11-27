@@ -1,359 +1,1029 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "finding-common-ground",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-common-ground",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c7ma-fcg-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c7ma-fcg-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The HCF of 12 and 16 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 is a common factor but not the highest."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "48"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "48 is the LCM."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4 is the highest number dividing both."
-      }
-    },
-    {
-      "key": "c7ma-fcg-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The LCM of 6 and 8 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "24"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "48"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "48 is a common multiple but not the lowest."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 is the HCF."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "24 is the smallest number divisible by both."
-      }
-    },
-    {
-      "key": "c7ma-fcg-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The LCM of two numbers can be larger than their product."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "The product is itself a common multiple, so the LCM is never greater than it."
-      }
-    },
-    {
-      "key": "c7ma-fcg-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The prime factorisation of 90 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "2 × 3 × 3 × 5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2 × 5 × 9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "9 is not a prime."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "3 × 30"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "30 is not a prime."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "All the factors must be primes."
-      }
-    },
-    {
-      "key": "c7ma-fcg-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find the HCF of 45 and 75."
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5,
-          "why": {
-            "en": "You missed the common prime 3."
-          }
-        },
-        {
-          "value": 225,
-          "why": {
-            "en": "That is not a factor of both."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, so the HCF is 3 × 5 = 15."
-      }
-    },
-    {
-      "key": "c7ma-fcg-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find the LCM of 14 and 35."
-      },
-      "answer": 70,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "That is the HCF."
-          }
-        },
-        {
-          "value": 490,
-          "why": {
-            "en": "That is the product, not the lowest common multiple."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "14 = 2 × 7 and 35 = 5 × 7. LCM = 2 × 5 × 7 = 70."
-      }
-    },
-    {
-      "key": "c7ma-fcg-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Two numbers have no common prime factor. Their HCF is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The HCF cannot be zero."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "their product"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the LCM in this case."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 divides every number."
-      }
-    },
-    {
-      "key": "c7ma-fcg-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "The HCF of two numbers is 6 and their LCM is 84. One number is 12. Find the other."
-      },
-      "answer": 42,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "That is 84 ÷ 12."
-          }
-        },
-        {
-          "value": 504,
-          "why": {
-            "en": "That is HCF × LCM, the product of both numbers."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6 × 84 ÷ 12 = 42."
-      }
-    },
-    {
-      "key": "c7ma-fcg-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find the LCM of 96 and 360."
-      },
-      "answer": 1440,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 24,
-          "why": {
-            "en": "That is the HCF."
-          }
-        },
-        {
-          "value": 34560,
-          "why": {
-            "en": "That is the product of the two numbers."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "96 = 2^5 × 3 and 360 = 2^3 × 3^2 × 5. LCM = 32 × 9 × 5 = 1440."
-      }
-    },
-    {
-      "key": "c7ma-fcg-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Why does doubling both numbers double their HCF?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Each number gets an extra factor 2 that becomes part of the common subpart"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "Because the numbers become even"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Even numbers need not double the HCF by that fact alone."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Because the LCM halves"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The LCM also doubles."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The extra 2 appears in both factorisations, so it joins the highest common subpart."
-      }
+     "en": "Focus on this idea: 4 is the highest number dividing both."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The HCF of 12 and 16 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 is a common factor but not the highest."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "48"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "48 is the LCM."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4 is the highest number dividing both."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 4 is the highest number dividing both."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The HCF of 12 and 16 is."
+    },
+    {
+     "en": "Step 2: 4 is the highest number dividing both."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 24 is the smallest number divisible by both."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The LCM of 6 and 8 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "24"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "48"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "48 is a common multiple but not the lowest."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 is the HCF."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "24 is the smallest number divisible by both."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 24 is the smallest number divisible by both."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The LCM of 6 and 8 is."
+    },
+    {
+     "en": "Step 2: 24 is the smallest number divisible by both."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The product is itself a common multiple, so the LCM is never greater than it."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The LCM of two numbers can be larger than their product."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "The product is itself a common multiple, so the LCM is never greater than it."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The product is itself a common multiple, so the LCM is never greater than it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The LCM of two numbers can be larger than their product.."
+    },
+    {
+     "en": "Step 2: The product is itself a common multiple, so the LCM is never greater than it."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: All the factors must be primes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The prime factorisation of 90 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "2 × 3 × 3 × 5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2 × 5 × 9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "9 is not a prime."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3 × 30"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "30 is not a prime."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "All the factors must be primes."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: All the factors must be primes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The prime factorisation of 90 is."
+    },
+    {
+     "en": "Step 2: All the factors must be primes."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, so the HCF is 3 × 5 = 15."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find the HCF of 45 and 75."
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5,
+     "why": {
+      "en": "You missed the common prime 3."
+     }
+    },
+    {
+     "value": 225,
+     "why": {
+      "en": "That is not a factor of both."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, so the HCF is 3 × 5 = 15."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, so the HCF is 3 × 5 = 15."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find the HCF of 45 and 75.."
+    },
+    {
+     "en": "Step 2: 45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, so the HCF is 3 × 5 = 15."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 14 = 2 × 7 and 35 = 5 × 7."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find the LCM of 14 and 35."
+   },
+   "answer": 70,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "That is the HCF."
+     }
+    },
+    {
+     "value": 490,
+     "why": {
+      "en": "That is the product, not the lowest common multiple."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "14 = 2 × 7 and 35 = 5 × 7. LCM = 2 × 5 × 7 = 70."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 14 = 2 × 7 and 35 = 5 × 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: 14 = 2 × 7 and 35 = 5 × 7."
+    },
+    {
+     "en": "Step 2: LCM = 2 × 5 × 7 = 70."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Two numbers have no common prime factor. Their HCF is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The HCF cannot be zero."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "their product"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the LCM in this case."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 divides every number."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two numbers have no common prime factor. Their HCF is."
+    },
+    {
+     "en": "Step 2: 1 divides every number."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "The HCF of two numbers is 6 and their LCM is 84. One number is 12. Find the other."
+   },
+   "answer": 42,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "That is 84 ÷ 12."
+     }
+    },
+    {
+     "value": 504,
+     "why": {
+      "en": "That is HCF × LCM, the product of both numbers."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6 × 84 ÷ 12 = 42."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The HCF of two numbers is 6 and their LCM is 84. One number is 12. Find the other.."
+    },
+    {
+     "en": "Step 2: 6 × 84 ÷ 12 = 42."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-fcg-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 96 = 2^5 × 3 and 360 = 2^3 × 3^2 × 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find the LCM of 96 and 360."
+   },
+   "answer": 1440,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 24,
+     "why": {
+      "en": "That is the HCF."
+     }
+    },
+    {
+     "value": 34560,
+     "why": {
+      "en": "That is the product of the two numbers."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "96 = 2^5 × 3 and 360 = 2^3 × 3^2 × 5. LCM = 32 × 9 × 5 = 1440."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 96 = 2^5 × 3 and 360 = 2^3 × 3^2 × 5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: 96 = 2^5 × 3 and 360 = 2^3 × 3^2 × 5."
+    },
+    {
+     "en": "Step 2: LCM = 32 × 9 × 5 = 1440."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c7ma-fcg-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The extra 2 appears in both factorisations, so it joins the highest common subpart."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Why does doubling both numbers double their HCF?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Each number gets an extra factor 2 that becomes part of the common subpart"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "Because the numbers become even"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Even numbers need not double the HCF by that fact alone."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Because the LCM halves"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The LCM also doubles."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The extra 2 appears in both factorisations, so it joins the highest common subpart."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The extra 2 appears in both factorisations, so it joins the highest common subpart."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Why does doubling both numbers double their HCF?."
+    },
+    {
+     "en": "Step 2: The extra 2 appears in both factorisations, so it joins the highest common subpart."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Finding Common Ground): Identify the correct statement from this lesson. (Focus: factors factors common factors)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 16 are 1, 2, 4, 8, 16. The common factors are 1, 2 and 4."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 16 are 1, 2, 4, 8, 16. The common fa does not apply in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 16 are 1, 2, 4, 8, 16. The common factors are 1, 2 and 4."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding Common Ground follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Sameeksha's main room is 12 ft by 16 ft. She wants square tiles of one size, a w"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding Common Ground."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"factors factors common factors\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 16 are 1, 2, 4, 8, 16. The common factors are 1, 2 and 4."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"factors factors common factors\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The factors of 12 are 1, 2, 3, 4, 6, 12 and the factors of 16 are 1, 2, 4, 8, 16. The common factors are 1, 2 and 4.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-3",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Finding Common Ground",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding Common Ground): The largest tile means the fewest tiles, so she picks 4 ft. She needs ___ tiles along the breadth and 4 along the length, which is 12 tiles."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding Common Ground\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The largest tile means the fewest tiles, so she picks 4 ft. She needs 3 tiles along the breadth and 4 along the length, which is 12 tiles.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: The largest tile means the fewest tiles, so she picks 4 ft. She needs 3 tiles along the breadth and 4 along the length, which is 12 tiles."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-also",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Finding Common Ground",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding Common Ground): The highest of the common factors is called the Highest Common Factor, or HCF. It is ___ called the Greatest Common Divisor. Here HCF(12, 16) = 4."
+   },
+   "accepted": [
+    "also"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding Common Ground\": the missing word starts with \"a\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The highest of the common factors is called the Highest Common Factor, or HCF. It is also called the Greatest Common Divisor. Here HCF(12, 16) = 4.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: \"also\" accurately completes the concept: The highest of the common factors is called the Highest Common Factor, or HCF. It is also called the Greatest Common Divisor. Here HCF(12, 16) = 4."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Finding Common Ground): Listing all the factors is slow and we may miss some, as with 30 and 50 or 28 and 42. Prime factorisation makes the job easier and more reliable."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Finding Common Ground\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Listing all the factors is slow and we may miss some, as with 30 and 50 or 28 and 42. Prime factorisation makes the job easier and more reliable."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-5",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Finding Common Ground",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding Common Ground): In the division method we divide repeatedly by a prime. For 1200 we get 2, 2, 2, 2, 3, 5, ___, so 1200 = 2 × 2 × 2 × 2 × 3 × 5 × 5. It is quicker than breaking it as 40 × 30."
+   },
+   "accepted": [
+    "5"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding Common Ground\": the missing word starts with \"5\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"5\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"In the division method we divide repeatedly by a prime. For 1200 we get 2, 2, 2, 2, 3, 5, 5, so 1200 = 2 × 2 × 2 × 2 × 3 × 5 × 5. It is quicker than breaking it as 40 × 30.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: \"5\" accurately completes the concept: In the division method we divide repeatedly by a prime. For 1200 we get 2, 2, 2, 2, 3, 5, 5, so 1200 = 2 × 2 × 2 × 2 × 3 × 5 × 5. It is quicker than breaking it as 40 × 30."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Finding Common Ground): Which of the following statements is scientifically/conceptually accurate? (Focus: subpart prime factorisation factor)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Any subpart of a prime factorisation is a factor. For 840 = 2 × 2 × 2 × 3 × 5 × 7, the number 2 × 2 × 7 = 28 is a factor, and it times 2 × 3 × 5 = 30 gives 840."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Any subpart of a prime factorisation is a factor. For 840 = 2 × 2 × 2 × 3 × 5 × 7, the number 2 does not apply in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Any subpart of a prime factorisation is a factor. For 840 = 2 × 2 × 2 × 3 × 5 × 7, the number 2 × 2 × 7 = 28 is a factor, and it times 2 × 3 × 5 = 30 gives 840."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding Common Ground follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Sameeksha's main room is 12 ft by 16 ft. She wants square tiles of one size, a w"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding Common Ground."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"subpart prime factorisation factor\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "Any subpart of a prime factorisation is a factor. For 840 = 2 × 2 × 2 × 3 × 5 × 7, the number 2 × 2 × 7 = 28 is a factor, and it times 2 × 3 × 5 = 30 gives 840."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"subpart prime factorisation factor\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Any subpart of a prime factorisation is a factor. For 840 = 2 × 2 × 2 × 3 × 5 × 7, the number 2 × 2 × 7 = 28 is a factor, and it times 2 × 3 × 5 = 30 gives 840.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-17-3",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Finding Common Ground",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding Common Ground): To list all the factors of 225 = 3 × 3 × 5 × 5, form every subpart: ___, 5, 9, 15, 25, 45, 75, 225 and also 1. So there are 9 factors."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding Common Ground\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To list all the factors of 225 = 3 × 3 × 5 × 5, form every subpart: 3, 5, 9, 15, 25, 45, 75, 225 and also 1. So there are 9 factors.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: To list all the factors of 225 = 3 × 3 × 5 × 5, form every subpart: 3, 5, 9, 15, 25, 45, 75, 225 and also 1. So there are 9 factors."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Finding Common Ground): To find the HCF of 45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, take the largest subpart common to both. It is 3 × 5 = 15, so the HCF is 15."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Finding Common Ground\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To find the HCF of 45 = 3 × 3 × 5 and 75 = 3 × 5 × 5, take the largest subpart common to both. It is 3 × 5 = 15, so the HCF is 15."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Finding Common Ground\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-19",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Finding Common Ground): Which statement best explains a deep principle from this topic? (Focus: method works three numbers)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The same method works for three or more numbers. Factorising into composites such as 72 = 6 × 12 can hide common primes, so always reduce to primes before comparing."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The same method works for three or more numbers. Factorising into composites such as 72 = 6 × 1 does not apply in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The same method works for three or more numbers. Factorising into composites such as 72 = 6 × 12 can hide common primes, so always reduce to primes before comparing."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding Common Ground follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Sameeksha's main room is 12 ft by 16 ft. She wants square tiles of one size, a w"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding Common Ground."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"method works three numbers\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "The same method works for three or more numbers. Factorising into composites such as 72 = 6 × 12 can hide common primes, so always reduce to primes before comparing."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"method works three numbers\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The same method works for three or more numbers. Factorising into composites such as 72 = 6 × 12 can hide common primes, so always reduce to primes before comparing.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Finding Common Ground): Which statement best explains a deep principle from this topic? (Focus: lowest common multiple There)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The lowest common multiple, the LCM, is 24 cm. There is no largest common multiple because the multiples go on without end."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The lowest common multiple, the LCM, is 24 cm. There is no largest common multiple because the  does not apply in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The lowest common multiple, the LCM, is 24 cm. There is no largest common multiple because the multiples go on without end."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding Common Ground."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding Common Ground follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Sameeksha's main room is 12 ft by 16 ft. She wants square tiles of one size, a w"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding Common Ground."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"lowest common multiple There\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding Common Ground\"."
+    }
+   ],
+   "explanation": {
+    "en": "The lowest common multiple, the LCM, is 24 cm. There is no largest common multiple because the multiples go on without end."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"lowest common multiple There\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The lowest common multiple, the LCM, is 24 cm. There is no largest common multiple because the multiples go on without end.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

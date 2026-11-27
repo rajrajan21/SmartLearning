@@ -1,333 +1,1004 @@
 {
-  "board": "CBSE",
-  "classLevel": 6,
-  "subject": "maths",
-  "chapter": "patterns-in-mathematics",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "patterns-in-mathematics",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c6ma-pim-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c6ma-pim-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The next number in 1, 3, 6, 10, 15 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "21"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "20"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The gaps are 2, 3, 4, 5, 6, so we add 6 to get 21, not 5."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "25"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "25 is the next square number, not the next triangular number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
-      }
-    },
-    {
-      "key": "c6ma-pim-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The Virahanka numbers 1, 2, 3, 5, 8, 13 are formed by"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "adding the two numbers before"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "adding 2 each time"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The gaps are 1, 1, 2, 3, 5, so the gap is not constant."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "doubling each time"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Doubling gives 1, 2, 4, 8, 16, the powers of 2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
-      }
-    },
-    {
-      "key": "c6ma-pim-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The number 36 is both a triangular number and a square number."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "36 = 1 + 2 + ... + 8 and 36 = 6 × 6."
-      }
-    },
-    {
-      "key": "c6ma-pim-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Without adding one by one, find the sum of the first 12 odd numbers."
-      },
-      "answer": 144,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 24,
-          "why": {
-            "en": "You doubled 12; the sum is 12 × 12."
-          }
-        },
-        {
-          "value": 78,
-          "why": {
-            "en": "That is the sum 1 + 2 + ... + 12, not the odd numbers."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The first n odd numbers add up to n × n, so 12 × 12 = 144."
-      }
-    },
-    {
-      "key": "c6ma-pim-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find the value of 1 + 2 + 3 + ... + 49 + 50 + 49 + ... + 3 + 2 + 1."
-      },
-      "answer": 2500,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 1275,
-          "why": {
-            "en": "That is only the up part 1 + 2 + ... + 50."
-          }
-        },
-        {
-          "value": 100,
-          "why": {
-            "en": "You added the two ends 50 + 50; the answer is 50 × 50."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Adding up and then down to n gives n × n, so 50 × 50 = 2500."
-      }
-    },
-    {
-      "key": "c6ma-pim-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "The hexagonal numbers go 1, 7, 19, 37. What is the next one?"
-      },
-      "answer": 61,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 55,
-          "why": {
-            "en": "The gaps are not 18; the gap after 18 is 24."
-          }
-        },
-        {
-          "value": 49,
-          "why": {
-            "en": "49 is a square number, not the next hexagonal number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
-      }
-    },
-    {
-      "key": "c6ma-pim-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many lines does the complete graph K5 have?"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5,
-          "why": {
-            "en": "That is the number of points, not the lines joining them."
-          }
-        },
-        {
-          "value": 15,
-          "why": {
-            "en": "15 lines belong to K6, not K5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
-      }
-    },
-    {
-      "key": "c6ma-pim-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Add 1 to the sum 1 + 2 + 4 + 8 + 16. What number do you get?"
-      },
-      "answer": 32,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 31,
-          "why": {
-            "en": "31 is the sum before adding 1."
-          }
-        },
-        {
-          "value": 16,
-          "why": {
-            "en": "16 is the last number added, not the total plus 1."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
-      }
-    },
-    {
-      "key": "c6ma-pim-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Koch snowflake shapes have 3, 12, 48 line segments. How many does the next shape have?"
-      },
-      "answer": 192,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 96,
-          "why": {
-            "en": "You doubled 48; every segment is replaced by 4, not 2."
-          }
-        },
-        {
-          "value": 60,
-          "why": {
-            "en": "You added 12; the rule is to multiply by 4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each segment becomes 4 segments, so 48 × 4 = 192."
-      }
-    },
-    {
-      "key": "c6ma-pim-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which sequence do you get by adding consecutive odd numbers starting from 1 (1, 1 + 3, 1 + 3 + 5, ...)?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Square numbers 1, 4, 9, 16"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "Triangular numbers 1, 3, 6, 10"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Triangular numbers come from adding the counting numbers 1, 2, 3, ..."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Cube numbers 1, 8, 27, 64"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Cubes come from adding the hexagonal numbers."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
-      }
+     "en": "Focus on this idea: Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The next number in 1, 3, 6, 10, 15 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "21"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "20"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The gaps are 2, 3, 4, 5, 6, so we add 6 to get 21, not 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "25"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "25 is the next square number, not the next triangular number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The next number in 1, 3, 6, 10, 15 is."
+    },
+    {
+     "en": "Step 2: Triangular numbers grow by 2, 3, 4, 5, 6; 15 + 6 = 21."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The Virahanka numbers 1, 2, 3, 5, 8, 13 are formed by"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "adding the two numbers before"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "adding 2 each time"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The gaps are 1, 1, 2, 3, 5, so the gap is not constant."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "doubling each time"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Doubling gives 1, 2, 4, 8, 16, the powers of 2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The Virahanka numbers 1, 2, 3, 5, 8, 13 are formed by."
+    },
+    {
+     "en": "Step 2: 3 = 1 + 2, 5 = 2 + 3, 8 = 3 + 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The number 36 is both a triangular number and a square number."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "36 = 1 + 2 + ... + 8 and 36 = 6 × 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: 36 = 1 + 2 + ..."
+    },
+    {
+     "en": "Step 2: + 8 and 36 = 6 × 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The first n odd numbers add up to n × n, so 12 × 12 = 144."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Without adding one by one, find the sum of the first 12 odd numbers."
+   },
+   "answer": 144,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 24,
+     "why": {
+      "en": "You doubled 12; the sum is 12 × 12."
+     }
+    },
+    {
+     "value": 78,
+     "why": {
+      "en": "That is the sum 1 + 2 + ... + 12, not the odd numbers."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The first n odd numbers add up to n × n, so 12 × 12 = 144."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The first n odd numbers add up to n × n, so 12 × 12 = 144."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Without adding one by one, find the sum of the first 12 odd numbers.."
+    },
+    {
+     "en": "Step 2: The first n odd numbers add up to n × n, so 12 × 12 = 144."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Adding up and then down to n gives n × n, so 50 × 50 = 2500."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find the value of 1 + 2 + 3 + ... + 49 + 50 + 49 + ... + 3 + 2 + 1."
+   },
+   "answer": 2500,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 1275,
+     "why": {
+      "en": "That is only the up part 1 + 2 + ... + 50."
+     }
+    },
+    {
+     "value": 100,
+     "why": {
+      "en": "You added the two ends 50 + 50; the answer is 50 × 50."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Adding up and then down to n gives n × n, so 50 × 50 = 2500."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Adding up and then down to n gives n × n, so 50 × 50 = 2500."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find the value of 1 + 2 + 3 + ... + 49 + 50 + 49 + ... + 3 + 2 + 1.."
+    },
+    {
+     "en": "Step 2: Adding up and then down to n gives n × n, so 50 × 50 = 2500."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "The hexagonal numbers go 1, 7, 19, 37. What is the next one?"
+   },
+   "answer": 61,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 55,
+     "why": {
+      "en": "The gaps are not 18; the gap after 18 is 24."
+     }
+    },
+    {
+     "value": 49,
+     "why": {
+      "en": "49 is a square number, not the next hexagonal number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The hexagonal numbers go 1, 7, 19, 37. What is the next one?."
+    },
+    {
+     "en": "Step 2: The gaps are 6, 12, 18, so the next gap is 24 and 37 + 24 = 61."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many lines does the complete graph K5 have?"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5,
+     "why": {
+      "en": "That is the number of points, not the lines joining them."
+     }
+    },
+    {
+     "value": 15,
+     "why": {
+      "en": "15 lines belong to K6, not K5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many lines does the complete graph K5 have?."
+    },
+    {
+     "en": "Step 2: K2, K3, K4, K5 have 1, 3, 6, 10 lines, the triangular numbers."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pim-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Add 1 to the sum 1 + 2 + 4 + 8 + 16. What number do you get?"
+   },
+   "answer": 32,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 31,
+     "why": {
+      "en": "31 is the sum before adding 1."
+     }
+    },
+    {
+     "value": 16,
+     "why": {
+      "en": "16 is the last number added, not the total plus 1."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Add 1 to the sum 1 + 2 + 4 + 8 + 16. What number do you get?."
+    },
+    {
+     "en": "Step 2: 1 + 2 + 4 + 8 + 16 = 31, and adding 1 gives 32, the next power of 2."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-pim-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Each segment becomes 4 segments, so 48 × 4 = 192."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Koch snowflake shapes have 3, 12, 48 line segments. How many does the next shape have?"
+   },
+   "answer": 192,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 96,
+     "why": {
+      "en": "You doubled 48; every segment is replaced by 4, not 2."
+     }
+    },
+    {
+     "value": 60,
+     "why": {
+      "en": "You added 12; the rule is to multiply by 4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each segment becomes 4 segments, so 48 × 4 = 192."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Each segment becomes 4 segments, so 48 × 4 = 192."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Koch snowflake shapes have 3, 12, 48 line segments. How many does the next shape have?."
+    },
+    {
+     "en": "Step 2: Each segment becomes 4 segments, so 48 × 4 = 192."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-pim-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which sequence do you get by adding consecutive odd numbers starting from 1 (1, 1 + 3, 1 + 3 + 5, ...)?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Square numbers 1, 4, 9, 16"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "Triangular numbers 1, 3, 6, 10"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Triangular numbers come from adding the counting numbers 1, 2, 3, ..."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Cube numbers 1, 8, 27, 64"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Cubes come from adding the hexagonal numbers."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which sequence do you get by adding consecutive odd numbers starting from 1 (1, 1 + 3, 1 +."
+    },
+    {
+     "en": "Step 2: L-shaped layers of 1, 3, 5, 7 dots build bigger and bigger squares."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Patterns in Mathematics): Mathematics is never, in large part, the search for patterns and for explanations of why those patterns exist."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Patterns in Mathematics\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Mathematics is, in large part, the search for patterns and for explanations of why those patterns exist."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Mathematics is, in large part, the search for patterns and for explanations of why those patterns exist."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Patterns in Mathematics): Identify the correct statement from this lesson. (Focus: Patterns everywhere nature homes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon  does not apply in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Patterns in Mathematics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Count 36 dots. You can arrange them in a perfect triangle, and you can also arra"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Patterns in Mathematics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Patterns everywhere nature homes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Patterns everywhere nature homes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Patterns are everywhere: in nature, in our homes and schools, in the movement of the sun, moon and stars, and in cooking, shopping, games and weather.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-13-pattern",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Patterns in Mathematics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Patterns in Mathematics): Finding a pattern is only half the job. Mathematicians also want to know why the ___ happens, because the reason can then be used far beyond the place where it was first noticed."
+   },
+   "accepted": [
+    "pattern"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Patterns in Mathematics\": the missing word starts with \"p\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Finding a pattern is only half the job. Mathematicians also want to know why the pattern happens, because the reason can then be used far beyond the place where it was first noticed.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: \"pattern\" accurately completes the concept: Finding a pattern is only half the job. Mathematicians also want to know why the pattern happens, because the reason can then be used far beyond the place where it was first noticed."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Patterns in Mathematics): Which of the following statements is scientifically/conceptually accurate? (Focus: basic patterns patterns whole)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of m does not apply in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Patterns in Mathematics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Count 36 dots. You can arrange them in a perfect triangle, and you can also arra"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Patterns in Mathematics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"basic patterns patterns whole\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"basic patterns patterns whole\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The most basic patterns are patterns of whole numbers: 0, 1, 2, 3, 4 and so on. The branch of mathematics that studies them is called number theory.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-6",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Patterns in Mathematics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Patterns in Mathematics): To describe a sequence, say its rule in your own words and then use the rule to write the next three numbers. For 1, 3, ___, 10, 15, the gaps are 2, 3, 4, 5, so the next gap is 6 and the next number is 21."
+   },
+   "accepted": [
+    "6"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Patterns in Mathematics\": the missing word starts with \"6\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"6\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To describe a sequence, say its rule in your own words and then use the rule to write the next three numbers. For 1, 3, 6, 10, 15, the gaps are 2, 3, 4, 5, so the next gap is 6 and the next number is 21.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: \"6\" accurately completes the concept: To describe a sequence, say its rule in your own words and then use the rule to write the next three numbers. For 1, 3, 6, 10, 15, the gaps are 2, 3, 4, 5, so the next gap is 6 and the next number is 21."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Patterns in Mathematics): Which of the following statements is scientifically/conceptually accurate? (Focus: Pictures patterns visible Triangular)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of does not apply in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Patterns in Mathematics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Count 36 dots. You can arrange them in a perfect triangle, and you can also arra"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Patterns in Mathematics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Pictures patterns visible Triangular\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Pictures patterns visible Triangular\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Pictures make patterns visible. Triangular numbers are dots arranged in a triangle with rows of 1, 2, 3, 4 and so on, which is why 1, 3, 6, 10, 15 are called triangular.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-17-cube",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Patterns in Mathematics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Patterns in Mathematics): Square numbers are dots in a square grid: 1 by 1, 2 by 2, 3 by 3. ___ numbers are small cubes stacked into a bigger cube: 1, 8, 27, 64."
+   },
+   "accepted": [
+    "Cube",
+    "cube"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Patterns in Mathematics\": the missing word starts with \"C\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"C\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Square numbers are dots in a square grid: 1 by 1, 2 by 2, 3 by 3. Cube numbers are small cubes stacked into a bigger cube: 1, 8, 27, 64.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: \"Cube\" accurately completes the concept: Square numbers are dots in a square grid: 1 by 1, 2 by 2, 3 by 3. Cube numbers are small cubes stacked into a bigger cube: 1, 8, 27, 64."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Patterns in Mathematics): Which statement best explains a deep principle from this topic? (Focus: number triangular rows square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same does not apply in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Patterns in Mathematics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Patterns in Mathematics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Count 36 dots. You can arrange them in a perfect triangle, and you can also arra"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Patterns in Mathematics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"number triangular rows square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"number triangular rows square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The number 36 is both triangular (rows of 1 to 8 add up to 36) and square (6 by 6). So the same number can play different roles depending on the picture we draw.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-19-shapes",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Patterns in Mathematics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Patterns in Mathematics): Shapes also form patterns. The branch of mathematics that studies ___ is called geometry. A shape sequence is a list of shapes that follows a rule."
+   },
+   "accepted": [
+    "shapes"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Patterns in Mathematics\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Shapes also form patterns. The branch of mathematics that studies shapes is called geometry. A shape sequence is a list of shapes that follows a rule.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: \"shapes\" accurately completes the concept: Shapes also form patterns. The branch of mathematics that studies shapes is called geometry. A shape sequence is a list of shapes that follows a rule."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Patterns in Mathematics): The word regular means all the sides are equal in length and all the corners look the same. We will study angles in the next chapter."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Patterns in Mathematics\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Patterns in Mathematics\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The word regular means all the sides are equal in length and all the corners look the same. We will study angles in the next chapter."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Patterns in Mathematics\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

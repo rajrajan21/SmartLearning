@@ -1,367 +1,1230 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "statistics",
-  "topic": "full-chapter-lesson",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "statistics",
+ "topic": "full-chapter-lesson",
+ "questions": [
+  {
+   "key": "r1-sta540",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-sta540",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The mean of 2, 4, 6 is"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "12"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "4"
-          },
-          "correct": true
-        }
-      ],
-      "explanation": {
-        "en": "12 / 3."
-      }
-    },
-    {
-      "key": "r1-sta541",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The mode is the most frequent value."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "key": "r2-sta542",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The median of 1, 3, 5 is"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "3"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The middle."
-      }
-    },
-    {
-      "key": "r2-sta543",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Mean is the middle value."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "That is the median."
-      }
-    },
-    {
-      "key": "r3-sta544",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Data collected first-hand is"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "secondary data"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "primary data"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "raw data only"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "You collect it yourself."
-      }
-    },
-    {
-      "key": "r3-sta545",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "What is the mode of 2, 3, 3, 4?"
-      },
-      "accepted": [
-        "3"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "It appears twice."
-      }
-    },
-    {
-      "key": "r4-sta546",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The median of an even number of values is the"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "average of the middle two"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "largest value"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "smallest value"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Add and halve."
-      }
-    },
-    {
-      "key": "r4-sta547",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Mean, median and mode are measures of central tendency."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "stem": {
-        "en": "In an ordered list of 2, 3, 3 and 8, what happens to the median if 8 becomes 40?"
-      },
-      "explanation": {
-        "en": "The two middle observations are still three, so the median remains three."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "It rises."
-          },
-          "whyWrong": {
-            "en": "The high value changes the total, but it does not change either middle position."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "It stays 3."
-          },
-          "correct": true
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "It becomes 12."
-          },
-          "whyWrong": {
-            "en": "Twelve is the new mean."
-          }
-        }
-      ],
-      "key": "tnm9-stats-outlier-1",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Values 5, 10 and 20 occur 1, 3 and 1 times. What is the mean?"
-      },
-      "explanation": {
-        "en": "Multiply each value by its frequency, then divide the total fifty-five by the frequency sum five."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "11"
-          },
-          "correct": true
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "35/3"
-          },
-          "whyWrong": {
-            "en": "This treats each distinct value as occurring only once."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "55"
-          },
-          "whyWrong": {
-            "en": "This is the weighted total before division."
-          }
-        }
-      ],
-      "key": "tnm9-stats-weighted-1",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Which quantities estimate the mean from grouped intervals?"
-      },
-      "explanation": {
-        "en": "Weight each interval midpoint by its frequency and divide by the total frequency."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "Upper limits and their running totals"
-          },
-          "whyWrong": {
-            "en": "A midpoint represents a class in the direct grouped mean method."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "Only the class with largest frequency"
-          },
-          "whyWrong": {
-            "en": "Every class contributes to the mean."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "Each class midpoint and its frequency"
-          },
-          "correct": true
-        }
-      ],
-      "key": "tnm9-stats-grouped-1",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The mean of 2, 4, 6 is"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"6\" — 12 / 3."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "12"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"12\" — 12 / 3."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "4"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "12 / 3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The mean of 2, 4, 6 is."
+    },
+    {
+     "en": "Step 2: 12 / 3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-sta541",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The mode is the most frequent value."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The mode is the most frequent value.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-sta542",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The median of 1, 3, 5 is"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1\" — The middle."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "3"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"5\" — The middle."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The middle."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The median of 1, 3, 5 is."
+    },
+    {
+     "en": "Step 2: The middle."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-sta543",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Mean is the middle value."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "That is the median."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mean is the middle value.."
+    },
+    {
+     "en": "Step 2: That is the median."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-sta544",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Data collected first-hand is"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "secondary data"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"secondary data\" — You collect it yourself."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "primary data"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "raw data only"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"raw data only\" — You collect it yourself."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "You collect it yourself."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Data collected first-hand is."
+    },
+    {
+     "en": "Step 2: You collect it yourself."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-sta545",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "What is the mode of 2, 3, 3, 4?"
+   },
+   "accepted": [
+    "3"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "It appears twice."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the mode of 2, 3, 3, 4?."
+    },
+    {
+     "en": "Step 2: It appears twice."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r4-sta546",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The median of an even number of values is the"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "average of the middle two"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "largest value"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"largest value\" — Add and halve."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "smallest value"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"smallest value\" — Add and halve."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Add and halve."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The median of an even number of values is the."
+    },
+    {
+     "en": "Step 2: Add and halve."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "r4-sta547",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Mean, median and mode are measures of central tendency."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mean, median and mode are measures of central tendency.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "stem": {
+    "en": "In an ordered list of 2, 3, 3 and 8, what happens to the median if 8 becomes 40?"
+   },
+   "explanation": {
+    "en": "The two middle observations are still three, so the median remains three."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "It rises."
+     },
+     "whyWrong": {
+      "en": "The high value changes the total, but it does not change either middle position."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "It stays 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "It becomes 12."
+     },
+     "whyWrong": {
+      "en": "Twelve is the new mean."
+     }
+    }
+   ],
+   "key": "tnm9-stats-outlier-1",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The two middle observations are still three, so the median remains three."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The two middle observations are still three, so the median remains three."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In an ordered list of 2, 3, 3 and 8, what happens to the median if 8 becomes 40?."
+    },
+    {
+     "en": "Step 2: The two middle observations are still three, so the median remains three."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "stem": {
+    "en": "Values 5, 10 and 20 occur 1, 3 and 1 times. What is the mean?"
+   },
+   "explanation": {
+    "en": "Multiply each value by its frequency, then divide the total fifty-five by the frequency sum five."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "11"
+     },
+     "correct": true
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "35/3"
+     },
+     "whyWrong": {
+      "en": "This treats each distinct value as occurring only once."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "55"
+     },
+     "whyWrong": {
+      "en": "This is the weighted total before division."
+     }
+    }
+   ],
+   "key": "tnm9-stats-weighted-1",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Multiply each value by its frequency, then divide the total fifty-five by the frequency sum five."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Multiply each value by its frequency, then divide the total fifty-five by the frequency sum five."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Values 5, 10 and 20 occur 1, 3 and 1 times. What is the mean?."
+    },
+    {
+     "en": "Step 2: Multiply each value by its frequency, then divide the total fifty-five by the frequency sum five."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "stem": {
+    "en": "Which quantities estimate the mean from grouped intervals?"
+   },
+   "explanation": {
+    "en": "Weight each interval midpoint by its frequency and divide by the total frequency."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "Upper limits and their running totals"
+     },
+     "whyWrong": {
+      "en": "A midpoint represents a class in the direct grouped mean method."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "Only the class with largest frequency"
+     },
+     "whyWrong": {
+      "en": "Every class contributes to the mean."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "Each class midpoint and its frequency"
+     },
+     "correct": true
+    }
+   ],
+   "key": "tnm9-stats-grouped-1",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Focus on this idea: Weight each interval midpoint by its frequency and divide by the total frequency."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Focus on this idea: Weight each interval midpoint by its frequency and divide by the total frequency."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which quantities estimate the mean from grouped intervals?."
+    },
+    {
+     "en": "Step 2: Weight each interval midpoint by its frequency and divide by the total frequency."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "fill-textbook-12-wrote",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Statistics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Statistics): Meena asked each classmate their height and ___ the numbers down. \"What is the typical height?\" she wondered."
+   },
+   "accepted": [
+    "wrote"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Statistics\": the missing word starts with \"w\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Meena asked each classmate their height and wrote the numbers down. \"What is the typical height?\" she wondered.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Statistics\"."
+    },
+    {
+     "en": "Step 2: \"wrote\" accurately completes the concept: Meena asked each classmate their height and wrote the numbers down. \"What is the typical height?\" she wondered."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-13",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Statistics): Statistics deals with collecting, organising and understanding data."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Statistics\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Statistics deals with collecting, organising and understanding data."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Statistics\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Statistics): Identify the correct statement from this lesson. (Focus: collected first-hand primary taken)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Data collected first-hand is primary data and data taken from published sources is secondary data."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Data collected first-hand is primary data and data taken from published sources is secondary da does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Data collected first-hand is primary data and data taken from published sources is secondary data."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"collected first-hand primary taken\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "Data collected first-hand is primary data and data taken from published sources is secondary data."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"collected first-hand primary taken\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Data collected first-hand is primary data and data taken from published sources is secondary data.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-15-frequency",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Statistics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Statistics): Raw data is arranged in ___ tables to see patterns."
+   },
+   "accepted": [
+    "frequency"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Statistics\": the missing word starts with \"f\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Raw data is arranged in frequency tables to see patterns.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Statistics\"."
+    },
+    {
+     "en": "Step 2: \"frequency\" accurately completes the concept: Raw data is arranged in frequency tables to see patterns."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-16",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Statistics): Identify the correct statement from this lesson. (Focus: measure central tendency gives)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A measure of central tendency gives one value that represents the data."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A measure of central tendency gives one value that represents the data. does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A measure of central tendency gives one value that represents the data."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"measure central tendency gives\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "A measure of central tendency gives one value that represents the data."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"measure central tendency gives\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A measure of central tendency gives one value that represents the data.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-values",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Statistics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Statistics): The arithmetic mean is the sum of all ___ divided by the number of values."
+   },
+   "accepted": [
+    "values"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Statistics\": the missing word starts with \"v\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"v\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The arithmetic mean is the sum of all values divided by the number of values.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Statistics\"."
+    },
+    {
+     "en": "Step 2: \"values\" accurately completes the concept: The arithmetic mean is the sum of all values divided by the number of values."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Statistics): Which of the following statements is scientifically/conceptually accurate? (Focus: median middle value arranged)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The median is the middle value when the data is arranged in order, and the mode is the value th does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"median middle value arranged\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"median middle value arranged\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The median is the middle value when the data is arranged in order, and the mode is the value that occurs most often.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Statistics): For an even number of values, the median is never the average of the two middle values."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Statistics\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: For an even number of values, the median is the average of the two middle values."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Statistics\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: For an even number of values, the median is the average of the two middle values."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Statistics): Which of the following statements is scientifically/conceptually accurate? (Focus: These measures compare sets)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "These measures help us compare data sets."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: These measures help us compare data sets. does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, These measures help us compare data sets."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"These measures compare sets\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "These measures help us compare data sets."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"These measures compare sets\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"These measures help us compare data sets.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-21",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Statistics): For a raw list of two, three, three and eight, the sum is never sixteen and there are four observations. The mean is four."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Statistics\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: For a raw list of two, three, three and eight, the sum is sixteen and there are four observations. The mean is four."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Statistics\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: For a raw list of two, three, three and eight, the sum is sixteen and there are four observations. The mean is four."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-22",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Statistics): Which of the following statements is scientifically/conceptually accurate? (Focus: ordered list second third)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For the same ordered list, the second and third observations are both three, so the median is three. Three also occurs most often, making it the mode."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For the same ordered list, the second and third observations are both three, so the median is t does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For the same ordered list, the second and third observations are both three, so the median is three. Three also occurs most often, making it the mode."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ordered list second third\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "For the same ordered list, the second and third observations are both three, so the median is three. Three also occurs most often, making it the mode."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ordered list second third\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For the same ordered list, the second and third observations are both three, so the median is three. Three also occurs most often, making it the mode.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-23-large",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Statistics",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Statistics): If eight is replaced by forty, the new mean is twelve and the median is still three. A ___ high value has changed the total while leaving the middle positions unchanged."
+   },
+   "accepted": [
+    "large"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Statistics\": the missing word starts with \"l\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If eight is replaced by forty, the new mean is twelve and the median is still three. A large high value has changed the total while leaving the middle positions unchanged.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Statistics\"."
+    },
+    {
+     "en": "Step 2: \"large\" accurately completes the concept: If eight is replaced by forty, the new mean is twelve and the median is still three. A large high value has changed the total while leaving the middle positions unchanged."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Statistics): Which statement best explains a deep principle from this topic? (Focus: ungrouped frequency table display)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An ungrouped frequency table can display two once, three twice and eight once. Multiply each value by its frequency to find its full contribution to the sum."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An ungrouped frequency table can display two once, three twice and eight once. Multiply each va does not apply in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An ungrouped frequency table can display two once, three twice and eight once. Multiply each value by its frequency to find its full contribution to the sum."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Statistics."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Statistics follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Meena asked each classmate their height and wrote the numbers down. \"What is the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Statistics."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ungrouped frequency table display\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Statistics\"."
+    }
+   ],
+   "explanation": {
+    "en": "An ungrouped frequency table can display two once, three twice and eight once. Multiply each value by its frequency to find its full contribution to the sum."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ungrouped frequency table display\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An ungrouped frequency table can display two once, three twice and eight once. Multiply each value by its frequency to find its full contribution to the sum.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

@@ -50,7 +50,7 @@ def speak(text):
                 target.writeframes(pcm)
         return wav.getvalue()
     if engine == "malar": return base64.b64decode(post("http://localhost:8080/api/speak", {"text": text, "voice": cfg["voice"], "speed": cfg["speed"]})["audio"])
-    if engine == "parler": return base64.b64decode(post("http://localhost:8090/api/speak", {"text": text, "voice": "parler:woman-ta"})["audio"])
+    if engine == "parler": return base64.b64decode(post("http://localhost:8090/api/speak", {"text": text, "voice": "parler:divya-ta"})["audio"])
     if engine == "kokoro":
         import soundfile as sf
         from kokoro_onnx import Kokoro

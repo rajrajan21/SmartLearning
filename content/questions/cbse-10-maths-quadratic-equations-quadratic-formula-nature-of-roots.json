@@ -1,241 +1,1227 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "quadratic-equations",
-  "topic": "quadratic-formula-nature-of-roots",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "quadratic-equations",
+ "topic": "quadratic-formula-nature-of-roots",
+ "questions": [
+  {
+   "key": "r1-qf1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-qf1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Discriminant of x^2 - 4x + 4"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "0"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "16 - 16 = 0."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "-8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "b squared - 4ac = 0 here."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "b^2 - 4ac = 16 - 16."
-      }
-    },
-    {
-      "key": "r1-qf2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "If D < 0 a quadratic equation has no real roots."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "The square root of D is not real."
-      }
-    },
-    {
-      "key": "r2-qf3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "x^2 + x + 1 = 0 has"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "no real roots"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "two real roots"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "D = 1 - 4 = -3."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "equal roots"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "D is not 0."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "D = -3."
-      }
-    },
-    {
-      "key": "r2-qf4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Value of D for 3x^2 - 5x + 2 = 0"
-      },
-      "answer": 1,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 49,
-          "why": {
-            "en": "Recompute: 4ac = 24."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "25 - 24 = 1."
-      }
-    },
-    {
-      "key": "r2-qf5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): 2x^2 - 6x + 9/2 = 0 has equal roots. Reason (R): Its discriminant is zero."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "D = 36 - 36 = 0."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "D = 0 means equal roots, so A is true."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "D = 36 - 4(2)(9/2) = 0."
-      }
-    },
-    {
-      "key": "r3-qf6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If x^2 + kx + 4 = 0 has equal roots and k > 0, k ="
-      },
-      "answer": 4,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 2,
-          "why": {
-            "en": "Check k^2 = 16."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "D = k^2 - 16 = 0."
-      }
-    },
-    {
-      "key": "r3-qf7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Roots of x^2 - 2x - 3 = 0 (write the positive one)"
-      },
-      "accepted": [
-        "3"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "1",
-          "why": {
-            "en": "1 is not a root."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(x - 3)(x + 1) = 0."
-      }
-    },
-    {
-      "key": "r3-qf8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The zeroes of a quadratic polynomial and the roots of the corresponding equation are the same."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "They are solutions of the same condition p(x) = 0."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Discriminant of x^2 - 4x + 4"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "0"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "16 - 16 = 0."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "-8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "b squared - 4ac = 0 here."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "b^2 - 4ac = 16 - 16."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Discriminant of x^2 - 4x + 4."
+    },
+    {
+     "en": "Step 2: b^2 - 4ac = 16 - 16."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-qf2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The square root of D is not real."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "If D < 0 a quadratic equation has no real roots."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "The square root of D is not real."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The square root of D is not real."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If D < 0 a quadratic equation has no real roots.."
+    },
+    {
+     "en": "Step 2: The square root of D is not real."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-qf3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "x^2 + x + 1 = 0 has"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "no real roots"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "two real roots"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "D = 1 - 4 = -3."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "equal roots"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "D is not 0."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "D = -3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: x^2 + x + 1 = 0 has."
+    },
+    {
+     "en": "Step 2: D = -3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-qf4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Value of D for 3x^2 - 5x + 2 = 0"
+   },
+   "answer": 1,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 49,
+     "why": {
+      "en": "Recompute: 4ac = 24."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "25 - 24 = 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Value of D for 3x^2 - 5x + 2 = 0."
+    },
+    {
+     "en": "Step 2: 25 - 24 = 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-qf5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): 2x^2 - 6x + 9/2 = 0 has equal roots. Reason (R): Its discriminant is zero."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "D = 36 - 36 = 0."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "D = 0 means equal roots, so A is true."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "D = 36 - 4(2)(9/2) = 0."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): 2x^2 - 6x + 9/2 = 0 has equal roots. Reason (R): Its discriminant is zero.."
+    },
+    {
+     "en": "Step 2: D = 36 - 4(2)(9/2) = 0."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-qf6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If x^2 + kx + 4 = 0 has equal roots and k > 0, k ="
+   },
+   "answer": 4,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 2,
+     "why": {
+      "en": "Check k^2 = 16."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "D = k^2 - 16 = 0."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If x^2 + kx + 4 = 0 has equal roots and k > 0, k =."
+    },
+    {
+     "en": "Step 2: D = k^2 - 16 = 0."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-qf7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Roots of x^2 - 2x - 3 = 0 (write the positive one)"
+   },
+   "accepted": [
+    "3"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "1",
+     "why": {
+      "en": "1 is not a root."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(x - 3)(x + 1) = 0."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Roots of x^2 - 2x - 3 = 0 (write the positive one)."
+    },
+    {
+     "en": "Step 2: (x - 3)(x + 1) = 0."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-qf8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: They are solutions of the same condition p(x) = 0."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The zeroes of a quadratic polynomial and the roots of the corresponding equation are the same."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "They are solutions of the same condition p(x) = 0."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: They are solutions of the same condition p(x) = 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The zeroes of a quadratic polynomial and the roots of the corresponding equation are the s."
+    },
+    {
+     "en": "Step 2: They are solutions of the same condition p(x) = 0."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-works",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Quadratic formula and nature of roots",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic formula and nature of roots): Not every quadratic splits neatly into factors. The quadratic formula always ___ and the discriminant tells us in advance what kind of roots to expect."
+   },
+   "accepted": [
+    "works"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic formula and nature of roots\": the missing word starts with \"w\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: \"works\" accurately completes the concept: Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic formula and nature of roots): Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic formula and nature of roots\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Quadratic formula and nature of roots): Identify the correct statement from this lesson. (Focus: roots minus square squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"roots minus square squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"roots minus square squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-discriminant",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Quadratic formula and nature of roots",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic formula and nature of roots): The expression b squared - 4ac is called the ___. We write it as D."
+   },
+   "accepted": [
+    "discriminant"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic formula and nature of roots\": the missing word starts with \"d\" and has 12 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (12 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The expression b squared - 4ac is called the discriminant. We write it as D.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: \"discriminant\" accurately completes the concept: The expression b squared - 4ac is called the discriminant. We write it as D."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Quadratic formula and nature of roots): Identify the correct statement from this lesson. (Focus: greater equation distinct roots)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If D is greater than 0, the equation has two distinct real roots."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If D is greater than 0, the equation has two distinct real roots. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If D is greater than 0, the equation has two distinct real roots."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"greater equation distinct roots\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "If D is greater than 0, the equation has two distinct real roots."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"greater equation distinct roots\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If D is greater than 0, the equation has two distinct real roots.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-real",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Quadratic formula and nature of roots",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic formula and nature of roots): If D equals 0, the two roots are equal and ___, each equal to -b by 2a."
+   },
+   "accepted": [
+    "real"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic formula and nature of roots\": the missing word starts with \"r\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"r\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If D equals 0, the two roots are equal and real, each equal to -b by 2a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: \"real\" accurately completes the concept: If D equals 0, the two roots are equal and real, each equal to -b by 2a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic formula and nature of roots): Which of the following statements is scientifically/conceptually accurate? (Focus: there roots because square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If D is less than 0, there are no real roots, because the square root of a negative number is not real."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If D is less than 0, there are no real roots, because the square root of a negative number is n does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If D is less than 0, there are no real roots, because the square root of a negative number is not real."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"there roots because square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "If D is less than 0, there are no real roots, because the square root of a negative number is not real."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"there roots because square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If D is less than 0, there are no real roots, because the square root of a negative number is not real.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic formula and nature of roots): For 2x squared - 7x + 3 = 0, D = 49 - 24 = 25. So x = (7 plus or minus 5)/4, giving 3 and 1/2."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic formula and nature of roots\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For 2x squared - 7x + 3 = 0, D = 49 - 24 = 25. So x = (7 plus or minus 5)/4, giving 3 and 1/2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic formula and nature of roots): Which of the following statements is scientifically/conceptually accurate? (Focus: squared which negative there)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"squared which negative there\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"squared which negative there\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For x squared + 4x + 5, D = 16 - 20 = -4, which is negative, so there are no real roots.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic formula and nature of roots): Which of the following statements is scientifically/conceptually accurate? (Focus: every quadratic splits neatly)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Not every quadratic splits neatly into factors. The quadratic formula always works and the disc does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Complete the square on a x squared + b x + c = 0 and we get the quadratic formul"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"every quadratic splits neatly\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"every quadratic splits neatly\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Not every quadratic splits neatly into factors. The quadratic formula always works and the discriminant tells us in advance what kind of roots to expect.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic formula and nature of roots): Which of the following statements is scientifically/conceptually accurate? (Focus: Complete square squared quadratic)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Complete the square on a x squared + b x + c = 0 and we get the quadratic formula. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Complete square squared quadratic\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "Complete the square on a x squared + b x + c = 0 and we get the quadratic formula."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Complete square squared quadratic\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Complete the square on a x squared + b x + c = 0 and we get the quadratic formula.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-square",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Quadratic formula and nature of roots",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic formula and nature of roots): The roots are x = (-b plus or minus the ___ root of b squared - 4ac) divided by 2a."
+   },
+   "accepted": [
+    "square"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic formula and nature of roots\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: \"square\" accurately completes the concept: The roots are x = (-b plus or minus the square root of b squared - 4ac) divided by 2a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Quadratic formula and nature of roots): Which statement best explains a deep principle from this topic? (Focus: expression squared called discriminant)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The expression b squared - 4ac is called the discriminant. We write it as D."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The expression b squared - 4ac is called the discriminant. We write it as D. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The expression b squared - 4ac is called the discriminant. We write it as D."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"expression squared called discriminant\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "The expression b squared - 4ac is called the discriminant. We write it as D."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"expression squared called discriminant\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The expression b squared - 4ac is called the discriminant. We write it as D.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic formula and nature of roots): If D is greater than 0, the equation has two distinct real roots."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic formula and nature of roots\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — If D is greater than 0, the equation has two distinct real roots."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Quadratic formula and nature of roots): Which statement best explains a deep principle from this topic? (Focus: equals roots equal real)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If D equals 0, the two roots are equal and real, each equal to -b by 2a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If D equals 0, the two roots are equal and real, each equal to -b by 2a. does not apply in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If D equals 0, the two roots are equal and real, each equal to -b by 2a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic formula and nature of roots."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic formula and nature of roots follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Not every quadratic splits neatly into factors. The quadratic formula always wor"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic formula and nature of roots."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"equals roots equal real\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic formula and nature of roots\"."
+    }
+   ],
+   "explanation": {
+    "en": "If D equals 0, the two roots are equal and real, each equal to -b by 2a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"equals roots equal real\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If D equals 0, the two roots are equal and real, each equal to -b by 2a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-square",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Quadratic formula and nature of roots",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic formula and nature of roots): If D is less than 0, there are no real roots, because the ___ root of a negative number is not real."
+   },
+   "accepted": [
+    "square"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic formula and nature of roots\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If D is less than 0, there are no real roots, because the square root of a negative number is not real.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic formula and nature of roots\"."
+    },
+    {
+     "en": "Step 2: \"square\" accurately completes the concept: If D is less than 0, there are no real roots, because the square root of a negative number is not real."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

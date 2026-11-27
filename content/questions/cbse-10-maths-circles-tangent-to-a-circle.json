@@ -1,240 +1,1188 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "circles",
-  "topic": "tangent-to-a-circle",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "circles",
+ "topic": "tangent-to-a-circle",
+ "questions": [
+  {
+   "key": "r1-tc1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-tc1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A line meeting a circle at exactly one point is a"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "tangent"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "secant"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A secant meets it at two points."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "chord"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A chord joins two points."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Tangent."
-      }
-    },
-    {
-      "key": "r1-tc2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The tangent at a point of a circle is perpendicular to the radius at that point."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Theorem 10.1."
-      }
-    },
-    {
-      "key": "r2-tc3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "OP = 5, tangent PQ = 12, find OQ"
-      },
-      "answer": 13,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 17,
-          "why": {
-            "en": "Use Pythagoras."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(25 + 144) = 13."
-      }
-    },
-    {
-      "key": "r2-tc4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): Number of tangents at a point of a circle is one. Reason (R): Two tangents at the same point would both have to be perpendicular to the radius."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Hence only one."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Only one perpendicular line exists."
-      }
-    },
-    {
-      "key": "r2-tc5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Angle between tangent and the radius at contact point (degrees)"
-      },
-      "answer": 90,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 180,
-          "why": {
-            "en": "A straight angle."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Perpendicular."
-      }
-    },
-    {
-      "key": "r3-tc6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: A wheel of radius 14 cm touches a straight road. The distance from the centre of the wheel to the road is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "14 cm"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "28 cm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the diameter."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "7 cm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Half the radius."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Radius is perpendicular to the tangent."
-      }
-    },
-    {
-      "key": "r3-tc7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A circle can have infinitely many tangents."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "One at each point."
-      }
-    },
-    {
-      "key": "r3-tc8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Radius 7, distance of a point from the centre 25. Length of tangent"
-      },
-      "answer": 24,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 18,
-          "why": {
-            "en": "Square both and subtract."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(625 - 49) = 24."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A line meeting a circle at exactly one point is a"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "tangent"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "secant"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A secant meets it at two points."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "chord"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A chord joins two points."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Tangent."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A line meeting a circle at exactly one point is a."
+    },
+    {
+     "en": "Step 2: Tangent."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-tc2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The tangent at a point of a circle is perpendicular to the radius at that point."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Theorem 10.1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The tangent at a point of a circle is perpendicular to the radius at that point.."
+    },
+    {
+     "en": "Step 2: Theorem 10.1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tc3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "OP = 5, tangent PQ = 12, find OQ"
+   },
+   "answer": 13,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 17,
+     "why": {
+      "en": "Use Pythagoras."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(25 + 144) = 13."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: OP = 5, tangent PQ = 12, find OQ."
+    },
+    {
+     "en": "Step 2: root(25 + 144) = 13."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tc4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Only one perpendicular line exists."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): Number of tangents at a point of a circle is one. Reason (R): Two tangents at the same point would both have to be perpendicular to the radius."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Hence only one."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Only one perpendicular line exists."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Only one perpendicular line exists."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): Number of tangents at a point of a circle is one. Reason (R): Two tangents ."
+    },
+    {
+     "en": "Step 2: Only one perpendicular line exists."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tc5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Angle between tangent and the radius at contact point (degrees)"
+   },
+   "answer": 90,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 180,
+     "why": {
+      "en": "A straight angle."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Perpendicular."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Angle between tangent and the radius at contact point (degrees)."
+    },
+    {
+     "en": "Step 2: Perpendicular."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-tc6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Radius is perpendicular to the tangent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: A wheel of radius 14 cm touches a straight road. The distance from the centre of the wheel to the road is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "14 cm"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "28 cm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the diameter."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "7 cm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Half the radius."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Radius is perpendicular to the tangent."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Radius is perpendicular to the tangent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: A wheel of radius 14 cm touches a straight road. The distance from the centre ."
+    },
+    {
+     "en": "Step 2: Radius is perpendicular to the tangent."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tc7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A circle can have infinitely many tangents."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "One at each point."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A circle can have infinitely many tangents.."
+    },
+    {
+     "en": "Step 2: One at each point."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tc8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Radius 7, distance of a point from the centre 25. Length of tangent"
+   },
+   "answer": 24,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 18,
+     "why": {
+      "en": "Square both and subtract."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(625 - 49) = 24."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Radius 7, distance of a point from the centre 25. Length of tangent."
+    },
+    {
+     "en": "Step 2: root(625 - 49) = 24."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-point",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Tangent to a circle",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Tangent to a circle): A bicycle wheel touches the road at just one ___. That line touching a circle at one point is called a tangent."
+   },
+   "accepted": [
+    "point"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Tangent to a circle\": the missing word starts with \"p\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: \"point\" accurately completes the concept: A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Tangent to a circle): A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Tangent to a circle\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Tangent to a circle): Identify the correct statement from this lesson. (Focus: secant circle points)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A secant is a line that cuts the circle at two points."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A secant is a line that cuts the circle at two points. does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A secant is a line that cuts the circle at two points."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"secant circle points\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "A secant is a line that cuts the circle at two points."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"secant circle points\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A secant is a line that cuts the circle at two points.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-perpendicular",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Tangent to a circle",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Tangent to a circle): Theorem one: the tangent at any point of a circle is ___ to the radius through the point of contact."
+   },
+   "accepted": [
+    "perpendicular"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Tangent to a circle\": the missing word starts with \"p\" and has 13 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (13 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: \"perpendicular\" accurately completes the concept: Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Tangent to a circle): Identify the correct statement from this lesson. (Focus: tangent makes right angle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So a tangent makes a right angle with the radius at the point where it touches."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So a tangent makes a right angle with the radius at the point where it touches. does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So a tangent makes a right angle with the radius at the point where it touches."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"tangent makes right angle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "So a tangent makes a right angle with the radius at the point where it touches."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"tangent makes right angle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So a tangent makes a right angle with the radius at the point where it touches.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-circle",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Tangent to a circle",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Tangent to a circle): At any point on a ___ there is one and only one tangent."
+   },
+   "accepted": [
+    "circle"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Tangent to a circle\": the missing word starts with \"c\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"At any point on a circle there is one and only one tangent.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: \"circle\" accurately completes the concept: At any point on a circle there is one and only one tangent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Tangent to a circle): Which of the following statements is scientifically/conceptually accurate? (Focus: perpendicular tangent point contact)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The perpendicular to a tangent at its point of contact passes through the centre of the circle."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The perpendicular to a tangent at its point of contact passes through the centre of the circle. does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The perpendicular to a tangent at its point of contact passes through the centre of the circle."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"perpendicular tangent point contact\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "The perpendicular to a tangent at its point of contact passes through the centre of the circle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"perpendicular tangent point contact\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The perpendicular to a tangent at its point of contact passes through the centre of the circle.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Tangent to a circle): Example: radius OP = 5 and OQ = 13 where PQ is a tangent at P. Then PQ = root(169 - 25) = 12."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Tangent to a circle\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Example: radius OP = 5 and OQ = 13 where PQ is a tangent at P. Then PQ = root(169 - 25) = 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Tangent to a circle): Which of the following statements is scientifically/conceptually accurate? (Focus: proof contradiction perpendicular closer)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent woul does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"proof contradiction perpendicular closer\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"proof contradiction perpendicular closer\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The proof is by contradiction: if OP were not perpendicular, a closer point on the tangent would lie inside the circle.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Tangent to a circle): Which of the following statements is scientifically/conceptually accurate? (Focus: bicycle wheel touches point)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A bicycle wheel touches the road at just one point. That line touching a circle at one point is does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A tangent to a circle is a line that meets the circle at exactly one point, call"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"bicycle wheel touches point\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"bicycle wheel touches point\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A bicycle wheel touches the road at just one point. That line touching a circle at one point is called a tangent.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Tangent to a circle): A tangent to a circle is never a line that meets the circle at exactly one point, called the point of contact."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Tangent to a circle\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A tangent to a circle is a line that meets the circle at exactly one point, called the point of contact."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-cuts",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Tangent to a circle",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Tangent to a circle): A secant is a line that ___ the circle at two points."
+   },
+   "accepted": [
+    "cuts"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Tangent to a circle\": the missing word starts with \"c\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A secant is a line that cuts the circle at two points.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: \"cuts\" accurately completes the concept: A secant is a line that cuts the circle at two points."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Tangent to a circle): Which statement best explains a deep principle from this topic? (Focus: Theorem tangent point circle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Theorem one: the tangent at any point of a circle is perpendicular to the radius through the po does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Theorem tangent point circle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Theorem tangent point circle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Theorem one: the tangent at any point of a circle is perpendicular to the radius through the point of contact.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Tangent to a circle): So a tangent makes a right angle with the radius at the point where it touches."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Tangent to a circle\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — So a tangent makes a right angle with the radius at the point where it touches."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Tangent to a circle): Which statement best explains a deep principle from this topic? (Focus: point circle there tangent)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "At any point on a circle there is one and only one tangent."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: At any point on a circle there is one and only one tangent. does not apply in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, At any point on a circle there is one and only one tangent."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Tangent to a circle."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Tangent to a circle follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A bicycle wheel touches the road at just one point. That line touching a circle "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Tangent to a circle."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"point circle there tangent\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Tangent to a circle\"."
+    }
+   ],
+   "explanation": {
+    "en": "At any point on a circle there is one and only one tangent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"point circle there tangent\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"At any point on a circle there is one and only one tangent.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-contact",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Tangent to a circle",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Tangent to a circle): The perpendicular to a tangent at its point of ___ passes through the centre of the circle."
+   },
+   "accepted": [
+    "contact"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Tangent to a circle\": the missing word starts with \"c\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The perpendicular to a tangent at its point of contact passes through the centre of the circle.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Tangent to a circle\"."
+    },
+    {
+     "en": "Step 2: \"contact\" accurately completes the concept: The perpendicular to a tangent at its point of contact passes through the centre of the circle."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

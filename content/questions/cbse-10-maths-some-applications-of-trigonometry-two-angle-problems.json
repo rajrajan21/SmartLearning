@@ -1,240 +1,1188 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "some-applications-of-trigonometry",
-  "topic": "two-angle-problems",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "some-applications-of-trigonometry",
+ "topic": "two-angle-problems",
+ "questions": [
+  {
+   "key": "r1-ta1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-ta1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Two triangles in an elevation problem share"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "the height"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the angle"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Angles differ."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the base"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Bases differ."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The height of the tower is common."
-      }
-    },
-    {
-      "key": "r1-ta2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A closer observer sees a larger angle of elevation."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Moving closer steepens the line of sight."
-      }
-    },
-    {
-      "key": "r2-ta3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Tower height 10 m. Distance when elevation is 45 degrees"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 20,
-          "why": {
-            "en": "tan 45 = 1."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "10/tan 45 = 10."
-      }
-    },
-    {
-      "key": "r2-ta4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): From a tower top, a nearer object has a larger angle of depression. Reason (R): It is closer to the foot of the tower."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R explains why."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The line of sight steepens."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Nearer means steeper."
-      }
-    },
-    {
-      "key": "r2-ta5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A 100 m tall tower: ground distance when elevation is 45 degrees (m)"
-      },
-      "answer": 100,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 50,
-          "why": {
-            "en": "Not half."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "tan 45 = 1."
-      }
-    },
-    {
-      "key": "r3-ta6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If tan A = 1 and tan B = root 3 for the same tower height h, the nearer point has angle"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "B (60 degrees)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A (45 degrees)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Larger angle means nearer."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Both equal"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Different angles."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Larger angle is nearer."
-      }
-    },
-    {
-      "key": "r3-ta7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The angle of elevation can be more than 90 degrees."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It is between 0 and 90 degrees."
-      }
-    },
-    {
-      "key": "r3-ta8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Difference of distances h/tan 45 and h/tan 30 for h = 10, to nearest integer"
-      },
-      "answer": 7,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 10,
-          "why": {
-            "en": "Subtract."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "10 root 3 - 10 = 7.3."
-      }
+     "en": "Focus on this idea: The height of the tower is common."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Two triangles in an elevation problem share"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "the height"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the angle"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Angles differ."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the base"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Bases differ."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The height of the tower is common."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The height of the tower is common."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two triangles in an elevation problem share."
+    },
+    {
+     "en": "Step 2: The height of the tower is common."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-ta2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Moving closer steepens the line of sight."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A closer observer sees a larger angle of elevation."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Moving closer steepens the line of sight."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Moving closer steepens the line of sight."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A closer observer sees a larger angle of elevation.."
+    },
+    {
+     "en": "Step 2: Moving closer steepens the line of sight."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ta3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Tower height 10 m. Distance when elevation is 45 degrees"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 20,
+     "why": {
+      "en": "tan 45 = 1."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "10/tan 45 = 10."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Tower height 10 m. Distance when elevation is 45 degrees."
+    },
+    {
+     "en": "Step 2: 10/tan 45 = 10."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ta4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): From a tower top, a nearer object has a larger angle of depression. Reason (R): It is closer to the foot of the tower."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R explains why."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The line of sight steepens."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Nearer means steeper."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): From a tower top, a nearer object has a larger angle of depression. Reason ."
+    },
+    {
+     "en": "Step 2: Nearer means steeper."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ta5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A 100 m tall tower: ground distance when elevation is 45 degrees (m)"
+   },
+   "answer": 100,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 50,
+     "why": {
+      "en": "Not half."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "tan 45 = 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A 100 m tall tower: ground distance when elevation is 45 degrees (m)."
+    },
+    {
+     "en": "Step 2: tan 45 = 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-ta6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If tan A = 1 and tan B = root 3 for the same tower height h, the nearer point has angle"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "B (60 degrees)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A (45 degrees)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Larger angle means nearer."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Both equal"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Different angles."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Larger angle is nearer."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If tan A = 1 and tan B = root 3 for the same tower height h, the nearer point has angle."
+    },
+    {
+     "en": "Step 2: Larger angle is nearer."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ta7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: It is between 0 and 90 degrees."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The angle of elevation can be more than 90 degrees."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It is between 0 and 90 degrees."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: It is between 0 and 90 degrees."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The angle of elevation can be more than 90 degrees.."
+    },
+    {
+     "en": "Step 2: It is between 0 and 90 degrees."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ta8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Difference of distances h/tan 45 and h/tan 30 for h = 10, to nearest integer"
+   },
+   "answer": 7,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 10,
+     "why": {
+      "en": "Subtract."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "10 root 3 - 10 = 7.3."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Difference of distances h/tan 45 and h/tan 30 for h = 10, to nearest integer."
+    },
+    {
+     "en": "Step 2: 10 root 3 - 10 = 7.3."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-tower",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Problems with two angles of elevation or depression",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Problems with two angles of elevation or depression): When the angle changes as you walk toward a ___, two equations reveal both the height and the distance."
+   },
+   "accepted": [
+    "tower"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Problems with two angles of elevation or depression\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"When the angle changes as you walk toward a tower, two equations reveal both the height and the distance.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: \"tower\" accurately completes the concept: When the angle changes as you walk toward a tower, two equations reveal both the height and the distance."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Problems with two angles of elevation or depression): When two angles of elevation are given, draw one figure with two right triangles that share the same height."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Problems with two angles of elevation or depression\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — When two angles of elevation are given, draw one figure with two right triangles that share the same height."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Problems with two angles of elevation or depression): Identify the correct statement from this lesson. (Focus: height nearer point distance)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther  does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"height nearer point distance\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"height nearer point distance\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-distance",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Problems with two angles of elevation or depression",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Problems with two angles of elevation or depression): The difference of the two distances is the ___ the observer moved."
+   },
+   "accepted": [
+    "distance"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Problems with two angles of elevation or depression\": the missing word starts with \"d\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The difference of the two distances is the distance the observer moved.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: \"distance\" accurately completes the concept: The difference of the two distances is the distance the observer moved."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Problems with two angles of elevation or depression): Identify the correct statement from this lesson. (Focus: Example angles degrees observer)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20. does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Example angles degrees observer\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Example angles degrees observer\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-3",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Problems with two angles of elevation or depression",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Problems with two angles of elevation or depression): So h root 3 - h/root 3 = 20, giving h x 2/root ___ = 20 and h = 10 root 3 m."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Problems with two angles of elevation or depression\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Problems with two angles of elevation or depression): Which of the following statements is scientifically/conceptually accurate? (Focus: objects tower angles depression)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For two objects seen from a tower top, use angles of depression and take care with which one is nearer."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For two objects seen from a tower top, use angles of depression and take care with which one is does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For two objects seen from a tower top, use angles of depression and take care with which one is nearer."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"objects tower angles depression\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "For two objects seen from a tower top, use angles of depression and take care with which one is nearer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"objects tower angles depression\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For two objects seen from a tower top, use angles of depression and take care with which one is nearer.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Problems with two angles of elevation or depression): Use the same tan ratio each time, and keep root 3 as it is until the last step."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Problems with two angles of elevation or depression\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Use the same tan ratio each time, and keep root 3 as it is until the last step."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Problems with two angles of elevation or depression): Which of the following statements is scientifically/conceptually accurate? (Focus: Always check answer reasonable)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Always check that the answer is reasonable by drawing the triangles to scale."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Always check that the answer is reasonable by drawing the triangles to scale. does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Always check that the answer is reasonable by drawing the triangles to scale."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Always check answer reasonable\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "Always check that the answer is reasonable by drawing the triangles to scale."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Always check answer reasonable\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Always check that the answer is reasonable by drawing the triangles to scale.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Problems with two angles of elevation or depression): Which of the following statements is scientifically/conceptually accurate? (Focus: angle changes toward tower)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "When the angle changes as you walk toward a tower, two equations reveal both the height and the distance."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: When the angle changes as you walk toward a tower, two equations reveal both the height and the does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, When the angle changes as you walk toward a tower, two equations reveal both the height and the distance."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When two angles of elevation are given, draw one figure with two right triangles"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"angle changes toward tower\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "When the angle changes as you walk toward a tower, two equations reveal both the height and the distance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"angle changes toward tower\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"When the angle changes as you walk toward a tower, two equations reveal both the height and the distance.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Problems with two angles of elevation or depression): When two angles of elevation are never given, draw one figure with two right triangles that share the same height."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Problems with two angles of elevation or depression\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: When two angles of elevation are given, draw one figure with two right triangles that share the same height."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: When two angles of elevation are given, draw one figure with two right triangles that share the same height."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-distance",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Problems with two angles of elevation or depression",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Problems with two angles of elevation or depression): Let the height be h. From the nearer point, the ___ is h/tan(angle), and from the farther point it is h/tan(other angle)."
+   },
+   "accepted": [
+    "distance"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Problems with two angles of elevation or depression\": the missing word starts with \"d\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle).\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: \"distance\" accurately completes the concept: Let the height be h. From the nearer point, the distance is h/tan(angle), and from the farther point it is h/tan(other angle)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Problems with two angles of elevation or depression): Which statement best explains a deep principle from this topic? (Focus: difference distances distance observer)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The difference of the two distances is the distance the observer moved."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The difference of the two distances is the distance the observer moved. does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The difference of the two distances is the distance the observer moved."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"difference distances distance observer\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "The difference of the two distances is the distance the observer moved."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"difference distances distance observer\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The difference of the two distances is the distance the observer moved.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Problems with two angles of elevation or depression): Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Problems with two angles of elevation or depression\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Example: angles 30 and 60 degrees, observer moved 20 m. h/tan 30 - h/tan 60 = 20."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Problems with two angles of elevation or depression): Which statement best explains a deep principle from this topic? (Focus: hroot giving 2root)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m. does not apply in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Problems with two angles of elevation or depression."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Problems with two angles of elevation or depression follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When the angle changes as you walk toward a tower, two equations reveal both the"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Problems with two angles of elevation or depression."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"hroot giving 2root\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Problems with two angles of elevation or depression\"."
+    }
+   ],
+   "explanation": {
+    "en": "So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"hroot giving 2root\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So h root 3 - h/root 3 = 20, giving h x 2/root 3 = 20 and h = 10 root 3 m.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-angles",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Problems with two angles of elevation or depression",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Problems with two angles of elevation or depression): For two objects seen from a tower top, use ___ of depression and take care with which one is nearer."
+   },
+   "accepted": [
+    "angles"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Problems with two angles of elevation or depression\": the missing word starts with \"a\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For two objects seen from a tower top, use angles of depression and take care with which one is nearer.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Problems with two angles of elevation or depression\"."
+    },
+    {
+     "en": "Step 2: \"angles\" accurately completes the concept: For two objects seen from a tower top, use angles of depression and take care with which one is nearer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

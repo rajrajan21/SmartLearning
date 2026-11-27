@@ -1,260 +1,1209 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "real-numbers",
-  "topic": "irrational-numbers",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "real-numbers",
+ "topic": "irrational-numbers",
+ "questions": [
+  {
+   "key": "r1-irr1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-irr1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which of these is irrational?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "root 7"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "root 49"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "root 49 = 7, which is rational."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "0.25"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "0.25 = 1/4 is rational."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "7 is not a perfect square, so root 7 is irrational."
-      }
-    },
-    {
-      "key": "r1-irr2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The sum of two irrational numbers is always irrational."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "Root 2 + (minus root 2) = 0, which is rational."
-      }
-    },
-    {
-      "key": "r2-irr3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which of these is rational?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "(2 + root 3)(2 - root 3)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2 + root 3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A rational plus an irrational is irrational."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "3 root 2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A non-zero rational times an irrational is irrational."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(2 + root 3)(2 - root 3) = 4 - 3 = 1."
-      }
-    },
-    {
-      "key": "r2-irr4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): 5 - root 3 is irrational. Reason (R): The difference of a rational and an irrational number is irrational."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A is true but R is false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is a standard result and is true."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A is false but R is true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A follows from R, so A is true."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 is rational and root 3 is irrational, so their difference is irrational."
-      }
-    },
-    {
-      "key": "r2-irr5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Is 0.1010010001... (non-terminating, non-repeating) rational or irrational? Write one word."
-      },
-      "accepted": [
-        "irrational"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "rational",
-          "why": {
-            "en": "Rational decimals terminate or repeat."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A decimal that neither terminates nor repeats is irrational."
-      }
-    },
-    {
-      "key": "r3-irr6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A rational number has a terminating or a repeating decimal expansion."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "This is how rational numbers look in decimal form."
-      }
-    },
-    {
-      "key": "r3-irr7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In the proof that root 2 is irrational, the contradiction arises because"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "a and b both turn out divisible by 2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "a is odd"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "We never assume a is odd."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "b is zero"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "b cannot be zero in a fraction."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "We began with a and b having no common factor but ended with 2 dividing both."
-      }
-    },
-    {
-      "key": "r3-irr8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Decimal expansion of 7/8 terminates after how many decimal places? (7/8 = 0.875)"
-      },
-      "answer": 3,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 2,
-          "why": {
-            "en": "Count the digits 8, 7, 5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "0.875 has three decimal digits."
-      }
+     "en": "Focus on this idea: 7 is not a perfect square, so root 7 is irrational."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which of these is irrational?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "root 7"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "root 49"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "root 49 = 7, which is rational."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0.25"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "0.25 = 1/4 is rational."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "7 is not a perfect square, so root 7 is irrational."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 7 is not a perfect square, so root 7 is irrational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which of these is irrational?."
+    },
+    {
+     "en": "Step 2: 7 is not a perfect square, so root 7 is irrational."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-irr2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Root 2 + (minus root 2) = 0, which is rational."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The sum of two irrational numbers is always irrational."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "Root 2 + (minus root 2) = 0, which is rational."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Root 2 + (minus root 2) = 0, which is rational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The sum of two irrational numbers is always irrational.."
+    },
+    {
+     "en": "Step 2: Root 2 + (minus root 2) = 0, which is rational."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-irr3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: (2 + root 3)(2 - root 3) = 4 - 3 = 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which of these is rational?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "(2 + root 3)(2 - root 3)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2 + root 3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A rational plus an irrational is irrational."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3 root 2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A non-zero rational times an irrational is irrational."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(2 + root 3)(2 - root 3) = 4 - 3 = 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: (2 + root 3)(2 - root 3) = 4 - 3 = 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which of these is rational?."
+    },
+    {
+     "en": "Step 2: (2 + root 3)(2 - root 3) = 4 - 3 = 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-irr4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 5 is rational and root 3 is irrational, so their difference is irrational."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): 5 - root 3 is irrational. Reason (R): The difference of a rational and an irrational number is irrational."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A is true but R is false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is a standard result and is true."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A is false but R is true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A follows from R, so A is true."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 is rational and root 3 is irrational, so their difference is irrational."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 5 is rational and root 3 is irrational, so their difference is irrational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): 5 - root 3 is irrational. Reason (R): The difference of a rational and an i."
+    },
+    {
+     "en": "Step 2: 5 is rational and root 3 is irrational, so their difference is irrational."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-irr5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"i\" and relates to Is 0.1010010001... (non-terminating, non-repeating)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Is 0.1010010001... (non-terminating, non-repeating) rational or irrational? Write one word."
+   },
+   "accepted": [
+    "irrational"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "rational",
+     "why": {
+      "en": "Rational decimals terminate or repeat."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A decimal that neither terminates nor repeats is irrational."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"i\" and relates to Is 0.1010010001... (non-terminating, non-repeating)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Is 0.1010010001... (non-terminating, non-repeating) rational or irrational? Write one word."
+    },
+    {
+     "en": "Step 2: A decimal that neither terminates nor repeats is irrational."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-irr6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: This is how rational numbers look in decimal form."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A rational number has a terminating or a repeating decimal expansion."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "This is how rational numbers look in decimal form."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: This is how rational numbers look in decimal form."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A rational number has a terminating or a repeating decimal expansion.."
+    },
+    {
+     "en": "Step 2: This is how rational numbers look in decimal form."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-irr7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: We began with a and b having no common factor but ended with 2 dividing both."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In the proof that root 2 is irrational, the contradiction arises because"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "a and b both turn out divisible by 2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "a is odd"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "We never assume a is odd."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "b is zero"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "b cannot be zero in a fraction."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "We began with a and b having no common factor but ended with 2 dividing both."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: We began with a and b having no common factor but ended with 2 dividing both."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the proof that root 2 is irrational, the contradiction arises because."
+    },
+    {
+     "en": "Step 2: We began with a and b having no common factor but ended with 2 dividing both."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-irr8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Decimal expansion of 7/8 terminates after how many decimal places? (7/8 = 0.875)"
+   },
+   "answer": 3,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 2,
+     "why": {
+      "en": "Count the digits 8, 7, 5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "0.875 has three decimal digits."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Decimal expansion of 7/8 terminates after how many decimal places? (7/8 = 0.875)."
+    },
+    {
+     "en": "Step 2: 0.875 has three decimal digits."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-exactly",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Irrational numbers and proofs",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Irrational numbers and proofs): Measure the diagonal of a one-unit square and you get a length that no fraction can describe ___. Today we prove that such numbers really exist."
+   },
+   "accepted": [
+    "exactly"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Irrational numbers and proofs\": the missing word starts with \"e\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: \"exactly\" accurately completes the concept: Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Irrational numbers and proofs): A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Irrational numbers and proofs\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Irrational numbers and proofs): Identify the correct statement from this lesson. (Focus: textbook first proves helping)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The textbook first proves a helping result: if a prime p divides a squared, then p divides a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The textbook first proves a helping result: if a prime p divides a squared, then p divides a. does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The textbook first proves a helping result: if a prime p divides a squared, then p divides a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"textbook first proves helping\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "The textbook first proves a helping result: if a prime p divides a squared, then p divides a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"textbook first proves helping\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The textbook first proves a helping result: if a prime p divides a squared, then p divides a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-suppose",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Irrational numbers and proofs",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Irrational numbers and proofs): To prove that root 2 is irrational we use contradiction. ___ root 2 = a by b, where a and b have no common factor other than 1."
+   },
+   "accepted": [
+    "Suppose",
+    "suppose"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Irrational numbers and proofs\": the missing word starts with \"S\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"S\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: \"Suppose\" accurately completes the concept: To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Irrational numbers and proofs): Identify the correct statement from this lesson. (Focus: Squaring gives squared squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Squaring gives squared squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Squaring gives squared squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-divides",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Irrational numbers and proofs",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Irrational numbers and proofs): Then 2 b squared = 4 c squared, so b squared = 2 c squared and 2 ___ b as well. Now 2 divides both a and b, which contradicts our assumption that they have no common factor."
+   },
+   "accepted": [
+    "divides"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Irrational numbers and proofs\": the missing word starts with \"d\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Then 2 b squared = 4 c squared, so b squared = 2 c squared and 2 divides b as well. Now 2 divides both a and b, which contradicts our assumption that they have no common factor.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: \"divides\" accurately completes the concept: Then 2 b squared = 4 c squared, so b squared = 2 c squared and 2 divides b as well. Now 2 divides both a and b, which contradicts our assumption that they have no common factor."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Irrational numbers and proofs): Which of the following statements is scientifically/conceptually accurate? (Focus: assumption wrong irrational method)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and r does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"assumption wrong irrational method\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"assumption wrong irrational method\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Irrational numbers and proofs): The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Irrational numbers and proofs\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Irrational numbers and proofs): Which of the following statements is scientifically/conceptually accurate? (Focus: careful irrationals rational example)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"careful irrationals rational example\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"careful irrationals rational example\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Be careful: the sum of two irrationals can be rational. For example root 2 and minus root 2 add up to 0.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Irrational numbers and proofs): Which of the following statements is scientifically/conceptually accurate? (Focus: Measure diagonal one-unit square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Measure the diagonal of a one-unit square and you get a length that no fraction can describe ex does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rational number can be written as p by q where p and q are integers and q is n"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Measure diagonal one-unit square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Measure diagonal one-unit square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Measure the diagonal of a one-unit square and you get a length that no fraction can describe exactly. Today we prove that such numbers really exist.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Irrational numbers and proofs): A rational number can be written as p by q where p and q are integers and q is never not zero. An irrational number cannot be written like this."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Irrational numbers and proofs\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A rational number can be written as p by q where p and q are integers and q is not zero. An irrational number cannot be written like this."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-prime",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Irrational numbers and proofs",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Irrational numbers and proofs): The textbook first proves a helping result: if a ___ p divides a squared, then p divides a."
+   },
+   "accepted": [
+    "prime"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Irrational numbers and proofs\": the missing word starts with \"p\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The textbook first proves a helping result: if a prime p divides a squared, then p divides a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: \"prime\" accurately completes the concept: The textbook first proves a helping result: if a prime p divides a squared, then p divides a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Irrational numbers and proofs): Which statement best explains a deep principle from this topic? (Focus: prove irrational contradiction Suppose)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"prove irrational contradiction Suppose\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"prove irrational contradiction Suppose\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To prove that root 2 is irrational we use contradiction. Suppose root 2 = a by b, where a and b have no common factor other than 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Irrational numbers and proofs): Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Irrational numbers and proofs\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Squaring gives 2 b squared = a squared, so 2 divides a squared and therefore 2 divides a. Write a = 2c."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-23-method",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Irrational numbers and proofs",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Irrational numbers and proofs): So our assumption was wrong, and root 2 is irrational. The same ___ proves that root 3 and root 5 are irrational."
+   },
+   "accepted": [
+    "method"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Irrational numbers and proofs\": the missing word starts with \"m\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Irrational numbers and proofs\"."
+    },
+    {
+     "en": "Step 2: \"method\" accurately completes the concept: So our assumption was wrong, and root 2 is irrational. The same method proves that root 3 and root 5 are irrational."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Irrational numbers and proofs): Which statement best explains a deep principle from this topic? (Focus: difference rational irrational number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The sum or difference of a rational and an irrational number is irrational. The product or quot does not apply in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Irrational numbers and proofs."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Irrational numbers and proofs follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Measure the diagonal of a one-unit square and you get a length that no fraction "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Irrational numbers and proofs."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"difference rational irrational number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Irrational numbers and proofs\"."
+    }
+   ],
+   "explanation": {
+    "en": "The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"difference rational irrational number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The sum or difference of a rational and an irrational number is irrational. The product or quotient of a non-zero rational and an irrational number is irrational.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

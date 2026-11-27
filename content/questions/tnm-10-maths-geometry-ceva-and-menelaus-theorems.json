@@ -1,282 +1,1162 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "geometry",
-  "topic": "ceva-and-menelaus-theorems",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "geometry",
+ "topic": "ceva-and-menelaus-theorems",
+ "questions": [
+  {
+   "key": "r1-m10ma886-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10ma886-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Ceva's theorem tests for"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "concurrent cevians"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "parallel lines"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Thales"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "perpendicular lines"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Pythagoras"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "equal angles"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Congruence"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Lines meeting at a point."
-      }
-    },
-    {
-      "key": "r1-m10ma886-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If AF/FB = 1 and CE/EA = 2 and the cevians are concurrent then BD/DC equals (as decimal)"
-      },
-      "answer": 0.5,
-      "tolerance": 0.01,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Product must be 1."
-      }
-    },
-    {
-      "key": "r1-m10ma886-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Medians of a triangle are concurrent."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Each ratio is 1."
-      }
-    },
-    {
-      "key": "r2-m10ma886-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The point of concurrence of the medians is the"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "centroid"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "incentre"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Angle bisectors"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "orthocentre"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Altitudes"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "circumcentre"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Perpendicular bisectors"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Centre of mass."
-      }
-    },
-    {
-      "key": "r2-m10ma886-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "BD in the example with BC = 15 and BD/DC = 4"
-      },
-      "answer": 12,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "4 parts of 5."
-      }
-    },
-    {
-      "key": "r2-m10ma886-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Menelaus theorem is about collinear points."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "On the sides or their extensions."
-      }
-    },
-    {
-      "key": "r3-m10ma886-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Product (2/6)(3/5)(10/2) for trees P, Q, R"
-      },
-      "answer": 1,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "So they are collinear."
-      }
-    },
-    {
-      "key": "r3-m10ma886-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "A line segment from a vertex to the opposite side is called a ____."
-      },
-      "accepted": [
-        "cevian"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Named after Ceva."
-      }
-    },
-    {
-      "key": "r3-m10ma886-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Giovanni Ceva published his theorem in"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1678"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1486"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not the year"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1750"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not the year"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "1900"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not the year"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "He was a professor at Mantua."
-      }
-    },
-    {
-      "key": "r3-m10ma886-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A median, an altitude and an angle bisector are all cevians."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Special cevians."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Ceva's theorem tests for"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "concurrent cevians"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "parallel lines"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"parallel lines\" — Lines meeting at a point."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "perpendicular lines"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Pythagoras"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "equal angles"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Congruence"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Lines meeting at a point."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Ceva's theorem tests for."
+    },
+    {
+     "en": "Step 2: Lines meeting at a point."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma886-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If AF/FB = 1 and CE/EA = 2 and the cevians are concurrent then BD/DC equals (as decimal)"
+   },
+   "answer": 0.5,
+   "tolerance": 0.01,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Product must be 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If AF/FB = 1 and CE/EA = 2 and the cevians are concurrent then BD/DC equals (as decimal)."
+    },
+    {
+     "en": "Step 2: Product must be 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma886-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Medians of a triangle are concurrent."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Each ratio is 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Medians of a triangle are concurrent.."
+    },
+    {
+     "en": "Step 2: Each ratio is 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma886-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The point of concurrence of the medians is the"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "centroid"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "incentre"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Angle bisectors"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "orthocentre"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"orthocentre\" — Centre of mass."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "circumcentre"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Perpendicular bisectors"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Centre of mass."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The point of concurrence of the medians is the."
+    },
+    {
+     "en": "Step 2: Centre of mass."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma886-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "BD in the example with BC = 15 and BD/DC = 4"
+   },
+   "answer": 12,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "4 parts of 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: BD in the example with BC = 15 and BD/DC = 4."
+    },
+    {
+     "en": "Step 2: 4 parts of 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma886-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: On the sides or their extensions."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Menelaus theorem is about collinear points."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "On the sides or their extensions."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: On the sides or their extensions."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Menelaus theorem is about collinear points.."
+    },
+    {
+     "en": "Step 2: On the sides or their extensions."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10ma886-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Product (2/6)(3/5)(10/2) for trees P, Q, R"
+   },
+   "answer": 1,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "So they are collinear."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Product (2/6)(3/5)(10/2) for trees P, Q, R."
+    },
+    {
+     "en": "Step 2: So they are collinear."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma886-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"c\" and relates to A line segment from a vertex to the opposite side )."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "A line segment from a vertex to the opposite side is called a ____."
+   },
+   "accepted": [
+    "cevian"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Named after Ceva."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"c\" and relates to A line segment from a vertex to the opposite side )."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A line segment from a vertex to the opposite side is called a ____.."
+    },
+    {
+     "en": "Step 2: Named after Ceva."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma886-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: He was a professor at Mantua."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Giovanni Ceva published his theorem in"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1678"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1486"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not the year"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1750"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not the year"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "1900"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not the year"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "He was a professor at Mantua."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: He was a professor at Mantua."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Giovanni Ceva published his theorem in."
+    },
+    {
+     "en": "Step 2: He was a professor at Mantua."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma886-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A median, an altitude and an angle bisector are all cevians."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Special cevians."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A median, an altitude and an angle bisector are all cevians.."
+    },
+    {
+     "en": "Step 2: Special cevians."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-point",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Concurrency theorems of Ceva and Menelaus",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Concurrency theorems of Ceva and Menelaus): When do three lines drawn from the vertices of a triangle meet at one ___? Giovanni Ceva gave a simple test in 1678."
+   },
+   "accepted": [
+    "point"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Concurrency theorems of Ceva and Menelaus\": the missing word starts with \"p\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: \"point\" accurately completes the concept: When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-12",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Concurrency theorems of Ceva and Menelaus): A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Concurrency theorems of Ceva and Menelaus\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Concurrency theorems of Ceva and Menelaus): Identify the correct statement from this lesson. (Focus: Cevas theorem cevians concurrent)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB  does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When do three lines drawn from the vertices of a triangle meet at one point? Gio"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Cevas theorem cevians concurrent\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Cevas theorem cevians concurrent\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-14-equals",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Concurrency theorems of Ceva and Menelaus",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Concurrency theorems of Ceva and Menelaus): Medians are concurrent because each ratio ___ 1; the point of concurrence is the centroid."
+   },
+   "accepted": [
+    "equals"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Concurrency theorems of Ceva and Menelaus\": the missing word starts with \"e\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: \"equals\" accurately completes the concept: Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-only",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Concurrency theorems of Ceva and Menelaus",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Concurrency theorems of Ceva and Menelaus): Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and ___ if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths."
+   },
+   "accepted": [
+    "only"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Concurrency theorems of Ceva and Menelaus\": the missing word starts with \"o\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: \"only\" accurately completes the concept: Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Concurrency theorems of Ceva and Menelaus): Which of the following statements is scientifically/conceptually accurate? (Focus: ordinary lengths product collinear)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "With ordinary lengths the product for collinear points is 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: With ordinary lengths the product for collinear points is 1. does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, With ordinary lengths the product for collinear points is 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When do three lines drawn from the vertices of a triangle meet at one point? Gio"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ordinary lengths product collinear\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "With ordinary lengths the product for collinear points is 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ordinary lengths product collinear\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"With ordinary lengths the product for collinear points is 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Concurrency theorems of Ceva and Menelaus): Ceva is never used to show that the angle bisectors, medians and altitudes are concurrent."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Concurrency theorems of Ceva and Menelaus\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Ceva is used to show that the angle bisectors, medians and altitudes are concurrent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Ceva is used to show that the angle bisectors, medians and altitudes are concurrent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Concurrency theorems of Ceva and Menelaus): Which of the following statements is scientifically/conceptually accurate? (Focus: three lines drawn vertices)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A cevian is a line segment from a vertex of a triangle to the opposite side; med"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"three lines drawn vertices\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"three lines drawn vertices\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"When do three lines drawn from the vertices of a triangle meet at one point? Giovanni Ceva gave a simple test in 1678.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Concurrency theorems of Ceva and Menelaus): Which of the following statements is scientifically/conceptually accurate? (Focus: cevian segment vertex triangle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When do three lines drawn from the vertices of a triangle meet at one point? Gio"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"cevian segment vertex triangle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"cevian segment vertex triangle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A cevian is a line segment from a vertex of a triangle to the opposite side; medians, altitudes and angle bisectors are special cevians.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-only",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Concurrency theorems of Ceva and Menelaus",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Concurrency theorems of Ceva and Menelaus): Ceva's theorem: cevians AD, BE, CF are concurrent if and ___ if BD/DC times CE/EA times AF/FB equals 1."
+   },
+   "accepted": [
+    "only"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Concurrency theorems of Ceva and Menelaus\": the missing word starts with \"o\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: \"only\" accurately completes the concept: Ceva's theorem: cevians AD, BE, CF are concurrent if and only if BD/DC times CE/EA times AF/FB equals 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Concurrency theorems of Ceva and Menelaus): Which statement best explains a deep principle from this topic? (Focus: Medians concurrent because ratio)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid. does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When do three lines drawn from the vertices of a triangle meet at one point? Gio"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Medians concurrent because ratio\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Medians concurrent because ratio\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Medians are concurrent because each ratio equals 1; the point of concurrence is the centroid.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Concurrency theorems of Ceva and Menelaus): Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Concurrency theorems of Ceva and Menelaus\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Menelaus theorem: points P, Q, R on the sides BC, CA, AB are collinear if and only if BP/PC times CQ/QA times AR/RB equals -1 for directed lengths."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Concurrency theorems of Ceva and Menelaus): Which statement best explains a deep principle from this topic? (Focus: ordinary lengths product collinear)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "With ordinary lengths the product for collinear points is 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: With ordinary lengths the product for collinear points is 1. does not apply in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, With ordinary lengths the product for collinear points is 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Concurrency theorems of Ceva and Menelaus."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Concurrency theorems of Ceva and Menelaus follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: When do three lines drawn from the vertices of a triangle meet at one point? Gio"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Concurrency theorems of Ceva and Menelaus."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ordinary lengths product collinear\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Concurrency theorems of Ceva and Menelaus\"."
+    }
+   ],
+   "explanation": {
+    "en": "With ordinary lengths the product for collinear points is 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ordinary lengths product collinear\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"With ordinary lengths the product for collinear points is 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-bisectors",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Concurrency theorems of Ceva and Menelaus",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Concurrency theorems of Ceva and Menelaus): Ceva is used to show that the angle ___, medians and altitudes are concurrent."
+   },
+   "accepted": [
+    "bisectors"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Concurrency theorems of Ceva and Menelaus\": the missing word starts with \"b\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"b\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Ceva is used to show that the angle bisectors, medians and altitudes are concurrent.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Concurrency theorems of Ceva and Menelaus\"."
+    },
+    {
+     "en": "Step 2: \"bisectors\" accurately completes the concept: Ceva is used to show that the angle bisectors, medians and altitudes are concurrent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

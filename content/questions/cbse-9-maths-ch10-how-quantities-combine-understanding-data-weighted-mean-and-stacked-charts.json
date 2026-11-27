@@ -1,235 +1,1185 @@
 {
-  "board": "CBSE",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "ch10-how-quantities-combine-understanding-data",
-  "topic": "weighted-mean-and-stacked-charts",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "ch10-how-quantities-combine-understanding-data",
+ "topic": "weighted-mean-and-stacked-charts",
+ "questions": [
+  {
+   "key": "m10-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "m10-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A weighted mean is useful when"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "values have different importance"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "all values are equal"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "data is empty"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Weights show importance."
-      }
-    },
-    {
-      "key": "m10-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A 100% stacked bar chart shows absolute values."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It shows proportions."
-      }
-    },
-    {
-      "key": "m10-3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Weighted mean of 60 (weight 1) and 80 (weight 3)"
-      },
-      "answer": 75,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 70,
-          "why": {
-            "en": "70 is the simple mean."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(60 + 240)/4 = 75."
-      }
-    },
-    {
-      "key": "m10-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Mean of 10 students with average 40 and 30 students with average 80"
-      },
-      "answer": 70,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 60,
-          "why": {
-            "en": "60 ignores the group sizes."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(400 + 2400)/40 = 70."
-      }
-    },
-    {
-      "key": "m10-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which chart compares proportions rather than totals?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "100% stacked bar chart"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "stacked bar chart"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "dot plot"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each bar is scaled to 100%."
-      }
-    },
-    {
-      "key": "m10-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "You can always recover a stacked bar chart from a 100% stacked bar chart."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "The totals are lost."
-      }
-    },
-    {
-      "key": "m10-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "In a weighted mean, what do we multiply each value by?"
-      },
-      "accepted": [
-        "weight",
-        "its weight"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Each value is multiplied by its weight."
-      }
-    },
-    {
-      "key": "m10-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The weights 2, 3 and 5 add up to"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "10"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "30"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 + 3 + 5 = 10."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A weighted mean is useful when"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "values have different importance"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "all values are equal"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "data is empty"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Weights show importance."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A weighted mean is useful when."
+    },
+    {
+     "en": "Step 2: Weights show importance."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A 100% stacked bar chart shows absolute values."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It shows proportions."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A 100% stacked bar chart shows absolute values.."
+    },
+    {
+     "en": "Step 2: It shows proportions."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Weighted mean of 60 (weight 1) and 80 (weight 3)"
+   },
+   "answer": 75,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 70,
+     "why": {
+      "en": "70 is the simple mean."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(60 + 240)/4 = 75."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Weighted mean of 60 (weight 1) and 80 (weight 3)."
+    },
+    {
+     "en": "Step 2: (60 + 240)/4 = 75."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Mean of 10 students with average 40 and 30 students with average 80"
+   },
+   "answer": 70,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 60,
+     "why": {
+      "en": "60 ignores the group sizes."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(400 + 2400)/40 = 70."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mean of 10 students with average 40 and 30 students with average 80."
+    },
+    {
+     "en": "Step 2: (400 + 2400)/40 = 70."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Each bar is scaled to 100%."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which chart compares proportions rather than totals?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "100% stacked bar chart"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "stacked bar chart"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "dot plot"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each bar is scaled to 100%."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Each bar is scaled to 100%."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which chart compares proportions rather than totals?."
+    },
+    {
+     "en": "Step 2: Each bar is scaled to 100%."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "You can always recover a stacked bar chart from a 100% stacked bar chart."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "The totals are lost."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: You can always recover a stacked bar chart from a 100% stacked bar chart.."
+    },
+    {
+     "en": "Step 2: The totals are lost."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m10-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"w\" and relates to In a weighted mean, what do we multiply each value)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "In a weighted mean, what do we multiply each value by?"
+   },
+   "accepted": [
+    "weight",
+    "its weight"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Each value is multiplied by its weight."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"w\" and relates to In a weighted mean, what do we multiply each value)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In a weighted mean, what do we multiply each value by?."
+    },
+    {
+     "en": "Step 2: Each value is multiplied by its weight."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "m10-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The weights 2, 3 and 5 add up to"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "10"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "30"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 + 3 + 5 = 10."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The weights 2, 3 and 5 add up to."
+    },
+    {
+     "en": "Step 2: 2 + 3 + 5 = 10."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-quiz",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): In a school, the final exam counts for more than a ___. To combine such scores fairly we give each its weight."
+   },
+   "accepted": [
+    "quiz"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"q\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"q\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"quiz\" accurately completes the concept: In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Weighted mean and stacked bar charts): The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Weighted mean and stacked bar charts\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Weighted mean and stacked bar charts): Identify the correct statement from this lesson. (Focus: whenever parts different numbers)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Use it whenever parts of the data have different numbers of values or different importance, suc does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"whenever parts different numbers\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"whenever parts different numbers\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-equal",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): An average of averages can be found with weights ___ to the number of values in each group."
+   },
+   "accepted": [
+    "equal"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"e\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"An average of averages can be found with weights equal to the number of values in each group.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"equal\" accurately completes the concept: An average of averages can be found with weights equal to the number of values in each group."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-some",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): The weighted mean also gives the mean when ___ values are added or removed, and the concentration of mixtures."
+   },
+   "accepted": [
+    "some"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"s\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"some\" accurately completes the concept: The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Weighted mean and stacked bar charts): Which of the following statements is scientifically/conceptually accurate? (Focus: stacked chart parts another)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A stacked bar chart puts parts on top of one another, useful when the total of each bar also ma does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"stacked chart parts another\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"stacked chart parts another\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Weighted mean and stacked bar charts): A 100% stacked bar chart compares proportions, like a pie chart, not absolute values."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Weighted mean and stacked bar charts\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A 100% stacked bar chart compares proportions, like a pie chart, not absolute values."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Weighted mean and stacked bar charts): Which of the following statements is scientifically/conceptually accurate? (Focus: stacked chart stacked chart)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "From a stacked bar chart you can make a 100% stacked chart, but not the other way round."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: From a stacked bar chart you can make a 100% stacked chart, but not the other way round. does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, From a stacked bar chart you can make a 100% stacked chart, but not the other way round."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"stacked chart stacked chart\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "From a stacked bar chart you can make a 100% stacked chart, but not the other way round."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"stacked chart stacked chart\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"From a stacked bar chart you can make a 100% stacked chart, but not the other way round.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-weights",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): Always check the ___ add to the right total."
+   },
+   "accepted": [
+    "weights"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"w\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Always check the weights add to the right total.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"weights\" accurately completes the concept: Always check the weights add to the right total."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Weighted mean and stacked bar charts): Which of the following statements is scientifically/conceptually accurate? (Focus: school final counts quiz)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In a school, the final exam counts for more than a quiz. To combine such scores fairly we give  does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"school final counts quiz\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"school final counts quiz\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In a school, the final exam counts for more than a quiz. To combine such scores fairly we give each its weight.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Weighted mean and stacked bar charts): Which of the following statements is scientifically/conceptually accurate? (Focus: weighted weights divided)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn  does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"weighted weights divided\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"weighted weights divided\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The weighted mean of x1, x2, ..., xn with weights w1, w2, ..., wn is (w1 x1 + w2 x2 + ... + wn xn) divided by (w1 + w2 + ... + wn).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-values",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): Use it whenever parts of the data have different numbers of ___ or different importance, such as combining marks of assessments."
+   },
+   "accepted": [
+    "values"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"v\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"v\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"values\" accurately completes the concept: Use it whenever parts of the data have different numbers of values or different importance, such as combining marks of assessments."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: average averages found weights)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An average of averages can be found with weights equal to the number of values in each group."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An average of averages can be found with weights equal to the number of values in each group. does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An average of averages can be found with weights equal to the number of values in each group."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"average averages found weights\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "An average of averages can be found with weights equal to the number of values in each group."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"average averages found weights\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An average of averages can be found with weights equal to the number of values in each group.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Weighted mean and stacked bar charts): The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Weighted mean and stacked bar charts\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The weighted mean also gives the mean when some values are added or removed, and the concentration of mixtures."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Weighted mean and stacked bar charts): Which statement best explains a deep principle from this topic? (Focus: stacked chart parts another)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A stacked bar chart puts parts on top of one another, useful when the total of each bar also ma does not apply in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Weighted mean and stacked bar charts."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Weighted mean and stacked bar charts follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In a school, the final exam counts for more than a quiz. To combine such scores "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Weighted mean and stacked bar charts."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"stacked chart parts another\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Weighted mean and stacked bar charts\"."
+    }
+   ],
+   "explanation": {
+    "en": "A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"stacked chart parts another\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A stacked bar chart puts parts on top of one another, useful when the total of each bar also matters.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-proportions",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Weighted mean and stacked bar charts",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Weighted mean and stacked bar charts): A 100% stacked bar chart compares ___, like a pie chart, not absolute values."
+   },
+   "accepted": [
+    "proportions"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Weighted mean and stacked bar charts\": the missing word starts with \"p\" and has 11 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (11 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A 100% stacked bar chart compares proportions, like a pie chart, not absolute values.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Weighted mean and stacked bar charts\"."
+    },
+    {
+     "en": "Step 2: \"proportions\" accurately completes the concept: A 100% stacked bar chart compares proportions, like a pie chart, not absolute values."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

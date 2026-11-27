@@ -1,287 +1,1235 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "introduction-to-trigonometry",
-  "topic": "trigonometric-ratios",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "introduction-to-trigonometry",
+ "topic": "trigonometric-ratios",
+ "questions": [
+  {
+   "key": "r1-tr1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-tr1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In a right triangle, sin A ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "opposite / hypotenuse"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "adjacent / hypotenuse"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is cos A."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "opposite / adjacent"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is tan A."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Sine uses the opposite side."
-      }
-    },
-    {
-      "key": "r1-tr2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If tan A = 3/4, the hypotenuse for sides 3 and 4 is"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "Use Pythagoras."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "root(9 + 16)."
-      }
-    },
-    {
-      "key": "r2-tr3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If sin A = 5/13 then cos A ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "12/13"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "5/12"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is tan A."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "13/12"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sec A."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Adjacent = 12."
-      }
-    },
-    {
-      "key": "r2-tr4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): sin A cannot be 1.5. Reason (R): sin A = opposite/hypotenuse and the hypotenuse is the longest side."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "So sin A is at most 1."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Opposite is less than the hypotenuse."
-      }
-    },
-    {
-      "key": "r2-tr5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If cosec A = 2, sin A as a decimal"
-      },
-      "answer": 0.5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 2,
-          "why": {
-            "en": "Take the reciprocal."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1/2."
-      }
-    },
-    {
-      "key": "r3-tr6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If tan A = 1, A ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "45 degrees"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "30 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "tan 30 = 1/root 3."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "60 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "tan 60 = root 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Equal legs."
-      }
-    },
-    {
-      "key": "r3-tr7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The value of tan A is always less than 1."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "For A = 60 degrees tan A = root 3."
-      }
-    },
-    {
-      "key": "r3-tr8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: A ladder 10 m long leans on a wall; the foot is 6 m from the wall. cos of the angle with the ground is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "3/5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "4/5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sin."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "5/3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is sec."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6/10."
-      }
+     "en": "Focus on this idea: Sine uses the opposite side."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In a right triangle, sin A ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "opposite / hypotenuse"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "adjacent / hypotenuse"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is cos A."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "opposite / adjacent"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is tan A."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sine uses the opposite side."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Sine uses the opposite side."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In a right triangle, sin A =."
+    },
+    {
+     "en": "Step 2: Sine uses the opposite side."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-tr2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If tan A = 3/4, the hypotenuse for sides 3 and 4 is"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "Use Pythagoras."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "root(9 + 16)."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If tan A = 3/4, the hypotenuse for sides 3 and 4 is."
+    },
+    {
+     "en": "Step 2: root(9 + 16)."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tr3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If sin A = 5/13 then cos A ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "12/13"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5/12"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is tan A."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "13/12"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sec A."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Adjacent = 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If sin A = 5/13 then cos A =."
+    },
+    {
+     "en": "Step 2: Adjacent = 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tr4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Opposite is less than the hypotenuse."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): sin A cannot be 1.5. Reason (R): sin A = opposite/hypotenuse and the hypotenuse is the longest side."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "So sin A is at most 1."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Opposite is less than the hypotenuse."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Opposite is less than the hypotenuse."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): sin A cannot be 1.5. Reason (R): sin A = opposite/hypotenuse and the hypote."
+    },
+    {
+     "en": "Step 2: Opposite is less than the hypotenuse."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tr5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If cosec A = 2, sin A as a decimal"
+   },
+   "answer": 0.5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 2,
+     "why": {
+      "en": "Take the reciprocal."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1/2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If cosec A = 2, sin A as a decimal."
+    },
+    {
+     "en": "Step 2: 1/2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-tr6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If tan A = 1, A ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "45 degrees"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "30 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "tan 30 = 1/root 3."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "60 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "tan 60 = root 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Equal legs."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If tan A = 1, A =."
+    },
+    {
+     "en": "Step 2: Equal legs."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tr7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: For A = 60 degrees tan A = root 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The value of tan A is always less than 1."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "For A = 60 degrees tan A = root 3."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: For A = 60 degrees tan A = root 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The value of tan A is always less than 1.."
+    },
+    {
+     "en": "Step 2: For A = 60 degrees tan A = root 3."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tr8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: A ladder 10 m long leans on a wall; the foot is 6 m from the wall. cos of the angle with the ground is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "3/5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "4/5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sin."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "5/3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is sec."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6/10."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: A ladder 10 m long leans on a wall; the foot is 6 m from the wall. cos of the ."
+    },
+    {
+     "en": "Step 2: 6/10."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-angles",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Trigonometric ratios",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometric ratios): How tall is a tower you cannot climb? Trigonometry links the ___ of a right triangle to the ratios of its sides, so we can measure from the ground."
+   },
+   "accepted": [
+    "angles"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometric ratios\": the missing word starts with \"a\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: \"angles\" accurately completes the concept: How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometric ratios): Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometric ratios\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Trigonometric ratios): Identify the correct statement from this lesson. (Focus: opposite hypotenuse adjacent hypotenuse)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"opposite hypotenuse adjacent hypotenuse\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"opposite hypotenuse adjacent hypotenuse\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-cosec",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Trigonometric ratios",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometric ratios): The reciprocals are ___ A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+   },
+   "accepted": [
+    "cosec"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometric ratios\": the missing word starts with \"c\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: \"cosec\" accurately completes the concept: The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Trigonometric ratios): Identify the correct statement from this lesson. (Focus: )"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Also tan A = sin A by cos A, and cot A = cos A by sin A."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Also tan A = sin A by cos A, and cot A = cos A by sin A. does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Also tan A = sin A by cos A, and cot A = cos A by sin A."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "Also tan A = sin A by cos A, and cot A = cos A by sin A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Also tan A = sin A by cos A, and cot A = cos A by sin A.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-size",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Trigonometric ratios",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometric ratios): These ratios depend only on the angle and not on the ___ of the triangle, because similar triangles have proportional sides."
+   },
+   "accepted": [
+    "size"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometric ratios\": the missing word starts with \"s\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: \"size\" accurately completes the concept: These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Trigonometric ratios): Which of the following statements is scientifically/conceptually accurate? (Focus: Example opposite hypotenuse adjacent)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent si does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Example opposite hypotenuse adjacent\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Example opposite hypotenuse adjacent\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometric ratios): The values of sin A and cos A are never more than 1. The values of sec A and cosec A are at least 1."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometric ratios\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The values of sin A and cos A are never more than 1. The values of sec A and cosec A are at least 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Trigonometric ratios): Which of the following statements is scientifically/conceptually accurate? (Focus: ratio known others drawing)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If one ratio is known, you can find all the others by drawing the right triangle."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If one ratio is known, you can find all the others by drawing the right triangle. does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If one ratio is known, you can find all the others by drawing the right triangle."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ratio known others drawing\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "If one ratio is known, you can find all the others by drawing the right triangle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ratio known others drawing\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If one ratio is known, you can find all the others by drawing the right triangle.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Trigonometric ratios): Which of the following statements is scientifically/conceptually accurate? (Focus: tower cannot climb Trigonometry)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the  does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Take a right triangle ABC, right-angled at B. For angle A, the side opposite is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"tower cannot climb Trigonometry\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"tower cannot climb Trigonometry\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"How tall is a tower you cannot climb? Trigonometry links the angles of a right triangle to the ratios of its sides, so we can measure from the ground.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometric ratios): Take a right triangle ABC, right-angled at B. For angle A, the side opposite is never BC, the side adjacent is AB and the hypotenuse is AC."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometric ratios\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Take a right triangle ABC, right-angled at B. For angle A, the side opposite is BC, the side adjacent is AB and the hypotenuse is AC."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-adjacent",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Trigonometric ratios",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometric ratios): sin A = opposite by hypotenuse, cos A = ___ by hypotenuse and tan A = opposite by adjacent."
+   },
+   "accepted": [
+    "adjacent"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometric ratios\": the missing word starts with \"a\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: \"adjacent\" accurately completes the concept: sin A = opposite by hypotenuse, cos A = adjacent by hypotenuse and tan A = opposite by adjacent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: reciprocals cosec)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A. does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"reciprocals cosec\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"reciprocals cosec\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The reciprocals are cosec A = 1 by sin A, sec A = 1 by cos A and cot A = 1 by tan A.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometric ratios): Also tan A = sin A by cos A, and cot A = cos A by sin A."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometric ratios\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Also tan A = sin A by cos A, and cot A = cos A by sin A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Trigonometric ratios): Which statement best explains a deep principle from this topic? (Focus: These ratios depend angle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: These ratios depend only on the angle and not on the size of the triangle, because similar tria does not apply in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometric ratios."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometric ratios follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: How tall is a tower you cannot climb? Trigonometry links the angles of a right t"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometric ratios."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"These ratios depend angle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometric ratios\"."
+    }
+   ],
+   "explanation": {
+    "en": "These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"These ratios depend angle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"These ratios depend only on the angle and not on the size of the triangle, because similar triangles have proportional sides.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-3",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Trigonometric ratios",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometric ratios): Example: if sin A = 3 by 5 then the opposite side is ___ and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometric ratios\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometric ratios\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: Example: if sin A = 3 by 5 then the opposite side is 3 and the hypotenuse 5, so the adjacent side is 4 and cos A = 4/5, tan A = 3/4."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

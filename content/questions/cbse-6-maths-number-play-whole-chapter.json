@@ -1,333 +1,931 @@
 {
-  "board": "CBSE",
-  "classLevel": 6,
-  "subject": "maths",
-  "chapter": "number-play",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c6ma-np-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c6ma-np-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many two-digit numbers are there?"
-      },
-      "answer": 90,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 99,
-          "why": {
-            "en": "That counts from 1, but two-digit numbers start at 10."
-          }
-        },
-        {
-          "value": 100,
-          "why": {
-            "en": "100 is a three-digit number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
-      }
-    },
-    {
-      "key": "c6ma-np-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What is the smallest number whose digits add up to 14?"
-      },
-      "answer": 59,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 95,
-          "why": {
-            "en": "95 is larger than 59 with the same digits."
-          }
-        },
-        {
-          "value": 77,
-          "why": {
-            "en": "7 + 7 = 14, but 77 is bigger than 59."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
-      }
-    },
-    {
-      "key": "c6ma-np-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Every 4-digit number with at least two different digits reaches which number in the Kaprekar routine?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "6174"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "495"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "495 is the number reached by 3-digit numbers."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1111"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1111 is a palindrome, not the Kaprekar constant."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "This is the Kaprekar constant."
-      }
-    },
-    {
-      "key": "c6ma-np-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Start with 68. Add its reverse 86 and keep reversing and adding. What palindrome do you reach?"
-      },
-      "answer": 1111,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 154,
-          "why": {
-            "en": "154 is not a palindrome."
-          }
-        },
-        {
-          "value": 605,
-          "why": {
-            "en": "605 is not a palindrome."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
-      }
-    },
-    {
-      "key": "c6ma-np-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many times does the digit 7 appear when writing the numbers 1 to 100?"
-      },
-      "answer": 20,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 10,
-          "why": {
-            "en": "You counted only the units digit."
-          }
-        },
-        {
-          "value": 19,
-          "why": {
-            "en": "You may have counted the numbers with a 7 and counted 77 once."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "It appears 10 times as units digit (7, 17, ..., 97) and 10 times as tens digit (70 to 79)."
-      }
-    },
-    {
-      "key": "c6ma-np-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many steps does the Collatz sequence for 6 take to reach 1?"
-      },
-      "answer": 8,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 9,
-          "why": {
-            "en": "9 is the number of terms, not steps."
-          }
-        },
-        {
-          "value": 7,
-          "why": {
-            "en": "Count the arrows again; there are 8."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
-      }
-    },
-    {
-      "key": "c6ma-np-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A 5-digit palindrome is odd, its tens digit is double its units digit and its hundreds digit is double its tens digit. What is it?"
-      },
-      "answer": 12421,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 13631,
-          "why": {
-            "en": "The tens digit 3 is not double the units digit 1."
-          }
-        },
-        {
-          "value": 12321,
-          "why": {
-            "en": "The hundreds digit 3 is not double the tens digit 2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The units digit is 1, tens 2, hundreds 4, so the number is 12421."
-      }
-    },
-    {
-      "key": "c6ma-np-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In the game of 21 (add 1, 2 or 3, reach 21 to win), the first player should start by saying"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "From 3, the other player can reach 5 and then control the game."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "From 2, the other player can reach 5 and then control the game."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The winning numbers are 1, 5, 9, 13, 17 and 21."
-      }
-    },
-    {
-      "key": "c6ma-np-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In the game where numbers 1 to 10 are added and the target is 99, who always wins?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "The second player"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "The first player"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The first player cannot say 11, a multiple of 11, on the first turn."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Neither player"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The second player can always reach multiples of 11."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The second player aims for the multiples of 11: 11, 22, ..., 99."
-      }
-    },
-    {
-      "key": "c6ma-np-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Mathematicians have proved that every starting number in the Collatz sequence reaches 1."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
-      }
+     "en": "Focus on this idea: The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many two-digit numbers are there?"
+   },
+   "answer": 90,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 99,
+     "why": {
+      "en": "That counts from 1, but two-digit numbers start at 10."
+     }
+    },
+    {
+     "value": 100,
+     "why": {
+      "en": "100 is a three-digit number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many two-digit numbers are there?."
+    },
+    {
+     "en": "Step 2: The two-digit numbers go from 10 to 99, which is 99 - 10 + 1 = 90."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What is the smallest number whose digits add up to 14?"
+   },
+   "answer": 59,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 95,
+     "why": {
+      "en": "95 is larger than 59 with the same digits."
+     }
+    },
+    {
+     "value": 77,
+     "why": {
+      "en": "7 + 7 = 14, but 77 is bigger than 59."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the smallest number whose digits add up to 14?."
+    },
+    {
+     "en": "Step 2: A two-digit number has the smallest value when its tens digit is small, so 5 and 9 give 59."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: This is the Kaprekar constant."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Every 4-digit number with at least two different digits reaches which number in the Kaprekar routine?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "6174"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "495"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "495 is the number reached by 3-digit numbers."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1111"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "1111 is a palindrome, not the Kaprekar constant."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "This is the Kaprekar constant."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: This is the Kaprekar constant."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Every 4-digit number with at least two different digits reaches which number in the Kaprek."
+    },
+    {
+     "en": "Step 2: This is the Kaprekar constant."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Start with 68. Add its reverse 86 and keep reversing and adding. What palindrome do you reach?"
+   },
+   "answer": 1111,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 154,
+     "why": {
+      "en": "154 is not a palindrome."
+     }
+    },
+    {
+     "value": 605,
+     "why": {
+      "en": "605 is not a palindrome."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Start with 68. Add its reverse 86 and keep reversing and adding. What palindrome do you re."
+    },
+    {
+     "en": "Step 2: 68 + 86 = 154, 154 + 451 = 605, 605 + 506 = 1111."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: It appears 10 times as units digit (7, 17,."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many times does the digit 7 appear when writing the numbers 1 to 100?"
+   },
+   "answer": 20,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 10,
+     "why": {
+      "en": "You counted only the units digit."
+     }
+    },
+    {
+     "value": 19,
+     "why": {
+      "en": "You may have counted the numbers with a 7 and counted 77 once."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "It appears 10 times as units digit (7, 17, ..., 97) and 10 times as tens digit (70 to 79)."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: It appears 10 times as units digit (7, 17,."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many times does the digit 7 appear when writing the numbers 1 to 100?."
+    },
+    {
+     "en": "Step 2: It appears 10 times as units digit (7, 17, ..., 97) and 10 times as tens digit (70 to 79)."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many steps does the Collatz sequence for 6 take to reach 1?"
+   },
+   "answer": 8,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 9,
+     "why": {
+      "en": "9 is the number of terms, not steps."
+     }
+    },
+    {
+     "value": 7,
+     "why": {
+      "en": "Count the arrows again; there are 8."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many steps does the Collatz sequence for 6 take to reach 1?."
+    },
+    {
+     "en": "Step 2: 6, 3, 10, 5, 16, 8, 4, 2, 1: that is 8 steps."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The units digit is 1, tens 2, hundreds 4, so the number is 12421."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A 5-digit palindrome is odd, its tens digit is double its units digit and its hundreds digit is double its tens digit. What is it?"
+   },
+   "answer": 12421,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 13631,
+     "why": {
+      "en": "The tens digit 3 is not double the units digit 1."
+     }
+    },
+    {
+     "value": 12321,
+     "why": {
+      "en": "The hundreds digit 3 is not double the tens digit 2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The units digit is 1, tens 2, hundreds 4, so the number is 12421."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The units digit is 1, tens 2, hundreds 4, so the number is 12421."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A 5-digit palindrome is odd, its tens digit is double its units digit and its hundreds dig."
+    },
+    {
+     "en": "Step 2: The units digit is 1, tens 2, hundreds 4, so the number is 12421."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The winning numbers are 1, 5, 9, 13, 17 and 21."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In the game of 21 (add 1, 2 or 3, reach 21 to win), the first player should start by saying"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "From 3, the other player can reach 5 and then control the game."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "From 2, the other player can reach 5 and then control the game."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The winning numbers are 1, 5, 9, 13, 17 and 21."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The winning numbers are 1, 5, 9, 13, 17 and 21."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the game of 21 (add 1, 2 or 3, reach 21 to win), the first player should start by sayin."
+    },
+    {
+     "en": "Step 2: The winning numbers are 1, 5, 9, 13, 17 and 21."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-np-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The second player aims for the multiples of 11: 11, 22,."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In the game where numbers 1 to 10 are added and the target is 99, who always wins?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "The second player"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "The first player"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The first player cannot say 11, a multiple of 11, on the first turn."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Neither player"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The second player can always reach multiples of 11."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The second player aims for the multiples of 11: 11, 22, ..., 99."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The second player aims for the multiples of 11: 11, 22,."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the game where numbers 1 to 10 are added and the target is 99, who always wins?."
+    },
+    {
+     "en": "Step 2: The second player aims for the multiples of 11: 11, 22, ..., 99."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-np-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Mathematicians have proved that every starting number in the Collatz sequence reaches 1."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mathematicians have proved that every starting number in the Collatz sequence reaches 1.."
+    },
+    {
+     "en": "Step 2: The Collatz conjecture is still unsolved, although every number tried so far reaches 1."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-like",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): Computational thinking means setting up clear rules ___ this and using them to find patterns or answers."
+   },
+   "accepted": [
+    "like"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"l\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Computational thinking means setting up clear rules like this and using them to find patterns or answers.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"like\" accurately completes the concept: Computational thinking means setting up clear rules like this and using them to find patterns or answers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-2180",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): On a number line from 1000 to 10,000, we can place numbers such as ___, 2754, 5030 and 9950 by finding which thousand they are between and how far along."
+   },
+   "accepted": [
+    "2180"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"2\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"2\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by finding which thousand they are between and how far along.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"2180\" accurately completes the concept: On a number line from 1000 to 10,000, we can place numbers such as 2180, 2754, 5030 and 9950 by finding which thousand they are between and how far along."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-marks",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): To read marked numbers on a line, look at the gap between two known ___ and work out the equal step, then label the other positions."
+   },
+   "accepted": [
+    "marks"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"m\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To read marked numbers on a line, look at the gap between two known marks and work out the equal step, then label the other positions.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"marks\" accurately completes the concept: To read marked numbers on a line, look at the gap between two known marks and work out the equal step, then label the other positions."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Number Play): The digit sum of a number is the sum of its digits. The digit sum of 68 is 14, and so is that of 176 (1 + 7 + 6) and 545 (5 + 4 + 5)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Number Play\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The digit sum of a number is the sum of its digits. The digit sum of 68 is 14, and so is that of 176 (1 + 7 + 6) and 545 (5 + 4 + 5)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Number Play\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-times",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): Digit detectives: among the numbers 1 to 100, the digit 7 appears 20 ___ (ten in the units place and ten in the tens place), and among 1 to 1000 it appears 300 times."
+   },
+   "accepted": [
+    "times"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Digit detectives: among the numbers 1 to 100, the digit 7 appears 20 times (ten in the units place and ten in the tens place), and among 1 to 1000 it appears 300 times.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"times\" accurately completes the concept: Digit detectives: among the numbers 1 to 100, the digit 7 appears 20 times (ten in the units place and ten in the tens place), and among 1 to 1000 it appears 300 times."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Number Play): Which of the following statements is scientifically/conceptually accurate? (Focus: Start 6382 8632 2368)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Start with 6382: A = 8632, B = 2368, C = 6264. Then A = 6642, B = 2466, C = 4176. Then A = 7641, B = 1467, C = 6174. After that 7641 - 1467 gives 6174 again."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Start with 6382: A = 8632, B = 2368, C = 6264. Then A = 6642, B = 2466, C = 4176. Then A = 7641 does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Start with 6382: A = 8632, B = 2368, C = 6264. Then A = 6642, B = 2466, C = 4176. Then A = 7641, B = 1467, C = 6174. After that 7641 - 1467 gives 6174 again."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Take any 4-digit number with at least two different digits, say 6382. Arrange it"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Start 6382 8632 2368\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "Start with 6382: A = 8632, B = 2368, C = 6264. Then A = 6642, B = 2466, C = 4176. Then A = 7641, B = 1467, C = 6174. After that 7641 - 1467 gives 6174 again."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Start 6382 8632 2368\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Start with 6382: A = 8632, B = 2368, C = 6264. Then A = 6642, B = 2466, C = 4176. Then A = 7641, B = 1467, C = 6174. After that 7641 - 1467 gives 6174 again.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-17-number",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): Every such number reaches 6174, the Kaprekar constant. For 3-digit numbers the repeating ___ is 495. Some numbers take more rounds: 5683 takes 7 rounds."
+   },
+   "accepted": [
+    "number"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"n\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Every such number reaches 6174, the Kaprekar constant. For 3-digit numbers the repeating number is 495. Some numbers take more rounds: 5683 takes 7 rounds.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"number\" accurately completes the concept: Every such number reaches 6174, the Kaprekar constant. For 3-digit numbers the repeating number is 495. Some numbers take more rounds: 5683 takes 7 rounds."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Number Play): Mental maths: break a total into parts. 38,800 = 25,000 + 400 × 2 + 13,000, and 3400 = 1500 + 1500 + 400. We can also subtract: 39,800 = 40,000 - 800 + 300 + 300."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Number Play\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Mental maths: break a total into parts. 38,800 = 25,000 + 400 × 2 + 13,000, and 3400 = 1500 + 1500 + 400. We can also subtract: 39,800 = 40,000 - 800 + 300 + 300."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Number Play\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-19-numbers",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): When numbers are arranged in a pattern, such as 4 rows of 5 equal ___, do not add one by one: multiply the number of equal numbers by their value, or pair them up."
+   },
+   "accepted": [
+    "numbers"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"n\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"When numbers are arranged in a pattern, such as 4 rows of 5 equal numbers, do not add one by one: multiply the number of equal numbers by their value, or pair them up.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"numbers\" accurately completes the concept: When numbers are arranged in a pattern, such as 4 rows of 5 equal numbers, do not add one by one: multiply the number of equal numbers by their value, or pair them up."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: digits zero nine 9990)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round. You should get 8,082, then 8,532, then 6,174."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check e does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round. You should get 8,082, then 8,532, then 6,174."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Take any 4-digit number with at least two different digits, say 6382. Arrange it"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"digits zero nine 9990\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round. You should get 8,082, then 8,532, then 6,174."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"digits zero nine 9990\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The digits zero, nine, nine and nine give 9,990 minus 999, which is 8,991. Continue and check each round. You should get 8,082, then 8,532, then 6,174.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

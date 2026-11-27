@@ -1,219 +1,995 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "arithmetic-expressions",
-  "topic": "order-of-operations",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "arithmetic-expressions",
+ "topic": "order-of-operations",
+ "questions": [
+  {
+   "key": "r1-val",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-val",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "2 + 3 × 4 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "14"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "20"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That adds first."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "24"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That multiplies the sum wrongly."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Multiply first."
-      }
-    },
-    {
-      "key": "r1-br",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Brackets are done first."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "True."
-      }
-    },
-    {
-      "key": "r2-bra",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "(2 + 3) × 4 ="
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "14"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That ignores brackets."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "20"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "11"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Wrong."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 × 4."
-      }
-    },
-    {
-      "key": "r2-lr",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "24 ÷ 4 × 2 equals 3."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "False. It is 12."
-      }
-    },
-    {
-      "key": "r3-mix",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "10 − 2 × 3 + 8 ÷ 4 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "6"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "26"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Wrong order."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Wrong order."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "10 − 6 + 2 = 6."
-      }
-    },
-    {
-      "key": "r3-calc",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Evaluate 5 + 6 × 2."
-      },
-      "accepted": [
-        "17"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "6 × 2 = 12, then 5 + 12 = 17."
-      }
-    },
-    {
-      "key": "r4-num",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Evaluate 20 − 3 × 4."
-      },
-      "accepted": [
-        "8"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "3 × 4 = 12; 20 − 12 = 8."
-      }
-    },
-    {
-      "key": "r4-same",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Multiplication and division have the same rank."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "True."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "2 + 3 × 4 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "14"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "20"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That adds first."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "24"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That multiplies the sum wrongly."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Multiply first."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 2 + 3 × 4 =."
+    },
+    {
+     "en": "Step 2: Multiply first."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-br",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Brackets are done first."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "True."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Brackets are done first.."
+    },
+    {
+     "en": "Step 2: True."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-bra",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "(2 + 3) × 4 ="
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "14"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That ignores brackets."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "20"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "11"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"11\" — 5 × 4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 × 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: (2 + 3) × 4 =."
+    },
+    {
+     "en": "Step 2: 5 × 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-lr",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "24 ÷ 4 × 2 equals 3."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "False. It is 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 24 ÷ 4 × 2 equals 3.."
+    },
+    {
+     "en": "Step 2: False. It is 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-mix",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "10 − 2 × 3 + 8 ÷ 4 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "6"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "26"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Wrong order."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Wrong order."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "10 − 6 + 2 = 6."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 10 − 2 × 3 + 8 ÷ 4 =."
+    },
+    {
+     "en": "Step 2: 10 − 6 + 2 = 6."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-calc",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Evaluate 5 + 6 × 2."
+   },
+   "accepted": [
+    "17"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "6 × 2 = 12, then 5 + 12 = 17."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Evaluate 5 + 6 × 2.."
+    },
+    {
+     "en": "Step 2: 6 × 2 = 12, then 5 + 12 = 17."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r4-num",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Evaluate 20 − 3 × 4."
+   },
+   "accepted": [
+    "8"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "3 × 4 = 12; 20 − 12 = 8."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Evaluate 20 − 3 × 4.."
+    },
+    {
+     "en": "Step 2: 3 × 4 = 12; 20 − 12 = 8."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "r4-same",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Multiplication and division have the same rank."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "True."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Multiplication and division have the same rank.."
+    },
+    {
+     "en": "Step 2: True."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "fill-textbook-9-first",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Order of operations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Order of operations): Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied ___ and got 14. \"Who is right?\" they asked the teacher. \"The one who multiplied first,\" she said. \"There is an order to follow.\""
+   },
+   "accepted": [
+    "first"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Order of operations\": the missing word starts with \"f\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied first and got 14. \"Who is right?\" they asked the teacher. \"The one who multiplied first,\" she said. \"There is an order to follow.\"\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: \"first\" accurately completes the concept: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied first and got 14. \"Who is right?\" they asked the teacher. \"The one who multiplied first,\" she said. \"There is an order to follow.\""
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Order of operations): First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Order of operations\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Order of operations): Identify the correct statement from this lesson. (Focus: times equals which)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So 2 plus 3 times 4 equals 2 plus 12, which is 14. does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"times equals which\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"times equals which\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So 2 plus 3 times 4 equals 2 plus 12, which is 14.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-times",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Order of operations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Order of operations): With brackets, 2 plus 3 in brackets ___ 4 equals 5 times 4, which is 20."
+   },
+   "accepted": [
+    "times"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Order of operations\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: \"times\" accurately completes the concept: With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Order of operations): Identify the correct statement from this lesson. (Focus: Same-rank operations right)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Same-rank operations go left to right."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Same-rank operations go left to right. does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Same-rank operations go left to right."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Same-rank operations right\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "Same-rank operations go left to right."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Same-rank operations right\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Same-rank operations go left to right.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-14-left",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Order of operations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Order of operations): First do the brackets. Then multiplication and division from ___ to right. Then addition and subtraction."
+   },
+   "accepted": [
+    "left"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Order of operations\": the missing word starts with \"l\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"First do the brackets. Then multiplication and division from left to right. Then addition and subtraction.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: \"left\" accurately completes the concept: First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-4",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Order of operations",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Order of operations): So 2 plus 3 times ___ equals 2 plus 12, which is 14."
+   },
+   "accepted": [
+    "4"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Order of operations\": the missing word starts with \"4\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"4\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"So 2 plus 3 times 4 equals 2 plus 12, which is 14.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: \"4\" accurately completes the concept: So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Order of operations): Which of the following statements is scientifically/conceptually accurate? (Focus: brackets brackets times equals)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20. does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"brackets brackets times equals\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"brackets brackets times equals\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Order of operations): Same-rank operations go left to right."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Order of operations\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Same-rank operations go left to right."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Order of operations\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Order of operations): Which of the following statements is scientifically/conceptually accurate? (Focus: First brackets multiplication division)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: First do the brackets. Then multiplication and division from left to right. Then addition and s does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"First brackets multiplication division\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "First do the brackets. Then multiplication and division from left to right. Then addition and subtraction."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"First brackets multiplication division\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"First do the brackets. Then multiplication and division from left to right. Then addition and subtraction.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-19",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Order of operations): Which statement best explains a deep principle from this topic? (Focus: times equals which)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So 2 plus 3 times 4 equals 2 plus 12, which is 14. does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"times equals which\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "So 2 plus 3 times 4 equals 2 plus 12, which is 14."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"times equals which\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So 2 plus 3 times 4 equals 2 plus 12, which is 14.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Order of operations): Which statement best explains a deep principle from this topic? (Focus: brackets brackets times equals)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20. does not apply in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Order of operations."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Order of operations follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Mina worked out 2 + 3 × 4. She added first and got 20. Her friend multiplied fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Order of operations."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"brackets brackets times equals\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Order of operations\"."
+    }
+   ],
+   "explanation": {
+    "en": "With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"brackets brackets times equals\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"With brackets, 2 plus 3 in brackets times 4 equals 5 times 4, which is 20.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

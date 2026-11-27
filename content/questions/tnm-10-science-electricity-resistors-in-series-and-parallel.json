@@ -1,286 +1,1130 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "science",
-  "chapter": "electricity",
-  "topic": "resistors-in-series-and-parallel",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "electricity",
+ "topic": "resistors-in-series-and-parallel",
+ "questions": [
+  {
+   "key": "r1-m10sc604-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10sc604-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Effective resistance in ohm of 4 ohm and 6 ohm in series"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "4 + 6."
-      }
-    },
-    {
-      "key": "r1-m10sc604-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Effective resistance in ohm of two 6 ohm resistors in parallel"
-      },
-      "answer": 3,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "1/Rp = 1/6 + 1/6 = 1/3."
-      }
-    },
-    {
-      "key": "r1-m10sc604-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The effective resistance of resistors in parallel is less than the smallest resistance."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Adding a path always lowers the total resistance."
-      }
-    },
-    {
-      "key": "r2-m10sc604-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In a series circuit the quantity that is the same through every resistor is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "the current"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the potential difference"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the same in parallel"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the resistance"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Each resistor can differ"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "the power"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Power depends on R and I"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "There is only one loop for the current."
-      }
-    },
-    {
-      "key": "r2-m10sc604-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "House wiring uses parallel connections because"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "each appliance works independently at full voltage"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the total resistance is highest"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Parallel gives the lowest resistance"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the current is the same in all appliances"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Current divides in parallel"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "fuses are not needed"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Fuses are still needed"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The same voltage is across each branch."
-      }
-    },
-    {
-      "key": "r2-m10sc604-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Current in ampere through three 5 ohm resistors in series across 15 V"
-      },
-      "answer": 1,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Rs = 15 ohm, I = 15 / 15."
-      }
-    },
-    {
-      "key": "r3-m10sc604-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Resistivity in units of 10^-8 ohm metre for R = 2 ohm, L = 10 m, A = 2 x 10^-7 m2"
-      },
-      "answer": 4,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "rho = R A / L = 2 x 2e-7 / 10."
-      }
-    },
-    {
-      "key": "r3-m10sc604-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "If one bulb in a series circuit fuses, the other bulbs continue to glow."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "The single loop is broken, so the current stops."
-      }
-    },
-    {
-      "key": "r3-m10sc604-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The unit of conductance is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "mho (siemens)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "ohm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the unit of resistance"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "volt"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Unit of potential difference"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "ohm metre"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Unit of resistivity"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "G = 1 / R."
-      }
-    },
-    {
-      "key": "r3-m10sc604-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "The effective resistance of n equal resistors R in series is ____."
-      },
-      "accepted": [
-        "nR",
-        "n R",
-        "n x R"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Each adds R."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Effective resistance in ohm of 4 ohm and 6 ohm in series"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "4 + 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Effective resistance in ohm of 4 ohm and 6 ohm in series."
+    },
+    {
+     "en": "Step 2: 4 + 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10sc604-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Effective resistance in ohm of two 6 ohm resistors in parallel"
+   },
+   "answer": 3,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "1/Rp = 1/6 + 1/6 = 1/3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Effective resistance in ohm of two 6 ohm resistors in parallel."
+    },
+    {
+     "en": "Step 2: 1/Rp = 1/6 + 1/6 = 1/3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10sc604-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Adding a path always lowers the total resistance."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The effective resistance of resistors in parallel is less than the smallest resistance."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Adding a path always lowers the total resistance."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Adding a path always lowers the total resistance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The effective resistance of resistors in parallel is less than the smallest resistance.."
+    },
+    {
+     "en": "Step 2: Adding a path always lowers the total resistance."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc604-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: There is only one loop for the current."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In a series circuit the quantity that is the same through every resistor is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "the current"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the potential difference"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the same in parallel"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the resistance"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each resistor can differ"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "the power"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Power depends on R and I"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "There is only one loop for the current."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: There is only one loop for the current."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In a series circuit the quantity that is the same through every resistor is."
+    },
+    {
+     "en": "Step 2: There is only one loop for the current."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc604-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The same voltage is across each branch."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "House wiring uses parallel connections because"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "each appliance works independently at full voltage"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the total resistance is highest"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Parallel gives the lowest resistance"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the current is the same in all appliances"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Current divides in parallel"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "fuses are not needed"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Fuses are still needed"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The same voltage is across each branch."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The same voltage is across each branch."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: House wiring uses parallel connections because."
+    },
+    {
+     "en": "Step 2: The same voltage is across each branch."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc604-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Current in ampere through three 5 ohm resistors in series across 15 V"
+   },
+   "answer": 1,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Rs = 15 ohm, I = 15 / 15."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Current in ampere through three 5 ohm resistors in series across 15 V."
+    },
+    {
+     "en": "Step 2: Rs = 15 ohm, I = 15 / 15."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10sc604-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: rho = R A / L = 2 x 2e-7 / 10."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Resistivity in units of 10^-8 ohm metre for R = 2 ohm, L = 10 m, A = 2 x 10^-7 m2"
+   },
+   "answer": 4,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "rho = R A / L = 2 x 2e-7 / 10."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: rho = R A / L = 2 x 2e-7 / 10."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Resistivity in units of 10^-8 ohm metre for R = 2 ohm, L = 10 m, A = 2 x 10^-7 m2."
+    },
+    {
+     "en": "Step 2: rho = R A / L = 2 x 2e-7 / 10."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc604-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The single loop is broken, so the current stops."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "If one bulb in a series circuit fuses, the other bulbs continue to glow."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "The single loop is broken, so the current stops."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The single loop is broken, so the current stops."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If one bulb in a series circuit fuses, the other bulbs continue to glow.."
+    },
+    {
+     "en": "Step 2: The single loop is broken, so the current stops."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc604-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The unit of conductance is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "mho (siemens)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "ohm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the unit of resistance"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "volt"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Unit of potential difference"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "ohm metre"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Unit of resistivity"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "G = 1 / R."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The unit of conductance is."
+    },
+    {
+     "en": "Step 2: G = 1 / R."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc604-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "The effective resistance of n equal resistors R in series is ____."
+   },
+   "accepted": [
+    "nR",
+    "n R",
+    "n x R"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Each adds R."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The effective resistance of n equal resistors R in series is ____.."
+    },
+    {
+     "en": "Step 2: Each adds R."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-house",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): On a string of old fairy lights, if one bulb fails the whole string goes dark. In your ___, if one bulb fails the fan keeps running. The first is a series circuit and the second is a parallel circuit."
+   },
+   "accepted": [
+    "house"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"h\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"h\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"On a string of old fairy lights, if one bulb fails the whole string goes dark. In your house, if one bulb fails the fan keeps running. The first is a series circuit and the second is a parallel circuit.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"house\" accurately completes the concept: On a string of old fairy lights, if one bulb fails the whole string goes dark. In your house, if one bulb fails the fan keeps running. The first is a series circuit and the second is a parallel circuit."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-12",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Resistivity and the combination of resistors): The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Resistivity and the combination of resistors\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-13-measured",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): The reciprocal of resistance is conductance, ___ in mho, and the reciprocal of resistivity is conductivity."
+   },
+   "accepted": [
+    "measured"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"m\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"measured\" accurately completes the concept: The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Resistivity and the combination of resistors): Identify the correct statement from this lesson. (Focus: series circuit resistors joined)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In a series circuit the resistors are joined end to end in a single loop, so the same current f does not apply in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Resistivity and the combination of resistors follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: On a string of old fairy lights, if one bulb fails the whole string goes dark. I"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Resistivity and the combination of resistors."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"series circuit resistors joined\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"series circuit resistors joined\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-effective",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): The potential differences add up, V = V1 + V2 + V3, which gives the ___ resistance Rs = R1 + R2 + R3."
+   },
+   "accepted": [
+    "effective"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"e\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The potential differences add up, V = V1 + V2 + V3, which gives the effective resistance Rs = R1 + R2 + R3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"effective\" accurately completes the concept: The potential differences add up, V = V1 + V2 + V3, which gives the effective resistance Rs = R1 + R2 + R3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Resistivity and the combination of resistors): Which of the following statements is scientifically/conceptually accurate? (Focus: equivalent resistance series combination)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The equivalent resistance of a series combination is greater than the highest individual resist does not apply in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Resistivity and the combination of resistors follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: On a string of old fairy lights, if one bulb fails the whole string goes dark. I"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Resistivity and the combination of resistors."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"equivalent resistance series combination\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "The equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"equivalent resistance series combination\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The equivalent resistance of a series combination is greater than the highest individual resistance, and for n equal resistors it is n R.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Resistivity and the combination of resistors): In a parallel circuit there are two or more loops, the potential difference across each resistor is never the same and the currents add, I = I1 + I2 + I3."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Resistivity and the combination of resistors\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: In a parallel circuit there are two or more loops, the potential difference across each resistor is the same and the currents add, I = I1 + I2 + I3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: In a parallel circuit there are two or more loops, the potential difference across each resistor is the same and the currents add, I = I1 + I2 + I3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Resistivity and the combination of resistors): Which of the following statements is scientifically/conceptually accurate? (Focus: effective resistance given lowest)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the does not apply in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Resistivity and the combination of resistors follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: On a string of old fairy lights, if one bulb fails the whole string goes dark. I"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Resistivity and the combination of resistors."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"effective resistance given lowest\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"effective resistance given lowest\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The effective resistance is given by 1 / Rp = 1 / R1 + 1 / R2 + 1 / R3, and it is less than the lowest individual resistance.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-19-each",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): Series-parallel and parallel-series combinations are solved in steps: first replace ___ group by its effective resistance and then combine the groups."
+   },
+   "accepted": [
+    "each"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"e\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Series-parallel and parallel-series combinations are solved in steps: first replace each group by its effective resistance and then combine the groups.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"each\" accurately completes the concept: Series-parallel and parallel-series combinations are solved in steps: first replace each group by its effective resistance and then combine the groups."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-working",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): In a series circuit if one appliance is disconnected the others stop ___, but in a parallel circuit they work independently, which is why house wiring is parallel."
+   },
+   "accepted": [
+    "working"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"w\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"In a series circuit if one appliance is disconnected the others stop working, but in a parallel circuit they work independently, which is why house wiring is parallel.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"working\" accurately completes the concept: In a series circuit if one appliance is disconnected the others stop working, but in a parallel circuit they work independently, which is why house wiring is parallel."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Resistivity and the combination of resistors): Which statement best explains a deep principle from this topic? (Focus: resistance depends resistivity length)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The resistance of a wire depends on its resistivity, length and area of cross section, so resis does not apply in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Resistivity and the combination of resistors follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: On a string of old fairy lights, if one bulb fails the whole string goes dark. I"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Resistivity and the combination of resistors."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"resistance depends resistivity length\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"resistance depends resistivity length\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The resistance of a wire depends on its resistivity, length and area of cross section, so resistivity rho = R A / L, measured in ohm metre.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-22-minus",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Resistivity and the combination of resistors",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Resistivity and the combination of resistors): Conductors such as copper have very small resistivity, about 1.62 times 10 to the power ___ 8 ohm metre, while insulators such as glass and rubber have a very large resistivity."
+   },
+   "accepted": [
+    "minus"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Resistivity and the combination of resistors\": the missing word starts with \"m\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Conductors such as copper have very small resistivity, about 1.62 times 10 to the power minus 8 ohm metre, while insulators such as glass and rubber have a very large resistivity.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: \"minus\" accurately completes the concept: Conductors such as copper have very small resistivity, about 1.62 times 10 to the power minus 8 ohm metre, while insulators such as glass and rubber have a very large resistivity."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Resistivity and the combination of resistors): Which statement best explains a deep principle from this topic? (Focus: reciprocal resistance conductance measured)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity does not apply in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Resistivity and the combination of resistors."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Resistivity and the combination of resistors follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: On a string of old fairy lights, if one bulb fails the whole string goes dark. I"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Resistivity and the combination of resistors."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"reciprocal resistance conductance measured\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"reciprocal resistance conductance measured\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The reciprocal of resistance is conductance, measured in mho, and the reciprocal of resistivity is conductivity.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Resistivity and the combination of resistors): In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Resistivity and the combination of resistors\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Resistivity and the combination of resistors\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In a series circuit the resistors are joined end to end in a single loop, so the same current flows through each of them."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Resistivity and the combination of resistors\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

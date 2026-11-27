@@ -116,7 +116,10 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       load();
       const l = byKey.get(key({ board, classLevel, subject, chapter, topic }));
       if (!l) return null;
-      const ready = (audio?.teachers() ?? []).filter((t) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))).map((t) => t.id);
+      const minReady = Math.max(1, Math.ceil(l.steps.length * 0.7));
+      const ready = (audio?.teachers() ?? [])
+        .filter((t) => l.steps.filter((st) => !!audio?.refs(t.id, st.narration)).length >= minReady)
+        .map((t) => t.id);
       const pref = perf().defaultAudioVoice || "kani";
       const use = voice && ready.includes(voice) ? voice : (([...new Set([pref, "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
       return { ...withAudio(l, use), voicesReady: ready, voiceUsed: use };

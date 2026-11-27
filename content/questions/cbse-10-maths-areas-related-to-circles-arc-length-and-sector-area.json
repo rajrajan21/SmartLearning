@@ -1,249 +1,1197 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "areas-related-to-circles",
-  "topic": "arc-length-and-sector-area",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "areas-related-to-circles",
+ "topic": "arc-length-and-sector-area",
+ "questions": [
+  {
+   "key": "r1-as1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-as1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The area of a sector of angle theta in a circle of radius r is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "(theta/360) x pi r^2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "(theta/360) x 2 pi r"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the arc length."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "theta x pi r"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not a formula."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Fraction of the circle."
-      }
-    },
-    {
-      "key": "r1-as2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Fraction of a circle for a 90 degree sector, as a decimal"
-      },
-      "answer": 0.25,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 0.5,
-          "why": {
-            "en": "That is 180 degrees."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "90/360."
-      }
-    },
-    {
-      "key": "r2-as3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Arc length for 60 degrees, r = 21 cm (pi = 22/7), in cm"
-      },
-      "answer": 22,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 44,
-          "why": {
-            "en": "Take 60/360."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1/6 x 2 x 22/7 x 21 = 22."
-      }
-    },
-    {
-      "key": "r2-as4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): A 180 degree sector is half the circle. Reason (R): 180/360 = 1/2."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Half circle."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Fraction."
-      }
-    },
-    {
-      "key": "r2-as5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Area of a quadrant of radius 14 cm (pi = 22/7), cm squared"
-      },
-      "answer": 154,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 616,
-          "why": {
-            "en": "Take 1/4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Quarter of 616."
-      }
-    },
-    {
-      "key": "r3-as6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Angle of a minor sector is 80 degrees, the major sector angle"
-      },
-      "answer": 280,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 100,
-          "why": {
-            "en": "Subtract from 360."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "360 - 80."
-      }
-    },
-    {
-      "key": "r3-as7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The area of a sector depends on the angle at the centre."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "It is proportional to the angle."
-      }
-    },
-    {
-      "key": "r3-as8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: A 7 m long rope tied to a post lets a goat graze a quadrant. Area grazed (pi = 22/7)"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "38.5 m squared"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "154 m squared"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is a full circle."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "77 m squared"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is a semicircle."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1/4 x 22/7 x 49."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The area of a sector of angle theta in a circle of radius r is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "(theta/360) x pi r^2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "(theta/360) x 2 pi r"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the arc length."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "theta x pi r"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not a formula."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Fraction of the circle."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The area of a sector of angle theta in a circle of radius r is."
+    },
+    {
+     "en": "Step 2: Fraction of the circle."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-as2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Fraction of a circle for a 90 degree sector, as a decimal"
+   },
+   "answer": 0.25,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 0.5,
+     "why": {
+      "en": "That is 180 degrees."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "90/360."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Fraction of a circle for a 90 degree sector, as a decimal."
+    },
+    {
+     "en": "Step 2: 90/360."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-as3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Arc length for 60 degrees, r = 21 cm (pi = 22/7), in cm"
+   },
+   "answer": 22,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 44,
+     "why": {
+      "en": "Take 60/360."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1/6 x 2 x 22/7 x 21 = 22."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Arc length for 60 degrees, r = 21 cm (pi = 22/7), in cm."
+    },
+    {
+     "en": "Step 2: 1/6 x 2 x 22/7 x 21 = 22."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-as4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): A 180 degree sector is half the circle. Reason (R): 180/360 = 1/2."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Half circle."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Fraction."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): A 180 degree sector is half the circle. Reason (R): 180/360 = 1/2.."
+    },
+    {
+     "en": "Step 2: Fraction."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-as5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Area of a quadrant of radius 14 cm (pi = 22/7), cm squared"
+   },
+   "answer": 154,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 616,
+     "why": {
+      "en": "Take 1/4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Quarter of 616."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Area of a quadrant of radius 14 cm (pi = 22/7), cm squared."
+    },
+    {
+     "en": "Step 2: Quarter of 616."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-as6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Angle of a minor sector is 80 degrees, the major sector angle"
+   },
+   "answer": 280,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 100,
+     "why": {
+      "en": "Subtract from 360."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "360 - 80."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Angle of a minor sector is 80 degrees, the major sector angle."
+    },
+    {
+     "en": "Step 2: 360 - 80."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-as7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: It is proportional to the angle."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The area of a sector depends on the angle at the centre."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "It is proportional to the angle."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: It is proportional to the angle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The area of a sector depends on the angle at the centre.."
+    },
+    {
+     "en": "Step 2: It is proportional to the angle."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-as8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: A 7 m long rope tied to a post lets a goat graze a quadrant. Area grazed (pi = 22/7)"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "38.5 m squared"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "154 m squared"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is a full circle."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "77 m squared"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is a semicircle."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1/4 x 22/7 x 49."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: A 7 m long rope tied to a post lets a goat graze a quadrant. Area grazed (pi =."
+    },
+    {
+     "en": "Step 2: 1/4 x 22/7 x 49."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-long",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Length of an arc and area of a sector",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Length of an arc and area of a sector): A pizza slice is a sector of a circle. How much cheese covers it, and how ___ is its crust edge? A simple fraction of the whole circle answers both."
+   },
+   "accepted": [
+    "long"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Length of an arc and area of a sector\": the missing word starts with \"l\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: \"long\" accurately completes the concept: A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Length of an arc and area of a sector): The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Length of an arc and area of a sector\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Length of an arc and area of a sector): Identify the correct statement from this lesson. (Focus: sector region between radii)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A sector is the region between two radii and the arc between them. Its angle at the centre is t does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"sector region between radii\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"sector region between radii\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-whole",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Length of an arc and area of a sector",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Length of an arc and area of a sector): A sector is theta by 360 of the ___ circle. So its area is theta/360 times pi r squared."
+   },
+   "accepted": [
+    "whole"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Length of an arc and area of a sector\": the missing word starts with \"w\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: \"whole\" accurately completes the concept: A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Length of an arc and area of a sector): Identify the correct statement from this lesson. (Focus: length theta360 times)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The length of its arc is theta/360 times 2 pi r."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The length of its arc is theta/360 times 2 pi r. does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The length of its arc is theta/360 times 2 pi r."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"length theta360 times\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "The length of its arc is theta/360 times 2 pi r."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"length theta360 times\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The length of its arc is theta/360 times 2 pi r.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-degrees",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Length of an arc and area of a sector",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Length of an arc and area of a sector): Example: radius 6 cm and angle 60 ___. Area = 60/360 x pi x 36 = 6 pi cm squared."
+   },
+   "accepted": [
+    "degrees"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Length of an arc and area of a sector\": the missing word starts with \"d\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: \"degrees\" accurately completes the concept: Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Length of an arc and area of a sector): Which of the following statements is scientifically/conceptually accurate? (Focus: smaller sector minor sector)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The smaller sector is the minor sector and the larger one is the major sector. The two angles a does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"smaller sector minor sector\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"smaller sector minor sector\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Length of an arc and area of a sector): For a major sector, use 360 minus theta as its angle, or subtract the minor sector from the whole circle."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Length of an arc and area of a sector\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For a major sector, use 360 minus theta as its angle, or subtract the minor sector from the whole circle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Length of an arc and area of a sector): Which of the following statements is scientifically/conceptually accurate? (Focus: unless question otherwise square)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for a does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"unless question otherwise square\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"unless question otherwise square\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Use pi = 22/7 unless the question says otherwise, and give the unit as square centimetres for area.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Length of an arc and area of a sector): Which of the following statements is scientifically/conceptually accurate? (Focus: pizza slice sector circle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edg does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The circumference of a circle is 2 pi r and its area is pi r squared, where r is"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"pizza slice sector circle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"pizza slice sector circle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A pizza slice is a sector of a circle. How much cheese covers it, and how long is its crust edge? A simple fraction of the whole circle answers both.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Length of an arc and area of a sector): The circumference of a circle is never 2 pi r and its area is pi r squared, where r is the radius."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Length of an arc and area of a sector\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: The circumference of a circle is 2 pi r and its area is pi r squared, where r is the radius."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-them",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Length of an arc and area of a sector",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Length of an arc and area of a sector): A sector is the region between two radii and the arc between ___. Its angle at the centre is theta degrees."
+   },
+   "accepted": [
+    "them"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Length of an arc and area of a sector\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: \"them\" accurately completes the concept: A sector is the region between two radii and the arc between them. Its angle at the centre is theta degrees."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: sector theta whole circle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared. does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"sector theta whole circle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"sector theta whole circle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A sector is theta by 360 of the whole circle. So its area is theta/360 times pi r squared.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Length of an arc and area of a sector): The length of its arc is theta/360 times 2 pi r."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Length of an arc and area of a sector\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The length of its arc is theta/360 times 2 pi r."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Length of an arc and area of a sector): Which statement best explains a deep principle from this topic? (Focus: Example radius angle degrees)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared. does not apply in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Length of an arc and area of a sector."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Length of an arc and area of a sector follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A pizza slice is a sector of a circle. How much cheese covers it, and how long i"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Length of an arc and area of a sector."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Example radius angle degrees\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Length of an arc and area of a sector\"."
+    }
+   ],
+   "explanation": {
+    "en": "Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Example radius angle degrees\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Example: radius 6 cm and angle 60 degrees. Area = 60/360 x pi x 36 = 6 pi cm squared.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-larger",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Length of an arc and area of a sector",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Length of an arc and area of a sector): The smaller sector is the minor sector and the ___ one is the major sector. The two angles add up to 360 degrees."
+   },
+   "accepted": [
+    "larger"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Length of an arc and area of a sector\": the missing word starts with \"l\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Length of an arc and area of a sector\"."
+    },
+    {
+     "en": "Step 2: \"larger\" accurately completes the concept: The smaller sector is the minor sector and the larger one is the major sector. The two angles add up to 360 degrees."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

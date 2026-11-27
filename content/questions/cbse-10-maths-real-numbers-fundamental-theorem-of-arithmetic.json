@@ -1,241 +1,1227 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "real-numbers",
-  "topic": "fundamental-theorem-of-arithmetic",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "real-numbers",
+ "topic": "fundamental-theorem-of-arithmetic",
+ "questions": [
+  {
+   "key": "r1-fta1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-fta1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The prime factorisation of 140 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "2^2 x 5 x 7"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2 x 5 x 14"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "14 is not a prime."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2^3 x 5 x 7"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2^3 x 5 x 7 = 280."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "140 = 4 x 35 = 2^2 x 5 x 7."
-      }
-    },
-    {
-      "key": "r1-fta2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Prime factorisation of a composite number is unique apart from the order of primes."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "This is the Fundamental Theorem of Arithmetic."
-      }
-    },
-    {
-      "key": "r2-fta3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "HCF of 26 and 91 is"
-      },
-      "answer": 13,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 1,
-          "why": {
-            "en": "They share the prime 13."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
-      }
-    },
-    {
-      "key": "r2-fta4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If HCF(12, 18) = 6, find LCM(12, 18)."
-      },
-      "answer": 36,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 216,
-          "why": {
-            "en": "216 is the product, not the LCM."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "LCM = (12 x 18) / 6 = 36."
-      }
-    },
-    {
-      "key": "r2-fta5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): 6^n can never end in digit 0 for any natural number n. Reason (R): 6^n = 2^n x 3^n has no prime factor 5. Choose the correct option."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "Both are true but R does not explain A"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is exactly why A holds: a number ending in 0 needs the prime 5."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A is true but R is false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is true."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A number ending in 0 is divisible by 10, so it needs both 2 and 5. 6^n has no 5."
-      }
-    },
-    {
-      "key": "r3-fta6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Write the LCM of 6 and 20."
-      },
-      "accepted": [
-        "60"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "120",
-          "why": {
-            "en": "120 is a common multiple but not the least."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6 = 2 x 3, 20 = 2^2 x 5, LCM = 2^2 x 3 x 5 = 60."
-      }
-    },
-    {
-      "key": "r3-fta7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Two bells ring every 12 and 18 minutes. After how many minutes do they ring together again?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "36"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "6 is the HCF."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "216"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "216 is the product, not the LCM."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "LCM of 12 and 18 is 36."
-      }
-    },
-    {
-      "key": "r3-fta8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The HCF of two numbers is always a factor of their LCM."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "HCF divides both numbers and so divides their LCM."
-      }
+     "en": "Focus on this idea: 140 = 4 x 35 = 2^2 x 5 x 7."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The prime factorisation of 140 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "2^2 x 5 x 7"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2 x 5 x 14"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "14 is not a prime."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2^3 x 5 x 7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2^3 x 5 x 7 = 280."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "140 = 4 x 35 = 2^2 x 5 x 7."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 140 = 4 x 35 = 2^2 x 5 x 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The prime factorisation of 140 is."
+    },
+    {
+     "en": "Step 2: 140 = 4 x 35 = 2^2 x 5 x 7."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-fta2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: This is the Fundamental Theorem of Arithmetic."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Prime factorisation of a composite number is unique apart from the order of primes."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "This is the Fundamental Theorem of Arithmetic."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: This is the Fundamental Theorem of Arithmetic."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Prime factorisation of a composite number is unique apart from the order of primes.."
+    },
+    {
+     "en": "Step 2: This is the Fundamental Theorem of Arithmetic."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fta3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "HCF of 26 and 91 is"
+   },
+   "answer": 13,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 1,
+     "why": {
+      "en": "They share the prime 13."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: HCF of 26 and 91 is."
+    },
+    {
+     "en": "Step 2: 26 = 2 x 13 and 91 = 7 x 13, so HCF = 13."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fta4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If HCF(12, 18) = 6, find LCM(12, 18)."
+   },
+   "answer": 36,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 216,
+     "why": {
+      "en": "216 is the product, not the LCM."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "LCM = (12 x 18) / 6 = 36."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If HCF(12, 18) = 6, find LCM(12, 18).."
+    },
+    {
+     "en": "Step 2: LCM = (12 x 18) / 6 = 36."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fta5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: A number ending in 0 is divisible by 10, so it needs both 2 and 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): 6^n can never end in digit 0 for any natural number n. Reason (R): 6^n = 2^n x 3^n has no prime factor 5. Choose the correct option."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "Both are true but R does not explain A"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is exactly why A holds: a number ending in 0 needs the prime 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A is true but R is false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is true."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A number ending in 0 is divisible by 10, so it needs both 2 and 5. 6^n has no 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: A number ending in 0 is divisible by 10, so it needs both 2 and 5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: A number ending in 0 is divisible by 10, so it needs both 2 and 5."
+    },
+    {
+     "en": "Step 2: 6^n has no 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-fta6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Write the LCM of 6 and 20."
+   },
+   "accepted": [
+    "60"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "120",
+     "why": {
+      "en": "120 is a common multiple but not the least."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6 = 2 x 3, 20 = 2^2 x 5, LCM = 2^2 x 3 x 5 = 60."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Write the LCM of 6 and 20.."
+    },
+    {
+     "en": "Step 2: 6 = 2 x 3, 20 = 2^2 x 5, LCM = 2^2 x 3 x 5 = 60."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-fta7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Two bells ring every 12 and 18 minutes. After how many minutes do they ring together again?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "36"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "6 is the HCF."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "216"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "216 is the product, not the LCM."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "LCM of 12 and 18 is 36."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two bells ring every 12 and 18 minutes. After how many minutes do they ring together again."
+    },
+    {
+     "en": "Step 2: LCM of 12 and 18 is 36."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-fta8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: HCF divides both numbers and so divides their LCM."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The HCF of two numbers is always a factor of their LCM."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "HCF divides both numbers and so divides their LCM."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: HCF divides both numbers and so divides their LCM."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The HCF of two numbers is always a factor of their LCM.."
+    },
+    {
+     "en": "Step 2: HCF divides both numbers and so divides their LCM."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "ext-4697893c611b-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "stem": {
+    "en": "The median of a set of 9 distinct observation is 20.5. If each of the observations of a 1 set is increased by 2,then the median of a new set"
+   },
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "explanation": {
+    "en": "median is increased by 2"
+   },
+   "source": "CBSE Academic Unit (cbseacademic.nic.in) (2025-26)",
+   "sourceUrl": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2025_26/MathsStandard-SQP.pdf",
+   "provenance": "ai_drafted_reviewed",
+   "status": "published",
+   "type": "mcq",
+   "options": [
+    {
+     "id": "opt-1",
+     "text": {
+      "en": "is increased by 2"
+     },
+     "correct": true
+    },
+    {
+     "id": "opt-2",
+     "text": {
+      "en": "is decreased by 2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"is decreased by 2\" — median is increased by 2"
+     }
+    },
+    {
+     "id": "opt-3",
+     "text": {
+      "en": "is two times the original number"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"is two times the original number\" — median is increased by 2"
+     }
+    },
+    {
+     "id": "opt-4",
+     "text": {
+      "en": "Remains same as that of original observations"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"Remains same as that of original observations\" — median is increased by 2"
+     }
+    }
+   ],
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The median of a set of 9 distinct observation is 20.5. If each of the observations of a 1 ."
+    },
+    {
+     "en": "Step 2: median is increased by 2"
+    }
+   ]
+  },
+  {
+   "key": "ext-7caa66f9434a-1",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "stem": {
+    "en": "The greatest number which divides both 134 and 1 8 8, leaving remainders 4 and 6 1 respectively, is:"
+   },
+   "hints": [
+    {
+     "en": "Focus on this idea: 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r."
+    }
+   ],
+   "explanation": {
+    "en": "26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r"
+   },
+   "source": "CBSE Academic Unit (cbseacademic.nic.in) (2026-27)",
+   "sourceUrl": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2026_27/MathsStandard-SQP.pdf",
+   "provenance": "ai_drafted_reviewed",
+   "status": "published",
+   "type": "mcq",
+   "options": [
+    {
+     "id": "opt-1",
+     "text": {
+      "en": "13"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"13\" — 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r"
+     }
+    },
+    {
+     "id": "opt-2",
+     "text": {
+      "en": "26"
+     },
+     "correct": true
+    },
+    {
+     "id": "opt-3",
+     "text": {
+      "en": "39"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"39\" — 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r"
+     }
+    },
+    {
+     "id": "opt-4",
+     "text": {
+      "en": "65"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"65\" — 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r"
+     }
+    }
+   ],
+   "hint": {
+    "en": "Focus on this idea: 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The greatest number which divides both 134 and 1 8 8, leaving remainders 4 and 6 1 respect."
+    },
+    {
+     "en": "Step 2: 26 134 – 4 = 130 and 1 8 8 – 6 = 1 82 1 HCF ( 130 , 1 82 ) = 26 r"
+    }
+   ]
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Fundamental Theorem of Arithmetic, HCF and LCM): Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-7",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Fundamental Theorem of Arithmetic, HCF and LCM",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Fundamental Theorem of Arithmetic, HCF and LCM): For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x ___ x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13."
+   },
+   "accepted": [
+    "7"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Fundamental Theorem of Arithmetic, HCF and LCM\": the missing word starts with \"7\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"7\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: \"7\" accurately completes the concept: For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Fundamental Theorem of Arithmetic, HCF and LCM): Identify the correct statement from this lesson. (Focus: theorem number power never)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The theorem also says a number like 4 to the power n can never end in the digit 0, because its  does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"theorem number power never\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"theorem number power never\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-14",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Fundamental Theorem of Arithmetic, HCF and LCM): To find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-15",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Fundamental Theorem of Arithmetic, HCF and LCM): Identify the correct statement from this lesson. (Focus: squared squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60. does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"squared squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"squared squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-16-2",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Fundamental Theorem of Arithmetic, HCF and LCM",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Fundamental Theorem of Arithmetic, HCF and LCM): For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: ___ x 60 = 120 = 6 x 20."
+   },
+   "accepted": [
+    "2"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Fundamental Theorem of Arithmetic, HCF and LCM\": the missing word starts with \"2\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"2\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: \"2\" accurately completes the concept: For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Fundamental Theorem of Arithmetic, HCF and LCM): Which of the following statements is scientifically/conceptually accurate? (Focus: Remember product numbers only)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Remember that this product rule is for two numbers only. For three numbers the textbook gives a does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Remember product numbers only\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Remember product numbers only\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-18-exactly",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Fundamental Theorem of Arithmetic, HCF and LCM",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Fundamental Theorem of Arithmetic, HCF and LCM): Chapter 1 of the textbook revisits positive integers. A prime number has ___ two factors, 1 and itself, and a composite number has more than two factors."
+   },
+   "accepted": [
+    "exactly"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Fundamental Theorem of Arithmetic, HCF and LCM\": the missing word starts with \"e\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: \"exactly\" accurately completes the concept: Chapter 1 of the textbook revisits positive integers. A prime number has exactly two factors, 1 and itself, and a composite number has more than two factors."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Fundamental Theorem of Arithmetic, HCF and LCM): For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For example, 32760 = 2 x 2 x 2 x 3 x 3 x 5 x 7 x 13, which we write as 2 cubed x 3 squared x 5 x 7 x 13."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Fundamental Theorem of Arithmetic, HCF and LCM): Which of the following statements is scientifically/conceptually accurate? (Focus: theorem number power never)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The theorem also says a number like 4 to the power n can never end in the digit 0, because its  does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"theorem number power never\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"theorem number power never\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The theorem also says a number like 4 to the power n can never end in the digit 0, because its only prime factor is 2 and a number ending in 0 needs the prime 5 as well.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-21-smallest",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Fundamental Theorem of Arithmetic, HCF and LCM",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Fundamental Theorem of Arithmetic, HCF and LCM): To find the HCF by prime factorisation, take each common prime with the ___ power. To find the LCM, take every prime that appears with the greatest power."
+   },
+   "accepted": [
+    "smallest"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Fundamental Theorem of Arithmetic, HCF and LCM\": the missing word starts with \"s\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: \"smallest\" accurately completes the concept: To find the HCF by prime factorisation, take each common prime with the smallest power. To find the LCM, take every prime that appears with the greatest power."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Fundamental Theorem of Arithmetic, HCF and LCM): Which statement best explains a deep principle from this topic? (Focus: squared squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60. does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"squared squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"squared squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Take 6 = 2 x 3 and 20 = 2 squared x 5. The HCF is 2 and the LCM is 2 squared x 3 x 5 = 60.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Fundamental Theorem of Arithmetic, HCF and LCM): For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For any two positive integers a and b, HCF(a, b) x LCM(a, b) = a x b. Check: 2 x 60 = 120 = 6 x 20."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Fundamental Theorem of Arithmetic, HCF and LCM): Which statement best explains a deep principle from this topic? (Focus: Remember product numbers only)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Remember that this product rule is for two numbers only. For three numbers the textbook gives a does not apply in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Fundamental Theorem of Arithmetic, HCF and LCM."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Fundamental Theorem of Arithmetic, HCF and LCM follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A shopkeeper packs 12 pencils in a box. Can he pack the same pencils in fours or"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Fundamental Theorem of Arithmetic, HCF and LCM."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Remember product numbers only\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Fundamental Theorem of Arithmetic, HCF and LCM\"."
+    }
+   ],
+   "explanation": {
+    "en": "Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Remember product numbers only\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Remember that this product rule is for two numbers only. For three numbers the textbook gives a different relation in the note to the reader.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

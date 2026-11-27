@@ -1,367 +1,1194 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "probability",
-  "topic": "full-chapter-lesson",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "probability",
+ "topic": "full-chapter-lesson",
+ "questions": [
+  {
+   "key": "r1-pro210",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-pro210",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The probability of heads on a fair coin is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Two equally likely outcomes."
-      }
-    },
-    {
-      "key": "r1-pro211",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Probability of a sure event is 1."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "key": "r2-pro212",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The probability of an impossible event is"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "0"
-          },
-          "correct": true
-        }
-      ],
-      "explanation": {
-        "en": "It cannot happen."
-      }
-    },
-    {
-      "key": "r2-pro213",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Probability can be more than 1."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It lies from 0 to 1."
-      }
-    },
-    {
-      "key": "r3-pro214",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "P(E) + P(not E) equals"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Complementary events."
-      }
-    },
-    {
-      "key": "r3-pro215",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "What is the probability of an even number on a fair six-sided die? Answer as a fraction."
-      },
-      "accepted": [
-        "1/2"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "3 out of 6."
-      }
-    },
-    {
-      "key": "r4-pro216",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Probability from experiments is"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "classical"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "empirical"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "sure"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "By trials."
-      }
-    },
-    {
-      "key": "r4-pro217",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The sample space is the set of all outcomes."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "stem": {
-        "en": "What is the complement of rolling at most 4 on a six-sided die?"
-      },
-      "explanation": {
-        "en": "At most four includes one through four, leaving five and six."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "{4, 5, 6}"
-          },
-          "whyWrong": {
-            "en": "Four belongs to the original event."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "{5, 6}"
-          },
-          "correct": true
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "{1, 2, 3, 4}"
-          },
-          "whyWrong": {
-            "en": "This is the original event."
-          }
-        }
-      ],
-      "key": "tnm9-prob-complement-1",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Fourteen of twenty trials and ten of thirty trials succeeded. What is the pooled success frequency?"
-      },
-      "explanation": {
-        "en": "Add the successes and divide by the pooled trial count: 24/50."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "14/20"
-          },
-          "whyWrong": {
-            "en": "This uses only the first run."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "24/20"
-          },
-          "whyWrong": {
-            "en": "Include the trial counts from both runs."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "24/50"
-          },
-          "correct": true
-        }
-      ],
-      "key": "tnm9-prob-observed-1",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Which outcomes lie in both “even” and “greater than 3” on a six-sided die?"
-      },
-      "explanation": {
-        "en": "Four and six meet both conditions."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "{4, 6}"
-          },
-          "correct": true
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "{2, 4, 6}"
-          },
-          "whyWrong": {
-            "en": "Two is even but below four."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "{4, 5, 6}"
-          },
-          "whyWrong": {
-            "en": "Five is above three but is odd."
-          }
-        }
-      ],
-      "key": "tnm9-prob-overlap-1",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
+     "en": "Focus on this idea: Two equally likely outcomes."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The probability of heads on a fair coin is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1\" — Two equally likely outcomes."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"0\" — Two equally likely outcomes."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Two equally likely outcomes."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Two equally likely outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The probability of heads on a fair coin is."
+    },
+    {
+     "en": "Step 2: Two equally likely outcomes."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-pro211",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Probability of a sure event is 1."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Probability of a sure event is 1.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-pro212",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The probability of an impossible event is"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1\" — It cannot happen."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1/2\" — It cannot happen."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "0"
+     },
+     "correct": true
+    }
+   ],
+   "explanation": {
+    "en": "It cannot happen."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The probability of an impossible event is."
+    },
+    {
+     "en": "Step 2: It cannot happen."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-pro213",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Probability can be more than 1."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It lies from 0 to 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Probability can be more than 1.."
+    },
+    {
+     "en": "Step 2: It lies from 0 to 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-pro214",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "P(E) + P(not E) equals"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"0\" — Complementary events."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"2\" — Complementary events."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Complementary events."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: P(E) + P(not E) equals."
+    },
+    {
+     "en": "Step 2: Complementary events."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-pro215",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"1\" and relates to What is the probability of an even number on a fai)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "What is the probability of an even number on a fair six-sided die? Answer as a fraction."
+   },
+   "accepted": [
+    "1/2"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "3 out of 6."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"1\" and relates to What is the probability of an even number on a fai)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the probability of an even number on a fair six-sided die? Answer as a fraction.."
+    },
+    {
+     "en": "Step 2: 3 out of 6."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r4-pro216",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Probability from experiments is"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "classical"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"classical\" — By trials."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "empirical"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "sure"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"sure\" — By trials."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "By trials."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Probability from experiments is."
+    },
+    {
+     "en": "Step 2: By trials."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "r4-pro217",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The sample space is the set of all outcomes."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The sample space is the set of all outcomes.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "stem": {
+    "en": "What is the complement of rolling at most 4 on a six-sided die?"
+   },
+   "explanation": {
+    "en": "At most four includes one through four, leaving five and six."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "{4, 5, 6}"
+     },
+     "whyWrong": {
+      "en": "Four belongs to the original event."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "{5, 6}"
+     },
+     "correct": true
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "{1, 2, 3, 4}"
+     },
+     "whyWrong": {
+      "en": "This is the original event."
+     }
+    }
+   ],
+   "key": "tnm9-prob-complement-1",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: At most four includes one through four, leaving five and six."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: At most four includes one through four, leaving five and six."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the complement of rolling at most 4 on a six-sided die?."
+    },
+    {
+     "en": "Step 2: At most four includes one through four, leaving five and six."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "stem": {
+    "en": "Fourteen of twenty trials and ten of thirty trials succeeded. What is the pooled success frequency?"
+   },
+   "explanation": {
+    "en": "Add the successes and divide by the pooled trial count: 24/50."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "14/20"
+     },
+     "whyWrong": {
+      "en": "This uses only the first run."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "24/20"
+     },
+     "whyWrong": {
+      "en": "Include the trial counts from both runs."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "24/50"
+     },
+     "correct": true
+    }
+   ],
+   "key": "tnm9-prob-observed-1",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Add the successes and divide by the pooled trial count: 24/50."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Add the successes and divide by the pooled trial count: 24/50."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Fourteen of twenty trials and ten of thirty trials succeeded. What is the pooled success f."
+    },
+    {
+     "en": "Step 2: Add the successes and divide by the pooled trial count: 24/50."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "stem": {
+    "en": "Which outcomes lie in both “even” and “greater than 3” on a six-sided die?"
+   },
+   "explanation": {
+    "en": "Four and six meet both conditions."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "{4, 6}"
+     },
+     "correct": true
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "{2, 4, 6}"
+     },
+     "whyWrong": {
+      "en": "Two is even but below four."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "{4, 5, 6}"
+     },
+     "whyWrong": {
+      "en": "Five is above three but is odd."
+     }
+    }
+   ],
+   "key": "tnm9-prob-overlap-1",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Focus on this idea: Four and six meet both conditions."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Focus on this idea: Four and six meet both conditions."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which outcomes lie in both “even” and “greater than 3” on a six-sided die?."
+    },
+    {
+     "en": "Step 2: Four and six meet both conditions."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "fill-textbook-12-heads",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability): Raju tossed a coin and called ___. \"What are the chances?\" asked his teacher."
+   },
+   "accepted": [
+    "heads"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability\": the missing word starts with \"h\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"h\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability\"."
+    },
+    {
+     "en": "Step 2: \"heads\" accurately completes the concept: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-13",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability): An experiment is never an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: An experiment is an action with possible outcomes, like tossing a coin, and the set of all outcomes is the sample space."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Probability): Identify the correct statement from this lesson. (Focus: event sample space)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An event is a part of the sample space."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An event is a part of the sample space. does not apply in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An event is a part of the sample space."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"event sample space\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "An event is a part of the sample space."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"event sample space\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An event is a part of the sample space.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-15-outcomes",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability): For a finite set of equally likely outcomes, the classical probability is the number of ___ in the event divided by the total number of outcomes. It lies between zero and one."
+   },
+   "accepted": [
+    "outcomes"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability\": the missing word starts with \"o\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For a finite set of equally likely outcomes, the classical probability is the number of outcomes in the event divided by the total number of outcomes. It lies between zero and one.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability\"."
+    },
+    {
+     "en": "Step 2: \"outcomes\" accurately completes the concept: For a finite set of equally likely outcomes, the classical probability is the number of outcomes in the event divided by the total number of outcomes. It lies between zero and one."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-16",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Probability): Identify the correct statement from this lesson. (Focus: empirical approach finds probability)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The empirical approach finds probability from experiments: P(E) = number of times the event hap does not apply in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"empirical approach finds probability\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"empirical approach finds probability\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The empirical approach finds probability from experiments: P(E) = number of times the event happened / total number of trials.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-underlying",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability): With many comparable independent trials, the observed frequency tends to settle closer to the ___ chance. The fraction can still move closer or farther away in any particular run."
+   },
+   "accepted": [
+    "underlying"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability\": the missing word starts with \"u\" and has 10 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"u\" (10 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"With many comparable independent trials, the observed frequency tends to settle closer to the underlying chance. The fraction can still move closer or farther away in any particular run.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability\"."
+    },
+    {
+     "en": "Step 2: \"underlying\" accurately completes the concept: With many comparable independent trials, the observed frequency tends to settle closer to the underlying chance. The fraction can still move closer or farther away in any particular run."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability): Tossing a coin once is one trial. Head and tail are possible outcomes. Listing both gives the sample space for the ordinary coin model."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Tossing a coin once is one trial. Head and tail are possible outcomes. Listing both gives the sample space for the ordinary coin model."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability): Which of the following statements is scientifically/conceptually accurate? (Focus: common six-sided once Write)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Roll a common six-sided die once. Write the six face values, from one to six. A fair die model gives every face the same chance."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Roll a common six-sided die once. Write the six face values, from one to six. A fair die model  does not apply in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Roll a common six-sided die once. Write the six face values, from one to six. A fair die model gives every face the same chance."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"common six-sided once Write\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "Roll a common six-sided die once. Write the six face values, from one to six. A fair die model gives every face the same chance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"common six-sided once Write\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Roll a common six-sided die once. Write the six face values, from one to six. A fair die model gives every face the same chance.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-20-outcomes",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability): The event of rolling an even number consists of ___ two, four and six. These are three members of the sample space."
+   },
+   "accepted": [
+    "outcomes"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability\": the missing word starts with \"o\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The event of rolling an even number consists of outcomes two, four and six. These are three members of the sample space.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability\"."
+    },
+    {
+     "en": "Step 2: \"outcomes\" accurately completes the concept: The event of rolling an even number consists of outcomes two, four and six. These are three members of the sample space."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-21",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability): Which of the following statements is scientifically/conceptually accurate? (Focus: event outcome simple event)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an even number is a compound event because it includes several outcomes."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an ev does not apply in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an even number is a compound event because it includes several outcomes."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"event outcome simple event\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an even number is a compound event because it includes several outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"event outcome simple event\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An event with one outcome is a simple event. Rolling exactly four is one example. Rolling an even number is a compound event because it includes several outcomes.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-22",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability): In the fair die model, the chance of an even roll is three favourable outcomes over six total outcomes. Reduce the result to one half."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In the fair die model, the chance of an even roll is three favourable outcomes over six total outcomes. Reduce the result to one half."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-23-model",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Probability",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability): For a sure event, every outcome is favourable. Rolling a number from one to six on the ___ die is sure. Rolling seven has no favourable outcomes and is impossible."
+   },
+   "accepted": [
+    "model"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability\": the missing word starts with \"m\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For a sure event, every outcome is favourable. Rolling a number from one to six on the model die is sure. Rolling seven has no favourable outcomes and is impossible.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability\"."
+    },
+    {
+     "en": "Step 2: \"model\" accurately completes the concept: For a sure event, every outcome is favourable. Rolling a number from one to six on the model die is sure. Rolling seven has no favourable outcomes and is impossible."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Probability): Which statement best explains a deep principle from this topic? (Focus: model chance fifths chance)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For that model, the chance of red is two fifths and the chance of blue is three fifths. The two colours exhaust the possible outcomes in the bag."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For that model, the chance of red is two fifths and the chance of blue is three fifths. The two does not apply in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For that model, the chance of red is two fifths and the chance of blue is three fifths. The two colours exhaust the possible outcomes in the bag."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju tossed a coin and called heads. \"What are the chances?\" asked his teacher."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"model chance fifths chance\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability\"."
+    }
+   ],
+   "explanation": {
+    "en": "For that model, the chance of red is two fifths and the chance of blue is three fifths. The two colours exhaust the possible outcomes in the bag."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"model chance fifths chance\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For that model, the chance of red is two fifths and the chance of blue is three fifths. The two colours exhaust the possible outcomes in the bag.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

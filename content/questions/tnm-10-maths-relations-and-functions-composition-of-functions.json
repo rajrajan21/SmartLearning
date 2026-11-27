@@ -1,202 +1,1153 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "relations-and-functions",
-  "topic": "composition-of-functions",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "relations-and-functions",
+ "topic": "composition-of-functions",
+ "questions": [
+  {
+   "key": "r1-m10ma792-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10ma792-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If f(x) = x + 2 and g(x) = 3x, then (g o f)(1) ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "9"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is f(g(1)) = 5"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Do f first: f(1) = 3, then g(3) = 9"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Check each step"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "f(1) = 3 and g(3) = 9."
-      }
-    },
-    {
-      "key": "r1-m10ma792-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "In g o f, the function f is applied first."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "g o f means g(f(x))."
-      }
-    },
-    {
-      "key": "r1-m10ma792-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "With f(x) = 2x and g(x) = x + 1, (f o g)(x) ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "2x + 2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2x + 1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is g o f"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "x + 2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Multiply the whole bracket by 2"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "f(x + 1) = 2(x + 1)."
-      }
-    },
-    {
-      "key": "r2-m10ma792-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "f(x) = x + 4 and g(x) = 2x. Find (g o f)(3)."
-      },
-      "answer": 14,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "f(3) = 7 and g(7) = 14."
-      }
-    },
-    {
-      "key": "r2-m10ma792-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Composition of functions is commutative."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "f o g and g o f are usually different."
-      }
-    },
-    {
-      "key": "r2-m10ma792-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "(h o g) o f = h o (g o f)."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Composition is associative."
-      }
-    },
-    {
-      "key": "r3-m10ma792-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If f(x) = x squared and g(x) = x + 1, find (f o g)(2)."
-      },
-      "answer": 9,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "g(2) = 3, f(3) = 9."
-      }
-    },
-    {
-      "key": "r3-m10ma792-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "f o I = f. What is the function I called?"
-      },
-      "accepted": [
-        "identity"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "I(x) = x."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If f(x) = x + 2 and g(x) = 3x, then (g o f)(1) ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "9"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is f(g(1)) = 5"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Do f first: f(1) = 3, then g(3) = 9"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Check each step"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "f(1) = 3 and g(3) = 9."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If f(x) = x + 2 and g(x) = 3x, then (g o f)(1) =."
+    },
+    {
+     "en": "Step 2: f(1) = 3 and g(3) = 9."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma792-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "In g o f, the function f is applied first."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "g o f means g(f(x))."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In g o f, the function f is applied first.."
+    },
+    {
+     "en": "Step 2: g o f means g(f(x))."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma792-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "With f(x) = 2x and g(x) = x + 1, (f o g)(x) ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "2x + 2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2x + 1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is g o f"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "x + 2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Multiply the whole bracket by 2"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "f(x + 1) = 2(x + 1)."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: With f(x) = 2x and g(x) = x + 1, (f o g)(x) =."
+    },
+    {
+     "en": "Step 2: f(x + 1) = 2(x + 1)."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma792-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "f(x) = x + 4 and g(x) = 2x. Find (g o f)(3)."
+   },
+   "answer": 14,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "f(3) = 7 and g(7) = 14."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: f(x) = x + 4 and g(x) = 2x. Find (g o f)(3).."
+    },
+    {
+     "en": "Step 2: f(3) = 7 and g(7) = 14."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma792-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: f o g and g o f are usually different."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Composition of functions is commutative."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "f o g and g o f are usually different."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: f o g and g o f are usually different."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Composition of functions is commutative.."
+    },
+    {
+     "en": "Step 2: f o g and g o f are usually different."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma792-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Composition is associative."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "(h o g) o f = h o (g o f)."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Composition is associative."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Composition is associative."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: (h o g) o f = h o (g o f).."
+    },
+    {
+     "en": "Step 2: Composition is associative."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10ma792-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If f(x) = x squared and g(x) = x + 1, find (f o g)(2)."
+   },
+   "answer": 9,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "g(2) = 3, f(3) = 9."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If f(x) = x squared and g(x) = x + 1, find (f o g)(2).."
+    },
+    {
+     "en": "Step 2: g(2) = 3, f(3) = 9."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma792-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"i\" and relates to f o I = f. What is the function I called?)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "f o I = f. What is the function I called?"
+   },
+   "accepted": [
+    "identity"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "I(x) = x."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"i\" and relates to f o I = f. What is the function I called?)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: f o I = f. What is the function I called?."
+    },
+    {
+     "en": "Step 2: I(x) = x."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-10",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): First machine doubles a number. Second machine adds 3. Put 5 in: ___ comes out of the first, then 13 from the second. Joining machines this way is called composition."
+   },
+   "accepted": [
+    "10"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"1\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"1\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"10\" accurately completes the concept: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Composition of functions): If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Composition of functions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Composition of functions): Identify the correct statement from this lesson. (Focus: rightmost function first)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Read g o f as g of f. The rightmost function acts first."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Read g o f as g of f. The rightmost function acts first. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Read g o f as g of f. The rightmost function acts first."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"rightmost function first\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "Read g o f as g of f. The rightmost function acts first."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"rightmost function first\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Read g o f as g of f. The rightmost function acts first.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-then",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): Example: f(x) = 2x and g(x) = x + 3. ___ (g o f)(x) = g(2x) = 2x + 3."
+   },
+   "accepted": [
+    "Then",
+    "then"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"T\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"T\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"Then\" accurately completes the concept: Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-6",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + ___, which is different. So composition is not commutative."
+   },
+   "accepted": [
+    "6"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"6\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"6\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"6\" accurately completes the concept: But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Composition of functions): Which of the following statements is scientifically/conceptually accurate? (Focus: Composition associative brackets change)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Composition associative brackets change\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Composition associative brackets change\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Composition of functions): The identity function I(x) = x leaves any function unchanged: f o I = I o f = f."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Composition of functions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The identity function I(x) = x leaves any function unchanged: f o I = I o f = f."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Composition of functions): Which of the following statements is scientifically/conceptually accurate? (Focus: inverse written f-1)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If f o g = g o f = I, then g is the inverse of f, written f^-1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If f o g = g o f = I, then g is the inverse of f, written f^-1. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If f o g = g o f = I, then g is the inverse of f, written f^-1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"inverse written f-1\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "If f o g = g o f = I, then g is the inverse of f, written f^-1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"inverse written f-1\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If f o g = g o f = I, then g is the inverse of f, written f^-1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-function",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): Check the domains: the output of the first ___ must lie in the domain of the second."
+   },
+   "accepted": [
+    "function"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"f\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Check the domains: the output of the first function must lie in the domain of the second.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"function\" accurately completes the concept: Check the domains: the output of the first function must lie in the domain of the second."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Composition of functions): Which of the following statements is scientifically/conceptually accurate? (Focus: First machine doubles number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, the does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f fir"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"First machine doubles number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"First machine doubles number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of the first, then 13 from the second. Joining machines this way is called composition.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Composition of functions): Which of the following statements is scientifically/conceptually accurate? (Focus: composition gfx first)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"composition gfx first\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"composition gfx first\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If f: A to B and g: B to C, the composition g o f maps x to g(f(x)). We do f first, then g.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-function",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): Read g o f as g of f. The rightmost ___ acts first."
+   },
+   "accepted": [
+    "function"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"f\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Read g o f as g of f. The rightmost function acts first.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"function\" accurately completes the concept: Read g o f as g of f. The rightmost function acts first."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Composition of functions): Which statement best explains a deep principle from this topic? (Focus: Example fx g2x)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Example fx g2x\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Example fx g2x\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Example: f(x) = 2x and g(x) = x + 3. Then (g o f)(x) = g(2x) = 2x + 3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Composition of functions): But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Composition of functions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — But (f o g)(x) = f(x + 3) = 2(x + 3) = 2x + 6, which is different. So composition is not commutative."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Composition of functions): Which statement best explains a deep principle from this topic? (Focus: Composition associative brackets change)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result. does not apply in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Composition of functions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Composition of functions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: First machine doubles a number. Second machine adds 3. Put 5 in: 10 comes out of"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Composition of functions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Composition associative brackets change\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Composition of functions\"."
+    }
+   ],
+   "explanation": {
+    "en": "Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Composition associative brackets change\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Composition is associative: (h o g) o f = h o (g o f), so brackets do not change the result.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-leaves",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Composition of functions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Composition of functions): The identity function I(x) = x ___ any function unchanged: f o I = I o f = f."
+   },
+   "accepted": [
+    "leaves"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Composition of functions\": the missing word starts with \"l\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The identity function I(x) = x leaves any function unchanged: f o I = I o f = f.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Composition of functions\"."
+    },
+    {
+     "en": "Step 2: \"leaves\" accurately completes the concept: The identity function I(x) = x leaves any function unchanged: f o I = I o f = f."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

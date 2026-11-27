@@ -213,7 +213,11 @@ def process(entry, args, fetcher, outdir):
     chdir = os.path.join(cdir, "_chapters", fname)
     res = {"status": "failed", "path": None, "kind": None, "url": None, "error": None}
 
-    if os.path.exists(final) and is_pdf(final) and not args.force:
+    minimum = entry.get("minimumPages", 0)
+    def complete_pdf(path):
+        return is_pdf(path) and (not minimum or (count_pages(path) or 0) >= minimum)
+
+    if os.path.exists(final) and complete_pdf(final) and not args.force:
         res.update(status="skipped", path=final, kind="single", url=entry.get("pdfUrl"))
         return res
     if os.path.isdir(chdir) and not args.force:
@@ -226,13 +230,16 @@ def process(entry, args, fetcher, outdir):
     errors = []
     # --- 1. whole-book file or zip
     url = entry.get("pdfUrl")
+    # NCERT's ps.pdf is the cover and front matter, not the complete textbook.
+    if url and re.search(r"/[a-z0-9]+ps\.pdf(?:[?#]|$)", url, re.I) and entry.get("chapterUrls"):
+        url = None
     if url:
         tmp = os.path.join(cdir, "_tmp", fname + ".download")
         say("    downloading full book: " + url)
         e = fetcher.get(url, tmp)
         if e:
             errors.append("full book: " + e)
-        elif is_pdf(tmp):
+        elif complete_pdf(tmp):
             os.makedirs(cdir, exist_ok=True)
             os.replace(tmp, final)
             res.update(status="ok", path=final, kind="single", url=url)

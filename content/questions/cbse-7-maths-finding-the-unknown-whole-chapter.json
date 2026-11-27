@@ -1,349 +1,1057 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "finding-the-unknown",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "finding-the-unknown",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c7ma-ftu-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c7ma-ftu-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The solution of x + 7 = 15 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "8"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "22"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is 15 + 7; subtract 7 instead."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "7"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "7 + 7 = 14, not 15."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "x = 15 - 7."
-      }
-    },
-    {
-      "key": "c7ma-ftu-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In the equation 3y + 2 = 14 the LHS is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "3y + 2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "14"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the RHS."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "y"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is only the unknown."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The LHS is the expression to the left of the equal sign."
-      }
-    },
-    {
-      "key": "c7ma-ftu-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "If we add the same number to both sides of an equation, the equality stays true."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "It is like adding equal weights to both pans of a balance."
-      }
-    },
-    {
-      "key": "c7ma-ftu-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "To solve 5x = 20, we"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "divide both sides by 5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "subtract 5 from both sides"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That would give 5x - 5 = 15, not remove the factor 5."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "add 5 to both sides"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That does not remove the factor 5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Division removes the factor 5."
-      }
-    },
-    {
-      "key": "c7ma-ftu-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Solve 2n + 1 = 99."
-      },
-      "answer": 49,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 98,
-          "why": {
-            "en": "That is 2n, not n."
-          }
-        },
-        {
-          "value": 50,
-          "why": {
-            "en": "2 × 50 + 1 = 101, which is too high."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2n = 98, so n = 49."
-      }
-    },
-    {
-      "key": "c7ma-ftu-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Solve 11y + (-5) = 61."
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5,
-          "why": {
-            "en": "11 × 5 - 5 = 50, not 61."
-          }
-        },
-        {
-          "value": 66,
-          "why": {
-            "en": "That is 11y, not y."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "11y = 66 and y = 6."
-      }
-    },
-    {
-      "key": "c7ma-ftu-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Solve 3k + 1 = 100."
-      },
-      "answer": 33,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 100,
-          "why": {
-            "en": "That is the number of tiles, not k."
-          }
-        },
-        {
-          "value": 34,
-          "why": {
-            "en": "3 × 34 + 1 = 103."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3k = 99 and k = 33."
-      }
-    },
-    {
-      "key": "c7ma-ftu-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Akash thinks of x, subtracts 3 and multiplies by 4 to get 24. Find x."
-      },
-      "answer": 9,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 6,
-          "why": {
-            "en": "That is x - 3, not x."
-          }
-        },
-        {
-          "value": 27,
-          "why": {
-            "en": "You added 3 to 24 and not 6."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4(x - 3) = 24, so x - 3 = 6 and x = 9."
-      }
-    },
-    {
-      "key": "c7ma-ftu-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Jahnavi has ₹4000 and saves ₹650 a month. Sunita has ₹5050 and saves ₹500 a month. After how many months are their savings equal?"
-      },
-      "answer": 7,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 10,
-          "why": {
-            "en": "Check: 4000 + 6500 = 10500 but 5050 + 5000 = 10050."
-          }
-        },
-        {
-          "value": 5,
-          "why": {
-            "en": "Check the equation 150m = 1050."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4000 + 650m = 5050 + 500m gives 150m = 1050, so m = 7."
-      },
-      "unit": {
-        "en": "months"
-      }
-    },
-    {
-      "key": "c7ma-ftu-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which equation has no solution?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "x + 4 = x + 5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "x + 4 = 9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It has the solution x = 5."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2x = 10"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It has the solution x = 5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "No number can be 4 more and 5 more than itself at the same time."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The solution of x + 7 = 15 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "8"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "22"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is 15 + 7; subtract 7 instead."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "7 + 7 = 14, not 15."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "x = 15 - 7."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The solution of x + 7 = 15 is."
+    },
+    {
+     "en": "Step 2: x = 15 - 7."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The LHS is the expression to the left of the equal sign."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In the equation 3y + 2 = 14 the LHS is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "3y + 2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "14"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the RHS."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "y"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is only the unknown."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The LHS is the expression to the left of the equal sign."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The LHS is the expression to the left of the equal sign."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the equation 3y + 2 = 14 the LHS is."
+    },
+    {
+     "en": "Step 2: The LHS is the expression to the left of the equal sign."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: It is like adding equal weights to both pans of a balance."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "If we add the same number to both sides of an equation, the equality stays true."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "It is like adding equal weights to both pans of a balance."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: It is like adding equal weights to both pans of a balance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If we add the same number to both sides of an equation, the equality stays true.."
+    },
+    {
+     "en": "Step 2: It is like adding equal weights to both pans of a balance."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Division removes the factor 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "To solve 5x = 20, we"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "divide both sides by 5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "subtract 5 from both sides"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That would give 5x - 5 = 15, not remove the factor 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "add 5 to both sides"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That does not remove the factor 5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Division removes the factor 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Division removes the factor 5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: To solve 5x = 20, we."
+    },
+    {
+     "en": "Step 2: Division removes the factor 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Solve 2n + 1 = 99."
+   },
+   "answer": 49,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 98,
+     "why": {
+      "en": "That is 2n, not n."
+     }
+    },
+    {
+     "value": 50,
+     "why": {
+      "en": "2 × 50 + 1 = 101, which is too high."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2n = 98, so n = 49."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Solve 2n + 1 = 99.."
+    },
+    {
+     "en": "Step 2: 2n = 98, so n = 49."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Solve 11y + (-5) = 61."
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5,
+     "why": {
+      "en": "11 × 5 - 5 = 50, not 61."
+     }
+    },
+    {
+     "value": 66,
+     "why": {
+      "en": "That is 11y, not y."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "11y = 66 and y = 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Solve 11y + (-5) = 61.."
+    },
+    {
+     "en": "Step 2: 11y = 66 and y = 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Solve 3k + 1 = 100."
+   },
+   "answer": 33,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 100,
+     "why": {
+      "en": "That is the number of tiles, not k."
+     }
+    },
+    {
+     "value": 34,
+     "why": {
+      "en": "3 × 34 + 1 = 103."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3k = 99 and k = 33."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Solve 3k + 1 = 100.."
+    },
+    {
+     "en": "Step 2: 3k = 99 and k = 33."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 4(x - 3) = 24, so x - 3 = 6 and x = 9."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Akash thinks of x, subtracts 3 and multiplies by 4 to get 24. Find x."
+   },
+   "answer": 9,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 6,
+     "why": {
+      "en": "That is x - 3, not x."
+     }
+    },
+    {
+     "value": 27,
+     "why": {
+      "en": "You added 3 to 24 and not 6."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4(x - 3) = 24, so x - 3 = 6 and x = 9."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 4(x - 3) = 24, so x - 3 = 6 and x = 9."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Akash thinks of x, subtracts 3 and multiplies by 4 to get 24. Find x.."
+    },
+    {
+     "en": "Step 2: 4(x - 3) = 24, so x - 3 = 6 and x = 9."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-ftu-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 4000 + 650m = 5050 + 500m gives 150m = 1050, so m = 7."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Jahnavi has ₹4000 and saves ₹650 a month. Sunita has ₹5050 and saves ₹500 a month. After how many months are their savings equal?"
+   },
+   "answer": 7,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 10,
+     "why": {
+      "en": "Check: 4000 + 6500 = 10500 but 5050 + 5000 = 10050."
+     }
+    },
+    {
+     "value": 5,
+     "why": {
+      "en": "Check the equation 150m = 1050."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4000 + 650m = 5050 + 500m gives 150m = 1050, so m = 7."
+   },
+   "unit": {
+    "en": "months"
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 4000 + 650m = 5050 + 500m gives 150m = 1050, so m = 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Jahnavi has ₹4000 and saves ₹650 a month. Sunita has ₹5050 and saves ₹500 a month. After h."
+    },
+    {
+     "en": "Step 2: 4000 + 650m = 5050 + 500m gives 150m = 1050, so m = 7."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c7ma-ftu-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: No number can be 4 more and 5 more than itself at the same time."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which equation has no solution?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "x + 4 = x + 5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "x + 4 = 9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It has the solution x = 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2x = 10"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It has the solution x = 5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "No number can be 4 more and 5 more than itself at the same time."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: No number can be 4 more and 5 more than itself at the same time."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which equation has no solution?."
+    },
+    {
+     "en": "Step 2: No number can be 4 more and 5 more than itself at the same time."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-position",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Finding the Unknown",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding the Unknown): Matchstick arrangements are built in a sequence: position 1 has 2 × 1 + 1 = 3 sticks, ___ 2 has 5, position 3 has 7. So position n has 2n + 1 sticks."
+   },
+   "accepted": [
+    "position"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding the Unknown\": the missing word starts with \"p\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Matchstick arrangements are built in a sequence: position 1 has 2 × 1 + 1 = 3 sticks, position 2 has 5, position 3 has 7. So position n has 2n + 1 sticks.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding the Unknown\"."
+    },
+    {
+     "en": "Step 2: \"position\" accurately completes the concept: Matchstick arrangements are built in a sequence: position 1 has 2 × 1 + 1 = 3 sticks, position 2 has 5, position 3 has 7. So position n has 2n + 1 sticks."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Finding the Unknown): Identify the correct statement from this lesson. (Focus: Jasmine wants arrangement exactly)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Jasmine wants an arrangement with exactly 99 sticks. We need n with 2n + 1 = 99."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Jasmine wants an arrangement with exactly 99 sticks. We need n with 2n + 1 = 99. does not apply in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Jasmine wants an arrangement with exactly 99 sticks. We need n with 2n + 1 = 99."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding the Unknown follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A balanced scale tells us that the two pans weigh the same. If one pan holds two"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding the Unknown."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Jasmine wants arrangement exactly\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "Jasmine wants an arrangement with exactly 99 sticks. We need n with 2n + 1 = 99."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Jasmine wants arrangement exactly\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Jasmine wants an arrangement with exactly 99 sticks. We need n with 2n + 1 = 99.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-sign",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Finding the Unknown",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding the Unknown): A statement that two algebraic expressions are equal is called an equation. The expression on the left of the equal ___ is the Left Hand Side, the LHS, and the one on the right is the Right Hand Side, the RHS."
+   },
+   "accepted": [
+    "sign"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding the Unknown\": the missing word starts with \"s\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A statement that two algebraic expressions are equal is called an equation. The expression on the left of the equal sign is the Left Hand Side, the LHS, and the one on the right is the Right Hand Side, the RHS.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding the Unknown\"."
+    },
+    {
+     "en": "Step 2: \"sign\" accurately completes the concept: A statement that two algebraic expressions are equal is called an equation. The expression on the left of the equal sign is the Left Hand Side, the LHS, and the one on the right is the Right Hand Side, the RHS."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Finding the Unknown): Which of the following statements is scientifically/conceptually accurate? (Focus: called trial error method)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "This is called the trial and error method. It works but can take very long. Solving 5x - 4 = 7 this way takes many trials, because the answer is not a whole number."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: This is called the trial and error method. It works but can take very long. Solving 5x - 4 = 7  does not apply in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, This is called the trial and error method. It works but can take very long. Solving 5x - 4 = 7 this way takes many trials, because the answer is not a whole number."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding the Unknown follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A balanced scale tells us that the two pans weigh the same. If one pan holds two"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding the Unknown."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"called trial error method\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "This is called the trial and error method. It works but can take very long. Solving 5x - 4 = 7 this way takes many trials, because the answer is not a whole number."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"called trial error method\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"This is called the trial and error method. It works but can take very long. Solving 5x - 4 = 7 this way takes many trials, because the answer is not a whole number.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-both",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Finding the Unknown",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding the Unknown): Adding or subtracting the same number on both sides keeps the same solutions. Multiplying or dividing ___ sides by the same non-zero number also keeps the same solutions. Each of these steps can be undone."
+   },
+   "accepted": [
+    "both"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding the Unknown\": the missing word starts with \"b\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"b\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Adding or subtracting the same number on both sides keeps the same solutions. Multiplying or dividing both sides by the same non-zero number also keeps the same solutions. Each of these steps can be undone.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding the Unknown\"."
+    },
+    {
+     "en": "Step 2: \"both\" accurately completes the concept: Adding or subtracting the same number on both sides keeps the same solutions. Multiplying or dividing both sides by the same non-zero number also keeps the same solutions. Each of these steps can be undone."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Finding the Unknown): In the same way multiplication and division are inverse operations. If 23 × 41 × 11 × 8 × 7 = 580888, dividing both sides by 7 gives the value of the product 23 × 41 × 11 × 8."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Finding the Unknown\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In the same way multiplication and division are inverse operations. If 23 × 41 × 11 × 8 × 7 = 580888, dividing both sides by 7 gives the value of the product 23 × 41 × 11 × 8."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Finding the Unknown\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-17",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Finding the Unknown): Which statement best explains a deep principle from this topic? (Focus: Solve Subtract -5 Divide)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Solve 11y + (-5) = 61. Subtract (-5), that is add 5, to get 11y = 66. Divide both sides by 11 to get y = 6. Always check: 11 × 6 - 5 = 61."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Solve 11y + (-5) = 61. Subtract (-5), that is add 5, to get 11y = 66. Divide both sides by 11 t does not apply in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Solve 11y + (-5) = 61. Subtract (-5), that is add 5, to get 11y = 66. Divide both sides by 11 to get y = 6. Always check: 11 × 6 - 5 = 61."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding the Unknown follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A balanced scale tells us that the two pans weigh the same. If one pan holds two"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding the Unknown."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Solve Subtract -5 Divide\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "Solve 11y + (-5) = 61. Subtract (-5), that is add 5, to get 11y = 66. Divide both sides by 11 to get y = 6. Always check: 11 × 6 - 5 = 61."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Solve Subtract -5 Divide\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Solve 11y + (-5) = 61. Subtract (-5), that is add 5, to get 11y = 66. Divide both sides by 11 to get y = 6. Always check: 11 × 6 - 5 = 61.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Finding the Unknown): Which statement best explains a deep principle from this topic? (Focus: unknowns appear sides bring)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "When unknowns appear on both sides, bring the unknown terms to one side by doing the same thing to both. Always check the solution by substituting it."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: When unknowns appear on both sides, bring the unknown terms to one side by doing the same thing does not apply in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, When unknowns appear on both sides, bring the unknown terms to one side by doing the same thing to both. Always check the solution by substituting it."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding the Unknown follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A balanced scale tells us that the two pans weigh the same. If one pan holds two"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding the Unknown."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"unknowns appear sides bring\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "When unknowns appear on both sides, bring the unknown terms to one side by doing the same thing to both. Always check the solution by substituting it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"unknowns appear sides bring\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"When unknowns appear on both sides, bring the unknown terms to one side by doing the same thing to both. Always check the solution by substituting it.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-19-4",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Finding the Unknown",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Finding the Unknown): Some equations have no solution, such as x + 4 = x + 5, because no number can be ___ more and 5 more than itself at once."
+   },
+   "accepted": [
+    "4"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Finding the Unknown\": the missing word starts with \"4\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"4\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Some equations have no solution, such as x + 4 = x + 5, because no number can be 4 more and 5 more than itself at once.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Finding the Unknown\"."
+    },
+    {
+     "en": "Step 2: \"4\" accurately completes the concept: Some equations have no solution, such as x + 4 = x + 5, because no number can be 4 more and 5 more than itself at once."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Finding the Unknown): Which statement best explains a deep principle from this topic? (Focus: Ranjana builds arrangements where)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Ranjana builds tile arrangements where step k needs 3k + 1 tiles. Can she use exactly 100 tiles? Solve 3k + 1 = 100: 3k = 99, k = 33. Yes, at step 33."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Ranjana builds tile arrangements where step k needs 3k + 1 tiles. Can she use exactly 100 tiles does not apply in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Ranjana builds tile arrangements where step k needs 3k + 1 tiles. Can she use exactly 100 tiles? Solve 3k + 1 = 100: 3k = 99, k = 33. Yes, at step 33."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Finding the Unknown."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Finding the Unknown follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A balanced scale tells us that the two pans weigh the same. If one pan holds two"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Finding the Unknown."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Ranjana builds arrangements where\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Finding the Unknown\"."
+    }
+   ],
+   "explanation": {
+    "en": "Ranjana builds tile arrangements where step k needs 3k + 1 tiles. Can she use exactly 100 tiles? Solve 3k + 1 = 100: 3k = 99, k = 33. Yes, at step 33."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Ranjana builds arrangements where\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Ranjana builds tile arrangements where step k needs 3k + 1 tiles. Can she use exactly 100 tiles? Solve 3k + 1 = 100: 3k = 99, k = 33. Yes, at step 33.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

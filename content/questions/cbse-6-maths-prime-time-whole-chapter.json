@@ -1,346 +1,978 @@
 {
-  "board": "CBSE",
-  "classLevel": 6,
-  "subject": "maths",
-  "chapter": "prime-time",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "prime-time",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c6ma-pt-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c6ma-pt-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A number with exactly two factors, 1 and itself, is called a"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "prime number"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "composite number"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A composite number has more than two factors."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "co-prime number"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Co-prime describes a pair of numbers, not one number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Examples are 2, 3, 5, 7 and 11."
-      }
-    },
-    {
-      "key": "c6ma-pt-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many prime numbers are there from 1 to 100?"
-      },
-      "answer": 25,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 26,
-          "why": {
-            "en": "26 counts 1, but 1 is not a prime."
-          }
-        },
-        {
-          "value": 24,
-          "why": {
-            "en": "You missed one prime; list them again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The sieve leaves 25 primes up to 100."
-      }
-    },
-    {
-      "key": "c6ma-pt-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What is the first common multiple of 4 and 6?"
-      },
-      "answer": 12,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 24,
-          "why": {
-            "en": "24 is a common multiple but not the first one."
-          }
-        },
-        {
-          "value": 10,
-          "why": {
-            "en": "10 is the sum of 4 and 6, not a common multiple."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the first common one is 12."
-      }
-    },
-    {
-      "key": "c6ma-pt-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which pair of numbers is co-prime?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "4 and 15"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "12 and 26"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Both are divisible by 2."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "15 and 39"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Both are divisible by 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4 = 2 x 2 and 15 = 3 x 5 have no common prime."
-      }
-    },
-    {
-      "key": "c6ma-pt-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What number has the prime factorisation 2 x 3 x 3 x 11?"
-      },
-      "answer": 198,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 66,
-          "why": {
-            "en": "66 = 2 x 3 x 11 has only one 3."
-          }
-        },
-        {
-          "value": 396,
-          "why": {
-            "en": "396 has an extra factor of 2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 x 3 x 3 = 18 and 18 x 11 = 198."
-      }
-    },
-    {
-      "key": "c6ma-pt-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The number 1 is a prime number."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "1 has only one factor, so it is neither prime nor composite."
-      }
-    },
-    {
-      "key": "c6ma-pt-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In the idli-vada game played from 1 to 90, how many times is idli-vada said?"
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 30,
-          "why": {
-            "en": "30 is the number of times idli is said, including idli-vada."
-          }
-        },
-        {
-          "value": 18,
-          "why": {
-            "en": "18 is the number of times vada is said, including idli-vada."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "It is said at 15, 30, 45, 60, 75 and 90."
-      }
-    },
-    {
-      "key": "c6ma-pt-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Is 8536 divisible by 8?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Yes, because the last three digits 536 are divisible by 8"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "No, because the last digit 6 is not divisible by 8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Only for 2, 5 and 10 does the last digit decide."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "No, because 36 is not divisible by 8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "For 8 the last three digits matter, not two."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "536 = 8 x 67."
-      }
-    },
-    {
-      "key": "c6ma-pt-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What is the largest prime factor of 105?"
-      },
-      "answer": 7,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 35,
-          "why": {
-            "en": "35 = 5 x 7 is not a prime."
-          }
-        },
-        {
-          "value": 5,
-          "why": {
-            "en": "5 is a prime factor but 7 is larger."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "105 = 3 x 5 x 7, and the largest prime among them is 7."
-      }
-    },
-    {
-      "key": "c6ma-pt-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Every route to the prime factorisation of 36 gives"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "two 2s and two 3s"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "three 2s and one 3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 x 2 x 2 x 3 = 24, not 36."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "one 2 and three 3s"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 x 3 x 3 x 3 = 54, not 36."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 x 2 x 3 x 3 = 36 whichever way we break it down."
-      }
+     "en": "Focus on this idea: Examples are 2, 3, 5, 7 and 11."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A number with exactly two factors, 1 and itself, is called a"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "prime number"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "composite number"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A composite number has more than two factors."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "co-prime number"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Co-prime describes a pair of numbers, not one number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Examples are 2, 3, 5, 7 and 11."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Examples are 2, 3, 5, 7 and 11."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A number with exactly two factors, 1 and itself, is called a."
+    },
+    {
+     "en": "Step 2: Examples are 2, 3, 5, 7 and 11."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The sieve leaves 25 primes up to 100."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many prime numbers are there from 1 to 100?"
+   },
+   "answer": 25,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 26,
+     "why": {
+      "en": "26 counts 1, but 1 is not a prime."
+     }
+    },
+    {
+     "value": 24,
+     "why": {
+      "en": "You missed one prime; list them again."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The sieve leaves 25 primes up to 100."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The sieve leaves 25 primes up to 100."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many prime numbers are there from 1 to 100?."
+    },
+    {
+     "en": "Step 2: The sieve leaves 25 primes up to 100."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the first common one is 12."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What is the first common multiple of 4 and 6?"
+   },
+   "answer": 12,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 24,
+     "why": {
+      "en": "24 is a common multiple but not the first one."
+     }
+    },
+    {
+     "value": 10,
+     "why": {
+      "en": "10 is the sum of 4 and 6, not a common multiple."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the first common one is 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the first common one is 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the first common multiple of 4 and 6?."
+    },
+    {
+     "en": "Step 2: Multiples of 4 are 4, 8, 12 and multiples of 6 are 6, 12, so the first common one is 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 4 = 2 x 2 and 15 = 3 x 5 have no common prime."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which pair of numbers is co-prime?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4 and 15"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "12 and 26"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Both are divisible by 2."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "15 and 39"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Both are divisible by 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4 = 2 x 2 and 15 = 3 x 5 have no common prime."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 4 = 2 x 2 and 15 = 3 x 5 have no common prime."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which pair of numbers is co-prime?."
+    },
+    {
+     "en": "Step 2: 4 = 2 x 2 and 15 = 3 x 5 have no common prime."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 2 x 3 x 3 = 18 and 18 x 11 = 198."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What number has the prime factorisation 2 x 3 x 3 x 11?"
+   },
+   "answer": 198,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 66,
+     "why": {
+      "en": "66 = 2 x 3 x 11 has only one 3."
+     }
+    },
+    {
+     "value": 396,
+     "why": {
+      "en": "396 has an extra factor of 2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 x 3 x 3 = 18 and 18 x 11 = 198."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 2 x 3 x 3 = 18 and 18 x 11 = 198."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What number has the prime factorisation 2 x 3 x 3 x 11?."
+    },
+    {
+     "en": "Step 2: 2 x 3 x 3 = 18 and 18 x 11 = 198."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 1 has only one factor, so it is neither prime nor composite."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The number 1 is a prime number."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "1 has only one factor, so it is neither prime nor composite."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 1 has only one factor, so it is neither prime nor composite."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The number 1 is a prime number.."
+    },
+    {
+     "en": "Step 2: 1 has only one factor, so it is neither prime nor composite."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: It is said at 15, 30, 45, 60, 75 and 90."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In the idli-vada game played from 1 to 90, how many times is idli-vada said?"
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 30,
+     "why": {
+      "en": "30 is the number of times idli is said, including idli-vada."
+     }
+    },
+    {
+     "value": 18,
+     "why": {
+      "en": "18 is the number of times vada is said, including idli-vada."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "It is said at 15, 30, 45, 60, 75 and 90."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: It is said at 15, 30, 45, 60, 75 and 90."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the idli-vada game played from 1 to 90, how many times is idli-vada said?."
+    },
+    {
+     "en": "Step 2: It is said at 15, 30, 45, 60, 75 and 90."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-pt-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Is 8536 divisible by 8?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Yes, because the last three digits 536 are divisible by 8"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "No, because the last digit 6 is not divisible by 8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Only for 2, 5 and 10 does the last digit decide."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "No, because 36 is not divisible by 8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "For 8 the last three digits matter, not two."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "536 = 8 x 67."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Is 8536 divisible by 8?."
+    },
+    {
+     "en": "Step 2: 536 = 8 x 67."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-pt-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 105 = 3 x 5 x 7, and the largest prime among them is 7."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What is the largest prime factor of 105?"
+   },
+   "answer": 7,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 35,
+     "why": {
+      "en": "35 = 5 x 7 is not a prime."
+     }
+    },
+    {
+     "value": 5,
+     "why": {
+      "en": "5 is a prime factor but 7 is larger."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "105 = 3 x 5 x 7, and the largest prime among them is 7."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 105 = 3 x 5 x 7, and the largest prime among them is 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the largest prime factor of 105?."
+    },
+    {
+     "en": "Step 2: 105 = 3 x 5 x 7, and the largest prime among them is 7."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-pt-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 2 x 2 x 3 x 3 = 36 whichever way we break it down."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Every route to the prime factorisation of 36 gives"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "two 2s and two 3s"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "three 2s and one 3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 x 2 x 2 x 3 = 24, not 36."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "one 2 and three 3s"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 x 3 x 3 x 3 = 54, not 36."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 x 2 x 3 x 3 = 36 whichever way we break it down."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 2 x 2 x 3 x 3 = 36 whichever way we break it down."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Every route to the prime factorisation of 36 gives."
+    },
+    {
+     "en": "Step 2: 2 x 2 x 3 x 3 = 36 whichever way we break it down."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Prime Time): Identify the correct statement from this lesson. (Focus: including idli-vada times times)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times does not apply in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Prime Time follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idl"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Prime Time."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"including idli-vada times times\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"including idli-vada times times\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"From 1 to 90, idli (including idli-vada) is said 30 times, vada 18 times, and idli-vada 6 times, at 15, 30, 45, 60, 75 and 90. The tenth idli-vada comes at 150.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-said",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Prime Time",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Prime Time): Every common multiple of 3 and 5 is a multiple of 15. If the game is played to 900, idli-vada is ___ 60 times, vada 180 times and idli is said 300 times."
+   },
+   "accepted": [
+    "said"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Prime Time\": the missing word starts with \"s\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Every common multiple of 3 and 5 is a multiple of 15. If the game is played to 900, idli-vada is said 60 times, vada 180 times and idli is said 300 times.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: \"said\" accurately completes the concept: Every common multiple of 3 and 5 is a multiple of 15. If the game is played to 900, idli-vada is said 60 times, vada 180 times and idli is said 300 times."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-13",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Prime Time): A number is never a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Prime Time\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A number is a factor of another if it divides it exactly. The factors of 12 are 1, 2, 3, 4, 6 and 12. Each pair of factors multiplies to give 12, such as 3 x 4."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Prime Time",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Prime Time): Common factors are the factors shared by two numbers. The common factors of ___ and 28 are 1, 2 and 4, and those of 35 and 50 are 1 and 5."
+   },
+   "accepted": [
+    "20"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Prime Time\": the missing word starts with \"2\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"2\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Common factors are the factors shared by two numbers. The common factors of 20 and 28 are 1, 2 and 4, and those of 35 and 50 are 1 and 5.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: \"20\" accurately completes the concept: Common factors are the factors shared by two numbers. The common factors of 20 and 28 are 1, 2 and 4, and those of 35 and 50 are 1 and 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Prime Time): A number with exactly two factors, 1 and itself, is never called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Prime Time\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A number with exactly two factors, 1 and itself, is called a prime number. The first primes are 2, 3, 5, 7, 11, 13, 17 and 19."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-16-three",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Prime Time",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Prime Time): The number 2 is the only even prime, because every other even number is divisible by 2 and so has at least ___ factors. Between 21 and 30 there are 2 primes, 23 and 29, and 8 composite numbers."
+   },
+   "accepted": [
+    "three"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Prime Time\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The number 2 is the only even prime, because every other even number is divisible by 2 and so has at least three factors. Between 21 and 30 there are 2 primes, 23 and 29, and 8 composite numbers.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: \"three\" accurately completes the concept: The number 2 is the only even prime, because every other even number is divisible by 2 and so has at least three factors. Between 21 and 30 there are 2 primes, 23 and 29, and 8 composite numbers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-17",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: There prime factorisation number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: There is only one prime factorisation of a number, apart from the order of the factors. This is does not apply in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Prime Time follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idl"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Prime Time."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"There prime factorisation number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"There prime factorisation number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"There is only one prime factorisation of a number, apart from the order of the factors. This is why 30 = 2 x 3 x 5 whichever order we multiply in.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Prime Time): Which statement best explains a deep principle from this topic? (Focus: three digits divisible because)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is d does not apply in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Prime Time."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Prime Time follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Children sit in a circle and count from 1. Whoever gets a multiple of 3 says idl"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Prime Time."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"three digits divisible because\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"three digits divisible because\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For 8 look at the last three digits. 8536 is divisible by 8 because 536 = 8 x 67, and 8560 is divisible by 8 because 560 = 8 x 70.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-19-digits",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Prime Time",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Prime Time): The reason is that 100 is a multiple of 4 and 1000 is a multiple of 8, so only the last few ___ can affect divisibility. Tests for 3, 6, 7 and 9 come in later classes."
+   },
+   "accepted": [
+    "digits"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Prime Time\": the missing word starts with \"d\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The reason is that 100 is a multiple of 4 and 1000 is a multiple of 8, so only the last few digits can affect divisibility. Tests for 3, 6, 7 and 9 come in later classes.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: \"digits\" accurately completes the concept: The reason is that 100 is a multiple of 4 and 1000 is a multiple of 8, so only the last few digits can affect divisibility. Tests for 3, 6, 7 and 9 come in later classes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Prime Time): In a prime puzzle grid you fill the cells with primes so that each row product and column product match the given numbers, which is a nice use of prime factorisation."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Prime Time\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Prime Time\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In a prime puzzle grid you fill the cells with primes so that each row product and column product match the given numbers, which is a nice use of prime factorisation."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Prime Time\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

@@ -1305,3 +1305,35 @@ html .home-top .hero .lead, .hero .lead { max-width: none; }
   .noprint, .ws-opts, .ws-typed, .ws-summary, .ws-fb, .tier-chips { display: none !important; }
   .print-only { display: block !important; }
 }
+
+/* Unified 4-tab Classroom Assessments (Chalkboard / Practice / Worksheet / Chapter Test) */
+.lesson-title-row { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 8px; }
+.lesson-title-row h1 { margin: 0; }
+.lesson-tabs { display: inline-flex; flex-wrap: wrap; background: var(--soft, #e9efe9); padding: 4px; border-radius: 11px; gap: 4px; border: 1px solid var(--line, #cdd8cf); }
+.lesson-tab { border: none; background: transparent; padding: 6px 12px; border-radius: 8px; font-size: 0.9rem; font-weight: 700; color: var(--muted, #425a4d); cursor: pointer; }
+.lesson-tab.active { background: #fff; color: var(--accent, #166544); box-shadow: 0 2px 6px rgba(0, 0, 0, .08); }
+.assess-panel { margin-top: 10px; }
+.assess-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+.assess-head h2 { margin: 0 0 4px; font-size: 1.25rem; }
+.assess-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+.assess-list { display: grid; gap: 14px; }
+.assess-item { position: relative; }
+.assess-qnum { font-size: 0.8rem; font-weight: 800; color: var(--muted, #4b6355); margin-bottom: 4px; }
+.assess-foot { margin-top: 8px; display: flex; justify-content: flex-end; }
+.ws-group { margin-bottom: 18px; }
+.ws-group-title { margin: 12px 0 8px; padding-bottom: 4px; border-bottom: 2px solid var(--line, #d5e2d9); font-size: 1.05rem; }
+.ws-qcard { background: #fff; border: 1px solid var(--line, #d8e3db); border-radius: 12px; padding: 14px 16px; margin-bottom: 10px; }
+.ws-qcard.right { border-color: #16a34a; background: #f3fbf5; }
+.ws-qcard.wrong { border-color: #dc2626; background: #fef5f5; }
+.ws-qhead { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+.ws-fb { margin: 8px 0 0; font-size: 0.92rem; font-weight: 600; }
+.ws-fb.yes { color: #166544; }
+.ws-fb.no { color: #991b1b; }
+.score-banner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; background: #ecfdf5; border: 1px solid #6ee7b7; border-radius: 12px; padding: 12px 16px; margin-bottom: 14px; }
+.tier-bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin-bottom: 16px; }
+.tier-bar-card { background: #fff; border: 1px solid var(--line, #d8e3db); border-radius: 10px; padding: 10px 12px; }
+.tier-bar-head { display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 700; margin-bottom: 6px; }
+.tier-bar-track { height: 8px; background: #e5e7eb; border-radius: 999px; overflow: hidden; }
+.tier-bar-fill { height: 100%; background: var(--accent, #166544); border-radius: 999px; }
+.print-lines { display: none; }
+@media print { .no-print, .lesson-tabs { display: none !important; } .print-lines { display: block; height: 34px; border-bottom: 1px dashed #94a3b8; margin-top: 8px; } }

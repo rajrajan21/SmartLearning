@@ -1,250 +1,1236 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "pair-of-linear-equations-in-two-variables",
-  "topic": "algebraic-methods",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "pair-of-linear-equations-in-two-variables",
+ "topic": "algebraic-methods",
+ "questions": [
+  {
+   "key": "r1-al1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-al1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The solution of x + y = 10, x - y = 4 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "(7, 3)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "(3, 7)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "x is bigger than y here."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "(6, 4)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "6 - 4 = 2, not 4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Adding: 2x = 14, x = 7, y = 3."
-      }
-    },
-    {
-      "key": "r1-al2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Solve 3x = 12 - y with x = 2. Find y."
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 4,
-          "why": {
-            "en": "6 = 12 - y."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3(2) = 12 - y gives y = 6."
-      }
-    },
-    {
-      "key": "r2-al3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Father's age is three times his son's. In 12 years he will be twice as old. Son's present age?"
-      },
-      "answer": 12,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 36,
-          "why": {
-            "en": "36 is the father's age."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3s + 12 = 2(s + 12) gives s = 12."
-      }
-    },
-    {
-      "key": "r2-al4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The pair 2x + y = 7 and x - y = 2 has solution"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "(3, 1)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "(2, 3)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 - 3 = -1, not 2."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "(1, 5)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1 - 5 = -4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Adding gives 3x = 9."
-      }
-    },
-    {
-      "key": "r2-al5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): Elimination can solve 5x + 2y = 12 and 3x - 2y = 4. Reason (R): Adding the equations removes y."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Adding gives 8x = 16, y disappears."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The method works, so A is true."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "8x = 16, so x = 2 and y = 1."
-      }
-    },
-    {
-      "key": "r3-al6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Solve x + y = 14, x - y = 4. Write x."
-      },
-      "accepted": [
-        "9"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "5",
-          "why": {
-            "en": "5 is y."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2x = 18 gives x = 9."
-      }
-    },
-    {
-      "key": "r3-al7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "After solving a pair of equations you should verify the answer in both equations."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "This catches arithmetic slips."
-      }
-    },
-    {
-      "key": "r3-al8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A numerator n is 1 less than the denominator 6. Find n."
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 7,
-          "why": {
-            "en": "Subtract, not add."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "n = 6 - 1 = 5."
-      }
+     "en": "Focus on this idea: Adding: 2x = 14, x = 7, y = 3."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The solution of x + y = 10, x - y = 4 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "(7, 3)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "(3, 7)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "x is bigger than y here."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "(6, 4)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "6 - 4 = 2, not 4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Adding: 2x = 14, x = 7, y = 3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Adding: 2x = 14, x = 7, y = 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The solution of x + y = 10, x - y = 4 is."
+    },
+    {
+     "en": "Step 2: Adding: 2x = 14, x = 7, y = 3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-al2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 3(2) = 12 - y gives y = 6."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Solve 3x = 12 - y with x = 2. Find y."
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 4,
+     "why": {
+      "en": "6 = 12 - y."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3(2) = 12 - y gives y = 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 3(2) = 12 - y gives y = 6."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Solve 3x = 12 - y with x = 2. Find y.."
+    },
+    {
+     "en": "Step 2: 3(2) = 12 - y gives y = 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-al3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 3s + 12 = 2(s + 12) gives s = 12."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Father's age is three times his son's. In 12 years he will be twice as old. Son's present age?"
+   },
+   "answer": 12,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 36,
+     "why": {
+      "en": "36 is the father's age."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3s + 12 = 2(s + 12) gives s = 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 3s + 12 = 2(s + 12) gives s = 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Father's age is three times his son's. In 12 years he will be twice as old. Son's present ."
+    },
+    {
+     "en": "Step 2: 3s + 12 = 2(s + 12) gives s = 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-al4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The pair 2x + y = 7 and x - y = 2 has solution"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "(3, 1)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "(2, 3)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 - 3 = -1, not 2."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "(1, 5)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "1 - 5 = -4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Adding gives 3x = 9."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The pair 2x + y = 7 and x - y = 2 has solution."
+    },
+    {
+     "en": "Step 2: Adding gives 3x = 9."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-al5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 8x = 16, so x = 2 and y = 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): Elimination can solve 5x + 2y = 12 and 3x - 2y = 4. Reason (R): Adding the equations removes y."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Adding gives 8x = 16, y disappears."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The method works, so A is true."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "8x = 16, so x = 2 and y = 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 8x = 16, so x = 2 and y = 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): Elimination can solve 5x + 2y = 12 and 3x - 2y = 4. Reason (R): Adding the ."
+    },
+    {
+     "en": "Step 2: 8x = 16, so x = 2 and y = 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-al6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Solve x + y = 14, x - y = 4. Write x."
+   },
+   "accepted": [
+    "9"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "5",
+     "why": {
+      "en": "5 is y."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2x = 18 gives x = 9."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Solve x + y = 14, x - y = 4. Write x.."
+    },
+    {
+     "en": "Step 2: 2x = 18 gives x = 9."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-al7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: This catches arithmetic slips."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "After solving a pair of equations you should verify the answer in both equations."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "This catches arithmetic slips."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: This catches arithmetic slips."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: After solving a pair of equations you should verify the answer in both equations.."
+    },
+    {
+     "en": "Step 2: This catches arithmetic slips."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-al8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A numerator n is 1 less than the denominator 6. Find n."
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 7,
+     "why": {
+      "en": "Subtract, not add."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "n = 6 - 1 = 5."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A numerator n is 1 less than the denominator 6. Find n.."
+    },
+    {
+     "en": "Step 2: n = 6 - 1 = 5."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-substitution",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Substitution and elimination methods",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Substitution and elimination methods): Drawing graphs takes time and accuracy. Two algebraic tricks, ___ and elimination, give exact answers in a few lines."
+   },
+   "accepted": [
+    "substitution"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Substitution and elimination methods\": the missing word starts with \"s\" and has 12 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (12 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: \"substitution\" accurately completes the concept: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Substitution and elimination methods): In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Substitution and elimination methods\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Substitution and elimination methods): Identify the correct statement from this lesson. (Focus: first)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3. does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"first\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"first\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-36",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Substitution and elimination methods",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Substitution and elimination methods): Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = ___, so 5t = 30 and t = 6, giving s = 9."
+   },
+   "accepted": [
+    "36"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Substitution and elimination methods\": the missing word starts with \"3\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: \"36\" accurately completes the concept: Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Substitution and elimination methods): Identify the correct statement from this lesson. (Focus: elimination method coefficients variable)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In the elimination method we make the coefficients of one variable equal by multiplying, then a does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"elimination method coefficients variable\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"elimination method coefficients variable\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-first",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Substitution and elimination methods",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Substitution and elimination methods): Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the ___ by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+   },
+   "accepted": [
+    "first"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Substitution and elimination methods\": the missing word starts with \"f\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: \"first\" accurately completes the concept: Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Substitution and elimination methods): Which of the following statements is scientifically/conceptually accurate? (Focus: Always check final answer)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Always check the final answer by putting it back in both equations."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Always check the final answer by putting it back in both equations. does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Always check the final answer by putting it back in both equations."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Always check final answer\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Always check the final answer by putting it back in both equations."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Always check final answer\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Always check the final answer by putting it back in both equations.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Substitution and elimination methods): Many word problems reduce to a pair of linear equations: ages, money, speed in still water and against a stream, and digits of a number."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Substitution and elimination methods\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Many word problems reduce to a pair of linear equations: ages, money, speed in still water and against a stream, and digits of a number."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Substitution and elimination methods): Which of the following statements is scientifically/conceptually accurate? (Focus: equations linear turned linear)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Some equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Some equations that are not linear can be turned linear by substituting, for example u = 1 by x does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Some equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"equations linear turned linear\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Some equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"equations linear turned linear\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Some equations that are not linear can be turned linear by substituting, for example u = 1 by x and v = 1 by y.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Substitution and elimination methods): Which of the following statements is scientifically/conceptually accurate? (Focus: Drawing graphs takes accuracy)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, giv does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In the substitution method, express one variable in terms of the other from one "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Drawing graphs takes accuracy\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Drawing graphs takes accuracy\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and elimination, give exact answers in a few lines.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Substitution and elimination methods): Which of the following statements is scientifically/conceptually accurate? (Focus: substitution method express variable)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In the substitution method, express one variable in terms of the other from one equation, then  does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"substitution method express variable\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "In the substitution method, express one variable in terms of the other from one equation, then substitute into the second."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"substitution method express variable\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In the substitution method, express one variable in terms of the other from one equation, then substitute into the second.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-6",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Substitution and elimination methods",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Substitution and elimination methods): Take s - t = 3 and s/3 + t/2 = ___. From the first, s = t + 3."
+   },
+   "accepted": [
+    "6"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Substitution and elimination methods\": the missing word starts with \"6\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"6\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: \"6\" accurately completes the concept: Take s - t = 3 and s/3 + t/2 = 6. From the first, s = t + 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Substitution and elimination methods): Which statement best explains a deep principle from this topic? (Focus: Substitute Multiply giving)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving  does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Substitute Multiply giving\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Substitute Multiply giving\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Substitute: (t + 3)/3 + t/2 = 6. Multiply by 6: 2t + 6 + 3t = 36, so 5t = 30 and t = 6, giving s = 9.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Substitution and elimination methods): In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Substitution and elimination methods\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In the elimination method we make the coefficients of one variable equal by multiplying, then add or subtract the equations to remove it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Substitution and elimination methods): Which statement best explains a deep principle from this topic? (Focus: Solve Multiply first which)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent does not apply in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Substitution and elimination methods."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Substitution and elimination methods follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Drawing graphs takes time and accuracy. Two algebraic tricks, substitution and e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Substitution and elimination methods."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Solve Multiply first which\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Substitution and elimination methods\"."
+    }
+   ],
+   "explanation": {
+    "en": "Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Solve Multiply first which\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Solve 2x + 3y = 8 and 4x + 6y = 7. Multiply the first by 2: 4x + 6y = 16, which is inconsistent with 4x + 6y = 7.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-putting",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Substitution and elimination methods",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Substitution and elimination methods): Always check the final answer by ___ it back in both equations."
+   },
+   "accepted": [
+    "putting"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Substitution and elimination methods\": the missing word starts with \"p\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Always check the final answer by putting it back in both equations.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Substitution and elimination methods\"."
+    },
+    {
+     "en": "Step 2: \"putting\" accurately completes the concept: Always check the final answer by putting it back in both equations."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

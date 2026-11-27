@@ -1,248 +1,1200 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "algebra",
-  "topic": "matrix-operations",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "algebra",
+ "topic": "matrix-operations",
+ "questions": [
+  {
+   "key": "r1-m10ma998-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10ma998-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Sum of all elements of A + B for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
-      },
-      "answer": 36,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "6 + 8 + 10 + 12."
-      }
-    },
-    {
-      "key": "r1-m10ma998-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Element in the first row, second column of 2A for A = [[1,2],[3,4]]"
-      },
-      "answer": 4,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "2 x 2."
-      }
-    },
-    {
-      "key": "r1-m10ma998-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Element in row 1, column 1 of AB for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
-      },
-      "answer": 19,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "1x5 + 2x7."
-      }
-    },
-    {
-      "key": "r2-m10ma998-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Element in row 2, column 2 of AB for A = [[2,0],[1,3]], B = [[1,4],[0,2]]"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "1x4 + 3x2."
-      }
-    },
-    {
-      "key": "r2-m10ma998-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Matrix multiplication is always commutative."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "AB and BA can differ."
-      }
-    },
-    {
-      "key": "r2-m10ma998-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Number of elements in the product of a 2 x 3 and a 3 x 4 matrix"
-      },
-      "answer": 8,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Order 2 x 4."
-      }
-    },
-    {
-      "key": "r3-m10ma998-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Matrices A (order 3 x 2) and B (order 3 x 2): which is defined?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "A + B"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "AB"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Columns of A not equal to rows of B"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "BA"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Same reason"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "A x B with order 3 x 3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not defined"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Same order is needed for addition."
-      }
-    },
-    {
-      "key": "r3-m10ma998-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A I = A for a suitable identity matrix I."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Identity matrix."
-      }
-    },
-    {
-      "key": "r3-m10ma998-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The additive identity for matrices is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "the zero matrix"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the identity matrix"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the multiplicative identity"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the transpose"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Different idea"
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "the scalar 1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not a matrix"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A + O = A."
-      }
-    },
-    {
-      "key": "r3-m10ma998-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "The product of an m x n and n x p matrix has order m x ____."
-      },
-      "accepted": [
-        "p"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Rows of the first, columns of the second."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Sum of all elements of A + B for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
+   },
+   "answer": 36,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "6 + 8 + 10 + 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Sum of all elements of A + B for A = [[1,2],[3,4]], B = [[5,6],[7,8]]."
+    },
+    {
+     "en": "Step 2: 6 + 8 + 10 + 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma998-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Element in the first row, second column of 2A for A = [[1,2],[3,4]]"
+   },
+   "answer": 4,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "2 x 2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Element in the first row, second column of 2A for A = [[1,2],[3,4]]."
+    },
+    {
+     "en": "Step 2: 2 x 2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma998-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Element in row 1, column 1 of AB for A = [[1,2],[3,4]], B = [[5,6],[7,8]]"
+   },
+   "answer": 19,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "1x5 + 2x7."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Element in row 1, column 1 of AB for A = [[1,2],[3,4]], B = [[5,6],[7,8]]."
+    },
+    {
+     "en": "Step 2: 1x5 + 2x7."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma998-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Element in row 2, column 2 of AB for A = [[2,0],[1,3]], B = [[1,4],[0,2]]"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "1x4 + 3x2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Element in row 2, column 2 of AB for A = [[2,0],[1,3]], B = [[1,4],[0,2]]."
+    },
+    {
+     "en": "Step 2: 1x4 + 3x2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma998-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Matrix multiplication is always commutative."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "AB and BA can differ."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Matrix multiplication is always commutative.."
+    },
+    {
+     "en": "Step 2: AB and BA can differ."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma998-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Number of elements in the product of a 2 x 3 and a 3 x 4 matrix"
+   },
+   "answer": 8,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Order 2 x 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Number of elements in the product of a 2 x 3 and a 3 x 4 matrix."
+    },
+    {
+     "en": "Step 2: Order 2 x 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10ma998-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Same order is needed for addition."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Matrices A (order 3 x 2) and B (order 3 x 2): which is defined?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "A + B"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "AB"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Columns of A not equal to rows of B"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "BA"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Same reason"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "A x B with order 3 x 3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not defined"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Same order is needed for addition."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Same order is needed for addition."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Matrices A (order 3 x 2) and B (order 3 x 2): which is defined?."
+    },
+    {
+     "en": "Step 2: Same order is needed for addition."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma998-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A I = A for a suitable identity matrix I."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Identity matrix."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A I = A for a suitable identity matrix I.."
+    },
+    {
+     "en": "Step 2: Identity matrix."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma998-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The additive identity for matrices is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "the zero matrix"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the identity matrix"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the multiplicative identity"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the transpose"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Different idea"
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "the scalar 1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not a matrix"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A + O = A."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The additive identity for matrices is."
+    },
+    {
+     "en": "Step 2: A + O = A."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma998-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "The product of an m x n and n x p matrix has order m x ____."
+   },
+   "accepted": [
+    "p"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Rows of the first, columns of the second."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The product of an m x n and n x p matrix has order m x ____.."
+    },
+    {
+     "en": "Step 2: Rows of the first, columns of the second."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-workers",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Operations on matrices",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Operations on matrices): Three factories record the number of men and women ___. When the numbers of two months are added, we add the matrices."
+   },
+   "accepted": [
+    "workers"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Operations on matrices\": the missing word starts with \"w\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: \"workers\" accurately completes the concept: Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-12",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Operations on matrices): Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Operations on matrices\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Operations on matrices): Identify the correct statement from this lesson. (Focus: Multiplying matrix scalar multiplies)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Multiplying a matrix by a scalar k multiplies every element by k."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Multiplying a matrix by a scalar k multiplies every element by k. does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Multiplying a matrix by a scalar k multiplies every element by k."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Multiplying matrix scalar multiplies\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "Multiplying a matrix by a scalar k multiplies every element by k."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Multiplying matrix scalar multiplies\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Multiplying a matrix by a scalar k multiplies every element by k.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-14-matrix",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Operations on matrices",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Operations on matrices): Matrix addition is commutative and associative; the zero ___ is the additive identity and minus A is the additive inverse."
+   },
+   "accepted": [
+    "matrix"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Operations on matrices\": the missing word starts with \"m\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: \"matrix\" accurately completes the concept: Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-order",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Operations on matrices",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Operations on matrices): Matrix A of order m by n can be multiplied with B of ___ n by p, and the product has order m by p."
+   },
+   "accepted": [
+    "order"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Operations on matrices\": the missing word starts with \"o\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: \"order\" accurately completes the concept: Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Operations on matrices): Which of the following statements is scientifically/conceptually accurate? (Focus: element column products column)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The element in row i and column j of AB is the sum of products of row i of A with column j of B does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"element column products column\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"element column products column\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The element in row i and column j of AB is the sum of products of row i of A with column j of B.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Operations on matrices): Multiplication is never generally not commutative: AB need not equal BA."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Operations on matrices\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Multiplication is generally not commutative: AB need not equal BA."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Multiplication is generally not commutative: AB need not equal BA."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Operations on matrices): Which of the following statements is scientifically/conceptually accurate? (Focus: identity matrix satisfies transpose)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"identity matrix satisfies transpose\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"identity matrix satisfies transpose\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The identity matrix satisfies A I = I A = A, and the transpose of AB equals B transpose times A transpose.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Operations on matrices): Which of the following statements is scientifically/conceptually accurate? (Focus: Three factories record number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Three factories record the number of men and women workers. When the numbers of two months are  does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two matrices of the same order can be added or subtracted by adding or subtracti"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Three factories record number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Three factories record number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Three factories record the number of men and women workers. When the numbers of two months are added, we add the matrices.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Operations on matrices): Which statement best explains a deep principle from this topic? (Focus: matrices order added subtracted)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Two matrices of the same order can be added or subtracted by adding or subtracting correspondin does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"matrices order added subtracted\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"matrices order added subtracted\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Two matrices of the same order can be added or subtracted by adding or subtracting corresponding elements.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Operations on matrices): Multiplying a matrix by a scalar k multiplies every element by k."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Operations on matrices\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Multiplying a matrix by a scalar k multiplies every element by k."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Operations on matrices\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Operations on matrices): Which statement best explains a deep principle from this topic? (Focus: Matrix addition commutative associative)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Matrix addition is commutative and associative; the zero matrix is the additive identity and mi does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Matrix addition commutative associative\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Matrix addition commutative associative\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Matrix addition is commutative and associative; the zero matrix is the additive identity and minus A is the additive inverse.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Operations on matrices): Which statement best explains a deep principle from this topic? (Focus: Matrix order multiplied order)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m  does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Matrix order multiplied order\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Matrix order multiplied order\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Matrix A of order m by n can be multiplied with B of order n by p, and the product has order m by p.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Operations on matrices): Which statement best explains a deep principle from this topic? (Focus: element column products column)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The element in row i and column j of AB is the sum of products of row i of A with column j of B does not apply in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Operations on matrices."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Operations on matrices follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Three factories record the number of men and women workers. When the numbers of "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Operations on matrices."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"element column products column\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Operations on matrices\"."
+    }
+   ],
+   "explanation": {
+    "en": "The element in row i and column j of AB is the sum of products of row i of A with column j of B."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"element column products column\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The element in row i and column j of AB is the sum of products of row i of A with column j of B.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

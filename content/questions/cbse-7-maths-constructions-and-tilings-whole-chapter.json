@@ -1,398 +1,1029 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "constructions-and-tilings",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "constructions-and-tilings",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c7ma-cat-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c7ma-cat-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The perpendicular bisector of a segment"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "passes through its midpoint at right angles"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "is parallel to it"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A parallel line never meets the segment."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "is twice its length"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The bisector is a line, with no fixed length."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "It bisects and is perpendicular."
-      }
-    },
-    {
-      "key": "c7ma-cat-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Each angle of an equilateral triangle is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "60 degrees"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "90 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Three right angles would add to 270."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "120 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Three such angles would add to 360."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "180 ÷ 3 = 60."
-      }
-    },
-    {
-      "key": "c7ma-cat-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A point equidistant from X and Y lies on the perpendicular bisector of XY."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "That property is why the arc construction works."
-      }
-    },
-    {
-      "key": "c7ma-cat-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Angles around a point add up to"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "360 degrees"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "180 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the angle on a straight line."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "90 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is one right angle."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A full turn is 360 degrees."
-      }
-    },
-    {
-      "key": "c7ma-cat-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many equilateral triangles fit around a point to form a regular hexagon?"
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 3,
-          "why": {
-            "en": "Three would leave a gap of 180 degrees."
-          }
-        },
-        {
-          "value": 4,
-          "why": {
-            "en": "Four would leave a gap of 120 degrees."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "360 ÷ 60 = 6."
-      }
-    },
-    {
-      "key": "c7ma-cat-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Each interior angle of a regular hexagon is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "120 degrees"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "60 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the angle of one triangle; a corner has two triangles."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "90 degrees"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the angle of a square."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Two 60-degree angles meet at each corner."
-      }
-    },
-    {
-      "key": "c7ma-cat-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which grid can NOT be tiled with 2 × 1 tiles?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "5 × 7"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "4 × 6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It has 24 squares and each column can take vertical tiles."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "4 × 7"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It has 28 squares and can be covered column by column."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "35 squares is odd."
-      }
-    },
-    {
-      "key": "c7ma-cat-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "To bisect an angle, after cutting equal arcs on both arms we draw"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "arcs of equal radius from those two points to cross"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "a line parallel to an arm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That does not divide the angle."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "a circle through the vertex"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It does not locate the bisector."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The crossing point lies on the bisector."
-      }
-    },
-    {
-      "key": "c7ma-cat-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A region has 8 white and 6 black squares in a chessboard colouring. It"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "cannot be tiled with 2 × 1 tiles"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "can be tiled"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Each tile covers one white and one black square, so the counts must be equal."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "can be tiled only with rotated tiles"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Rotation does not change the colours covered."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each tile covers one of each colour."
-      }
-    },
-    {
-      "key": "c7ma-cat-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which of these can tile the plane by itself?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "a regular hexagon"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "a regular pentagon"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Its angles of 108 degrees do not fit around a point."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "a circle"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Circles leave gaps between them."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Hexagon angles of 120 degrees fit three around a point."
-      }
+     "en": "Focus on this idea: It bisects and is perpendicular."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The perpendicular bisector of a segment"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "passes through its midpoint at right angles"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "is parallel to it"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A parallel line never meets the segment."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "is twice its length"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The bisector is a line, with no fixed length."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "It bisects and is perpendicular."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: It bisects and is perpendicular."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The perpendicular bisector of a segment."
+    },
+    {
+     "en": "Step 2: It bisects and is perpendicular."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Each angle of an equilateral triangle is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "60 degrees"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "90 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Three right angles would add to 270."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "120 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Three such angles would add to 360."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "180 ÷ 3 = 60."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Each angle of an equilateral triangle is."
+    },
+    {
+     "en": "Step 2: 180 ÷ 3 = 60."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: That property is why the arc construction works."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A point equidistant from X and Y lies on the perpendicular bisector of XY."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "That property is why the arc construction works."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: That property is why the arc construction works."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A point equidistant from X and Y lies on the perpendicular bisector of XY.."
+    },
+    {
+     "en": "Step 2: That property is why the arc construction works."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: A full turn is 360 degrees."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Angles around a point add up to"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "360 degrees"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "180 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the angle on a straight line."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "90 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is one right angle."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A full turn is 360 degrees."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: A full turn is 360 degrees."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Angles around a point add up to."
+    },
+    {
+     "en": "Step 2: A full turn is 360 degrees."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many equilateral triangles fit around a point to form a regular hexagon?"
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 3,
+     "why": {
+      "en": "Three would leave a gap of 180 degrees."
+     }
+    },
+    {
+     "value": 4,
+     "why": {
+      "en": "Four would leave a gap of 120 degrees."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "360 ÷ 60 = 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many equilateral triangles fit around a point to form a regular hexagon?."
+    },
+    {
+     "en": "Step 2: 360 ÷ 60 = 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Two 60-degree angles meet at each corner."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Each interior angle of a regular hexagon is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "120 degrees"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "60 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the angle of one triangle; a corner has two triangles."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "90 degrees"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the angle of a square."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Two 60-degree angles meet at each corner."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Two 60-degree angles meet at each corner."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Each interior angle of a regular hexagon is."
+    },
+    {
+     "en": "Step 2: Two 60-degree angles meet at each corner."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which grid can NOT be tiled with 2 × 1 tiles?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "5 × 7"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "4 × 6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It has 24 squares and each column can take vertical tiles."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "4 × 7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It has 28 squares and can be covered column by column."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "35 squares is odd."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which grid can NOT be tiled with 2 × 1 tiles?."
+    },
+    {
+     "en": "Step 2: 35 squares is odd."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The crossing point lies on the bisector."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "To bisect an angle, after cutting equal arcs on both arms we draw"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "arcs of equal radius from those two points to cross"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "a line parallel to an arm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That does not divide the angle."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "a circle through the vertex"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It does not locate the bisector."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The crossing point lies on the bisector."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The crossing point lies on the bisector."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: To bisect an angle, after cutting equal arcs on both arms we draw."
+    },
+    {
+     "en": "Step 2: The crossing point lies on the bisector."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-cat-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Each tile covers one of each colour."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A region has 8 white and 6 black squares in a chessboard colouring. It"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "cannot be tiled with 2 × 1 tiles"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "can be tiled"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each tile covers one white and one black square, so the counts must be equal."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "can be tiled only with rotated tiles"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rotation does not change the colours covered."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each tile covers one of each colour."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Each tile covers one of each colour."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A region has 8 white and 6 black squares in a chessboard colouring. It."
+    },
+    {
+     "en": "Step 2: Each tile covers one of each colour."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c7ma-cat-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Hexagon angles of 120 degrees fit three around a point."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which of these can tile the plane by itself?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "a regular hexagon"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "a regular pentagon"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Its angles of 108 degrees do not fit around a point."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "a circle"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Circles leave gaps between them."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Hexagon angles of 120 degrees fit three around a point."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Hexagon angles of 120 degrees fit three around a point."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which of these can tile the plane by itself?."
+    },
+    {
+     "en": "Step 2: Hexagon angles of 120 degrees fit three around a point."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Constructions and Tilings): To draw an eye symmetrically we need two centres A and B so that the upper and lower arcs are never mirror images in the line XY. Each arc passes through X and Y, so AX = AY and BX = BY."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Constructions and Tilings\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: To draw an eye symmetrically we need two centres A and B so that the upper and lower arcs are mirror images in the line XY. Each arc passes through X and Y, so AX = AY and BX = BY."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: To draw an eye symmetrically we need two centres A and B so that the upper and lower arcs are mirror images in the line XY. Each arc passes through X and Y, so AX = AY and BX = BY."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-12",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Constructions and Tilings): This needs only an unmarked ruler and a compass. It finds the midpoint of a segment more accurately than measuring with a scale."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Constructions and Tilings\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — This needs only an unmarked ruler and a compass. It finds the midpoint of a segment more accurately than measuring with a scale."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-hence",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Constructions and Tilings",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Constructions and Tilings): The triangles OAC and OBC have OA = OB, AC = BC and OC common, so they are congruent by SSS. ___ angle AOC = angle BOC, and OC is the angle bisector."
+   },
+   "accepted": [
+    "Hence",
+    "hence"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Constructions and Tilings\": the missing word starts with \"H\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"H\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The triangles OAC and OBC have OA = OB, AC = BC and OC common, so they are congruent by SSS. Hence angle AOC = angle BOC, and OC is the angle bisector.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: \"Hence\" accurately completes the concept: The triangles OAC and OBC have OA = OB, AC = BC and OC common, so they are congruent by SSS. Hence angle AOC = angle BOC, and OC is the angle bisector."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Constructions and Tilings): Equal copies of an angle are needed for repeating designs. Copying an angle is also how we draw parallel lines."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Constructions and Tilings\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Equal copies of an angle are needed for repeating designs. Copying an angle is also how we draw parallel lines."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Constructions and Tilings): Which of the following statements is scientifically/conceptually accurate? (Focus: equilateral triangles point overlap)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Six equilateral triangles can meet at a point with no gap and no overlap because the angles around a point add to 360 degrees and six angles of 60 degrees make 360."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Six equilateral triangles can meet at a point with no gap and no overlap because the angles aro does not apply in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Six equilateral triangles can meet at a point with no gap and no overlap because the angles around a point add to 360 degrees and six angles of 60 degrees make 360."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Constructions and Tilings follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In Grade 6 we drew an eye with two arcs. Now we ask why the construction works, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Constructions and Tilings."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"equilateral triangles point overlap\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "Six equilateral triangles can meet at a point with no gap and no overlap because the angles around a point add to 360 degrees and six angles of 60 degrees make 360."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"equilateral triangles point overlap\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Six equilateral triangles can meet at a point with no gap and no overlap because the angles around a point add to 360 degrees and six angles of 60 degrees make 360.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-16-60",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Constructions and Tilings",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Constructions and Tilings): Placing them together gives a hexagon with equal sides and each angle 60 + ___ = 120 degrees. Opposite corners joined, such as AD, BE and CF, are straight lines through the centre."
+   },
+   "accepted": [
+    "60"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Constructions and Tilings\": the missing word starts with \"6\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"6\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Placing them together gives a hexagon with equal sides and each angle 60 + 60 = 120 degrees. Opposite corners joined, such as AD, BE and CF, are straight lines through the centre.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: \"60\" accurately completes the concept: Placing them together gives a hexagon with equal sides and each angle 60 + 60 = 120 degrees. Opposite corners joined, such as AD, BE and CF, are straight lines through the centre."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-17-triangle",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Constructions and Tilings",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Constructions and Tilings): To construct a regular hexagon of side 5 cm, make an equilateral ___ on the side and repeat around the centre. A 6-pointed star can be built from the same triangles."
+   },
+   "accepted": [
+    "triangle"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Constructions and Tilings\": the missing word starts with \"t\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To construct a regular hexagon of side 5 cm, make an equilateral triangle on the side and repeat around the centre. A 6-pointed star can be built from the same triangles.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: \"triangle\" accurately completes the concept: To construct a regular hexagon of side 5 cm, make an equilateral triangle on the side and repeat around the centre. A 6-pointed star can be built from the same triangles."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Constructions and Tilings): Which statement best explains a deep principle from this topic? (Focus: Covering region shapes without)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Covering a region with shapes without gaps or overlaps is called tiling. A tangram is a Chinese puzzle of 7 pieces that can be rearranged into many figures."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Covering a region with shapes without gaps or overlaps is called tiling. A tangram is a Chinese does not apply in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Covering a region with shapes without gaps or overlaps is called tiling. A tangram is a Chinese puzzle of 7 pieces that can be rearranged into many figures."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Constructions and Tilings follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In Grade 6 we drew an eye with two arcs. Now we ask why the construction works, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Constructions and Tilings."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Covering region shapes without\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "Covering a region with shapes without gaps or overlaps is called tiling. A tangram is a Chinese puzzle of 7 pieces that can be rearranged into many figures."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Covering region shapes without\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Covering a region with shapes without gaps or overlaps is called tiling. A tangram is a Chinese puzzle of 7 pieces that can be rearranged into many figures.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-19",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Constructions and Tilings): Which statement best explains a deep principle from this topic? (Focus: even tiled even tiled)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If m and n are both even, an m × n grid can be tiled. If one is even, it can be tiled. If both are odd, the number of squares is odd and it cannot."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If m and n are both even, an m × n grid can be tiled. If one is even, it can be tiled. If both  does not apply in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If m and n are both even, an m × n grid can be tiled. If one is even, it can be tiled. If both are odd, the number of squares is odd and it cannot."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Constructions and Tilings."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Constructions and Tilings follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: In Grade 6 we drew an eye with two arcs. Now we ask why the construction works, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Constructions and Tilings."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"even tiled even tiled\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "If m and n are both even, an m × n grid can be tiled. If one is even, it can be tiled. If both are odd, the number of squares is odd and it cannot."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"even tiled even tiled\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If m and n are both even, an m × n grid can be tiled. If one is even, it can be tiled. If both are odd, the number of squares is odd and it cannot.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Constructions and Tilings): Let XY be a segment six centimetres long. Open the compass to four centimetres. Keep that opening as you draw arcs from X and from Y on both sides of XY."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Constructions and Tilings\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Constructions and Tilings\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Let XY be a segment six centimetres long. Open the compass to four centimetres. Keep that opening as you draw arcs from X and from Y on both sides of XY."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Constructions and Tilings\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

@@ -1,349 +1,1015 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "another-peek-beyond-the-point",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "another-peek-beyond-the-point",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c7ma-apbtp-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c7ma-apbtp-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "123 ÷ 10 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "12.3"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1.23"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That moves the point two places; dividing by 10 moves it one place."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1230"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is 123 × 10."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Move the decimal point one place left."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "0.5 × 0.3 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "0.15"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1.5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That ignores the number of decimal digits."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "0.015"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That has too many digits after the point."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 × 3 = 15 and there are 2 digits after the points."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The product of two numbers that are each strictly between zero and one is smaller than both numbers."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "For example, 0.75 × 0.4 = 0.3, which is smaller than either factor."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which is greater than 128?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "128 ÷ 0.4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "128 ÷ 4"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is smaller than 128."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "128 × 0.4"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is smaller than 128."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The divisor, 0.4, is between zero and one and 128 is positive. The quotient is 320, so it is greater than 128."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 12.5 × 7.5."
-      },
-      "answer": 93.75,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 937.5,
-          "why": {
-            "en": "The point is one place too far to the right."
-          }
-        },
-        {
-          "value": 9.375,
-          "why": {
-            "en": "The point is one place too far to the left."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "125 × 75 = 9375 and 2 digits after the points give 93.75."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 237 ÷ 8."
-      },
-      "answer": 29.625,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 29.6,
-          "why": {
-            "en": "Keep regrouping to the thousandths."
-          }
-        },
-        {
-          "value": 296.25,
-          "why": {
-            "en": "The point is misplaced."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Long division gives 29 with remainder 5, then 0.625 more."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Given 156 × 12 = 1872, find 15.6 × 1.2."
-      },
-      "answer": 18.72,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 187.2,
-          "why": {
-            "en": "Count both digits after the points."
-          }
-        },
-        {
-          "value": 1.872,
-          "why": {
-            "en": "That has three decimal digits; there should be two."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Two digits after the points in total, so 18.72."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 126 ÷ 2.5."
-      },
-      "answer": 50.4,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5.04,
-          "why": {
-            "en": "The point is one place too far to the left."
-          }
-        },
-        {
-          "value": 504,
-          "why": {
-            "en": "The point is one place too far to the right."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1260 ÷ 25 = 50.4."
-      }
-    },
-    {
-      "key": "c7ma-apbtp-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A rupee coin is 1.45 mm thick. What is the height of a stack of 36 coins in mm?"
-      },
-      "answer": 52.2,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5.22,
-          "why": {
-            "en": "The point is misplaced."
-          }
-        },
-        {
-          "value": 522,
-          "why": {
-            "en": "The point is misplaced."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "36 × 1.45 = 52.2 mm."
-      },
-      "unit": {
-        "en": "mm"
-      }
-    },
-    {
-      "key": "c7ma-apbtp-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "What happens when you divide 10 by 3 using long division?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "The digits 3 repeat without end"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "It ends after two digits"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Each step leaves a remainder of 1."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "It ends at 3.5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "3 × 3.5 = 10.5, not 10."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The remainder 1 keeps coming back, so the quotient is 3.333... without end."
-      }
+     "en": "Focus on this idea: Move the decimal point one place left."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "123 ÷ 10 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "12.3"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1.23"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That moves the point two places; dividing by 10 moves it one place."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1230"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is 123 × 10."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Move the decimal point one place left."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Move the decimal point one place left."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 123 ÷ 10 =."
+    },
+    {
+     "en": "Step 2: Move the decimal point one place left."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 5 × 3 = 15 and there are 2 digits after the points."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "0.5 × 0.3 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "0.15"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1.5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That ignores the number of decimal digits."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "0.015"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That has too many digits after the point."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 × 3 = 15 and there are 2 digits after the points."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 5 × 3 = 15 and there are 2 digits after the points."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 0.5 × 0.3 =."
+    },
+    {
+     "en": "Step 2: 5 × 3 = 15 and there are 2 digits after the points."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: For example, 0."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The product of two numbers that are each strictly between zero and one is smaller than both numbers."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "For example, 0.75 × 0.4 = 0.3, which is smaller than either factor."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: For example, 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The product of two numbers that are each strictly between zero and one is smaller than bot."
+    },
+    {
+     "en": "Step 2: For example, 0.75 × 0.4 = 0.3, which is smaller than either factor."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The divisor, 0."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which is greater than 128?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "128 ÷ 0.4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "128 ÷ 4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is smaller than 128."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "128 × 0.4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is smaller than 128."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The divisor, 0.4, is between zero and one and 128 is positive. The quotient is 320, so it is greater than 128."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The divisor, 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: The divisor, 0.4, is between zero and one and 128 is positive."
+    },
+    {
+     "en": "Step 2: The quotient is 320, so it is greater than 128."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 125 × 75 = 9375 and 2 digits after the points give 93."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 12.5 × 7.5."
+   },
+   "answer": 93.75,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 937.5,
+     "why": {
+      "en": "The point is one place too far to the right."
+     }
+    },
+    {
+     "value": 9.375,
+     "why": {
+      "en": "The point is one place too far to the left."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "125 × 75 = 9375 and 2 digits after the points give 93.75."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 125 × 75 = 9375 and 2 digits after the points give 93."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 12.5 × 7.5.."
+    },
+    {
+     "en": "Step 2: 125 × 75 = 9375 and 2 digits after the points give 93.75."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Long division gives 29 with remainder 5, then 0."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 237 ÷ 8."
+   },
+   "answer": 29.625,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 29.6,
+     "why": {
+      "en": "Keep regrouping to the thousandths."
+     }
+    },
+    {
+     "value": 296.25,
+     "why": {
+      "en": "The point is misplaced."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Long division gives 29 with remainder 5, then 0.625 more."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Long division gives 29 with remainder 5, then 0."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 237 ÷ 8.."
+    },
+    {
+     "en": "Step 2: Long division gives 29 with remainder 5, then 0.625 more."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Two digits after the points in total, so 18."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Given 156 × 12 = 1872, find 15.6 × 1.2."
+   },
+   "answer": 18.72,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 187.2,
+     "why": {
+      "en": "Count both digits after the points."
+     }
+    },
+    {
+     "value": 1.872,
+     "why": {
+      "en": "That has three decimal digits; there should be two."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Two digits after the points in total, so 18.72."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Two digits after the points in total, so 18."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Given 156 × 12 = 1872, find 15.6 × 1.2.."
+    },
+    {
+     "en": "Step 2: Two digits after the points in total, so 18.72."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 126 ÷ 2.5."
+   },
+   "answer": 50.4,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5.04,
+     "why": {
+      "en": "The point is one place too far to the left."
+     }
+    },
+    {
+     "value": 504,
+     "why": {
+      "en": "The point is one place too far to the right."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1260 ÷ 25 = 50.4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 126 ÷ 2.5.."
+    },
+    {
+     "en": "Step 2: 1260 ÷ 25 = 50.4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-apbtp-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A rupee coin is 1.45 mm thick. What is the height of a stack of 36 coins in mm?"
+   },
+   "answer": 52.2,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5.22,
+     "why": {
+      "en": "The point is misplaced."
+     }
+    },
+    {
+     "value": 522,
+     "why": {
+      "en": "The point is misplaced."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "36 × 1.45 = 52.2 mm."
+   },
+   "unit": {
+    "en": "mm"
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A rupee coin is 1.45 mm thick. What is the height of a stack of 36 coins in mm?."
+    },
+    {
+     "en": "Step 2: 36 × 1.45 = 52.2 mm."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c7ma-apbtp-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The remainder 1 keeps coming back, so the quotient is 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "What happens when you divide 10 by 3 using long division?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "The digits 3 repeat without end"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "It ends after two digits"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each step leaves a remainder of 1."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "It ends at 3.5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "3 × 3.5 = 10.5, not 10."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The remainder 1 keeps coming back, so the quotient is 3.333... without end."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The remainder 1 keeps coming back, so the quotient is 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: The remainder 1 keeps coming back, so the quotient is 3.333..."
+    },
+    {
+     "en": "Step 2: without end."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Another Peek Beyond the Point): A decimal like 27.53 has 2 tens, 7 ones, 5 tenths and 3 hundredths. Fractions with denominators 10, 100, 1000 and so on are never easy to write as decimals."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Another Peek Beyond the Point\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A decimal like 27.53 has 2 tens, 7 ones, 5 tenths and 3 hundredths. Fractions with denominators 10, 100, 1000 and so on are easy to write as decimals."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A decimal like 27.53 has 2 tens, 7 ones, 5 tenths and 3 hundredths. Fractions with denominators 10, 100, 1000 and so on are easy to write as decimals."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Another Peek Beyond the Point): Identify the correct statement from this lesson. (Focus: example 2001000 501000 41000)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For example 254 over 1000 is 200/1000 + 50/1000 + 4/1000, which is 0.2 + 0.05 + 0.004 = 0.254."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For example 254 over 1000 is 200/1000 + 50/1000 + 4/1000, which is 0.2 + 0.05 + 0.004 = 0.254. does not apply in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For example 254 over 1000 is 200/1000 + 50/1000 + 4/1000, which is 0.2 + 0.05 + 0.004 = 0.254."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Another Peek Beyond the Point follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Jonali says a fraction and Pallabi gives the decimal. 250 g is a quarter of a ki"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Another Peek Beyond the Point."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"example 2001000 501000 41000\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "For example 254 over 1000 is 200/1000 + 50/1000 + 4/1000, which is 0.2 + 0.05 + 0.004 = 0.254."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"example 2001000 501000 41000\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For example 254 over 1000 is 200/1000 + 50/1000 + 4/1000, which is 0.2 + 0.05 + 0.004 = 0.254.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-13",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Another Peek Beyond the Point): Which of the following statements is scientifically/conceptually accurate? (Focus: 123 024 0678 0012)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So 123 ÷ 10 = 12.3, 24 ÷ 100 = 0.24, 678 ÷ 1000 = 0.678, 12 ÷ 1000 = 0.012 and 12345 ÷ 1000 = 12.345."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So 123 ÷ 10 = 12.3, 24 ÷ 100 = 0.24, 678 ÷ 1000 = 0.678, 12 ÷ 1000 = 0.012 and 12345 ÷ 1000 = 1 does not apply in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So 123 ÷ 10 = 12.3, 24 ÷ 100 = 0.24, 678 ÷ 1000 = 0.678, 12 ÷ 1000 = 0.012 and 12345 ÷ 1000 = 12.345."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Another Peek Beyond the Point follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Jonali says a fraction and Pallabi gives the decimal. 250 g is a quarter of a ki"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Another Peek Beyond the Point."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"123 024 0678 0012\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "So 123 ÷ 10 = 12.3, 24 ÷ 100 = 0.24, 678 ÷ 1000 = 0.678, 12 ÷ 1000 = 0.012 and 12345 ÷ 1000 = 12.345."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"123 024 0678 0012\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So 123 ÷ 10 = 12.3, 24 ÷ 100 = 0.24, 678 ÷ 1000 = 0.678, 12 ÷ 1000 = 0.012 and 12345 ÷ 1000 = 12.345.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Another Peek Beyond the Point): Arshad buys 5 pens at ₹9.5 each. Adding 9.5 five times gives 47.5, so 9.5 × 5 = 47.5."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Another Peek Beyond the Point\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Arshad buys 5 pens at ₹9.5 each. Adding 9.5 five times gives 47.5, so 9.5 × 5 = 47.5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Another Peek Beyond the Point): Which of the following statements is scientifically/conceptually accurate? (Focus: litre litres covers 9375)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A car runs 12.5 km on 1 litre. On 7.5 litres it covers 12.5 × 7.5 = 93.75 km."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A car runs 12.5 km on 1 litre. On 7.5 litres it covers 12.5 × 7.5 = 93.75 km. does not apply in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A car runs 12.5 km on 1 litre. On 7.5 litres it covers 12.5 × 7.5 = 93.75 km."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Another Peek Beyond the Point follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Jonali says a fraction and Pallabi gives the decimal. 250 g is a quarter of a ki"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Another Peek Beyond the Point."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"litre litres covers 9375\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "A car runs 12.5 km on 1 litre. On 7.5 litres it covers 12.5 × 7.5 = 93.75 km."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"litre litres covers 9375\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A car runs 12.5 km on 1 litre. On 7.5 litres it covers 12.5 × 7.5 = 93.75 km.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-16-6",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Another Peek Beyond the Point",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Another Peek Beyond the Point): Ajay walks 827 m to school and 827 m back each day for ___ days. That is 827 × 2 × 6 = 9924 m, which is 9.924 km in a week."
+   },
+   "accepted": [
+    "6"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Another Peek Beyond the Point\": the missing word starts with \"6\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"6\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Ajay walks 827 m to school and 827 m back each day for 6 days. That is 827 × 2 × 6 = 9924 m, which is 9.924 km in a week.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: \"6\" accurately completes the concept: Ajay walks 827 m to school and 827 m back each day for 6 days. That is 827 × 2 × 6 = 9924 m, which is 9.924 km in a week."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-17",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Another Peek Beyond the Point): For 5.8 × 1.24: 58 × 124 = 7192. 5.8 has 1 digit after the point and 1.24 has 2, so the product has 3, giving 7.192."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Another Peek Beyond the Point\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — For 5.8 × 1.24: 58 × 124 = 7192. 5.8 has 1 digit after the point and 1.24 has 2, so the product has 3, giving 7.192."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Another Peek Beyond the Point): Which statement best explains a deep principle from this topic? (Focus: 147808 147808 since digits)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If 596 × 248 = 147808, then 5.96 × 24.8 = 147.808, since 2 + 1 = 3 digits come after the point."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If 596 × 248 = 147808, then 5.96 × 24.8 = 147.808, since 2 + 1 = 3 digits come after the point. does not apply in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If 596 × 248 = 147808, then 5.96 × 24.8 = 147.808, since 2 + 1 = 3 digits come after the point."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Another Peek Beyond the Point."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Another Peek Beyond the Point follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Jonali says a fraction and Pallabi gives the decimal. 250 g is a quarter of a ki"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Another Peek Beyond the Point."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"147808 147808 since digits\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "If 596 × 248 = 147808, then 5.96 × 24.8 = 147.808, since 2 + 1 = 3 digits come after the point."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"147808 147808 since digits\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If 596 × 248 = 147808, then 5.96 × 24.8 = 147.808, since 2 + 1 = 3 digits come after the point.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-19-least",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Another Peek Beyond the Point",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Another Peek Beyond the Point): With counting numbers the product is at ___ as big as both numbers. With decimals this is not always so."
+   },
+   "accepted": [
+    "least"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Another Peek Beyond the Point\": the missing word starts with \"l\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"With counting numbers the product is at least as big as both numbers. With decimals this is not always so.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: \"least\" accurately completes the concept: With counting numbers the product is at least as big as both numbers. With decimals this is not always so."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Another Peek Beyond the Point): When one number is between 0 and 1 and the other is greater than 1, the product lies between them: 0.75 × 5 = 3.75, which is less than 5 and greater than 0.75."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Another Peek Beyond the Point\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Another Peek Beyond the Point\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — When one number is between 0 and 1 and the other is greater than 1, the product lies between them: 0.75 × 5 = 3.75, which is less than 5 and greater than 0.75."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Another Peek Beyond the Point\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

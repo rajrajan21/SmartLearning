@@ -17,6 +17,7 @@ import { matchesSample, sample } from "../lib/sampleLesson";
 import { useClassroom, useClassroomIndex } from "../lib/classroom";
 import { usePhrases } from "../lib/practice";
 import { ClassBoard, type BoardStyle } from "../components/ClassBoard";
+import { LessonAssessments, type LessonTab } from "../components/LessonAssessments";
 import { store } from "../lib/storage";
 import { toggleNote, useNotebook } from "../lib/tier2";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
@@ -178,6 +179,7 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   }, [lessonIn.subject, related, s]);
 
   const [step, setStep] = useState(0);
+  const [tab, setTab] = useState<LessonTab>("lesson");
   const [phase, setPhase] = useState<Phase>("idle");
   const [t, setT] = useState(0);
   const [rate, setRate] = useState(Number(s.get<string>("classroom.speed")) || 1);
@@ -454,7 +456,26 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   return (
     <div className="paper classroom" ref={frame} data-sample={related ? "true" : undefined}>
       <p className="small"><Link href={back}>← {L("backToTopic")}</Link>{noteOn && <> <button type="button" className="link heart" aria-pressed={noteSaved} onClick={() => toggleNote({ id: noteId, href: `/classroom${back}`, title: lesson.title, subject: { en: subjectSlug.replace(/-/g, " ") } })}><span aria-hidden="true">{noteSaved ? "❤️" : "🤍"}</span> {noteSaved ? L("nbSaved") : L("nbSave")}</button></>}</p>
-      <h1>{s.name(related ? sample.title : lesson.title)}</h1>
+      <div className="lesson-title-row no-print">
+        <h1>{s.name(related ? sample.title : lesson.title)}</h1>
+        {!related && s.get("feature.practice") === true && (
+          <nav className="lesson-tabs" aria-label="Lesson modes">
+            {([
+              ["lesson", "🖍️ Chalkboard", true],
+              ["practice", "📝 Practice", true],
+              ["worksheet", "📄 Worksheet", s.get("feature.worksheets") === true],
+              ["exam", "🏆 Chapter Test", s.get("feature.exams") === true],
+            ] as const).filter((x) => x[2]).map(([id, label]) => (
+              <button key={id} type="button" className={`lesson-tab${tab === id ? " active" : ""}`} aria-current={tab === id ? "page" : undefined}
+                onClick={() => { if (id !== "lesson") { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); } setTab(id); }}>{label}</button>
+            ))}
+          </nav>
+        )}
+      </div>
+      {tab !== "lesson" ? (
+        <LessonAssessments tab={tab} board={lesson.board} cls={lesson.classLevel} subject={lesson.subject} chapter={lesson.chapter} topic={lesson.topic} />
+      ) : (
+        <>
       {related && <p className="sample-intro">{lang === "ta" ? "காந்தம் எதை ஈர்க்கும்? பலகையில் பார்த்து, விடையைச் சோதித்துப் பாருங்கள்." : "What will a magnet pick up? Watch the board, make a prediction and check your answer."}</p>}
       {sections.length > 1 && (
         <nav className="class-rail" aria-label={L("classroomParts")}>
@@ -570,6 +591,8 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
       </div>
       {related && <p className="actions"><Link className="btn ghost" href={related}>{lang === "ta" ? "காந்தங்கள் பற்றிய பிற பாடங்கள்" : "Explore more lessons about magnets"} →</Link></p>}
       <p className="small class-count" aria-live="polite">{L("stepOf")} {step + 1} {L("ofWord")} {lesson.steps.length}{show3d ? ` · ${L("classroomDrag")}` : ""}</p>
+        </>
+      )}
 
     </div>
   );

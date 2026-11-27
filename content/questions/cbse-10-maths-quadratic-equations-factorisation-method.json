@@ -1,269 +1,1254 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "quadratic-equations",
-  "topic": "factorisation-method",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "quadratic-equations",
+ "topic": "factorisation-method",
+ "questions": [
+  {
+   "key": "r1-fm1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-fm1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which is a quadratic equation?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "x^2 - 3x + 2 = 0"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "x - 3 = 0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This is linear."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "x^3 - x = 0"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This is cubic."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The highest power is 2."
-      }
-    },
-    {
-      "key": "r1-fm2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "One root of x^2 - 5x + 6 = 0 is 2. The other is"
-      },
-      "answer": 3,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 6,
-          "why": {
-            "en": "6 is the product."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Sum of roots is 5."
-      }
-    },
-    {
-      "key": "r2-fm3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Roots of x^2 - 7x + 12 = 0"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "3 and 4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2 and 6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 + 6 = 8."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "-3 and -4"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Sum would be -7."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(x - 3)(x - 4) = 0."
-      }
-    },
-    {
-      "key": "r2-fm4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): x(x + 1) = 0 has roots 0 and -1. Reason (R): A product is zero if one factor is zero."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is the zero product property."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The roots are 0 and -1."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "x = 0 or x + 1 = 0."
-      }
-    },
-    {
-      "key": "r2-fm5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A rectangle has length 3 more than breadth and area 40. Breadth?"
-      },
-      "answer": 5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 8,
-          "why": {
-            "en": "8 is the length."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "b(b + 3) = 40 gives (b + 8)(b - 5) = 0; b = 5."
-      }
-    },
-    {
-      "key": "r3-fm6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Positive root of x^2 - 9 = 0"
-      },
-      "accepted": [
-        "3"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "9",
-          "why": {
-            "en": "x squared is 9, not x."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "x = 3 or -3; positive is 3."
-      }
-    },
-    {
-      "key": "r3-fm7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Every quadratic equation has exactly two real roots."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "x^2 + 1 = 0 has no real roots."
-      }
-    },
-    {
-      "key": "r3-fm8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: A ball's height satisfies h = 0 when t^2 - 4t = 0. The ball is on the ground at t ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "0 and 4 seconds"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "only 4"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "t = 0 also works."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2 seconds"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 gives -4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "t(t - 4) = 0."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which is a quadratic equation?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "x^2 - 3x + 2 = 0"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "x - 3 = 0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This is linear."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "x^3 - x = 0"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This is cubic."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The highest power is 2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which is a quadratic equation?."
+    },
+    {
+     "en": "Step 2: The highest power is 2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-fm2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "One root of x^2 - 5x + 6 = 0 is 2. The other is"
+   },
+   "answer": 3,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 6,
+     "why": {
+      "en": "6 is the product."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sum of roots is 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: One root of x^2 - 5x + 6 = 0 is 2. The other is."
+    },
+    {
+     "en": "Step 2: Sum of roots is 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fm3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Roots of x^2 - 7x + 12 = 0"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "3 and 4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2 and 6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 + 6 = 8."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "-3 and -4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Sum would be -7."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(x - 3)(x - 4) = 0."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Roots of x^2 - 7x + 12 = 0."
+    },
+    {
+     "en": "Step 2: (x - 3)(x - 4) = 0."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fm4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): x(x + 1) = 0 has roots 0 and -1. Reason (R): A product is zero if one factor is zero."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is the zero product property."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The roots are 0 and -1."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "x = 0 or x + 1 = 0."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): x(x + 1) = 0 has roots 0 and -1. Reason (R): A product is zero if one facto."
+    },
+    {
+     "en": "Step 2: x = 0 or x + 1 = 0."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-fm5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: b(b + 3) = 40 gives (b + 8)(b - 5) = 0; b = 5."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A rectangle has length 3 more than breadth and area 40. Breadth?"
+   },
+   "answer": 5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 8,
+     "why": {
+      "en": "8 is the length."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "b(b + 3) = 40 gives (b + 8)(b - 5) = 0; b = 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: b(b + 3) = 40 gives (b + 8)(b - 5) = 0; b = 5."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A rectangle has length 3 more than breadth and area 40. Breadth?."
+    },
+    {
+     "en": "Step 2: b(b + 3) = 40 gives (b + 8)(b - 5) = 0; b = 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-fm6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Positive root of x^2 - 9 = 0"
+   },
+   "accepted": [
+    "3"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "9",
+     "why": {
+      "en": "x squared is 9, not x."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "x = 3 or -3; positive is 3."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Positive root of x^2 - 9 = 0."
+    },
+    {
+     "en": "Step 2: x = 3 or -3; positive is 3."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-fm7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: x^2 + 1 = 0 has no real roots."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Every quadratic equation has exactly two real roots."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "x^2 + 1 = 0 has no real roots."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: x^2 + 1 = 0 has no real roots."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Every quadratic equation has exactly two real roots.."
+    },
+    {
+     "en": "Step 2: x^2 + 1 = 0 has no real roots."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-fm8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: A ball's height satisfies h = 0 when t^2 - 4t = 0. The ball is on the ground at t ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "0 and 4 seconds"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "only 4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "t = 0 also works."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2 seconds"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 gives -4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "t(t - 4) = 0."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: A ball's height satisfies h = 0 when t^2 - 4t = 0. The ball is on the ground a."
+    },
+    {
+     "en": "Step 2: t(t - 4) = 0."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "ext-a3bbea39167f-4",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "stem": {
+    "en": "If (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, then its roots are: 1"
+   },
+   "hints": [
+    {
+     "en": "Focus on this idea: 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0,."
+    }
+   ],
+   "explanation": {
+    "en": "0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0, ⇒ p = 1 Now quadratic equation will be: x + x = 0 x (x+1) = 0 So the roots are 0, -1 (A) –"
+   },
+   "source": "CBSE Academic Unit (cbseacademic.nic.in) (2026-27)",
+   "sourceUrl": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2026_27/MathsStandard-SQP.pdf",
+   "provenance": "ai_drafted_reviewed",
+   "status": "published",
+   "type": "mcq",
+   "options": [
+    {
+     "id": "opt-1",
+     "text": {
+      "en": "0, 1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"0, 1\" — 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0, ⇒ p = 1 Now quadratic equatio"
+     }
+    },
+    {
+     "id": "opt-2",
+     "text": {
+      "en": "– 1, 1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"– 1, 1\" — 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0, ⇒ p = 1 Now quadratic equatio"
+     }
+    },
+    {
+     "id": "opt-3",
+     "text": {
+      "en": "0, – 1"
+     },
+     "correct": true
+    },
+    {
+     "id": "opt-4",
+     "text": {
+      "en": "– 1, 2 * There is no change in the Question Paper Design and Assessment Pattern for Academic Session 2026-27"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"– 1, 2 * There is no change in the Question Paper Design and Assessment Pattern for Academic Session 2026-27\" — 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0, ⇒ p = 1 Now quadratic equatio"
+     }
+    }
+   ],
+   "hint": {
+    "en": "Focus on this idea: 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0,."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, then its roots are: 1."
+    },
+    {
+     "en": "Step 2: 0, – 1 As (1 – p) is a root of the quadratic equation x + px + 1 – p = 0, 1 ⸫ (1 – p) + p (1 – p) + 1 – p = 0, ⇒ p = 1 Now quadratic equation will be: x + x = 0 x (x+1) = 0 So the roots are 0, -1 (A) –"
+    }
+   ]
+  },
+  {
+   "key": "fill-textbook-10-more",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Quadratic equations and factorisation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic equations and factorisation): A rectangular plot has area 528 square metres and its length is one ___ than twice its breadth. Finding the breadth leads to a quadratic equation."
+   },
+   "accepted": [
+    "more"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic equations and factorisation\": the missing word starts with \"m\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"m\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: \"more\" accurately completes the concept: A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic equations and factorisation): A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is never not zero."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic equations and factorisation\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Quadratic equations and factorisation): Identify the correct statement from this lesson. (Focus: number alpha alpha squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation a does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"number alpha alpha squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"number alpha alpha squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-13-3",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Quadratic equations and factorisation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic equations and factorisation): To factorise, split the middle term. For 2x squared - 5x + ___ we need two numbers with product 6 and sum -5. They are -2 and -3."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic equations and factorisation\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Quadratic equations and factorisation): Identify the correct statement from this lesson. (Focus: Write squared)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1). does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Write squared\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Write squared\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-zero",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Quadratic equations and factorisation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic equations and factorisation): Set each factor to ___: x = 3/2 or x = 1. These are the two roots."
+   },
+   "accepted": [
+    "zero"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic equations and factorisation\": the missing word starts with \"z\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"z\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Set each factor to zero: x = 3/2 or x = 1. These are the two roots.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: \"zero\" accurately completes the concept: Set each factor to zero: x = 3/2 or x = 1. These are the two roots."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic equations and factorisation): Which of the following statements is scientifically/conceptually accurate? (Focus: Before solving problem write)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Before solving a word problem, write the situation as an equation in standard form, then factorise."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Before solving a word problem, write the situation as an equation in standard form, then factor does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Before solving a word problem, write the situation as an equation in standard form, then factorise."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Before solving problem write\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "Before solving a word problem, write the situation as an equation in standard form, then factorise."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Before solving problem write\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Before solving a word problem, write the situation as an equation in standard form, then factorise.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic equations and factorisation): never reject a root that does not make sense, such as a negative length or a fractional number of people."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic equations and factorisation\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Always reject a root that does not make sense, such as a negative length or a fractional number of people."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Always reject a root that does not make sense, such as a negative length or a fractional number of people."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic equations and factorisation): Which of the following statements is scientifically/conceptually accurate? (Focus: Check substituting original equation)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Check each root by substituting it into the original equation."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Check each root by substituting it into the original equation. does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Check each root by substituting it into the original equation."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Check substituting original equation\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "Check each root by substituting it into the original equation."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Check substituting original equation\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Check each root by substituting it into the original equation.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Quadratic equations and factorisation): Which of the following statements is scientifically/conceptually accurate? (Focus: rectangular square metres length)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A rectangular plot has area 528 square metres and its length is one more than twice its breadth does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A quadratic equation in x has the standard form a x squared + b x + c = 0 where "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"rectangular square metres length\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"rectangular square metres length\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A rectangular plot has area 528 square metres and its length is one more than twice its breadth. Finding the breadth leads to a quadratic equation.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic equations and factorisation): A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic equations and factorisation\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A quadratic equation in x has the standard form a x squared + b x + c = 0 where a is not zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-21-alpha",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Quadratic equations and factorisation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Quadratic equations and factorisation): A number alpha is a root if a alpha squared + b ___ + c equals 0. The roots of the equation are the zeroes of the polynomial."
+   },
+   "accepted": [
+    "alpha"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Quadratic equations and factorisation\": the missing word starts with \"a\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: \"alpha\" accurately completes the concept: A number alpha is a root if a alpha squared + b alpha + c equals 0. The roots of the equation are the zeroes of the polynomial."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Quadratic equations and factorisation): Which statement best explains a deep principle from this topic? (Focus: factorise split middle term)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"factorise split middle term\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"factorise split middle term\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To factorise, split the middle term. For 2x squared - 5x + 3 we need two numbers with product 6 and sum -5. They are -2 and -3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Quadratic equations and factorisation): Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Quadratic equations and factorisation\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Write 2x squared - 2x - 3x + 3 = 2x(x - 1) - 3(x - 1) = (2x - 3)(x - 1)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Quadratic equations and factorisation\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Quadratic equations and factorisation): Which statement best explains a deep principle from this topic? (Focus: factor zero These roots)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Set each factor to zero: x = 3/2 or x = 1. These are the two roots."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Set each factor to zero: x = 3/2 or x = 1. These are the two roots. does not apply in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Set each factor to zero: x = 3/2 or x = 1. These are the two roots."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Quadratic equations and factorisation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Quadratic equations and factorisation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A rectangular plot has area 528 square metres and its length is one more than tw"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Quadratic equations and factorisation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"factor zero These roots\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Quadratic equations and factorisation\"."
+    }
+   ],
+   "explanation": {
+    "en": "Set each factor to zero: x = 3/2 or x = 1. These are the two roots."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"factor zero These roots\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Set each factor to zero: x = 3/2 or x = 1. These are the two roots.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

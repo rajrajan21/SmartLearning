@@ -1,360 +1,749 @@
 {
-  "board": "CBSE",
-  "classLevel": 5,
-  "subject": "maths",
-  "chapter": "weight-and-capacity",
-  "topic": "kilograms-and-grams",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "weight-and-capacity",
+ "topic": "kilograms-and-grams",
+ "questions": [
+  {
+   "key": "r1-kg1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-kg1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which weight is sensible for a refrigerator?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "50 kg"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "50 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "50 g is about the weight of a lemon - far too small for a refrigerator."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "5 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "5 g is lighter than a coin."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "A refrigerator is a heavy machine, so its weight is in kilograms."
-      }
-    },
-    {
-      "key": "r1-kg2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "3 kg 500 g = ___ g"
-      },
-      "answer": 3500,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 3050,
-          "why": {
-            "en": "500 g needs three digits: 3,000 + 500 = 3,500."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 kg = 3,000 g, plus 500 g gives 3,500 g."
-      }
-    },
-    {
-      "key": "r1-kg3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many grams are there in 2 kg 250 g?"
-      },
-      "answer": 2250,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 2025,
-          "why": {
-            "en": "250 g must be added fully, not as 25."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 kg = 2,000 g and 2,000 + 250 = 2,250 g."
-      }
-    },
-    {
-      "key": "r1-kg4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A water bottle weighing 650 g is a sensible weight."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "650 g is a little over half a kilogram, which matches a bottle of water."
-      }
-    },
-    {
-      "key": "r2-kg5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "5 kg 50 g = ___ g"
-      },
-      "answer": 5050,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 5500,
-          "why": {
-            "en": "That is 5 kg 500 g, not 5 kg 50 g."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 kg = 5,000 g; add 50 g to get 5,050 g. Rehan's 5,500 g is wrong because it adds 500 g."
-      }
-    },
-    {
-      "key": "r2-kg6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "10,760 g is the same as"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "10 kg 760 g"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1 kg 760 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "10,000 g is 10 kg, not 1 kg."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "107 kg 60 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Split at the thousands: 10 | 760."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "10,760 g = 10,000 g + 760 g = 10 kg 760 g."
-      }
-    },
-    {
-      "key": "r2-kg7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which sign makes this true? 1 kg 600 g __ 1,700 g"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "<"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": ">"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1 kg 600 g is 1,600 g, which is smaller."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "="
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1,600 is not 1,700."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1,600 g is less than 1,700 g."
-      }
-    },
-    {
-      "key": "r2-kg8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "4,080 g = ___ kg ___ g (write like 4 kg 80 g)"
-      },
-      "accepted": [
-        "4 kg 80 g",
-        "4kg 80g",
-        "4 kg 80"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "4 kg 800 g",
-          "why": {
-            "en": "80 is 80 g, not 800 g."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4,080 g = 4,000 g + 80 g = 4 kg 80 g."
-      }
-    },
-    {
-      "key": "r3-kg9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Which fruit among watermelon 3 kg, pineapple 1 kg 750 g, apples 1 kg 250 g and mangoes 2 kg weighs the least?"
-      },
-      "accepted": [
-        "apples",
-        "apple"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "pineapple",
-          "why": {
-            "en": "1,750 g is more than 1,250 g."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 kg 250 g = 1,250 g is the smallest weight."
-      }
-    },
-    {
-      "key": "r3-kg10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Each small mark on a scale between 0 and 1 kg is 250 g. A pointer at the 3rd mark shows"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "750 g"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "300 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Each mark is 250 g, so count 250, 500, 750."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "350 g"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Count the marks: 250 + 250 + 250."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 marks x 250 g = 750 g."
-      }
-    },
-    {
-      "key": "r3-kg11",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "900 g + 7,000 g is equal to 7 kg + 900 g."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Both are 7,900 g."
-      }
-    },
-    {
-      "key": "r3-kg12",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Convert 12,042 g into kg and g. How many grams are left over after taking out the kilograms?"
-      },
-      "answer": 42,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 420,
-          "why": {
-            "en": "Write the 0 and read 042 as 42 g."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "12,042 g = 12 kg 42 g, so 42 g remain."
-      }
+     "en": "Focus on this idea: A refrigerator is a heavy machine, so its weight is in kilograms."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which weight is sensible for a refrigerator?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "50 kg"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "50 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "50 g is about the weight of a lemon - far too small for a refrigerator."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "5 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "5 g is lighter than a coin."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "A refrigerator is a heavy machine, so its weight is in kilograms."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: A refrigerator is a heavy machine, so its weight is in kilograms."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which weight is sensible for a refrigerator?."
+    },
+    {
+     "en": "Step 2: A refrigerator is a heavy machine, so its weight is in kilograms."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-kg2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 3 kg = 3,000 g, plus 500 g gives 3,500 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "3 kg 500 g = ___ g"
+   },
+   "answer": 3500,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 3050,
+     "why": {
+      "en": "500 g needs three digits: 3,000 + 500 = 3,500."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 kg = 3,000 g, plus 500 g gives 3,500 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 3 kg = 3,000 g, plus 500 g gives 3,500 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 3 kg 500 g = ___ g."
+    },
+    {
+     "en": "Step 2: 3 kg = 3,000 g, plus 500 g gives 3,500 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-kg3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 2 kg = 2,000 g and 2,000 + 250 = 2,250 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many grams are there in 2 kg 250 g?"
+   },
+   "answer": 2250,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 2025,
+     "why": {
+      "en": "250 g must be added fully, not as 25."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 kg = 2,000 g and 2,000 + 250 = 2,250 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 2 kg = 2,000 g and 2,000 + 250 = 2,250 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many grams are there in 2 kg 250 g?."
+    },
+    {
+     "en": "Step 2: 2 kg = 2,000 g and 2,000 + 250 = 2,250 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-kg4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 650 g is a little over half a kilogram, which matches a bottle of water."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A water bottle weighing 650 g is a sensible weight."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "650 g is a little over half a kilogram, which matches a bottle of water."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 650 g is a little over half a kilogram, which matches a bottle of water."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A water bottle weighing 650 g is a sensible weight.."
+    },
+    {
+     "en": "Step 2: 650 g is a little over half a kilogram, which matches a bottle of water."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-kg5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 5 kg = 5,000 g; add 50 g to get 5,050 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "5 kg 50 g = ___ g"
+   },
+   "answer": 5050,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 5500,
+     "why": {
+      "en": "That is 5 kg 500 g, not 5 kg 50 g."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 kg = 5,000 g; add 50 g to get 5,050 g. Rehan's 5,500 g is wrong because it adds 500 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 5 kg = 5,000 g; add 50 g to get 5,050 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: 5 kg = 5,000 g; add 50 g to get 5,050 g."
+    },
+    {
+     "en": "Step 2: Rehan's 5,500 g is wrong because it adds 500 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-kg6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 10,760 g = 10,000 g + 760 g = 10 kg 760 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "10,760 g is the same as"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "10 kg 760 g"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1 kg 760 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "10,000 g is 10 kg, not 1 kg."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "107 kg 60 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Split at the thousands: 10 | 760."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "10,760 g = 10,000 g + 760 g = 10 kg 760 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 10,760 g = 10,000 g + 760 g = 10 kg 760 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 10,760 g is the same as."
+    },
+    {
+     "en": "Step 2: 10,760 g = 10,000 g + 760 g = 10 kg 760 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-kg7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 1,600 g is less than 1,700 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which sign makes this true? 1 kg 600 g __ 1,700 g"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "<"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": ">"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "1 kg 600 g is 1,600 g, which is smaller."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "="
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "1,600 is not 1,700."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1,600 g is less than 1,700 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 1,600 g is less than 1,700 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which sign makes this true? 1 kg 600 g __ 1,700 g."
+    },
+    {
+     "en": "Step 2: 1,600 g is less than 1,700 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-kg8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "4,080 g = ___ kg ___ g (write like 4 kg 80 g)"
+   },
+   "accepted": [
+    "4 kg 80 g",
+    "4kg 80g",
+    "4 kg 80"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "4 kg 800 g",
+     "why": {
+      "en": "80 is 80 g, not 800 g."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4,080 g = 4,000 g + 80 g = 4 kg 80 g."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 4,080 g = ___ kg ___ g (write like 4 kg 80 g)."
+    },
+    {
+     "en": "Step 2: 4,080 g = 4,000 g + 80 g = 4 kg 80 g."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-kg9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"a\" and relates to Which fruit among watermelon 3 kg, pineapple 1 kg )."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Which fruit among watermelon 3 kg, pineapple 1 kg 750 g, apples 1 kg 250 g and mangoes 2 kg weighs the least?"
+   },
+   "accepted": [
+    "apples",
+    "apple"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "pineapple",
+     "why": {
+      "en": "1,750 g is more than 1,250 g."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 kg 250 g = 1,250 g is the smallest weight."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"a\" and relates to Which fruit among watermelon 3 kg, pineapple 1 kg )."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which fruit among watermelon 3 kg, pineapple 1 kg 750 g, apples 1 kg 250 g and mangoes 2 k."
+    },
+    {
+     "en": "Step 2: 1 kg 250 g = 1,250 g is the smallest weight."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-kg10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Each small mark on a scale between 0 and 1 kg is 250 g. A pointer at the 3rd mark shows"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "750 g"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "300 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Each mark is 250 g, so count 250, 500, 750."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "350 g"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Count the marks: 250 + 250 + 250."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 marks x 250 g = 750 g."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Each small mark on a scale between 0 and 1 kg is 250 g. A pointer at the 3rd mark shows."
+    },
+    {
+     "en": "Step 2: 3 marks x 250 g = 750 g."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-kg11",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "900 g + 7,000 g is equal to 7 kg + 900 g."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Both are 7,900 g."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 900 g + 7,000 g is equal to 7 kg + 900 g.."
+    },
+    {
+     "en": "Step 2: Both are 7,900 g."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-kg12",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: 12,042 g = 12 kg 42 g, so 42 g remain."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Convert 12,042 g into kg and g. How many grams are left over after taking out the kilograms?"
+   },
+   "answer": 42,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 420,
+     "why": {
+      "en": "Write the 0 and read 042 as 42 g."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "12,042 g = 12 kg 42 g, so 42 g remain."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: 12,042 g = 12 kg 42 g, so 42 g remain."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Convert 12,042 g into kg and g. How many grams are left over after taking out the kilogram."
+    },
+    {
+     "en": "Step 2: 12,042 g = 12 kg 42 g, so 42 g remain."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-exam-13",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Kilograms and grams: reading scales, converting, comparing): To change kg and g to grams: 3 kg 500 g = 3,000 g + 500 g = 3,500 g. Shrenu's kitchen scale shows only grams, so for 2 kg 250 g of flour it must show 2,250 g."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Kilograms and grams: reading scales, converting, comparing\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Kilograms and grams: reading scales, converting, comparing\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To change kg and g to grams: 3 kg 500 g = 3,000 g + 500 g = 3,500 g. Shrenu's kitchen scale shows only grams, so for 2 kg 250 g of flour it must show 2,250 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Kilograms and grams: reading scales, converting, comparing\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-14-rehan",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Kilograms and grams: reading scales, converting, comparing",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Kilograms and grams: reading scales, converting, comparing): Be careful with the zeros. 5 kg 50 g = 5,000 g + 50 g = 5,050 g, not 5,500 g. Shamim was right and ___ was wrong, because 50 g is much less than 500 g."
+   },
+   "accepted": [
+    "Rehan",
+    "rehan"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Kilograms and grams: reading scales, converting, comparing\": the missing word starts with \"R\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"R\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Be careful with the zeros. 5 kg 50 g = 5,000 g + 50 g = 5,050 g, not 5,500 g. Shamim was right and Rehan was wrong, because 50 g is much less than 500 g.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Kilograms and grams: reading scales, converting, comparing\"."
+    },
+    {
+     "en": "Step 2: \"Rehan\" accurately completes the concept: Be careful with the zeros. 5 kg 50 g = 5,000 g + 50 g = 5,050 g, not 5,500 g. Shamim was right and Rehan was wrong, because 50 g is much less than 500 g."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-15",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Kilograms and grams: reading scales, converting, comparing): Which statement best explains a deep principle from this topic? (Focus: change grams back split)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To change grams back, split at the thousands: 10,760 g = 10 kg 760 g, 4,080 g = 4 kg 80 g and 12,042 g = 12 kg 42 g."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To change grams back, split at the thousands: 10,760 g = 10 kg 760 g, 4,080 g = 4 kg 80 g and 1 does not apply in Kilograms and grams: reading scales, converting, comparing."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To change grams back, split at the thousands: 10,760 g = 10 kg 760 g, 4,080 g = 4 kg 80 g and 12,042 g = 12 kg 42 g."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Kilograms and grams: reading scales, converting, comparing."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Kilograms and grams: reading scales, converting, comparing follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Anu wrote the weight of things in her house: iron almirah 40 g, bed 60 kg, rice "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Kilograms and grams: reading scales, converting, comparing."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"change grams back split\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Kilograms and grams: reading scales, converting, comparing\"."
+    }
+   ],
+   "explanation": {
+    "en": "To change grams back, split at the thousands: 10,760 g = 10 kg 760 g, 4,080 g = 4 kg 80 g and 12,042 g = 12 kg 42 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"change grams back split\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To change grams back, split at the thousands: 10,760 g = 10 kg 760 g, 4,080 g = 4 kg 80 g and 12,042 g = 12 kg 42 g.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-16",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Kilograms and grams: reading scales, converting, comparing): To compare, bring both weights to the same unit. 1 kg 600 g = 1,600 g, which is less than 1,700 g. And 1 kg 600 g is more than 1 kg 60 g, because 600 g is more than 60 g."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Kilograms and grams: reading scales, converting, comparing\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Kilograms and grams: reading scales, converting, comparing\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To compare, bring both weights to the same unit. 1 kg 600 g = 1,600 g, which is less than 1,700 g. And 1 kg 600 g is more than 1 kg 60 g, because 600 g is more than 60 g."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Kilograms and grams: reading scales, converting, comparing\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

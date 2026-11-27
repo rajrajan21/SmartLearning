@@ -1,367 +1,1159 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "trigonometry",
-  "topic": "full-chapter-lesson",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "trigonometry",
+ "topic": "full-chapter-lesson",
+ "questions": [
+  {
+   "key": "r1-tri250",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-tri250",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "sin A equals"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "adjacent / hypotenuse"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "opposite / hypotenuse"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "opposite / adjacent"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Definition."
-      }
-    },
-    {
-      "key": "r1-tri251",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "tan 45 = 1."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "key": "r2-tri252",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "cos(90 - A) equals"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "sin A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "cos A"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "tan A"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Complementary angles."
-      }
-    },
-    {
-      "key": "r2-tri253",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The hypotenuse is the shortest side."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It is the longest."
-      }
-    },
-    {
-      "key": "r3-tri254",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "sin 30 equals"
-      },
-      "options": [
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "right",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": true
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "sqrt(3)/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "From the table."
-      }
-    },
-    {
-      "key": "r3-tri255",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "What is tan 45?"
-      },
-      "accepted": [
-        "1"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Equal opposite and adjacent."
-      }
-    },
-    {
-      "key": "r4-tri256",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Reciprocal of sine is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "cosecant"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "secant"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "cotangent"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Try again."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 / sin A."
-      }
-    },
-    {
-      "key": "r4-tri257",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Trigonometry helps find heights."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Yes."
-      }
-    },
-    {
-      "stem": {
-        "en": "A right triangle has opposite side 8 and adjacent side 15 for angle A. What is tan A?"
-      },
-      "explanation": {
-        "en": "Tangent compares the opposite and adjacent legs in that order."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "15/8"
-          },
-          "whyWrong": {
-            "en": "This is cotangent of A."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "8/15"
-          },
-          "correct": true
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "8/17"
-          },
-          "whyWrong": {
-            "en": "This is sine of A."
-          }
-        }
-      ],
-      "key": "tnm9-trig-apply-1",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Where do you read sin 26° 30′ in a sine table?"
-      },
-      "explanation": {
-        "en": "The degrees select the row and the minutes select the column."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "Row 30°, column 26′"
-          },
-          "whyWrong": {
-            "en": "This would read a different angle."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "Row 26°, column 0′"
-          },
-          "whyWrong": {
-            "en": "Thirty minutes must be included."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "Row 26°, column 30′"
-          },
-          "correct": true
-        }
-      ],
-      "key": "tnm9-trig-table-1",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
-    },
-    {
-      "stem": {
-        "en": "Why is tan 90° undefined?"
-      },
-      "explanation": {
-        "en": "Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
-      },
-      "options": [
-        {
-          "id": "o1",
-          "text": {
-            "en": "It would divide by zero."
-          },
-          "correct": true
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "Its numerator and denominator are both one."
-          },
-          "whyWrong": {
-            "en": "Sine is one here, but cosine is zero."
-          }
-        },
-        {
-          "id": "o3",
-          "text": {
-            "en": "All ratios are undefined at ninety degrees."
-          },
-          "whyWrong": {
-            "en": "Sine and cosine have values at ninety degrees."
-          }
-        }
-      ],
-      "key": "tnm9-trig-endpoint-1",
-      "round": 4,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq"
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "sin A equals"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "adjacent / hypotenuse"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"adjacent / hypotenuse\" — Definition."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "opposite / hypotenuse"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "opposite / adjacent"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"opposite / adjacent\" — Definition."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Definition."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: sin A equals."
+    },
+    {
+     "en": "Step 2: Definition."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-tri251",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "tan 45 = 1."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: tan 45 = 1.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tri252",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "cos(90 - A) equals"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "sin A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "cos A"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"cos A\" — Complementary angles."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "tan A"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"tan A\" — Complementary angles."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Complementary angles."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: cos(90 - A) equals."
+    },
+    {
+     "en": "Step 2: Complementary angles."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-tri253",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The hypotenuse is the shortest side."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It is the longest."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The hypotenuse is the shortest side.."
+    },
+    {
+     "en": "Step 2: It is the longest."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-tri254",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "sin 30 equals"
+   },
+   "options": [
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"1\" — From the table."
+     }
+    },
+    {
+     "id": "right",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": true
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "sqrt(3)/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"sqrt(3)/2\" — From the table."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "From the table."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: sin 30 equals."
+    },
+    {
+     "en": "Step 2: From the table."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-tri255",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "What is tan 45?"
+   },
+   "accepted": [
+    "1"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Equal opposite and adjacent."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is tan 45?."
+    },
+    {
+     "en": "Step 2: Equal opposite and adjacent."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r4-tri256",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Reciprocal of sine is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "cosecant"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "secant"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"secant\" — 1 / sin A."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "cotangent"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"cotangent\" — 1 / sin A."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 / sin A."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Reciprocal of sine is."
+    },
+    {
+     "en": "Step 2: 1 / sin A."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "r4-tri257",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Trigonometry helps find heights."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Yes."
+   },
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Trigonometry helps find heights.."
+    },
+    {
+     "en": "Step 2: Yes."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "stem": {
+    "en": "A right triangle has opposite side 8 and adjacent side 15 for angle A. What is tan A?"
+   },
+   "explanation": {
+    "en": "Tangent compares the opposite and adjacent legs in that order."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "15/8"
+     },
+     "whyWrong": {
+      "en": "This is cotangent of A."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "8/15"
+     },
+     "correct": true
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "8/17"
+     },
+     "whyWrong": {
+      "en": "This is sine of A."
+     }
+    }
+   ],
+   "key": "tnm9-trig-apply-1",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Tangent compares the opposite and adjacent legs in that order."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Tangent compares the opposite and adjacent legs in that order."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A right triangle has opposite side 8 and adjacent side 15 for angle A. What is tan A?."
+    },
+    {
+     "en": "Step 2: Tangent compares the opposite and adjacent legs in that order."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "stem": {
+    "en": "Where do you read sin 26° 30′ in a sine table?"
+   },
+   "explanation": {
+    "en": "The degrees select the row and the minutes select the column."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "Row 30°, column 26′"
+     },
+     "whyWrong": {
+      "en": "This would read a different angle."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "Row 26°, column 0′"
+     },
+     "whyWrong": {
+      "en": "Thirty minutes must be included."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "Row 26°, column 30′"
+     },
+     "correct": true
+    }
+   ],
+   "key": "tnm9-trig-table-1",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The degrees select the row and the minutes select the column."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The degrees select the row and the minutes select the column."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Where do you read sin 26° 30′ in a sine table?."
+    },
+    {
+     "en": "Step 2: The degrees select the row and the minutes select the column."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "stem": {
+    "en": "Why is tan 90° undefined?"
+   },
+   "explanation": {
+    "en": "Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
+   },
+   "options": [
+    {
+     "id": "o1",
+     "text": {
+      "en": "It would divide by zero."
+     },
+     "correct": true
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "Its numerator and denominator are both one."
+     },
+     "whyWrong": {
+      "en": "Sine is one here, but cosine is zero."
+     }
+    },
+    {
+     "id": "o3",
+     "text": {
+      "en": "All ratios are undefined at ninety degrees."
+     },
+     "whyWrong": {
+      "en": "Sine and cosine have values at ninety degrees."
+     }
+    }
+   ],
+   "key": "tnm9-trig-endpoint-1",
+   "round": 4,
+   "hints": [
+    {
+     "en": "Focus on this idea: Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "tier": "advanced",
+   "marks": 3,
+   "hint": {
+    "en": "Focus on this idea: Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Why is tan 90° undefined?."
+    },
+    {
+     "en": "Step 2: Tangent is sine divided by cosine, and the cosine of ninety degrees is zero."
+    }
+   ],
+   "source": "Level 2 Challenge"
+  },
+  {
+   "key": "fill-textbook-12-wall",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): Raju looked at a ladder leaning on a ___. \"How can we find its angle?\" he wondered."
+   },
+   "accepted": [
+    "wall"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"w\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wondered.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"wall\" accurately completes the concept: Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wondered."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-13",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometry): In a right-angled triangle, the sides are never the hypotenuse, the opposite side and the adjacent side with respect to an angle."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometry\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: In a right-angled triangle, the sides are the hypotenuse, the opposite side and the adjacent side with respect to an angle."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-14-angles",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): For complementary ___, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A."
+   },
+   "accepted": [
+    "angles"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"a\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"angles\" accurately completes the concept: For complementary angles, sin(90 - A) = cos A, cos(90 - A) = sin A and tan(90 - A) = cot A."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-15",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Trigonometry): Identify the correct statement from this lesson. (Focus: Values ratios degrees found)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, suc does not apply in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometry follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wonde"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometry."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Values ratios degrees found\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Values ratios degrees found\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Values of the ratios for 0, 30, 45, 60 and 90 degrees are found in the trigonometric table, such as sin 30 = 1/2, cos 60 = 1/2 and tan 45 = 1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-16",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometry): A trigonometric table gives approximate ratio values for angles within its range. Those values can help us calculate lengths and angles in right-angled triangles."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometry\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A trigonometric table gives approximate ratio values for angles within its range. Those values can help us calculate lengths and angles in right-angled triangles."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-17-hypotenuse",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): For the angle marked A, trace the leg touching A that is not the ___. This is the adjacent leg. The other leg, across the triangle, is opposite A."
+   },
+   "accepted": [
+    "hypotenuse"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"h\" and has 10 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"h\" (10 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For the angle marked A, trace the leg touching A that is not the hypotenuse. This is the adjacent leg. The other leg, across the triangle, is opposite A.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"hypotenuse\" accurately completes the concept: For the angle marked A, trace the leg touching A that is not the hypotenuse. This is the adjacent leg. The other leg, across the triangle, is opposite A."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-18-lengths",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): Imagine two right triangles with the same acute angle. They are similar, so if the side ___ double, the ratio of any pair of corresponding lengths stays the same."
+   },
+   "accepted": [
+    "lengths"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"l\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Imagine two right triangles with the same acute angle. They are similar, so if the side lengths double, the ratio of any pair of corresponding lengths stays the same.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"lengths\" accurately completes the concept: Imagine two right triangles with the same acute angle. They are similar, so if the side lengths double, the ratio of any pair of corresponding lengths stays the same."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Trigonometry): Which of the following statements is scientifically/conceptually accurate? (Focus: triangle three hypotenuse five)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length four. The leg of length three is then opposite A."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length f does not apply in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length four. The leg of length three is then opposite A."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometry follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wonde"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometry."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"triangle three hypotenuse five\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length four. The leg of length three is then opposite A."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"triangle three hypotenuse five\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Use a triangle with legs three and four and hypotenuse five. Mark A next to the leg of length four. The leg of length three is then opposite A.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Trigonometry): Sine of A is opposite divided by hypotenuse. Substitute three and five, giving three fifths. This compares two lengths without giving a unit."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Trigonometry\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Sine of A is opposite divided by hypotenuse. Substitute three and five, giving three fifths. This compares two lengths without giving a unit."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-21",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Trigonometry): Which of the following statements is scientifically/conceptually accurate? (Focus: Using marked angle cosine)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite divided by adjacent. The ratios are four fifths and three quarters."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite d does not apply in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite divided by adjacent. The ratios are four fifths and three quarters."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometry follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wonde"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometry."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Using marked angle cosine\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite divided by adjacent. The ratios are four fifths and three quarters."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Using marked angle cosine\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Using the same marked angle, cosine is adjacent divided by hypotenuse and tangent is opposite divided by adjacent. The ratios are four fifths and three quarters.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-22-secant",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): Cosecant of A is the reciprocal of sine, so it is five thirds. Similarly, ___ is the reciprocal of cosine, and cotangent is the reciprocal of tangent."
+   },
+   "accepted": [
+    "secant"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Cosecant of A is the reciprocal of sine, so it is five thirds. Similarly, secant is the reciprocal of cosine, and cotangent is the reciprocal of tangent.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"secant\" accurately completes the concept: Cosecant of A is the reciprocal of sine, so it is five thirds. Similarly, secant is the reciprocal of cosine, and cotangent is the reciprocal of tangent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-23-check",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Trigonometry",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Trigonometry): The three pairs use the same two sides in opposite orders. ___ that sine times cosecant gives one when both ratios are defined."
+   },
+   "accepted": [
+    "Check",
+    "check"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Trigonometry\": the missing word starts with \"C\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"C\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The three pairs use the same two sides in opposite orders. Check that sine times cosecant gives one when both ratios are defined.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Trigonometry\"."
+    },
+    {
+     "en": "Step 2: \"Check\" accurately completes the concept: The three pairs use the same two sides in opposite orders. Check that sine times cosecant gives one when both ratios are defined."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Trigonometry): Which statement best explains a deep principle from this topic? (Focus: other acute angle adjacent)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite leg becomes adjacent. The hypotenuse stays fixed."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite does not apply in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite leg becomes adjacent. The hypotenuse stays fixed."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Trigonometry."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Trigonometry follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Raju looked at a ladder leaning on a wall. \"How can we find its angle?\" he wonde"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Trigonometry."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"other acute angle adjacent\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Trigonometry\"."
+    }
+   ],
+   "explanation": {
+    "en": "If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite leg becomes adjacent. The hypotenuse stays fixed."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"other acute angle adjacent\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If you mark the other acute angle B, the old adjacent leg becomes opposite and the old opposite leg becomes adjacent. The hypotenuse stays fixed.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

@@ -1,243 +1,1193 @@
 {
-  "board": "CBSE",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "ch08-predicting-what-comes-next-exploring-sequences-a",
-  "topic": "sequences-ap-and-gp",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "ch08-predicting-what-comes-next-exploring-sequences-a",
+ "topic": "sequences-ap-and-gp",
+ "questions": [
+  {
+   "key": "m8-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "m8-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The common difference of 7, 11, 15, 19 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "7"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each term adds 4."
-      }
-    },
-    {
-      "key": "m8-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "2, 6, 18, 54 is a"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "geometric progression"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "arithmetic progression"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "triangular sequence"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Each term is multiplied by 3."
-      }
-    },
-    {
-      "key": "m8-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The triangular number sequence is 1, 3, 6, 10, 15."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Each term adds the next natural number."
-      }
-    },
-    {
-      "key": "m8-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "10th term of the AP 5, 8, 11, ..."
-      },
-      "answer": 32,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 35,
-          "why": {
-            "en": "Use n - 1 = 9, not 10."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 + 9 x 3 = 32."
-      }
-    },
-    {
-      "key": "m8-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "6th triangular number"
-      },
-      "answer": 21,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 36,
-          "why": {
-            "en": "Use n(n + 1)/2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6 x 7 / 2 = 21."
-      }
-    },
-    {
-      "key": "m8-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "4th term of the GP 3, 6, 12, ..."
-      },
-      "answer": 24,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 48,
-          "why": {
-            "en": "The exponent is n - 1 = 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 x 2^3 = 24."
-      }
-    },
-    {
-      "key": "m8-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "The fixed number multiplied in a GP is called the common ___"
-      },
-      "accepted": [
-        "ratio"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "It is the common ratio."
-      }
-    },
-    {
-      "key": "m8-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which formula gives the nth term of an AP?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "a + (n - 1)d"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "a r^(n - 1)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "n(n + 1)/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "This is the standard AP formula."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The common difference of 7, 11, 15, 19 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "7"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each term adds 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The common difference of 7, 11, 15, 19 is."
+    },
+    {
+     "en": "Step 2: Each term adds 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Each term is multiplied by 3."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "2, 6, 18, 54 is a"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "geometric progression"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "arithmetic progression"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "triangular sequence"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Each term is multiplied by 3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Each term is multiplied by 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 2, 6, 18, 54 is a."
+    },
+    {
+     "en": "Step 2: Each term is multiplied by 3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Each term adds the next natural number."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The triangular number sequence is 1, 3, 6, 10, 15."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Each term adds the next natural number."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Each term adds the next natural number."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The triangular number sequence is 1, 3, 6, 10, 15.."
+    },
+    {
+     "en": "Step 2: Each term adds the next natural number."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "10th term of the AP 5, 8, 11, ..."
+   },
+   "answer": 32,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 35,
+     "why": {
+      "en": "Use n - 1 = 9, not 10."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 + 9 x 3 = 32."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 10th term of the AP 5, 8, 11, ...."
+    },
+    {
+     "en": "Step 2: 5 + 9 x 3 = 32."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "6th triangular number"
+   },
+   "answer": 21,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 36,
+     "why": {
+      "en": "Use n(n + 1)/2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6 x 7 / 2 = 21."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 6th triangular number."
+    },
+    {
+     "en": "Step 2: 6 x 7 / 2 = 21."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "4th term of the GP 3, 6, 12, ..."
+   },
+   "answer": 24,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 48,
+     "why": {
+      "en": "The exponent is n - 1 = 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 x 2^3 = 24."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 4th term of the GP 3, 6, 12, ...."
+    },
+    {
+     "en": "Step 2: 3 x 2^3 = 24."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m8-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"r\" and relates to The fixed number multiplied in a GP is called the )."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "The fixed number multiplied in a GP is called the common ___"
+   },
+   "accepted": [
+    "ratio"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "It is the common ratio."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"r\" and relates to The fixed number multiplied in a GP is called the )."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The fixed number multiplied in a GP is called the common ___."
+    },
+    {
+     "en": "Step 2: It is the common ratio."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "m8-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: This is the standard AP formula."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which formula gives the nth term of an AP?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "a + (n - 1)d"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "a r^(n - 1)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "n(n + 1)/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "This is the standard AP formula."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: This is the standard AP formula."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which formula gives the nth term of an AP?."
+    },
+    {
+     "en": "Step 2: This is the standard AP formula."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-rule",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the ___ behind a list lets you predict any term without writing them all."
+   },
+   "accepted": [
+    "rule"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"r\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"r\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"rule\" accurately completes the concept: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Sequences, arithmetic and geometric progressions): A sequence is an ordered list of numbers, and each number is called a term."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Sequences, arithmetic and geometric progressions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — A sequence is an ordered list of numbers, and each number is called a term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Sequences, arithmetic and geometric progressions): Identify the correct statement from this lesson. (Focus: explicit formula gives position)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An explicit formula gives a term from its position n. A recursive formula gives a term from the does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"explicit formula gives position\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"explicit formula gives position\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-15",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): The triangular numbers 1, 3, 6, 10, ___ have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+   },
+   "accepted": [
+    "15"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"1\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"1\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"15\" accurately completes the concept: The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-obtained",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): In an arithmetic progression each term is ___ by adding a fixed number d, the common difference."
+   },
+   "accepted": [
+    "obtained"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"o\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"In an arithmetic progression each term is obtained by adding a fixed number d, the common difference.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"obtained\" accurately completes the concept: In an arithmetic progression each term is obtained by adding a fixed number d, the common difference."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Sequences, arithmetic and geometric progressions): Which of the following statements is scientifically/conceptually accurate? (Focus: where first term)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The nth term of an AP is tn = a + (n - 1)d, where a is the first term. does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"where first term\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"where first term\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The nth term of an AP is tn = a + (n - 1)d, where a is the first term.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Sequences, arithmetic and geometric progressions): In a geometric progression each term is never obtained by multiplying by a fixed number r, the common ratio."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Sequences, arithmetic and geometric progressions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: In a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: In a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Sequences, arithmetic and geometric progressions): Which of the following statements is scientifically/conceptually accurate? (Focus: ratio)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The nth term of a GP is tn = a r^(n - 1). For 2, 6, 18 the ratio is 3."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The nth term of a GP is tn = a r^(n - 1). For 2, 6, 18 the ratio is 3. does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The nth term of a GP is tn = a r^(n - 1). For 2, 6, 18 the ratio is 3."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ratio\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "The nth term of a GP is tn = a r^(n - 1). For 2, 6, 18 the ratio is 3."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ratio\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The nth term of a GP is tn = a r^(n - 1). For 2, 6, 18 the ratio is 3.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-terms",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): Check which kind it is: subtract consecutive ___ for an AP, divide them for a GP."
+   },
+   "accepted": [
+    "terms"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Check which kind it is: subtract consecutive terms for an AP, divide them for a GP.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"terms\" accurately completes the concept: Check which kind it is: subtract consecutive terms for an AP, divide them for a GP."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Sequences, arithmetic and geometric progressions): Which of the following statements is scientifically/conceptually accurate? (Focus: guess number Spotting behind)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you pre does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A sequence is an ordered list of numbers, and each number is called a term. An e"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"guess number Spotting behind\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"guess number Spotting behind\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a list lets you predict any term without writing them all.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Sequences, arithmetic and geometric progressions): Which of the following statements is scientifically/conceptually accurate? (Focus: sequence ordered numbers number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A sequence is an ordered list of numbers, and each number is called a term."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A sequence is an ordered list of numbers, and each number is called a term. does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A sequence is an ordered list of numbers, and each number is called a term."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"sequence ordered numbers number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "A sequence is an ordered list of numbers, and each number is called a term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"sequence ordered numbers number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A sequence is an ordered list of numbers, and each number is called a term.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-recursive",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): An explicit formula gives a term from its position n. A ___ formula gives a term from the previous terms."
+   },
+   "accepted": [
+    "recursive"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"r\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"r\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"recursive\" accurately completes the concept: An explicit formula gives a term from its position n. A recursive formula gives a term from the previous terms."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: triangular numbers 12 which)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the f does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"triangular numbers 12 which\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"triangular numbers 12 which\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The triangular numbers 1, 3, 6, 10, 15 have nth term n(n + 1)/2, which is also the sum of the first n natural numbers.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Sequences, arithmetic and geometric progressions): In an arithmetic progression each term is obtained by adding a fixed number d, the common difference."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Sequences, arithmetic and geometric progressions\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — In an arithmetic progression each term is obtained by adding a fixed number d, the common difference."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Sequences, arithmetic and geometric progressions): Which statement best explains a deep principle from this topic? (Focus: where first term)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The nth term of an AP is tn = a + (n - 1)d, where a is the first term. does not apply in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Sequences, arithmetic and geometric progressions."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Sequences, arithmetic and geometric progressions follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: 1, 3, 6, 10, 15 ... can you guess the next number? Spotting the rule behind a li"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Sequences, arithmetic and geometric progressions."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"where first term\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Sequences, arithmetic and geometric progressions\"."
+    }
+   ],
+   "explanation": {
+    "en": "The nth term of an AP is tn = a + (n - 1)d, where a is the first term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"where first term\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The nth term of an AP is tn = a + (n - 1)d, where a is the first term.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-obtained",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Sequences, arithmetic and geometric progressions",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Sequences, arithmetic and geometric progressions): In a geometric progression each term is ___ by multiplying by a fixed number r, the common ratio."
+   },
+   "accepted": [
+    "obtained"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Sequences, arithmetic and geometric progressions\": the missing word starts with \"o\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"o\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"In a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Sequences, arithmetic and geometric progressions\"."
+    },
+    {
+     "en": "Step 2: \"obtained\" accurately completes the concept: In a geometric progression each term is obtained by multiplying by a fixed number r, the common ratio."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

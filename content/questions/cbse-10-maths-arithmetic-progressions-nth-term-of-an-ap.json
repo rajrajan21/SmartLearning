@@ -1,241 +1,1189 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "arithmetic-progressions",
-  "topic": "nth-term-of-an-ap",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "arithmetic-progressions",
+ "topic": "nth-term-of-an-ap",
+ "questions": [
+  {
+   "key": "r1-ap1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-ap1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The common difference of 2, 5, 8, 11 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "3"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "2 is the first term."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "-3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The terms increase."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 - 2 = 3."
-      }
-    },
-    {
-      "key": "r1-ap2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "1, 4, 9, 16 is an AP."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "Differences are 3, 5, 7."
-      }
-    },
-    {
-      "key": "r2-ap3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "10th term of 2, 7, 12, ..."
-      },
-      "answer": 47,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 52,
-          "why": {
-            "en": "That is the 11th term."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 + 9 x 5 = 47."
-      }
-    },
-    {
-      "key": "r2-ap4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which is the AP?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "7, 11, 15, 19"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1, 2, 4, 8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Ratios are equal, not differences."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "3, 6, 8, 13"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Differences are unequal."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "d = 4."
-      }
-    },
-    {
-      "key": "r2-ap5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): 2, 4, 8 is not an AP. Reason (R): 4 - 2 is not equal to 8 - 4."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is true: 2 and 4."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "They are not an AP."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Differences 2 and 4 differ."
-      }
-    },
-    {
-      "key": "r3-ap6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "30th term of the AP 100, 97, 94, ..."
-      },
-      "answer": 13,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 187,
-          "why": {
-            "en": "d is negative."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "100 + 29 x (-3) = 13."
-      }
-    },
-    {
-      "key": "r3-ap7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Find d if a_1 = 5 and a_4 = 14"
-      },
-      "accepted": [
-        "3"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "9",
-          "why": {
-            "en": "d is 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "a + 3d = 14 so 3d = 9."
-      }
-    },
-    {
-      "key": "r3-ap8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The nth term of an AP is a + nd."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It is a + (n - 1)d."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The common difference of 2, 5, 8, 11 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "3"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "2 is the first term."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "-3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The terms increase."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 - 2 = 3."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The common difference of 2, 5, 8, 11 is."
+    },
+    {
+     "en": "Step 2: 5 - 2 = 3."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-ap2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "1, 4, 9, 16 is an AP."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "Differences are 3, 5, 7."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 1, 4, 9, 16 is an AP.."
+    },
+    {
+     "en": "Step 2: Differences are 3, 5, 7."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ap3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "10th term of 2, 7, 12, ..."
+   },
+   "answer": 47,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 52,
+     "why": {
+      "en": "That is the 11th term."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 + 9 x 5 = 47."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 10th term of 2, 7, 12, ...."
+    },
+    {
+     "en": "Step 2: 2 + 9 x 5 = 47."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ap4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which is the AP?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "7, 11, 15, 19"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1, 2, 4, 8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Ratios are equal, not differences."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "3, 6, 8, 13"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Differences are unequal."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "d = 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which is the AP?."
+    },
+    {
+     "en": "Step 2: d = 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ap5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Differences 2 and 4 differ."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): 2, 4, 8 is not an AP. Reason (R): 4 - 2 is not equal to 8 - 4."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is true: 2 and 4."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "They are not an AP."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Differences 2 and 4 differ."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Differences 2 and 4 differ."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): 2, 4, 8 is not an AP. Reason (R): 4 - 2 is not equal to 8 - 4.."
+    },
+    {
+     "en": "Step 2: Differences 2 and 4 differ."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-ap6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "30th term of the AP 100, 97, 94, ..."
+   },
+   "answer": 13,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 187,
+     "why": {
+      "en": "d is negative."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "100 + 29 x (-3) = 13."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 30th term of the AP 100, 97, 94, ...."
+    },
+    {
+     "en": "Step 2: 100 + 29 x (-3) = 13."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ap7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Find d if a_1 = 5 and a_4 = 14"
+   },
+   "accepted": [
+    "3"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "9",
+     "why": {
+      "en": "d is 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "a + 3d = 14 so 3d = 9."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find d if a_1 = 5 and a_4 = 14."
+    },
+    {
+     "en": "Step 2: a + 3d = 14 so 3d = 9."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ap8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The nth term of an AP is a + nd."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It is a + (n - 1)d."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The nth term of an AP is a + nd.."
+    },
+    {
+     "en": "Step 2: It is a + (n - 1)d."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-31",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Arithmetic progressions and the nth term",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Arithmetic progressions and the nth term): A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, ___, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+   },
+   "accepted": [
+    "31"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Arithmetic progressions and the nth term\": the missing word starts with \"3\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: \"31\" accurately completes the concept: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Arithmetic progressions and the nth term): An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Arithmetic progressions and the nth term\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Arithmetic progressions and the nth term): Identify the correct statement from this lesson. (Focus: fixed number called common)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The fixed number d is called the common difference. It can be positive, negative or zero."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The fixed number d is called the common difference. It can be positive, negative or zero. does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The fixed number d is called the common difference. It can be positive, negative or zero."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"fixed number called common\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "The fixed number d is called the common difference. It can be positive, negative or zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"fixed number called common\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The fixed number d is called the common difference. It can be positive, negative or zero.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-term",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Arithmetic progressions and the nth term",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Arithmetic progressions and the nth term): If the first ___ is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+   },
+   "accepted": [
+    "term"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Arithmetic progressions and the nth term\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: \"term\" accurately completes the concept: If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Arithmetic progressions and the nth term): Identify the correct statement from this lesson. (Focus: whether check value)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value. does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"whether check value\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"whether check value\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-term",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Arithmetic progressions and the nth term",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Arithmetic progressions and the nth term): The nth ___ of an AP is a sub n = a + (n - 1) d."
+   },
+   "accepted": [
+    "term"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Arithmetic progressions and the nth term\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The nth term of an AP is a sub n = a + (n - 1) d.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: \"term\" accurately completes the concept: The nth term of an AP is a sub n = a + (n - 1) d."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Arithmetic progressions and the nth term): Which of the following statements is scientifically/conceptually accurate? (Focus: first)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48. does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"first\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"first\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Arithmetic progressions and the nth term): To find which term equals 78, solve 3 + (n - 1) 5 = 78, so n - 1 = 15 and n = 16."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Arithmetic progressions and the nth term\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To find which term equals 78, solve 3 + (n - 1) 5 = 78, so n - 1 = 15 and n = 16."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Arithmetic progressions and the nth term): Which of the following statements is scientifically/conceptually accurate? (Focus: fraction negative number there)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If a term is a fraction or a negative number there is no problem, but n must always be a positive integer."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If a term is a fraction or a negative number there is no problem, but n must always be a positi does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If a term is a fraction or a negative number there is no problem, but n must always be a positive integer."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"fraction negative number there\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "If a term is a fraction or a negative number there is no problem, but n must always be a positive integer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"fraction negative number there\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If a term is a fraction or a negative number there is no problem, but n must always be a positive integer.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Arithmetic progressions and the nth term): Which of the following statements is scientifically/conceptually accurate? (Focus: charges first extra fares)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by th does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: An arithmetic progression, or AP, is a list of numbers in which each term is obt"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"charges first extra fares\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"charges first extra fares\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31, 39 grow by the same amount each time. Such lists are arithmetic progressions.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Arithmetic progressions and the nth term): An arithmetic progression, or AP, is never a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Arithmetic progressions and the nth term\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: An arithmetic progression, or AP, is a list of numbers in which each term is obtained by adding a fixed number d to the previous term."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-difference",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Arithmetic progressions and the nth term",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Arithmetic progressions and the nth term): The fixed number d is called the common ___. It can be positive, negative or zero."
+   },
+   "accepted": [
+    "difference"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Arithmetic progressions and the nth term\": the missing word starts with \"d\" and has 10 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"d\" (10 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The fixed number d is called the common difference. It can be positive, negative or zero.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: \"difference\" accurately completes the concept: The fixed number d is called the common difference. It can be positive, negative or zero."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: first)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on. does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"first\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"first\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If the first term is a, the AP is a, a + d, a + 2d, a + 3d and so on.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Arithmetic progressions and the nth term): To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Arithmetic progressions and the nth term\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To test whether a list is an AP, check that a2 - a1, a3 - a2, a4 - a3 all give the same value."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Arithmetic progressions and the nth term): Which statement best explains a deep principle from this topic? (Focus: )"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The nth term of an AP is a sub n = a + (n - 1) d."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The nth term of an AP is a sub n = a + (n - 1) d. does not apply in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The nth term of an AP is a sub n = a + (n - 1) d."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Arithmetic progressions and the nth term."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Arithmetic progressions and the nth term follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A taxi charges 15 for the first km and 8 for each extra km. The fares 15, 23, 31"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Arithmetic progressions and the nth term."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Arithmetic progressions and the nth term\"."
+    }
+   ],
+   "explanation": {
+    "en": "The nth term of an AP is a sub n = a + (n - 1) d."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The nth term of an AP is a sub n = a + (n - 1) d.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-3",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Arithmetic progressions and the nth term",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Arithmetic progressions and the nth term): For the AP 3, 8, 13, 18, the first term is ___ and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+   },
+   "accepted": [
+    "3"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Arithmetic progressions and the nth term\": the missing word starts with \"3\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"3\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Arithmetic progressions and the nth term\"."
+    },
+    {
+     "en": "Step 2: \"3\" accurately completes the concept: For the AP 3, 8, 13, 18, the first term is 3 and d = 5, so the 10th term is 3 + 9 x 5 = 48."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

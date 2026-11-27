@@ -1,253 +1,1204 @@
 {
-  "board": "CBSE",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "ch07-the-mathematics-of-maybe-introduction-to-probabi",
-  "topic": "probability-basics",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "ch07-the-mathematics-of-maybe-introduction-to-probabi",
+ "topic": "probability-basics",
+ "questions": [
+  {
+   "key": "m7-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "m7-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The probability of an impossible event is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "0"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Impossible means no chance."
-      }
-    },
-    {
-      "key": "m7-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A fair die is rolled. P(getting 5) is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1/6"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "5/6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1/5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "One favourable outcome out of 6."
-      }
-    },
-    {
-      "key": "m7-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A probability can be 1.5."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "Probability always lies between 0 and 1."
-      }
-    },
-    {
-      "key": "m7-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A coin is tossed twice. How many outcomes are in the sample space?"
-      },
-      "answer": 4,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 2,
-          "why": {
-            "en": "Two tosses give 2 x 2 = 4 outcomes."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "HH, HT, TH, TT."
-      }
-    },
-    {
-      "key": "m7-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A bag has 3 red and 5 blue balls. P(blue) is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "5/8"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "3/8"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "5/3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "5 blue out of 8."
-      }
-    },
-    {
-      "key": "m7-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "In 50 tosses a coin shows heads 28 times. The experimental probability of heads is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "28/50"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1/2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "22/50"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Times occurred / total trials."
-      }
-    },
-    {
-      "key": "m7-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "What do we call the list of all possible outcomes?"
-      },
-      "accepted": [
-        "sample space"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "It is the sample space."
-      }
-    },
-    {
-      "key": "m7-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The probability of a certain event is 1."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Certain events always happen."
-      }
+     "en": "Focus on this idea: Impossible means no chance."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The probability of an impossible event is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "0"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Impossible means no chance."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Impossible means no chance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The probability of an impossible event is."
+    },
+    {
+     "en": "Step 2: Impossible means no chance."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: One favourable outcome out of 6."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A fair die is rolled. P(getting 5) is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1/6"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5/6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1/5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "One favourable outcome out of 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: One favourable outcome out of 6."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A fair die is rolled. P(getting 5) is."
+    },
+    {
+     "en": "Step 2: One favourable outcome out of 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Probability always lies between 0 and 1."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A probability can be 1.5."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "Probability always lies between 0 and 1."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Probability always lies between 0 and 1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A probability can be 1.5.."
+    },
+    {
+     "en": "Step 2: Probability always lies between 0 and 1."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A coin is tossed twice. How many outcomes are in the sample space?"
+   },
+   "answer": 4,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 2,
+     "why": {
+      "en": "Two tosses give 2 x 2 = 4 outcomes."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "HH, HT, TH, TT."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A coin is tossed twice. How many outcomes are in the sample space?."
+    },
+    {
+     "en": "Step 2: HH, HT, TH, TT."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A bag has 3 red and 5 blue balls. P(blue) is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "5/8"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3/8"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "5/3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "5 blue out of 8."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A bag has 3 red and 5 blue balls. P(blue) is."
+    },
+    {
+     "en": "Step 2: 5 blue out of 8."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Times occurred / total trials."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "In 50 tosses a coin shows heads 28 times. The experimental probability of heads is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "28/50"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1/2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "22/50"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Times occurred / total trials."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Times occurred / total trials."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In 50 tosses a coin shows heads 28 times. The experimental probability of heads is."
+    },
+    {
+     "en": "Step 2: Times occurred / total trials."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m7-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"s\" and relates to What do we call the list of all possible outcomes?)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "What do we call the list of all possible outcomes?"
+   },
+   "accepted": [
+    "sample space"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "It is the sample space."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"s\" and relates to What do we call the list of all possible outcomes?)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What do we call the list of all possible outcomes?."
+    },
+    {
+     "en": "Step 2: It is the sample space."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "m7-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Certain events always happen."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The probability of a certain event is 1."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Certain events always happen."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Certain events always happen."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The probability of a certain event is 1.."
+    },
+    {
+     "en": "Step 2: Certain events always happen."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-probability",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): Will it rain tomorrow? Will your team win the toss? ___ puts a number between 0 and 1 on how likely such events are."
+   },
+   "accepted": [
+    "Probability",
+    "probability"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"P\" and has 11 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"P\" (11 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"Probability\" accurately completes the concept: Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability: experiments, outcomes and tree diagrams): Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability: experiments, outcomes and tree diagrams\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Probability: experiments, outcomes and tree diagrams): Identify the correct statement from this lesson. (Focus: Experimental probability found doing)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Experimental probability is found by doing the experiment: number of times the event occurred d does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Experimental probability found doing\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Experimental probability found doing\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-likely",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): Theoretical probability assumes all outcomes are equally ___: P(A) = favourable outcomes / possible outcomes."
+   },
+   "accepted": [
+    "likely"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"l\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"likely\" accurately completes the concept: Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-possible",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): The sample space S is the list of all ___ outcomes, for example {H, T} for a coin toss."
+   },
+   "accepted": [
+    "possible"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"p\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"possible\" accurately completes the concept: The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability: experiments, outcomes and tree diagrams): Which of the following statements is scientifically/conceptually accurate? (Focus: event outcome group outcomes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An event is any outcome or group of outcomes from the sample space, such as getting an even num does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"event outcome group outcomes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"event outcome group outcomes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability: experiments, outcomes and tree diagrams): For a fair die, the probability of an even number is never 3 out of 6, which is 1/2."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability: experiments, outcomes and tree diagrams\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: For a fair die, the probability of an even number is 3 out of 6, which is 1/2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: For a fair die, the probability of an even number is 3 out of 6, which is 1/2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability: experiments, outcomes and tree diagrams): Which of the following statements is scientifically/conceptually accurate? (Focus: diagram lists outcomes multi-step)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"diagram lists outcomes multi-step\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"diagram lists outcomes multi-step\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A tree diagram lists all outcomes of a multi-step experiment. Two tosses of a coin give HH, HT, TH and TT.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-17-probability",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): With more and more trials, the experimental ___ usually comes closer to the theoretical probability."
+   },
+   "accepted": [
+    "probability"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"p\" and has 11 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (11 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"With more and more trials, the experimental probability usually comes closer to the theoretical probability.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"probability\" accurately completes the concept: With more and more trials, the experimental probability usually comes closer to the theoretical probability."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability: experiments, outcomes and tree diagrams): Which of the following statements is scientifically/conceptually accurate? (Focus: tomorrow toss Probability number)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 o does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Probability measures the likelihood of an event. P(E) lies between 0, which mean"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"tomorrow toss Probability number\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"tomorrow toss Probability number\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Will it rain tomorrow? Will your team win the toss? Probability puts a number between 0 and 1 on how likely such events are.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Probability: experiments, outcomes and tree diagrams): Which of the following statements is scientifically/conceptually accurate? (Focus: Probability measures likelihood event)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, a does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Probability measures likelihood event\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Probability measures likelihood event\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Probability measures the likelihood of an event. P(E) lies between 0, which means impossible, and 1, which means certain.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-times",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): Experimental probability is found by doing the experiment: number of ___ the event occurred divided by the total number of trials."
+   },
+   "accepted": [
+    "times"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"t\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"times\" accurately completes the concept: Experimental probability is found by doing the experiment: number of times the event occurred divided by the total number of trials."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: Theoretical probability assumes outcomes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / p does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Theoretical probability assumes outcomes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Theoretical probability assumes outcomes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Theoretical probability assumes all outcomes are equally likely: P(A) = favourable outcomes / possible outcomes.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Probability: experiments, outcomes and tree diagrams): The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Probability: experiments, outcomes and tree diagrams\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The sample space S is the list of all possible outcomes, for example {H, T} for a coin toss."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Probability: experiments, outcomes and tree diagrams): Which statement best explains a deep principle from this topic? (Focus: event outcome group outcomes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An event is any outcome or group of outcomes from the sample space, such as getting an even num does not apply in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Probability: experiments, outcomes and tree diagrams."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Probability: experiments, outcomes and tree diagrams follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Will it rain tomorrow? Will your team win the toss? Probability puts a number be"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Probability: experiments, outcomes and tree diagrams."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"event outcome group outcomes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Probability: experiments, outcomes and tree diagrams\"."
+    }
+   ],
+   "explanation": {
+    "en": "An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"event outcome group outcomes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An event is any outcome or group of outcomes from the sample space, such as getting an even number on a die.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-number",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Probability: experiments, outcomes and tree diagrams",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Probability: experiments, outcomes and tree diagrams): For a fair die, the probability of an even ___ is 3 out of 6, which is 1/2."
+   },
+   "accepted": [
+    "number"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Probability: experiments, outcomes and tree diagrams\": the missing word starts with \"n\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For a fair die, the probability of an even number is 3 out of 6, which is 1/2.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Probability: experiments, outcomes and tree diagrams\"."
+    },
+    {
+     "en": "Step 2: \"number\" accurately completes the concept: For a fair die, the probability of an even number is 3 out of 6, which is 1/2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

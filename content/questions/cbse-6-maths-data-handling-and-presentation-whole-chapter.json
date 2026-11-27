@@ -1,320 +1,921 @@
 {
-  "board": "CBSE",
-  "classLevel": 6,
-  "subject": "maths",
-  "chapter": "data-handling-and-presentation",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "maths",
+ "chapter": "data-handling-and-presentation",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c6ma-dhap-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c6ma-dhap-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In the shoe-size data of 27 students, 3 students wear size 3, 9 wear size 4, 10 wear size 5, 4 wear size 6 and 1 wears size 7. How many students wear size 5?"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 9,
-          "why": {
-            "en": "9 is the number of students wearing size 4."
-          }
-        },
-        {
-          "value": 27,
-          "why": {
-            "en": "27 is the total number of students."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The frequency of size 5 is 10."
-      }
-    },
-    {
-      "key": "c6ma-dhap-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "How many of those 27 students wear a shoe size larger than 4?"
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 10,
-          "why": {
-            "en": "This counts only size 5 and leaves out sizes 6 and 7."
-          }
-        },
-        {
-          "value": 12,
-          "why": {
-            "en": "You may have added 10 + 1 + 1; size 6 has 4 students."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Add the students for sizes 5, 6 and 7: 10 + 4 + 1 = 15."
-      }
-    },
-    {
-      "key": "c6ma-dhap-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In a pictograph one symbol stands for 10 children. How many children do 3 and a half symbols stand for?"
-      },
-      "answer": 35,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 40,
-          "why": {
-            "en": "A half symbol is 5 children, not 10."
-          }
-        },
-        {
-          "value": 3.5,
-          "why": {
-            "en": "You forgot to multiply by the key of 10."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 symbols are 30 children and a half symbol is 5 children, so 35."
-      }
-    },
-    {
-      "key": "c6ma-dhap-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Why do we choose a scale before drawing a bar graph?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "So that the bars fit on the paper and are easy to mark and read"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "To make the graph more colourful"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Colour is a decoration; the scale decides the bar length."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "So that we do not need to label the graph"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Every graph still needs a title and labels."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The scale tells how many items one unit of bar length stands for."
-      }
-    },
-    {
-      "key": "c6ma-dhap-5",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "In tally marks, the fifth mark is drawn across the previous four marks."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Tally marks are grouped in fives: four straight lines and a fifth line crossing them."
-      }
-    },
-    {
-      "key": "c6ma-dhap-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "With a scale of 1 unit = 10 runs, how many units high is the bar for 90 runs?"
-      },
-      "answer": 9,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 90,
-          "why": {
-            "en": "That would be the bar for a scale of 1 unit = 1 run."
-          }
-        },
-        {
-          "value": 10,
-          "why": {
-            "en": "10 is the number of runs for one unit, not the bar height."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "90 divided by 10 is 9 units."
-      }
-    },
-    {
-      "key": "c6ma-dhap-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "The population of India was 36 crores in 1951 and 102 crores in 2001. By how many crores did it grow?"
-      },
-      "answer": 66,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 138,
-          "why": {
-            "en": "138 is the sum of 36 and 102; growth needs subtraction."
-          }
-        },
-        {
-          "value": 54,
-          "why": {
-            "en": "54 is the population in 1971, not the growth between 1951 and 2001."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "102 - 36 = 66 crores."
-      }
-    },
-    {
-      "key": "c6ma-dhap-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which graph is best to show the heights of the tallest mountains on the continents?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "A vertical bar graph (column graph)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A horizontal bar graph only"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Heights go upward, so vertical bars give the natural picture."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A tally table only"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "A tally table cannot compare the heights at a glance."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Heights are measured upward from the ground, so columns suit them."
-      }
-    },
-    {
-      "key": "c6ma-dhap-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In the sweets data the frequencies are 6, 9, 13, 3 and 7. How many students answered in all?"
-      },
-      "answer": 38,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 13,
-          "why": {
-            "en": "13 is only the number who chose gujiya."
-          }
-        },
-        {
-          "value": 36,
-          "why": {
-            "en": "Check the addition; the total is 38."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "6 + 9 + 13 + 3 + 7 = 38."
-      }
-    },
-    {
-      "key": "c6ma-dhap-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In the same sweets data, how many more students chose gujiya than barfi?"
-      },
-      "answer": 10,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 16,
-          "why": {
-            "en": "16 is 13 + 3; the difference needs subtraction."
-          }
-        },
-        {
-          "value": 3,
-          "why": {
-            "en": "3 is the number who chose barfi."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Gujiya has 13 and barfi has 3, and 13 - 3 = 10."
-      }
+     "en": "Focus on this idea: The frequency of size 5 is 10."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In the shoe-size data of 27 students, 3 students wear size 3, 9 wear size 4, 10 wear size 5, 4 wear size 6 and 1 wears size 7. How many students wear size 5?"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 9,
+     "why": {
+      "en": "9 is the number of students wearing size 4."
+     }
+    },
+    {
+     "value": 27,
+     "why": {
+      "en": "27 is the total number of students."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The frequency of size 5 is 10."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The frequency of size 5 is 10."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the shoe-size data of 27 students, 3 students wear size 3, 9 wear size 4, 10 wear size ."
+    },
+    {
+     "en": "Step 2: The frequency of size 5 is 10."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Add the students for sizes 5, 6 and 7: 10 + 4 + 1 = 15."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "How many of those 27 students wear a shoe size larger than 4?"
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 10,
+     "why": {
+      "en": "This counts only size 5 and leaves out sizes 6 and 7."
+     }
+    },
+    {
+     "value": 12,
+     "why": {
+      "en": "You may have added 10 + 1 + 1; size 6 has 4 students."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Add the students for sizes 5, 6 and 7: 10 + 4 + 1 = 15."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Add the students for sizes 5, 6 and 7: 10 + 4 + 1 = 15."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: How many of those 27 students wear a shoe size larger than 4?."
+    },
+    {
+     "en": "Step 2: Add the students for sizes 5, 6 and 7: 10 + 4 + 1 = 15."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 3 symbols are 30 children and a half symbol is 5 children, so 35."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In a pictograph one symbol stands for 10 children. How many children do 3 and a half symbols stand for?"
+   },
+   "answer": 35,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 40,
+     "why": {
+      "en": "A half symbol is 5 children, not 10."
+     }
+    },
+    {
+     "value": 3.5,
+     "why": {
+      "en": "You forgot to multiply by the key of 10."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 symbols are 30 children and a half symbol is 5 children, so 35."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 3 symbols are 30 children and a half symbol is 5 children, so 35."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In a pictograph one symbol stands for 10 children. How many children do 3 and a half symbo."
+    },
+    {
+     "en": "Step 2: 3 symbols are 30 children and a half symbol is 5 children, so 35."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The scale tells how many items one unit of bar length stands for."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Why do we choose a scale before drawing a bar graph?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "So that the bars fit on the paper and are easy to mark and read"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "To make the graph more colourful"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Colour is a decoration; the scale decides the bar length."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "So that we do not need to label the graph"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Every graph still needs a title and labels."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The scale tells how many items one unit of bar length stands for."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The scale tells how many items one unit of bar length stands for."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Why do we choose a scale before drawing a bar graph?."
+    },
+    {
+     "en": "Step 2: The scale tells how many items one unit of bar length stands for."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-5",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Tally marks are grouped in fives: four straight lines and a fifth line crossing them."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "In tally marks, the fifth mark is drawn across the previous four marks."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Tally marks are grouped in fives: four straight lines and a fifth line crossing them."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Tally marks are grouped in fives: four straight lines and a fifth line crossing them."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In tally marks, the fifth mark is drawn across the previous four marks.."
+    },
+    {
+     "en": "Step 2: Tally marks are grouped in fives: four straight lines and a fifth line crossing them."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: 90 divided by 10 is 9 units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "With a scale of 1 unit = 10 runs, how many units high is the bar for 90 runs?"
+   },
+   "answer": 9,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 90,
+     "why": {
+      "en": "That would be the bar for a scale of 1 unit = 1 run."
+     }
+    },
+    {
+     "value": 10,
+     "why": {
+      "en": "10 is the number of runs for one unit, not the bar height."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "90 divided by 10 is 9 units."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 90 divided by 10 is 9 units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: With a scale of 1 unit = 10 runs, how many units high is the bar for 90 runs?."
+    },
+    {
+     "en": "Step 2: 90 divided by 10 is 9 units."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "The population of India was 36 crores in 1951 and 102 crores in 2001. By how many crores did it grow?"
+   },
+   "answer": 66,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 138,
+     "why": {
+      "en": "138 is the sum of 36 and 102; growth needs subtraction."
+     }
+    },
+    {
+     "value": 54,
+     "why": {
+      "en": "54 is the population in 1971, not the growth between 1951 and 2001."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "102 - 36 = 66 crores."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The population of India was 36 crores in 1951 and 102 crores in 2001. By how many crores d."
+    },
+    {
+     "en": "Step 2: 102 - 36 = 66 crores."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Heights are measured upward from the ground, so columns suit them."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which graph is best to show the heights of the tallest mountains on the continents?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "A vertical bar graph (column graph)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A horizontal bar graph only"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Heights go upward, so vertical bars give the natural picture."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A tally table only"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "A tally table cannot compare the heights at a glance."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Heights are measured upward from the ground, so columns suit them."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Heights are measured upward from the ground, so columns suit them."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which graph is best to show the heights of the tallest mountains on the continents?."
+    },
+    {
+     "en": "Step 2: Heights are measured upward from the ground, so columns suit them."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c6ma-dhap-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In the sweets data the frequencies are 6, 9, 13, 3 and 7. How many students answered in all?"
+   },
+   "answer": 38,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 13,
+     "why": {
+      "en": "13 is only the number who chose gujiya."
+     }
+    },
+    {
+     "value": 36,
+     "why": {
+      "en": "Check the addition; the total is 38."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "6 + 9 + 13 + 3 + 7 = 38."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the sweets data the frequencies are 6, 9, 13, 3 and 7. How many students answered in al."
+    },
+    {
+     "en": "Step 2: 6 + 9 + 13 + 3 + 7 = 38."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c6ma-dhap-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Gujiya has 13 and barfi has 3, and 13 - 3 = 10."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In the same sweets data, how many more students chose gujiya than barfi?"
+   },
+   "answer": 10,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 16,
+     "why": {
+      "en": "16 is 13 + 3; the difference needs subtraction."
+     }
+    },
+    {
+     "value": 3,
+     "why": {
+      "en": "3 is the number who chose barfi."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Gujiya has 13 and barfi has 3, and 13 - 3 = 10."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Gujiya has 13 and barfi has 3, and 13 - 3 = 10."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In the same sweets data, how many more students chose gujiya than barfi?."
+    },
+    {
+     "en": "Step 2: Gujiya has 13 and barfi has 3, and 13 - 3 = 10."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-11-football",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): A raw list of names and games is hard to read. In their list Kabaddi, Hockey, Satoliya, ___, Cricket and Badminton all appear many times, so we must organise the list before we can see which game wins."
+   },
+   "accepted": [
+    "Football",
+    "football"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"F\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"F\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A raw list of names and games is hard to read. In their list Kabaddi, Hockey, Satoliya, Football, Cricket and Badminton all appear many times, so we must organise the list before we can see which game wins.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"Football\" accurately completes the concept: A raw list of names and games is hard to read. In their list Kabaddi, Hockey, Satoliya, Football, Cricket and Badminton all appear many times, so we must organise the list before we can see which game wins."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-tell",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): A tally mark table tells how many students chose each sweet, but it does not ___ which student chose which. If he had to hand out the sweets name by name, he would need the original list as well."
+   },
+   "accepted": [
+    "tell"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"t\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A tally mark table tells how many students chose each sweet, but it does not tell which student chose which. If he had to hand out the sweets name by name, he would need the original list as well.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"tell\" accurately completes the concept: A tally mark table tells how many students chose each sweet, but it does not tell which student chose which. If he had to hand out the sweets name by name, he would need the original list as well."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-appeared",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): Sandhya noted the shoe sizes of 27 students: 3, 4, 5, 6 and 7 ___ in a jumbled order. Writing them in ascending order puts the 3s first and the 7 last."
+   },
+   "accepted": [
+    "appeared"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"a\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Sandhya noted the shoe sizes of 27 students: 3, 4, 5, 6 and 7 appeared in a jumbled order. Writing them in ascending order puts the 3s first and the 7 last.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"appeared\" accurately completes the concept: Sandhya noted the shoe sizes of 27 students: 3, 4, 5, 6 and 7 appeared in a jumbled order. Writing them in ascending order puts the 3s first and the 7 last."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Data Handling and Presentation): Which of the following statements is scientifically/conceptually accurate? (Focus: ordered there students smallest)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In the ordered list there are 3 students of size 3, 9 of size 4, 10 of size 5, 4 of size 6 and 1 of size 7. The smallest size is 3 and the largest is 7."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In the ordered list there are 3 students of size 3, 9 of size 4, 10 of size 5, 4 of size 6 and  does not apply in Data Handling and Presentation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In the ordered list there are 3 students of size 3, 9 of size 4, 10 of size 5, 4 of size 6 and 1 of size 7. The smallest size is 3 and the largest is 7."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Data Handling and Presentation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Data Handling and Presentation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Navya and Naresh want to know the most popular game in their class. Naresh think"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Data Handling and Presentation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ordered there students smallest\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Data Handling and Presentation\"."
+    }
+   ],
+   "explanation": {
+    "en": "In the ordered list there are 3 students of size 3, 9 of size 4, 10 of size 5, 4 of size 6 and 1 of size 7. The smallest size is 3 and the largest is 7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ordered there students smallest\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In the ordered list there are 3 students of size 3, 9 of size 4, 10 of size 5, 4 of size 6 and 1 of size 7. The smallest size is 3 and the largest is 7.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-symbol",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): Every pictograph needs a key that says what one symbol means. Sometimes one ___ means one student, and sometimes it means 5 or 10 or even more."
+   },
+   "accepted": [
+    "symbol"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Every pictograph needs a key that says what one symbol means. Sometimes one symbol means one student, and sometimes it means 5 or 10 or even more.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"symbol\" accurately completes the concept: Every pictograph needs a key that says what one symbol means. Sometimes one symbol means one student, and sometimes it means 5 or 10 or even more."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-16-base",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): A bar graph uses bars of equal width, equally spaced, drawn on a ___ line. The length or height of each bar shows the number it stands for. Bars can be horizontal or vertical."
+   },
+   "accepted": [
+    "base"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"b\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"b\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A bar graph uses bars of equal width, equally spaced, drawn on a base line. The length or height of each bar shows the number it stands for. Bars can be horizontal or vertical.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"base\" accurately completes the concept: A bar graph uses bars of equal width, equally spaced, drawn on a base line. The length or height of each bar shows the number it stands for. Bars can be horizontal or vertical."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-17",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Data Handling and Presentation): Which statement best explains a deep principle from this topic? (Focus: population India crores census)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The population of India in crores for each census from 1951 to 2001 was 36, 44, 54, 68, 84 and 102. Over those 50 years it grew by 102 - 36 = 66 crores."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The population of India in crores for each census from 1951 to 2001 was 36, 44, 54, 68, 84 and  does not apply in Data Handling and Presentation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The population of India in crores for each census from 1951 to 2001 was 36, 44, 54, 68, 84 and 102. Over those 50 years it grew by 102 - 36 = 66 crores."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Data Handling and Presentation."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Data Handling and Presentation follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Navya and Naresh want to know the most popular game in their class. Naresh think"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Data Handling and Presentation."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"population India crores census\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Data Handling and Presentation\"."
+    }
+   ],
+   "explanation": {
+    "en": "The population of India in crores for each census from 1951 to 2001 was 36, 44, 54, 68, 84 and 102. Over those 50 years it grew by 102 - 36 = 66 crores."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"population India crores census\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The population of India in crores for each census from 1951 to 2001 was 36, 44, 54, 68, 84 and 102. Over those 50 years it grew by 102 - 36 = 66 crores.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-18-equal",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): To draw a bar graph, first draw a horizontal and a vertical line. Write the categories at ___ gaps along the horizontal line and write the numbers along the vertical line."
+   },
+   "accepted": [
+    "equal"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"e\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"e\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To draw a bar graph, first draw a horizontal and a vertical line. Write the categories at equal gaps along the horizontal line and write the numbers along the vertical line.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"equal\" accurately completes the concept: To draw a bar graph, first draw a horizontal and a vertical line. Write the categories at equal gaps along the horizontal line and write the numbers along the vertical line."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-19",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Data Handling and Presentation): Then draw each bar up to its frequency: 6 for jalebi, 9 for gulab jamun, 13 for gujiya, 3 for barfi and 7 for rasgulla. Finally give the graph a title and label both axes."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Data Handling and Presentation\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Data Handling and Presentation\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Then draw each bar up to its frequency: 6 for jalebi, 9 for gulab jamun, 13 for gujiya, 3 for barfi and 7 for rasgulla. Finally give the graph a title and label both axes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-keeps",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Data Handling and Presentation",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Data Handling and Presentation): Choosing the scale is a decision. Use a scale that makes all the values easy to mark and ___ the largest bar on your paper, and use the same scale for every bar."
+   },
+   "accepted": [
+    "keeps"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Data Handling and Presentation\": the missing word starts with \"k\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"k\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Choosing the scale is a decision. Use a scale that makes all the values easy to mark and keeps the largest bar on your paper, and use the same scale for every bar.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Data Handling and Presentation\"."
+    },
+    {
+     "en": "Step 2: \"keeps\" accurately completes the concept: Choosing the scale is a decision. Use a scale that makes all the values easy to mark and keeps the largest bar on your paper, and use the same scale for every bar."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

@@ -1,242 +1,1300 @@
 {
-  "board": "CBSE",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "ch04-exploring-algebraic-identities",
-  "topic": "algebraic-identities",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "ch04-exploring-algebraic-identities",
+ "topic": "algebraic-identities",
+ "questions": [
+  {
+   "key": "m4-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "m4-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "(x + 3)^2 equals"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "x^2 + 6x + 9"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "x^2 + 9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "x^2 + 3x + 9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "a = x and b = 3 give x^2 + 2 x 3 x + 9."
-      }
-    },
-    {
-      "key": "m4-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "x^2 - 25 factorises as"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "(x + 5)(x - 5)"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "(x - 5)^2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "(x + 25)(x - 1)"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "a^2 - b^2 = (a + b)(a - b)."
-      }
-    },
-    {
-      "key": "m4-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "(a + b)^2 = a^2 + b^2 for all a and b."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "The middle term 2ab is missing; it is zero only if a or b is zero."
-      }
-    },
-    {
-      "key": "m4-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 99^2 using (100 - 1)^2."
-      },
-      "answer": 9801,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 9999,
-          "why": {
-            "en": "Use a^2 - 2ab + b^2, not a^2 - b^2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "10000 - 200 + 1 = 9801."
-      }
-    },
-    {
-      "key": "m4-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 103 x 97."
-      },
-      "answer": 9991,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 10009,
-          "why": {
-            "en": "The difference of squares subtracts 9."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(100 + 3)(100 - 3) = 10000 - 9 = 9991."
-      }
-    },
-    {
-      "key": "m4-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If a + b = 7 and ab = 10, then a^2 + b^2 ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "29"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "49"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "39"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "This does not match the working in the explanation."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "a^2 + b^2 = 49 - 2 x 10 = 29."
-      }
-    },
-    {
-      "key": "m4-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "Factorise x^2 - 16. Write like (x+a)(x-a)."
-      },
-      "accepted": [
-        "(x+4)(x-4)",
-        "(x-4)(x+4)"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "(x-4)^2",
-          "why": {
-            "en": "(x - 4)^2 expands to x^2 - 8x + 16."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "16 = 4^2, so a^2 - b^2 with a = x and b = 4."
-      }
-    },
-    {
-      "key": "m4-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "An identity is true only for some values of the variable."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "An identity is true for all values."
-      }
+     "en": "Focus on this idea: a = x and b = 3 give x^2 + 2 x 3 x + 9."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "(x + 3)^2 equals"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "x^2 + 6x + 9"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "x^2 + 9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "x^2 + 3x + 9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "a = x and b = 3 give x^2 + 2 x 3 x + 9."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: a = x and b = 3 give x^2 + 2 x 3 x + 9."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: (x + 3)^2 equals."
+    },
+    {
+     "en": "Step 2: a = x and b = 3 give x^2 + 2 x 3 x + 9."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: a^2 - b^2 = (a + b)(a - b)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "x^2 - 25 factorises as"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "(x + 5)(x - 5)"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "(x - 5)^2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "(x + 25)(x - 1)"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "a^2 - b^2 = (a + b)(a - b)."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: a^2 - b^2 = (a + b)(a - b)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: x^2 - 25 factorises as."
+    },
+    {
+     "en": "Step 2: a^2 - b^2 = (a + b)(a - b)."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: The middle term 2ab is missing; it is zero only if a or b is zero."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "(a + b)^2 = a^2 + b^2 for all a and b."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "The middle term 2ab is missing; it is zero only if a or b is zero."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The middle term 2ab is missing; it is zero only if a or b is zero."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: (a + b)^2 = a^2 + b^2 for all a and b.."
+    },
+    {
+     "en": "Step 2: The middle term 2ab is missing; it is zero only if a or b is zero."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 99^2 using (100 - 1)^2."
+   },
+   "answer": 9801,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 9999,
+     "why": {
+      "en": "Use a^2 - 2ab + b^2, not a^2 - b^2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "10000 - 200 + 1 = 9801."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 99^2 using (100 - 1)^2.."
+    },
+    {
+     "en": "Step 2: 10000 - 200 + 1 = 9801."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 103 x 97."
+   },
+   "answer": 9991,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 10009,
+     "why": {
+      "en": "The difference of squares subtracts 9."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(100 + 3)(100 - 3) = 10000 - 9 = 9991."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 103 x 97.."
+    },
+    {
+     "en": "Step 2: (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: a^2 + b^2 = 49 - 2 x 10 = 29."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If a + b = 7 and ab = 10, then a^2 + b^2 ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "29"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "49"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "39"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This does not match the working in the explanation."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "a^2 + b^2 = 49 - 2 x 10 = 29."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: a^2 + b^2 = 49 - 2 x 10 = 29."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If a + b = 7 and ab = 10, then a^2 + b^2 =."
+    },
+    {
+     "en": "Step 2: a^2 + b^2 = 49 - 2 x 10 = 29."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "m4-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"(\" and relates to Factorise x^2 - 16. Write like (x+a)(x-a).)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "Factorise x^2 - 16. Write like (x+a)(x-a)."
+   },
+   "accepted": [
+    "(x+4)(x-4)",
+    "(x-4)(x+4)"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "(x-4)^2",
+     "why": {
+      "en": "(x - 4)^2 expands to x^2 - 8x + 16."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "16 = 4^2, so a^2 - b^2 with a = x and b = 4."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"(\" and relates to Factorise x^2 - 16. Write like (x+a)(x-a).)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Factorise x^2 - 16. Write like (x+a)(x-a).."
+    },
+    {
+     "en": "Step 2: 16 = 4^2, so a^2 - b^2 with a = x and b = 4."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "m4-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: An identity is true for all values."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "An identity is true only for some values of the variable."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "An identity is true for all values."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: An identity is true for all values."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: An identity is true only for some values of the variable.."
+    },
+    {
+     "en": "Step 2: An identity is true for all values."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-9",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Exploring algebraic identities): An identity is never an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Exploring algebraic identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-10",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Exploring algebraic identities): Identify the correct statement from this lesson. (Focus: Cutting square pieces gives)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Cutting square pieces gives\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Cutting square pieces gives\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Exploring algebraic identities): Identify the correct statement from this lesson. (Focus: Replacing gives)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Replacing gives\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Replacing gives\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Exploring algebraic identities): Identify the correct statement from this lesson. (Focus: difference squares identity rectangle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearrange does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"difference squares identity rectangle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"difference squares identity rectangle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-97",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Exploring algebraic identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Exploring algebraic identities): We use identities to calculate quickly: 103 x ___ = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+   },
+   "accepted": [
+    "97"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Exploring algebraic identities\": the missing word starts with \"9\" and has 2 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"9\" (2 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: \"97\" accurately completes the concept: We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Exploring algebraic identities): Which of the following statements is scientifically/conceptually accurate? (Focus: factorise)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4). does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"factorise\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"factorise\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Exploring algebraic identities): To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Exploring algebraic identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Exploring algebraic identities): Which of the following statements is scientifically/conceptually accurate? (Focus: common mistake write middle)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"common mistake write middle\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"common mistake write middle\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Exploring algebraic identities): Which of the following statements is scientifically/conceptually accurate? (Focus: identity equation values variables)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An identity is an equation that is true for all values of the variables, unlike an ordinary equ does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"identity equation values variables\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"identity equation values variables\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An identity is an equation that is true for all values of the variables, unlike an ordinary equation that is true only for some values.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Exploring algebraic identities): Which of the following statements is scientifically/conceptually accurate? (Focus: Cutting square pieces gives)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Cutting square pieces gives\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Cutting square pieces gives\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Cutting a square of side (a + b) into pieces gives (a + b)^2 = a^2 + 2ab + b^2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Exploring algebraic identities): Which of the following statements is scientifically/conceptually accurate? (Focus: Replacing gives)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Replacing gives\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Replacing gives\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Replacing b by -b gives (a - b)^2 = a^2 - 2ab + b^2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-identity",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Exploring algebraic identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Exploring algebraic identities): The difference of squares ___ is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+   },
+   "accepted": [
+    "identity"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Exploring algebraic identities\": the missing word starts with \"i\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"i\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: \"identity\" accurately completes the concept: The difference of squares identity is a^2 - b^2 = (a + b)(a - b). A rectangle cut and rearranged shows it."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Exploring algebraic identities): Which statement best explains a deep principle from this topic? (Focus: identities calculate quickly 3100)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991. does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"identities calculate quickly 3100\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"identities calculate quickly 3100\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"We use identities to calculate quickly: 103 x 97 = (100 + 3)(100 - 3) = 10000 - 9 = 9991.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Exploring algebraic identities): They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Exploring algebraic identities\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — They also help to factorise: x^2 + 6x + 9 = (x + 3)^2 and x^2 - 16 = (x + 4)(x - 4)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Exploring algebraic identities): Which statement best explains a deep principle from this topic? (Focus: check identity numbers example)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides o does not apply in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Exploring algebraic identities."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Exploring algebraic identities follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Imagine a square garden whose side is split into two parts, a and b. The garden "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Exploring algebraic identities."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"check identity numbers example\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Exploring algebraic identities\"."
+    }
+   ],
+   "explanation": {
+    "en": "To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"check identity numbers example\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To check an identity, test it with numbers, for example a = 2 and b = 1 gives 9 on both sides of (a + b)^2 = a^2 + 2ab + b^2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-write",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Exploring algebraic identities",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Exploring algebraic identities): A common mistake is to ___ (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+   },
+   "accepted": [
+    "write"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Exploring algebraic identities\": the missing word starts with \"w\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"w\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Exploring algebraic identities\"."
+    },
+    {
+     "en": "Step 2: \"write\" accurately completes the concept: A common mistake is to write (a + b)^2 = a^2 + b^2. The middle term 2ab is always there."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

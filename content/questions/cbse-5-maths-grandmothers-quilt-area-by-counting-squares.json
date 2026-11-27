@@ -1,365 +1,755 @@
 {
-  "board": "CBSE",
-  "classLevel": 5,
-  "subject": "maths",
-  "chapter": "grandmothers-quilt",
-  "topic": "area-by-counting-squares",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 5,
+ "subject": "maths",
+ "chapter": "grandmothers-quilt",
+ "topic": "area-by-counting-squares",
+ "questions": [
+  {
+   "key": "r1-ac1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-ac1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which shape leaves gaps when used to cover a table?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "circle"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "square"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Squares tile."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "rectangle"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Rectangles tile."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Circles have round edges and leave gaps."
-      }
-    },
-    {
-      "key": "r1-ac2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Squares can cover a table without gaps."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "They tile."
-      }
-    },
-    {
-      "key": "r1-ac3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Area means"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "the surface covered by a shape"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the border length"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is perimeter."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the weight"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not related."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Area is the inside space."
-      }
-    },
-    {
-      "key": "r2-ac4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A mat has 4 rows with 7 square patches in each row. How many patches?"
-      },
-      "answer": 28,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 11,
-          "why": {
-            "en": "4 + 7 gives 11; use multiplication."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4 x 7 = 28."
-      },
-      "unit": {
-        "en": "patches"
-      }
-    },
-    {
-      "key": "r2-ac5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The area of a square of side 1 cm is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "1 square cm"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1 cm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "cm is length."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "4 cm"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is perimeter."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Area is in square units."
-      }
-    },
-    {
-      "key": "r2-ac6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Overlapping tiles give the correct area."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "No overlaps are allowed."
-      }
-    },
-    {
-      "key": "r2-ac7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "A rectangle on a grid covers 3 rows of 5 squares. Its area (square units) is"
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 8,
-          "why": {
-            "en": "Use multiplication."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "3 x 5 = 15."
-      },
-      "unit": {
-        "en": "square units"
-      }
-    },
-    {
-      "key": "r3-ac8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Why choose a square as the unit?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "all sides are equal"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "it has round edges"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Circles do."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "it is red"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Colour is irrelevant."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Equal sides make measuring easy."
-      }
-    },
-    {
-      "key": "r3-ac9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "A bigger shape can be compared with a smaller one by counting grid squares."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "More squares means larger area."
-      }
-    },
-    {
-      "key": "r3-ac10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "To find the area of a leaf, put it on"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "a square grid"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "a number line"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not for area."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "a clock"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "No."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Count squares."
-      }
-    },
-    {
-      "key": "r3-ac11",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Mat A needs 24 patches and mat B needs 18. How many more for A?"
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 42,
-          "why": {
-            "en": "Subtract, not add."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "24 - 18 = 6."
-      },
-      "unit": {
-        "en": "patches"
-      }
-    },
-    {
-      "key": "r3-ac12",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Two shapes with the same area may look different."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Different arrangements of the same number of squares."
-      }
+     "en": "Focus on this idea: Circles have round edges and leave gaps."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which shape leaves gaps when used to cover a table?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "circle"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "square"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Squares tile."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "rectangle"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rectangles tile."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Circles have round edges and leave gaps."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Circles have round edges and leave gaps."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which shape leaves gaps when used to cover a table?."
+    },
+    {
+     "en": "Step 2: Circles have round edges and leave gaps."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-ac2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Squares can cover a table without gaps."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "They tile."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Squares can cover a table without gaps.."
+    },
+    {
+     "en": "Step 2: They tile."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-ac3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Area means"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "the surface covered by a shape"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the border length"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is perimeter."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the weight"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not related."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Area is the inside space."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Area means."
+    },
+    {
+     "en": "Step 2: Area is the inside space."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ac4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A mat has 4 rows with 7 square patches in each row. How many patches?"
+   },
+   "answer": 28,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 11,
+     "why": {
+      "en": "4 + 7 gives 11; use multiplication."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4 x 7 = 28."
+   },
+   "unit": {
+    "en": "patches"
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A mat has 4 rows with 7 square patches in each row. How many patches?."
+    },
+    {
+     "en": "Step 2: 4 x 7 = 28."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ac5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The area of a square of side 1 cm is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "1 square cm"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1 cm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "cm is length."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "4 cm"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is perimeter."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Area is in square units."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The area of a square of side 1 cm is."
+    },
+    {
+     "en": "Step 2: Area is in square units."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ac6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Overlapping tiles give the correct area."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "No overlaps are allowed."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Overlapping tiles give the correct area.."
+    },
+    {
+     "en": "Step 2: No overlaps are allowed."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-ac7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "A rectangle on a grid covers 3 rows of 5 squares. Its area (square units) is"
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 8,
+     "why": {
+      "en": "Use multiplication."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "3 x 5 = 15."
+   },
+   "unit": {
+    "en": "square units"
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A rectangle on a grid covers 3 rows of 5 squares. Its area (square units) is."
+    },
+    {
+     "en": "Step 2: 3 x 5 = 15."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-ac8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Equal sides make measuring easy."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Why choose a square as the unit?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "all sides are equal"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "it has round edges"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Circles do."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "it is red"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Colour is irrelevant."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Equal sides make measuring easy."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Equal sides make measuring easy."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Why choose a square as the unit?."
+    },
+    {
+     "en": "Step 2: Equal sides make measuring easy."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ac9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: More squares means larger area."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "A bigger shape can be compared with a smaller one by counting grid squares."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "More squares means larger area."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: More squares means larger area."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A bigger shape can be compared with a smaller one by counting grid squares.."
+    },
+    {
+     "en": "Step 2: More squares means larger area."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ac10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "To find the area of a leaf, put it on"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "a square grid"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "a number line"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not for area."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "a clock"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"a clock\" — Count squares."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Count squares."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: To find the area of a leaf, put it on."
+    },
+    {
+     "en": "Step 2: Count squares."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ac11",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Mat A needs 24 patches and mat B needs 18. How many more for A?"
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 42,
+     "why": {
+      "en": "Subtract, not add."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "24 - 18 = 6."
+   },
+   "unit": {
+    "en": "patches"
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mat A needs 24 patches and mat B needs 18. How many more for A?."
+    },
+    {
+     "en": "Step 2: 24 - 18 = 6."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-ac12",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Different arrangements of the same number of squares."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Two shapes with the same area may look different."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Different arrangements of the same number of squares."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Different arrangements of the same number of squares."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two shapes with the same area may look different.."
+    },
+    {
+     "en": "Step 2: Different arrangements of the same number of squares."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-13-shapes",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Area: covering a region with tiles",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Area: covering a region with tiles): Preetha covers her table with triangles and circles, Adrit with squares and rectangles. Whose ___ cover it without gaps? Area is how much surface a shape covers."
+   },
+   "accepted": [
+    "shapes"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Area: covering a region with tiles\": the missing word starts with \"s\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Preetha covers her table with triangles and circles, Adrit with squares and rectangles. Whose shapes cover it without gaps? Area is how much surface a shape covers.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Area: covering a region with tiles\"."
+    },
+    {
+     "en": "Step 2: \"shapes\" accurately completes the concept: Preetha covers her table with triangles and circles, Adrit with squares and rectangles. Whose shapes cover it without gaps? Area is how much surface a shape covers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-14",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Area: covering a region with tiles): Table 1 may take some number of triangles, Table 3 some squares and Table 4 some rectangles. The area is that count, in triangle units, square units or rectangle units."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Area: covering a region with tiles\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Area: covering a region with tiles\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Table 1 may take some number of triangles, Table 3 some squares and Table 4 some rectangles. The area is that count, in triangle units, square units or rectangle units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Area: covering a region with tiles\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-15",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Area: covering a region with tiles): Which statement best explains a deep principle from this topic? (Focus: compare areas rectangles trace)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To compare areas of rectangles A, B, C, trace and cut them, or place them on a square grid and count the squares."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To compare areas of rectangles A, B, C, trace and cut them, or place them on a square grid and  does not apply in Area: covering a region with tiles."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To compare areas of rectangles A, B, C, trace and cut them, or place them on a square grid and count the squares."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Area: covering a region with tiles."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Area: covering a region with tiles follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Preetha covers her table with triangles and circles, Adrit with squares and rect"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Area: covering a region with tiles."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"compare areas rectangles trace\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Area: covering a region with tiles\"."
+    }
+   ],
+   "explanation": {
+    "en": "To compare areas of rectangles A, B, C, trace and cut them, or place them on a square grid and count the squares."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"compare areas rectangles trace\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To compare areas of rectangles A, B, C, trace and cut them, or place them on a square grid and count the squares.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-16-area",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Area: covering a region with tiles",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Area: covering a region with tiles): We choose the square as the standard unit because its sides are equal. The ___ of a square with side 1 unit is 1 square unit; with side 1 cm it is 1 sq cm."
+   },
+   "accepted": [
+    "area"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Area: covering a region with tiles\": the missing word starts with \"a\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"We choose the square as the standard unit because its sides are equal. The area of a square with side 1 unit is 1 square unit; with side 1 cm it is 1 sq cm.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Area: covering a region with tiles\"."
+    },
+    {
+     "en": "Step 2: \"area\" accurately completes the concept: We choose the square as the standard unit because its sides are equal. The area of a square with side 1 unit is 1 square unit; with side 1 cm it is 1 sq cm."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

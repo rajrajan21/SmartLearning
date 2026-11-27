@@ -1,240 +1,1188 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "statistics",
-  "topic": "mode-and-median-of-grouped-data",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "statistics",
+ "topic": "mode-and-median-of-grouped-data",
+ "questions": [
+  {
+   "key": "r1-mm1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-mm1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The modal class has the"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "highest frequency"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "lowest frequency"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It is the most frequent class."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "highest class mark"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Not related."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Definition."
-      }
-    },
-    {
-      "key": "r1-mm2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Cumulative frequency is a running total of frequencies."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Definition."
-      }
-    },
-    {
-      "key": "r2-mm3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "n = 40, find n/2"
-      },
-      "answer": 20,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 40,
-          "why": {
-            "en": "Halve it."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "40/2."
-      }
-    },
-    {
-      "key": "r2-mm4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): Median class is where cumulative frequency first exceeds n/2. Reason (R): The median is the middle observation."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R explains it."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Both are true."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Median position."
-      }
-    },
-    {
-      "key": "r2-mm5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Mode of classes where f1 = 15, f0 = 8, f2 = 6, l = 20, h = 10 (answer to 3 places)"
-      },
-      "answer": 24.375,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 25,
-          "why": {
-            "en": "Substitute into the formula carefully."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "20 + 70/16."
-      }
-    },
-    {
-      "key": "r3-mm6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If mean = 20 and mode = 14, median using 3 median = mode + 2 mean is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "18"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "17"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Compute: (14 + 40)/3."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "34"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Divide by 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "54/3."
-      }
-    },
-    {
-      "key": "r3-mm7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "An ogive plots cumulative frequency."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Definition."
-      }
-    },
-    {
-      "key": "r3-mm8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Cumulative frequencies up to the class before the median class is cf = 12 and f = 8. If n/2 = 20 find (n/2 - cf)/f"
-      },
-      "answer": 1,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 8,
-          "why": {
-            "en": "Divide by f."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "(20 - 12)/8."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The modal class has the"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "highest frequency"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "lowest frequency"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It is the most frequent class."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "highest class mark"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not related."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Definition."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The modal class has the."
+    },
+    {
+     "en": "Step 2: Definition."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-mm2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Cumulative frequency is a running total of frequencies."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Definition."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Cumulative frequency is a running total of frequencies.."
+    },
+    {
+     "en": "Step 2: Definition."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-mm3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "n = 40, find n/2"
+   },
+   "answer": 20,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 40,
+     "why": {
+      "en": "Halve it."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "40/2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: n = 40, find n/2."
+    },
+    {
+     "en": "Step 2: 40/2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-mm4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): Median class is where cumulative frequency first exceeds n/2. Reason (R): The median is the middle observation."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R explains it."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Both are true."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Median position."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): Median class is where cumulative frequency first exceeds n/2. Reason (R): T."
+    },
+    {
+     "en": "Step 2: Median position."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-mm5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Mode of classes where f1 = 15, f0 = 8, f2 = 6, l = 20, h = 10 (answer to 3 places)"
+   },
+   "answer": 24.375,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 25,
+     "why": {
+      "en": "Substitute into the formula carefully."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "20 + 70/16."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Mode of classes where f1 = 15, f0 = 8, f2 = 6, l = 20, h = 10 (answer to 3 places)."
+    },
+    {
+     "en": "Step 2: 20 + 70/16."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-mm6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If mean = 20 and mode = 14, median using 3 median = mode + 2 mean is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "18"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "17"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Compute: (14 + 40)/3."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "34"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Divide by 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "54/3."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If mean = 20 and mode = 14, median using 3 median = mode + 2 mean is."
+    },
+    {
+     "en": "Step 2: 54/3."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-mm7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "An ogive plots cumulative frequency."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Definition."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: An ogive plots cumulative frequency.."
+    },
+    {
+     "en": "Step 2: Definition."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-mm8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Cumulative frequencies up to the class before the median class is cf = 12 and f = 8. If n/2 = 20 find (n/2 - cf)/f"
+   },
+   "answer": 1,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 8,
+     "why": {
+      "en": "Divide by f."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "(20 - 12)/8."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Cumulative frequencies up to the class before the median class is cf = 12 and f = 8. If n/."
+    },
+    {
+     "en": "Step 2: (20 - 12)/8."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-class",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Mode, median and cumulative frequency",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Mode, median and cumulative frequency): Which marks occurred most often in a test? Which mark splits the ___ into two equal halves? Mode and median answer these for grouped data."
+   },
+   "accepted": [
+    "class"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Mode, median and cumulative frequency\": the missing word starts with \"c\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: \"class\" accurately completes the concept: Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Mode, median and cumulative frequency): The modal class is the class with the highest frequency."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Mode, median and cumulative frequency\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The modal class is the class with the highest frequency."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Mode, median and cumulative frequency): Identify the correct statement from this lesson. (Focus: f02 where lower limit)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1  does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"f02 where lower limit\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"f02 where lower limit\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-frequencies",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Mode, median and cumulative frequency",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Mode, median and cumulative frequency): The cumulative frequency of a class is the sum of the ___ of that class and all classes before it."
+   },
+   "accepted": [
+    "frequencies"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Mode, median and cumulative frequency\": the missing word starts with \"f\" and has 11 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (11 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: \"frequencies\" accurately completes the concept: The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Mode, median and cumulative frequency): Identify the correct statement from this lesson. (Focus: median class class whose)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The median class is the class whose cumulative frequency is just greater than n/2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The median class is the class whose cumulative frequency is just greater than n/2. does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The median class is the class whose cumulative frequency is just greater than n/2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"median class class whose\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "The median class is the class whose cumulative frequency is just greater than n/2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"median class class whose\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The median class is the class whose cumulative frequency is just greater than n/2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-class",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Mode, median and cumulative frequency",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Mode, median and cumulative frequency): Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the ___ before the median class."
+   },
+   "accepted": [
+    "class"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Mode, median and cumulative frequency\": the missing word starts with \"c\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: \"class\" accurately completes the concept: Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Mode, median and cumulative frequency): Which of the following statements is scientifically/conceptually accurate? (Focus: Classes continuous before using)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Classes must be continuous before using these formulas. Make them continuous if there are gaps."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Classes must be continuous before using these formulas. Make them continuous if there are gaps. does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Classes must be continuous before using these formulas. Make them continuous if there are gaps."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Classes continuous before using\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "Classes must be continuous before using these formulas. Make them continuous if there are gaps."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Classes continuous before using\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Classes must be continuous before using these formulas. Make them continuous if there are gaps.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Mode, median and cumulative frequency): Relationship: 3 median = mode + 2 mean, an empirical relation."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Mode, median and cumulative frequency\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Relationship: 3 median = mode + 2 mean, an empirical relation."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Mode, median and cumulative frequency): Which of the following statements is scientifically/conceptually accurate? (Focus: ogive graph cumulative frequency)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the  does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"ogive graph cumulative frequency\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"ogive graph cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An ogive is a graph of cumulative frequency, and the point where n/2 meets the curve gives the median.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Mode, median and cumulative frequency): Which of the following statements is scientifically/conceptually accurate? (Focus: Which marks occurred often)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Which marks occurred most often in a test? Which mark splits the class into two equal halves? M does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The modal class is the class with the highest frequency. Mode = l + ((f1 - f0)/("
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Which marks occurred often\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Which marks occurred often\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Which marks occurred most often in a test? Which mark splits the class into two equal halves? Mode and median answer these for grouped data.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Mode, median and cumulative frequency): The modal class is never the class with the highest frequency."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Mode, median and cumulative frequency\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: The modal class is the class with the highest frequency."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: The modal class is the class with the highest frequency."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-class",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Mode, median and cumulative frequency",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Mode, median and cumulative frequency): Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal ___, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+   },
+   "accepted": [
+    "class"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Mode, median and cumulative frequency\": the missing word starts with \"c\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: \"class\" accurately completes the concept: Mode = l + ((f1 - f0)/(2 f1 - f0 - f2)) x h, where l is the lower limit of the modal class, f1 its frequency, f0 and f2 the frequencies before and after, and h the width."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Mode, median and cumulative frequency): Which statement best explains a deep principle from this topic? (Focus: cumulative frequency class frequencies)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The cumulative frequency of a class is the sum of the frequencies of that class and all classes does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"cumulative frequency class frequencies\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"cumulative frequency class frequencies\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The cumulative frequency of a class is the sum of the frequencies of that class and all classes before it.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Mode, median and cumulative frequency): The median class is the class whose cumulative frequency is just greater than n/2."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Mode, median and cumulative frequency\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The median class is the class whose cumulative frequency is just greater than n/2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Mode, median and cumulative frequency): Which statement best explains a deep principle from this topic? (Focus: Median n2 cff where)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the m does not apply in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Mode, median and cumulative frequency."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Mode, median and cumulative frequency follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Which marks occurred most often in a test? Which mark splits the class into two "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Mode, median and cumulative frequency."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Median n2 cff where\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Mode, median and cumulative frequency\"."
+    }
+   ],
+   "explanation": {
+    "en": "Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Median n2 cff where\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Median = l + ((n/2 - cf)/f) x h, where cf is the cumulative frequency of the class before the median class.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-formulas",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Mode, median and cumulative frequency",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Mode, median and cumulative frequency): Classes must be continuous before using these ___. Make them continuous if there are gaps."
+   },
+   "accepted": [
+    "formulas"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Mode, median and cumulative frequency\": the missing word starts with \"f\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"f\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Classes must be continuous before using these formulas. Make them continuous if there are gaps.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Mode, median and cumulative frequency\"."
+    },
+    {
+     "en": "Step 2: \"formulas\" accurately completes the concept: Classes must be continuous before using these formulas. Make them continuous if there are gaps."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

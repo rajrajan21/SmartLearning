@@ -1,194 +1,1216 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "numbers-and-sequences",
-  "topic": "modular-arithmetic",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "numbers-and-sequences",
+ "topic": "modular-arithmetic",
+ "questions": [
+  {
+   "key": "r1-m10ma167-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10ma167-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "52 = ? (mod 12)"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "52 = 12 x 4 + 4"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Divide 52 by 12 and take the remainder"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "52 = 48 + 4."
-      }
-    },
-    {
-      "key": "r1-m10ma167-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "17 = 5 (mod 6) is true."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "17 - 5 = 12 and 6 divides 12."
-      }
-    },
-    {
-      "key": "r1-m10ma167-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 100 mod 7."
-      },
-      "answer": 2,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "100 = 7 x 14 + 2."
-      }
-    },
-    {
-      "key": "r2-m10ma167-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "If today is Monday, which day number (0 = Monday) is it after 100 days? Give 100 mod 7."
-      },
-      "answer": 2,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "Remainder 2 means Wednesday."
-      }
-    },
-    {
-      "key": "r2-m10ma167-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "-3 = ? (mod 7) between 0 and 6"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "4"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "-3 + 7 = 4"
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "-4"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Add a multiple of 7"
-          }
-        }
-      ],
-      "explanation": {
-        "en": "-3 + 7 = 4."
-      }
-    },
-    {
-      "key": "r2-m10ma167-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "If a = b (mod m) then a + c = b + c (mod m)."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "You can add the same number to both sides."
-      }
-    },
-    {
-      "key": "r3-m10ma167-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Find 8 x 9 (mod 5)."
-      },
-      "answer": 2,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "72 = 5 x 14 + 2."
-      }
-    },
-    {
-      "key": "r3-m10ma167-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "On a 12-hour clock 10 + 5 = ? (give the clock time)"
-      },
-      "accepted": [
-        "3"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "15 = 3 (mod 12)."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "52 = ? (mod 12)"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "52 = 12 x 4 + 4"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Divide 52 by 12 and take the remainder"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "52 = 48 + 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 52 = ? (mod 12)."
+    },
+    {
+     "en": "Step 2: 52 = 48 + 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma167-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: 17 - 5 = 12 and 6 divides 12."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "17 = 5 (mod 6) is true."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "17 - 5 = 12 and 6 divides 12."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: 17 - 5 = 12 and 6 divides 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: 17 = 5 (mod 6) is true.."
+    },
+    {
+     "en": "Step 2: 17 - 5 = 12 and 6 divides 12."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10ma167-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 100 mod 7."
+   },
+   "answer": 2,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "100 = 7 x 14 + 2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 100 mod 7.."
+    },
+    {
+     "en": "Step 2: 100 = 7 x 14 + 2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma167-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Remainder 2 means Wednesday."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "If today is Monday, which day number (0 = Monday) is it after 100 days? Give 100 mod 7."
+   },
+   "answer": 2,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "Remainder 2 means Wednesday."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Remainder 2 means Wednesday."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If today is Monday, which day number (0 = Monday) is it after 100 days? Give 100 mod 7.."
+    },
+    {
+     "en": "Step 2: Remainder 2 means Wednesday."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma167-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "-3 = ? (mod 7) between 0 and 6"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "4"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "-3 + 7 = 4"
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "-4"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Add a multiple of 7"
+     }
+    }
+   ],
+   "explanation": {
+    "en": "-3 + 7 = 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: -3 = ? (mod 7) between 0 and 6."
+    },
+    {
+     "en": "Step 2: -3 + 7 = 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10ma167-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: You can add the same number to both sides."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "If a = b (mod m) then a + c = b + c (mod m)."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "You can add the same number to both sides."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: You can add the same number to both sides."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If a = b (mod m) then a + c = b + c (mod m).."
+    },
+    {
+     "en": "Step 2: You can add the same number to both sides."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10ma167-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Find 8 x 9 (mod 5)."
+   },
+   "answer": 2,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "72 = 5 x 14 + 2."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Find 8 x 9 (mod 5).."
+    },
+    {
+     "en": "Step 2: 72 = 5 x 14 + 2."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10ma167-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "On a 12-hour clock 10 + 5 = ? (give the clock time)"
+   },
+   "accepted": [
+    "3"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "15 = 3 (mod 12)."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: On a 12-hour clock 10 + 5 = ? (give the clock time)."
+    },
+    {
+     "en": "Step 2: 15 = 3 (mod 12)."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-clock",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Modular arithmetic - clock arithmetic",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Modular arithmetic - clock arithmetic): It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour ___ - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+   },
+   "accepted": [
+    "clock"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Modular arithmetic - clock arithmetic\": the missing word starts with \"c\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: \"clock\" accurately completes the concept: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Modular arithmetic - clock arithmetic): Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Modular arithmetic - clock arithmetic\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Modular arithmetic - clock arithmetic): Identify the correct statement from this lesson. (Focus: because divides)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12. does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"because divides\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"because divides\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-remainder",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Modular arithmetic - clock arithmetic",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Modular arithmetic - clock arithmetic): Another way: a and b leave the same ___ when divided by m."
+   },
+   "accepted": [
+    "remainder"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Modular arithmetic - clock arithmetic\": the missing word starts with \"r\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"r\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Another way: a and b leave the same remainder when divided by m.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: \"remainder\" accurately completes the concept: Another way: a and b leave the same remainder when divided by m."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-7",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Modular arithmetic - clock arithmetic",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Modular arithmetic - clock arithmetic): To find a (mod m), divide a by m and take the remainder: 100 (mod ___) = 2 because 100 = 7 x 14 + 2."
+   },
+   "accepted": [
+    "7"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Modular arithmetic - clock arithmetic\": the missing word starts with \"7\" and has 1 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"7\" (1 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: \"7\" accurately completes the concept: To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Modular arithmetic - clock arithmetic): Which of the following statements is scientifically/conceptually accurate? (Focus: Congruences added multiplied)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Congruences added multiplied\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Congruences added multiplied\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m).\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Modular arithmetic - clock arithmetic): Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Modular arithmetic - clock arithmetic\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Modular arithmetic - clock arithmetic): Which of the following statements is scientifically/conceptually accurate? (Focus: uses clocks check digits)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes. does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"uses clocks check digits\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"uses clocks check digits\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Modular arithmetic - clock arithmetic): Which of the following statements is scientifically/conceptually accurate? (Focus: oclock hours later oclock)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Let a, b be integers and m a positive integer. We say a is congruent to b modulo"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"oclock hours later oclock\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"oclock hours later oclock\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-hour clock - it is 2. The clock wraps around, and that wrapping is modular arithmetic.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Modular arithmetic - clock arithmetic): Which of the following statements is scientifically/conceptually accurate? (Focus: integers positive integer congruent)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"integers positive integer congruent\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"integers positive integer congruent\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Let a, b be integers and m a positive integer. We say a is congruent to b modulo m, written a = b (mod m), if m divides a - b.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Modular arithmetic - clock arithmetic): Which of the following statements is scientifically/conceptually accurate? (Focus: because divides)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12. does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"because divides\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"because divides\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"So 17 = 5 (mod 12), because 12 divides 17 - 5 = 12.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-20",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Modular arithmetic - clock arithmetic): Which statement best explains a deep principle from this topic? (Focus: Another leave remainder divided)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Another way: a and b leave the same remainder when divided by m."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Another way: a and b leave the same remainder when divided by m. does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Another way: a and b leave the same remainder when divided by m."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Another leave remainder divided\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "Another way: a and b leave the same remainder when divided by m."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Another leave remainder divided\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Another way: a and b leave the same remainder when divided by m.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Modular arithmetic - clock arithmetic): Which statement best explains a deep principle from this topic? (Focus: divide remainder because)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"divide remainder because\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"divide remainder because\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To find a (mod m), divide a by m and take the remainder: 100 (mod 7) = 2 because 100 = 7 x 14 + 2.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Modular arithmetic - clock arithmetic): Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Modular arithmetic - clock arithmetic\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Congruences can be added and multiplied: if a = b and c = d (mod m) then a + c = b + d and ac = bd (mod m)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Modular arithmetic - clock arithmetic): Which statement best explains a deep principle from this topic? (Focus: Negative numbers work because)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7. does not apply in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Modular arithmetic - clock arithmetic."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Modular arithmetic - clock arithmetic follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: It is 9 o'clock now. What time will it be 5 hours later? Not 14 o'clock on a 12-"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Modular arithmetic - clock arithmetic."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Negative numbers work because\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Modular arithmetic - clock arithmetic\"."
+    }
+   ],
+   "explanation": {
+    "en": "Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Negative numbers work because\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Negative numbers also work: -3 = 4 (mod 7), because 7 divides -3 - 4 = -7.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-clocks",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Modular arithmetic - clock arithmetic",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Modular arithmetic - clock arithmetic): Real uses: days of the week (mod 7), ___ (mod 12 or 24) and check digits in bar codes."
+   },
+   "accepted": [
+    "clocks"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Modular arithmetic - clock arithmetic\": the missing word starts with \"c\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Modular arithmetic - clock arithmetic\"."
+    },
+    {
+     "en": "Step 2: \"clocks\" accurately completes the concept: Real uses: days of the week (mod 7), clocks (mod 12 or 24) and check digits in bar codes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

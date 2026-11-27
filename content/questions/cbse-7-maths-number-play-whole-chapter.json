@@ -1,372 +1,1041 @@
 {
-  "board": "CBSE",
-  "classLevel": 7,
-  "subject": "maths",
-  "chapter": "number-play",
-  "topic": "whole-chapter",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 7,
+ "subject": "maths",
+ "chapter": "number-play",
+ "topic": "whole-chapter",
+ "questions": [
+  {
+   "key": "c7ma-np-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "c7ma-np-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "What is the parity of the sum of two odd numbers?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "even"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "odd"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Two odd numbers leave two single leftovers, which make a pair."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Cannot be said"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "It is always even."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "7 + 5 = 12 is even."
-      }
-    },
-    {
-      "key": "c7ma-np-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The nth odd number is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "2n - 1"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "2n + 1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the (n+1)th odd number."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2n"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is the nth even number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Subtract 1 from the nth even number."
-      }
-    },
-    {
-      "key": "c7ma-np-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The sum of two consecutive numbers is always odd."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "One is even and the other is odd."
-      }
-    },
-    {
-      "key": "c7ma-np-4",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What is the 100th odd number?"
-      },
-      "answer": 199,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 200,
-          "why": {
-            "en": "That is the 100th even number."
-          }
-        },
-        {
-          "value": 201,
-          "why": {
-            "en": "That is the 101st odd number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "2 x 100 - 1 = 199."
-      }
-    },
-    {
-      "key": "c7ma-np-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Five cards are to be chosen from odd-numbered cards so the sum is 30. This is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "impossible"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "possible with careful choice"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Five odd numbers always add to an odd number."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "possible only for large numbers"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The size does not matter, only the parity."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Odd count of odd numbers gives an odd sum."
-      }
-    },
-    {
-      "key": "c7ma-np-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Lakpa has an odd number of Rs 1 coins, an odd number of Rs 5 coins and an even number of Rs 10 coins. His total can be"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "even"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "odd"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Odd + odd + even is even."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "205"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "205 is odd, so his total cannot be 205."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Odd + odd + even = even."
-      }
-    },
-    {
-      "key": "c7ma-np-7",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "What is the sum of each row of a 3 x 3 magic square using 1 to 9?"
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 45,
-          "why": {
-            "en": "That is the sum of the entire grid."
-          }
-        },
-        {
-          "value": 9,
-          "why": {
-            "en": "That is just the largest number."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The row sums add to 45 and are equal, so each is 45 / 3 = 15."
-      }
-    },
-    {
-      "key": "c7ma-np-8",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which number is always at the centre of a 3 x 3 magic square of 1 to 9?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "9"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "8 and 9 in a line would need a third number above 15."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "1 and 2 in a line would need a number above 15 to reach 15."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Only 5 can be at the centre."
-      }
-    },
-    {
-      "key": "c7ma-np-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Next in the Virahanka sequence 1, 2, 3, 5, 8, 13, ...?"
-      },
-      "answer": 21,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 18,
-          "why": {
-            "en": "Add 8 and 13, not 5 and 13."
-          }
-        },
-        {
-          "value": 26,
-          "why": {
-            "en": "This doubles 13 and misses the rule."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Add the previous two: 8 + 13 = 21."
-      }
-    },
-    {
-      "key": "c7ma-np-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Why can the circled sum 26 not be a row sum in a 3 x 3 grid of 1 to 9?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "The largest row sum is 24"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "26 is an even number"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Even sums are fine, such as 10."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "26 is bigger than 45"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The grid total is 45, but a single row cannot exceed 24."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "The largest possible row is 7 + 8 + 9 = 24."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "What is the parity of the sum of two odd numbers?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "even"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "odd"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Two odd numbers leave two single leftovers, which make a pair."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Cannot be said"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "It is always even."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "7 + 5 = 12 is even."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the parity of the sum of two odd numbers?."
+    },
+    {
+     "en": "Step 2: 7 + 5 = 12 is even."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Subtract 1 from the nth even number."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The nth odd number is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "2n - 1"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "2n + 1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the (n+1)th odd number."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2n"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is the nth even number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Subtract 1 from the nth even number."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Subtract 1 from the nth even number."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The nth odd number is."
+    },
+    {
+     "en": "Step 2: Subtract 1 from the nth even number."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: One is even and the other is odd."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The sum of two consecutive numbers is always odd."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "One is even and the other is odd."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: One is even and the other is odd."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The sum of two consecutive numbers is always odd.."
+    },
+    {
+     "en": "Step 2: One is even and the other is odd."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-4",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What is the 100th odd number?"
+   },
+   "answer": 199,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 200,
+     "why": {
+      "en": "That is the 100th even number."
+     }
+    },
+    {
+     "value": 201,
+     "why": {
+      "en": "That is the 101st odd number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "2 x 100 - 1 = 199."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the 100th odd number?."
+    },
+    {
+     "en": "Step 2: 2 x 100 - 1 = 199."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Odd count of odd numbers gives an odd sum."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Five cards are to be chosen from odd-numbered cards so the sum is 30. This is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "impossible"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "possible with careful choice"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Five odd numbers always add to an odd number."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "possible only for large numbers"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The size does not matter, only the parity."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Odd count of odd numbers gives an odd sum."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Odd count of odd numbers gives an odd sum."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Five cards are to be chosen from odd-numbered cards so the sum is 30. This is."
+    },
+    {
+     "en": "Step 2: Odd count of odd numbers gives an odd sum."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Lakpa has an odd number of Rs 1 coins, an odd number of Rs 5 coins and an even number of Rs 10 coins. His total can be"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "even"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "odd"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Odd + odd + even is even."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "205"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "205 is odd, so his total cannot be 205."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Odd + odd + even = even."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Lakpa has an odd number of Rs 1 coins, an odd number of Rs 5 coins and an even number of R."
+    },
+    {
+     "en": "Step 2: Odd + odd + even = even."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-7",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: The row sums add to 45 and are equal, so each is 45 / 3 = 15."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "What is the sum of each row of a 3 x 3 magic square using 1 to 9?"
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 45,
+     "why": {
+      "en": "That is the sum of the entire grid."
+     }
+    },
+    {
+     "value": 9,
+     "why": {
+      "en": "That is just the largest number."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The row sums add to 45 and are equal, so each is 45 / 3 = 15."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: The row sums add to 45 and are equal, so each is 45 / 3 = 15."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: What is the sum of each row of a 3 x 3 magic square using 1 to 9?."
+    },
+    {
+     "en": "Step 2: The row sums add to 45 and are equal, so each is 45 / 3 = 15."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-8",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Only 5 can be at the centre."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which number is always at the centre of a 3 x 3 magic square of 1 to 9?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "9"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "8 and 9 in a line would need a third number above 15."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "1 and 2 in a line would need a number above 15 to reach 15."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Only 5 can be at the centre."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Only 5 can be at the centre."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which number is always at the centre of a 3 x 3 magic square of 1 to 9?."
+    },
+    {
+     "en": "Step 2: Only 5 can be at the centre."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "c7ma-np-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: Add the previous two: 8 + 13 = 21."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Next in the Virahanka sequence 1, 2, 3, 5, 8, 13, ...?"
+   },
+   "answer": 21,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 18,
+     "why": {
+      "en": "Add 8 and 13, not 5 and 13."
+     }
+    },
+    {
+     "value": 26,
+     "why": {
+      "en": "This doubles 13 and misses the rule."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Add the previous two: 8 + 13 = 21."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: Add the previous two: 8 + 13 = 21."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Next in the Virahanka sequence 1, 2, 3, 5, 8, 13, ...?."
+    },
+    {
+     "en": "Step 2: Add the previous two: 8 + 13 = 21."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "c7ma-np-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: The largest possible row is 7 + 8 + 9 = 24."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Why can the circled sum 26 not be a row sum in a 3 x 3 grid of 1 to 9?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "The largest row sum is 24"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "26 is an even number"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Even sums are fine, such as 10."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "26 is bigger than 45"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The grid total is 45, but a single row cannot exceed 24."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "The largest possible row is 7 + 8 + 9 = 24."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: The largest possible row is 7 + 8 + 9 = 24."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Why can the circled sum 26 not be a row sum in a 3 x 3 grid of 1 to 9?."
+    },
+    {
+     "en": "Step 2: The largest possible row is 7 + 8 + 9 = 24."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Number Play): Each child calls out the number of children in front of them who are never taller. The tallest child always says zero, because nobody taller stands in front."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Number Play\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Each child calls out the number of children in front of them who are taller. The tallest child always says zero, because nobody taller stands in front."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Number Play\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Each child calls out the number of children in front of them who are taller. The tallest child always says zero, because nobody taller stands in front."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Number Play): Identify the correct statement from this lesson. (Focus: child always tallest whole)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "But a child who says zero is not always the tallest in the whole group. The child at the front always says zero too, whatever their height."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: But a child who says zero is not always the tallest in the whole group. The child at the front  does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, But a child who says zero is not always the tallest in the whole group. The child at the front always says zero too, whatever their height."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The children from last year's textbook line up again. This time each child calls"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"child always tallest whole\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "But a child who says zero is not always the tallest in the whole group. The child at the front always says zero too, whatever their height."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"child always tallest whole\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"But a child who says zero is not always the tallest in the whole group. The child at the front always says zero too, whatever their height.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-13-number",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): The shortest person need not call out the largest ___. The number depends on who stands in front, and so on the arrangement of the line."
+   },
+   "accepted": [
+    "number"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"n\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The shortest person need not call out the largest number. The number depends on who stands in front, and so on the arrangement of the line.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"number\" accurately completes the concept: The shortest person need not call out the largest number. The number depends on who stands in front, and so on the arrangement of the line."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-14",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Number Play): Which of the following statements is scientifically/conceptually accurate? (Focus: largest number possible group)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The largest number possible in a group of 8 people is 7, when all the other seven stand in front and are taller."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The largest number possible in a group of 8 people is 7, when all the other seven stand in fron does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The largest number possible in a group of 8 people is 7, when all the other seven stand in front and are taller."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The children from last year's textbook line up again. This time each child calls"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"largest number possible group\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "The largest number possible in a group of 8 people is 7, when all the other seven stand in front and are taller."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"largest number possible group\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The largest number possible in a group of 8 people is 7, when all the other seven stand in front and are taller.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Number Play): Kishor must put 5 number cards into 5 boxes so that they sum to 30. Do we need to try every selection? Parity cannot answer the question."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Number Play\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Kishor must put 5 number cards into 5 boxes so that they sum to 30. Do we need to try every selection? Parity can answer the question."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Number Play\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Kishor must put 5 number cards into 5 boxes so that they sum to 30. Do we need to try every selection? Parity can answer the question."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Number Play): Which of the following statements is scientifically/conceptually accurate? (Focus: number arranged pairs nothing)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "An even number can be arranged in pairs with nothing left over. Adding any number of even numbers gives an even number."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: An even number can be arranged in pairs with nothing left over. Adding any number of even numbe does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, An even number can be arranged in pairs with nothing left over. Adding any number of even numbers gives an even number."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The children from last year's textbook line up again. This time each child calls"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"number arranged pairs nothing\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "An even number can be arranged in pairs with nothing left over. Adding any number of even numbers gives an even number."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"number arranged pairs nothing\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"An even number can be arranged in pairs with nothing left over. Adding any number of even numbers gives an even number.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-17-pairs",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): An odd number is one more than a collection of ___, or one less than a collection of pairs."
+   },
+   "accepted": [
+    "pairs"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"p\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"An odd number is one more than a collection of pairs, or one less than a collection of pairs.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"pairs\" accurately completes the concept: An odd number is one more than a collection of pairs, or one less than a collection of pairs."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-18",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Number Play): Kishor has 5 boxes. If all five cards were odd, the sum of five odd numbers would be odd, so it could never be 30. This is how we prove it is impossible without trying every case."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Number Play\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Kishor has 5 boxes. If all five cards were odd, the sum of five odd numbers would be odd, so it could never be 30. This is how we prove it is impossible without trying every case."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Number Play\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-19",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Number Play): Which statement best explains a deep principle from this topic? (Focus: parity describes property being)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The word parity describes the property of being even or odd. Even plus odd is always odd, because the odd one leaves a leftover."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The word parity describes the property of being even or odd. Even plus odd is always odd, becau does not apply in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The word parity describes the property of being even or odd. Even plus odd is always odd, because the odd one leaves a leftover."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Number Play."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Number Play follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: The children from last year's textbook line up again. This time each child calls"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Number Play."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"parity describes property being\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Number Play\"."
+    }
+   ],
+   "explanation": {
+    "en": "The word parity describes the property of being even or odd. Even plus odd is always odd, because the odd one leaves a leftover."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"parity describes property being\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The word parity describes the property of being even or odd. Even plus odd is always odd, because the odd one leaves a leftover.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-maria",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Number Play",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Number Play): Martin and Maria were born exactly one year apart. ___ says the sum of their ages is 112. Their ages are consecutive numbers."
+   },
+   "accepted": [
+    "Maria",
+    "maria"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Number Play\": the missing word starts with \"M\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"M\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Martin and Maria were born exactly one year apart. Maria says the sum of their ages is 112. Their ages are consecutive numbers.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Number Play\"."
+    },
+    {
+     "en": "Step 2: \"Maria\" accurately completes the concept: Martin and Maria were born exactly one year apart. Maria says the sum of their ages is 112. Their ages are consecutive numbers."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

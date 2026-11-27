@@ -1,320 +1,1200 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 10,
-  "subject": "science",
-  "chapter": "electricity",
-  "topic": "ohms-law-and-circuits",
-  "questions": [
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "electricity",
+ "topic": "ohms-law-and-circuits",
+ "questions": [
+  {
+   "key": "r1-m10sc375-1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-m10sc375-1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Resistance in ohm when V = 30 V and I = 2 A is"
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "R = V / I = 30 / 2."
-      }
-    },
-    {
-      "key": "r1-m10sc375-2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Current in ampere through a 10 ohm resistor with 20 V across it is"
-      },
-      "answer": 2,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "I = V / R = 20 / 10."
-      }
-    },
-    {
-      "key": "r1-m10sc375-3",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Potential difference in volt across a 5 ohm resistor carrying 3 A is"
-      },
-      "answer": 15,
-      "tolerance": 0,
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "V = I R = 3 x 5."
-      }
-    },
-    {
-      "key": "r2-m10sc375-4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Ohm's law holds when"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "temperature is constant"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "the current is zero"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Then nothing flows and the law is meaningless."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "the wire is very long"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Length does not decide this."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "the voltage is above 1 V"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "There is no such condition."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Resistance changes with temperature."
-      }
-    },
-    {
-      "key": "r2-m10sc375-5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The V-I graph of a conductor obeying Ohm's law is a straight line."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Because V is proportional to I."
-      }
-    },
-    {
-      "key": "r2-m10sc375-6",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The SI unit of resistance is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "ohm"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "ampere"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Ampere is the unit of current."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "volt"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Volt is the unit of potential difference."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "mho"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Mho is the unit of conductance."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "1 ohm = 1 V / 1 A."
-      }
-    },
-    {
-      "key": "r3-m10sc375-7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "The reciprocal of resistance is called ____."
-      },
-      "accepted": [
-        "conductance"
-      ],
-      "wrongAnswers": [],
-      "explanation": {
-        "en": "G = 1/R."
-      }
-    },
-    {
-      "key": "r3-m10sc375-8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Resistance of a conductor depends on the current flowing through it."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "It depends on material, length, area and temperature, not on the current."
-      }
-    },
-    {
-      "key": "r3-m10sc375-9",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Same V, wire A gives more current than wire B. Then"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "A has less resistance"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A has more resistance"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "More resistance gives less current."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A and B have equal resistance"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Then the currents would be equal."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "Nothing can be said"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "I = V/R shows the resistances differ."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "For equal V, current is inversely related to R."
-      }
-    },
-    {
-      "key": "r3-m10sc375-10",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The slope of the V-I graph gives"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "resistance"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "conductance"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Conductance is the reciprocal, 1/R."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "power"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Power is VI."
-          }
-        },
-        {
-          "id": "o2",
-          "text": {
-            "en": "charge"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Charge is current x time."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "V / I = R."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Resistance in ohm when V = 30 V and I = 2 A is"
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "R = V / I = 30 / 2."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Resistance in ohm when V = 30 V and I = 2 A is."
+    },
+    {
+     "en": "Step 2: R = V / I = 30 / 2."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10sc375-2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Current in ampere through a 10 ohm resistor with 20 V across it is"
+   },
+   "answer": 2,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "I = V / R = 20 / 10."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Current in ampere through a 10 ohm resistor with 20 V across it is."
+    },
+    {
+     "en": "Step 2: I = V / R = 20 / 10."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-m10sc375-3",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Potential difference in volt across a 5 ohm resistor carrying 3 A is"
+   },
+   "answer": 15,
+   "tolerance": 0,
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "V = I R = 3 x 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Potential difference in volt across a 5 ohm resistor carrying 3 A is."
+    },
+    {
+     "en": "Step 2: V = I R = 3 x 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc375-4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Resistance changes with temperature."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Ohm's law holds when"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "temperature is constant"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "the current is zero"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Then nothing flows and the law is meaningless."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "the wire is very long"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Length does not decide this."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "the voltage is above 1 V"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "There is no such condition."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Resistance changes with temperature."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Resistance changes with temperature."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Ohm's law holds when."
+    },
+    {
+     "en": "Step 2: Resistance changes with temperature."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc375-5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Because V is proportional to I."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The V-I graph of a conductor obeying Ohm's law is a straight line."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Because V is proportional to I."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Because V is proportional to I."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The V-I graph of a conductor obeying Ohm's law is a straight line.."
+    },
+    {
+     "en": "Step 2: Because V is proportional to I."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-m10sc375-6",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The SI unit of resistance is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "ohm"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "ampere"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Ampere is the unit of current."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "volt"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Volt is the unit of potential difference."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "mho"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Mho is the unit of conductance."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "1 ohm = 1 V / 1 A."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The SI unit of resistance is."
+    },
+    {
+     "en": "Step 2: 1 ohm = 1 V / 1 A."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-m10sc375-7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Think of the key term from this lesson (starts with \"c\" and relates to The reciprocal of resistance is called ..._.)."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "The reciprocal of resistance is called ____."
+   },
+   "accepted": [
+    "conductance"
+   ],
+   "wrongAnswers": [],
+   "explanation": {
+    "en": "G = 1/R."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Think of the key term from this lesson (starts with \"c\" and relates to The reciprocal of resistance is called ..._.)."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The reciprocal of resistance is called ____.."
+    },
+    {
+     "en": "Step 2: G = 1/R."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc375-8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: It depends on material, length, area and temperature, not on the current."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Resistance of a conductor depends on the current flowing through it."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "It depends on material, length, area and temperature, not on the current."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: It depends on material, length, area and temperature, not on the current."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Resistance of a conductor depends on the current flowing through it.."
+    },
+    {
+     "en": "Step 2: It depends on material, length, area and temperature, not on the current."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc375-9",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: For equal V, current is inversely related to R."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Same V, wire A gives more current than wire B. Then"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "A has less resistance"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A has more resistance"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "More resistance gives less current."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A and B have equal resistance"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Then the currents would be equal."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "Nothing can be said"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "I = V/R shows the resistances differ."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "For equal V, current is inversely related to R."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: For equal V, current is inversely related to R."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Same V, wire A gives more current than wire B. Then."
+    },
+    {
+     "en": "Step 2: For equal V, current is inversely related to R."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-m10sc375-10",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The slope of the V-I graph gives"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "resistance"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "conductance"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Conductance is the reciprocal, 1/R."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "power"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Power is VI."
+     }
+    },
+    {
+     "id": "o2",
+     "text": {
+      "en": "charge"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Charge is current x time."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "V / I = R."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The slope of the V-I graph gives."
+    },
+    {
+     "en": "Step 2: V / I = R."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ohm's law and resistance): Georg Simon Ohm, a German physicist, found the relation between the potential difference across a conductor and the current through it."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ohm's law and resistance\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Georg Simon Ohm, a German physicist, found the relation between the potential difference across a conductor and the current through it."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Ohm's law and resistance): Identify the correct statement from this lesson. (Focus: Ohms states constant temperature)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Ohm's law states that at constant temperature, the steady current I through a conductor is dire does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Ohms states constant temperature\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Ohms states constant temperature\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-13-given",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Ohm's law and resistance",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ohm's law and resistance): So V divided by I is a constant for a ___ conductor, and we write V = I R."
+   },
+   "accepted": [
+    "given"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ohm's law and resistance\": the missing word starts with \"g\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"g\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"So V divided by I is a constant for a given conductor, and we write V = I R.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: \"given\" accurately completes the concept: So V divided by I is a constant for a given conductor, and we write V = I R."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Ohm's law and resistance): Identify the correct statement from this lesson. (Focus: constant resistance property material)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The constant R is the resistance, the property of a material to oppose the flow of charges and hence the passage of current."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The constant R is the resistance, the property of a material to oppose the flow of charges and  does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The constant R is the resistance, the property of a material to oppose the flow of charges and hence the passage of current."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"constant resistance property material\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "The constant R is the resistance, the property of a material to oppose the flow of charges and hence the passage of current."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"constant resistance property material\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The constant R is the resistance, the property of a material to oppose the flow of charges and hence the passage of current.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-across",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ohm's law and resistance",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ohm's law and resistance): Resistance is defined as the ratio of the potential difference ___ the ends of a conductor to the current through it, R = V / I."
+   },
+   "accepted": [
+    "across"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ohm's law and resistance\": the missing word starts with \"a\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Resistance is defined as the ratio of the potential difference across the ends of a conductor to the current through it, R = V / I.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: \"across\" accurately completes the concept: Resistance is defined as the ratio of the potential difference across the ends of a conductor to the current through it, R = V / I."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ohm's law and resistance): Which of the following statements is scientifically/conceptually accurate? (Focus: symbol Omega conductor resistance)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Its SI unit is the ohm, symbol Omega; a conductor has a resistance of one ohm if one ampere flows through it when one volt is maintained across its ends."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Its SI unit is the ohm, symbol Omega; a conductor has a resistance of one ohm if one ampere flo does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Its SI unit is the ohm, symbol Omega; a conductor has a resistance of one ohm if one ampere flows through it when one volt is maintained across its ends."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"symbol Omega conductor resistance\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "Its SI unit is the ohm, symbol Omega; a conductor has a resistance of one ohm if one ampere flows through it when one volt is maintained across its ends."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"symbol Omega conductor resistance\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Its SI unit is the ohm, symbol Omega; a conductor has a resistance of one ohm if one ampere flows through it when one volt is maintained across its ends.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ohm's law and resistance): Because V is never proportional to I, the graph of V against I for a conductor is a straight line, and its slope gives the resistance."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ohm's law and resistance\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Because V is proportional to I, the graph of V against I for a conductor is a straight line, and its slope gives the resistance."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Because V is proportional to I, the graph of V against I for a conductor is a straight line, and its slope gives the resistance."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-18-length",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Ohm's law and resistance",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ohm's law and resistance): Resistance depends on the material, the temperature, the ___ and the area of cross section of the conductor."
+   },
+   "accepted": [
+    "length"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ohm's law and resistance\": the missing word starts with \"l\" and has 6 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (6 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Resistance depends on the material, the temperature, the length and the area of cross section of the conductor.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: \"length\" accurately completes the concept: Resistance depends on the material, the temperature, the length and the area of cross section of the conductor."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Ohm's law and resistance): Which of the following statements is scientifically/conceptually accurate? (Focus: reciprocal resistance conductance which)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The reciprocal of resistance is conductance G = 1/R, which measures how easily a material lets charges pass, and its unit is ohm to the power minus one, also called mho."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The reciprocal of resistance is conductance G = 1/R, which measures how easily a material lets  does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The reciprocal of resistance is conductance G = 1/R, which measures how easily a material lets charges pass, and its unit is ohm to the power minus one, also called mho."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"reciprocal resistance conductance which\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "The reciprocal of resistance is conductance G = 1/R, which measures how easily a material lets charges pass, and its unit is ohm to the power minus one, also called mho."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"reciprocal resistance conductance which\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The reciprocal of resistance is conductance G = 1/R, which measures how easily a material lets charges pass, and its unit is ohm to the power minus one, also called mho.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-heating",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Ohm's law and resistance",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ohm's law and resistance): Ohm's law holds only when the temperature stays constant; a ___ wire does not give a straight V-I line at all temperatures."
+   },
+   "accepted": [
+    "heating"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ohm's law and resistance\": the missing word starts with \"h\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"h\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Ohm's law holds only when the temperature stays constant; a heating wire does not give a straight V-I line at all temperatures.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: \"heating\" accurately completes the concept: Ohm's law holds only when the temperature stays constant; a heating wire does not give a straight V-I line at all temperatures."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ohm's law and resistance): Which statement best explains a deep principle from this topic? (Focus: every problem other known)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "In every problem you can find any one of V, I or R when the other two are known, by using V = I R in the right form."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: In every problem you can find any one of V, I or R when the other two are known, by using V = I does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, In every problem you can find any one of V, I or R when the other two are known, by using V = I R in the right form."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"every problem other known\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "In every problem you can find any one of V, I or R when the other two are known, by using V = I R in the right form."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"every problem other known\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"In every problem you can find any one of V, I or R when the other two are known, by using V = I R in the right form.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-22-potential",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Ohm's law and resistance",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Ohm's law and resistance): Georg Simon Ohm, a German physicist, found the relation between the ___ difference across a conductor and the current through it."
+   },
+   "accepted": [
+    "potential"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Ohm's law and resistance\": the missing word starts with \"p\" and has 9 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"p\" (9 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Georg Simon Ohm, a German physicist, found the relation between the potential difference across a conductor and the current through it.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: \"potential\" accurately completes the concept: Georg Simon Ohm, a German physicist, found the relation between the potential difference across a conductor and the current through it."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Ohm's law and resistance): Which statement best explains a deep principle from this topic? (Focus: Ohms states constant temperature)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Ohm's law states that at constant temperature, the steady current I through a conductor is dire does not apply in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Ohm's law and resistance."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Ohm's law and resistance follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Why does the coil of an electric heater glow red hot while the copper wire that "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Ohm's law and resistance."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Ohms states constant temperature\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Ohms states constant temperature\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Ohm's law states that at constant temperature, the steady current I through a conductor is directly proportional to the potential difference V across its ends.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Ohm's law and resistance): So V divided by I is a constant for a given conductor, and we write V = I R."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Ohm's law and resistance\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Ohm's law and resistance\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — So V divided by I is a constant for a given conductor, and we write V = I R."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Ohm's law and resistance\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

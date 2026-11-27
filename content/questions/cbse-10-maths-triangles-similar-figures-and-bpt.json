@@ -1,259 +1,1245 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "triangles",
-  "topic": "similar-figures-and-bpt",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "triangles",
+ "topic": "similar-figures-and-bpt",
+ "questions": [
+  {
+   "key": "r1-sf1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-sf1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Which are always similar?"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Any two squares"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "Any two rectangles"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Rectangles may have different side ratios."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "Any two rhombuses"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Their angles can differ."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "All angles are 90 degrees and side ratios equal."
-      }
-    },
-    {
-      "key": "r1-sf2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "All congruent triangles are similar."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "Same size and shape means the same shape."
-      }
-    },
-    {
-      "key": "r2-sf3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "In triangle ABC, DE || BC. AD = 4, DB = 6, AE = 6. Find EC."
-      },
-      "answer": 9,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 4,
-          "why": {
-            "en": "Use the proportion."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4/6 = 6/EC so EC = 9."
-      }
-    },
-    {
-      "key": "r2-sf4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): If AD/DB = AE/EC then DE || BC. Reason (R): This is the converse of the BPT."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A true, R false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is correct."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A false, R true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The converse is a theorem."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Equal ratios imply parallel."
-      }
-    },
-    {
-      "key": "r2-sf5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If DE || BC and AD/AB = 2/5 then AE/AC ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "2/5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "3/5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is DB/AB."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "2/3"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is AD/DB."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Corresponding sides along AB and AC are in the same ratio."
-      }
-    },
-    {
-      "key": "r3-sf6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Two similar triangles have sides in the ratio 1 : 3. If a side of the smaller is 4, the matching side of the larger is"
-      },
-      "answer": 12,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 8,
-          "why": {
-            "en": "Multiply by 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4 x 3 = 12."
-      }
-    },
-    {
-      "key": "r3-sf7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "Two similar polygons need only equal angles to be similar."
-      },
-      "answer": false,
-      "explanation": {
-        "en": "For polygons other than triangles, sides must also be proportional (a rectangle and a square have equal angles)."
-      }
-    },
-    {
-      "key": "r3-sf8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Case study: A 2 m pole casts a 3 m shadow. At the same time a tower casts a 21 m shadow. Its height is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "14 m"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "31.5 m"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Use the ratio 2/3."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "10 m"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Compare shadow to height."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "h/21 = 2/3."
-      }
+     "en": "Focus on this idea: All angles are 90 degrees and side ratios equal."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Which are always similar?"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Any two squares"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "Any two rectangles"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Rectangles may have different side ratios."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "Any two rhombuses"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Their angles can differ."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "All angles are 90 degrees and side ratios equal."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: All angles are 90 degrees and side ratios equal."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Which are always similar?."
+    },
+    {
+     "en": "Step 2: All angles are 90 degrees and side ratios equal."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-sf2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Focus on this idea: Same size and shape means the same shape."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "All congruent triangles are similar."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "Same size and shape means the same shape."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Same size and shape means the same shape."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: All congruent triangles are similar.."
+    },
+    {
+     "en": "Step 2: Same size and shape means the same shape."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-sf3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "In triangle ABC, DE || BC. AD = 4, DB = 6, AE = 6. Find EC."
+   },
+   "answer": 9,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 4,
+     "why": {
+      "en": "Use the proportion."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4/6 = 6/EC so EC = 9."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: In triangle ABC, DE || BC. AD = 4, DB = 6, AE = 6. Find EC.."
+    },
+    {
+     "en": "Step 2: 4/6 = 6/EC so EC = 9."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-sf4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Equal ratios imply parallel."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): If AD/DB = AE/EC then DE || BC. Reason (R): This is the converse of the BPT."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A true, R false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is correct."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A false, R true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The converse is a theorem."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Equal ratios imply parallel."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Equal ratios imply parallel."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): If AD/DB = AE/EC then DE || BC. Reason (R): This is the converse of the BPT."
+    },
+    {
+     "en": "Step 2: Equal ratios imply parallel."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-sf5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Focus on this idea: Corresponding sides along AB and AC are in the same ratio."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If DE || BC and AD/AB = 2/5 then AE/AC ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "2/5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "3/5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is DB/AB."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "2/3"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is AD/DB."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Corresponding sides along AB and AC are in the same ratio."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Focus on this idea: Corresponding sides along AB and AC are in the same ratio."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If DE || BC and AD/AB = 2/5 then AE/AC =."
+    },
+    {
+     "en": "Step 2: Corresponding sides along AB and AC are in the same ratio."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-sf6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Two similar triangles have sides in the ratio 1 : 3. If a side of the smaller is 4, the matching side of the larger is"
+   },
+   "answer": 12,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 8,
+     "why": {
+      "en": "Multiply by 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4 x 3 = 12."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two similar triangles have sides in the ratio 1 : 3. If a side of the smaller is 4, the ma."
+    },
+    {
+     "en": "Step 2: 4 x 3 = 12."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-sf7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: For polygons other than triangles, sides must also be proportional (a rectangle and a square have equal angles."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "Two similar polygons need only equal angles to be similar."
+   },
+   "answer": false,
+   "explanation": {
+    "en": "For polygons other than triangles, sides must also be proportional (a rectangle and a square have equal angles)."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: For polygons other than triangles, sides must also be proportional (a rectangle and a square have equal angles."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Two similar polygons need only equal angles to be similar.."
+    },
+    {
+     "en": "Step 2: For polygons other than triangles, sides must also be proportional (a rectangle and a square have equal angles)."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-sf8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Case study: A 2 m pole casts a 3 m shadow. At the same time a tower casts a 21 m shadow. Its height is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "14 m"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "31.5 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Use the ratio 2/3."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "10 m"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Compare shadow to height."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "h/21 = 2/3."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Case study: A 2 m pole casts a 3 m shadow. At the same time a tower casts a 21 m shadow. I."
+    },
+    {
+     "en": "Step 2: h/21 = 2/3."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "ext-511bb1fe4dda-6",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "stem": {
+    "en": "The perimeters of two similar triangles are 56 cm and 70 cm respectively. If one 1 side of the first triangle is 1 4 cm, then the corresponding side of the second triangle (in cm) is:"
+   },
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "explanation": {
+    "en": "1 7.5 Ratio of perimeters of similar triangles = ratio of their corresponding 1 sides"
+   },
+   "source": "CBSE Academic Unit (cbseacademic.nic.in) (2026-27)",
+   "sourceUrl": "https://cbseacademic.nic.in/web_material/SQP/ClassX_2026_27/MathsStandard-SQP.pdf",
+   "provenance": "ai_drafted_reviewed",
+   "status": "published",
+   "type": "mcq",
+   "options": [
+    {
+     "id": "opt-1",
+     "text": {
+      "en": "5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"5\" — 1 7.5 Ratio of perimeters of similar triangles = ratio of their corresponding 1 sides"
+     }
+    },
+    {
+     "id": "opt-2",
+     "text": {
+      "en": "7.5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"7.5\" — 1 7.5 Ratio of perimeters of similar triangles = ratio of their corresponding 1 sides"
+     }
+    },
+    {
+     "id": "opt-3",
+     "text": {
+      "en": "10"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Not \"10\" — 1 7.5 Ratio of perimeters of similar triangles = ratio of their corresponding 1 sides"
+     }
+    },
+    {
+     "id": "opt-4",
+     "text": {
+      "en": "1 7.5"
+     },
+     "correct": true
+    }
+   ],
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The perimeters of two similar triangles are 56 cm and 70 cm respectively. If one 1 side of."
+    },
+    {
+     "en": "Step 2: 1 7.5 Ratio of perimeters of similar triangles = ratio of their corresponding 1 sides"
+    }
+   ]
+  },
+  {
+   "key": "fill-textbook-10-maps",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Similar figures and the Basic Proportionality Theorem",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Similar figures and the Basic Proportionality Theorem): A photograph and its enlargement have the same shape but different sizes. ___, models and shadows all work on the same idea: similarity."
+   },
+   "accepted": [
+    "Maps",
+    "maps"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Similar figures and the Basic Proportionality Theorem\": the missing word starts with \"M\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"M\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: \"Maps\" accurately completes the concept: A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-11",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Similar figures and the Basic Proportionality Theorem): Two figures with the same shape but not necessarily the same size are never called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+   },
+   "answer": false,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Similar figures and the Basic Proportionality Theorem\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "False — The correct textbook fact is: Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: Corrected fact: Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-12",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Similar figures and the Basic Proportionality Theorem): Identify the correct statement from this lesson. (Focus: polygons number sides similar)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Two polygons with the same number of sides are similar if their corresponding angles are equal  does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"polygons number sides similar\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"polygons number sides similar\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-13-line",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Similar figures and the Basic Proportionality Theorem",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Similar figures and the Basic Proportionality Theorem): Now take triangle ABC and draw a ___ DE parallel to BC, meeting AB at D and AC at E."
+   },
+   "accepted": [
+    "line"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Similar figures and the Basic Proportionality Theorem\": the missing word starts with \"l\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"l\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: \"line\" accurately completes the concept: Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-14",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Similar figures and the Basic Proportionality Theorem): Identify the correct statement from this lesson. (Focus: Basic Proportionality Theorem called)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC. does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Basic Proportionality Theorem called\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Basic Proportionality Theorem called\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-15-triangle",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Similar figures and the Basic Proportionality Theorem",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Similar figures and the Basic Proportionality Theorem): The converse is also true: if a line divides two sides of a ___ in the same ratio, then it is parallel to the third side."
+   },
+   "accepted": [
+    "triangle"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Similar figures and the Basic Proportionality Theorem\": the missing word starts with \"t\" and has 8 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"t\" (8 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: \"triangle\" accurately completes the concept: The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Similar figures and the Basic Proportionality Theorem): Which of the following statements is scientifically/conceptually accurate? (Focus: example because)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC. does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"example because\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"example because\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For example, if AD = 2 cm, DB = 3 cm and AE = 4 cm, then EC = 6 cm, because 2 by 3 = 4 by EC.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Similar figures and the Basic Proportionality Theorem): The proof uses triangles that share a height, so the ratio of their areas equals the ratio of their bases."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Similar figures and the Basic Proportionality Theorem\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The proof uses triangles that share a height, so the ratio of their areas equals the ratio of their bases."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Similar figures and the Basic Proportionality Theorem): Which of the following statements is scientifically/conceptually accurate? (Focus: Never apply unless parallel)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Never apply BPT unless you know that the line is parallel to one side."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Never apply BPT unless you know that the line is parallel to one side. does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Never apply BPT unless you know that the line is parallel to one side."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Never apply unless parallel\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "Never apply BPT unless you know that the line is parallel to one side."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Never apply unless parallel\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Never apply BPT unless you know that the line is parallel to one side.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Similar figures and the Basic Proportionality Theorem): Which of the following statements is scientifically/conceptually accurate? (Focus: photograph enlargement shape different)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: A photograph and its enlargement have the same shape but different sizes. Maps, models and shad does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Two figures with the same shape but not necessarily the same size are called sim"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"photograph enlargement shape different\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"photograph enlargement shape different\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"A photograph and its enlargement have the same shape but different sizes. Maps, models and shadows all work on the same idea: similarity.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-20",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Similar figures and the Basic Proportionality Theorem): Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Similar figures and the Basic Proportionality Theorem\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Two figures with the same shape but not necessarily the same size are called similar figures. All congruent figures are similar, but similar figures need not be congruent."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-21-corresponding",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Similar figures and the Basic Proportionality Theorem",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Similar figures and the Basic Proportionality Theorem): Two polygons with the same number of sides are similar if their ___ angles are equal and their corresponding sides are in the same ratio."
+   },
+   "accepted": [
+    "corresponding"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Similar figures and the Basic Proportionality Theorem\": the missing word starts with \"c\" and has 13 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"c\" (13 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: \"corresponding\" accurately completes the concept: Two polygons with the same number of sides are similar if their corresponding angles are equal and their corresponding sides are in the same ratio."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Similar figures and the Basic Proportionality Theorem): Which statement best explains a deep principle from this topic? (Focus: triangle parallel meeting)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E. does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"triangle parallel meeting\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"triangle parallel meeting\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Now take triangle ABC and draw a line DE parallel to BC, meeting AB at D and AC at E.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Similar figures and the Basic Proportionality Theorem): The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Similar figures and the Basic Proportionality Theorem\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The Basic Proportionality Theorem, also called Thales' theorem, says: AD by DB = AE by EC."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Similar figures and the Basic Proportionality Theorem\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-24",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Similar figures and the Basic Proportionality Theorem): Which statement best explains a deep principle from this topic? (Focus: converse true divides sides)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: The converse is also true: if a line divides two sides of a triangle in the same ratio, then it does not apply in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Similar figures and the Basic Proportionality Theorem."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Similar figures and the Basic Proportionality Theorem follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: A photograph and its enlargement have the same shape but different sizes. Maps, "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Similar figures and the Basic Proportionality Theorem."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"converse true divides sides\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Similar figures and the Basic Proportionality Theorem\"."
+    }
+   ],
+   "explanation": {
+    "en": "The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"converse true divides sides\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"The converse is also true: if a line divides two sides of a triangle in the same ratio, then it is parallel to the third side.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }

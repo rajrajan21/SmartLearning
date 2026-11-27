@@ -1,269 +1,1255 @@
 {
-  "board": "CBSE",
-  "classLevel": 10,
-  "subject": "maths",
-  "chapter": "polynomials",
-  "topic": "zeroes-and-coefficients",
-  "questions": [
+ "board": "CBSE",
+ "classLevel": 10,
+ "subject": "maths",
+ "chapter": "polynomials",
+ "topic": "zeroes-and-coefficients",
+ "questions": [
+  {
+   "key": "r1-zc1",
+   "round": 1,
+   "hints": [
     {
-      "key": "r1-zc1",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "The sum of the zeroes of x^2 - 5x + 6 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "5"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "-5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The sum is -b/a = 5."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "6 is the product."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "-b/a = -(-5)/1 = 5."
-      }
-    },
-    {
-      "key": "r1-zc2",
-      "round": 1,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Product of the zeroes of 2x^2 + 7x + 3"
-      },
-      "answer": 1.5,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": 3,
-          "why": {
-            "en": "Divide by a = 2."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "c/a = 3/2 = 1.5."
-      }
-    },
-    {
-      "key": "r2-zc3",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "A quadratic with zeroes 2 and 3 is"
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "x^2 - 5x + 6"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "x^2 + 5x + 6"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "The sum is 5, so the middle term is -5x."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "x^2 - 6x + 5"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That has zeroes 1 and 5."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Sum 5, product 6."
-      }
-    },
-    {
-      "key": "r2-zc4",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "Assertion (A): If the sum of zeroes of a quadratic is 0, the polynomial has no x term. Reason (R): Sum of zeroes = -b/a."
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "Both A and R are true and R explains A"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "A is true, R is false"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "R is true."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "A is false, R is true"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "If -b/a = 0 then b = 0, so there is no x term."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Sum 0 means b = 0."
-      }
-    },
-    {
-      "key": "r2-zc5",
-      "round": 2,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "short",
-      "stem": {
-        "en": "If one zero of x^2 - 7x + 12 is 3, the other is"
-      },
-      "accepted": [
-        "4"
-      ],
-      "wrongAnswers": [
-        {
-          "text": "9",
-          "why": {
-            "en": "Product 12 / 3 = 4."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "Sum = 7, so the other = 7 - 3 = 4."
-      }
-    },
-    {
-      "key": "r3-zc6",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "number",
-      "stem": {
-        "en": "Sum of the zeroes of the cubic x^3 - 6x^2 + 11x - 6"
-      },
-      "answer": 6,
-      "tolerance": 0,
-      "wrongAnswers": [
-        {
-          "value": -6,
-          "why": {
-            "en": "Careful with the sign."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "-b/a = -(-6)/1 = 6."
-      }
-    },
-    {
-      "key": "r3-zc7",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "true_false",
-      "stem": {
-        "en": "The product of all three zeroes of a x^3 + b x^2 + c x + d is -d/a."
-      },
-      "answer": true,
-      "explanation": {
-        "en": "This is the cubic relationship."
-      }
-    },
-    {
-      "key": "r3-zc8",
-      "round": 3,
-      "hints": [],
-      "provenance": "original",
-      "status": "published",
-      "type": "mcq",
-      "stem": {
-        "en": "If alpha and beta are zeroes of x^2 - 4x + 3, then alpha + beta + alpha beta ="
-      },
-      "options": [
-        {
-          "id": "right",
-          "text": {
-            "en": "7"
-          },
-          "correct": true
-        },
-        {
-          "id": "o0",
-          "text": {
-            "en": "1"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "Sum 4 + product 3 = 7."
-          }
-        },
-        {
-          "id": "o1",
-          "text": {
-            "en": "12"
-          },
-          "correct": false,
-          "whyWrong": {
-            "en": "That is 4 x 3."
-          }
-        }
-      ],
-      "explanation": {
-        "en": "4 + 3 = 7."
-      }
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
     }
-  ]
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "The sum of the zeroes of x^2 - 5x + 6 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "5"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "-5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The sum is -b/a = 5."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "6 is the product."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "-b/a = -(-5)/1 = 5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The sum of the zeroes of x^2 - 5x + 6 is."
+    },
+    {
+     "en": "Step 2: -b/a = -(-5)/1 = 5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r1-zc2",
+   "round": 1,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Product of the zeroes of 2x^2 + 7x + 3"
+   },
+   "answer": 1.5,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": 3,
+     "why": {
+      "en": "Divide by a = 2."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "c/a = 3/2 = 1.5."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Product of the zeroes of 2x^2 + 7x + 3."
+    },
+    {
+     "en": "Step 2: c/a = 3/2 = 1.5."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-zc3",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "A quadratic with zeroes 2 and 3 is"
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "x^2 - 5x + 6"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "x^2 + 5x + 6"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "The sum is 5, so the middle term is -5x."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "x^2 - 6x + 5"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That has zeroes 1 and 5."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sum 5, product 6."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: A quadratic with zeroes 2 and 3 is."
+    },
+    {
+     "en": "Step 2: Sum 5, product 6."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-zc4",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "Assertion (A): If the sum of zeroes of a quadratic is 0, the polynomial has no x term. Reason (R): Sum of zeroes = -b/a."
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "Both A and R are true and R explains A"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "A is true, R is false"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "R is true."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "A is false, R is true"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "If -b/a = 0 then b = 0, so there is no x term."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sum 0 means b = 0."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Assertion (A): If the sum of zeroes of a quadratic is 0, the polynomial has no x term. Rea."
+    },
+    {
+     "en": "Step 2: Sum 0 means b = 0."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r2-zc5",
+   "round": 2,
+   "hints": [
+    {
+     "en": "Re-read the key concept from this chapter carefully and check the units."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "short",
+   "stem": {
+    "en": "If one zero of x^2 - 7x + 12 is 3, the other is"
+   },
+   "accepted": [
+    "4"
+   ],
+   "wrongAnswers": [
+    {
+     "text": "9",
+     "why": {
+      "en": "Product 12 / 3 = 4."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "Sum = 7, so the other = 7 - 3 = 4."
+   },
+   "tier": "textbook",
+   "marks": 1,
+   "hint": {
+    "en": "Re-read the key concept from this chapter carefully and check the units."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If one zero of x^2 - 7x + 12 is 3, the other is."
+    },
+    {
+     "en": "Step 2: Sum = 7, so the other = 7 - 3 = 4."
+    }
+   ],
+   "source": "Textbook Core Concept"
+  },
+  {
+   "key": "r3-zc6",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "number",
+   "stem": {
+    "en": "Sum of the zeroes of the cubic x^3 - 6x^2 + 11x - 6"
+   },
+   "answer": 6,
+   "tolerance": 0,
+   "wrongAnswers": [
+    {
+     "value": -6,
+     "why": {
+      "en": "Careful with the sign."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "-b/a = -(-6)/1 = 6."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: Sum of the zeroes of the cubic x^3 - 6x^2 + 11x - 6."
+    },
+    {
+     "en": "Step 2: -b/a = -(-6)/1 = 6."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-zc7",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Focus on this idea: This is the cubic relationship."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "true_false",
+   "stem": {
+    "en": "The product of all three zeroes of a x^3 + b x^2 + c x + d is -d/a."
+   },
+   "answer": true,
+   "explanation": {
+    "en": "This is the cubic relationship."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Focus on this idea: This is the cubic relationship."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: The product of all three zeroes of a x^3 + b x^2 + c x + d is -d/a.."
+    },
+    {
+     "en": "Step 2: This is the cubic relationship."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "r3-zc8",
+   "round": 3,
+   "hints": [
+    {
+     "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+    }
+   ],
+   "provenance": "original",
+   "status": "published",
+   "type": "mcq",
+   "stem": {
+    "en": "If alpha and beta are zeroes of x^2 - 4x + 3, then alpha + beta + alpha beta ="
+   },
+   "options": [
+    {
+     "id": "right",
+     "text": {
+      "en": "7"
+     },
+     "correct": true
+    },
+    {
+     "id": "o0",
+     "text": {
+      "en": "1"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Sum 4 + product 3 = 7."
+     }
+    },
+    {
+     "id": "o1",
+     "text": {
+      "en": "12"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "That is 4 x 3."
+     }
+    }
+   ],
+   "explanation": {
+    "en": "4 + 3 = 7."
+   },
+   "tier": "exam",
+   "marks": 2,
+   "hint": {
+    "en": "Recall the main definition or formula taught in this lesson before picking your answer."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Identify the key concept from the question: If alpha and beta are zeroes of x^2 - 4x + 3, then alpha + beta + alpha beta =."
+    },
+    {
+     "en": "Step 2: 4 + 3 = 7."
+    }
+   ],
+   "source": "Exam Extra & Application"
+  },
+  {
+   "key": "fill-textbook-9-neat",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Relationship between zeroes and coefficients",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Relationship between zeroes and coefficients): If you know the two roots of a quadratic, can you build the quadratic? There is a ___ link between roots and coefficients that saves a lot of work."
+   },
+   "accepted": [
+    "neat"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Relationship between zeroes and coefficients\": the missing word starts with \"n\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"n\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: \"neat\" accurately completes the concept: If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-textbook-10",
+   "round": 1,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Relationship between zeroes and coefficients): Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Relationship between zeroes and coefficients\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-11",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Relationship between zeroes and coefficients): Identify the correct statement from this lesson. (Focus: zeroes alpha minus)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Then the sum of the zeroes is alpha + beta = minus b by a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Then the sum of the zeroes is alpha + beta = minus b by a. does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Then the sum of the zeroes is alpha + beta = minus b by a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"zeroes alpha minus\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "Then the sum of the zeroes is alpha + beta = minus b by a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"zeroes alpha minus\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Then the sum of the zeroes is alpha + beta = minus b by a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-textbook-12-alpha",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core · Relationship between zeroes and coefficients",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Relationship between zeroes and coefficients): And the product of the zeroes is ___ x beta = c by a."
+   },
+   "accepted": [
+    "alpha"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Relationship between zeroes and coefficients\": the missing word starts with \"a\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"And the product of the zeroes is alpha x beta = c by a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: \"alpha\" accurately completes the concept: And the product of the zeroes is alpha x beta = c by a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-textbook-13",
+   "round": 2,
+   "tier": "textbook",
+   "marks": 1,
+   "source": "Textbook Core Concept",
+   "type": "mcq",
+   "stem": {
+    "en": "Textbook Check (Relationship between zeroes and coefficients): Identify the correct statement from this lesson. (Focus: Check squared zeroes Their)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their prod does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Check squared zeroes Their\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Check squared zeroes Their\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-exam-14-squared",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Practice · Relationship between zeroes and coefficients",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Relationship between zeroes and coefficients): To form a quadratic from its zeroes, use x ___ - (sum) x + (product), because any multiple of it has the same zeroes."
+   },
+   "accepted": [
+    "squared"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Relationship between zeroes and coefficients\": the missing word starts with \"s\" and has 7 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"s\" (7 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: \"squared\" accurately completes the concept: To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-15",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Relationship between zeroes and coefficients): Which of the following statements is scientifically/conceptually accurate? (Focus: cubic cubed squared zeroes)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is min does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"cubic cubed squared zeroes\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"cubic cubed squared zeroes\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-exam-16",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Relationship between zeroes and coefficients): The sum of products taken two at a time is c by a, and the product of all three zeroes is minus d by a."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Relationship between zeroes and coefficients\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — The sum of products taken two at a time is c by a, and the product of all three zeroes is minus d by a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-17",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Relationship between zeroes and coefficients): Which of the following statements is scientifically/conceptually accurate? (Focus: Remember signs minus product)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Remember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Remember the signs: the sum has a minus, the product of two has no sign change, and the product does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Remember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"Remember signs minus product\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "Remember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"Remember signs minus product\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Remember the signs: the sum has a minus, the product of two has no sign change, and the product of three has a minus.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-18",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Relationship between zeroes and coefficients): Which of the following statements is scientifically/conceptually accurate? (Focus: roots quadratic build quadratic)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: If you know the two roots of a quadratic, can you build the quadratic? There is a neat link bet does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x +"
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"roots quadratic build quadratic\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"roots quadratic build quadratic\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"If you know the two roots of a quadratic, can you build the quadratic? There is a neat link between roots and coefficients that saves a lot of work.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-exam-19",
+   "round": 3,
+   "tier": "exam",
+   "marks": 2,
+   "source": "Exam Extra & Application",
+   "type": "mcq",
+   "stem": {
+    "en": "Exam Extra (Relationship between zeroes and coefficients): Which of the following statements is scientifically/conceptually accurate? (Focus: alpha zeroes quadratic polynomial)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c. does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"alpha zeroes quadratic polynomial\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"alpha zeroes quadratic polynomial\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"Let alpha and beta be the zeroes of the quadratic polynomial a x squared + b x + c.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-20-beta",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Relationship between zeroes and coefficients",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Relationship between zeroes and coefficients): Then the sum of the zeroes is alpha + ___ = minus b by a."
+   },
+   "accepted": [
+    "beta"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Relationship between zeroes and coefficients\": the missing word starts with \"b\" and has 4 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"b\" (4 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"Then the sum of the zeroes is alpha + beta = minus b by a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: \"beta\" accurately completes the concept: Then the sum of the zeroes is alpha + beta = minus b by a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-21",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Relationship between zeroes and coefficients): Which statement best explains a deep principle from this topic? (Focus: product zeroes alpha)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "And the product of the zeroes is alpha x beta = c by a."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: And the product of the zeroes is alpha x beta = c by a. does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, And the product of the zeroes is alpha x beta = c by a."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"product zeroes alpha\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "And the product of the zeroes is alpha x beta = c by a."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"product zeroes alpha\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"And the product of the zeroes is alpha x beta = c by a.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "tf-advanced-22",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "true_false",
+   "stem": {
+    "en": "True or False (Relationship between zeroes and coefficients): Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+   },
+   "answer": true,
+   "hint": {
+    "en": "Check whether this matches the exact rule taught in \"Relationship between zeroes and coefficients\"."
+   },
+   "hints": [
+    {
+     "en": "Compare the statement carefully against the core law of \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "True — Check with x squared - 3x - 4: the zeroes are 4 and -1. Their sum is 3 = -(-3)/1 and their product is -4 = -4/1."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Test the statement against \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: It matches the textbook fact accurately."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "mcq-advanced-23",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Level 2 Challenge",
+   "type": "mcq",
+   "stem": {
+    "en": "HOTS Challenge (Relationship between zeroes and coefficients): Which statement best explains a deep principle from this topic? (Focus: quadratic zeroes squared sum)"
+   },
+   "options": [
+    {
+     "id": "a",
+     "text": {
+      "en": "To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes."
+     },
+     "correct": true
+    },
+    {
+     "id": "b",
+     "text": {
+      "en": "The opposite holds true: To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple  does not apply in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This reverses the textbook principle; in fact, To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes."
+     }
+    },
+    {
+     "id": "c",
+     "text": {
+      "en": "It only occurs randomly without any rule or pattern in Relationship between zeroes and coefficients."
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "Concepts in Relationship between zeroes and coefficients follow a clear rule rather than happening randomly."
+     }
+    },
+    {
+     "id": "d",
+     "text": {
+      "en": "Only when ignoring the core rule: If you know the two roots of a quadratic, can you build the quadratic? There is "
+     },
+     "correct": false,
+     "whyWrong": {
+      "en": "This confuses or ignores the core condition explained in Relationship between zeroes and coefficients."
+     }
+    }
+   ],
+   "hint": {
+    "en": "Look for the statement that accurately reflects \"quadratic zeroes squared sum\" without reversing the rule."
+   },
+   "hints": [
+    {
+     "en": "Eliminate options that reverse or dismiss the rule in \"Relationship between zeroes and coefficients\"."
+    }
+   ],
+   "explanation": {
+    "en": "To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Recall the textbook principle on \"quadratic zeroes squared sum\"."
+    },
+    {
+     "en": "Step 2: Verify the accurate statement: \"To form a quadratic from its zeroes, use x squared - (sum) x + (product), because any multiple of it has the same zeroes.\"."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  },
+  {
+   "key": "fill-advanced-24-alpha",
+   "round": 4,
+   "tier": "advanced",
+   "marks": 3,
+   "source": "Exam Practice · Relationship between zeroes and coefficients",
+   "type": "fill",
+   "stem": {
+    "en": "Complete the textbook statement (Relationship between zeroes and coefficients): For a cubic a x cubed + b x squared + c x + d with zeroes ___, beta and gamma, the sum is minus b by a."
+   },
+   "accepted": [
+    "alpha"
+   ],
+   "hint": {
+    "en": "Look at the context in \"Relationship between zeroes and coefficients\": the missing word starts with \"a\" and has 5 characters."
+   },
+   "hints": [
+    {
+     "en": "The missing word starts with \"a\" (5 characters) and completes the rule."
+    }
+   ],
+   "explanation": {
+    "en": "The complete textbook statement is: \"For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a.\"."
+   },
+   "solutionSteps": [
+    {
+     "en": "Step 1: Read the clue before and after the blank in \"Relationship between zeroes and coefficients\"."
+    },
+    {
+     "en": "Step 2: \"alpha\" accurately completes the concept: For a cubic a x cubed + b x squared + c x + d with zeroes alpha, beta and gamma, the sum is minus b by a."
+    }
+   ],
+   "provenance": "original",
+   "status": "published"
+  }
+ ]
 }
