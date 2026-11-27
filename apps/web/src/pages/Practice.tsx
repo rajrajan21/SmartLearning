@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useParams } from "wouter";
-import type { PublicQuestion } from "@studysmart/shared";
+import type { PublicQuestion, QuestionTier } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui, type UiKey } from "../lib/i18n";
 import { useBoard, useRetry, useTopic } from "../lib/curriculum";
@@ -27,6 +27,7 @@ export function PracticePage() {
   const set = usePractice(board, level, subject, chapter, topic, on);
   const results = usePracticeResults(set.status === "ready" ? set.data?.topicId : undefined);
   const [round, setRoundState] = useState<number | null>(null);
+  const [tierFilter, setTierFilter] = useState<"all" | QuestionTier>("all");
   const [run, setRun] = useState(0);
   const setRound = (r: number | null) => { setRoundState(r); setRun((n) => n + 1); }; // a new run always remounts, so "play again" reshuffles
   const next = tree.status === "ready" ? nextChapter(tree.data, board, level, subject, chapter, ui("nextChapter", s.lang)) : undefined;
@@ -52,13 +53,35 @@ export function PracticePage() {
   if (!set.data) return <div className="paper"><Crumbs items={crumbs} /><h1 className="cover-title"><Title name={d.topic.name} /></h1><p className="soon-note">{ui("practiceSoon", s.lang)}</p></div>;
 
   const pass = s.get<number>("practice.passMark"), per = s.get<number>("practice.questionsPerRound");
-  const rounds = [1, 2, 3, 4].filter((r) => set.data!.questions.some((q) => q.round === r));
+  const allQs = set.data.questions;
+  const hasTiers = allQs.some((q) => q.tier);
+  const filteredQs = tierFilter === "all" ? allQs : allQs.filter((q) => (q.tier ?? "textbook") === tierFilter);
+  const activePool = filteredQs.length > 0 ? filteredQs : allQs;
+  const rounds = [1, 2, 3, 4].filter((r) => activePool.some((q) => q.round === r));
   const open = (r: number) => s.get<string>("practice.unlock") === "open" || rounds.indexOf(r) === 0 || results[rounds[rounds.indexOf(r) - 1]!]?.passed === true;
+  const tierCounts = {
+    all: allQs.length,
+    textbook: allQs.filter((q) => (q.tier ?? "textbook") === "textbook").length,
+    exam: allQs.filter((q) => q.tier === "exam").length,
+    advanced: allQs.filter((q) => q.tier === "advanced").length,
+  };
   return (
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={crumbs} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
       <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="practice" has={{ learn: true, practice: true }} />
+      {hasTiers && round === null && (
+        <div className="tier-chips" role="group" aria-label="Filter questions by level">
+          {([
+            ["all", `All (${tierCounts.all})`],
+            ["textbook", `📘 Textbook First (${tierCounts.textbook})`],
+            ["exam", `📝 Exam Extra (${tierCounts.exam})`],
+            ["advanced", `🚀 Advanced (${tierCounts.advanced})`],
+          ] as const).filter(([k]) => k === "all" || tierCounts[k] > 0).map(([k, label]) => (
+            <button key={k} type="button" className={`chip${tierFilter === k ? " on" : ""}`} aria-pressed={tierFilter === k} onClick={() => setTierFilter(k)}>{label}</button>
+          ))}
+        </div>
+      )}
       {round === null ? (
         <>
           <ul className="rounds">
@@ -78,9 +101,9 @@ export function PracticePage() {
           <p><Link className="link" href={topicHref}>← {s.name(d.topic.name)}</Link></p>
         </>
       ) : round === 0 ? (
-        <QuickCheck key={run} pool={set.data.questions} onExit={() => setRound(null)} onStart={(r) => setRound(r)} />
+        <QuickCheck key={run} pool={activePool} onExit={() => setRound(null)} onStart={(r) => setRound(r)} />
       ) : (
-        <Round key={`${round}-${run}`} topicId={set.data.topicId} round={round} pool={set.data.questions} per={per} pass={pass} nextRound={rounds[rounds.indexOf(round) + 1] ?? null}
+        <Round key={`${round}-${tierFilter}-${run}`} topicId={set.data.topicId} round={round} pool={activePool} per={per} pass={pass} nextRound={rounds[rounds.indexOf(round) + 1] ?? null}
           onExit={() => setRound(null)} onNext={(r) => setRound(r)} lessonHref={`${topicHref}/learn`} nextChapterLink={next} quickJumps={quickJumps} />
       )}
     </div>

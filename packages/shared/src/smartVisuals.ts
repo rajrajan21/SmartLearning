@@ -209,7 +209,7 @@ function tryFlow(text: string, id: (p: string) => string): SmartVisualResult | n
 }
 
 /** 5. Clean animated Concept Spotlight fallback so explanation steps are never a blank white board */
-function conceptCard(text: string, section: string, id: (p: string) => string): SmartVisualResult {
+function conceptCard(text: string, section: string, id: (p: string) => string, lang: "en" | "ta" = "en"): SmartVisualResult {
   const clean = text.replace(/\s+/g, " ").trim();
   const clauses = clean
     .split(/(?<=[.!?])\s+|;\s+/)
@@ -217,7 +217,9 @@ function conceptCard(text: string, section: string, id: (p: string) => string): 
     .filter((s) => s.length >= 6)
     .slice(0, 2);
 
-  const heading = section === "Remember" ? "Key Takeaway" : section === "Think" ? "Think About It" : "Key Idea";
+  const heading = lang === "ta"
+    ? (section === "Remember" ? "நினைவில் கொள்வோம்" : section === "Think" ? "சிந்திப்போம்" : section === "Story" ? "கதைச் சுருக்கம்" : section === "Example" ? "எடுத்துக்காட்டு" : "முக்கியக் கருத்து")
+    : (section === "Remember" ? "Key Takeaway" : section === "Think" ? "Think About It" : section === "Story" ? "Story" : section === "Example" ? "Example" : "Key Idea");
   const objects: BoardObject[] = [];
   const actions: ClassAction[] = [];
 
@@ -235,11 +237,12 @@ function conceptCard(text: string, section: string, id: (p: string) => string): 
 
   // Wrap up to 3 crisp lines inside the concept card
   const body = clauses[0] ?? clean;
+  const maxLine = lang === "ta" ? 32 : 38;
   const words = body.split(/\s+/);
   const lines: string[] = [];
   let cur = "";
   for (const w of words) {
-    if (cur && cur.length + w.length + 1 > 38) {
+    if (cur && cur.length + w.length + 1 > maxLine) {
       lines.push(cur);
       cur = w;
       if (lines.length === 2) break;
@@ -247,12 +250,12 @@ function conceptCard(text: string, section: string, id: (p: string) => string): 
       cur = cur ? `${cur} ${w}` : w;
     }
   }
-  if (cur && lines.length < 3) lines.push(short(cur, 38));
+  if (cur && lines.length < 3) lines.push(short(cur, maxLine));
 
   const startY = lines.length === 1 ? 285 : lines.length === 2 ? 258 : 236;
   lines.forEach((line, i) => {
     const lid = id("sv");
-    objects.push({ kind: "text", id: lid, x: 450, y: startY + i * 44, text: line, size: 28, color: "ink", anchor: "middle" } as BoardObject);
+    objects.push({ kind: "text", id: lid, x: 450, y: startY + i * 44, text: line, size: lang === "ta" ? 24 : 28, color: "ink", anchor: "middle" } as BoardObject);
     actions.push({ do: "write", target: lid, at: 0.25 + i * 0.18, ms: 400 });
   });
 
@@ -269,10 +272,16 @@ export function smartVisualFor(
   section: string,
   hasSimplePic: boolean,
   id: (p: string) => string,
+  lang: "en" | "ta" = "en",
 ): SmartVisualResult | null {
+  const cardSections = section === "Story" || section === "Learn" || section === "Example" || section === "Remember" || section === "Think";
+  if (lang === "ta") {
+    if (hasSimplePic) return null;
+    return cardSections ? conceptCard(text, section, id, "ta") : null;
+  }
   // Rich structured diagrams always beat a lone generic emoji (e.g. 78% N / 21% O beats a single water drop!)
   const rich = tryPercentBars(text, id) ?? tryLayers(text, id) ?? tryCompare(text, id);
   if (rich) return rich;
   if (hasSimplePic) return null;
-  return tryFlow(text, id) ?? (section === "Learn" || section === "Remember" || section === "Think" ? conceptCard(text, section, id) : null);
+  return tryFlow(text, id) ?? (cardSections ? conceptCard(text, section, id, "en") : null);
 }

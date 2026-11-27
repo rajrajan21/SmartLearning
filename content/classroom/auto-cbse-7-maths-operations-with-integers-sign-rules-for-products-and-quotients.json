@@ -6,111 +6,388 @@
  "topic": "sign-rules-for-products-and-quotients",
  "status": "published",
  "title": {
-  "en": "Integer division, inverse products and zero"
+  "en": "Number line"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "title",
+   "id": "ttl",
    "x": 450,
-   "y": 60,
-   "text": "Integer division, inverse products and zero",
+   "y": 48,
+   "text": "Subtract on the number line",
    "size": 34,
    "color": "accent",
    "anchor": "middle"
   },
   {
-   "kind": "text",
-   "id": "cue1",
-   "x": 75,
-   "y": 145,
-   "text": "−24 ÷ 4 = ?",
-   "size": 29,
-   "color": "ink"
+   "kind": "line",
+   "id": "ln",
+   "x1": 60,
+   "y1": 300,
+   "x2": 840,
+   "y2": 300,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "k0",
+   "x1": 80,
+   "y1": 288,
+   "x2": 80,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
   },
   {
    "kind": "text",
-   "id": "cue2",
-   "x": 75,
-   "y": 226,
-   "text": "4 × (−6) = −24",
-   "size": 29,
-   "color": "ink"
+   "id": "l0",
+   "x": 80,
+   "y": 345,
+   "text": "-4",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k1",
+   "x1": 172.5,
+   "y1": 288,
+   "x2": 172.5,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
   },
   {
    "kind": "text",
-   "id": "cue3",
-   "x": 75,
-   "y": 307,
-   "text": "−24 ÷ (−4) = 6",
-   "size": 29,
-   "color": "ink"
+   "id": "l1",
+   "x": 172.5,
+   "y": 345,
+   "text": "-3",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k2",
+   "x1": 265,
+   "y1": 288,
+   "x2": 265,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
   },
   {
    "kind": "text",
-   "id": "cue4",
-   "x": 75,
-   "y": 388,
-   "text": "0 ÷ 4 = 0; 4 ÷ 0 is undefined",
-   "size": 29,
-   "color": "good"
+   "id": "l2",
+   "x": 265,
+   "y": 345,
+   "text": "-2",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k3",
+   "x1": 357.5,
+   "y1": 288,
+   "x2": 357.5,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 357.5,
+   "y": 345,
+   "text": "-1",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k4",
+   "x1": 450,
+   "y1": 288,
+   "x2": 450,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 450,
+   "y": 345,
+   "text": "0",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k5",
+   "x1": 542.5,
+   "y1": 288,
+   "x2": 542.5,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l5",
+   "x": 542.5,
+   "y": 345,
+   "text": "1",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k6",
+   "x1": 635,
+   "y1": 288,
+   "x2": 635,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l6",
+   "x": 635,
+   "y": 345,
+   "text": "2",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k7",
+   "x1": 727.5,
+   "y1": 288,
+   "x2": 727.5,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l7",
+   "x": 727.5,
+   "y": 345,
+   "text": "3",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k8",
+   "x1": 820,
+   "y1": 288,
+   "x2": 820,
+   "y2": 312,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "l8",
+   "x": 820,
+   "y": 345,
+   "text": "4",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "j0",
+   "d": "M 635 296 Q 588.75 220 542.5 296",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "j1",
+   "d": "M 542.5 296 Q 496.25 220 450 296",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "j2",
+   "d": "M 450 296 Q 403.75 220 357.5 296",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "j3",
+   "d": "M 357.5 296 Q 311.25 220 265 296",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "path",
+   "id": "j4",
+   "d": "M 265 296 Q 218.75 220 172.5 296",
+   "stroke": "accent",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "eq",
+   "x": 450,
+   "y": 440,
+   "text": "2 − 5 = -3",
+   "size": 56,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "dot",
+   "cx": 635,
+   "cy": 300,
+   "r": 14,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
   }
  ],
  "steps": [
   {
-   "id": "p1",
+   "id": "s1",
    "narration": {
-    "en": "Ask what number multiplied by four gives minus twenty-four."
+    "en": "A number line is like a ruler for numbers. Numbers get bigger as we go to the right, and smaller as we go to the left. We start at 2."
    },
    "actions": [
     {
      "do": "show",
-     "target": "title",
+     "target": "ttl",
      "at": 0.05
     },
     {
-     "do": "write",
-     "target": "cue1",
-     "at": 0.22
+     "do": "draw",
+     "target": "ln",
+     "at": 0.3
+    },
+    {
+     "do": "show",
+     "target": "l0",
+     "at": 0.35
+    },
+    {
+     "do": "show",
+     "target": "l1",
+     "at": 0.39444444444444443
+    },
+    {
+     "do": "show",
+     "target": "l2",
+     "at": 0.4388888888888889
+    },
+    {
+     "do": "show",
+     "target": "l3",
+     "at": 0.48333333333333334
+    },
+    {
+     "do": "show",
+     "target": "l4",
+     "at": 0.5277777777777778
+    },
+    {
+     "do": "show",
+     "target": "l5",
+     "at": 0.5722222222222222
+    },
+    {
+     "do": "show",
+     "target": "l6",
+     "at": 0.6166666666666667
+    },
+    {
+     "do": "show",
+     "target": "l7",
+     "at": 0.6611111111111111
+    },
+    {
+     "do": "show",
+     "target": "l8",
+     "at": 0.7055555555555555
+    },
+    {
+     "do": "show",
+     "target": "dot",
+     "at": 0.8
     }
    ]
   },
   {
-   "id": "p2",
+   "id": "s2",
    "narration": {
-    "en": "The signed product checks the quotient of minus six."
+    "en": "To subtract 5, we take 5 hops to the left, one hop for each number. Count with me."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "cue2",
-     "at": 0.2
+     "do": "draw",
+     "target": "j0",
+     "at": 0.3,
+     "ms": 600
+    },
+    {
+     "do": "draw",
+     "target": "j1",
+     "at": 0.41000000000000003,
+     "ms": 600
+    },
+    {
+     "do": "draw",
+     "target": "j2",
+     "at": 0.52,
+     "ms": 600
+    },
+    {
+     "do": "draw",
+     "target": "j3",
+     "at": 0.63,
+     "ms": 600
+    },
+    {
+     "do": "draw",
+     "target": "j4",
+     "at": 0.74,
+     "ms": 600
     }
    ]
   },
   {
-   "id": "p3",
+   "id": "s3",
    "narration": {
-    "en": "Two negatives give a positive quotient. Check six times minus four."
+    "en": "We land on -3. So 2 minus 5 equals -3."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "cue3",
-     "at": 0.2
-    }
-   ]
-  },
-  {
-   "id": "p4",
-   "narration": {
-    "en": "Four times zero makes zero. Nothing multiplied by zero makes four."
-   },
-   "actions": [
+     "do": "pulse",
+     "target": "l1",
+     "at": 0.2,
+     "color": "good"
+    },
     {
      "do": "write",
-     "target": "cue4",
-     "at": 0.2
+     "target": "eq",
+     "on": "equals -3"
     }
    ]
   }

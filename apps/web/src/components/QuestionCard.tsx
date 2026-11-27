@@ -7,7 +7,10 @@ import { AskTeacher } from "./AskTeacher";
 import { recordReview } from "../lib/revision";
 import { recordMistake } from "../lib/mistakes";
 import { ReportProblem } from "./ReportProblem";
-import { sendAnswer, shuffled, usePhrases } from "../lib/practice";
+import { fetchSolution, sendAnswer, shuffled, usePhrases, type StudyKeyItem } from "../lib/practice";
+
+const TIER_LABEL: Record<string, string> = { textbook: "📘 Textbook", exam: "📝 Exam Extra", advanced: "🚀 Advanced" };
+const FORMAT_LABEL: Record<string, string> = { mcq: "MCQ", fill: "Fill in the blank", true_false: "True / False", number: "Numeric", short: "Short Answer", multi: "Multi-Select", match: "Match", order: "Order", long: "Long Answer" };
 
 interface Part { audio?: LangAudio; text: string }
 
@@ -49,6 +52,9 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
   const [chosen, setChosen] = useState<string[]>([]);
   const [hints, setHints] = useState(0);
   const [fb, setFb] = useState<AnswerFeedback | null>(null);
+  const [revealedSol, setRevealedSol] = useState<StudyKeyItem | null>(null);
+  const [solOpen, setSolOpen] = useState(false);
+  const [solBusy, setSolBusy] = useState(false);
   const [busy, setBusy] = useState(false);
   const [err, setErr] = useState(false);
   const voiceFb = s.get("practice.audio.feedback"), voiceQ = s.get("practice.audio.questions");
@@ -56,7 +62,10 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
   const phrases = usePhrases(voiceFb);
   const options = useMemo(() => (q.type === "mcq" && s.get("practice.shuffleOptions") ? shuffled(q.options) : q.type === "mcq" ? q.options : []), [q, s]);
   const items = q.type === "order" ? q.items : [];
-  const hintMax = !collect && !quick && s.get("practice.hints.enabled") ? Math.min(q.hints.length, s.get<number>("practice.hints.max")) : 0;
+  const hintsEnabled = s.get("practice.hints.enabled") !== false && s.get("assessment.hints.enabled") !== false;
+  const hintMax = !collect && !quick && hintsEnabled ? Math.min(q.hints.length, Math.max(1, s.get<number>("practice.hints.max") || 2)) : 0;
+  const allowRevealBefore = !collect && !quick && s.get("assessment.solutions.allowRevealBefore") !== false;
+  const showSolutionsAfter = s.get("assessment.solutions.showAfterAnswer") !== false;
   const locked = fb !== null;
   const [multi, setMulti] = useState<string[]>([]);
   const [pairs, setPairs] = useState<Record<string, string>>({});
@@ -66,10 +75,22 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
     : q.type === "true_false" ? (typeof pick === "boolean" ? { type: "true_false", value: pick } : null)
     : q.type === "number" ? (text.trim() !== "" && Number.isFinite(Number(text.replace(",", "."))) ? { type: "number", value: Number(text.replace(",", ".")) } : null)
     : q.type === "short" ? (text.trim() ? { type: "short", text: text.trim() } : null)
+    : q.type === "fill" ? (text.trim() ? { type: "fill", text: text.trim() } : null)
     : q.type === "multi" ? (multi.length ? { type: "multi", ids: multi } : null)
     : q.type === "match" ? (q.lefts.every((l) => pairs[l.id]) ? { type: "match", pairs: q.lefts.map((l) => ({ left: l.id, right: pairs[l.id]! })) } : null)
     : q.type === "long" ? (text.trim().length >= 3 ? { type: "long", text: text.trim() } : null)
     : chosen.length === items.length && items.length > 0 ? { type: "order", ids: chosen } : null;
+
+  const toggleRevealSolution = async () => {
+    if (solOpen) { setSolOpen(false); return; }
+    if (revealedSol) { setSolOpen(true); return; }
+    setSolBusy(true);
+    try {
+      const sol = await fetchSolution(q.id);
+      setRevealedSol(sol);
+      setSolOpen(true);
+    } catch { /* ignore if disabled on server */ } finally { setSolBusy(false); }
+  };
 
   const check = async () => {
     if (!response || busy || locked) return;
@@ -104,6 +125,11 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
   const label = (id: string) => items.find((i) => i.id === id);
   return (
     <section className={`qcard${compact ? " compact" : ""}`} aria-label={stem}>
+      <div className="q-meta">
+        {q.tier && <span className={`q-badge tier-${q.tier}`}>{TIER_LABEL[q.tier] ?? q.tier}</span>}
+        <span className="q-badge fmt">{FORMAT_LABEL[q.type] ?? q.type}</span>
+        {typeof q.marks === "number" && <span className="q-badge marks">{q.marks} {q.marks === 1 ? "mark" : "marks"}</span>}
+      </div>
       <div className="q-stem">
         <p className="problem">{stem}</p>
         {voiceQ && <button type="button" className="btn ghost sm" onClick={() => speaker.say([{ audio: q.audio?.stem, text: stem }])}>🔊 {ui("listenQuestion", lang)}</button>}
@@ -125,13 +151,14 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
           ))}
         </div>
       )}
-      {(q.type === "number" || q.type === "short") && (
+      {(q.type === "number" || q.type === "short" || q.type === "fill") && (
         <div className="typed">
-          <label htmlFor={`a-${q.id}`}>{q.type === "number" ? ui("typeNumber", lang) : ui("typeAnswer", lang)}</label>
+          <label htmlFor={`a-${q.id}`}>{q.type === "number" ? ui("typeNumber", lang) : q.type === "fill" ? "Fill in the blank" : ui("typeAnswer", lang)}</label>
           <div className="typed-row">
-            <input id={`a-${q.id}`} inputMode={q.type === "number" ? "decimal" : "text"} autoComplete="off" value={text} disabled={locked} maxLength={q.type === "short" ? 60 : 20}
+            <input id={`a-${q.id}`} inputMode={q.type === "number" ? "decimal" : "text"} autoComplete="off" value={text} disabled={locked} maxLength={q.type === "number" ? 20 : 80}
+              placeholder={q.type === "fill" ? "Type your answer…" : undefined}
               onChange={(e) => setText(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") void check(); }} />
-            {q.type === "number" && q.unit && <span className="unit">{s.name(q.unit)}</span>}
+            {(q.type === "number" || q.type === "short" || q.type === "fill") && q.unit && <span className="unit">{s.name(q.unit)}</span>}
           </div>
         </div>
       )}
@@ -177,20 +204,41 @@ export function QuestionCard({ q, onDone, nextLabel, compact, collect, quick }: 
 
       {hints > 0 && <ul className="hints">{q.hints.slice(0, hints).map((h, i) => <li key={i}>💡 {s.name(h)}</li>)}</ul>}
 
+      {!locked && solOpen && revealedSol && (
+        <div className="solution-box" role="region" aria-label="Step-by-Step Solution">
+          <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(revealedSol.answer)}</p>
+          {revealedSol.solutionSteps?.length ? (
+            <ol className="solution-steps">{revealedSol.solutionSteps.map((st, idx) => <li key={idx}>{s.name(st)}</li>)}</ol>
+          ) : (
+            <p>{s.name(revealedSol.explanation)}</p>
+          )}
+        </div>
+      )}
+
       {!locked && (
         <div className="q-actions">
           <button type="button" className="btn" disabled={!response || busy} onClick={() => void check()}>{collect ? ui("saveAnswer", lang) : ui("checkAnswer", lang)}</button>
-          {hints < hintMax && <button type="button" className="btn ghost" onClick={() => setHints((h) => h + 1)}>{ui("hint", lang)}</button>}
+          {hints < hintMax && <button type="button" className="btn ghost" onClick={() => setHints((h) => h + 1)}><span aria-hidden="true">💡 </span>{ui("hint", lang)}</button>}
+          {allowRevealBefore && <button type="button" className="btn ghost" disabled={solBusy} onClick={() => void toggleRevealSolution()}>👁 {solOpen ? "Hide Solution" : "Step-by-Step Solution"}</button>}
         </div>
       )}
       {err && <p className="err" role="alert">{ui("practiceOnline", lang)}</p>}
 
       {fb && (
         <div className={`feedback ${fb.correct ? "yes" : "no"}`} role="status" aria-live="polite">
-          <h3>{fb.correct ? `✓ ${ui("correct", lang)}` : ui("notQuite", lang)}</h3>
+          <h3>
+            {fb.correct ? `✓ ${ui("correct", lang)}` : ui("notQuite", lang)}
+            {typeof fb.maxMarks === "number" && <span className="marks-pill"> · {fb.marksAwarded ?? (fb.correct ? fb.maxMarks : 0)}/{fb.maxMarks} {fb.maxMarks === 1 ? "mark" : "marks"}</span>}
+          </h3>
           {!fb.correct && fb.whyWrong && s.get("practice.showWhyWrong") && <p>{s.name(fb.whyWrong)}</p>}
           {!fb.correct && s.get("practice.showCorrectAnswer") && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(fb.correctAnswer)}</p>}
           <p>{s.name(fb.explanation)}</p>
+          {showSolutionsAfter && fb.solutionSteps && fb.solutionSteps.length > 0 && (
+            <div className="solution-box">
+              <p className="small"><b>Step-by-Step Solution</b></p>
+              <ol className="solution-steps">{fb.solutionSteps.map((st, idx) => <li key={idx}>{s.name(st)}</li>)}</ol>
+            </div>
+          )}
           {!quick && s.get("feature.aiTutor") === true && s.get("tutor.inPractice") === true && <AskTeacher questionId={q.id} about={stem} afterAnswer />}
           {!quick && !collect && <ReportProblem kind="question" about={`${q.key} (${q.id})`} where="onQuestions" />}
           <button type="button" className="btn" onClick={() => { speaker.stop(); onDone({ correct: fb.correct, hintsUsed: hints }); }}>{nextLabel ?? ui("nextQuestion", lang)}</button>

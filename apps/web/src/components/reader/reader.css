@@ -608,3 +608,6 @@ html .page .rd-wrap .rd-reader header h1 {
 @media (max-width: 640px) {
   .rd-wrap .rd-reader :is(.rd-top, .rd-shelf) h1 { flex-basis: calc(100% - 5rem); }
 }
+
+.rd-wrap .rd-textbook-credit { padding: 0.65rem 1rem; font-size: 0.82rem; line-height: 1.45; text-align: center; color: inherit; }
+@media print { .rd-wrap .rd-textbook-credit { display: none; } }

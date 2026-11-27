@@ -1,648 +1,204 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "motion",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Distance-time graph"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "motion",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Distance-time graph"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A distance-time graph",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "arrow",
+   "id": "ya",
+   "x1": 150,
+   "y1": 420,
+   "x2": 150,
+   "y2": 90,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "xa",
+   "x1": 150,
+   "y1": 420,
+   "x2": 800,
+   "y2": 420,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "yl",
+   "x": 90,
+   "y": 100,
+   "text": "Distance",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "xl",
+   "x": 790,
+   "y": 455,
+   "text": "Time",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "fast",
+   "x1": 150,
+   "y1": 420,
+   "x2": 400,
+   "y2": 150,
+   "stroke": "accent",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "lf",
+   "x": 300,
+   "y": 190,
+   "text": "fast: steep line",
+   "size": 22,
+   "color": "accent",
+   "anchor": "end"
+  },
+  {
+   "kind": "line",
+   "id": "slow",
+   "x1": 150,
+   "y1": 420,
+   "x2": 650,
+   "y2": 290,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "ls",
+   "x": 690,
+   "y": 280,
+   "text": "slow: gentle line",
+   "size": 22,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "line",
+   "id": "rest",
+   "x1": 400,
+   "y1": 150,
+   "x2": 700,
+   "y2": 150,
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "lr",
+   "x": 720,
+   "y": 140,
+   "text": "stopped: flat line",
+   "size": 22,
+   "color": "warm",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A distance-time graph shows how far something has gone as time passes. Time is along the bottom and distance is up the side."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 44,
-      "text": "A distance-time graph",
-      "size": 34,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "arrow",
-      "id": "ya",
-      "x1": 150,
-      "y1": 420,
-      "x2": 150,
-      "y2": 90,
-      "stroke": "ink",
-      "width": 4
+     "do": "draw",
+     "target": "ya",
+     "at": 0.3
     },
     {
-      "kind": "arrow",
-      "id": "xa",
-      "x1": 150,
-      "y1": 420,
-      "x2": 800,
-      "y2": 420,
-      "stroke": "ink",
-      "width": 4
+     "do": "draw",
+     "target": "xa",
+     "at": 0.4
     },
     {
-      "kind": "text",
-      "id": "yl",
-      "x": 90,
-      "y": 100,
-      "text": "Distance",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "yl",
+     "at": 0.6
     },
     {
-      "kind": "text",
-      "id": "xl",
-      "x": 790,
-      "y": 455,
-      "text": "Time",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "fast",
-      "x1": 150,
-      "y1": 420,
-      "x2": 400,
-      "y2": 150,
-      "stroke": "accent",
-      "width": 6
-    },
-    {
-      "kind": "text",
-      "id": "lf",
-      "x": 300,
-      "y": 190,
-      "text": "fast: steep line",
-      "size": 22,
-      "color": "accent",
-      "anchor": "end"
-    },
-    {
-      "kind": "line",
-      "id": "slow",
-      "x1": 150,
-      "y1": 420,
-      "x2": 650,
-      "y2": 290,
-      "stroke": "good",
-      "width": 6
-    },
-    {
-      "kind": "text",
-      "id": "ls",
-      "x": 690,
-      "y": 280,
-      "text": "slow: gentle line",
-      "size": 22,
-      "color": "good",
-      "anchor": "start"
-    },
-    {
-      "kind": "line",
-      "id": "rest",
-      "x1": 400,
-      "y1": 150,
-      "x2": 700,
-      "y2": 150,
-      "stroke": "warm",
-      "width": 6
-    },
-    {
-      "kind": "text",
-      "id": "lr",
-      "x": 720,
-      "y": 140,
-      "text": "stopped: flat line",
-      "size": 22,
-      "color": "warm",
-      "anchor": "start"
-    },
-    {
-      "id": "motionvtitle",
-      "kind": "text",
-      "x": 455,
-      "y": 54,
-      "text": "Read a velocity–time graph",
-      "size": 33,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motionax",
-      "kind": "arrow",
-      "x1": 195,
-      "y1": 410,
-      "x2": 726,
-      "y2": 410,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motionay",
-      "kind": "arrow",
-      "x1": 195,
-      "y1": 410,
-      "x2": 195,
-      "y2": 83,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motiont",
-      "kind": "text",
-      "x": 689,
-      "y": 471,
-      "text": "Time (s)",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motionv",
-      "kind": "text",
-      "x": 103,
-      "y": 81,
-      "text": "Velocity (m/s)",
-      "size": 21,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motzero",
-      "kind": "text",
-      "x": 177,
-      "y": 438,
-      "text": "0",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motxtick1",
-      "kind": "line",
-      "x1": 415,
-      "y1": 405,
-      "x2": 415,
-      "y2": 415,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motxval1",
-      "kind": "text",
-      "x": 415,
-      "y": 439,
-      "text": "2",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motxtick2",
-      "kind": "line",
-      "x1": 635,
-      "y1": 405,
-      "x2": 635,
-      "y2": 415,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motxval2",
-      "kind": "text",
-      "x": 635,
-      "y": 439,
-      "text": "4",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motytick1",
-      "kind": "line",
-      "x1": 190,
-      "y1": 353,
-      "x2": 200,
-      "y2": 353,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motyval1",
-      "kind": "text",
-      "x": 169,
-      "y": 358,
-      "text": "2",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motytick2",
-      "kind": "line",
-      "x1": 190,
-      "y1": 239,
-      "x2": 200,
-      "y2": 239,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motyval2",
-      "kind": "text",
-      "x": 169,
-      "y": 244,
-      "text": "6",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motytick3",
-      "kind": "line",
-      "x1": 190,
-      "y1": 125,
-      "x2": 200,
-      "y2": 125,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "motyval3",
-      "kind": "text",
-      "x": 169,
-      "y": 130,
-      "text": "10",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "motionslope",
-      "kind": "line",
-      "x1": 195,
-      "y1": 353,
-      "x2": 635,
-      "y2": 125,
-      "stroke": "accent",
-      "width": 6
-    },
-    {
-      "id": "motionbegin",
-      "kind": "circle",
-      "cx": 195,
-      "cy": 353,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "motionfinish",
-      "kind": "circle",
-      "cx": 635,
-      "cy": 125,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "motionguide",
-      "kind": "path",
-      "d": "M 195 125 L 635 125 L 635 410",
-      "stroke": "#A5A6BA",
-      "width": 2
-    },
-    {
-      "id": "motionrect",
-      "kind": "path",
-      "d": "M 195 410 L 195 353 L 635 353 L 635 410 Z",
-      "stroke": "#63A987",
-      "width": 2,
-      "fill": "#BDEAD0"
-    },
-    {
-      "id": "motiontri",
-      "kind": "path",
-      "d": "M 195 353 L 635 125 L 635 353 Z",
-      "stroke": "#CC9553",
-      "width": 2,
-      "fill": "#F6D6A9"
+     "do": "write",
+     "target": "xl",
+     "at": 0.7
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A straight sloping line means the object covers equal distances in equal times, so it moves at a steady speed. A steeper line means a faster speed."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "A distance-time graph shows how far something has gone as time passes. Time is along the bottom and distance is up the side."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "ya",
-          "at": 0.3
-        },
-        {
-          "do": "draw",
-          "target": "xa",
-          "at": 0.4
-        },
-        {
-          "do": "write",
-          "target": "yl",
-          "at": 0.6
-        },
-        {
-          "do": "write",
-          "target": "xl",
-          "at": 0.7
-        }
-      ]
+     "do": "draw",
+     "target": "fast",
+     "at": 0.2
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "A straight sloping line means the object covers equal distances in equal times, so it moves at a steady speed. A steeper line means a faster speed."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "fast",
-          "at": 0.2
-        },
-        {
-          "do": "write",
-          "target": "lf",
-          "at": 0.5
-        },
-        {
-          "do": "draw",
-          "target": "slow",
-          "at": 0.6
-        },
-        {
-          "do": "write",
-          "target": "ls",
-          "at": 0.8
-        }
-      ]
+     "do": "write",
+     "target": "lf",
+     "at": 0.5
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "A flat line means the distance does not change while time passes, so the object is at rest."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "rest",
-          "at": 0.2
-        },
-        {
-          "do": "write",
-          "target": "lr",
-          "at": 0.5
-        }
-      ]
+     "do": "draw",
+     "target": "slow",
+     "at": 0.6
     },
     {
-      "id": "motion-read-graph",
-      "narration": {
-        "en": "At zero seconds the graph starts at two metres per second. At four seconds it reaches ten metres per second. Trace the line between them. The velocity changes by eight metres per second in four seconds."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "motionvtitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motionax",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motionay",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motiont",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motionv",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motzero",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motxtick1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motxval1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motxtick2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motxval2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motytick1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motyval1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motytick2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motyval2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motytick3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motyval3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motionguide",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "motionbegin",
-          "on": "starts at two",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "motionfinish",
-          "on": "reaches ten",
-          "ms": 400
-        },
-        {
-          "do": "draw",
-          "target": "motionslope",
-          "on": "Trace the line",
-          "ms": 850
-        }
-      ]
-    },
-    {
-      "id": "motion-area",
-      "narration": {
-        "en": "Now look at the area under that line. The green rectangle is four seconds times two metres per second. The orange triangle adds half of four seconds times eight metres per second. Together they give twenty-four metres of displacement."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "motionrect",
-          "on": "green rectangle",
-          "ms": 650
-        },
-        {
-          "do": "show",
-          "target": "motiontri",
-          "on": "orange triangle",
-          "ms": 650
-        },
-        {
-          "do": "show",
-          "target": "motionslope",
-          "on": "Together they give",
-          "ms": 300
-        },
-        {
-          "do": "show",
-          "target": "motionfinish",
-          "on": "Together they give",
-          "ms": 300
-        }
-      ]
-    },
-    {
-      "id": "motion-visual-check",
-      "narration": {
-        "en": "Use the two endpoints and the axes. Read the rise and the time between the endpoints."
-      },
-      "actions": [
-        {
-          "do": "hide",
-          "target": "motionrect",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "hide",
-          "target": "motiontri",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "pulse",
-          "target": "motionbegin",
-          "on": "two endpoints",
-          "ms": 1000
-        },
-        {
-          "do": "pulse",
-          "target": "motionfinish",
-          "on": "two endpoints",
-          "ms": 1000
-        }
-      ],
-      "check": {
-        "stem": {
-          "en": "What is the acceleration shown by this graph?"
-        },
-        "explanation": {
-          "en": "The velocity rises from two to ten in four seconds. The slope is eight divided by four, or two metres per second squared."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "2 m/s²"
-            },
-            "correct": true
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "8 m/s²"
-            },
-            "whyWrong": {
-              "en": "Eight is the change in velocity. Divide it by the time taken."
-            }
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "24 m/s²"
-            },
-            "whyWrong": {
-              "en": "The graph’s area gives a displacement of twenty-four metres. Use its slope for acceleration."
-            }
-          }
-        ]
-      }
+     "do": "write",
+     "target": "ls",
+     "at": 0.8
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A flat line means the distance does not change while time passes, so the object is at rest."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "rest",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "lr",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
 }

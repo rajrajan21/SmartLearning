@@ -1,8 +1,62 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { AnswerFeedback, PhraseSet, PracticeSet, type AnswerResponse, type PublicQuestion } from "@studysmart/shared";
+import { AnswerFeedback, PhraseSet, PracticeSet, type AnswerResponse, type LocalizedText, type PublicQuestion, type QuestionTier } from "@studysmart/shared";
 import { store } from "./storage";
 import { useSettings } from "./settings";
 import type { Load } from "./curriculum";
+
+export interface StudyKeyItem {
+  id: string;
+  answer: { en: string; ta?: string };
+  explanation: LocalizedText;
+  solutionSteps?: LocalizedText[];
+  marks: number;
+  tier?: QuestionTier;
+}
+
+export async function fetchStudyKey(ids: string[]): Promise<Record<string, StudyKeyItem>> {
+  const r = await fetch("/api/v1/practice/study-key", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ ids }) });
+  if (!r.ok) throw new Error(String(r.status));
+  const d = (await r.json()) as { answers: StudyKeyItem[] };
+  return Object.fromEntries(d.answers.map((a) => [a.id, a]));
+}
+
+export async function fetchSolution(questionId: string): Promise<StudyKeyItem> {
+  const r = await fetch(`/api/v1/practice/solution/${questionId}`);
+  if (!r.ok) throw new Error(String(r.status));
+  return (await r.json()) as StudyKeyItem;
+}
+
+export function formatStudentAnswer(q: PublicQuestion, r: AnswerResponse | undefined, name: (t: LocalizedText) => string): string {
+  if (!r) return "Not answered";
+  switch (r.type) {
+    case "mcq": {
+      if (q.type !== "mcq") return r.optionId;
+      const opt = q.options.find((o) => o.id === r.optionId);
+      return opt ? name(opt.text) : r.optionId;
+    }
+    case "true_false": return r.value ? "True" : "False";
+    case "number": return q.type === "number" && q.unit ? `${r.value} ${name(q.unit)}` : String(r.value);
+    case "short":
+    case "fill":
+    case "long": return r.text;
+    case "multi": {
+      if (q.type !== "multi") return r.ids.join(", ");
+      return r.ids.map((id) => { const o = q.options.find((x) => x.id === id); return o ? name(o.text) : id; }).join(", ");
+    }
+    case "order": {
+      if (q.type !== "order") return r.ids.join(" → ");
+      return r.ids.map((id) => { const it = q.items.find((x) => x.id === id); return it ? name(it.text) : id; }).join(" → ");
+    }
+    case "match": {
+      if (q.type !== "match") return `${r.pairs.length} pairs`;
+      return r.pairs.map((p) => {
+        const l = q.lefts.find((x) => x.id === p.left);
+        const rt = q.rights.find((x) => x.id === p.right);
+        return `${l ? name(l.text) : p.left} = ${rt ? name(rt.text) : p.right}`;
+      }).join("; ");
+    }
+  }
+}
 
 /** Random id kept on this device until accounts arrive (Module 6). Holds no personal data. */
 export function anonId(): string {

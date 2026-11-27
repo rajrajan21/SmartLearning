@@ -1,860 +1,127 @@
 {
-  "board": "CBSE",
-  "classLevel": 6,
-  "subject": "social-science",
-  "chapter": "landforms-and-life",
-  "topic": "whole-chapter",
-  "status": "published",
-  "title": {
-    "en": "Landforms"
+ "board": "CBSE",
+ "classLevel": 6,
+ "subject": "social-science",
+ "chapter": "landforms-and-life",
+ "topic": "whole-chapter",
+ "status": "published",
+ "title": {
+  "en": "Landforms"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Mountains, plateaus and plains",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "path",
+   "id": "pr",
+   "d": "M 40 420 L 160 420 L 260 150 L 360 420 L 430 320 L 600 320 L 660 420 L 860 420",
+   "stroke": "earth",
+   "width": 6,
+   "fill": "#BCAAA4"
+  },
+  {
+   "kind": "text",
+   "id": "m1",
+   "x": 260,
+   "y": 120,
+   "text": "Mountain",
+   "size": 26,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m2",
+   "x": 515,
+   "y": 290,
+   "text": "Plateau",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m3",
+   "x": 770,
+   "y": 395,
+   "text": "Plain",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "gr",
+   "x1": 40,
+   "y1": 420,
+   "x2": 860,
+   "y2": 420,
+   "stroke": "ink",
+   "width": 3
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The land has different shapes, called landforms. Here is a side view."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 44,
-      "text": "Mountains, plateaus and plains",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "path",
-      "id": "pr",
-      "d": "M 40 420 L 160 420 L 260 150 L 360 420 L 430 320 L 600 320 L 660 420 L 860 420",
-      "stroke": "earth",
-      "width": 6,
-      "fill": "#BCAAA4"
+     "do": "draw",
+     "target": "pr",
+     "at": 0.5
     },
     {
-      "kind": "text",
-      "id": "m1",
-      "x": 260,
-      "y": 120,
-      "text": "Mountain",
-      "size": 26,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "m2",
-      "x": 515,
-      "y": 290,
-      "text": "Plateau",
-      "size": 26,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "m3",
-      "x": 770,
-      "y": 395,
-      "text": "Plain",
-      "size": 26,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "gr",
-      "x1": 40,
-      "y1": 420,
-      "x2": 860,
-      "y2": 420,
-      "stroke": "ink",
-      "width": 3
-    },
-    {
-      "id": "indiasea",
-      "kind": "rect",
-      "x": 162,
-      "y": 68,
-      "w": 576,
-      "h": 374,
-      "fill": "#DDF1FA",
-      "stroke": "#7999AF",
-      "width": 2,
-      "rx": 4
-    },
-    {
-      "id": "indialand0",
-      "kind": "path",
-      "d": "M 493 440 L 476 442 L 467 432 L 463 415 L 472 394 L 485 401 L 494 410 L 504 423 L 501 436 L 493 440 Z",
-      "stroke": "#82906C",
-      "width": 1,
-      "fill": "#DBE6C9"
-    },
-    {
-      "id": "indialand1",
-      "kind": "path",
-      "d": "M 738 68 L 738 284 L 729 275 L 732 271 L 720 269 L 707 259 L 701 253 L 700 246 L 696 240 L 688 233 L 671 232 L 672 238 L 666 245 L 658 242 L 655 244 L 643 242 L 640 246 L 603 249 L 604 258 L 594 266 L 566 274 L 545 289 L 511 305 L 511 310 L 484 318 L 475 319 L 470 328 L 475 355 L 467 366 L 466 388 L 457 388 L 448 398 L 454 402 L 436 405 L 430 414 L 422 417 L 404 406 L 388 376 L 371 358 L 363 335 L 345 317 L 331 277 L 331 262 L 328 251 L 300 258 L 286 257 L 261 241 L 270 237 L 265 232 L 242 221 L 228 218 L 222 209 L 208 200 L 162 202 L 162 68 L 738 68 Z",
-      "stroke": "#82906C",
-      "width": 1,
-      "fill": "#DBE6C9"
-    },
-    {
-      "id": "ganga0",
-      "kind": "path",
-      "d": "M 651 239 L 648 235",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga1",
-      "kind": "path",
-      "d": "M 648 235 L 649 246",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga2",
-      "kind": "path",
-      "d": "M 631 230 L 624 240",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga3",
-      "kind": "path",
-      "d": "M 631 230 L 639 232 L 643 241",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga4",
-      "kind": "path",
-      "d": "M 663 223 L 670 233",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga5",
-      "kind": "path",
-      "d": "M 644 218 L 653 225 L 661 234 L 661 237",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga6",
-      "kind": "path",
-      "d": "M 644 218 L 656 219",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga7",
-      "kind": "path",
-      "d": "M 630 213 L 639 219 L 637 223 L 642 226 L 648 235",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga8",
-      "kind": "path",
-      "d": "M 630 213 L 644 218",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga9",
-      "kind": "path",
-      "d": "M 621 207 L 627 215 L 626 221 L 629 223 L 631 230",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga10",
-      "kind": "path",
-      "d": "M 621 207 L 630 213",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "ganga11",
-      "kind": "path",
-      "d": "M 466 132 L 464 136 L 436 142 L 431 149 L 433 157 L 439 166 L 460 173 L 482 191 L 517 203 L 524 203 L 530 199 L 562 196 L 589 201 L 612 200 L 619 203 L 621 207",
-      "stroke": "#227BB1",
-      "width": 3
-    },
-    {
-      "id": "landtitle",
-      "kind": "text",
-      "x": 450,
-      "y": 46,
-      "text": "Landforms across the Indian subcontinent",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "landcredit",
-      "kind": "text",
-      "x": 450,
-      "y": 470,
-      "text": "Approximate locations · Made with Natural Earth",
-      "size": 16,
-      "color": "#4E616C",
-      "anchor": "middle"
-    },
-    {
-      "id": "landhimalayadot",
-      "kind": "circle",
-      "cx": 478.8,
-      "cy": 144.04666666666668,
-      "r": 6,
-      "fill": "#773B1A",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landhimalayatext",
-      "kind": "text",
-      "x": 481.8,
-      "y": 128.04666666666668,
-      "text": "Himalayas",
-      "size": 21,
-      "color": "#773B1A",
-      "anchor": "middle"
-    },
-    {
-      "id": "landgangaplaindot",
-      "kind": "circle",
-      "cx": 511.44,
-      "cy": 197.6533333333333,
-      "r": 6,
-      "fill": "#2E634C",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landgangaplaintext",
-      "kind": "text",
-      "x": 557.44,
-      "y": 221.6533333333333,
-      "text": "Ganga Plain",
-      "size": 21,
-      "color": "#2E634C",
-      "anchor": "middle"
-    },
-    {
-      "id": "landdeccandot",
-      "kind": "circle",
-      "cx": 428.8800000000001,
-      "cy": 307.36,
-      "r": 6,
-      "fill": "#805721",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landdeccantext",
-      "kind": "text",
-      "x": 440.8800000000001,
-      "y": 334.36,
-      "text": "Deccan Plateau",
-      "size": 21,
-      "color": "#805721",
-      "anchor": "middle"
-    },
-    {
-      "id": "landthardot",
-      "kind": "circle",
-      "cx": 306,
-      "cy": 187.68,
-      "r": 6,
-      "fill": "#805721",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landthartext",
-      "kind": "text",
-      "x": 297,
-      "y": 212.68,
-      "text": "Thar Desert",
-      "size": 21,
-      "color": "#805721",
-      "anchor": "middle"
-    },
-    {
-      "id": "landtransect",
-      "kind": "path",
-      "d": "M 95 334 L 200 330 L 266 307 L 338 182 L 373 207 L 427 121 L 486 212 L 533 229 L 587 181 L 636 181 L 663 213 L 715 281 L 773 320 L 805 320",
-      "stroke": "#805721",
-      "width": 5
-    },
-    {
-      "id": "crossplain",
-      "kind": "text",
-      "x": 181,
-      "y": 373,
-      "text": "Plain",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "crossmountain",
-      "kind": "text",
-      "x": 427,
-      "y": 103,
-      "text": "Mountains",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "crossplateau",
-      "kind": "text",
-      "x": 613,
-      "y": 154,
-      "text": "Plateau",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "crosstitle",
-      "kind": "text",
-      "x": 450,
-      "y": 55,
-      "text": "Side view · Compare heights and slopes",
-      "size": 33,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "landmarkera",
-      "kind": "circle",
-      "cx": 425.0400000000001,
-      "cy": 153.3966666666667,
-      "r": 9,
-      "fill": "#E29B52",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landmarkerb",
-      "kind": "circle",
-      "cx": 425.0400000000001,
-      "cy": 301.75,
-      "r": 9,
-      "fill": "#E29B52",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "landcharactera",
-      "kind": "text",
-      "x": 443.0400000000001,
-      "y": 143.3966666666667,
-      "text": "A",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "landcharacterb",
-      "kind": "text",
-      "x": 443.0400000000001,
-      "y": 291.75,
-      "text": "B",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "draw",
+     "target": "gr",
+     "at": 0.6
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "A mountain is very high land with a pointed top. A plateau is high land that is flat on top, like a table."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "The land has different shapes, called landforms. Here is a side view."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "pr",
-          "at": 0.5
-        },
-        {
-          "do": "draw",
-          "target": "gr",
-          "at": 0.6
-        }
-      ]
+     "do": "write",
+     "target": "m1",
+     "at": 0.3
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "A mountain is very high land with a pointed top. A plateau is high land that is flat on top, like a table."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "m1",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "m2",
-          "at": 0.7
-        }
-      ]
-    },
-    {
-      "id": "s3",
-      "narration": {
-        "en": "A plain is a large flat area of low land. Plains are good for farming and for building towns."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "m3",
-          "at": 0.3
-        }
-      ]
-    },
-    {
-      "id": "map-landforms",
-      "narration": {
-        "en": "Find four examples on this regional map. Locate the Himalayas across the north, the Ganga Plain south of those mountains, the Deccan Plateau farther south and the Thar Desert to the northwest."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indiasea",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indialand0",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indialand1",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga0",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga1",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga2",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga3",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga4",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga5",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga6",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga7",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga8",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga9",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga10",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga11",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landtitle",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landcredit",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landhimalayadot",
-          "on": "Himalayas",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landhimalayatext",
-          "on": "Himalayas",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landgangaplaindot",
-          "on": "Ganga Plain",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landgangaplaintext",
-          "on": "Ganga Plain",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landdeccandot",
-          "on": "Deccan Plateau",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landdeccantext",
-          "on": "Deccan Plateau",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landthardot",
-          "on": "Thar Desert",
-          "ms": 330
-        },
-        {
-          "do": "show",
-          "target": "landthartext",
-          "on": "Thar Desert",
-          "ms": 330
-        }
-      ]
-    },
-    {
-      "id": "map-follow-ganga",
-      "narration": {
-        "en": "Trace the blue river line from the Himalayan region into the Ganga Plain. Its course shows how a river can link contrasting landscapes. Many people use parts of the Ganga Plain for farming, transport and settlements."
-      },
-      "actions": [
-        {
-          "do": "pulse",
-          "target": "ganga0",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga1",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga2",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga3",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga4",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga5",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga6",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga7",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga8",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga9",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga10",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "ganga11",
-          "on": "blue river line",
-          "ms": 1200
-        },
-        {
-          "do": "pulse",
-          "target": "landgangaplaindot",
-          "on": "Ganga Plain",
-          "ms": 900
-        }
-      ]
-    },
-    {
-      "id": "map-land-profile",
-      "narration": {
-        "en": "Switch from the map to an imaginary side view. Compare low, fairly level land in a plain with mountain slopes and the raised, relatively level top of a plateau. Mountains can have rounded tops as well as sharp peaks."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "crosstitle",
-          "at": 0
-        },
-        {
-          "do": "draw",
-          "target": "landtransect",
-          "at": 0.09,
-          "ms": 1100
-        },
-        {
-          "do": "show",
-          "target": "crossplain",
-          "at": 0.25,
-          "ms": 300
-        },
-        {
-          "do": "show",
-          "target": "crossmountain",
-          "at": 0.415,
-          "ms": 300
-        },
-        {
-          "do": "show",
-          "target": "crossplateau",
-          "at": 0.58,
-          "ms": 300
-        }
-      ]
-    },
-    {
-      "id": "map-landform-check",
-      "narration": {
-        "en": "Compare the two markers with the landform map. Read the north and south positions before you answer."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indiasea",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indialand0",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "indialand1",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga0",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga1",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga2",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga3",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga4",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga5",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga6",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga7",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga8",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga9",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga10",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "ganga11",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landtitle",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landcredit",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landhimalayatext",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landdeccantext",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landmarkera",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landmarkerb",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landcharactera",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "landcharacterb",
-          "at": 0
-        }
-      ],
-      "check": {
-        "stem": {
-          "en": "Which point is in the southern plateau region?"
-        },
-        "explanation": {
-          "en": "B is farther south and is close to the Deccan Plateau label. A is closer to the northern mountain region."
-        },
-        "options": [
-          {
-            "id": "answer3",
-            "text": {
-              "en": "Both points"
-            },
-            "whyWrong": {
-              "en": "The places are far apart and represent different regional landscapes."
-            }
-          },
-          {
-            "id": "answer1",
-            "text": {
-              "en": "Point B"
-            },
-            "correct": true
-          },
-          {
-            "id": "answer2",
-            "text": {
-              "en": "Point A"
-            },
-            "whyWrong": {
-              "en": "A sits much farther north than the plateau label."
-            }
-          }
-        ]
-      }
+     "do": "write",
+     "target": "m2",
+     "at": 0.7
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A plain is a large flat area of low land. Plains are good for farming and for building towns."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "m3",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
 }

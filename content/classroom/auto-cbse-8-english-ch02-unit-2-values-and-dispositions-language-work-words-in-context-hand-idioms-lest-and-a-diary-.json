@@ -1,0 +1,180 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "english",
+ "chapter": "ch02-unit-2-values-and-dispositions",
+ "topic": "language-work-words-in-context-hand-idioms-lest-and-a-diary",
+ "status": "published",
+ "title": {
+  "en": "The poem, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The poem, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "First part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 450,
+   "y": 190,
+   "text": "analogies",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "Last part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A poem can be read part by part, from the first lines to the last. Let us place this poem on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "Words from the poem have simple everyday meanings. Hastened means worked quickly, heeded means paid attention to, stir means move slightly, lend means give support, piled means kept in a heap, and offered can mean came forward to help. The idiom."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "To give somebody a free hand is to allow full freedom to act, and to give somebody a big hand is to applaud. To work hand in hand is to work together, and to have your hands full is to be very busy. Lest is a conjunction meaning to prevent something."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "The -ed ending has three sounds. After t or d it is pronounced /id/, as in waited and heeded. After voiceless sounds like p, k and s it is /t/, and after most other sounds it is /d/, as in whispered and offered. An adjective like aged or ragged."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    }
+   ]
+  }
+ ]
+}

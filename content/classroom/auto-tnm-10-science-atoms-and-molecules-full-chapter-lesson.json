@@ -232,123 +232,6 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "ntitle",
-   "x": 450,
-   "y": 54,
-   "text": "Count atoms, mass and molecules",
-   "size": 34,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "no",
-   "cx": 450,
-   "cy": 207,
-   "r": 59,
-   "fill": "#F8E4D3",
-   "stroke": "warm"
-  },
-  {
-   "kind": "circle",
-   "id": "nhA",
-   "cx": 334,
-   "cy": 281,
-   "r": 40,
-   "fill": "#D8EBFF",
-   "stroke": "accent"
-  },
-  {
-   "kind": "circle",
-   "id": "nhB",
-   "cx": 566,
-   "cy": 281,
-   "r": 40,
-   "fill": "#D8EBFF",
-   "stroke": "accent"
-  },
-  {
-   "kind": "line",
-   "id": "nleftBond",
-   "x1": 414,
-   "y1": 236,
-   "x2": 368,
-   "y2": 263,
-   "stroke": "ink",
-   "width": 4
-  },
-  {
-   "kind": "line",
-   "id": "nrightBond",
-   "x1": 486,
-   "y1": 236,
-   "x2": 531,
-   "y2": 263,
-   "stroke": "ink",
-   "width": 4
-  },
-  {
-   "kind": "text",
-   "id": "noLabel",
-   "x": 450,
-   "y": 216,
-   "text": "O",
-   "size": 31,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nhaLabel",
-   "x": 334,
-   "y": 291,
-   "text": "H",
-   "size": 25,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nhbLabel",
-   "x": 566,
-   "y": 291,
-   "text": "H",
-   "size": 25,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nmass",
-   "x": 450,
-   "y": 366,
-   "text": "Relative molecular mass: 1 + 16 + 1 = 18",
-   "size": 25,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "namount",
-   "x": 450,
-   "y": 432,
-   "text": "9 g of water ÷ 18 g/mol = 0.50 mol",
-   "size": 26,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "ncount",
-   "x": 450,
-   "y": 477,
-   "text": "0.50 mol contains about 3.011 × 10²³ molecules",
-   "size": 21,
-   "color": "ink",
-   "anchor": "middle"
   }
  ],
  "steps": [
@@ -496,13 +379,13 @@
   {
    "id": "d4",
    "narration": {
-    "en": "Equal volumes of gases have equal molecules."
+    "en": "Equal ideal-gas volumes at the same temperature and pressure contain equal numbers of particles."
    },
    "actions": [
     {
      "do": "pulse",
-     "target": "n2",
-     "at": 0.15,
+     "target": "cn",
+     "at": 0.2,
      "color": "accent"
     }
    ]
@@ -510,7 +393,7 @@
   {
    "id": "d5",
    "narration": {
-    "en": "Molecular mass = 2 x vapour density."
+    "en": "Relative molecular mass ≈ 2 × vapour density relative to hydrogen gas."
    },
    "actions": [
     {
@@ -524,108 +407,6 @@
      "target": "n2",
      "at": 0.35,
      "color": "accent"
-    }
-   ]
-  },
-  {
-   "id": "molecule1",
-   "narration": {
-    "en": "Build one water molecule from one oxygen atom and two hydrogen atoms. The formula counts those three atoms."
-   },
-   "actions": [
-    {
-     "do": "clear",
-     "at": 0
-    },
-    {
-     "do": "show",
-     "target": "ntitle",
-     "at": 0.04
-    },
-    {
-     "do": "draw",
-     "target": "no",
-     "at": 0.18,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "noLabel",
-     "at": 0.26
-    },
-    {
-     "do": "draw",
-     "target": "nleftBond",
-     "at": 0.36,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "nhA",
-     "at": 0.45,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "nhaLabel",
-     "at": 0.51
-    },
-    {
-     "do": "draw",
-     "target": "nrightBond",
-     "at": 0.58,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "nhB",
-     "at": 0.66,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "nhbLabel",
-     "at": 0.73
-    }
-   ]
-  },
-  {
-   "id": "molecule2",
-   "narration": {
-    "en": "Its approximate relative molecular mass is one plus sixteen plus one, or eighteen. A mole of water has a mass of about eighteen grams."
-   },
-   "actions": [
-    {
-     "do": "pulse",
-     "target": "no",
-     "at": 0.18,
-     "color": "warm"
-    },
-    {
-     "do": "write",
-     "target": "nmass",
-     "at": 0.48,
-     "ms": 450
-    }
-   ]
-  },
-  {
-   "id": "molecule3",
-   "narration": {
-    "en": "Nine grams is half of eighteen grams, so it is half a mole. It contains about half the number of molecules counted by one mole."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "namount",
-     "at": 0.28,
-     "ms": 450
-    },
-    {
-     "do": "write",
-     "target": "ncount",
-     "at": 0.69,
-     "ms": 450
     }
    ]
   }

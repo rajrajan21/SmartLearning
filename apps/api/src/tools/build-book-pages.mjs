@@ -1,9 +1,10 @@
 // Turns each downloaded textbook PDF into small ready-made page pictures (WebP) plus a contents list, so the reader
 // never has to open the big PDF to show a page. Safe to stop and re-run: finished pages are skipped.
 //   node src/tools/build-book-pages.mjs [--class 6] [--book maths] [--toc] [--limit N]
+import { createHash } from "node:crypto";
 import { createRequire } from "node:module";
 import { createCanvas } from "@napi-rs/canvas";
-import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync, readdirSync, renameSync, statSync } from "node:fs";
 import { basename, dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,7 +13,7 @@ const root = process.env.BOOKS_DIR ?? resolve(here, "../../../../content/books")
 const curriculumFile = resolve(here, "../../../../content/curriculum/cbse-2026-27.json");
 const args = process.argv.slice(2);
 const opt = (k) => { const i = args.indexOf(`--${k}`); return i >= 0 ? args[i + 1] : undefined; };
-const onlyClass = opt("class"), onlyBook = opt("book"), redoToc = args.includes("--toc"), limit = Number(opt("limit") ?? 0);
+const onlyClass = opt("class"), onlyBook = opt("book"), tocOnly = args.includes("--toc-only"), redoToc = tocOnly || args.includes("--toc"), limit = Number(opt("limit") ?? 0);
 const SIZES = { t: 160, s: 700, l: 1400 }; // thumbnail, normal, large (pixels wide)
 const QUALITY = { t: 60, s: 72, l: 74 };
 
@@ -20,7 +21,7 @@ const require = createRequire(import.meta.url);
 const pdfjs = await import("pdfjs-dist/legacy/build/pdf.mjs");
 const stdFonts = join(dirname(require.resolve("pdfjs-dist/package.json")), "standard_fonts") + "/";
 
-const manifest = JSON.parse(readFileSync(join(root, "manifest.json"), "utf8")).books.filter((b) => b.status === "ok" && b.kind === "single" && (b.file || b.path)).map((b) => ({ ...b, file: b.file ?? basename(b.path) }));
+const manifest = JSON.parse(readFileSync(join(root, "manifest.json"), "utf8")).books.filter((b) => ["ok", "skipped"].includes(b.status) && ["single", "merged"].includes(b.kind) && (b.file || b.path)).map((b) => ({ ...b, file: b.file ?? basename(b.path) }));
 const curriculum = existsSync(curriculumFile) ? JSON.parse(readFileSync(curriculumFile, "utf8")) : { classes: [] };
 const overrides = existsSync(join(root, "toc-overrides.json")) ? JSON.parse(readFileSync(join(root, "toc-overrides.json"), "utf8")) : {};
 const norm = (s) => s.toLowerCase().replace(/[^a-z0-9஀-௿ ]+/g, " ").replace(/\s+/g, " ").trim();
@@ -81,7 +82,15 @@ async function headingToc(doc, textOf) {
   return out.length >= 3 ? out : [];
 }
 
+const saveJson = (filename, data) => {
+  const tmp = filename + ".tmp";
+  writeFileSync(tmp, JSON.stringify(data));
+  renameSync(tmp, filename);
+};
+const sizes = Object.keys(SIZES);
+const pageFile = (n, k) => `${n}-${k}.webp`;
 let done = 0;
+let failed = 0;
 for (const b of manifest) {
   if (onlyClass && String(b.class) !== onlyClass) continue;
   const stem = b.file.replace(/\.pdf$/i, "");
@@ -91,19 +100,41 @@ for (const b of manifest) {
   mkdirSync(outDir, { recursive: true });
   const pdfPath = join(root, "pdf", `class-${b.class}`, b.file);
   if (!existsSync(pdfPath)) { log("missing", pdfPath); continue; }
+  const pdf = readFileSync(pdfPath);
+  const sha256 = createHash("sha256").update(pdf).digest("hex");
+  let previous;
+  try { previous = JSON.parse(readFileSync(metaFile, "utf8")); } catch { /* first build */ }
   const have = new Set(readdirSync(outDir));
-  const todo = [];
-  for (let n = 1; n <= b.pages; n++) for (const k of ["t", "s", "l"]) if (!have.has(`${n}-${k}.webp`)) todo.push([n, k]);
-  const needToc = redoToc || !have.has("toc.json");
-  if (!todo.length && !needToc && have.has("meta.json")) { log("ready", b.title); continue; }
-  log("opening", `class ${b.class}`, b.title, `(${b.pages} pages, ${todo.length} pictures to make)`);
-  const doc = await pdfjs.getDocument({ data: new Uint8Array(readFileSync(pdfPath)), standardFontDataUrl: stdFonts, isEvalSupported: false, useSystemFonts: false, verbosity: 0 }).promise;
+  const legacyMatch = !previous?.sourceSha256 && previous?.pages === b.pages &&
+    Date.parse(previous?.builtAt) >= statSync(pdfPath).mtimeMs;
+  const reuse = previous?.sourceSha256 === sha256 || legacyMatch;
+  const files = reuse ? have : new Set();
+  const needToc = redoToc || !reuse || !have.has("toc.json");
+  const ready = (pages) => Number.isInteger(pages) && pages > 0 &&
+    Array.from({ length: pages }, (_, i) => i + 1).every(n => sizes.every(k => files.has(pageFile(n, k))));
+  if (reuse && ready(previous.pages) && !needToc && previous.sourceSha256 === sha256 && previous.ready === true) { log("ready", b.title); continue; }
+
+  log("opening", `class ${b.class}`, b.title);
+  const loadingTask = pdfjs.getDocument({ data: new Uint8Array(pdf), standardFontDataUrl: stdFonts, isEvalSupported: false, useSystemFonts: false, verbosity: 0 });
+  const doc = await loadingTask.promise;
+  if (b.pages && b.pages !== doc.numPages) {
+    log("page count mismatch", b.title, `catalog ${b.pages}, PDF ${doc.numPages}`);
+    await loadingTask.destroy();
+    failed++;
+    continue;
+  }
   const first = await doc.getPage(1);
   const v1 = first.getViewport({ scale: 1 });
-  writeFileSync(metaFile, JSON.stringify({ pages: doc.numPages, ratio: v1.width / v1.height, sizes: SIZES, builtAt: new Date().toISOString() }));
+  // A changed PDF cannot reuse WebPs or contents from its predecessor, even if the filename matches.
+  if (!reuse) {
+    const { unlinkSync } = await import("node:fs");
+    for (const name of have) if (/^\d+-[tsl]\.webp$/.test(name) || name === "toc.json") unlinkSync(join(outDir, name));
+  }
+  const meta = { pages: doc.numPages, ratio: v1.width / v1.height, sizes: SIZES, sourceSha256: sha256, builtAt: new Date().toISOString() };
+  saveJson(metaFile, { ...meta, ready: false });
   let lastLog = Date.now();
-  const pages = [...new Set(todo.map(([n]) => n))];
-  for (const n of pages) {
+  const pages = Array.from({ length: doc.numPages }, (_, i) => i + 1).filter(n => sizes.some(k => !files.has(pageFile(n, k))));
+  for (const n of tocOnly ? [] : pages) {
     if (limit && done >= limit) break;
     const page = await doc.getPage(n);
     const base = page.getViewport({ scale: 1 });
@@ -112,10 +143,14 @@ for (const b of manifest) {
     f.context.fillStyle = "#fff"; f.context.fillRect(0, 0, f.canvas.width, f.canvas.height);
     await page.render({ canvasContext: f.context, viewport: vp, canvas: f.canvas }).promise;
     for (const k of ["l", "s", "t"]) {
-      if (have.has(`${n}-${k}.webp`)) continue;
+      const name = pageFile(n, k);
+      if (files.has(name)) continue;
       let c = f.canvas;
       if (k !== "l") { const w = SIZES[k], h = Math.max(1, Math.round((f.canvas.height * w) / f.canvas.width)); c = createCanvas(w, h); const x = c.getContext("2d"); x.imageSmoothingQuality = "high"; x.drawImage(f.canvas, 0, 0, w, h); }
-      writeFileSync(join(outDir, `${n}-${k}.webp`), await c.encode("webp", QUALITY[k]));
+      const target = join(outDir, name);
+      writeFileSync(target + ".tmp", await c.encode("webp", QUALITY[k]));
+      renameSync(target + ".tmp", target);
+      files.add(name);
     }
     page.cleanup(); doc.canvasFactory.destroy(f);
     done++;
@@ -136,10 +171,12 @@ for (const b of manifest) {
       void chapterMarks;
     }
     toc.sort((x, y) => x.page - y.page || x.level - y.level);
-    writeFileSync(join(outDir, "toc.json"), JSON.stringify(toc));
+    saveJson(join(outDir, "toc.json"), toc.filter(entry => Number.isInteger(entry.page) && entry.page >= 1 && entry.page <= doc.numPages));
     log(`  contents: ${toc.length} entries`);
   }
-  await doc.cleanup?.();
+  saveJson(metaFile, { ...meta, ready: ready(doc.numPages) });
+  await loadingTask.destroy();
   if (limit && done >= limit) break;
 }
 log("DONE");
+if (failed) process.exitCode = 1;

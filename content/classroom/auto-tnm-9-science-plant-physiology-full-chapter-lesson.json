@@ -1,458 +1,264 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "plant-physiology",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Photosynthesis"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "plant-physiology",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Photosynthesis"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Photosynthesis",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "circle",
+   "id": "sun",
+   "cx": 450,
+   "cy": 100,
+   "r": 30,
+   "fill": "#FFEE58",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "ls",
+   "x": 540,
+   "y": 108,
+   "text": "light",
+   "size": 22,
+   "color": "sun",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 150,
+   "y": 250,
+   "text": "6CO₂",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "p1",
+   "x": 230,
+   "y": 250,
+   "text": "+",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b",
+   "x": 320,
+   "y": 250,
+   "text": "6H₂O",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ar",
+   "x1": 400,
+   "y1": 250,
+   "x2": 500,
+   "y2": 250,
+   "stroke": "good",
+   "width": 6
+  },
+  {
+   "kind": "text",
+   "id": "c",
+   "x": 600,
+   "y": 250,
+   "text": "C₆H₁₂O₆",
+   "size": 32,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "p2",
+   "x": 690,
+   "y": 250,
+   "text": "+",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "d",
+   "x": 770,
+   "y": 250,
+   "text": "6O₂",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 150,
+   "y": 300,
+   "text": "carbon dioxide",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 320,
+   "y": 300,
+   "text": "water",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lc",
+   "x": 600,
+   "y": 300,
+   "text": "glucose (food)",
+   "size": 20,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ld",
+   "x": 770,
+   "y": 300,
+   "text": "oxygen",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ch",
+   "x": 450,
+   "y": 380,
+   "text": "in the green chlorophyll of the leaf",
+   "size": 24,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Green plants make their own food by photosynthesis. They need light from the Sun."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 36,
-      "text": "Photosynthesis",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "circle",
-      "id": "sun",
-      "cx": 450,
-      "cy": 100,
-      "r": 30,
-      "fill": "#FFEE58",
-      "stroke": "sun",
-      "width": 4
+     "do": "draw",
+     "target": "sun",
+     "at": 0.2
     },
     {
-      "kind": "text",
-      "id": "ls",
-      "x": 540,
-      "y": 108,
-      "text": "light",
-      "size": 22,
-      "color": "sun",
-      "anchor": "start"
-    },
-    {
-      "kind": "text",
-      "id": "a",
-      "x": 150,
-      "y": 250,
-      "text": "6CO₂",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "p1",
-      "x": 230,
-      "y": 250,
-      "text": "+",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "b",
-      "x": 320,
-      "y": 250,
-      "text": "6H₂O",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "arrow",
-      "id": "ar",
-      "x1": 400,
-      "y1": 250,
-      "x2": 500,
-      "y2": 250,
-      "stroke": "good",
-      "width": 6
-    },
-    {
-      "kind": "text",
-      "id": "c",
-      "x": 600,
-      "y": 250,
-      "text": "C₆H₁₂O₆",
-      "size": 32,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "p2",
-      "x": 690,
-      "y": 250,
-      "text": "+",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "d",
-      "x": 770,
-      "y": 250,
-      "text": "6O₂",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "la",
-      "x": 150,
-      "y": 300,
-      "text": "carbon dioxide",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "lb",
-      "x": 320,
-      "y": 300,
-      "text": "water",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "lc",
-      "x": 600,
-      "y": 300,
-      "text": "glucose (food)",
-      "size": 20,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "ld",
-      "x": 770,
-      "y": 300,
-      "text": "oxygen",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "ch",
-      "x": 450,
-      "y": 380,
-      "text": "in the green chlorophyll of the leaf",
-      "size": 24,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "id": "plantlighttitle",
-      "kind": "text",
-      "x": 450,
-      "y": 51,
-      "text": "Two seedlings, different light directions",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "plantlightboxa",
-      "kind": "path",
-      "d": "M 113 118 L 419 118 L 419 410 L 113 410 Z",
-      "stroke": "#8193A2",
-      "width": 3
-    },
-    {
-      "id": "plantlightboxb",
-      "kind": "path",
-      "d": "M 481 118 L 787 118 L 787 410 L 481 410 Z",
-      "stroke": "#8193A2",
-      "width": 3
-    },
-    {
-      "id": "plantlighta",
-      "kind": "text",
-      "x": 266,
-      "y": 151,
-      "text": "A",
-      "size": 25,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "plantlightb",
-      "kind": "text",
-      "x": 634,
-      "y": 151,
-      "text": "B",
-      "size": 25,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "plantlightstem1",
-      "kind": "path",
-      "d": "M 266 376 Q 265 315 266 224",
-      "stroke": "good",
-      "width": 8
-    },
-    {
-      "id": "plantlightstem2",
-      "kind": "path",
-      "d": "M 634 376 Q 627 274 702 226",
-      "stroke": "good",
-      "width": 8
-    },
-    {
-      "id": "plantlightraya",
-      "kind": "arrow",
-      "x1": 269,
-      "y1": 174,
-      "x2": 269,
-      "y2": 209,
-      "stroke": "warm",
-      "width": 5
-    },
-    {
-      "id": "plantlightrayb",
-      "kind": "arrow",
-      "x1": 766,
-      "y1": 214,
-      "x2": 713,
-      "y2": 214,
-      "stroke": "warm",
-      "width": 5
+     "do": "write",
+     "target": "ls",
+     "at": 0.4
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The leaves take in carbon dioxide from the air, and the roots take in water from the soil."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "Green plants make their own food by photosynthesis. They need light from the Sun."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "sun",
-          "at": 0.2
-        },
-        {
-          "do": "write",
-          "target": "ls",
-          "at": 0.4
-        }
-      ]
+     "do": "write",
+     "target": "a",
+     "at": 0.15
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "The leaves take in carbon dioxide from the air, and the roots take in water from the soil."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "a",
-          "at": 0.15
-        },
-        {
-          "do": "write",
-          "target": "la",
-          "at": 0.25
-        },
-        {
-          "do": "write",
-          "target": "p1",
-          "at": 0.35
-        },
-        {
-          "do": "write",
-          "target": "b",
-          "at": 0.45
-        },
-        {
-          "do": "write",
-          "target": "lb",
-          "at": 0.55
-        }
-      ]
+     "do": "write",
+     "target": "la",
+     "at": 0.25
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "Using light energy, which the green pigment chlorophyll traps, the plant changes them into glucose, its food, and releases oxygen."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "ar",
-          "at": 0.15
-        },
-        {
-          "do": "write",
-          "target": "c",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "lc",
-          "at": 0.4
-        },
-        {
-          "do": "write",
-          "target": "p2",
-          "at": 0.5
-        },
-        {
-          "do": "write",
-          "target": "d",
-          "at": 0.6
-        },
-        {
-          "do": "write",
-          "target": "ld",
-          "at": 0.7
-        },
-        {
-          "do": "write",
-          "target": "ch",
-          "at": 0.85
-        }
-      ]
+     "do": "write",
+     "target": "p1",
+     "at": 0.35
     },
     {
-      "id": "plant-light-setup",
-      "narration": {
-        "en": "The arrows show where the light comes from. A receives light mainly from above. B receives light mainly from the right."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "plantlighttitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "plantlightboxa",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "plantlightboxb",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "plantlighta",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "plantlightb",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "draw",
-          "target": "plantlightraya",
-          "on": "from above",
-          "ms": 850
-        },
-        {
-          "do": "draw",
-          "target": "plantlightrayb",
-          "on": "from the right",
-          "ms": 850
-        }
-      ]
+     "do": "write",
+     "target": "b",
+     "at": 0.45
     },
     {
-      "id": "plant-light-growth",
-      "narration": {
-        "en": "Now compare each new shoot. A grows upward. The shoot in B bends toward the brighter side as it grows."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "plantlightstem1",
-          "on": "grows upward",
-          "ms": 850
-        },
-        {
-          "do": "draw",
-          "target": "plantlightstem2",
-          "on": "bends toward",
-          "ms": 850
-        }
-      ]
-    },
-    {
-      "id": "plant-light-check",
-      "narration": {
-        "en": "Use the different light directions and compare the stems."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "Which shoot shows a sideways growth response to light?"
-        },
-        "explanation": {
-          "en": "B curves toward the light coming from the right. The curve is evidence of phototropism."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "Shoot A"
-            },
-            "whyWrong": {
-              "en": "Its drawn growth is upright."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "Shoot B"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "Neither shoot"
-            },
-            "whyWrong": {
-              "en": "One shoot curves toward the side light."
-            }
-          }
-        ]
-      }
+     "do": "write",
+     "target": "lb",
+     "at": 0.55
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "Using light energy, which the green pigment chlorophyll traps, the plant changes them into glucose, its food, and releases oxygen."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ar",
+     "at": 0.15
+    },
+    {
+     "do": "write",
+     "target": "c",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "lc",
+     "at": 0.4
+    },
+    {
+     "do": "write",
+     "target": "p2",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "d",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ld",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "ch",
+     "at": 0.85
+    }
+   ]
+  }
+ ]
 }

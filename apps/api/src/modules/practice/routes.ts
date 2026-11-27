@@ -7,7 +7,12 @@ import { PracticeError, type PracticeService } from "./service.js";
 const code = z.string().regex(/^[A-Za-z0-9_-]{1,20}$/);
 const slug = z.string().regex(/^[a-z0-9-]{1,80}$/);
 
-export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<number>, studentOf?: (req: Request) => Promise<string | null>, mayReadKey?: (req: Request) => Promise<boolean>): Router {
+export interface PracticeRouteOpts {
+  allowStudyKey?: () => Promise<boolean>;
+  allowRevealSolution?: () => Promise<boolean>;
+}
+
+export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<number>, studentOf?: (req: Request) => Promise<string | null>, mayReadKey?: (req: Request) => Promise<boolean>, opts?: PracticeRouteOpts): Router {
   const r = Router();
   r.get("/available", async (_req, res) => {
     const age = await maxAge();
@@ -36,6 +41,28 @@ export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<numbe
     const b = z.object({ ids: z.array(z.string().uuid()).min(1).max(30) }).safeParse(req.body);
     if (!b.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid ids" } });
     res.set("Cache-Control", "no-store").json({ answers: await svc.answerKey(b.data.ids) });
+  });
+
+  // Self-study worksheet Answer Key & Solutions toggle (gated by Admin > Tests > worksheet.answerKey.allowToggle).
+  r.post("/study-key", rateLimit({ windowMs: 60_000, max: 30 }), async (req, res) => {
+    if (opts?.allowStudyKey && !(await opts.allowStudyKey())) {
+      return void res.status(403).json({ error: { code: "forbidden", message: "Self-study answer key toggle is turned off." } });
+    }
+    const b = z.object({ ids: z.array(z.string().uuid()).min(1).max(50) }).safeParse(req.body);
+    if (!b.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid ids" } });
+    res.set("Cache-Control", "no-store").json({ answers: await svc.answerKey(b.data.ids) });
+  });
+
+  // On-demand Step-by-Step Solution reveal in Practice mode (gated by Admin > Tests > assessment.solutions.allowRevealBefore).
+  r.get("/solution/:questionId", rateLimit({ windowMs: 60_000, max: 60 }), async (req, res) => {
+    if (opts?.allowRevealSolution && !(await opts.allowRevealSolution())) {
+      return void res.status(403).json({ error: { code: "forbidden", message: "Revealing solutions before answering is turned off." } });
+    }
+    const id = z.string().uuid().safeParse(req.params.questionId);
+    if (!id.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid question id" } });
+    const sol = await svc.getSolution(id.data);
+    if (!sol) return void res.status(404).json({ error: { code: "not_found", message: "Question not found" } });
+    res.set("Cache-Control", "no-store").json(sol);
   });
 
   // 120 answers a minute per IP is far more than a classroom behind one router needs per student, and stops scripts.

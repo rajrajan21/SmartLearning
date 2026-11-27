@@ -242,149 +242,6 @@
    "size": 24,
    "color": "ink",
    "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "ntitle",
-   "x": 450,
-   "y": 55,
-   "text": "Compare two crop varieties in context",
-   "size": 33,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nnote",
-   "x": 450,
-   "y": 471,
-   "text": "A useful comparison depends on the local goal.",
-   "size": 24,
-   "color": "good",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "nheader",
-   "x": 109,
-   "y": 93,
-   "w": 682,
-   "h": 78,
-   "fill": "#D9E9FA",
-   "stroke": "soft",
-   "rx": 10
-  },
-  {
-   "kind": "text",
-   "id": "nheaderA",
-   "x": 249,
-   "y": 140,
-   "text": "Measure",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nheaderB",
-   "x": 469,
-   "y": 140,
-   "text": "Variety A",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nheaderC",
-   "x": 673,
-   "y": 140,
-   "text": "Variety B",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "nharvest",
-   "x": 109,
-   "y": 188,
-   "w": 682,
-   "h": 78,
-   "fill": "#E7F3E5",
-   "stroke": "soft",
-   "rx": 10
-  },
-  {
-   "kind": "text",
-   "id": "nharvestA",
-   "x": 249,
-   "y": 235,
-   "text": "Harvest",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nharvestB",
-   "x": 469,
-   "y": 235,
-   "text": "Slightly higher",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nharvestC",
-   "x": 673,
-   "y": 235,
-   "text": "Slightly lower",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "rect",
-   "id": "nwater",
-   "x": 109,
-   "y": 283,
-   "w": 682,
-   "h": 78,
-   "fill": "#E7F3E5",
-   "stroke": "soft",
-   "rx": 10
-  },
-  {
-   "kind": "text",
-   "id": "nwaterA",
-   "x": 249,
-   "y": 330,
-   "text": "Water demand",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nwaterB",
-   "x": 469,
-   "y": 330,
-   "text": "Higher",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "nwaterC",
-   "x": 673,
-   "y": 330,
-   "text": "Lower",
-   "size": 22,
-   "color": "#16253F",
-   "anchor": "middle"
   }
  ],
  "steps": [
@@ -509,7 +366,7 @@
   {
    "id": "d2",
    "narration": {
-    "en": "Plant breeding improves crops."
+    "en": "Crop breeding uses inherited variation to develop varieties for particular needs."
    },
    "actions": [
     {
@@ -523,7 +380,7 @@
   {
    "id": "d3",
    "narration": {
-    "en": "Heterosis is hybrid vigour."
+    "en": "Heterosis means improved hybrid performance for a particular trait."
    },
    "actions": [
     {
@@ -551,7 +408,7 @@
   {
    "id": "d5",
    "narration": {
-    "en": "Stem cells can become many cell types."
+    "en": "Some stem cells can produce specialised cells."
    },
    "actions": [
     {
@@ -559,108 +416,6 @@
      "target": "n4",
      "at": 0.15,
      "color": "accent"
-    }
-   ]
-  },
-  {
-   "id": "crop1",
-   "narration": {
-    "en": "Imagine two varieties assessed in the same conditions. The first measure is the amount of crop harvested."
-   },
-   "actions": [
-    {
-     "do": "clear",
-     "at": 0
-    },
-    {
-     "do": "show",
-     "target": "ntitle",
-     "at": 0.05
-    },
-    {
-     "do": "draw",
-     "target": "nheader",
-     "at": 0.17,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "nheaderA",
-     "at": 0.27
-    },
-    {
-     "do": "show",
-     "target": "nheaderB",
-     "at": 0.38
-    },
-    {
-     "do": "show",
-     "target": "nheaderC",
-     "at": 0.48
-    },
-    {
-     "do": "draw",
-     "target": "nharvest",
-     "at": 0.54,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "nharvestA",
-     "at": 0.64
-    },
-    {
-     "do": "show",
-     "target": "nharvestB",
-     "at": 0.75
-    },
-    {
-     "do": "show",
-     "target": "nharvestC",
-     "at": 0.8500000000000001
-    }
-   ]
-  },
-  {
-   "id": "crop2",
-   "narration": {
-    "en": "Now compare water demand. Variety A produces a larger harvest, while variety B has a similar harvest and needs less water."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "nwater",
-     "at": 0.22,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "nwaterA",
-     "at": 0.32
-    },
-    {
-     "do": "show",
-     "target": "nwaterB",
-     "at": 0.43
-    },
-    {
-     "do": "show",
-     "target": "nwaterC",
-     "at": 0.53
-    }
-   ]
-  },
-  {
-   "id": "crop3",
-   "narration": {
-    "en": "If irrigation water is limited, the lower demand may matter more than the small difference in harvest. Compare several measures before deciding."
-   },
-   "actions": [
-    {
-     "do": "write",
-     "target": "nnote",
-     "at": 0.57,
-     "ms": 450
     }
    ]
   }

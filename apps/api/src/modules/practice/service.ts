@@ -1,5 +1,5 @@
 import { and, asc, eq, inArray } from "drizzle-orm";
-import { AnswerFeedback, AnswerRequest, PracticeSet, Question, QuestionImport, type PublicQuestion } from "@studysmart/shared";
+import { AnswerFeedback, AnswerRequest, PracticeSet, Question, QuestionImport, defaultMarksFor, type LocalizedText, type PublicQuestion, type QuestionTier } from "@studysmart/shared";
 import type { Db } from "../../db/client.js";
 import * as s from "../../db/schema.js";
 import type { CurriculumRepository } from "../curriculum/repository.js";
@@ -7,6 +7,17 @@ import type { AudioStore } from "../audio/manifest.js";
 import { correctAnswerOf, grade, toPublic } from "./grade.js";
 
 export class PracticeError extends Error { constructor(message: string, readonly status: 400 | 404 | 409 = 400) { super(message); } }
+
+export interface StudyKeyItem {
+  id: string;
+  answer: { en: string; ta?: string };
+  explanation: LocalizedText;
+  solutionSteps?: LocalizedText[];
+  marks: number;
+  tier?: QuestionTier;
+}
+
+const TIER_ORDER: Record<string, number> = { textbook: 0, exam: 1, advanced: 2 };
 
 const pickAudio = (audio: AudioStore | undefined, text: { en?: string; ta?: string } | undefined) =>
   audio?.refsPreferred ? audio.refsPreferred("malar", text) : audio?.refs("malar", text);
@@ -20,7 +31,9 @@ export interface PracticeService {
   /** questions by id, for the revision set (published only, answers never included) */
   getByIds(ids: string[]): Promise<PublicQuestion[]>;
   /** right answers for a worksheet (only ever called for a signed-in parent) */
-  answerKey(ids: string[]): Promise<{ id: string; answer: { en: string; ta?: string } }[]>;
+  answerKey(ids: string[]): Promise<StudyKeyItem[]>;
+  /** step-by-step solution & answer for a single question (for self-study reveal when admin allows) */
+  getSolution(questionId: string): Promise<StudyKeyItem | null>;
   answer(req: AnswerRequest, studentId?: string | null): Promise<AnswerFeedback>;
   /** Share of correct first answers per question, for calibrating difficulty (used by Module 7+). */
   stats(topicId: string): Promise<{ key: string; attempts: number; correct: number }[]>;
@@ -67,6 +80,15 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
         const stem = pickAudio(audio, q.stem);
         return stem ? { ...pub, audio: { stem } } : pub;
       });
+      // Textbook questions first when tiered questions are present, preserving round/key order within each tier
+      if (questions.some((q) => q.tier)) {
+        questions.sort((a, b) => {
+          const ta = a.tier ? (TIER_ORDER[a.tier] ?? 9) : 0;
+          const tb = b.tier ? (TIER_ORDER[b.tier] ?? 9) : 0;
+          if (ta !== tb) return ta - tb;
+          return a.round - b.round || a.key.localeCompare(b.key);
+        });
+      }
       return PracticeSet.parse({ topicId: detail.topic.id, questions });
     },
 
@@ -96,7 +118,31 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
     async answerKey(ids) {
       if (ids.length === 0) return [];
       const rows = await db.select().from(s.questions).where(and(inArray(s.questions.id, ids), eq(s.questions.status, "published")));
-      return rows.map((r) => ({ id: r.id, answer: correctAnswerOf(Question.parse(JSON.parse(r.bodyJson))) }));
+      return rows.map((r) => {
+        const q = Question.parse(JSON.parse(r.bodyJson));
+        return {
+          id: r.id,
+          answer: correctAnswerOf(q),
+          explanation: q.explanation,
+          ...(q.solutionSteps?.length ? { solutionSteps: q.solutionSteps } : {}),
+          marks: defaultMarksFor(q),
+          ...(q.tier ? { tier: q.tier } : {}),
+        };
+      });
+    },
+
+    async getSolution(questionId) {
+      const [row] = await db.select().from(s.questions).where(eq(s.questions.id, questionId));
+      if (!row || row.status !== "published") return null;
+      const q = Question.parse(JSON.parse(row.bodyJson));
+      return {
+        id: row.id,
+        answer: correctAnswerOf(q),
+        explanation: q.explanation,
+        ...(q.solutionSteps?.length ? { solutionSteps: q.solutionSteps } : {}),
+        marks: defaultMarksFor(q),
+        ...(q.tier ? { tier: q.tier } : {}),
+      };
     },
 
     async answer(req, studentId) {
@@ -138,5 +184,15 @@ function build(attemptId: string, questionId: string, q: Question, g: Exclude<Re
   const explanation = pickAudio(audio, q.explanation);
   const whyWrong = g.whyWrong ? pickAudio(audio, g.whyWrong) : undefined;
   const clips = { ...(explanation ? { explanation } : {}), ...(whyWrong ? { whyWrong } : {}) };
-  return AnswerFeedback.parse({ attemptId, questionId, correct: g.correct, explanation: q.explanation, ...(g.whyWrong ? { whyWrong: g.whyWrong } : {}), correctAnswer: g.correctAnswer, replay, ...(Object.keys(clips).length ? { audio: clips } : {}) });
+  const maxMarks = defaultMarksFor(q);
+  const marksAwarded = g.correct ? maxMarks : 0;
+  return AnswerFeedback.parse({
+    attemptId, questionId, correct: g.correct, explanation: q.explanation,
+    ...(q.solutionSteps?.length ? { solutionSteps: q.solutionSteps } : {}),
+    ...(g.whyWrong ? { whyWrong: g.whyWrong } : {}),
+    correctAnswer: g.correctAnswer,
+    marksAwarded, maxMarks,
+    replay,
+    ...(Object.keys(clips).length ? { audio: clips } : {}),
+  });
 }

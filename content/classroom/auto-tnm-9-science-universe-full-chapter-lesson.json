@@ -1,572 +1,325 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "universe",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Our Solar System"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "universe",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Our Solar System"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 40,
+   "text": "Our Solar System",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "circle",
+   "id": "su",
+   "cx": 450,
+   "cy": 255,
+   "r": 28,
+   "fill": "#FFCA28",
+   "stroke": "sun",
+   "width": 4
+  },
+  {
+   "kind": "orbit",
+   "id": "o0",
+   "cx": 450,
+   "cy": 255,
+   "r": 64.39999999999999,
+   "period": 5,
+   "size": 5,
+   "color": "#B0A090",
+   "tilt": 0.56,
+   "phase": 0
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 30,
+   "y": 484,
+   "text": "● Mercury",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o1",
+   "cx": 450,
+   "cy": 255,
+   "r": 95.19999999999999,
+   "period": 9,
+   "size": 5.4,
+   "color": "#E8C170",
+   "tilt": 0.56,
+   "phase": 47
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 138,
+   "y": 484,
+   "text": "● Venus",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o2",
+   "cx": 450,
+   "cy": 255,
+   "r": 128.79999999999998,
+   "period": 12,
+   "size": 5.8500000000000005,
+   "color": "#4FA3E0",
+   "tilt": 0.56,
+   "phase": 94
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 246,
+   "y": 484,
+   "text": "● Earth",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o3",
+   "cx": 450,
+   "cy": 255,
+   "r": 159.6,
+   "period": 16,
+   "size": 5,
+   "color": "#E0623C",
+   "tilt": 0.56,
+   "phase": 141
+  },
+  {
+   "kind": "text",
+   "id": "n3",
+   "x": 354,
+   "y": 484,
+   "text": "● Mars",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o4",
+   "cx": 450,
+   "cy": 255,
+   "r": 212.79999999999998,
+   "period": 26,
+   "size": 11.700000000000001,
+   "color": "#D9A86C",
+   "tilt": 0.56,
+   "phase": 188
+  },
+  {
+   "kind": "text",
+   "id": "n4",
+   "x": 462,
+   "y": 484,
+   "text": "● Jupiter",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o5",
+   "cx": 450,
+   "cy": 255,
+   "r": 263.2,
+   "period": 36,
+   "size": 9.9,
+   "color": "#E6D29A",
+   "tilt": 0.56,
+   "phase": 235
+  },
+  {
+   "kind": "text",
+   "id": "n5",
+   "x": 570,
+   "y": 484,
+   "text": "● Saturn",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o6",
+   "cx": 450,
+   "cy": 255,
+   "r": 305.2,
+   "period": 48,
+   "size": 7.2,
+   "color": "#8EDCE6",
+   "tilt": 0.56,
+   "phase": 282
+  },
+  {
+   "kind": "text",
+   "id": "n6",
+   "x": 678,
+   "y": 484,
+   "text": "● Uranus",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "orbit",
+   "id": "o7",
+   "cx": 450,
+   "cy": 255,
+   "r": 344.4,
+   "period": 60,
+   "size": 7.2,
+   "color": "#4F6FE0",
+   "tilt": 0.56,
+   "phase": 329
+  },
+  {
+   "kind": "text",
+   "id": "n7",
+   "x": 786,
+   "y": 484,
+   "text": "● Neptune",
+   "size": 16,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "The Sun is a star at the centre of our Solar System. It gives us light and heat."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 40,
-      "text": "Our Solar System",
-      "size": 34,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "circle",
-      "id": "su",
-      "cx": 450,
-      "cy": 255,
-      "r": 28,
-      "fill": "#FFCA28",
-      "stroke": "sun",
-      "width": 4
-    },
-    {
-      "kind": "orbit",
-      "id": "o0",
-      "cx": 450,
-      "cy": 255,
-      "r": 64.39999999999999,
-      "period": 5,
-      "size": 5,
-      "color": "#B0A090",
-      "tilt": 0.56,
-      "phase": 0
-    },
-    {
-      "kind": "text",
-      "id": "n0",
-      "x": 30,
-      "y": 484,
-      "text": "● Mercury",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o1",
-      "cx": 450,
-      "cy": 255,
-      "r": 95.19999999999999,
-      "period": 9,
-      "size": 5.4,
-      "color": "#E8C170",
-      "tilt": 0.56,
-      "phase": 47
-    },
-    {
-      "kind": "text",
-      "id": "n1",
-      "x": 138,
-      "y": 484,
-      "text": "● Venus",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o2",
-      "cx": 450,
-      "cy": 255,
-      "r": 128.79999999999998,
-      "period": 12,
-      "size": 5.8500000000000005,
-      "color": "#4FA3E0",
-      "tilt": 0.56,
-      "phase": 94
-    },
-    {
-      "kind": "text",
-      "id": "n2",
-      "x": 246,
-      "y": 484,
-      "text": "● Earth",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o3",
-      "cx": 450,
-      "cy": 255,
-      "r": 159.6,
-      "period": 16,
-      "size": 5,
-      "color": "#E0623C",
-      "tilt": 0.56,
-      "phase": 141
-    },
-    {
-      "kind": "text",
-      "id": "n3",
-      "x": 354,
-      "y": 484,
-      "text": "● Mars",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o4",
-      "cx": 450,
-      "cy": 255,
-      "r": 212.79999999999998,
-      "period": 26,
-      "size": 11.700000000000001,
-      "color": "#D9A86C",
-      "tilt": 0.56,
-      "phase": 188
-    },
-    {
-      "kind": "text",
-      "id": "n4",
-      "x": 462,
-      "y": 484,
-      "text": "● Jupiter",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o5",
-      "cx": 450,
-      "cy": 255,
-      "r": 263.2,
-      "period": 36,
-      "size": 9.9,
-      "color": "#E6D29A",
-      "tilt": 0.56,
-      "phase": 235
-    },
-    {
-      "kind": "text",
-      "id": "n5",
-      "x": 570,
-      "y": 484,
-      "text": "● Saturn",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o6",
-      "cx": 450,
-      "cy": 255,
-      "r": 305.2,
-      "period": 48,
-      "size": 7.2,
-      "color": "#8EDCE6",
-      "tilt": 0.56,
-      "phase": 282
-    },
-    {
-      "kind": "text",
-      "id": "n6",
-      "x": 678,
-      "y": 484,
-      "text": "● Uranus",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "orbit",
-      "id": "o7",
-      "cx": 450,
-      "cy": 255,
-      "r": 344.4,
-      "period": 60,
-      "size": 7.2,
-      "color": "#4F6FE0",
-      "tilt": 0.56,
-      "phase": 329
-    },
-    {
-      "kind": "text",
-      "id": "n7",
-      "x": 786,
-      "y": 484,
-      "text": "● Neptune",
-      "size": 16,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "id": "univtitle",
-      "kind": "text",
-      "x": 450,
-      "y": 57,
-      "text": "Read an elliptical orbit",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "univellipse",
-      "kind": "path",
-      "d": "M 165 252 C 165 161 293 88 450 88 C 607 88 735 161 735 252 C 735 343 607 416 450 416 C 293 416 165 343 165 252 Z",
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "univsun",
-      "kind": "circle",
-      "cx": 217,
-      "cy": 252,
-      "r": 8,
-      "fill": "sun",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "univfocus",
-      "kind": "circle",
-      "cx": 683,
-      "cy": 252,
-      "r": 8,
-      "fill": "soft",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "univsunname",
-      "kind": "text",
-      "x": 222,
-      "y": 233,
-      "text": "Sun",
-      "size": 22,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "id": "univfname",
-      "kind": "text",
-      "x": 678,
-      "y": 233,
-      "text": "Other focus",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "univnear",
-      "kind": "circle",
-      "cx": 165,
-      "cy": 252,
-      "r": 8,
-      "fill": "accent",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "univfar",
-      "kind": "circle",
-      "cx": 735,
-      "cy": 252,
-      "r": 8,
-      "fill": "accent",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "unival",
-      "kind": "text",
-      "x": 165,
-      "y": 297,
-      "text": "A",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "univbl",
-      "kind": "text",
-      "x": 735,
-      "y": 297,
-      "text": "B",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "univnote",
-      "kind": "text",
-      "x": 450,
-      "y": 450,
-      "text": "Orbit shape exaggerated for illustration",
-      "size": 19,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "draw",
+     "target": "su",
+     "at": 0.4
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Planets travel round the Sun in paths called orbits. The planets close to the Sun take only a short time to go round, and the far ones take very long."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "The Sun is a star at the centre of our Solar System. It gives us light and heat."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "su",
-          "at": 0.4
-        }
-      ]
+     "do": "draw",
+     "target": "o0",
+     "at": 0.1
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "Planets travel round the Sun in paths called orbits. The planets close to the Sun take only a short time to go round, and the far ones take very long."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "o0",
-          "at": 0.1
-        },
-        {
-          "do": "draw",
-          "target": "o1",
-          "at": 0.1875
-        },
-        {
-          "do": "draw",
-          "target": "o2",
-          "at": 0.275
-        },
-        {
-          "do": "draw",
-          "target": "o3",
-          "at": 0.36250000000000004
-        },
-        {
-          "do": "draw",
-          "target": "o4",
-          "at": 0.45000000000000007
-        },
-        {
-          "do": "draw",
-          "target": "o5",
-          "at": 0.5375000000000001
-        },
-        {
-          "do": "draw",
-          "target": "o6",
-          "at": 0.625
-        },
-        {
-          "do": "draw",
-          "target": "o7",
-          "at": 0.7125
-        }
-      ]
+     "do": "draw",
+     "target": "o1",
+     "at": 0.1875
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "From the Sun outwards the planets are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. Earth is the only one we know where living things are found."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "n0",
-          "at": 0.05
-        },
-        {
-          "do": "write",
-          "target": "n1",
-          "at": 0.15625
-        },
-        {
-          "do": "write",
-          "target": "n2",
-          "at": 0.2625
-        },
-        {
-          "do": "write",
-          "target": "n3",
-          "at": 0.36874999999999997
-        },
-        {
-          "do": "write",
-          "target": "n4",
-          "at": 0.475
-        },
-        {
-          "do": "write",
-          "target": "n5",
-          "at": 0.58125
-        },
-        {
-          "do": "write",
-          "target": "n6",
-          "at": 0.6875
-        },
-        {
-          "do": "write",
-          "target": "n7",
-          "at": 0.7937500000000001
-        }
-      ]
+     "do": "draw",
+     "target": "o2",
+     "at": 0.275
     },
     {
-      "id": "orbit-focus",
-      "narration": {
-        "en": "Kepler’s first law describes a planet’s path as an ellipse. The Sun sits at one focus. The other focus is a geometric point and need not contain an object."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "univtitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "univnote",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "draw",
-          "target": "univellipse",
-          "on": "as an ellipse",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "univsun",
-          "on": "one focus",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "univsunname",
-          "on": "one focus",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "univfocus",
-          "on": "other focus",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "univfname",
-          "on": "other focus",
-          "ms": 400
-        }
-      ]
+     "do": "draw",
+     "target": "o3",
+     "at": 0.36250000000000004
     },
     {
-      "id": "orbit-distance",
-      "narration": {
-        "en": "Points A and B mark positions on the orbit. A lies much nearer the Sun than B. In this model the planet moves faster at A and slower at B."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "univnear",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "unival",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "univfar",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "univbl",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "pulse",
-          "target": "univnear",
-          "on": "faster at A",
-          "ms": 1000
-        },
-        {
-          "do": "pulse",
-          "target": "univfar",
-          "on": "slower at B",
-          "ms": 1000
-        }
-      ]
+     "do": "draw",
+     "target": "o4",
+     "at": 0.45000000000000007
     },
     {
-      "id": "orbit-picture-check",
-      "narration": {
-        "en": "Compare the two marked positions with the location of the Sun."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "Which point marks the planet’s greatest distance from the Sun along this ellipse?"
-        },
-        "explanation": {
-          "en": "B lies on the far end of the ellipse, opposite the end near the Sun."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "Point A"
-            },
-            "whyWrong": {
-              "en": "A lies at the end nearest the Sun."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "Point B"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "The other focus"
-            },
-            "whyWrong": {
-              "en": "The other focus is inside the ellipse, while the planet moves along the curved line."
-            }
-          }
-        ]
-      }
+     "do": "draw",
+     "target": "o5",
+     "at": 0.5375000000000001
+    },
+    {
+     "do": "draw",
+     "target": "o6",
+     "at": 0.625
+    },
+    {
+     "do": "draw",
+     "target": "o7",
+     "at": 0.7125
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "From the Sun outwards the planets are Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus and Neptune. Earth is the only one we know where living things are found."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.15625
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2625
+    },
+    {
+     "do": "write",
+     "target": "n3",
+     "at": 0.36874999999999997
+    },
+    {
+     "do": "write",
+     "target": "n4",
+     "at": 0.475
+    },
+    {
+     "do": "write",
+     "target": "n5",
+     "at": 0.58125
+    },
+    {
+     "do": "write",
+     "target": "n6",
+     "at": 0.6875
+    },
+    {
+     "do": "write",
+     "target": "n7",
+     "at": 0.7937500000000001
+    }
+   ]
+  }
+ ]
 }

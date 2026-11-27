@@ -146,5 +146,12 @@ it("preserves full bilingual Tamil and English narration and checks on all 72 Ta
       expect(c.check!.stem.ta?.trim().length, `${file} check stem missing ta`).toBeGreaterThan(0);
       expect(c.check!.explanation.ta?.trim().length, `${file} check explanation missing ta`).toBeGreaterThan(0);
     }
+    for (const obj of out.objects) {
+      if (obj.kind === "text") {
+        expect(obj.text, `${file} board has English UI label: ${obj.text}`).not.toMatch(/\b(Key Idea|Key Takeaway|Think About It|Well done|Step \d+|Table of|A B C)\b/i);
+        expect(obj.text, `${file} board has English words: ${obj.text}`).not.toMatch(/[A-Za-z]{3,}/);
+        expect(obj.text, `${file} board has irrelevant cartoon emoji: ${obj.text}`).not.toMatch(/[🏠🏡👕📖💧☀️🌙❤️✋👦👧👨👩]/u);
+      }
+    }
   }
 });

@@ -6,113 +6,365 @@
  "topic": "decimal-division-and-repeating-quotients",
  "status": "published",
  "title": {
-  "en": "Dividing decimals and recognising repeating quotients"
+  "en": "Decimals"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "title",
+   "id": "ttl",
    "x": 450,
-   "y": 60,
-   "text": "Change both numbers by the same factor",
-   "size": 33,
+   "y": 48,
+   "text": "Decimals",
+   "size": 36,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t0",
+   "x": 100,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c0",
+   "x": 135,
+   "y": 300,
+   "text": "0.1",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t1",
+   "x": 170,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c1",
+   "x": 205,
+   "y": 300,
+   "text": "0.2",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t2",
+   "x": 240,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c2",
+   "x": 275,
+   "y": 300,
+   "text": "0.3",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t3",
+   "x": 310,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c3",
+   "x": 345,
+   "y": 300,
+   "text": "0.4",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t4",
+   "x": 380,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c4",
+   "x": 415,
+   "y": 300,
+   "text": "0.5",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t5",
+   "x": 450,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c5",
+   "x": 485,
+   "y": 300,
+   "text": "0.6",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t6",
+   "x": 520,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c6",
+   "x": 555,
+   "y": 300,
+   "text": "0.7",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t7",
+   "x": 590,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c7",
+   "x": 625,
+   "y": 300,
+   "text": "0.8",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t8",
+   "x": 660,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c8",
+   "x": 695,
+   "y": 300,
+   "text": "0.9",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "t9",
+   "x": 730,
+   "y": 150,
+   "w": 70,
+   "h": 120,
+   "rx": 0,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "c9",
+   "x": 765,
+   "y": 300,
+   "text": "1.0",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "fr",
+   "x": 450,
+   "y": 390,
+   "text": "3/10 = 0.3",
+   "size": 60,
    "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "first",
+   "id": "pc",
    "x": 450,
-   "y": 145,
-   "text": "6.3 ÷ 0.9",
-   "size": 34,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "change",
-   "x": 450,
-   "y": 230,
-   "text": "(6.3 × 10) ÷ (0.9 × 10)",
-   "size": 34,
-   "color": "warm",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "divide",
-   "x": 450,
-   "y": 315,
-   "text": "63 ÷ 9 = 7",
-   "size": 34,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "check",
-   "x": 450,
-   "y": 402,
-   "text": "Check: 7 × 0.9 = 6.3",
-   "size": 34,
+   "y": 450,
+   "text": "= 30%",
+   "size": 36,
    "color": "good",
    "anchor": "middle"
   }
  ],
  "steps": [
   {
-   "id": "decimal1",
+   "id": "s1",
    "narration": {
-    "en": "Think of six point three divided by zero point nine. We want an equivalent calculation with a whole-number divisor."
+    "en": "Let us cut one whole into ten equal parts, like a chocolate bar with ten pieces. Each part is one tenth."
    },
    "actions": [
     {
      "do": "show",
-     "target": "title",
+     "target": "ttl",
      "at": 0.05
     },
     {
-     "do": "write",
-     "target": "first",
-     "at": 0.18
+     "do": "draw",
+     "target": "t0",
+     "at": 0.3,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t1",
+     "at": 0.36,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t2",
+     "at": 0.42000000000000004,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t3",
+     "at": 0.48,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t4",
+     "at": 0.54,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t5",
+     "at": 0.6000000000000001,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t6",
+     "at": 0.66,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t7",
+     "at": 0.7200000000000001,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t8",
+     "at": 0.78,
+     "ms": 300
+    },
+    {
+     "do": "draw",
+     "target": "t9",
+     "at": 0.8400000000000001,
+     "ms": 300
     }
    ]
   },
   {
-   "id": "decimal2",
+   "id": "s2",
    "narration": {
-    "en": "Multiply both numbers by ten. The divisor is now nine and the dividend is sixty-three. Scaling both numbers keeps the quotient the same."
+    "en": "Colour 3 of the ten pieces. That is 3 tenths. As a decimal we write it as zero point 3."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "change",
-     "at": 0.15
+     "do": "fill",
+     "target": "t0",
+     "color": "accent",
+     "at": 0.05
+    },
+    {
+     "do": "fill",
+     "target": "t1",
+     "color": "accent",
+     "at": 0.16666666666666669
+    },
+    {
+     "do": "fill",
+     "target": "t2",
+     "color": "accent",
+     "at": 0.2833333333333334
     },
     {
      "do": "write",
-     "target": "divide",
-     "at": 0.65
+     "target": "fr",
+     "on": "decimal"
     }
    ]
   },
   {
-   "id": "decimal3",
+   "id": "s3",
    "narration": {
-    "en": "Sixty-three divided by nine is seven. Check with the original divisor. Seven times zero point nine is six point three."
+    "en": "Out of one hundred, that is 30. So 3 tenths is 30 percent. Fractions, decimals and percentages are three ways of writing the same amount."
    },
    "actions": [
     {
-     "do": "pulse",
-     "target": "divide",
-     "at": 0.16,
-     "color": "accent"
-    },
-    {
      "do": "write",
-     "target": "check",
-     "at": 0.62
+     "target": "pc",
+     "on": "percent"
     }
    ]
   }

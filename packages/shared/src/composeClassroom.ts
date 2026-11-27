@@ -112,18 +112,33 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
   };
 
 
-  /** Pictures instead of words: the things named in the sentence appear big, each as it is spoken. */
-  const scene = (text: string, section: string, extraPics: string[] = [], spoken = text) => {
-    const tp = tablePage(spoken);
+  const isTamilSubject = inp.meta.subject.toLowerCase() === "tamil";
+  const tamilBoardText = (s: string) => {
+    if (!isTamilSubject) return s;
+    const cleaned = s
+      .replace(/\s*\([^)]*[A-Za-z][^)]*\)/g, "")
+      .replace(/['"‘’“”]?[A-Za-z][A-Za-z0-9'’._-]*['"‘’“”]?/g, "")
+      .replace(/\s{2,}/g, " ")
+      .replace(/\s+([,.:;!?•—–-])/g, "$1")
+      .trim();
+    return cleaned || "தமிழ்";
+  };
+
+  /** Structured pedagogical visuals (tables, equations, maths geometry shapes, animated diagrams & concept cards) — never random cartoon emojis. */
+  const scene = (text: string, section: string, extraPics: string[] = [], spoken = text, taText?: string) => {
+    const tp = isTamilSubject ? undefined : tablePage(spoken);
     if (tp) { const f = tp as ((a: ClassAction[]) => void) & { has?: boolean }; f.has = true; return f; }
-    const pics = picturesFor(text, 2).filter((p) => !shown.has(p.word)); const expr = expressionIn(text);
+    const isMaths = inp.meta.subject.toLowerCase() === "maths";
+    // Only allow actual SVG geometric shapes in Maths; never slap random cartoon emojis (e.g. a house for "home") onto lesson boards.
+    const pics = isMaths ? picturesFor(text, 2).filter((p) => SHAPES.has(p.word) && !shown.has(p.word)) : [];
+    const expr = isTamilSubject ? null : expressionIn(text);
     const fn = ((a: ClassAction[]) => {
     const items: { emoji: string; word: string; count: number; at: string }[] = pics.length ? [...pics] : [];
     const hasSimplePic = items.length > 0 || extraPics.length > 0 || Boolean(expr);
-    // Rich animated diagrams (percentage bars, layers, comparisons) beat a lone generic emoji;
-    // when no picture matches, flow/concept-card ensures the board is never blank.
+    // Rich animated diagrams (percentage bars, layers, comparisons, flow, concept-card)
     if (extraPics.length === 0 && !expr) {
-      const smart = smartVisualFor(text, section, hasSimplePic, id);
+      const boardText = isTamilSubject && taText?.trim() ? tamilBoardText(taText.trim()) : text;
+      const smart = smartVisualFor(boardText, section, hasSimplePic, id, isTamilSubject ? "ta" : "en");
       if (smart) {
         for (const o of smart.objects) objects.push(o);
         for (const act of smart.actions) a.push(act);
@@ -151,11 +166,13 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         const shape = it.word === "circle" ? { kind: "circle", cx, cy: y, r: 62 } : it.word === "square" ? { kind: "rect", x: cx - 62, y: y - 62, w: 124, h: 124 } : it.word === "rectangle" ? { kind: "rect", x: cx - 90, y: y - 55, w: 180, h: 110 } : it.word === "triangle" ? { kind: "poly", points: [[cx, y - 68], [cx + 72, y + 56], [cx - 72, y + 56]] } : { kind: "poly", points: [[cx, y - 72], [cx + 62, y], [cx, y + 72], [cx - 62, y]] };
         objects.push({ ...shape, id: o, stroke: "ink", fill: "#DDEBFF", width: 6 } as unknown as BoardObject);
         a.push({ do: "draw", target: o, ...(when.on ? { on: when.on } : { at: when.at }), ms: 800 } as ClassAction);
-        const l = id("c"); objects.push({ kind: "text", id: l, x: cx, y: y + 100, text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction);
+        if (!isTamilSubject) {
+          const l = id("c"); objects.push({ kind: "text", id: l, x: cx, y: y + 100, text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction);
+        }
         return;
-      } else { const o = id("p"); ids.push(o); objects.push({ kind: "text", id: o, x: cx, y: cy + size * 0.35, text: it.emoji, size: it.emoji === "A B C" ? 68 : size, anchor: "middle" } as BoardObject); }
+      } else { const o = id("p"); ids.push(o); objects.push({ kind: "text", id: o, x: cx, y: cy + size * 0.35, text: it.emoji === "A B C" && isTamilSubject ? "அ ஆ இ" : it.emoji, size: it.emoji === "A B C" ? 68 : size, anchor: "middle" } as BoardObject); }
       ids.forEach((o, k) => a.push({ do: "write", target: o, ...(when.on ? { on: when.on } : { at: (when.at ?? 0.1) + k * 0.02 }), ms: 350 } as ClassAction));
-      let lab = ""; if (it.word) { const l = id("c"); lab = l; objects.push({ kind: "text", id: l, x: cx, y: cy + size * 0.35 + (it.count > 1 ? 70 : 52), text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction); }
+      let lab = ""; if (it.word && !isTamilSubject) { const l = id("c"); lab = l; objects.push({ kind: "text", id: l, x: cx, y: cy + size * 0.35 + (it.count > 1 ? 70 : 52), text: it.word, size: 26, color: "soft", anchor: "middle" } as BoardObject); a.push({ do: "write", target: l, ...(when.on ? { on: when.on } : { at: when.at }), ms: 300 } as ClassAction); }
       if (BRIEF.has(it.word)) { for (const o of ids) a.push({ do: "hide", target: o, at: 0.62 } as ClassAction); if (lab) a.push({ do: "hide", target: lab, at: 0.62 } as ClassAction); }
       else if (n === 1 && it.count === 1) a.push({ do: "pulse", target: ids[0]!, at: 0.7 });
     });
@@ -188,11 +205,12 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
   const title = inp.lesson.title.en;
   const titleTa = inp.lesson.title.ta?.trim();
   const hasTaContent = Boolean(titleTa || inp.questions?.some((q) => Boolean(q.stem.ta?.trim())));
+  const boardTitle = isTamilSubject && titleTa ? tamilBoardText(titleTa) : title;
   emit("Start", "Today's lesson", {
     en: `Hello! Today's lesson is ${title}. Let us begin.`,
     ...(titleTa ? { ta: `வணக்கம்! இன்றைய பாடம் ${titleTa}. தொடங்கலாம்.` } : {}),
   }, [], (a) => {
-    const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: short(title, 34), size: 56, color: "accent", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.25, ms: 1200 });
+    const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: short(boardTitle, 34), size: isTamilSubject ? 44 : 56, color: "accent", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.25, ms: 1200 });
   });
 
   let inserted = false;
@@ -270,9 +288,9 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
 
   for (const b of inp.lesson.blocks) {
     if (b.type === "story") {
-      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Story", `Story: ${b.title.en}`, pair, [], scene(pair.en, "Story"), { fresh: true }));
+      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Story", `Story: ${b.title.en}`, pair, [], scene(pair.en, "Story", [], pair.en, pair.ta), { fresh: true }));
     } else if (b.type === "explanation") {
-      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Learn", "Let us learn", pair, [], scene(pair.en, "Learn"), { fresh: true }));
+      bilingualChunks(b.text.en, b.text.ta).forEach((pair) => emit("Learn", "Let us learn", pair, [], scene(pair.en, "Learn", [], pair.en, pair.ta), { fresh: true }));
     } else if (b.type === "teacher_narration") {
       wide = !b.sentences.some((s) => s.board.some((x) => x.op === "draw"));
       let first = true, lastShape: string | undefined;
@@ -280,7 +298,10 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         const lines: { text: string; color?: string }[] = []; let fresh = first; first = false;
         const draws: Extract<ClassroomStep["actions"][number], object>[] = [];
         for (const op of sen.board) if (op.op === "clear") { fresh = true; figures = 0; }
-        for (const op of sen.board) if (op.op === "write") lines.push({ text: op.text, color: "accent" });
+        for (const op of sen.board) if (op.op === "write") {
+          const txt = tamilBoardText(op.text);
+          if (txt) lines.push({ text: txt, color: "accent" });
+        }
         const taText = sen.spoken?.ta?.trim() || sen.text.ta?.trim();
         emit("Learn", "Let us learn", { en: sen.spoken?.en ?? sen.text.en, ...(taText ? { ta: taText } : {}) }, lines, (acts) => {
           for (const op of sen.board) {
@@ -291,7 +312,7 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
                 : op.shape === "triangle" ? { kind: "poly", id: sid, points: [[cx, cy - 50], [cx + 55, cy + 40], [cx - 55, cy + 40]], stroke: "ink", width: 5 }
                 : op.shape === "arrow" ? { kind: "arrow", id: sid, x1: cx - 55, y1: cy, x2: cx + 55, y2: cy, stroke: "ink", width: 5 } : { kind: "line", id: sid, x1: cx - 55, y1: cy, x2: cx + 55, y2: cy, stroke: "ink", width: 5 };
               objects.push(o as BoardObject); acts.push({ do: "draw", target: sid, at: 0.1, ms: 900 });
-              if (op.label) { const lid = id("c"); objects.push({ kind: "text", id: lid, x: cx, y: cy + 78, text: short(op.label, 18), size: 22, color: "warm", anchor: "middle" }); acts.push({ do: "write", target: lid, at: 0.5, ms: 500 }); }
+              if (op.label) { const lid = id("c"); objects.push({ kind: "text", id: lid, x: cx, y: cy + 78, text: short(tamilBoardText(op.label), 18), size: 22, color: "warm", anchor: "middle" }); acts.push({ do: "write", target: lid, at: 0.5, ms: 500 }); }
             } else if (op.op === "point" && lastShape) acts.push({ do: "pulse", target: lastShape, at: 0.4, color: "accent" });
           }
         }, { fresh });
@@ -304,7 +325,7 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
       emit("Example", "Worked example", {
         en: `Let us work through an example. ${b.problem.en}`,
         ...(probTa ? { ta: `இப்போது ஒரு எடுத்துக்காட்டைப் பார்ப்போம். ${probTa}` } : {}),
-      }, [], scene(b.problem.en, "Example", [], `Let us work through an example. ${b.problem.en}`), { fresh: true });
+      }, [], scene(b.problem.en, "Example", [], `Let us work through an example. ${b.problem.en}`, probTa), { fresh: true });
       b.steps.forEach((st, i) => {
         const text = st.text.en.trim();
         const explanation = st.why?.en?.trim();
@@ -330,9 +351,13 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
             if (pairs[0]!.ta) pairs[0]!.ta = `படி ${i + 1}. ${pairs[0]!.ta}`;
           }
           pairs.forEach((pair, k) => {
-            const expr = expressionIn(pair.en);
-            const lineData = k === 0 ? [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }] : [];
-            emit("Example", "Worked example", pair, lineData, expr ? scene(pair.en, "Example") : undefined, k === 0 ? { fresh: true } : {});
+            const expr = isTamilSubject ? null : expressionIn(pair.en);
+            const lineData = k === 0
+              ? (isTamilSubject && taText
+                ? [{ text: `படி ${i + 1}`, color: "accent", size: 40 }, { text: topicOf(tamilBoardText(taText)), color: "ink", size: 28 }]
+                : [{ text: `Step ${i + 1}`, color: "accent", size: 44 }, { text: topicOf(st.text.en), color: "ink", size: 32 }])
+              : [];
+            emit("Example", "Worked example", pair, lineData, expr ? scene(pair.en, "Example", [], pair.en, pair.ta) : undefined, k === 0 ? { fresh: true } : {});
           });
         } else {
           parts.forEach((c, k) => {
@@ -343,13 +368,13 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
         }
       });
     } else if (b.type === "teach_back") {
-      emit("Think", "Your turn to explain", { en: b.prompt.en, ...(b.prompt.ta?.trim() ? { ta: b.prompt.ta.trim() } : {}) }, [], scene(b.prompt.en, "Think"), { fresh: true });
+      emit("Think", "Your turn to explain", { en: b.prompt.en, ...(b.prompt.ta?.trim() ? { ta: b.prompt.ta.trim() } : {}) }, [], scene(b.prompt.en, "Think", [], b.prompt.en, b.prompt.ta), { fresh: true });
     } else if (b.type === "summary") {
       emit("Remember", "Let us remember", {
         en: "Let us remember what we learned.",
         ...(hasTa ? { ta: "நாம் கற்ற முக்கியக் கருத்துகளை நினைவுகூர்வோம்." } : {}),
       }, [], undefined, { fresh: true });
-      for (const p of b.points) emit("Remember", "Let us remember", { en: p.en, ...(p.ta?.trim() ? { ta: p.ta.trim() } : {}) }, [], scene(p.en, "Remember"), { fresh: true });
+      for (const p of b.points) emit("Remember", "Let us remember", { en: p.en, ...(p.ta?.trim() ? { ta: p.ta.trim() } : {}) }, [], scene(p.en, "Remember", [], p.en, p.ta), { fresh: true });
     } else if (b.type === "quiz") {
       for (const key of b.questionIds) {
         const q = byKey.get(key);
@@ -370,7 +395,7 @@ export function composeClassroom(inp: ComposeInput): ClassroomLesson {
     en: "That is the end of this lesson. Well done! You can watch it again, or try the practice questions.",
     ...(hasTa ? { ta: "இந்தப் பாடம் இத்துடன் நிறைவடைந்தது. நன்று! மீண்டும் பார்க்கலாம் அல்லது பயிற்சி வினாக்களை முயற்சிக்கலாம்." } : {}),
   }, [], (a) => {
-    const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: "Well done!", size: 70, color: "good", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.2, ms: 900 });
+    const t = id("t"); objects.push({ kind: "text", id: t, x: 450, y: 270, text: isTamilSubject ? "நன்று! வாழ்த்துகள்!" : "Well done!", size: isTamilSubject ? 54 : 70, color: "good", anchor: "middle" }); a.push({ do: "write", target: t, at: 0.2, ms: 900 });
   }, { fresh: true });
 
   return { ...inp.meta, status: "published", title: inp.lesson.title, objects, steps } as ClassroomLesson;

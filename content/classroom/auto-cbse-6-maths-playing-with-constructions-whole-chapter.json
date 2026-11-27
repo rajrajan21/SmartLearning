@@ -35,7 +35,7 @@
    "x1": 450,
    "y1": 275,
    "x2": 709.8076211353316,
-   "y2": 350,
+   "y2": 200,
    "stroke": "soft",
    "width": 3
   },
@@ -44,8 +44,38 @@
    "id": "k2",
    "x1": 450,
    "y1": 275,
+   "x2": 709.8076211353316,
+   "y2": 350,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k3",
+   "x1": 450,
+   "y1": 275,
+   "x2": 450,
+   "y2": 425,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k4",
+   "x1": 450,
+   "y1": 275,
    "x2": 190.1923788646684,
    "y2": 350,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k5",
+   "x1": 450,
+   "y1": 275,
+   "x2": 190.1923788646684,
+   "y2": 200,
    "stroke": "soft",
    "width": 3
   },
@@ -84,9 +114,9 @@
   {
    "kind": "rect",
    "id": "n0",
-   "x": 376.5,
+   "x": 389.5,
    "y": 98,
-   "w": 147,
+   "w": 121,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -98,7 +128,7 @@
    "id": "t0",
    "x": 450,
    "y": 134,
-   "text": "rectangle",
+   "text": "compass",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -107,7 +137,7 @@
    "kind": "rect",
    "id": "n1",
    "x": 654.8076211353316,
-   "y": 323,
+   "y": 173,
    "w": 110,
    "h": 54,
    "rx": 14,
@@ -119,8 +149,8 @@
    "kind": "text",
    "id": "t1",
    "x": 709.8076211353316,
-   "y": 359,
-   "text": "square",
+   "y": 209,
+   "text": "circle",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -128,9 +158,9 @@
   {
    "kind": "rect",
    "id": "n2",
-   "x": 123.1923788646684,
+   "x": 654.8076211353316,
    "y": 323,
-   "w": 134,
+   "w": 110,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -140,9 +170,75 @@
   {
    "kind": "text",
    "id": "t2",
+   "x": 709.8076211353316,
+   "y": 359,
+   "text": "radius",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "n3",
+   "x": 395,
+   "y": 398,
+   "w": 110,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 450,
+   "y": 434,
+   "text": "centre",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "n4",
+   "x": 135.1923788646684,
+   "y": 323,
+   "w": 110,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t4",
    "x": 190.1923788646684,
    "y": 359,
-   "text": "diagonal",
+   "text": "arc",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "n5",
+   "x": 116.6923788646684,
+   "y": 173,
+   "w": 147,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t5",
+   "x": 190.1923788646684,
+   "y": 209,
+   "text": "rectangle",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -152,7 +248,7 @@
   {
    "id": "d1",
    "narration": {
-    "en": "Here is a picture of the big ideas in this lesson: rectangle, square and diagonal."
+    "en": "Here is a picture of the big ideas in this lesson: compass, circle, radius, centre, arc and rectangle."
    },
    "actions": [
     {
@@ -193,39 +289,84 @@
     {
      "do": "draw",
      "target": "k1",
-     "at": 0.43333333333333335
+     "at": 0.31666666666666665
     },
     {
      "do": "draw",
      "target": "n1",
-     "at": 0.45333333333333337
+     "at": 0.33666666666666667
     },
     {
      "do": "write",
      "target": "t1",
-     "at": 0.4833333333333333
+     "at": 0.36666666666666664
     },
     {
      "do": "draw",
      "target": "k2",
-     "at": 0.6666666666666666
+     "at": 0.43333333333333335
     },
     {
      "do": "draw",
      "target": "n2",
-     "at": 0.6866666666666668
+     "at": 0.45333333333333337
     },
     {
      "do": "write",
      "target": "t2",
+     "at": 0.4833333333333333
+    },
+    {
+     "do": "draw",
+     "target": "k3",
+     "at": 0.5499999999999999
+    },
+    {
+     "do": "draw",
+     "target": "n3",
+     "at": 0.5700000000000001
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.5999999999999999
+    },
+    {
+     "do": "draw",
+     "target": "k4",
+     "at": 0.6666666666666666
+    },
+    {
+     "do": "draw",
+     "target": "n4",
+     "at": 0.6866666666666668
+    },
+    {
+     "do": "write",
+     "target": "t4",
      "at": 0.7166666666666666
+    },
+    {
+     "do": "draw",
+     "target": "k5",
+     "at": 0.7833333333333334
+    },
+    {
+     "do": "draw",
+     "target": "n5",
+     "at": 0.8033333333333333
+    },
+    {
+     "do": "write",
+     "target": "t5",
+     "at": 0.8333333333333334
     }
    ]
   },
   {
    "id": "d2",
    "narration": {
-    "en": "Squares and rectangles have four right angles."
+    "en": "A compass draws a circle: the fixed tip is the centre and the distance to the pencil is the radius."
    },
    "actions": [
     {
@@ -238,6 +379,18 @@
      "do": "pulse",
      "target": "n1",
      "at": 0.35,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "n2",
+     "at": 0.55,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "n3",
+     "at": 0.7500000000000001,
      "color": "accent"
     }
    ]
@@ -245,7 +398,7 @@
   {
    "id": "d3",
    "narration": {
-    "en": "A square has four equal sides."
+    "en": "All points on a circle are the same distance from its centre."
    },
    "actions": [
     {
@@ -253,25 +406,25 @@
      "target": "n1",
      "at": 0.15,
      "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "n3",
+     "at": 0.35,
+     "color": "accent"
     }
    ]
   },
   {
    "id": "d4",
    "narration": {
-    "en": "Diagonals of a rectangle are equal."
+    "en": "A rectangle has equal opposite sides and four 90 degree angles; a square has all sides equal and four 90 degree angles."
    },
    "actions": [
     {
      "do": "pulse",
-     "target": "n0",
+     "target": "n5",
      "at": 0.15,
-     "color": "accent"
-    },
-    {
-     "do": "pulse",
-     "target": "n2",
-     "at": 0.35,
      "color": "accent"
     }
    ]
@@ -279,7 +432,7 @@
   {
    "id": "d5",
    "narration": {
-    "en": "A compass finds points equal distance from two given points."
+    "en": "Corners of a figure are named in order around it, so ABCD is valid but ABDC is not."
    },
    "actions": [
     {

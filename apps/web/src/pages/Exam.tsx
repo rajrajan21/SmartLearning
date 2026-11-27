@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { Link, useParams } from "wouter";
-import type { AnswerFeedback, AnswerResponse, PublicQuestion } from "@studysmart/shared";
+import { defaultMarksFor, type AnswerFeedback, type AnswerResponse, type PublicQuestion, type QuestionTier } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useBoard, useRetry } from "../lib/curriculum";
-import { sendAnswer, shuffled } from "../lib/practice";
+import { formatStudentAnswer, sendAnswer, shuffled } from "../lib/practice";
+import { recordMistake } from "../lib/mistakes";
 import { saveScore, scopeKey, useChapterPool, getScore } from "../lib/chapterTools";
 import { NextStep, nextChapter } from "../components/LessonFlow";
 import { usePageTour } from "../components/SpotlightTour";
@@ -13,7 +14,13 @@ import { QuestionCard } from "../components/QuestionCard";
 import { ErrorBox, Loading, NotFound } from "../components/bits";
 
 type Phase = "intro" | "running" | "marking" | "done";
-interface Marked { q: PublicQuestion; fb: AnswerFeedback | null }
+interface Marked { q: PublicQuestion; response?: AnswerResponse; fb: AnswerFeedback | null }
+
+const TIER_LABEL: Record<QuestionTier, string> = {
+  textbook: "📘 Textbook",
+  exam: "📝 Exam Extra",
+  advanced: "🚀 Advanced",
+};
 
 export function useChapterScope() {
   const { board = "", cls = "", subject = "", chapter = "" } = useParams<{ board: string; cls: string; subject: string; chapter: string }>();
@@ -24,9 +31,28 @@ export function useChapterScope() {
   return { board, cls, subject, chapter, tree, ch, topics, retry, back: `/${board}/${cls}/${subject}/${chapter}` };
 }
 
-/** Balanced: an equal share from every round (easy to hard), then shuffled, like a real paper. */
+/** Balanced: an equal share from every round/tier (easy to hard), like a real paper. */
 export function chooseQuestions(all: PublicQuestion[], n: number, balanced: boolean): PublicQuestion[] {
   if (!balanced) return shuffled(all).slice(0, n);
+  const hasTiers = all.some((q) => q.tier);
+  if (hasTiers) {
+    const groups: PublicQuestion[][] = [
+      shuffled(all.filter((q) => (q.tier ?? "textbook") === "textbook")),
+      shuffled(all.filter((q) => q.tier === "exam")),
+      shuffled(all.filter((q) => q.tier === "advanced")),
+    ];
+    const out: PublicQuestion[] = [];
+    while (out.length < Math.min(n, all.length)) {
+      let moved = false;
+      for (const g of groups) {
+        const q = g.shift();
+        if (q && out.length < n) { out.push(q); moved = true; }
+      }
+      if (!moved) break;
+    }
+    const order: Record<string, number> = { textbook: 0, exam: 1, advanced: 2 };
+    return out.sort((a, b) => (order[a.tier ?? "textbook"] ?? 0) - (order[b.tier ?? "textbook"] ?? 0) || a.round - b.round);
+  }
   const by = [1, 2, 3, 4].map((r) => shuffled(all.filter((q) => q.round === r)));
   const out: PublicQuestion[] = [];
   while (out.length < Math.min(n, all.length)) { let moved = false; for (const g of by) { const q = g.shift(); if (q && out.length < n) { out.push(q); moved = true; } } if (!moved) break; }
@@ -64,6 +90,7 @@ export function ExamPage() {
   const [saved, setSaved] = useState<{ best: number; isNewBest: boolean } | null>(null);
   const scope = scopeKey("exam", sc.board, sc.cls, sc.subject, sc.chapter);
   const timed = s.get("exams.timed") === true;
+  const marksByTier = s.get("exam.marks.byTier") !== false;
 
   const questions = pool.status === "ready" ? pool.data : [];
   const count = Math.min(s.get("exams.studentChoosesLength") === true && pick ? pick : s.get<number>("exams.questionCount"), questions.length);
@@ -83,7 +110,11 @@ export function ExamPage() {
       const out: Marked[] = [];
       for (const q of paperNow) {
         const r = answers.current[q.id];
-        out.push({ q, fb: r ? await sendAnswer(q.id, crypto.randomUUID(), 0, r) : null });
+        const fb = r ? await sendAnswer(q.id, crypto.randomUUID(), 0, r) : null;
+        if (fb && !fb.correct && s.get("feature.mastery") === true && s.get("mistakes.enabled") === true) {
+          recordMistake(q, fb, s.get<number>("mistakes.max") || 60);
+        }
+        out.push({ q, response: r, fb });
       }
       const right = out.filter((m) => m.fb?.correct).length;
       setMarked(out);
@@ -133,16 +164,16 @@ export function ExamPage() {
 
   if (phase === "running") {
     const q = paper[at]!;
-    const next = () => { if (at + 1 >= paper.length) void finish(paper); else setAt(at + 1); };
+    const nextQ = () => { if (at + 1 >= paper.length) void finish(paper); else setAt(at + 1); };
     return (
       <div className="paper exam">
         <div className="exam-bar" role="group">
           <b>{ui("questionNofM", lang).replace("{a}", String(at + 1)).replace("{b}", String(paper.length))}</b>
           {timed && !diag && <span role="timer" className={left < 30 ? "timer low" : "timer"}>{ui("testTimeLeft", lang)}: {fmt(Math.max(0, left))}</span>}
         </div>
-        <QuestionCard key={q.id} q={q} collect={(r) => { answers.current[q.id] = r; next(); }} onDone={() => undefined} />
+        <QuestionCard key={q.id} q={q} collect={(r) => { answers.current[q.id] = r; nextQ(); }} onDone={() => undefined} />
         {s.get("exams.markForReview") === true && <p><button type="button" className="btn ghost" aria-pressed={flags.has(q.id)} onClick={() => setFlags((f) => { const n = new Set(f); if (n.has(q.id)) n.delete(q.id); else n.add(q.id); return n; })}>{flags.has(q.id) ? "🚩 " : "⚑ "}{ui("flagQuestion", lang)}</button></p>}
-        {s.get("exams.allowSkip") === true && <p><button type="button" className="btn ghost" onClick={next}>{ui("skipQuestion", lang)}</button></p>}
+        {s.get("exams.allowSkip") === true && <p><button type="button" className="btn ghost" onClick={nextQ}>{ui("skipQuestion", lang)}</button></p>}
       </div>
     );
   }
@@ -150,34 +181,92 @@ export function ExamPage() {
   if (phase === "marking") return <div className="paper"><p role="status">{ui("markingTest", lang)}</p></div>;
 
   if (failed) return <div className="paper"><ErrorBox onRetry={() => void finish(paper)} /></div>;
-  const right = marked.filter((m) => m.fb?.correct).length, pct = Math.round((right / Math.max(1, marked.length)) * 100), pass = pct >= s.get<number>("exams.passPercent");
+
+  const right = marked.filter((m) => m.fb?.correct).length;
+  const pct = Math.round((right / Math.max(1, marked.length)) * 100);
+  const maxOf = (m: Marked) => (marksByTier ? (m.fb?.maxMarks ?? m.q.marks ?? defaultMarksFor(m.q)) : 1);
+  const gotOf = (m: Marked) => (m.fb?.correct ? (marksByTier ? (m.fb.marksAwarded ?? maxOf(m)) : 1) : 0);
+  const totalMarks = marked.reduce((acc, m) => acc + maxOf(m), 0);
+  const earnedMarks = marked.reduce((acc, m) => acc + gotOf(m), 0);
+  const marksPct = Math.round((earnedMarks / Math.max(1, totalMarks)) * 100);
+  const pass = pct >= s.get<number>("exams.passPercent");
+  const masteryBadge = marksPct >= 85 ? "🌟 Mastery Achieved" : pass ? "👍 Good Progress" : "📘 Keep Practicing";
+
+  const hasTiers = marked.some((m) => m.q.tier);
+  const tierBreakdown = (["textbook", "exam", "advanced"] as const).map((tier) => {
+    const items = marked.filter((m) => (m.q.tier ?? "textbook") === tier);
+    const earned = items.reduce((a, m) => a + gotOf(m), 0);
+    const max = items.reduce((a, m) => a + maxOf(m), 0);
+    return { tier, count: items.length, earned, max, pct: max ? Math.round((earned / max) * 100) : 0 };
+  }).filter((t) => t.count > 0);
+
+  const missedCount = marked.filter((m) => !m.fb?.correct).length;
+
   return (
     <div className="paper exam">
       <h1>{ui("chapterTest", lang)}: {name}</h1>
-      <p className="lead" role="status" data-tour={s.get("exams.showReview") === true ? undefined : "results-review"}>{ui("testScore", lang).replace("{a}", String(right)).replace("{b}", String(marked.length))} ({pct}%)</p>
-      {diag && <p className="lead" role="status">{startAt(marked, s.get<number>("exams.diagnostic.passPercent"), lang)}</p>}
-      {!diag && <p>{pass ? `🎉 ${ui("testPassed", lang)}` : ui("testTryAgain", lang)}{saved?.isNewBest ? ` ${ui("newBest", lang)}` : ""}</p>}
-      {timeUp && <p className="small">{ui("timeUp", lang)}</p>}
+      <div className="report-card" role="region" aria-label="Chapter Test Report Card">
+        <div className="report-head">
+          <p className="lead" role="status" data-tour={s.get("exams.showReview") === true ? undefined : "results-review"}>
+            {ui("testScore", lang).replace("{a}", String(right)).replace("{b}", String(marked.length))} ({pct}%)
+          </p>
+          <p className="marks-summary">
+            <b>Marks: {earnedMarks} / {totalMarks} ({marksPct}%)</b> · <span className="mastery-badge">{masteryBadge}</span>
+          </p>
+        </div>
+        {diag && <p className="lead" role="status">{startAt(marked, s.get<number>("exams.diagnostic.passPercent"), lang)}</p>}
+        {!diag && <p>{pass ? `🎉 ${ui("testPassed", lang)}` : ui("testTryAgain", lang)}{saved?.isNewBest ? ` ${ui("newBest", lang)}` : ""}</p>}
+        {timeUp && <p className="small">{ui("timeUp", lang)}</p>}
+
+        {hasTiers && (
+          <div className="tier-breakdown" aria-label="Breakdown by tier">
+            {tierBreakdown.map((t) => (
+              <div key={t.tier} className="tier-stat">
+                <span>{TIER_LABEL[t.tier]}</span>
+                <b>{t.earned}/{t.max} marks ({t.pct}%)</b>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
       <div data-tour="results-next">
         {!diag && next && <NextStep action={next} />}
       </div>
+
       {s.get("exams.showReview") === true && (
         <ol className="review" data-tour="results-review">
-          {marked.map((m) => (
-            <li key={m.q.id} className={m.fb?.correct ? "ok" : "miss"}>
-              <p className="problem">{flags.has(m.q.id) ? "🚩 " : ""}{s.name(m.q.stem)}</p>
-              {!m.fb ? <p className="small">{ui("notAnswered", lang)}</p> : (
-                <>
-                  <p><b>{m.fb.correct ? `✓ ${ui("correct", lang)}` : ui("notQuite", lang)}</b></p>
-                  {!m.fb.correct && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(m.fb.correctAnswer)}</p>}
-                  <p className="small">{s.name(m.fb.explanation)}</p>
-                </>
-              )}
-            </li>
-          ))}
+          {marked.map((m) => {
+            const qMax = maxOf(m);
+            const qGot = gotOf(m);
+            return (
+              <li key={m.q.id} className={m.fb?.correct ? "ok" : "miss"}>
+                <div className="review-head">
+                  <p className="problem">{flags.has(m.q.id) ? "🚩 " : ""}{s.name(m.q.stem)}</p>
+                  <span className={`marks-pill ${m.fb?.correct ? "ok" : "miss"}`}>{qGot}/{qMax} {qMax === 1 ? "mark" : "marks"}</span>
+                </div>
+                {m.q.tier && <p className="small">{TIER_LABEL[m.q.tier]}</p>}
+                {!m.fb ? <p className="small">{ui("notAnswered", lang)}</p> : (
+                  <>
+                    <p><b>{m.fb.correct ? `✓ ${ui("correct", lang)}` : ui("notQuite", lang)}</b></p>
+                    <p className="small"><b>Your answer:</b> {formatStudentAnswer(m.q, m.response, s.name)}</p>
+                    {!m.fb.correct && <p><b>{ui("rightAnswerIs", lang)}:</b> {s.name(m.fb.correctAnswer)}</p>}
+                    <p className="small">{s.name(m.fb.explanation)}</p>
+                    {m.fb.solutionSteps && m.fb.solutionSteps.length > 0 && (
+                      <ol className="solution-steps">{m.fb.solutionSteps.map((st, idx) => <li key={idx}>{s.name(st)}</li>)}</ol>
+                    )}
+                  </>
+                )}
+              </li>
+            );
+          })}
         </ol>
       )}
-      <div className="actions"><button type="button" className="btn" onClick={() => start(diag)}>{ui("testAgain", lang)}</button><Link className="btn ghost" href={sc.back}>{ui("backToChapter", lang)}</Link></div>
+      <div className="actions">
+        {missedCount > 0 && s.get("feature.mastery") === true && <Link className="btn" href="/mistakes">Revise Missed Questions ({missedCount})</Link>}
+        <button type="button" className={missedCount > 0 ? "btn ghost" : "btn"} onClick={() => start(diag)}>{ui("testAgain", lang)}</button>
+        <Link className="btn ghost" href={sc.back}>{ui("backToChapter", lang)}</Link>
+      </div>
     </div>
   );
 }

@@ -6,7 +6,7 @@
  "topic": "mole-concept",
  "status": "published",
  "title": {
-  "en": "The mole concept and molar mass"
+  "en": "The mole concept, percent composition…"
  },
  "objects": [
   {
@@ -96,7 +96,7 @@
    "id": "cl0",
    "x": 450,
    "y": 266,
-   "text": "The mole concept and",
+   "text": "The mole concept,",
    "size": 23,
    "color": "ink",
    "anchor": "middle"
@@ -106,7 +106,7 @@
    "id": "cl1",
    "x": 450,
    "y": 294.75,
-   "text": "molar mass",
+   "text": "percent composition…",
    "size": 23,
    "color": "ink",
    "anchor": "middle"
@@ -114,9 +114,9 @@
   {
    "kind": "rect",
    "id": "n0",
-   "x": 350.5,
+   "x": 395,
    "y": 98,
-   "w": 199,
+   "w": 110,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -128,7 +128,7 @@
    "id": "t0",
    "x": 450,
    "y": 134,
-   "text": "6.022 x 10^23",
+   "text": "mole",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -136,9 +136,9 @@
   {
    "kind": "rect",
    "id": "n1",
-   "x": 590.8076211353316,
+   "x": 584.3076211353316,
    "y": 173,
-   "w": 238,
+   "w": 251,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -150,7 +150,7 @@
    "id": "t1",
    "x": 709.8076211353316,
    "y": 209,
-   "text": "gram atomic mass",
+   "text": "12 g of carbon-12",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -158,9 +158,9 @@
   {
    "kind": "rect",
    "id": "n2",
-   "x": 629.8076211353316,
+   "x": 610.3076211353316,
    "y": 323,
-   "w": 160,
+   "w": 199,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -172,7 +172,7 @@
    "id": "t2",
    "x": 709.8076211353316,
    "y": 359,
-   "text": "molar mass",
+   "text": "6.023 x 10^23",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -180,9 +180,9 @@
   {
    "kind": "rect",
    "id": "n3",
-   "x": 376.5,
+   "x": 331,
    "y": 398,
-   "w": 147,
+   "w": 238,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -194,7 +194,7 @@
    "id": "t3",
    "x": 450,
    "y": 434,
-   "text": "n = m / M",
+   "text": "gram atomic mass",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -202,9 +202,9 @@
   {
    "kind": "rect",
    "id": "n4",
-   "x": 64.6923788646684,
+   "x": 51.6923788646684,
    "y": 323,
-   "w": 251,
+   "w": 277,
    "h": 54,
    "rx": 14,
    "fill": "#FFF3D6",
@@ -216,7 +216,7 @@
    "id": "t4",
    "x": 190.1923788646684,
    "y": 359,
-   "text": "particles = n x N",
+   "text": "gram molecular mass",
    "size": 24,
    "color": "ink",
    "anchor": "middle"
@@ -248,7 +248,7 @@
   {
    "id": "d1",
    "narration": {
-    "en": "Here is a picture of the big ideas in this lesson: 6.022 x 10^23, gram atomic mass, molar mass, n = m / M, particles = n x N and 22.4 L at STP."
+    "en": "Here is a picture of the big ideas in this lesson: mole, 12 g of carbon-12, 6.023 x 10^23, gram atomic mass, gram molecular mass and 22.4 L at STP."
    },
    "actions": [
     {
@@ -366,7 +366,47 @@
   {
    "id": "d2",
    "narration": {
-    "en": "1 mole = 6.022 x 10^23 particles."
+    "en": "One mole contains 6.023 x 10^23 particles (Avogadro's number)."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "n0",
+     "at": 0.15,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "n2",
+     "at": 0.35,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "Moles = mass / molar mass = particles / 6.023 x 10^23."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "n0",
+     "at": 0.15,
+     "color": "accent"
+    },
+    {
+     "do": "pulse",
+     "target": "n2",
+     "at": 0.35,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "One mole of any gas occupies 22.4 litre at STP."
    },
    "actions": [
     {
@@ -378,42 +418,14 @@
    ]
   },
   {
-   "id": "d3",
-   "narration": {
-    "en": "n = mass / molar mass."
-   },
-   "actions": [
-    {
-     "do": "pulse",
-     "target": "n2",
-     "at": 0.15,
-     "color": "accent"
-    }
-   ]
-  },
-  {
-   "id": "d4",
-   "narration": {
-    "en": "1 mole of gas at STP = 22.4 L."
-   },
-   "actions": [
-    {
-     "do": "pulse",
-     "target": "cn",
-     "at": 0.2,
-     "color": "accent"
-    }
-   ]
-  },
-  {
    "id": "d5",
    "narration": {
-    "en": "Molar mass of H2O = 18 g/mol."
+    "en": "Percent composition = mass of element / molecular mass x 100; equal volumes of gases at the same T and P hold equal numbers of molecules."
    },
    "actions": [
     {
      "do": "pulse",
-     "target": "n2",
+     "target": "n0",
      "at": 0.15,
      "color": "accent"
     }

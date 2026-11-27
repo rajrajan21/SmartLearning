@@ -1,604 +1,279 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "electric-charge-and-electric-current",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "An electric circuit"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "electric-charge-and-electric-current",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "An electric circuit"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "A simple electric circuit",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "rect",
+   "id": "bat",
+   "x": 170,
+   "y": 220,
+   "w": 70,
+   "h": 60,
+   "rx": 6,
+   "fill": "#EF9A9A",
+   "stroke": "warm",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "bt",
+   "x": 205,
+   "y": 258,
+   "text": "🔋",
+   "size": 38,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bl",
+   "x": 120,
+   "y": 258,
+   "text": "Cell",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "w1",
+   "d": "M 205 220 L 205 130 L 450 130",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "path",
+   "id": "w2",
+   "d": "M 450 130 L 700 130 L 700 220",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "path",
+   "id": "w3",
+   "d": "M 700 340 L 700 400 L 205 400 L 205 280",
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "bu",
+   "cx": 700,
+   "cy": 280,
+   "r": 50,
+   "fill": "#FFF9C4",
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "text",
+   "id": "bu2",
+   "x": 700,
+   "y": 295,
+   "text": "💡",
+   "size": 56,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bn",
+   "x": 790,
+   "y": 285,
+   "text": "Bulb",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "rect",
+   "id": "sw",
+   "x": 400,
+   "y": 112,
+   "w": 100,
+   "h": 36,
+   "rx": 6,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "swt",
+   "x": 450,
+   "y": 100,
+   "text": "Switch",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "d1",
+   "x1": 260,
+   "y1": 130,
+   "x2": 340,
+   "y2": 130,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d2",
+   "x1": 700,
+   "y1": 150,
+   "x2": 700,
+   "y2": 200,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d3",
+   "x1": 640,
+   "y1": 400,
+   "x2": 560,
+   "y2": 400,
+   "stroke": "sun",
+   "width": 5
+  },
+  {
+   "kind": "arrow",
+   "id": "d4",
+   "x1": 205,
+   "y1": 360,
+   "x2": 205,
+   "y2": 310,
+   "stroke": "sun",
+   "width": 5
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An electric circuit is a closed path through which electricity can flow. It needs a cell, wires and a bulb."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 44,
-      "text": "A simple electric circuit",
-      "size": 34,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "rect",
-      "id": "bat",
-      "x": 170,
-      "y": 220,
-      "w": 70,
-      "h": 60,
-      "rx": 6,
-      "fill": "#EF9A9A",
-      "stroke": "warm",
-      "width": 5
+     "do": "draw",
+     "target": "bat",
+     "at": 0.2
     },
     {
-      "kind": "text",
-      "id": "bt",
-      "x": 205,
-      "y": 258,
-      "text": "🔋",
-      "size": 38,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "show",
+     "target": "bt",
+     "at": 0.3
     },
     {
-      "kind": "text",
-      "id": "bl",
-      "x": 120,
-      "y": 258,
-      "text": "Cell",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "bl",
+     "at": 0.4
     },
     {
-      "kind": "path",
-      "id": "w1",
-      "d": "M 205 220 L 205 130 L 450 130",
-      "stroke": "ink",
-      "width": 6
+     "do": "draw",
+     "target": "bu",
+     "at": 0.6
     },
     {
-      "kind": "path",
-      "id": "w2",
-      "d": "M 450 130 L 700 130 L 700 220",
-      "stroke": "ink",
-      "width": 6
+     "do": "show",
+     "target": "bu2",
+     "at": 0.7
     },
     {
-      "kind": "path",
-      "id": "w3",
-      "d": "M 700 340 L 700 400 L 205 400 L 205 280",
-      "stroke": "ink",
-      "width": 6
-    },
-    {
-      "kind": "circle",
-      "id": "bu",
-      "cx": 700,
-      "cy": 280,
-      "r": 50,
-      "fill": "#FFF9C4",
-      "stroke": "sun",
-      "width": 5
-    },
-    {
-      "kind": "text",
-      "id": "bu2",
-      "x": 700,
-      "y": 295,
-      "text": "💡",
-      "size": 56,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "bn",
-      "x": 790,
-      "y": 285,
-      "text": "Bulb",
-      "size": 22,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "rect",
-      "id": "sw",
-      "x": 400,
-      "y": 112,
-      "w": 100,
-      "h": 36,
-      "rx": 6,
-      "stroke": "soft",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "swt",
-      "x": 450,
-      "y": 100,
-      "text": "Switch",
-      "size": 22,
-      "color": "soft",
-      "anchor": "middle"
-    },
-    {
-      "kind": "arrow",
-      "id": "d1",
-      "x1": 260,
-      "y1": 130,
-      "x2": 340,
-      "y2": 130,
-      "stroke": "sun",
-      "width": 5
-    },
-    {
-      "kind": "arrow",
-      "id": "d2",
-      "x1": 700,
-      "y1": 150,
-      "x2": 700,
-      "y2": 200,
-      "stroke": "sun",
-      "width": 5
-    },
-    {
-      "kind": "arrow",
-      "id": "d3",
-      "x1": 640,
-      "y1": 400,
-      "x2": 560,
-      "y2": 400,
-      "stroke": "sun",
-      "width": 5
-    },
-    {
-      "kind": "arrow",
-      "id": "d4",
-      "x1": 205,
-      "y1": 360,
-      "x2": 205,
-      "y2": 310,
-      "stroke": "sun",
-      "width": 5
-    },
-    {
-      "id": "elecboardtitle",
-      "kind": "text",
-      "x": 450,
-      "y": 50,
-      "text": "Measure current and potential difference",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "elecleft",
-      "kind": "path",
-      "d": "M 245 345 L 245 165 L 356 165",
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "elecright",
-      "kind": "path",
-      "d": "M 413 165 L 514 165 M 556 165 L 654 165 L 654 345",
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "elecbottoma",
-      "kind": "line",
-      "x1": 245,
-      "y1": 345,
-      "x2": 416,
-      "y2": 345,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "elecbottomb",
-      "kind": "line",
-      "x1": 469,
-      "y1": 345,
-      "x2": 654,
-      "y2": 345,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "elecpos",
-      "kind": "line",
-      "x1": 417,
-      "y1": 310,
-      "x2": 417,
-      "y2": 380,
-      "stroke": "accent",
-      "width": 6
-    },
-    {
-      "id": "elecneg",
-      "kind": "line",
-      "x1": 468,
-      "y1": 322,
-      "x2": 468,
-      "y2": 368,
-      "stroke": "accent",
-      "width": 6
-    },
-    {
-      "id": "elecplus",
-      "kind": "text",
-      "x": 405,
-      "y": 414,
-      "text": "+",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "elecminus",
-      "kind": "text",
-      "x": 477,
-      "y": 414,
-      "text": "−",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "eleclamp",
-      "kind": "circle",
-      "cx": 385,
-      "cy": 165,
-      "r": 29,
-      "stroke": "warm",
-      "width": 4
-    },
-    {
-      "id": "eleclampx",
-      "kind": "path",
-      "d": "M 368 148 L 402 182 M 368 182 L 402 148",
-      "stroke": "warm",
-      "width": 3
-    },
-    {
-      "id": "elecampring",
-      "kind": "circle",
-      "cx": 535,
-      "cy": 165,
-      "r": 21,
-      "stroke": "accent",
-      "width": 3
-    },
-    {
-      "id": "elecamp",
-      "kind": "text",
-      "x": 535,
-      "y": 173,
-      "text": "A",
-      "size": 21,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "id": "elecvoltbranch",
-      "kind": "path",
-      "d": "M 341 165 L 341 267 L 363 267 M 407 267 L 432 267 L 432 165",
-      "stroke": "good",
-      "width": 4
-    },
-    {
-      "id": "elecvoltring",
-      "kind": "circle",
-      "cx": 385,
-      "cy": 267,
-      "r": 22,
-      "stroke": "good",
-      "width": 3
-    },
-    {
-      "id": "elecvolt",
-      "kind": "text",
-      "x": 385,
-      "y": 275,
-      "text": "V",
-      "size": 22,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "id": "eleccurrentarrow",
-      "kind": "arrow",
-      "x1": 245,
-      "y1": 276,
-      "x2": 245,
-      "y2": 210,
-      "stroke": "accent",
-      "width": 6
+     "do": "write",
+     "target": "bn",
+     "at": 0.8
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The wires join the cell to the bulb and back again, making a complete loop."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "An electric circuit is a closed path through which electricity can flow. It needs a cell, wires and a bulb."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "bat",
-          "at": 0.2
-        },
-        {
-          "do": "show",
-          "target": "bt",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "bl",
-          "at": 0.4
-        },
-        {
-          "do": "draw",
-          "target": "bu",
-          "at": 0.6
-        },
-        {
-          "do": "show",
-          "target": "bu2",
-          "at": 0.7
-        },
-        {
-          "do": "write",
-          "target": "bn",
-          "at": 0.8
-        }
-      ]
+     "do": "draw",
+     "target": "w1",
+     "at": 0.1
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "The wires join the cell to the bulb and back again, making a complete loop."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "w1",
-          "at": 0.1
-        },
-        {
-          "do": "draw",
-          "target": "w2",
-          "at": 0.35
-        },
-        {
-          "do": "draw",
-          "target": "w3",
-          "at": 0.6
-        }
-      ]
+     "do": "draw",
+     "target": "w2",
+     "at": 0.35
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "When the switch is closed the circuit is complete, and electricity flows round it. The bulb glows. If the loop is broken anywhere, the bulb goes out."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "sw",
-          "at": 0.1
-        },
-        {
-          "do": "write",
-          "target": "swt",
-          "at": 0.15
-        },
-        {
-          "do": "fill",
-          "target": "bu",
-          "color": "sun",
-          "at": 0.5
-        },
-        {
-          "do": "draw",
-          "target": "d1",
-          "at": 0.55
-        },
-        {
-          "do": "draw",
-          "target": "d2",
-          "at": 0.65
-        },
-        {
-          "do": "draw",
-          "target": "d3",
-          "at": 0.75
-        },
-        {
-          "do": "draw",
-          "target": "d4",
-          "at": 0.85
-        }
-      ]
-    },
-    {
-      "id": "elec-meter-loop",
-      "narration": {
-        "en": "Trace the main circuit. The arrow shows conventional current going from the positive side of the cell through the lamp and back to the negative side. The ammeter sits in that same path."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "elecboardtitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecleft",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecright",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecbottoma",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecbottomb",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecpos",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecneg",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecplus",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecminus",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "eleclamp",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "eleclampx",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecampring",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "elecamp",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "draw",
-          "target": "eleccurrentarrow",
-          "on": "arrow shows",
-          "ms": 850
-        },
-        {
-          "do": "pulse",
-          "target": "elecampring",
-          "on": "ammeter",
-          "ms": 1000
-        }
-      ]
-    },
-    {
-      "id": "elec-meter-branch",
-      "narration": {
-        "en": "The voltmeter has a separate branch. Its two connections reach opposite terminals of the lamp. It measures the difference in electrical potential between those points."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "elecvoltbranch",
-          "on": "separate branch",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "elecvoltring",
-          "on": "separate branch",
-          "ms": 380
-        },
-        {
-          "do": "show",
-          "target": "elecvolt",
-          "on": "separate branch",
-          "ms": 380
-        }
-      ]
-    },
-    {
-      "id": "elec-picture-check",
-      "narration": {
-        "en": "Compare where the two meters are connected in the diagram."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "Which meter measures the potential difference across the lamp?"
-        },
-        "explanation": {
-          "en": "Meter V connects to the two sides of the lamp. Meter A is in the main path and reads current."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "A"
-            },
-            "whyWrong": {
-              "en": "Meter A is in series and measures current."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "V"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "Both meters"
-            },
-            "whyWrong": {
-              "en": "The meter in the main circuit and the meter across the lamp measure different quantities."
-            }
-          }
-        ]
-      }
+     "do": "draw",
+     "target": "w3",
+     "at": 0.6
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "When the switch is closed the circuit is complete, and electricity flows round it. The bulb glows. If the loop is broken anywhere, the bulb goes out."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "sw",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "swt",
+     "at": 0.15
+    },
+    {
+     "do": "fill",
+     "target": "bu",
+     "color": "sun",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.55
+    },
+    {
+     "do": "draw",
+     "target": "d2",
+     "at": 0.65
+    },
+    {
+     "do": "draw",
+     "target": "d3",
+     "at": 0.75
+    },
+    {
+     "do": "draw",
+     "target": "d4",
+     "at": 0.85
+    }
+   ]
+  }
+ ]
 }

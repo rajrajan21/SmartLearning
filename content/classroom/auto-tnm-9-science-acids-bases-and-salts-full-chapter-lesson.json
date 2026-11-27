@@ -1,898 +1,180 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "acids-bases-and-salts",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Acids and bases"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "acids-bases-and-salts",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Acids and bases"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Testing with litmus paper",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "rect",
+   "id": "bl",
+   "x": 180,
+   "y": 150,
+   "w": 90,
+   "h": 150,
+   "rx": 4,
+   "fill": "#64B5F6",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "bl2",
+   "x": 225,
+   "y": 330,
+   "text": "Blue litmus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "rd",
+   "x": 630,
+   "y": 150,
+   "w": 90,
+   "h": 150,
+   "rx": 4,
+   "fill": "#EF5350",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "rd2",
+   "x": 675,
+   "y": 330,
+   "text": "Red litmus",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "ac",
+   "x": 225,
+   "y": 400,
+   "text": "Acid: turns blue to red",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "bs",
+   "x": 675,
+   "y": 400,
+   "text": "Base: turns red to blue",
+   "size": 24,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "tp",
+   "x": 405,
+   "y": 170,
+   "w": 90,
+   "h": 130,
+   "rx": 4,
+   "fill": "#E57373",
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lm",
+   "x": 450,
+   "y": 330,
+   "text": "Blue litmus in lemon juice",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "How can we tell an acid from a base? We use an indicator, such as litmus paper. Litmus paper is red or blue."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 44,
-      "text": "Testing with litmus paper",
-      "size": 34,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "rect",
-      "id": "bl",
-      "x": 180,
-      "y": 150,
-      "w": 90,
-      "h": 150,
-      "rx": 4,
-      "fill": "#64B5F6",
-      "stroke": "ink",
-      "width": 3
+     "do": "draw",
+     "target": "bl",
+     "at": 0.2
     },
     {
-      "kind": "text",
-      "id": "bl2",
-      "x": 225,
-      "y": 330,
-      "text": "Blue litmus",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "bl2",
+     "at": 0.3
     },
     {
-      "kind": "rect",
-      "id": "rd",
-      "x": 630,
-      "y": 150,
-      "w": 90,
-      "h": 150,
-      "rx": 4,
-      "fill": "#EF5350",
-      "stroke": "ink",
-      "width": 3
+     "do": "draw",
+     "target": "rd",
+     "at": 0.5
     },
     {
-      "kind": "text",
-      "id": "rd2",
-      "x": 675,
-      "y": 330,
-      "text": "Red litmus",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "ac",
-      "x": 225,
-      "y": 400,
-      "text": "Acid: turns blue to red",
-      "size": 24,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "bs",
-      "x": 675,
-      "y": 400,
-      "text": "Base: turns red to blue",
-      "size": 24,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "kind": "rect",
-      "id": "tp",
-      "x": 405,
-      "y": 170,
-      "w": 90,
-      "h": 130,
-      "rx": 4,
-      "fill": "#E57373",
-      "stroke": "ink",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "lm",
-      "x": 450,
-      "y": 330,
-      "text": "Blue litmus in lemon juice",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phaxis",
-      "kind": "line",
-      "x1": 128,
-      "y1": 263,
-      "x2": 772,
-      "y2": 263,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "phtick0",
-      "kind": "line",
-      "x1": 128,
-      "y1": 254,
-      "x2": 128,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum0",
-      "kind": "text",
-      "x": 128,
-      "y": 307,
-      "text": "0",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick1",
-      "kind": "line",
-      "x1": 174,
-      "y1": 254,
-      "x2": 174,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum1",
-      "kind": "text",
-      "x": 174,
-      "y": 307,
-      "text": "1",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick2",
-      "kind": "line",
-      "x1": 220,
-      "y1": 254,
-      "x2": 220,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum2",
-      "kind": "text",
-      "x": 220,
-      "y": 307,
-      "text": "2",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick3",
-      "kind": "line",
-      "x1": 266,
-      "y1": 254,
-      "x2": 266,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum3",
-      "kind": "text",
-      "x": 266,
-      "y": 307,
-      "text": "3",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick4",
-      "kind": "line",
-      "x1": 312,
-      "y1": 254,
-      "x2": 312,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum4",
-      "kind": "text",
-      "x": 312,
-      "y": 307,
-      "text": "4",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick5",
-      "kind": "line",
-      "x1": 358,
-      "y1": 254,
-      "x2": 358,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum5",
-      "kind": "text",
-      "x": 358,
-      "y": 307,
-      "text": "5",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick6",
-      "kind": "line",
-      "x1": 404,
-      "y1": 254,
-      "x2": 404,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum6",
-      "kind": "text",
-      "x": 404,
-      "y": 307,
-      "text": "6",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick7",
-      "kind": "line",
-      "x1": 450,
-      "y1": 254,
-      "x2": 450,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum7",
-      "kind": "text",
-      "x": 450,
-      "y": 307,
-      "text": "7",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick8",
-      "kind": "line",
-      "x1": 496,
-      "y1": 254,
-      "x2": 496,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum8",
-      "kind": "text",
-      "x": 496,
-      "y": 307,
-      "text": "8",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick9",
-      "kind": "line",
-      "x1": 542,
-      "y1": 254,
-      "x2": 542,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum9",
-      "kind": "text",
-      "x": 542,
-      "y": 307,
-      "text": "9",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick10",
-      "kind": "line",
-      "x1": 588,
-      "y1": 254,
-      "x2": 588,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum10",
-      "kind": "text",
-      "x": 588,
-      "y": 307,
-      "text": "10",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick11",
-      "kind": "line",
-      "x1": 634,
-      "y1": 254,
-      "x2": 634,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum11",
-      "kind": "text",
-      "x": 634,
-      "y": 307,
-      "text": "11",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick12",
-      "kind": "line",
-      "x1": 680,
-      "y1": 254,
-      "x2": 680,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum12",
-      "kind": "text",
-      "x": 680,
-      "y": 307,
-      "text": "12",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick13",
-      "kind": "line",
-      "x1": 726,
-      "y1": 254,
-      "x2": 726,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum13",
-      "kind": "text",
-      "x": 726,
-      "y": 307,
-      "text": "13",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtick14",
-      "kind": "line",
-      "x1": 772,
-      "y1": 254,
-      "x2": 772,
-      "y2": 273,
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phnum14",
-      "kind": "text",
-      "x": 772,
-      "y": 307,
-      "text": "14",
-      "size": 18,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phtitle",
-      "kind": "text",
-      "x": 450,
-      "y": 55,
-      "text": "Read the pH scale",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phacid",
-      "kind": "text",
-      "x": 260,
-      "y": 344,
-      "text": "Acidic",
-      "size": 23,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "id": "phneutral",
-      "kind": "text",
-      "x": 450,
-      "y": 344,
-      "text": "Neutral",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "phbase",
-      "kind": "text",
-      "x": 638,
-      "y": 344,
-      "text": "Basic",
-      "size": 23,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "id": "php0",
-      "kind": "circle",
-      "cx": 266,
-      "cy": 263,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phletter0",
-      "kind": "text",
-      "x": 266,
-      "y": 222,
-      "text": "A",
-      "size": 27,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "id": "php1",
-      "kind": "circle",
-      "cx": 450,
-      "cy": 263,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phletter1",
-      "kind": "text",
-      "x": 450,
-      "y": 222,
-      "text": "B",
-      "size": 27,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "id": "php2",
-      "kind": "circle",
-      "cx": 588,
-      "cy": 263,
-      "r": 8,
-      "fill": "accent",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "phletter2",
-      "kind": "text",
-      "x": 588,
-      "y": 222,
-      "text": "C",
-      "size": 27,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "write",
+     "target": "rd2",
+     "at": 0.6
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "An acid, like lemon juice, turns blue litmus red."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "How can we tell an acid from a base? We use an indicator, such as litmus paper. Litmus paper is red or blue."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "bl",
-          "at": 0.2
-        },
-        {
-          "do": "write",
-          "target": "bl2",
-          "at": 0.3
-        },
-        {
-          "do": "draw",
-          "target": "rd",
-          "at": 0.5
-        },
-        {
-          "do": "write",
-          "target": "rd2",
-          "at": 0.6
-        }
-      ]
+     "do": "draw",
+     "target": "tp",
+     "at": 0.3
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "An acid, like lemon juice, turns blue litmus red."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "tp",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "lm",
-          "at": 0.4
-        },
-        {
-          "do": "write",
-          "target": "ac",
-          "at": 0.7
-        }
-      ]
+     "do": "write",
+     "target": "lm",
+     "at": 0.4
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "A base, like soap solution, turns red litmus blue. Never taste or touch unknown liquids to test them."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "bs",
-          "at": 0.3
-        }
-      ]
-    },
-    {
-      "id": "acids-ph-scale",
-      "narration": {
-        "en": "Mark seven as neutral at room temperature. Values below seven are acidic. Values above seven are basic. Use the number line to locate each region."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "phtitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phaxis",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick0",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum0",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick9",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum9",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick10",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum10",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick11",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum11",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick12",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum12",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick13",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum13",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phtick14",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phnum14",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "phacid",
-          "on": "as neutral",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "phneutral",
-          "on": "as neutral",
-          "ms": 400
-        },
-        {
-          "do": "show",
-          "target": "phbase",
-          "on": "above seven",
-          "ms": 400
-        }
-      ]
-    },
-    {
-      "id": "acids-ph-samples",
-      "narration": {
-        "en": "Three water-based samples have measured pH values. A lies at three, B at seven and C at ten. Compare their positions before you classify them."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "php0",
-          "on": "A lies",
-          "ms": 390
-        },
-        {
-          "do": "show",
-          "target": "phletter0",
-          "on": "A lies",
-          "ms": 390
-        },
-        {
-          "do": "show",
-          "target": "php1",
-          "on": "B at",
-          "ms": 390
-        },
-        {
-          "do": "show",
-          "target": "phletter1",
-          "on": "B at",
-          "ms": 390
-        },
-        {
-          "do": "show",
-          "target": "php2",
-          "on": "C at",
-          "ms": 390
-        },
-        {
-          "do": "show",
-          "target": "phletter2",
-          "on": "C at",
-          "ms": 390
-        }
-      ]
-    },
-    {
-      "id": "acids-picture-check",
-      "narration": {
-        "en": "Read the three marked points. Choose the basic sample."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "Which sample is basic at room temperature?"
-        },
-        "explanation": {
-          "en": "The point C lies at pH ten, above the neutral marker at seven."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "Sample A"
-            },
-            "whyWrong": {
-              "en": "Point A is below seven."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "Sample C"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "Sample B"
-            },
-            "whyWrong": {
-              "en": "Point B is at the neutral marker."
-            }
-          }
-        ]
-      }
+     "do": "write",
+     "target": "ac",
+     "at": 0.7
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A base, like soap solution, turns red litmus blue. Never taste or touch unknown liquids to test them."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "bs",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
 }

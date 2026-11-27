@@ -1,0 +1,195 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "english",
+ "chapter": "ch03-unit-3-mystery-and-magic",
+ "topic": "language-work-words-with-several-meanings-interjections-fall",
+ "status": "published",
+ "title": {
+  "en": "The poem, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The poem, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "First part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 450,
+   "y": 190,
+   "text": "falling tone",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "Last part",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 810,
+   "y": 478,
+   "text": "falling tone, imaginative…",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A poem can be read part by part, from the first lines to the last. Let us place this poem on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "The verb draw has different meanings in different contexts. A speech can draw loud applause (get a reaction), an event can draw huge crowds (attract), and plants draw water (absorb) from the soil. A train draws into the station (moving), she drew."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "In a sentence, the interjection is followed by an exclamation mark: 'Ouch! I hurt my finger' and 'Yippee! We won the match'. Intonation is the rise and fall of the pitch of your voice. The falling tone drops from a high level to a low level and is."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "Read these with a falling tone: 'Come here!', 'Seize this magic brush', 'Paint my fortress tall!' and 'Go and fetch some rice'. Take turns making formal and informal requests in pairs. An imaginative essay is a creative piece that uses imagination.."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k2",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

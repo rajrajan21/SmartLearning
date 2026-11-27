@@ -1,691 +1,242 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "atomic-structure",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Atomic structure"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "atomic-structure",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Atomic structure"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 38,
+   "text": "A carbon atom",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "circle",
+   "id": "nuc",
+   "cx": 450,
+   "cy": 265,
+   "r": 34,
+   "fill": "#FFCDD2",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "nt",
+   "x": 450,
+   "y": 272,
+   "text": "6p 6n",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "orbit",
+   "id": "o1",
+   "cx": 450,
+   "cy": 265,
+   "r": 90,
+   "period": 6,
+   "size": 9,
+   "color": "water",
+   "ring": true,
+   "phase": 0
+  },
+  {
+   "kind": "orbit",
+   "id": "o2",
+   "cx": 450,
+   "cy": 265,
+   "r": 90,
+   "period": 6,
+   "size": 9,
+   "color": "water",
+   "phase": 180
+  },
+  {
+   "kind": "orbit",
+   "id": "e0",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 0,
+   "ring": true
+  },
+  {
+   "kind": "orbit",
+   "id": "e1",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 90
+  },
+  {
+   "kind": "orbit",
+   "id": "e2",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 180
+  },
+  {
+   "kind": "orbit",
+   "id": "e3",
+   "cx": 450,
+   "cy": 265,
+   "r": 160,
+   "period": 10,
+   "size": 9,
+   "color": "water",
+   "phase": 270
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 760,
+   "y": 130,
+   "text": "nucleus: protons (+) and neutrons",
+   "size": 20,
+   "color": "accent",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 760,
+   "y": 170,
+   "text": "electrons (−) in shells",
+   "size": 20,
+   "color": "water",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l3",
+   "x": 760,
+   "y": 440,
+   "text": "shells hold 2, 8, ... electrons",
+   "size": 20,
+   "color": "ink",
+   "anchor": "end"
+  },
+  {
+   "kind": "text",
+   "id": "l4",
+   "x": 150,
+   "y": 440,
+   "text": "carbon: 2 + 4 electrons",
+   "size": 20,
+   "color": "ink",
+   "anchor": "start"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An atom has a tiny centre, the nucleus, which holds protons and neutrons. Protons carry a positive charge and neutrons carry none. Here is a carbon atom with 6 protons and 6 neutrons."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 38,
-      "text": "A carbon atom",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "circle",
-      "id": "nuc",
-      "cx": 450,
-      "cy": 265,
-      "r": 34,
-      "fill": "#FFCDD2",
-      "stroke": "accent",
-      "width": 4
+     "do": "draw",
+     "target": "nuc",
+     "at": 0.3
     },
     {
-      "kind": "text",
-      "id": "nt",
-      "x": 450,
-      "y": 272,
-      "text": "6p 6n",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "nt",
+     "at": 0.5
     },
     {
-      "kind": "orbit",
-      "id": "o1",
-      "cx": 450,
-      "cy": 265,
-      "r": 90,
-      "period": 6,
-      "size": 9,
-      "color": "water",
-      "ring": true,
-      "phase": 0
-    },
-    {
-      "kind": "orbit",
-      "id": "o2",
-      "cx": 450,
-      "cy": 265,
-      "r": 90,
-      "period": 6,
-      "size": 9,
-      "color": "water",
-      "phase": 180
-    },
-    {
-      "kind": "orbit",
-      "id": "e0",
-      "cx": 450,
-      "cy": 265,
-      "r": 160,
-      "period": 10,
-      "size": 9,
-      "color": "water",
-      "phase": 0,
-      "ring": true
-    },
-    {
-      "kind": "orbit",
-      "id": "e1",
-      "cx": 450,
-      "cy": 265,
-      "r": 160,
-      "period": 10,
-      "size": 9,
-      "color": "water",
-      "phase": 90
-    },
-    {
-      "kind": "orbit",
-      "id": "e2",
-      "cx": 450,
-      "cy": 265,
-      "r": 160,
-      "period": 10,
-      "size": 9,
-      "color": "water",
-      "phase": 180
-    },
-    {
-      "kind": "orbit",
-      "id": "e3",
-      "cx": 450,
-      "cy": 265,
-      "r": 160,
-      "period": 10,
-      "size": 9,
-      "color": "water",
-      "phase": 270
-    },
-    {
-      "kind": "text",
-      "id": "l1",
-      "x": 760,
-      "y": 130,
-      "text": "nucleus: protons (+) and neutrons",
-      "size": 20,
-      "color": "accent",
-      "anchor": "end"
-    },
-    {
-      "kind": "text",
-      "id": "l2",
-      "x": 760,
-      "y": 170,
-      "text": "electrons (−) in shells",
-      "size": 20,
-      "color": "water",
-      "anchor": "end"
-    },
-    {
-      "kind": "text",
-      "id": "l3",
-      "x": 760,
-      "y": 440,
-      "text": "shells hold 2, 8, ... electrons",
-      "size": 20,
-      "color": "ink",
-      "anchor": "end"
-    },
-    {
-      "kind": "text",
-      "id": "l4",
-      "x": 150,
-      "y": 440,
-      "text": "carbon: 2 + 4 electrons",
-      "size": 20,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "id": "atomtitle",
-      "kind": "text",
-      "x": 450,
-      "y": 45,
-      "text": "Aluminium-27 · Shell model",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomlegend",
-      "kind": "text",
-      "x": 450,
-      "y": 475,
-      "text": "Simplified energy-level model",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomnucleus",
-      "kind": "circle",
-      "cx": 440,
-      "cy": 259,
-      "r": 36,
-      "stroke": "#A97952",
-      "width": 4
-    },
-    {
-      "id": "atomproton",
-      "kind": "text",
-      "x": 440,
-      "y": 255,
-      "text": "13 p",
-      "size": 20,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomneutron",
-      "kind": "text",
-      "x": 440,
-      "y": 277,
-      "text": "14 n",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomringk",
-      "kind": "circle",
-      "cx": 440,
-      "cy": 259,
-      "r": 63,
-      "stroke": "accent",
-      "width": 3
-    },
-    {
-      "id": "atomek0",
-      "kind": "circle",
-      "cx": 467,
-      "cy": 202,
-      "r": 8,
-      "fill": "accent",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomek1",
-      "kind": "circle",
-      "cx": 413,
-      "cy": 316,
-      "r": 8,
-      "fill": "accent",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomringl",
-      "kind": "circle",
-      "cx": 440,
-      "cy": 259,
-      "r": 107,
-      "stroke": "good",
-      "width": 3
-    },
-    {
-      "id": "atomel0",
-      "kind": "circle",
-      "cx": 477,
-      "cy": 158,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel1",
-      "kind": "circle",
-      "cx": 537,
-      "cy": 214,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel2",
-      "kind": "circle",
-      "cx": 541,
-      "cy": 296,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel3",
-      "kind": "circle",
-      "cx": 485,
-      "cy": 356,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel4",
-      "kind": "circle",
-      "cx": 403,
-      "cy": 360,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel5",
-      "kind": "circle",
-      "cx": 343,
-      "cy": 304,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel6",
-      "kind": "circle",
-      "cx": 339,
-      "cy": 222,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomel7",
-      "kind": "circle",
-      "cx": 395,
-      "cy": 162,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomringm",
-      "kind": "circle",
-      "cx": 440,
-      "cy": 259,
-      "r": 157,
-      "stroke": "warm",
-      "width": 3
-    },
-    {
-      "id": "atomem0",
-      "kind": "circle",
-      "cx": 426,
-      "cy": 103,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomem1",
-      "kind": "circle",
-      "cx": 582,
-      "cy": 325,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomem2",
-      "kind": "circle",
-      "cx": 311,
-      "cy": 349,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "atomlabelk",
-      "kind": "text",
-      "x": 717,
-      "y": 216,
-      "text": "Inner shell K",
-      "size": 21,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomlabell",
-      "kind": "text",
-      "x": 717,
-      "y": 253,
-      "text": "Second shell L",
-      "size": 21,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "id": "atomlabelm",
-      "kind": "text",
-      "x": 717,
-      "y": 290,
-      "text": "Outer shell M",
-      "size": 21,
-      "color": "warm",
-      "anchor": "middle"
+     "do": "write",
+     "target": "l1",
+     "at": 0.7
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Electrons, which carry a negative charge, move around the nucleus in shells. A carbon atom has 6 electrons, the same number as protons, so the atom is neutral."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "An atom has a tiny centre, the nucleus, which holds protons and neutrons. Protons carry a positive charge and neutrons carry none. Here is a carbon atom with 6 protons and 6 neutrons."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "nuc",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "nt",
-          "at": 0.5
-        },
-        {
-          "do": "write",
-          "target": "l1",
-          "at": 0.7
-        }
-      ]
+     "do": "draw",
+     "target": "o1",
+     "at": 0.1
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "Electrons, which carry a negative charge, move around the nucleus in shells. A carbon atom has 6 electrons, the same number as protons, so the atom is neutral."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "o1",
-          "at": 0.1
-        },
-        {
-          "do": "draw",
-          "target": "o2",
-          "at": 0.2
-        },
-        {
-          "do": "draw",
-          "target": "e0",
-          "at": 0.4
-        },
-        {
-          "do": "draw",
-          "target": "e1",
-          "at": 0.45
-        },
-        {
-          "do": "draw",
-          "target": "e2",
-          "at": 0.5
-        },
-        {
-          "do": "draw",
-          "target": "e3",
-          "at": 0.55
-        },
-        {
-          "do": "write",
-          "target": "l2",
-          "at": 0.7
-        },
-        {
-          "do": "write",
-          "target": "l4",
-          "at": 0.85
-        }
-      ]
+     "do": "draw",
+     "target": "o2",
+     "at": 0.2
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "The first shell holds up to 2 electrons and the next shell up to 8. Carbon has 2 electrons in the first shell and 4 in the second."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "l3",
-          "at": 0.3
-        }
-      ]
+     "do": "draw",
+     "target": "e0",
+     "at": 0.4
     },
     {
-      "id": "atom-nucleus",
-      "narration": {
-        "en": "A neutral aluminium atom has thirteen protons. An aluminium atom with mass number twenty-seven has fourteen neutrons. In this drawing, both counts belong in the nucleus."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "atomtitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "atomlegend",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "draw",
-          "target": "atomnucleus",
-          "on": "in the nucleus",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "atomproton",
-          "on": "thirteen protons",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "atomneutron",
-          "on": "fourteen neutrons",
-          "ms": 410
-        }
-      ]
+     "do": "draw",
+     "target": "e1",
+     "at": 0.45
     },
     {
-      "id": "atom-shell-fill",
-      "narration": {
-        "en": "Now count thirteen electrons for the neutral atom. The inner ring shows two, the second ring shows eight, and three remain for the outer ring. The rings group energy levels in the model."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "atomringk",
-          "on": "inner ring",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "atomlabelk",
-          "on": "inner ring",
-          "ms": 370
-        },
-        {
-          "do": "show",
-          "target": "atomek0",
-          "on": "inner ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomek1",
-          "on": "inner ring",
-          "ms": 460
-        },
-        {
-          "do": "draw",
-          "target": "atomringl",
-          "on": "second ring",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "atomlabell",
-          "on": "second ring",
-          "ms": 370
-        },
-        {
-          "do": "show",
-          "target": "atomel0",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel1",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel2",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel3",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel4",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel5",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel6",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomel7",
-          "on": "second ring",
-          "ms": 460
-        },
-        {
-          "do": "draw",
-          "target": "atomringm",
-          "on": "outer ring",
-          "ms": 850
-        },
-        {
-          "do": "show",
-          "target": "atomlabelm",
-          "on": "outer ring",
-          "ms": 370
-        },
-        {
-          "do": "show",
-          "target": "atomem0",
-          "on": "outer ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomem1",
-          "on": "outer ring",
-          "ms": 460
-        },
-        {
-          "do": "show",
-          "target": "atomem2",
-          "on": "outer ring",
-          "ms": 460
-        }
-      ]
+     "do": "draw",
+     "target": "e2",
+     "at": 0.5
     },
     {
-      "id": "atom-shell-check",
-      "narration": {
-        "en": "Use the electron dots on the outer ring to answer the question."
-      },
-      "actions": [
-        {
-          "do": "pulse",
-          "target": "atomringm",
-          "on": "outer ring",
-          "ms": 1000
-        }
-      ],
-      "check": {
-        "stem": {
-          "en": "How many valence electrons does the aluminium model show?"
-        },
-        "explanation": {
-          "en": "Three electron dots are on the outer occupied shell. The inner rings show the other ten electrons."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "2"
-            },
-            "whyWrong": {
-              "en": "Count the outer ring. The two dots are on the first ring."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "3"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "13"
-            },
-            "whyWrong": {
-              "en": "That is the total electron count across all three rings."
-            }
-          }
-        ]
-      }
+     "do": "draw",
+     "target": "e3",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "l4",
+     "at": 0.85
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The first shell holds up to 2 electrons and the next shell up to 8. Carbon has 2 electrons in the first shell and 4 in the second."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "l3",
+     "at": 0.3
+    }
+   ]
+  }
+ ]
 }

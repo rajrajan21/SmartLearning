@@ -6,237 +6,193 @@
  "topic": "altitudes-of-triangles",
  "status": "published",
  "title": {
-  "en": "Altitudes inside and outside triangles"
+  "en": "triangle"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "title",
+   "id": "ttl",
    "x": 450,
-   "y": 55,
-   "text": "An altitude outside the triangle",
-   "size": 32,
+   "y": 48,
+   "text": "A triangle",
+   "size": 36,
    "color": "accent",
    "anchor": "middle"
   },
   {
-   "kind": "line",
-   "id": "ab",
-   "x1": 306,
-   "y1": 350,
-   "x2": 660,
-   "y2": 350,
+   "kind": "poly",
+   "id": "sh",
+   "points": [
+    [
+     300,
+     120
+    ],
+    [
+     450,
+     400
+    ],
+    [
+     150,
+     400
+    ]
+   ],
+   "fill": "#FFF3D6",
    "stroke": "ink",
-   "width": 4
+   "width": 6
   },
   {
    "kind": "line",
-   "id": "ac",
-   "x1": 306,
-   "y1": 350,
-   "x2": 202,
-   "y2": 152,
-   "stroke": "ink",
-   "width": 4
-  },
-  {
-   "kind": "line",
-   "id": "bc",
-   "x1": 660,
-   "y1": 350,
-   "x2": 202,
-   "y2": 152,
-   "stroke": "ink",
-   "width": 4
-  },
-  {
-   "kind": "line",
-   "id": "extend",
-   "x1": 306,
-   "y1": 350,
-   "x2": 149,
-   "y2": 350,
+   "id": "e0",
+   "x1": 300,
+   "y1": 120,
+   "x2": 450,
+   "y2": 400,
    "stroke": "warm",
-   "width": 4
+   "width": 9
   },
   {
-   "kind": "line",
-   "id": "height",
-   "x1": 202,
-   "y1": 152,
-   "x2": 202,
-   "y2": 350,
-   "stroke": "good",
-   "width": 5
-  },
-  {
-   "kind": "line",
-   "id": "cornerTop",
-   "x1": 202,
-   "y1": 326,
-   "x2": 226,
-   "y2": 326,
-   "stroke": "good",
+   "kind": "circle",
+   "id": "v0",
+   "cx": 300,
+   "cy": 120,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
    "width": 3
   },
   {
    "kind": "line",
-   "id": "cornerSide",
-   "x1": 226,
-   "y1": 326,
-   "x2": 226,
-   "y2": 350,
-   "stroke": "good",
+   "id": "e1",
+   "x1": 450,
+   "y1": 400,
+   "x2": 150,
+   "y2": 400,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v1",
+   "cx": 450,
+   "cy": 400,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "e2",
+   "x1": 150,
+   "y1": 400,
+   "x2": 300,
+   "y2": 120,
+   "stroke": "warm",
+   "width": 9
+  },
+  {
+   "kind": "circle",
+   "id": "v2",
+   "cx": 150,
+   "cy": 400,
+   "r": 11,
+   "fill": "#1F4FD1",
+   "stroke": "accent",
    "width": 3
   },
   {
    "kind": "text",
-   "id": "pointA",
-   "x": 318,
-   "y": 386,
-   "text": "A",
-   "size": 26,
-   "color": "ink"
+   "id": "ns",
+   "x": 700,
+   "y": 220,
+   "text": "3 sides",
+   "size": 44,
+   "color": "warm",
+   "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "pointB",
-   "x": 665,
-   "y": 380,
-   "text": "B",
-   "size": 26,
-   "color": "ink"
-  },
-  {
-   "kind": "text",
-   "id": "pointC",
-   "x": 184,
-   "y": 139,
-   "text": "C",
-   "size": 26,
-   "color": "ink"
-  },
-  {
-   "kind": "text",
-   "id": "pointH",
-   "x": 187,
-   "y": 385,
-   "text": "H",
-   "size": 26,
-   "color": "good"
-  },
-  {
-   "kind": "text",
-   "id": "rightAngle",
-   "x": 242,
-   "y": 320,
-   "text": "90°",
-   "size": 26,
-   "color": "good"
-  },
-  {
-   "kind": "text",
-   "id": "caption",
-   "x": 450,
-   "y": 446,
-   "text": "CH is perpendicular to the line through A and B",
-   "size": 23,
-   "color": "ink",
+   "id": "nc",
+   "x": 700,
+   "y": 300,
+   "text": "3 corners",
+   "size": 44,
+   "color": "accent",
    "anchor": "middle"
   }
  ],
  "steps": [
   {
-   "id": "height1",
+   "id": "s1",
    "narration": {
-    "en": "This triangle has an obtuse angle at A. We will use the line through A and B as the base."
+    "en": "This is a triangle. Let us look at it carefully."
    },
    "actions": [
     {
      "do": "show",
-     "target": "title",
+     "target": "ttl",
      "at": 0.05
     },
     {
      "do": "draw",
-     "target": "ab",
-     "at": 0.18
-    },
-    {
-     "do": "draw",
-     "target": "ac",
-     "at": 0.33
-    },
-    {
-     "do": "draw",
-     "target": "bc",
-     "at": 0.43
-    },
-    {
-     "do": "show",
-     "target": "pointA",
-     "at": 0.52
-    },
-    {
-     "do": "show",
-     "target": "pointB",
-     "at": 0.6
-    },
-    {
-     "do": "show",
-     "target": "pointC",
-     "at": 0.67
+     "target": "sh",
+     "at": 0.4
     }
    ]
   },
   {
-   "id": "height2",
+   "id": "s2",
    "narration": {
-    "en": "Extend the base past A. The perpendicular from C will meet that extension outside the triangle."
+    "en": "The straight lines around the shape are its sides. Count them with me. A triangle has 3 sides."
    },
    "actions": [
     {
      "do": "draw",
-     "target": "extend",
-     "at": 0.16
-    },
-    {
-     "do": "draw",
-     "target": "height",
-     "at": 0.55
-    },
-    {
-     "do": "show",
-     "target": "pointH",
-     "at": 0.72
-    }
-   ]
-  },
-  {
-   "id": "height3",
-   "narration": {
-    "en": "The foot is H. Mark a right angle to show that CH and the base line meet at ninety degrees."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "cornerTop",
+     "target": "e0",
      "at": 0.2
     },
     {
      "do": "draw",
-     "target": "cornerSide",
-     "at": 0.29
+     "target": "e1",
+     "at": 0.3666666666666667
+    },
+    {
+     "do": "draw",
+     "target": "e2",
+     "at": 0.5333333333333333
+    },
+    {
+     "do": "write",
+     "target": "ns",
+     "on": "3 sides"
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The points where two sides meet are the corners. A triangle has 3 corners too."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "v0",
+     "at": 0.2
     },
     {
      "do": "show",
-     "target": "rightAngle",
-     "at": 0.6
+     "target": "v1",
+     "at": 0.3666666666666667
     },
     {
      "do": "show",
-     "target": "caption",
-     "at": 0.8
+     "target": "v2",
+     "at": 0.5333333333333333
+    },
+    {
+     "do": "write",
+     "target": "nc",
+     "on": "3 corners"
     }
    ]
   }

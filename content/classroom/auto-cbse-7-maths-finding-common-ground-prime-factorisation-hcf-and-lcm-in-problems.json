@@ -6,132 +6,335 @@
  "topic": "prime-factorisation-hcf-and-lcm-in-problems",
  "status": "published",
  "title": {
-  "en": "Common division and the HCF–LCM product check"
+  "en": "Division"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "title",
+   "id": "ttl",
    "x": 450,
-   "y": 58,
-   "text": "Common-division method",
-   "size": 32,
+   "y": 48,
+   "text": "12 ÷ 3",
+   "size": 36,
    "color": "accent",
    "anchor": "middle"
   },
   {
-   "kind": "text",
-   "id": "row0",
-   "x": 170,
-   "y": 132,
-   "text": "Prime        First number        Second number",
-   "size": 27,
-   "color": "soft"
+   "kind": "rect",
+   "id": "g0",
+   "x": 60,
+   "y": 250,
+   "w": 246.66666666666669,
+   "h": 170,
+   "rx": 14,
+   "stroke": "soft",
+   "width": 4
   },
   {
-   "kind": "line",
-   "id": "line1",
-   "x1": 154,
-   "y1": 155,
-   "x2": 753,
-   "y2": 155,
+   "kind": "text",
+   "id": "gl0",
+   "x": 183.33333333333334,
+   "y": 450,
+   "text": "Group 1",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "g1",
+   "x": 326.6666666666667,
+   "y": 250,
+   "w": 246.66666666666669,
+   "h": 170,
+   "rx": 14,
    "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "gl1",
+   "x": 450,
+   "y": 450,
+   "text": "Group 2",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "g2",
+   "x": 593.3333333333334,
+   "y": 250,
+   "w": 246.66666666666669,
+   "h": 170,
+   "rx": 14,
+   "stroke": "soft",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "gl2",
+   "x": 716.6666666666667,
+   "y": 450,
+   "text": "Group 3",
+   "size": 22,
+   "color": "soft",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "c0",
+   "cx": 90,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c1",
+   "cx": 356.6666666666667,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c2",
+   "cx": 623.3333333333334,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c3",
+   "cx": 134,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c4",
+   "cx": 400.6666666666667,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c5",
+   "cx": 667.3333333333334,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c6",
+   "cx": 178,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c7",
+   "cx": 444.6666666666667,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c8",
+   "cx": 711.3333333333334,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c9",
+   "cx": 222,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c10",
+   "cx": 488.6666666666667,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "c11",
+   "cx": 755.3333333333334,
+   "cy": 285,
+   "r": 18,
+   "fill": "#FFD166",
+   "stroke": "warm",
    "width": 3
   },
   {
    "kind": "text",
-   "id": "row1",
-   "x": 218,
-   "y": 215,
-   "text": "3                    18                           24",
-   "size": 26,
-   "color": "ink"
-  },
-  {
-   "kind": "text",
-   "id": "row2",
-   "x": 218,
-   "y": 278,
-   "text": "2                      6                             8",
-   "size": 26,
-   "color": "ink"
-  },
-  {
-   "kind": "text",
-   "id": "row3",
-   "x": 218,
-   "y": 341,
-   "text": "                        3                             4",
-   "size": 26,
-   "color": "ink"
-  },
-  {
-   "kind": "text",
-   "id": "result",
-   "x": 176,
-   "y": 425,
-   "text": "HCF = 3 × 2 = 6",
-   "size": 31,
-   "color": "good"
+   "id": "ans",
+   "x": 450,
+   "y": 130,
+   "text": "12 ÷ 3 = 4",
+   "size": 60,
+   "color": "good",
+   "anchor": "middle"
   }
  ],
  "steps": [
   {
-   "id": "ladder1",
+   "id": "s1",
    "narration": {
-    "en": "Set the numbers eighteen and twenty-four beside each other. Both divide exactly by three."
+    "en": "Division means sharing equally. We have 12 sweets to share among 3 children."
    },
    "actions": [
     {
      "do": "show",
-     "target": "title",
+     "target": "ttl",
      "at": 0.05
     },
     {
-     "do": "write",
-     "target": "row0",
-     "at": 0.2
+     "do": "draw",
+     "target": "g0",
+     "at": 0.4
     },
     {
      "do": "draw",
-     "target": "line1",
-     "at": 0.38
+     "target": "g1",
+     "at": 0.5333333333333333
     },
     {
-     "do": "write",
-     "target": "row1",
-     "at": 0.56
+     "do": "draw",
+     "target": "g2",
+     "at": 0.6666666666666667
+    },
+    {
+     "do": "show",
+     "target": "gl0",
+     "at": 0.4
+    },
+    {
+     "do": "show",
+     "target": "gl1",
+     "at": 0.5333333333333333
+    },
+    {
+     "do": "show",
+     "target": "gl2",
+     "at": 0.6666666666666667
     }
    ]
   },
   {
-   "id": "ladder2",
+   "id": "s2",
    "narration": {
-    "en": "After dividing by three, the remaining values are six and eight. Both divide exactly by two."
+    "en": "Give one sweet to each child, again and again, until all the sweets are shared."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "row2",
-     "at": 0.2
+     "do": "show",
+     "target": "c0",
+     "at": 0.1
+    },
+    {
+     "do": "show",
+     "target": "c1",
+     "at": 0.16666666666666669
+    },
+    {
+     "do": "show",
+     "target": "c2",
+     "at": 0.23333333333333334
+    },
+    {
+     "do": "show",
+     "target": "c3",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "show",
+     "target": "c4",
+     "at": 0.3666666666666667
+    },
+    {
+     "do": "show",
+     "target": "c5",
+     "at": 0.43333333333333335
+    },
+    {
+     "do": "show",
+     "target": "c6",
+     "at": 0.5000000000000001
+    },
+    {
+     "do": "show",
+     "target": "c7",
+     "at": 0.5666666666666668
+    },
+    {
+     "do": "show",
+     "target": "c8",
+     "at": 0.6333333333333333
+    },
+    {
+     "do": "show",
+     "target": "c9",
+     "at": 0.7
+    },
+    {
+     "do": "show",
+     "target": "c10",
+     "at": 0.7666666666666666
+    },
+    {
+     "do": "show",
+     "target": "c11",
+     "at": 0.8333333333333334
     }
    ]
   },
   {
-   "id": "ladder3",
+   "id": "s3",
    "narration": {
-    "en": "The remaining three and four have no common prime factor. Multiply the common divisors three and two to get an HCF of six."
+    "en": "Each child gets 4 sweets. So 12 divided by 3 is 4."
    },
    "actions": [
     {
      "do": "write",
-     "target": "row3",
-     "at": 0.13
-    },
-    {
-     "do": "write",
-     "target": "result",
-     "at": 0.69
+     "target": "ans",
+     "on": "is 4"
     }
    ]
   }

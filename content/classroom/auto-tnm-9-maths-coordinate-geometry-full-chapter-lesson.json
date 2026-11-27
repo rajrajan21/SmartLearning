@@ -1,1127 +1,279 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "coordinate-geometry",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "The coordinate plane"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "coordinate-geometry",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "The coordinate plane"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "The coordinate plane",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "arrow",
+   "id": "xa",
+   "x1": 130,
+   "y1": 265,
+   "x2": 790,
+   "y2": 265,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "ya",
+   "x1": 450,
+   "y1": 460,
+   "x2": 450,
+   "y2": 60,
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "xl",
+   "x": 810,
+   "y": 273,
+   "text": "x",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "yl",
+   "x": 472,
+   "y": 70,
+   "text": "y",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "o",
+   "x": 432,
+   "y": 289,
+   "text": "O",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q1",
+   "x": 700,
+   "y": 100,
+   "text": "I (+, +)",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q2",
+   "x": 200,
+   "y": 100,
+   "text": "II (−, +)",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q3",
+   "x": 200,
+   "y": 440,
+   "text": "III (−, −)",
+   "size": 22,
+   "color": "good",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "q4",
+   "x": 700,
+   "y": 440,
+   "text": "IV (+, −)",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "gx",
+   "x1": 630,
+   "y1": 265,
+   "x2": 630,
+   "y2": 145,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "gy",
+   "x1": 450,
+   "y1": 145,
+   "x2": 630,
+   "y2": 145,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "pt",
+   "cx": 630,
+   "cy": 145,
+   "r": 8,
+   "fill": "#FF8A65",
+   "stroke": "accent",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lp",
+   "x": 644,
+   "y": 133,
+   "text": "P (3, 2)",
+   "size": 24,
+   "color": "accent",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "x3",
+   "x": 630,
+   "y": 291,
+   "text": "3",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "y2",
+   "x": 432,
+   "y": 153,
+   "text": "2",
+   "size": 22,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Two number lines cross at right angles. The horizontal one is the x axis and the vertical one is the y axis. They meet at the origin, O."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 36,
-      "text": "The coordinate plane",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "arrow",
-      "id": "xa",
-      "x1": 130,
-      "y1": 265,
-      "x2": 790,
-      "y2": 265,
-      "stroke": "ink",
-      "width": 4
+     "do": "draw",
+     "target": "xa",
+     "at": 0.25
     },
     {
-      "kind": "arrow",
-      "id": "ya",
-      "x1": 450,
-      "y1": 460,
-      "x2": 450,
-      "y2": 60,
-      "stroke": "ink",
-      "width": 4
+     "do": "draw",
+     "target": "ya",
+     "at": 0.45
     },
     {
-      "kind": "text",
-      "id": "xl",
-      "x": 810,
-      "y": 273,
-      "text": "x",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "xl",
+     "at": 0.6
     },
     {
-      "kind": "text",
-      "id": "yl",
-      "x": 472,
-      "y": 70,
-      "text": "y",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "yl",
+     "at": 0.65
     },
     {
-      "kind": "text",
-      "id": "o",
-      "x": 432,
-      "y": 289,
-      "text": "O",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "q1",
-      "x": 700,
-      "y": 100,
-      "text": "I (+, +)",
-      "size": 22,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "q2",
-      "x": 200,
-      "y": 100,
-      "text": "II (−, +)",
-      "size": 22,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "q3",
-      "x": 200,
-      "y": 440,
-      "text": "III (−, −)",
-      "size": 22,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "q4",
-      "x": 700,
-      "y": 440,
-      "text": "IV (+, −)",
-      "size": 22,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "gx",
-      "x1": 630,
-      "y1": 265,
-      "x2": 630,
-      "y2": 145,
-      "stroke": "soft",
-      "width": 3
-    },
-    {
-      "kind": "line",
-      "id": "gy",
-      "x1": 450,
-      "y1": 145,
-      "x2": 630,
-      "y2": 145,
-      "stroke": "soft",
-      "width": 3
-    },
-    {
-      "kind": "circle",
-      "id": "pt",
-      "cx": 630,
-      "cy": 145,
-      "r": 8,
-      "fill": "#FF8A65",
-      "stroke": "accent",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "lp",
-      "x": 644,
-      "y": 133,
-      "text": "P (3, 2)",
-      "size": 24,
-      "color": "accent",
-      "anchor": "start"
-    },
-    {
-      "kind": "text",
-      "id": "x3",
-      "x": 630,
-      "y": 291,
-      "text": "3",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "y2",
-      "x": 432,
-      "y": 153,
-      "text": "2",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx0",
-      "kind": "line",
-      "x1": 232,
-      "y1": 78,
-      "x2": 232,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy0",
-      "kind": "line",
-      "x1": 232,
-      "y1": 430,
-      "x2": 584,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv0",
-      "kind": "text",
-      "x": 232,
-      "y": 456,
-      "text": "0",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx1",
-      "kind": "line",
-      "x1": 276,
-      "y1": 78,
-      "x2": 276,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy1",
-      "kind": "line",
-      "x1": 232,
-      "y1": 386,
-      "x2": 584,
-      "y2": 386,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv1",
-      "kind": "text",
-      "x": 276,
-      "y": 456,
-      "text": "1",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv1",
-      "kind": "text",
-      "x": 209,
-      "y": 391,
-      "text": "1",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx2",
-      "kind": "line",
-      "x1": 320,
-      "y1": 78,
-      "x2": 320,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy2",
-      "kind": "line",
-      "x1": 232,
-      "y1": 342,
-      "x2": 584,
-      "y2": 342,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv2",
-      "kind": "text",
-      "x": 320,
-      "y": 456,
-      "text": "2",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv2",
-      "kind": "text",
-      "x": 209,
-      "y": 347,
-      "text": "2",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx3",
-      "kind": "line",
-      "x1": 364,
-      "y1": 78,
-      "x2": 364,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy3",
-      "kind": "line",
-      "x1": 232,
-      "y1": 298,
-      "x2": 584,
-      "y2": 298,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv3",
-      "kind": "text",
-      "x": 364,
-      "y": 456,
-      "text": "3",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv3",
-      "kind": "text",
-      "x": 209,
-      "y": 303,
-      "text": "3",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx4",
-      "kind": "line",
-      "x1": 408,
-      "y1": 78,
-      "x2": 408,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy4",
-      "kind": "line",
-      "x1": 232,
-      "y1": 254,
-      "x2": 584,
-      "y2": 254,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv4",
-      "kind": "text",
-      "x": 408,
-      "y": 456,
-      "text": "4",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv4",
-      "kind": "text",
-      "x": 209,
-      "y": 259,
-      "text": "4",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx5",
-      "kind": "line",
-      "x1": 452,
-      "y1": 78,
-      "x2": 452,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy5",
-      "kind": "line",
-      "x1": 232,
-      "y1": 210,
-      "x2": 584,
-      "y2": 210,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv5",
-      "kind": "text",
-      "x": 452,
-      "y": 456,
-      "text": "5",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv5",
-      "kind": "text",
-      "x": 209,
-      "y": 215,
-      "text": "5",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx6",
-      "kind": "line",
-      "x1": 496,
-      "y1": 78,
-      "x2": 496,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy6",
-      "kind": "line",
-      "x1": 232,
-      "y1": 166,
-      "x2": 584,
-      "y2": 166,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv6",
-      "kind": "text",
-      "x": 496,
-      "y": 456,
-      "text": "6",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv6",
-      "kind": "text",
-      "x": 209,
-      "y": 171,
-      "text": "6",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx7",
-      "kind": "line",
-      "x1": 540,
-      "y1": 78,
-      "x2": 540,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy7",
-      "kind": "line",
-      "x1": 232,
-      "y1": 122,
-      "x2": 584,
-      "y2": 122,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv7",
-      "kind": "text",
-      "x": 540,
-      "y": 456,
-      "text": "7",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv7",
-      "kind": "text",
-      "x": 209,
-      "y": 127,
-      "text": "7",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomx8",
-      "kind": "line",
-      "x1": 584,
-      "y1": 78,
-      "x2": 584,
-      "y2": 430,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomy8",
-      "kind": "line",
-      "x1": 232,
-      "y1": 78,
-      "x2": 584,
-      "y2": 78,
-      "stroke": "#D4DFEB",
-      "width": 2
-    },
-    {
-      "id": "geomxv8",
-      "kind": "text",
-      "x": 584,
-      "y": 456,
-      "text": "8",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomyv8",
-      "kind": "text",
-      "x": 209,
-      "y": 83,
-      "text": "8",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomaxisx",
-      "kind": "arrow",
-      "x1": 232,
-      "y1": 430,
-      "x2": 612,
-      "y2": 430,
-      "stroke": "ink",
-      "width": 3
-    },
-    {
-      "id": "geomaxisy",
-      "kind": "arrow",
-      "x1": 232,
-      "y1": 430,
-      "x2": 232,
-      "y2": 64,
-      "stroke": "ink",
-      "width": 3
-    },
-    {
-      "id": "geomxlbl",
-      "kind": "text",
-      "x": 625,
-      "y": 439,
-      "text": "x",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomylbl",
-      "kind": "text",
-      "x": 231,
-      "y": 53,
-      "text": "y",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomA",
-      "kind": "circle",
-      "cx": 320,
-      "cy": 386,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "geomB",
-      "kind": "circle",
-      "cx": 584,
-      "cy": 122,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "geomAlbl",
-      "kind": "text",
-      "x": 294,
-      "y": 366,
-      "text": "A",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomBlbl",
-      "kind": "text",
-      "x": 612,
-      "y": 112,
-      "text": "B",
-      "size": 23,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomsegment",
-      "kind": "line",
-      "x1": 320,
-      "y1": 386,
-      "x2": 584,
-      "y2": 122,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "geomP",
-      "kind": "circle",
-      "cx": 408,
-      "cy": 298,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "geomPlbl",
-      "kind": "text",
-      "x": 382,
-      "y": 279,
-      "text": "P",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "geomQ",
-      "kind": "circle",
-      "cx": 496,
-      "cy": 210,
-      "r": 8,
-      "fill": "good",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "geomQlbl",
-      "kind": "text",
-      "x": 470,
-      "y": 191,
-      "text": "Q",
-      "size": 22,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "o",
+     "at": 0.75
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The two axes divide the plane into four quadrants. Both numbers are positive in the first quadrant. The signs of x and y are different in the second and the fourth, and both are negative in the third."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "Two number lines cross at right angles. The horizontal one is the x axis and the vertical one is the y axis. They meet at the origin, O."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "xa",
-          "at": 0.25
-        },
-        {
-          "do": "draw",
-          "target": "ya",
-          "at": 0.45
-        },
-        {
-          "do": "write",
-          "target": "xl",
-          "at": 0.6
-        },
-        {
-          "do": "write",
-          "target": "yl",
-          "at": 0.65
-        },
-        {
-          "do": "write",
-          "target": "o",
-          "at": 0.75
-        }
-      ]
+     "do": "write",
+     "target": "q1",
+     "at": 0.15
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "The two axes divide the plane into four quadrants. Both numbers are positive in the first quadrant. The signs of x and y are different in the second and the fourth, and both are negative in the third."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "q1",
-          "at": 0.15
-        },
-        {
-          "do": "write",
-          "target": "q2",
-          "at": 0.35
-        },
-        {
-          "do": "write",
-          "target": "q3",
-          "at": 0.55
-        },
-        {
-          "do": "write",
-          "target": "q4",
-          "at": 0.75
-        }
-      ]
+     "do": "write",
+     "target": "q2",
+     "at": 0.35
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "A point is described by an ordered pair, x first and then y. To plot P, three units along the x axis and two units up, we write P as 3 comma 2."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "gx",
-          "at": 0.15
-        },
-        {
-          "do": "draw",
-          "target": "gy",
-          "at": 0.35
-        },
-        {
-          "do": "draw",
-          "target": "pt",
-          "at": 0.55
-        },
-        {
-          "do": "write",
-          "target": "lp",
-          "at": 0.65
-        },
-        {
-          "do": "write",
-          "target": "x3",
-          "at": 0.7
-        },
-        {
-          "do": "write",
-          "target": "y2",
-          "at": 0.75
-        }
-      ]
+     "do": "write",
+     "target": "q3",
+     "at": 0.55
     },
     {
-      "id": "geom-plot",
-      "narration": {
-        "en": "Read A at two comma one. Read B at eight comma seven. Across the grid the change is six units, and up the grid the change is six units. Connect the endpoints."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "geomx0",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy0",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv0",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv1",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv2",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv3",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv4",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv5",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv6",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv7",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomx8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomy8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxv8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomyv8",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomaxisx",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomaxisy",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomxlbl",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomylbl",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomA",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomB",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomAlbl",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "geomBlbl",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "pulse",
-          "target": "geomA",
-          "on": "Read A",
-          "ms": 1000
-        },
-        {
-          "do": "pulse",
-          "target": "geomB",
-          "on": "Read B",
-          "ms": 1000
-        },
-        {
-          "do": "draw",
-          "target": "geomsegment",
-          "on": "Connect the endpoints",
-          "ms": 850
-        }
-      ]
-    },
-    {
-      "id": "geom-trisect",
-      "narration": {
-        "en": "Divide each change by three. Move two units right and two units up from A to P. Make the same move again to Q. One more equal move reaches B."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "geomP",
-          "on": "from A to P",
-          "ms": 360
-        },
-        {
-          "do": "show",
-          "target": "geomPlbl",
-          "on": "from A to P",
-          "ms": 360
-        },
-        {
-          "do": "show",
-          "target": "geomQ",
-          "on": "again to Q",
-          "ms": 360
-        },
-        {
-          "do": "show",
-          "target": "geomQlbl",
-          "on": "again to Q",
-          "ms": 360
-        },
-        {
-          "do": "pulse",
-          "target": "geomB",
-          "on": "reaches B",
-          "ms": 1000
-        }
-      ]
-    },
-    {
-      "id": "geom-picture-check",
-      "narration": {
-        "en": "Read the first green point from the axes."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "What are the coordinates of P?"
-        },
-        "explanation": {
-          "en": "P lies on the line for x equals four and the line for y equals three."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "(3, 4)"
-            },
-            "whyWrong": {
-              "en": "Read the horizontal coordinate first."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "(6, 5)"
-            },
-            "whyWrong": {
-              "en": "That is Q, the second green point."
-            }
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "(4, 3)"
-            },
-            "correct": true
-          }
-        ]
-      }
+     "do": "write",
+     "target": "q4",
+     "at": 0.75
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A point is described by an ordered pair, x first and then y. To plot P, three units along the x axis and two units up, we write P as 3 comma 2."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "gx",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "gy",
+     "at": 0.35
+    },
+    {
+     "do": "draw",
+     "target": "pt",
+     "at": 0.55
+    },
+    {
+     "do": "write",
+     "target": "lp",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "x3",
+     "at": 0.7
+    },
+    {
+     "do": "write",
+     "target": "y2",
+     "at": 0.75
+    }
+   ]
+  }
+ ]
 }

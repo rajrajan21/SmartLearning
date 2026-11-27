@@ -1,0 +1,169 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "english",
+ "chapter": "ch05-unit-5-science-and-curiosity",
+ "topic": "language-work-antonyms-word-substitution-suffixes-acronyms-c",
+ "status": "published",
+ "title": {
+  "en": "Active and passive voice"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Active and passive voice",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "b1",
+   "x": 100,
+   "y": 120,
+   "w": 700,
+   "h": 80,
+   "rx": 14,
+   "fill": "#E3F2FD",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "a",
+   "x": 450,
+   "y": 172,
+   "text": "The cat chased the mouse.",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l1",
+   "x": 450,
+   "y": 235,
+   "text": "Active: the doer comes first",
+   "size": 22,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "ar",
+   "x1": 450,
+   "y1": 255,
+   "x2": 450,
+   "y2": 305,
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "rect",
+   "id": "b2",
+   "x": 100,
+   "y": 320,
+   "w": 700,
+   "h": 80,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "p",
+   "x": 450,
+   "y": 372,
+   "text": "The mouse was chased by the cat.",
+   "size": 34,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "l2",
+   "x": 450,
+   "y": 435,
+   "text": "Passive: the receiver of the action comes first",
+   "size": 22,
+   "color": "warm",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "In an active sentence the doer of the action comes first. In 'The cat chased the mouse', the cat is the doer."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "b1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "a",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "l1",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "In a passive sentence, the one the action is done to comes first, and the doer follows after by."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "ar",
+     "at": 0.15
+    },
+    {
+     "do": "draw",
+     "target": "b2",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "p",
+     "at": 0.5
+    },
+    {
+     "do": "write",
+     "target": "l2",
+     "at": 0.75
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The verb changes to a form of be with the past participle: was chased. The meaning stays the same."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "p",
+     "at": 0.3,
+     "color": "accent"
+    }
+   ]
+  }
+ ]
+}

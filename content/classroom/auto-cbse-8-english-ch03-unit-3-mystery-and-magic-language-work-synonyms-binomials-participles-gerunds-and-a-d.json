@@ -1,0 +1,195 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "english",
+ "chapter": "ch03-unit-3-mystery-and-magic",
+ "topic": "language-work-synonyms-binomials-participles-gerunds-and-a-d",
+ "status": "published",
+ "title": {
+  "en": "The text, part by part"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "The text, part by part",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "arc",
+   "d": "M 90 385 C 230 380 320 135 450 130 S 670 380 810 385",
+   "stroke": "warm",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "p0",
+   "cx": 90,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n0",
+   "x": 90,
+   "y": 440,
+   "text": "Beginning",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p1",
+   "cx": 450,
+   "cy": 130,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n1",
+   "x": 450,
+   "y": 95,
+   "text": "Middle",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 450,
+   "y": 190,
+   "text": "binomial, gerund",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "p2",
+   "cx": 810,
+   "cy": 385,
+   "r": 15,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "n2",
+   "x": 810,
+   "y": 440,
+   "text": "End",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 810,
+   "y": 478,
+   "text": "gerund",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "d1",
+   "narration": {
+    "en": "A text can be followed from its beginning, through the middle, to its end. Let us place this lesson on a line."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "arc",
+     "at": 0.2,
+     "ms": 1800
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "Some expressions in the chapter come as a ready-made group, such as came into existence, to name a few, in full glory, in disbelief, to no end and age-old problem. We learn them as whole expressions and use them in our own sentences. Came into."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p0",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n0",
+     "at": 0.2
+    }
+   ]
+  },
+  {
+   "id": "d3",
+   "narration": {
+    "en": "A binomial is a pair of fixed words joined by 'and' or 'or', in a set order. The chapter uses hide-and-seek and flora and fauna. The pairs may be synonyms, opposites, rhyming words or words that start with the same sound. Learn these binomials with."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p1",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k1",
+     "at": 0.5
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "A gerund can be the subject, as in 'Swimming is fun'. It can be a subject complement, as in 'Her passion is painting'. It can be the object of a verb, as in 'I enjoy reading', and the object of a preposition, as in 'She is interested in learning'.."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "p2",
+     "at": 0.1
+    },
+    {
+     "do": "write",
+     "target": "n2",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "k2",
+     "at": 0.5
+    }
+   ]
+  }
+ ]
+}

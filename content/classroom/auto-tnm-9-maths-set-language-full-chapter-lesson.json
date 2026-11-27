@@ -1,413 +1,180 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "maths",
-  "chapter": "set-language",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Sets and Venn diagrams"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "maths",
+ "chapter": "set-language",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Sets and Venn diagrams"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 38,
+   "text": "Sets and Venn diagrams",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "circle",
+   "id": "a",
+   "cx": 340,
+   "cy": 250,
+   "r": 140,
+   "fill": "#BBDEFB",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "circle",
+   "id": "b",
+   "cx": 560,
+   "cy": 250,
+   "r": 140,
+   "fill": "#FFE0B2",
+   "stroke": "warm",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "la",
+   "x": 250,
+   "y": 130,
+   "text": "A",
+   "size": 28,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "lb",
+   "x": 650,
+   "y": 130,
+   "text": "B",
+   "size": 28,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "a1",
+   "x": 270,
+   "y": 245,
+   "text": "1, 2",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "m",
+   "x": 450,
+   "y": 245,
+   "text": "3, 4",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "b1",
+   "x": 630,
+   "y": 245,
+   "text": "5, 6",
+   "size": 28,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "u1",
+   "x": 450,
+   "y": 430,
+   "text": "A ∩ B = {3, 4}      A ∪ B = {1, 2, 3, 4, 5, 6}",
+   "size": 26,
+   "color": "good",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A set is a collection of things. Here A is the set 1, 2, 3, 4, and B is the set 3, 4, 5, 6. A Venn diagram shows them as circles."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 38,
-      "text": "Sets and Venn diagrams",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "circle",
-      "id": "a",
-      "cx": 340,
-      "cy": 250,
-      "r": 140,
-      "fill": "#BBDEFB",
-      "stroke": "accent",
-      "width": 4
+     "do": "draw",
+     "target": "a",
+     "at": 0.2
     },
     {
-      "kind": "circle",
-      "id": "b",
-      "cx": 560,
-      "cy": 250,
-      "r": 140,
-      "fill": "#FFE0B2",
-      "stroke": "warm",
-      "width": 4
+     "do": "write",
+     "target": "la",
+     "at": 0.4
     },
     {
-      "kind": "text",
-      "id": "la",
-      "x": 250,
-      "y": 130,
-      "text": "A",
-      "size": 28,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "draw",
+     "target": "b",
+     "at": 0.55
     },
     {
-      "kind": "text",
-      "id": "lb",
-      "x": 650,
-      "y": 130,
-      "text": "B",
-      "size": 28,
-      "color": "warm",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "a1",
-      "x": 270,
-      "y": 245,
-      "text": "1, 2",
-      "size": 28,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "m",
-      "x": 450,
-      "y": 245,
-      "text": "3, 4",
-      "size": 28,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "b1",
-      "x": 630,
-      "y": 245,
-      "text": "5, 6",
-      "size": 28,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "u1",
-      "x": 450,
-      "y": 430,
-      "text": "A ∩ B = {3, 4}      A ∪ B = {1, 2, 3, 4, 5, 6}",
-      "size": 26,
-      "color": "good",
-      "anchor": "middle"
-    },
-    {
-      "id": "setouter",
-      "kind": "path",
-      "d": "M 132 96 L 768 96 L 768 434 L 132 434 Z",
-      "stroke": "#647487",
-      "width": 3
-    },
-    {
-      "id": "setcirclea",
-      "kind": "circle",
-      "cx": 363,
-      "cy": 281,
-      "r": 131,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "setcircleb",
-      "kind": "circle",
-      "cx": 535,
-      "cy": 281,
-      "r": 131,
-      "stroke": "good",
-      "width": 5
-    },
-    {
-      "id": "settitle",
-      "kind": "text",
-      "x": 450,
-      "y": 59,
-      "text": "A class survey · Two overlapping sets",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setuniversal",
-      "kind": "text",
-      "x": 715,
-      "y": 125,
-      "text": "U = 100",
-      "size": 21,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setlabela",
-      "kind": "text",
-      "x": 330,
-      "y": 141,
-      "text": "Art",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setlabelb",
-      "kind": "text",
-      "x": 564,
-      "y": 141,
-      "text": "Music",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setartonly",
-      "kind": "text",
-      "x": 327,
-      "y": 289,
-      "text": "35",
-      "size": 31,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setboth",
-      "kind": "text",
-      "x": 450,
-      "y": 289,
-      "text": "25",
-      "size": 31,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setmusiconly",
-      "kind": "text",
-      "x": 573,
-      "y": 289,
-      "text": "20",
-      "size": 31,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "setneither",
-      "kind": "text",
-      "x": 710,
-      "y": 403,
-      "text": "20",
-      "size": 29,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "lb",
+     "at": 0.75
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The part where the circles overlap holds the elements that are in both sets, 3 and 4. This is the intersection, A intersection B."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "A set is a collection of things. Here A is the set 1, 2, 3, 4, and B is the set 3, 4, 5, 6. A Venn diagram shows them as circles."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "a",
-          "at": 0.2
-        },
-        {
-          "do": "write",
-          "target": "la",
-          "at": 0.4
-        },
-        {
-          "do": "draw",
-          "target": "b",
-          "at": 0.55
-        },
-        {
-          "do": "write",
-          "target": "lb",
-          "at": 0.75
-        }
-      ]
+     "do": "write",
+     "target": "a1",
+     "at": 0.15
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "The part where the circles overlap holds the elements that are in both sets, 3 and 4. This is the intersection, A intersection B."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "a1",
-          "at": 0.15
-        },
-        {
-          "do": "write",
-          "target": "m",
-          "at": 0.35
-        },
-        {
-          "do": "write",
-          "target": "b1",
-          "at": 0.55
-        },
-        {
-          "do": "pulse",
-          "target": "m",
-          "at": 0.7,
-          "color": "accent"
-        }
-      ]
+     "do": "write",
+     "target": "m",
+     "at": 0.35
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "The union, A union B, has all the elements that are in A or in B or in both: 1, 2, 3, 4, 5 and 6."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "u1",
-          "at": 0.4
-        }
-      ]
+     "do": "write",
+     "target": "b1",
+     "at": 0.55
     },
     {
-      "id": "set-venn-groups",
-      "narration": {
-        "en": "The rectangle represents all one hundred students in a fictional survey. One circle represents the art group and one represents the music group. The circles overlap because some students chose both."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "settitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "setouter",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "setuniversal",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "setlabela",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "setlabelb",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "draw",
-          "target": "setcirclea",
-          "on": "art group",
-          "ms": 850
-        },
-        {
-          "do": "draw",
-          "target": "setcircleb",
-          "on": "music group",
-          "ms": 850
-        }
-      ]
-    },
-    {
-      "id": "set-venn-counts",
-      "narration": {
-        "en": "Place thirty-five students in art only, twenty-five in both and twenty in music only. A further twenty belong outside both circles. Check that all four separate regions account for the class."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "setartonly",
-          "on": "thirty-five",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "setboth",
-          "on": "twenty-five",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "setmusiconly",
-          "on": "twenty in music",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "setneither",
-          "on": "outside both circles",
-          "ms": 410
-        }
-      ]
-    },
-    {
-      "id": "set-venn-check",
-      "narration": {
-        "en": "Add the counts in all regions inside either circle."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "How many students chose at least one of the two groups?"
-        },
-        "explanation": {
-          "en": "The three regions inside a circle contain thirty-five, twenty-five and twenty students, for a total of eighty."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "105"
-            },
-            "whyWrong": {
-              "en": "Adding each circle’s total counts the twenty-five in the overlap twice."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "80"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "60"
-            },
-            "whyWrong": {
-              "en": "This omits the music-only region."
-            }
-          }
-        ]
-      }
+     "do": "pulse",
+     "target": "m",
+     "at": 0.7,
+     "color": "accent"
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The union, A union B, has all the elements that are in A or in B or in both: 1, 2, 3, 4, 5 and 6."
+   },
+   "actions": [
+    {
+     "do": "write",
+     "target": "u1",
+     "at": 0.4
+    }
+   ]
+  }
+ ]
 }

@@ -1,0 +1,248 @@
+{
+ "board": "CBSE",
+ "classLevel": 8,
+ "subject": "english",
+ "chapter": "ch02-unit-2-values-and-dispositions",
+ "topic": "language-work-synonyms-expressions-dashes-syllable-stress-an",
+ "status": "published",
+ "title": {
+  "en": "An informal letter"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "An informal letter",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "r0",
+   "x": 120,
+   "y": 90,
+   "w": 660,
+   "h": 62,
+   "rx": 10,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a0",
+   "x": 140,
+   "y": 128.44,
+   "text": "Your address and the date",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b0",
+   "x": 770,
+   "y": 128.44,
+   "text": "top right",
+   "size": 18,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r1",
+   "x": 120,
+   "y": 160,
+   "w": 660,
+   "h": 62,
+   "rx": 10,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a1",
+   "x": 140,
+   "y": 198.44,
+   "text": "Salutation: Dear ...,",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b1",
+   "x": 770,
+   "y": 198.44,
+   "text": "greets your friend",
+   "size": 18,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r2",
+   "x": 120,
+   "y": 230,
+   "w": 660,
+   "h": 62,
+   "rx": 10,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a2",
+   "x": 140,
+   "y": 268.44,
+   "text": "Body",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b2",
+   "x": 770,
+   "y": 268.44,
+   "text": "the message, in paragraphs",
+   "size": 18,
+   "color": "warm",
+   "anchor": "end"
+  },
+  {
+   "kind": "rect",
+   "id": "r3",
+   "x": 120,
+   "y": 300,
+   "w": 660,
+   "h": 62,
+   "rx": 10,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "a3",
+   "x": 140,
+   "y": 338.44,
+   "text": "Yours lovingly, and name",
+   "size": 22,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "b3",
+   "x": 770,
+   "y": 338.44,
+   "text": "closes the letter",
+   "size": 18,
+   "color": "warm",
+   "anchor": "end"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "An informal letter is written to a friend or a relative. It still follows a simple layout."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Here are the parts, from top to bottom: Your address and the date; Salutation: Dear ...,; Body; Yours lovingly, and name."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "r0",
+     "at": 0.05
+    },
+    {
+     "do": "write",
+     "target": "a0",
+     "at": 0.07
+    },
+    {
+     "do": "write",
+     "target": "b0",
+     "at": 0.09
+    },
+    {
+     "do": "draw",
+     "target": "r1",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "a1",
+     "at": 0.27
+    },
+    {
+     "do": "write",
+     "target": "b1",
+     "at": 0.29000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "r2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "write",
+     "target": "a2",
+     "at": 0.47000000000000003
+    },
+    {
+     "do": "write",
+     "target": "b2",
+     "at": 0.49
+    },
+    {
+     "do": "draw",
+     "target": "r3",
+     "at": 0.65
+    },
+    {
+     "do": "write",
+     "target": "a3",
+     "at": 0.6700000000000002
+    },
+    {
+     "do": "write",
+     "target": "b3",
+     "at": 0.6900000000000001
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "In an informal letter, the language can be friendly and personal."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "r0",
+     "at": 0.2,
+     "color": "accent"
+    }
+   ]
+  }
+ ]
+}

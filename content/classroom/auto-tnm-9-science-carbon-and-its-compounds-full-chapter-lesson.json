@@ -1,557 +1,271 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "science",
-  "chapter": "carbon-and-its-compounds",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Methane"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "science",
+ "chapter": "carbon-and-its-compounds",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Methane"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "Methane, CH₄",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "line",
+   "id": "k0",
+   "x1": 450,
+   "y1": 265,
+   "x2": 450,
+   "y2": 120,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "h0",
+   "cx": 450,
+   "cy": 120,
+   "r": 26,
+   "fill": "#E3F2FD",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ht0",
+   "x": 450,
+   "y": 129,
+   "text": "H",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k1",
+   "x1": 450,
+   "y1": 265,
+   "x2": 450,
+   "y2": 410,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "h1",
+   "cx": 450,
+   "cy": 410,
+   "r": 26,
+   "fill": "#E3F2FD",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ht1",
+   "x": 450,
+   "y": 419,
+   "text": "H",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k2",
+   "x1": 450,
+   "y1": 265,
+   "x2": 270,
+   "y2": 265,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "h2",
+   "cx": 270,
+   "cy": 265,
+   "r": 26,
+   "fill": "#E3F2FD",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ht2",
+   "x": 270,
+   "y": 274,
+   "text": "H",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "k3",
+   "x1": 450,
+   "y1": 265,
+   "x2": 630,
+   "y2": 265,
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "circle",
+   "id": "h3",
+   "cx": 630,
+   "cy": 265,
+   "r": 26,
+   "fill": "#E3F2FD",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "ht3",
+   "x": 630,
+   "y": 274,
+   "text": "H",
+   "size": 26,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "c",
+   "cx": 450,
+   "cy": 265,
+   "r": 36,
+   "fill": "#CFD8DC",
+   "stroke": "ink",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "ct",
+   "x": 450,
+   "y": 275,
+   "text": "C",
+   "size": 32,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "n",
+   "x": 790,
+   "y": 440,
+   "text": "each line = a shared pair of electrons",
+   "size": 20,
+   "color": "ink",
+   "anchor": "end"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "Carbon has four electrons in its outer shell, so it can form four covalent bonds. In methane, a carbon atom is bonded to four hydrogen atoms."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 36,
-      "text": "Methane, CH₄",
-      "size": 32,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "line",
-      "id": "k0",
-      "x1": 450,
-      "y1": 265,
-      "x2": 450,
-      "y2": 120,
-      "stroke": "ink",
-      "width": 5
+     "do": "draw",
+     "target": "c",
+     "at": 0.3
     },
     {
-      "kind": "circle",
-      "id": "h0",
-      "cx": 450,
-      "cy": 120,
-      "r": 26,
-      "fill": "#E3F2FD",
-      "stroke": "water",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "ht0",
-      "x": 450,
-      "y": 129,
-      "text": "H",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "k1",
-      "x1": 450,
-      "y1": 265,
-      "x2": 450,
-      "y2": 410,
-      "stroke": "ink",
-      "width": 5
-    },
-    {
-      "kind": "circle",
-      "id": "h1",
-      "cx": 450,
-      "cy": 410,
-      "r": 26,
-      "fill": "#E3F2FD",
-      "stroke": "water",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "ht1",
-      "x": 450,
-      "y": 419,
-      "text": "H",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "k2",
-      "x1": 450,
-      "y1": 265,
-      "x2": 270,
-      "y2": 265,
-      "stroke": "ink",
-      "width": 5
-    },
-    {
-      "kind": "circle",
-      "id": "h2",
-      "cx": 270,
-      "cy": 265,
-      "r": 26,
-      "fill": "#E3F2FD",
-      "stroke": "water",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "ht2",
-      "x": 270,
-      "y": 274,
-      "text": "H",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "k3",
-      "x1": 450,
-      "y1": 265,
-      "x2": 630,
-      "y2": 265,
-      "stroke": "ink",
-      "width": 5
-    },
-    {
-      "kind": "circle",
-      "id": "h3",
-      "cx": 630,
-      "cy": 265,
-      "r": 26,
-      "fill": "#E3F2FD",
-      "stroke": "water",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "ht3",
-      "x": 630,
-      "y": 274,
-      "text": "H",
-      "size": 26,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "circle",
-      "id": "c",
-      "cx": 450,
-      "cy": 265,
-      "r": 36,
-      "fill": "#CFD8DC",
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "kind": "text",
-      "id": "ct",
-      "x": 450,
-      "y": 275,
-      "text": "C",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "n",
-      "x": 790,
-      "y": 440,
-      "text": "each line = a shared pair of electrons",
-      "size": 20,
-      "color": "ink",
-      "anchor": "end"
-    },
-    {
-      "id": "cartitle",
-      "kind": "text",
-      "x": 450,
-      "y": 53,
-      "text": "Same atom counts, different arrangements",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "carformula",
-      "kind": "text",
-      "x": 450,
-      "y": 111,
-      "text": "C₂H₆O",
-      "size": 32,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "carlinea0",
-      "kind": "line",
-      "x1": 274,
-      "y1": 220,
-      "x2": 403,
-      "y2": 220,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "carlinea1",
-      "kind": "line",
-      "x1": 497,
-      "y1": 220,
-      "x2": 626,
-      "y2": 220,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "carnamea",
-      "kind": "text",
-      "x": 450,
-      "y": 176,
-      "text": "A · Ethanol",
-      "size": 21,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratoma0",
-      "kind": "text",
-      "x": 227,
-      "y": 229,
-      "text": "CH₃",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratoma1",
-      "kind": "text",
-      "x": 450,
-      "y": 229,
-      "text": "CH₂",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratoma2",
-      "kind": "text",
-      "x": 673,
-      "y": 229,
-      "text": "OH",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "carlineb0",
-      "kind": "line",
-      "x1": 274,
-      "y1": 335,
-      "x2": 403,
-      "y2": 335,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "carlineb1",
-      "kind": "line",
-      "x1": 497,
-      "y1": 335,
-      "x2": 626,
-      "y2": 335,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "carnameb",
-      "kind": "text",
-      "x": 450,
-      "y": 291,
-      "text": "B · Dimethyl ether",
-      "size": 21,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratomb0",
-      "kind": "text",
-      "x": 227,
-      "y": 344,
-      "text": "CH₃",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratomb1",
-      "kind": "text",
-      "x": 450,
-      "y": 344,
-      "text": "O",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "caratomb2",
-      "kind": "text",
-      "x": 673,
-      "y": 344,
-      "text": "CH₃",
-      "size": 35,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "ct",
+     "at": 0.4
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Each line is one covalent bond, a pair of electrons shared between carbon and hydrogen. The formula is C H four."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "Carbon has four electrons in its outer shell, so it can form four covalent bonds. In methane, a carbon atom is bonded to four hydrogen atoms."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "c",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "ct",
-          "at": 0.4
-        }
-      ]
+     "do": "draw",
+     "target": "k0",
+     "at": 0.1
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "Each line is one covalent bond, a pair of electrons shared between carbon and hydrogen. The formula is C H four."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "k0",
-          "at": 0.1
-        },
-        {
-          "do": "draw",
-          "target": "h0",
-          "at": 0.15
-        },
-        {
-          "do": "write",
-          "target": "ht0",
-          "at": 0.18
-        },
-        {
-          "do": "draw",
-          "target": "k1",
-          "at": 0.25
-        },
-        {
-          "do": "draw",
-          "target": "h1",
-          "at": 0.3
-        },
-        {
-          "do": "write",
-          "target": "ht1",
-          "at": 0.33
-        },
-        {
-          "do": "draw",
-          "target": "k2",
-          "at": 0.4
-        },
-        {
-          "do": "draw",
-          "target": "h2",
-          "at": 0.44999999999999996
-        },
-        {
-          "do": "write",
-          "target": "ht2",
-          "at": 0.48000000000000004
-        },
-        {
-          "do": "draw",
-          "target": "k3",
-          "at": 0.5499999999999999
-        },
-        {
-          "do": "draw",
-          "target": "h3",
-          "at": 0.6
-        },
-        {
-          "do": "write",
-          "target": "ht3",
-          "at": 0.6300000000000001
-        },
-        {
-          "do": "write",
-          "target": "n",
-          "at": 0.85
-        }
-      ]
+     "do": "draw",
+     "target": "h0",
+     "at": 0.15
     },
     {
-      "id": "carbon-isomer-a",
-      "narration": {
-        "en": "Both models use two carbon atoms, six hydrogen atoms and one oxygen atom. In ethanol the carbon atoms are joined, and the oxygen lies at one end of this drawing."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "cartitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "carformula",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "caratoma0",
-          "on": "In ethanol",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "caratoma1",
-          "on": "In ethanol",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "caratoma2",
-          "on": "In ethanol",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "carnamea",
-          "on": "In ethanol",
-          "ms": 420
-        },
-        {
-          "do": "draw",
-          "target": "carlinea0",
-          "on": "carbon atoms are joined",
-          "ms": 850
-        },
-        {
-          "do": "draw",
-          "target": "carlinea1",
-          "on": "carbon atoms are joined",
-          "ms": 850
-        }
-      ]
+     "do": "write",
+     "target": "ht0",
+     "at": 0.18
     },
     {
-      "id": "carbon-isomer-b",
-      "narration": {
-        "en": "In dimethyl ether, oxygen sits between the two carbon groups. The count of each element stays the same. Its changed connectivity makes this a different structural isomer."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "caratomb0",
-          "on": "oxygen sits",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "caratomb1",
-          "on": "oxygen sits",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "caratomb2",
-          "on": "oxygen sits",
-          "ms": 420
-        },
-        {
-          "do": "show",
-          "target": "carnameb",
-          "on": "In dimethyl ether",
-          "ms": 420
-        },
-        {
-          "do": "draw",
-          "target": "carlineb0",
-          "on": "between the two",
-          "ms": 850
-        },
-        {
-          "do": "draw",
-          "target": "carlineb1",
-          "on": "between the two",
-          "ms": 850
-        }
-      ]
+     "do": "draw",
+     "target": "k1",
+     "at": 0.25
     },
     {
-      "id": "carbon-picture-check",
-      "narration": {
-        "en": "Compare which groups are directly linked in the two diagrams."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "Which model shows one oxygen atom directly linked to two carbon atoms?"
-        },
-        "explanation": {
-          "en": "In B, oxygen sits between the two carbon groups and is linked to both."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "A only"
-            },
-            "whyWrong": {
-              "en": "In A, oxygen is at the end and is linked to one carbon atom."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "B only"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "Both models"
-            },
-            "whyWrong": {
-              "en": "The molecular formula agrees, while the connections differ."
-            }
-          }
-        ]
-      }
+     "do": "draw",
+     "target": "h1",
+     "at": 0.3
+    },
+    {
+     "do": "write",
+     "target": "ht1",
+     "at": 0.33
+    },
+    {
+     "do": "draw",
+     "target": "k2",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "h2",
+     "at": 0.44999999999999996
+    },
+    {
+     "do": "write",
+     "target": "ht2",
+     "at": 0.48000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "k3",
+     "at": 0.5499999999999999
+    },
+    {
+     "do": "draw",
+     "target": "h3",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "ht3",
+     "at": 0.6300000000000001
+    },
+    {
+     "do": "write",
+     "target": "n",
+     "at": 0.85
     }
-  ]
+   ]
+  }
+ ]
 }

@@ -6,350 +6,132 @@
  "topic": "whole-chapter",
  "status": "published",
  "title": {
-  "en": "Earth, Moon and the Sun"
+  "en": "Earth and Moon"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "dayTitle",
+   "id": "ttl",
    "x": 450,
-   "y": 55,
-   "text": "One side of Earth faces sunlight",
+   "y": 44,
+   "text": "The Moon goes round the Earth",
    "size": 34,
    "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "circle",
-   "id": "daySun",
-   "cx": 203,
-   "cy": 244,
-   "r": 68,
-   "fill": "sun",
-   "stroke": "sun"
-  },
-  {
-   "kind": "circle",
-   "id": "globe",
-   "cx": 618,
-   "cy": 245,
-   "r": 99,
-   "fill": "earth",
-   "stroke": "ink"
-  },
-  {
-   "kind": "sector",
-   "id": "night",
-   "cx": 618,
-   "cy": 245,
-   "r": 98,
-   "from": 0,
-   "to": 180,
-   "fill": "#293359",
-   "stroke": "#293359"
-  },
-  {
-   "kind": "arrow",
-   "id": "dayRay1",
-   "x1": 278,
-   "y1": 209,
-   "x2": 506,
-   "y2": 209,
-   "stroke": "warm",
-   "width": 4
-  },
-  {
-   "kind": "arrow",
-   "id": "dayRay2",
-   "x1": 278,
-   "y1": 273,
-   "x2": 506,
-   "y2": 273,
-   "stroke": "warm",
+   "id": "er",
+   "cx": 450,
+   "cy": 265,
+   "r": 60,
+   "fill": "#4FA3E0",
+   "stroke": "water",
    "width": 4
   },
   {
    "kind": "text",
-   "id": "day",
-   "x": 576,
-   "y": 249,
-   "text": "Day",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "dark",
-   "x": 659,
-   "y": 249,
-   "text": "Night",
-   "size": 22,
-   "color": "#ffffff",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "solarTitle",
+   "id": "eT",
    "x": 450,
-   "y": 55,
-   "text": "Solar eclipse: the Moon casts a shadow",
-   "size": 33,
-   "color": "accent",
+   "y": 275,
+   "text": "🌍",
+   "size": 70,
+   "color": "ink",
    "anchor": "middle"
   },
   {
+   "kind": "orbit",
+   "id": "mn",
+   "cx": 450,
+   "cy": 265,
+   "r": 170,
+   "period": 10,
+   "size": 16,
+   "emoji": "🌕",
+   "tilt": 0.6
+  },
+  {
    "kind": "text",
-   "id": "lunarTitle",
+   "id": "sy",
    "x": 450,
-   "y": 55,
-   "text": "Lunar eclipse: Earth casts a shadow",
-   "size": 33,
-   "color": "accent",
+   "y": 460,
+   "text": "About one month for one trip",
+   "size": 26,
+   "color": "soft",
    "anchor": "middle"
   },
   {
-   "kind": "circle",
-   "id": "sun",
-   "cx": 156,
-   "cy": 249,
-   "r": 57,
-   "fill": "sun",
-   "stroke": "sun"
-  },
-  {
-   "kind": "circle",
-   "id": "smallMoon",
-   "cx": 397,
-   "cy": 249,
-   "r": 28,
-   "fill": "#B9C0D0",
-   "stroke": "ink"
-  },
-  {
-   "kind": "circle",
-   "id": "midEarth",
-   "cx": 397,
-   "cy": 249,
-   "r": 56,
-   "fill": "earth",
-   "stroke": "ink"
-  },
-  {
-   "kind": "circle",
-   "id": "farEarth",
-   "cx": 685,
-   "cy": 249,
-   "r": 56,
-   "fill": "earth",
-   "stroke": "ink"
-  },
-  {
-   "kind": "circle",
-   "id": "farMoon",
-   "cx": 697,
-   "cy": 249,
-   "r": 28,
-   "fill": "#A9B0C5",
-   "stroke": "ink"
-  },
-  {
-   "kind": "arrow",
-   "id": "solarRay",
-   "x1": 219,
-   "y1": 190,
-   "x2": 355,
-   "y2": 227,
-   "stroke": "warm",
-   "width": 4
-  },
-  {
-   "kind": "arrow",
-   "id": "lunarRay",
-   "x1": 218,
-   "y1": 237,
-   "x2": 329,
-   "y2": 237,
-   "stroke": "warm",
-   "width": 4
-  },
-  {
-   "kind": "poly",
-   "id": "moonShade",
-   "points": [
-    [
-     400,
-     222
-    ],
-    [
-     648,
-     245
-    ],
-    [
-     648,
-     253
-    ],
-    [
-     400,
-     277
-    ]
-   ],
-   "fill": "#293359",
-   "stroke": "#293359"
-  },
-  {
-   "kind": "poly",
-   "id": "earthShade",
-   "points": [
-    [
-     402,
-     195
-    ],
-    [
-     735,
-     218
-    ],
-    [
-     735,
-     280
-    ],
-    [
-     402,
-     303
-    ]
-   ],
-   "fill": "#293359",
-   "stroke": "#293359"
-  },
-  {
-   "kind": "text",
-   "id": "sunLabel",
-   "x": 155,
-   "y": 346,
-   "text": "Sun",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "middleMoon",
-   "x": 397,
-   "y": 346,
-   "text": "Moon",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "middleEarth",
-   "x": 397,
-   "y": 346,
-   "text": "Earth",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "lastEarth",
-   "x": 685,
-   "y": 346,
-   "text": "Earth",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "lastMoon",
-   "x": 696,
-   "y": 346,
-   "text": "Moon",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "solarFoot",
-   "x": 450,
-   "y": 425,
-   "text": "The Moon’s shadow reaches a small region on Earth",
-   "size": 23,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "lunarFoot",
-   "x": 450,
-   "y": 425,
-   "text": "The Moon travels through Earth’s shadow",
-   "size": 23,
-   "color": "ink",
-   "anchor": "middle"
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "full-moon",
+   "alt": "The full Moon",
+   "caption": "The Moon"
   }
  ],
  "steps": [
   {
-   "id": "daynight",
+   "id": "s1",
    "narration": {
-    "en": "The Sun lights the half of Earth facing it. The far half is in darkness. Earth rotates, so places pass between these two sides."
+    "en": "The Earth is our home. It is a ball of rock, with oceans and air."
    },
    "actions": [
     {
      "do": "show",
-     "target": "dayTitle",
-     "at": 0.04
+     "target": "ttl",
+     "at": 0.05
     },
     {
      "do": "draw",
-     "target": "daySun",
-     "at": 0.13,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "globe",
-     "at": 0.22,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "dayRay1",
-     "at": 0.29,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "dayRay2",
-     "at": 0.35,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "night",
-     "at": 0.5,
-     "ms": 450
+     "target": "er",
+     "at": 0.4
     },
     {
      "do": "show",
-     "target": "day",
-     "at": 0.64
-    },
-    {
-     "do": "show",
-     "target": "dark",
-     "at": 0.73
+     "target": "eT",
+     "at": 0.5
     }
    ]
   },
   {
-   "id": "solar",
+   "id": "s2",
    "narration": {
-    "en": "In a solar eclipse, the Moon is in the middle. Its narrow shadow reaches only a region of Earth. The drawing is a model, with the sizes and distances simplified."
+    "en": "The Moon goes round the Earth. We say the Moon is a satellite of the Earth. It takes about one month to go all the way round."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "mn",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "sy",
+     "at": 0.6
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The Moon does not make its own light. We see it shine because it reflects the light of the Sun."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "mn",
+     "at": 0.3,
+     "color": "sun"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. The full Moon. Pictures like this help us see what the words are describing."
    },
    "actions": [
     {
@@ -358,127 +140,9 @@
     },
     {
      "do": "show",
-     "target": "solarTitle",
-     "at": 0.04
-    },
-    {
-     "do": "draw",
-     "target": "sun",
-     "at": 0.13,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "sunLabel",
-     "at": 0.17
-    },
-    {
-     "do": "draw",
-     "target": "smallMoon",
-     "at": 0.24,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "middleMoon",
-     "at": 0.28
-    },
-    {
-     "do": "draw",
-     "target": "farEarth",
-     "at": 0.35,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "lastEarth",
-     "at": 0.39
-    },
-    {
-     "do": "draw",
-     "target": "solarRay",
-     "at": 0.46,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "moonShade",
-     "at": 0.61,
-     "ms": 450
-    },
-    {
-     "do": "write",
-     "target": "solarFoot",
-     "at": 0.77,
-     "ms": 450
-    }
-   ]
-  },
-  {
-   "id": "lunar",
-   "narration": {
-    "en": "In a lunar eclipse, Earth is in the middle. Its shadow reaches the Moon. Watch which object casts the shadow to tell the two kinds of eclipse apart."
-   },
-   "actions": [
-    {
-     "do": "clear",
-     "at": 0
-    },
-    {
-     "do": "show",
-     "target": "lunarTitle",
-     "at": 0.04
-    },
-    {
-     "do": "draw",
-     "target": "sun",
-     "at": 0.12,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "sunLabel",
-     "at": 0.16
-    },
-    {
-     "do": "draw",
-     "target": "midEarth",
-     "at": 0.23,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "middleEarth",
-     "at": 0.27
-    },
-    {
-     "do": "draw",
-     "target": "lunarRay",
-     "at": 0.34,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "earthShade",
-     "at": 0.5,
-     "ms": 450
-    },
-    {
-     "do": "draw",
-     "target": "farMoon",
-     "at": 0.62,
-     "ms": 450
-    },
-    {
-     "do": "show",
-     "target": "lastMoon",
-     "at": 0.68
-    },
-    {
-     "do": "write",
-     "target": "lunarFoot",
-     "at": 0.83,
-     "ms": 450
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
     }
    ]
   }

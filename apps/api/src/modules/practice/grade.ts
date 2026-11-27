@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import type { AnswerResponse, LocalizedText, PublicQuestion, Question } from "@studysmart/shared";
+import { answersMatch, defaultMarksFor, type AnswerResponse, type LocalizedText, type PublicQuestion, type Question } from "@studysmart/shared";
 
 type L = { en: string; ta?: string };
 export interface Grade { correct: boolean; whyWrong?: L; correctAnswer: L }
@@ -32,10 +32,20 @@ export function grade(q: Question, r: AnswerResponse): Grade | { error: string }
       return { correct, ...(slip ? { whyWrong: slip.why } : {}), correctAnswer: both(show(unit?.en), show(unit?.ta ?? unit?.en)) };
     }
     case "short": {
-      const t = normText((r as { text: string }).text);
-      const correct = q.accepted.some((a) => normText(a) === t);
-      const slip = correct ? undefined : q.wrongAnswers.find((w) => normText(w.text) === t);
-      return { correct, ...(slip ? { whyWrong: slip.why } : {}), correctAnswer: both(q.accepted[0]!) };
+      const raw = (r as { text: string }).text;
+      const correct = answersMatch(raw, q.accepted, q.unit?.en);
+      const slip = correct ? undefined : q.wrongAnswers.find((w) => answersMatch(raw, [w.text], q.unit?.en));
+      const ans = q.accepted[0]!;
+      const show = (u?: string) => (u && !ans.toLowerCase().includes(u.toLowerCase()) ? `${ans} ${u}` : ans);
+      return { correct, ...(slip ? { whyWrong: slip.why } : {}), correctAnswer: both(show(q.unit?.en), q.unit?.ta ? show(q.unit.ta) : undefined) };
+    }
+    case "fill": {
+      const raw = (r as { text: string }).text;
+      const correct = answersMatch(raw, q.accepted, q.unit?.en);
+      const slip = correct ? undefined : q.wrongAnswers.find((w) => answersMatch(raw, [w.text], q.unit?.en));
+      const ans = q.accepted[0]!;
+      const show = (u?: string) => (u && !ans.toLowerCase().includes(u.toLowerCase()) ? `${ans} ${u}` : ans);
+      return { correct, ...(slip ? { whyWrong: slip.why } : {}), correctAnswer: both(show(q.unit?.en), q.unit?.ta ? show(q.unit.ta) : undefined) };
     }
     case "order": {
       const ids = (r as { ids: string[] }).ids;
@@ -81,6 +91,7 @@ export function correctAnswerOf(q: Question): L {
     case "true_false": return q.answer ? both("True", "சரி") : both("False", "தவறு");
     case "number": return both(`${q.answer}${q.unit ? ` ${q.unit.en}` : ""}`, `${q.answer}${q.unit ? ` ${q.unit.ta ?? q.unit.en}` : ""}`);
     case "short": return both(q.accepted[0]!);
+    case "fill": return both(q.unit && !q.accepted[0]!.toLowerCase().includes(q.unit.en.toLowerCase()) ? `${q.accepted[0]!} ${q.unit.en}` : q.accepted[0]!);
     case "order": return both(q.items.map((i) => i.text.en).join(" → "), q.items.every((i) => i.text.ta) ? q.items.map((i) => i.text.ta).join(" → ") : undefined);
     case "multi": return joinText(q.options.filter((o) => o.correct).map((o) => o.text));
     case "match": return matchText(q);
@@ -90,12 +101,25 @@ export function correctAnswerOf(q: Question): L {
 
 /** The version students receive: no answers, no explanations. Ordering items are scrambled so the list does not give the answer away. */
 export function toPublic(id: string, q: Question): PublicQuestion {
-  const common = { id, key: q.key, round: q.round, stem: q.stem, ...(q.passage ? { passage: q.passage } : {}), ...(q.image ? { image: q.image } : {}), hints: q.hints };
+  const hints = q.hint ? [q.hint, ...q.hints].slice(0, 2) : q.hints;
+  const common = {
+    id, key: q.key, round: q.round,
+    ...(q.tier ? { tier: q.tier } : {}),
+    marks: defaultMarksFor(q),
+    stem: q.stem,
+    ...(q.passage ? { passage: q.passage } : {}),
+    ...(q.image ? { image: q.image } : {}),
+    hints,
+    ...(q.source ? { source: q.source } : {}),
+    ...(q.sourceUrl ? { sourceUrl: q.sourceUrl } : {}),
+    ...(q.solutionSteps?.length ? { hasSolutionSteps: true } : {}),
+  };
   switch (q.type) {
     case "mcq": return { ...common, type: "mcq", options: q.options.map((o) => ({ id: o.id, text: o.text })) };
     case "true_false": return { ...common, type: "true_false" };
     case "number": return { ...common, type: "number", ...(q.unit ? { unit: q.unit as LocalizedText } : {}) };
-    case "short": return { ...common, type: "short" };
+    case "short": return { ...common, type: "short", ...(q.unit ? { unit: q.unit as LocalizedText } : {}) };
+    case "fill": return { ...common, type: "fill", ...(q.unit ? { unit: q.unit as LocalizedText } : {}) };
     case "order": {
       const items = q.items.map((i) => ({ id: i.id, text: i.text })).sort((a, b) => sha(id + a.id).localeCompare(sha(id + b.id)));
       // if the scramble happens to equal the answer, rotate by one

@@ -1,638 +1,313 @@
 {
-  "board": "TNMATRIC",
-  "classLevel": 9,
-  "subject": "social-science",
-  "chapter": "geography-mapping-skills",
-  "topic": "full-chapter-lesson",
-  "status": "published",
-  "title": {
-    "en": "Reading a map"
+ "board": "TNMATRIC",
+ "classLevel": 9,
+ "subject": "social-science",
+ "chapter": "geography-mapping-skills",
+ "topic": "full-chapter-lesson",
+ "status": "published",
+ "title": {
+  "en": "Reading a map"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 44,
+   "text": "Reading a map",
+   "size": 34,
+   "color": "accent",
+   "anchor": "middle"
   },
-  "objects": [
+  {
+   "kind": "rect",
+   "id": "mp",
+   "x": 80,
+   "y": 100,
+   "w": 480,
+   "h": 340,
+   "rx": 6,
+   "fill": "#E8F5E9",
+   "stroke": "ink",
+   "width": 5
+  },
+  {
+   "kind": "line",
+   "id": "v1",
+   "x1": 200,
+   "y1": 100,
+   "x2": 200,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "v2",
+   "x1": 320,
+   "y1": 100,
+   "x2": 320,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "v3",
+   "x1": 440,
+   "y1": 100,
+   "x2": 440,
+   "y2": 440,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "h1",
+   "x1": 80,
+   "y1": 213,
+   "x2": 560,
+   "y2": 213,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "line",
+   "id": "h2",
+   "x1": 80,
+   "y1": 326,
+   "x2": 560,
+   "y2": 326,
+   "stroke": "soft",
+   "width": 2
+  },
+  {
+   "kind": "rect",
+   "id": "lake",
+   "x": 330,
+   "y": 130,
+   "w": 130,
+   "h": 80,
+   "rx": 30,
+   "fill": "#90CAF9",
+   "stroke": "water",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "lt",
+   "x": 395,
+   "y": 178,
+   "text": "Lake",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hs",
+   "x": 170,
+   "y": 360,
+   "text": "🏫",
+   "size": 50,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "hp",
+   "x": 450,
+   "y": 340,
+   "text": "🏥",
+   "size": 50,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tr",
+   "x": 270,
+   "y": 250,
+   "text": "🌳",
+   "size": 44,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "line",
+   "id": "rd",
+   "x1": 80,
+   "y1": 290,
+   "x2": 560,
+   "y2": 290,
+   "stroke": "earth",
+   "width": 8
+  },
+  {
+   "kind": "text",
+   "id": "kt",
+   "x": 700,
+   "y": 140,
+   "text": "Key",
+   "size": 30,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "k1",
+   "x": 640,
+   "y": 195,
+   "text": "🏫 School",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "k2",
+   "x": 640,
+   "y": 245,
+   "text": "🏥 Hospital",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "k3",
+   "x": 640,
+   "y": 295,
+   "text": "🌳 Park",
+   "size": 24,
+   "color": "ink",
+   "anchor": "start"
+  },
+  {
+   "kind": "text",
+   "id": "sc",
+   "x": 700,
+   "y": 400,
+   "text": "A map shows a place from above",
+   "size": 20,
+   "color": "soft",
+   "anchor": "middle"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A map is a drawing of a place as seen from above. It uses small pictures and lines to show things."
+   },
+   "actions": [
     {
-      "kind": "text",
-      "id": "ttl",
-      "x": 450,
-      "y": 44,
-      "text": "Reading a map",
-      "size": 34,
-      "color": "accent",
-      "anchor": "middle"
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
     },
     {
-      "kind": "rect",
-      "id": "mp",
-      "x": 80,
-      "y": 100,
-      "w": 480,
-      "h": 340,
-      "rx": 6,
-      "fill": "#E8F5E9",
-      "stroke": "ink",
-      "width": 5
+     "do": "draw",
+     "target": "mp",
+     "at": 0.3
     },
     {
-      "kind": "line",
-      "id": "v1",
-      "x1": 200,
-      "y1": 100,
-      "x2": 200,
-      "y2": 440,
-      "stroke": "soft",
-      "width": 2
+     "do": "draw",
+     "target": "rd",
+     "at": 0.6
     },
     {
-      "kind": "line",
-      "id": "v2",
-      "x1": 320,
-      "y1": 100,
-      "x2": 320,
-      "y2": 440,
-      "stroke": "soft",
-      "width": 2
+     "do": "draw",
+     "target": "lake",
+     "at": 0.8
     },
     {
-      "kind": "line",
-      "id": "v3",
-      "x1": 440,
-      "y1": 100,
-      "x2": 440,
-      "y2": 440,
-      "stroke": "soft",
-      "width": 2
-    },
-    {
-      "kind": "line",
-      "id": "h1",
-      "x1": 80,
-      "y1": 213,
-      "x2": 560,
-      "y2": 213,
-      "stroke": "soft",
-      "width": 2
-    },
-    {
-      "kind": "line",
-      "id": "h2",
-      "x1": 80,
-      "y1": 326,
-      "x2": 560,
-      "y2": 326,
-      "stroke": "soft",
-      "width": 2
-    },
-    {
-      "kind": "rect",
-      "id": "lake",
-      "x": 330,
-      "y": 130,
-      "w": 130,
-      "h": 80,
-      "rx": 30,
-      "fill": "#90CAF9",
-      "stroke": "water",
-      "width": 3
-    },
-    {
-      "kind": "text",
-      "id": "lt",
-      "x": 395,
-      "y": 178,
-      "text": "Lake",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "hs",
-      "x": 170,
-      "y": 360,
-      "text": "🏫",
-      "size": 50,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "hp",
-      "x": 450,
-      "y": 340,
-      "text": "🏥",
-      "size": 50,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "tr",
-      "x": 270,
-      "y": 250,
-      "text": "🌳",
-      "size": 44,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "kind": "line",
-      "id": "rd",
-      "x1": 80,
-      "y1": 290,
-      "x2": 560,
-      "y2": 290,
-      "stroke": "earth",
-      "width": 8
-    },
-    {
-      "kind": "text",
-      "id": "kt",
-      "x": 700,
-      "y": 140,
-      "text": "Key",
-      "size": 30,
-      "color": "accent",
-      "anchor": "middle"
-    },
-    {
-      "kind": "text",
-      "id": "k1",
-      "x": 640,
-      "y": 195,
-      "text": "🏫 School",
-      "size": 24,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "text",
-      "id": "k2",
-      "x": 640,
-      "y": 245,
-      "text": "🏥 Hospital",
-      "size": 24,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "text",
-      "id": "k3",
-      "x": 640,
-      "y": 295,
-      "text": "🌳 Park",
-      "size": 24,
-      "color": "ink",
-      "anchor": "start"
-    },
-    {
-      "kind": "text",
-      "id": "sc",
-      "x": 700,
-      "y": 400,
-      "text": "A map shows a place from above",
-      "size": 20,
-      "color": "soft",
-      "anchor": "middle"
-    },
-    {
-      "id": "maptitle",
-      "kind": "text",
-      "x": 450,
-      "y": 54,
-      "text": "Use a map’s graphic scale",
-      "size": 34,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "mapfield",
-      "kind": "path",
-      "d": "M 128 92 L 772 92 L 772 400 L 128 400 Z",
-      "stroke": "ink",
-      "width": 2,
-      "fill": "#E7F0DF"
-    },
-    {
-      "id": "mapnorth",
-      "kind": "arrow",
-      "x1": 716,
-      "y1": 190,
-      "x2": 716,
-      "y2": 135,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "mapnorthlabel",
-      "kind": "text",
-      "x": 716,
-      "y": 126,
-      "text": "N",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "maproads",
-      "kind": "path",
-      "d": "M 214 296 L 439 296 L 439 184 L 616 184",
-      "stroke": "earth",
-      "width": 9
-    },
-    {
-      "id": "mapA",
-      "kind": "circle",
-      "cx": 214,
-      "cy": 296,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "mapAlabel",
-      "kind": "text",
-      "x": 214,
-      "y": 273,
-      "text": "A · Gate",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "mapB",
-      "kind": "circle",
-      "cx": 616,
-      "cy": 184,
-      "r": 8,
-      "fill": "warm",
-      "stroke": "ink",
-      "width": 2
-    },
-    {
-      "id": "mapBlabel",
-      "kind": "text",
-      "x": 616,
-      "y": 157,
-      "text": "B · Hall",
-      "size": 24,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "mapscale",
-      "kind": "line",
-      "x1": 183,
-      "y1": 353,
-      "x2": 283,
-      "y2": 353,
-      "stroke": "ink",
-      "width": 5
-    },
-    {
-      "id": "mapscalea",
-      "kind": "line",
-      "x1": 183,
-      "y1": 344,
-      "x2": 183,
-      "y2": 362,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "mapscaleb",
-      "kind": "line",
-      "x1": 283,
-      "y1": 344,
-      "x2": 283,
-      "y2": 362,
-      "stroke": "ink",
-      "width": 4
-    },
-    {
-      "id": "mapzero",
-      "kind": "text",
-      "x": 183,
-      "y": 383,
-      "text": "0",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "maphundred",
-      "kind": "text",
-      "x": 283,
-      "y": 383,
-      "text": "100 m",
-      "size": 17,
-      "color": "ink",
-      "anchor": "middle"
-    },
-    {
-      "id": "mapdirect",
-      "kind": "arrow",
-      "x1": 214,
-      "y1": 296,
-      "x2": 616,
-      "y2": 184,
-      "stroke": "accent",
-      "width": 5
-    },
-    {
-      "id": "mapsketch",
-      "kind": "text",
-      "x": 450,
-      "y": 449,
-      "text": "Fictional map · Straight line and road route differ",
-      "size": 20,
-      "color": "ink",
-      "anchor": "middle"
+     "do": "write",
+     "target": "lt",
+     "at": 0.9
     }
-  ],
-  "steps": [
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "The key tells us what each picture means. A map has a key so that anyone can read it."
+   },
+   "actions": [
     {
-      "id": "s1",
-      "narration": {
-        "en": "A map is a drawing of a place as seen from above. It uses small pictures and lines to show things."
-      },
-      "actions": [
-        {
-          "do": "show",
-          "target": "ttl",
-          "at": 0.05
-        },
-        {
-          "do": "draw",
-          "target": "mp",
-          "at": 0.3
-        },
-        {
-          "do": "draw",
-          "target": "rd",
-          "at": 0.6
-        },
-        {
-          "do": "draw",
-          "target": "lake",
-          "at": 0.8
-        },
-        {
-          "do": "write",
-          "target": "lt",
-          "at": 0.9
-        }
-      ]
+     "do": "write",
+     "target": "kt",
+     "on": "key"
     },
     {
-      "id": "s2",
-      "narration": {
-        "en": "The key tells us what each picture means. A map has a key so that anyone can read it."
-      },
-      "actions": [
-        {
-          "do": "write",
-          "target": "kt",
-          "on": "key"
-        },
-        {
-          "do": "write",
-          "target": "k1",
-          "at": 0.4
-        },
-        {
-          "do": "write",
-          "target": "k2",
-          "at": 0.55
-        },
-        {
-          "do": "write",
-          "target": "k3",
-          "at": 0.7
-        },
-        {
-          "do": "show",
-          "target": "hs",
-          "at": 0.5
-        },
-        {
-          "do": "show",
-          "target": "hp",
-          "at": 0.6
-        },
-        {
-          "do": "show",
-          "target": "tr",
-          "at": 0.7
-        }
-      ]
+     "do": "write",
+     "target": "k1",
+     "at": 0.4
     },
     {
-      "id": "s3",
-      "narration": {
-        "en": "The grid lines help us find a place. We say how far across and how far down it is."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "v1",
-          "at": 0.2
-        },
-        {
-          "do": "draw",
-          "target": "v2",
-          "at": 0.30000000000000004
-        },
-        {
-          "do": "draw",
-          "target": "v3",
-          "at": 0.4
-        },
-        {
-          "do": "draw",
-          "target": "h1",
-          "at": 0.5
-        },
-        {
-          "do": "draw",
-          "target": "h2",
-          "at": 0.6000000000000001
-        },
-        {
-          "do": "pulse",
-          "target": "hs",
-          "at": 0.7
-        }
-      ]
+     "do": "write",
+     "target": "k2",
+     "at": 0.55
     },
     {
-      "id": "mapping-scale",
-      "narration": {
-        "en": "Find north and read the scale bar. Its marked length represents one hundred metres on the ground."
-      },
-      "actions": [
-        {
-          "do": "clear",
-          "at": 0
-        },
-        {
-          "do": "show",
-          "target": "maptitle",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapfield",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "maproads",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapnorth",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapnorthlabel",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapA",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapAlabel",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapB",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapBlabel",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapsketch",
-          "at": 0,
-          "ms": 150
-        },
-        {
-          "do": "show",
-          "target": "mapscale",
-          "on": "scale bar",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "mapscalea",
-          "on": "scale bar",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "mapscaleb",
-          "on": "scale bar",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "mapzero",
-          "on": "scale bar",
-          "ms": 410
-        },
-        {
-          "do": "show",
-          "target": "maphundred",
-          "on": "scale bar",
-          "ms": 410
-        }
-      ]
+     "do": "write",
+     "target": "k3",
+     "at": 0.7
     },
     {
-      "id": "mapping-direct",
-      "narration": {
-        "en": "The blue line measures the distance straight from A to B. Compare it with the scale bar. The road follows several separate sections."
-      },
-      "actions": [
-        {
-          "do": "draw",
-          "target": "mapdirect",
-          "on": "blue line",
-          "ms": 850
-        },
-        {
-          "do": "pulse",
-          "target": "mapscale",
-          "on": "scale bar",
-          "ms": 1000
-        },
-        {
-          "do": "pulse",
-          "target": "maproads",
-          "on": "road follows",
-          "ms": 1000
-        }
-      ]
+     "do": "show",
+     "target": "hs",
+     "at": 0.5
     },
     {
-      "id": "mapping-picture-check",
-      "narration": {
-        "en": "Use the one hundred metre bar to estimate the blue line’s length."
-      },
-      "actions": [],
-      "check": {
-        "stem": {
-          "en": "About how far apart are A and B in a straight line?"
-        },
-        "explanation": {
-          "en": "The blue line is a little more than four scale-bar lengths, so the estimate is about four hundred metres."
-        },
-        "options": [
-          {
-            "id": "o1",
-            "text": {
-              "en": "100 m"
-            },
-            "whyWrong": {
-              "en": "The line is several scale lengths long."
-            }
-          },
-          {
-            "id": "o2",
-            "text": {
-              "en": "400 m"
-            },
-            "correct": true
-          },
-          {
-            "id": "o3",
-            "text": {
-              "en": "800 m"
-            },
-            "whyWrong": {
-              "en": "The line is only a little over four scale lengths long."
-            }
-          }
-        ]
-      }
+     "do": "show",
+     "target": "hp",
+     "at": 0.6
+    },
+    {
+     "do": "show",
+     "target": "tr",
+     "at": 0.7
     }
-  ]
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "The grid lines help us find a place. We say how far across and how far down it is."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "v1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "v2",
+     "at": 0.30000000000000004
+    },
+    {
+     "do": "draw",
+     "target": "v3",
+     "at": 0.4
+    },
+    {
+     "do": "draw",
+     "target": "h1",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "h2",
+     "at": 0.6000000000000001
+    },
+    {
+     "do": "pulse",
+     "target": "hs",
+     "at": 0.7
+    }
+   ]
+  }
+ ]
 }

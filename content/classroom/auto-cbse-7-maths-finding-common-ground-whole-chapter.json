@@ -6,132 +6,250 @@
  "topic": "whole-chapter",
  "status": "published",
  "title": {
-  "en": "Finding Common Ground"
+  "en": "Timeline"
  },
  "objects": [
   {
    "kind": "text",
-   "id": "title",
+   "id": "ttl",
    "x": 450,
-   "y": 58,
-   "text": "Common-division method",
-   "size": 32,
+   "y": 44,
+   "text": "Timeline",
+   "size": 34,
    "color": "accent",
    "anchor": "middle"
   },
   {
-   "kind": "text",
-   "id": "row0",
-   "x": 170,
-   "y": 132,
-   "text": "Prime        First number        Second number",
-   "size": 27,
-   "color": "soft"
+   "kind": "line",
+   "id": "ax",
+   "x1": 60,
+   "y1": 260,
+   "x2": 840,
+   "y2": 260,
+   "stroke": "ink",
+   "width": 6
+  },
+  {
+   "kind": "circle",
+   "id": "d0",
+   "cx": 110,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
   },
   {
    "kind": "line",
-   "id": "line1",
-   "x1": 154,
-   "y1": 155,
-   "x2": 753,
-   "y2": 155,
+   "id": "s0",
+   "x1": 110,
+   "y1": 260,
+   "x2": 110,
+   "y2": 215,
    "stroke": "soft",
    "width": 3
   },
   {
    "kind": "text",
-   "id": "row1",
-   "x": 218,
-   "y": 215,
-   "text": "3                    18                           24",
+   "id": "w0",
+   "x": 110,
+   "y": 195,
+   "text": "1200",
    "size": 26,
-   "color": "ink"
+   "color": "warm",
+   "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "row2",
-   "x": 218,
-   "y": 278,
-   "text": "2                      6                             8",
-   "size": 26,
-   "color": "ink"
+   "id": "t0x0",
+   "x": 110,
+   "y": 150,
+   "text": "prime",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "d1",
+   "cx": 450,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "s1",
+   "x1": 450,
+   "y1": 260,
+   "x2": 450,
+   "y2": 305,
+   "stroke": "soft",
+   "width": 3
   },
   {
    "kind": "text",
-   "id": "row3",
-   "x": 218,
-   "y": 341,
-   "text": "                        3                             4",
+   "id": "w1",
+   "x": 450,
+   "y": 335,
+   "text": "1440",
    "size": 26,
-   "color": "ink"
+   "color": "warm",
+   "anchor": "middle"
   },
   {
    "kind": "text",
-   "id": "result",
-   "x": 176,
-   "y": 425,
-   "text": "HCF = 3 × 2 = 6",
-   "size": 31,
-   "color": "good"
+   "id": "t1x0",
+   "x": 450,
+   "y": 372,
+   "text": "LCM",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "circle",
+   "id": "d2",
+   "cx": 790,
+   "cy": 260,
+   "r": 13,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "s2",
+   "x1": 790,
+   "y1": 260,
+   "x2": 790,
+   "y2": 215,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "w2",
+   "x": 790,
+   "y": 195,
+   "text": "1995",
+   "size": 26,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "t2x0",
+   "x": 790,
+   "y": 150,
+   "text": "HCF",
+   "size": 21,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
   {
-   "id": "ladder1",
+   "id": "d1",
    "narration": {
-    "en": "Set the numbers eighteen and twenty-four beside each other. Both divide exactly by three."
+    "en": "A timeline puts events in order, from the oldest on the left to the newest on the right."
    },
    "actions": [
     {
      "do": "show",
-     "target": "title",
+     "target": "ttl",
      "at": 0.05
     },
     {
-     "do": "write",
-     "target": "row0",
-     "at": 0.2
+     "do": "draw",
+     "target": "ax",
+     "at": 0.3
+    }
+   ]
+  },
+  {
+   "id": "d2",
+   "narration": {
+    "en": "In the division method we divide repeatedly by a prime. For 1200 we get 2, 2, 2, 2, 3, 5, 5, so 1200 = 2 × 2 × 2 × 2 × 3 × 5 × 5. It is quicker than breaking it as 40 × 30."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "d0",
+     "at": 0.1
     },
     {
      "do": "draw",
-     "target": "line1",
-     "at": 0.38
+     "target": "s0",
+     "at": 0.15
     },
     {
      "do": "write",
-     "target": "row1",
-     "at": 0.56
+     "target": "w0",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t0x0",
+     "at": 0.4
     }
    ]
   },
   {
-   "id": "ladder2",
+   "id": "d3",
    "narration": {
-    "en": "After dividing by three, the remaining values are six and eight. Both divide exactly by two."
+    "en": "For 96 = 2 × 2 × 2 × 2 × 2 × 3 and 360 = 2 × 2 × 2 × 3 × 3 × 5, take five 2s, two 3s and one 5: LCM = 32 × 9 × 5 = 1440."
    },
    "actions": [
     {
+     "do": "draw",
+     "target": "d1",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s1",
+     "at": 0.15
+    },
+    {
      "do": "write",
-     "target": "row2",
-     "at": 0.2
+     "target": "w1",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t1x0",
+     "at": 0.4
     }
    ]
   },
   {
-   "id": "ladder3",
+   "id": "d4",
    "narration": {
-    "en": "The remaining three and four have no common prime factor. Multiply the common divisors three and two to get an HCF of six."
+    "en": "Take 105 = 3 × 5 × 7 and 95 = 5 × 19. The HCF is 5 and the LCM is 3 × 5 × 7 × 19 = 1995. Their product is 105 × 95 = 9975."
    },
    "actions": [
     {
-     "do": "write",
-     "target": "row3",
-     "at": 0.13
+     "do": "draw",
+     "target": "d2",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "s2",
+     "at": 0.15
     },
     {
      "do": "write",
-     "target": "result",
-     "at": 0.69
+     "target": "w2",
+     "at": 0.25
+    },
+    {
+     "do": "write",
+     "target": "t2x0",
+     "at": 0.4
     }
    ]
   }

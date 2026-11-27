@@ -33,6 +33,7 @@ export interface ReaderBook {
   /** false hides the Download button for this book (E-Library books follow their licence); default follows the reader setting */
   download?: boolean;
   readAloudInitiallyOpen?: boolean;
+  textbookCredit?: { publisher?: string };
   /** pages drawn ahead of the one being read (0 to 8, default 3) */
   prefetch?: number;
 }
@@ -813,6 +814,11 @@ export function Reader({ book, open, onFail }: Props) {
     <div className={`rd-wrap rd-${style}`} ref={wrapRef} style={{ ["--turn-ms" as string]: `${sopts.turnMs}ms` } as CSSProperties}>
       <Icons />
       {chrome}
+      {book.textbookCredit && <footer className="rd-textbook-credit">
+        {lang === "ta"
+          ? <>{book.textbookCredit.publisher ? `பதிப்பாளர்: ${book.textbookCredit.publisher}.` : "பதிப்புரிமை அந்தந்த உரிமையாளர்களுக்குச் சொந்தமானது."} மாணவர்களின் படிப்புக்காக மட்டும். மறுபதிப்பு செய்யவோ வணிக நோக்கங்களுக்குப் பயன்படுத்தவோ கூடாது.</>
+          : <>{book.textbookCredit.publisher ? `Published by ${book.textbookCredit.publisher}.` : "Rights belong to the respective copyright holders."} For students’ personal study only. No republication, redistribution, or commercial use.</>}
+      </footer>}
       {tocPanel}
       {printMsg && <p className="rd-toast" role="status">{t(printMsg)} {printMsg === "rdPrintFail" && <button type="button" className={cls.btn} onClick={() => setPrintMsg(null)}>OK</button>}</p>}
       {printOpen && (

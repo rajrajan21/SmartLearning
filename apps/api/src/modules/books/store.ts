@@ -14,6 +14,8 @@ export interface Book {
   language: string;
   /** file name inside class-N (for a chapters-only book: the folder name inside class-N/_chapters) */
   file: string;
+  aliases?: string[];
+  publisher?: string;
   bytes: number;
   pages: number | null;
   /** where the PDF is served from; null for a book that only exists as separate chapter files */
@@ -39,7 +41,7 @@ const NAME = /^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/;
 const isPdfName = (n: string) => NAME.test(n) && /\.pdf$/i.test(n) && !n.includes("..");
 const isDirName = (n: string) => NAME.test(n) && !n.includes("..");
 
-interface Row { title?: unknown; class?: unknown; classLevel?: unknown; subject?: unknown; language?: unknown; file?: unknown; path?: unknown; kind?: unknown; pages?: unknown; bytes?: unknown; chapterFiles?: unknown; status?: unknown }
+interface Row { title?: unknown; class?: unknown; classLevel?: unknown; subject?: unknown; language?: unknown; file?: unknown; path?: unknown; kind?: unknown; pages?: unknown; bytes?: unknown; chapterFiles?: unknown; status?: unknown; sha256?: unknown; aliases?: unknown; publisher?: unknown; source?: unknown }
 
 const natural = (a: string, b: string) => a.localeCompare(b, "en", { numeric: true, sensitivity: "base" });
 
@@ -73,9 +75,13 @@ export function createBookStore(dir: string): BookStore {
       if (!r || typeof r !== "object") continue;
       const level = Number(r.classLevel ?? r.class);
       if (!CLASS.test(String(level)) || typeof r.title !== "string" || typeof r.subject !== "string") continue;
-      if (r.status === "failed") continue;
+      if (r.status === "failed" || r.status === "partial") continue;
       const relPath = typeof r.path === "string" ? r.path.replace(/\\/g, "/") : "";
       const base = { classLevel: level, subject: r.subject, title: r.title, language: typeof r.language === "string" ? r.language : "English", pages: typeof r.pages === "number" && r.pages > 0 ? r.pages : null };
+      const publisher = typeof r.publisher === "string" && r.publisher.trim()
+        ? r.publisher.trim().slice(0, 160)
+        : typeof r.source === "string" && /^ncert\b/i.test(r.source) ? "NCERT" : undefined;
+      const credit = publisher ? { publisher } : {};
       const chaptersDir = r.kind === "chapters" || Array.isArray(r.chapterFiles) || (relPath !== "" && !/\.pdf$/i.test(relPath) && relPath.includes("/_chapters/"));
       if (!chaptersDir) {
         let name = typeof r.file === "string" && r.file ? r.file : basename(relPath);
@@ -90,11 +96,18 @@ export function createBookStore(dir: string): BookStore {
         const pdir = join(dir, "pages", `class-${level}`, stem);
         let fast: Book["fast"] = null, toc: Book["toc"];
         try {
-          const m = JSON.parse(readFileSync(join(pdir, "meta.json"), "utf8")) as { pages?: number; ratio?: number };
-          if (m.pages && existsSync(join(pdir, `${m.pages}-l.webp`))) fast = { pages: m.pages, ratio: Number(m.ratio) || 0.75, base: `/api/books/pages/${level}/${encodeURIComponent(stem)}/` };
+          const m = JSON.parse(readFileSync(join(pdir, "meta.json"), "utf8")) as { pages?: number; ratio?: number; ready?: boolean; sourceSha256?: string };
+          const validSource = typeof r.sha256 !== "string" || !m.sourceSha256 || r.sha256 === m.sourceSha256;
+          const count = m.pages ?? 0;
+          const validCount = Number.isInteger(count) && count > 0 && count <= 10000 && (base.pages === null || count === base.pages);
+          const files = validSource && validCount && m.ready !== false ? new Set(readdirSync(pdir)) : new Set<string>();
+          if (m.pages && Array.from({ length: validCount && files.size ? count : 0 }, (_, i) => i + 1).every(page =>
+            ["t", "s", "l"].every(size => files.has(`${page}-${size}.webp`))) && files.size) fast = { pages: m.pages, ratio: Number(m.ratio) || 0.75, base: `/api/books/pages/${level}/${encodeURIComponent(stem)}/` };
         } catch { /* not built yet */ }
-        try { const t = JSON.parse(readFileSync(join(pdir, "toc.json"), "utf8")); if (Array.isArray(t)) toc = t.filter((e) => e && typeof e.title === "string" && Number.isInteger(e.page) && e.page > 0).map((e) => ({ title: String(e.title).slice(0, 120), page: e.page, level: e.level === 1 || e.level === 2 ? e.level : 0 })); } catch { /* no contents list */ }
-        books.push({ id, ...base, file: name, bytes, url: `/api/books/file/${level}/${encodeURIComponent(name)}`, fast, ...(toc && toc.length ? { toc } : {}) });
+        try { const t = JSON.parse(readFileSync(join(pdir, "toc.json"), "utf8")); if (Array.isArray(t)) toc = t.filter((e) => e && typeof e.title === "string" && Number.isInteger(e.page) && e.page > 0 && (base.pages === null || e.page <= base.pages)).map((e) => ({ title: String(e.title).slice(0, 120), page: e.page, level: e.level === 1 || e.level === 2 ? e.level : 0 })); } catch { /* no contents list */ }
+        const aliases = Array.isArray(r.aliases) ? r.aliases.filter((alias): alias is string =>
+          typeof alias === "string" && alias !== name && isPdfName(alias)) : [];
+        books.push({ id, ...base, ...credit, file: name, ...(aliases.length ? { aliases } : {}), bytes, url: `/api/books/file/${level}/${encodeURIComponent(name)}`, fast, ...(toc && toc.length ? { toc } : {}) });
       } else {
         const folder = basename(relPath) || (typeof r.file === "string" ? r.file : "");
         if (!isDirName(folder)) continue;
@@ -110,7 +123,7 @@ export function createBookStore(dir: string): BookStore {
         const id = `${level}/${folder}/`;
         if (chapters.length === 0 || seen.has(id)) continue;
         seen.add(id);
-        books.push({ id, ...base, pages: null, file: folder, bytes: chapters.reduce((a, c) => a + c.bytes, 0), url: null, chapters });
+        books.push({ id, ...base, ...credit, pages: null, file: folder, bytes: chapters.reduce((a, c) => a + c.bytes, 0), url: null, chapters });
       }
     }
     books.sort((a, b) => a.classLevel - b.classLevel || natural(a.subject, b.subject) || natural(a.title, b.title));
@@ -125,14 +138,16 @@ export function createBookStore(dir: string): BookStore {
     return { books, classes };
   }
 
-  return {
-    list() {
+  function list() {
       let mtimeMs = -1;
       try { mtimeMs = statSync(manifestPath).mtimeMs; } catch { /* missing */ }
       // re-read when the manifest changes, and at least every 30 seconds (files may be added or removed by hand)
       if (!cache || cache.mtimeMs !== mtimeMs || Date.now() - cache.at > 30_000) cache = { mtimeMs, at: Date.now(), list: mtimeMs < 0 || !existsSync(root) ? { books: [], classes: [] } : read() };
       return cache.list;
-    },
+  }
+
+  return {
+    list,
     pagePath(classLevel, book, file) {
       if (!CLASS.test(classLevel) || !isDirName(book) || !/^\d{1,4}-[tsl]\.webp$/.test(file)) return null;
       const p = resolve(dir, "pages", `class-${classLevel}`, book, file);
@@ -142,7 +157,13 @@ export function createBookStore(dir: string): BookStore {
     filePath(classLevel, name, chapter) {
       if (!CLASS.test(classLevel)) return null;
       let p: string | null;
-      if (chapter === undefined) { if (!isPdfName(name)) return null; p = safe(`class-${classLevel}`, name); }
+      if (chapter === undefined) {
+        if (!isPdfName(name)) return null;
+        const books = list().books;
+        const canonical = books.find(b => String(b.classLevel) === classLevel && b.file === name)
+          ?? books.find(b => String(b.classLevel) === classLevel && b.aliases?.includes(name));
+        p = safe(`class-${classLevel}`, canonical?.file ?? name);
+      }
       else { if (!isDirName(name) || !isPdfName(chapter)) return null; p = safe(`class-${classLevel}`, "_chapters", name, chapter); }
       return sizeOf(p) === null ? null : p;
     },

@@ -201,6 +201,15 @@ export function createApp(deps: AppDeps) {
     if (!deps.accounts) return false;
     const v = await deps.settings.all();
     return v["feature.worksheets"] === true && v["worksheets.answerKey"] === true && (await deps.accounts.session(readCookie(req))) !== null;
+  }, {
+    allowStudyKey: async () => {
+      const v = await deps.settings.all();
+      return v["feature.worksheets"] === true && v["worksheet.answerKey.allowToggle"] === true;
+    },
+    allowRevealSolution: async () => {
+      const v = await deps.settings.all();
+      return v["assessment.solutions.allowRevealBefore"] === true;
+    },
   }));
   if (deps.accounts) app.use("/api/v1/account", accountRoutes(deps.accounts, deps.settings, deps.secureCookie ?? false, deps.fetcher));
   if (deps.tutor) app.use("/api/v1/tutor", tutorRoutes(deps.tutor, deps.settings, async (req) => (deps.accounts ? (await deps.accounts.session(readCookie(req)))?.studentId ?? null : null)));

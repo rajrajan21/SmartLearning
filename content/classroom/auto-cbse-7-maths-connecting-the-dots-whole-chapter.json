@@ -11,725 +11,354 @@
  "objects": [
   {
    "kind": "text",
-   "id": "dotTitle",
+   "id": "ttl",
    "x": 450,
-   "y": 54,
-   "text": "Dot plot: Tasks finished",
-   "size": 32,
+   "y": 44,
+   "text": "The big ideas",
+   "size": 34,
    "color": "accent",
    "anchor": "middle"
   },
   {
    "kind": "line",
-   "id": "dotBase",
-   "x1": 176,
-   "y1": 357,
-   "x2": 725,
-   "y2": 357,
-   "stroke": "ink",
-   "width": 3
-  },
-  {
-   "kind": "text",
-   "id": "dotAxis",
-   "x": 450,
-   "y": 424,
-   "text": "Tasks finished by one student",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "dotKey",
-   "x": 450,
-   "y": 474,
-   "text": "One dot represents one student",
-   "size": 20,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "barTitle",
-   "x": 450,
-   "y": 52,
-   "text": "Clustered bars: Tasks finished",
-   "size": 32,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "line",
-   "id": "barBase",
-   "x1": 178,
-   "y1": 360,
-   "x2": 720,
-   "y2": 360,
-   "stroke": "ink",
+   "id": "k0",
+   "x1": 450,
+   "y1": 275,
+   "x2": 450,
+   "y2": 125,
+   "stroke": "soft",
    "width": 3
   },
   {
    "kind": "line",
-   "id": "barSide",
-   "x1": 178,
-   "y1": 120,
-   "x2": 178,
-   "y2": 360,
-   "stroke": "ink",
+   "id": "k1",
+   "x1": 450,
+   "y1": 275,
+   "x2": 735.316954888546,
+   "y2": 228.6474508437579,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k2",
+   "x1": 450,
+   "y1": 275,
+   "x2": 626.335575687742,
+   "y2": 396.3525491562421,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k3",
+   "x1": 450,
+   "y1": 275,
+   "x2": 273.6644243122581,
+   "y2": 396.3525491562421,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "line",
+   "id": "k4",
+   "x1": 450,
+   "y1": 275,
+   "x2": 164.68304511145396,
+   "y2": 228.64745084375784,
+   "stroke": "soft",
+   "width": 3
+  },
+  {
+   "kind": "rect",
+   "id": "cn",
+   "x": 310,
+   "y": 228,
+   "w": 280,
+   "h": 94,
+   "rx": 18,
+   "fill": "#E3F2FD",
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "cl0",
+   "x": 450,
+   "y": 266,
+   "text": "Connecting the Dots",
+   "size": 23,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "rect",
+   "id": "n0",
+   "x": 395,
+   "y": 98,
+   "w": 110,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
    "width": 3
   },
   {
    "kind": "text",
-   "id": "barAxis",
-   "x": 132,
-   "y": 101,
-   "text": "Students",
-   "size": 21,
+   "id": "t0",
+   "x": 450,
+   "y": 134,
+   "text": "mean",
+   "size": 24,
    "color": "ink",
    "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "barLabelA",
-   "x": 315,
-   "y": 395,
-   "text": "Monday",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "barLabelB",
-   "x": 564,
-   "y": 395,
-   "text": "Tuesday",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "greenKey",
-   "x": 324,
-   "y": 465,
-   "text": "Class A",
-   "size": 26,
-   "color": "good",
-   "anchor": "middle"
-  },
-  {
-   "kind": "text",
-   "id": "blueKey",
-   "x": 555,
-   "y": 465,
-   "text": "Class B",
-   "size": 26,
-   "color": "accent",
-   "anchor": "middle"
-  },
-  {
-   "kind": "line",
-   "id": "tick0",
-   "x1": 255,
-   "y1": 352,
-   "x2": 255,
-   "y2": 362,
-   "stroke": "ink",
-   "width": 2
-  },
-  {
-   "kind": "text",
-   "id": "val0",
-   "x": 255,
-   "y": 391,
-   "text": "1",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "dot00",
-   "cx": 255,
-   "cy": 330,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "line",
-   "id": "tick1",
-   "x1": 385,
-   "y1": 352,
-   "x2": 385,
-   "y2": 362,
-   "stroke": "ink",
-   "width": 2
-  },
-  {
-   "kind": "text",
-   "id": "val1",
-   "x": 385,
-   "y": 391,
-   "text": "2",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "dot10",
-   "cx": 385,
-   "cy": 330,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "circle",
-   "id": "dot11",
-   "cx": 385,
-   "cy": 292,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "line",
-   "id": "tick2",
-   "x1": 515,
-   "y1": 352,
-   "x2": 515,
-   "y2": 362,
-   "stroke": "ink",
-   "width": 2
-  },
-  {
-   "kind": "text",
-   "id": "val2",
-   "x": 515,
-   "y": 391,
-   "text": "3",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "dot20",
-   "cx": 515,
-   "cy": 330,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "circle",
-   "id": "dot21",
-   "cx": 515,
-   "cy": 292,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "circle",
-   "id": "dot22",
-   "cx": 515,
-   "cy": 254,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "line",
-   "id": "tick3",
-   "x1": 645,
-   "y1": 352,
-   "x2": 645,
-   "y2": 362,
-   "stroke": "ink",
-   "width": 2
-  },
-  {
-   "kind": "text",
-   "id": "val3",
-   "x": 645,
-   "y": 391,
-   "text": "4",
-   "size": 22,
-   "color": "ink",
-   "anchor": "middle"
-  },
-  {
-   "kind": "circle",
-   "id": "dot30",
-   "cx": 645,
-   "cy": 330,
-   "r": 13,
-   "fill": "accent",
-   "stroke": "accent"
-  },
-  {
-   "kind": "text",
-   "id": "gridText0",
-   "x": 151,
-   "y": 367,
-   "text": "0",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "text",
-   "id": "gridText1",
-   "x": 151,
-   "y": 322,
-   "text": "1",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "line",
-   "id": "gridLine1",
-   "x1": 181,
-   "y1": 315,
-   "x2": 717,
-   "y2": 315,
-   "stroke": "soft",
-   "width": 1
-  },
-  {
-   "kind": "text",
-   "id": "gridText2",
-   "x": 151,
-   "y": 277,
-   "text": "2",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "line",
-   "id": "gridLine2",
-   "x1": 181,
-   "y1": 270,
-   "x2": 717,
-   "y2": 270,
-   "stroke": "soft",
-   "width": 1
-  },
-  {
-   "kind": "text",
-   "id": "gridText3",
-   "x": 151,
-   "y": 232,
-   "text": "3",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "line",
-   "id": "gridLine3",
-   "x1": 181,
-   "y1": 225,
-   "x2": 717,
-   "y2": 225,
-   "stroke": "soft",
-   "width": 1
-  },
-  {
-   "kind": "text",
-   "id": "gridText4",
-   "x": 151,
-   "y": 187,
-   "text": "4",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "line",
-   "id": "gridLine4",
-   "x1": 181,
-   "y1": 180,
-   "x2": 717,
-   "y2": 180,
-   "stroke": "soft",
-   "width": 1
-  },
-  {
-   "kind": "text",
-   "id": "gridText5",
-   "x": 151,
-   "y": 142,
-   "text": "5",
-   "size": 20,
-   "color": "ink",
-   "anchor": "end"
-  },
-  {
-   "kind": "line",
-   "id": "gridLine5",
-   "x1": 181,
-   "y1": 135,
-   "x2": 717,
-   "y2": 135,
-   "stroke": "soft",
-   "width": 1
   },
   {
    "kind": "rect",
-   "id": "bar0",
-   "x": 258,
-   "y": 180,
-   "w": 49,
-   "h": 180,
-   "fill": "good",
-   "stroke": "good"
+   "id": "n1",
+   "x": 680.316954888546,
+   "y": 201.6474508437579,
+   "w": 110,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t1",
+   "x": 735.316954888546,
+   "y": 237.6474508437579,
+   "text": "median",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
   },
   {
    "kind": "rect",
-   "id": "bar1",
-   "x": 322,
-   "y": 270,
-   "w": 49,
-   "h": 90,
-   "fill": "accent",
-   "stroke": "accent"
+   "id": "n2",
+   "x": 565.835575687742,
+   "y": 369.3525491562421,
+   "w": 121,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t2",
+   "x": 626.335575687742,
+   "y": 405.3525491562421,
+   "text": "outlier",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
   },
   {
    "kind": "rect",
-   "id": "bar2",
-   "x": 507,
-   "y": 225,
-   "w": 49,
-   "h": 135,
-   "fill": "good",
-   "stroke": "good"
+   "id": "n3",
+   "x": 218.66442431225812,
+   "y": 369.3525491562421,
+   "w": 110,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t3",
+   "x": 273.6644243122581,
+   "y": 405.3525491562421,
+   "text": "range",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
   },
   {
    "kind": "rect",
-   "id": "bar3",
-   "x": 571,
-   "y": 135,
-   "w": 49,
-   "h": 225,
-   "fill": "accent",
-   "stroke": "accent"
+   "id": "n4",
+   "x": 97.68304511145396,
+   "y": 201.64745084375784,
+   "w": 134,
+   "h": 54,
+   "rx": 14,
+   "fill": "#FFF3D6",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "t4",
+   "x": 164.68304511145396,
+   "y": 237.64745084375784,
+   "text": "dot plot",
+   "size": 24,
+   "color": "ink",
+   "anchor": "middle"
   }
  ],
  "steps": [
   {
-   "id": "graph1",
+   "id": "d1",
    "narration": {
-    "en": "Each dot stands for one student. Along the number line, the position tells how many tasks that student finished."
+    "en": "Here is a picture of the big ideas in this lesson: mean, median, outlier, range and dot plot."
    },
    "actions": [
     {
      "do": "show",
-     "target": "dotTitle",
+     "target": "ttl",
      "at": 0.05
     },
     {
      "do": "draw",
-     "target": "dotBase",
-     "at": 0.18
+     "target": "cn",
+     "at": 0.1
     },
     {
-     "do": "show",
-     "target": "tick0",
-     "at": 0.24
-    },
-    {
-     "do": "show",
-     "target": "val0",
-     "at": 0.27
-    },
-    {
-     "do": "show",
-     "target": "tick1",
-     "at": 0.3
-    },
-    {
-     "do": "show",
-     "target": "val1",
-     "at": 0.32999999999999996
-    },
-    {
-     "do": "show",
-     "target": "tick2",
-     "at": 0.36
-    },
-    {
-     "do": "show",
-     "target": "val2",
-     "at": 0.39
-    },
-    {
-     "do": "show",
-     "target": "tick3",
-     "at": 0.42
-    },
-    {
-     "do": "show",
-     "target": "val3",
-     "at": 0.44999999999999996
-    },
-    {
-     "do": "show",
-     "target": "dotAxis",
-     "at": 0.52
-    },
-    {
-     "do": "show",
-     "target": "dotKey",
-     "at": 0.65
-    }
-   ]
-  },
-  {
-   "id": "graph2",
-   "narration": {
-    "en": "One student finished one task, two finished two tasks, three finished three tasks, and one finished four. Stack equal values over the same position."
-   },
-   "actions": [
-    {
-     "do": "draw",
-     "target": "dot00",
-     "at": 0.09
+     "do": "write",
+     "target": "cl0",
+     "at": 0.15
     },
     {
      "do": "draw",
-     "target": "dot10",
+     "target": "k0",
      "at": 0.2
     },
     {
      "do": "draw",
-     "target": "dot11",
-     "at": 0.31
+     "target": "n0",
+     "at": 0.22
     },
     {
-     "do": "draw",
-     "target": "dot20",
-     "at": 0.42000000000000004
-    },
-    {
-     "do": "draw",
-     "target": "dot21",
-     "at": 0.53
-    },
-    {
-     "do": "draw",
-     "target": "dot22",
-     "at": 0.64
-    },
-    {
-     "do": "draw",
-     "target": "dot30",
-     "at": 0.75
-    }
-   ]
-  },
-  {
-   "id": "graph3",
-   "narration": {
-    "en": "Point to the stack at three. It has three dots. Count all seven dots to find the number of students in the plot."
-   },
-   "actions": [
-    {
-     "do": "pulse",
-     "target": "dot20",
-     "at": 0.17,
-     "color": "accent"
-    },
-    {
-     "do": "pulse",
-     "target": "dot21",
-     "at": 0.24,
-     "color": "accent"
-    },
-    {
-     "do": "pulse",
-     "target": "dot22",
-     "at": 0.31,
-     "color": "accent"
-    },
-    {
-     "do": "pulse",
-     "target": "dotKey",
-     "at": 0.67,
-     "color": "accent"
-    }
-   ]
-  },
-  {
-   "id": "graph4",
-   "narration": {
-    "en": "A clustered bar graph compares groups within each category. Here each day has two bars. Green represents Class A, and blue represents Class B."
-   },
-   "actions": [
-    {
-     "do": "clear",
-     "at": 0
-    },
-    {
-     "do": "show",
-     "target": "barTitle",
-     "at": 0.05
-    },
-    {
-     "do": "show",
-     "target": "gridText0",
-     "at": 0.1
-    },
-    {
-     "do": "show",
-     "target": "gridText1",
-     "at": 0.113
-    },
-    {
-     "do": "show",
-     "target": "gridLine1",
-     "at": 0.126
-    },
-    {
-     "do": "show",
-     "target": "gridText2",
-     "at": 0.139
-    },
-    {
-     "do": "show",
-     "target": "gridLine2",
-     "at": 0.152
-    },
-    {
-     "do": "show",
-     "target": "gridText3",
-     "at": 0.165
-    },
-    {
-     "do": "show",
-     "target": "gridLine3",
-     "at": 0.178
-    },
-    {
-     "do": "show",
-     "target": "gridText4",
-     "at": 0.191
-    },
-    {
-     "do": "show",
-     "target": "gridLine4",
-     "at": 0.20400000000000001
-    },
-    {
-     "do": "show",
-     "target": "gridText5",
-     "at": 0.217
-    },
-    {
-     "do": "show",
-     "target": "gridLine5",
-     "at": 0.23
-    },
-    {
-     "do": "draw",
-     "target": "barBase",
+     "do": "write",
+     "target": "t0",
      "at": 0.25
     },
     {
      "do": "draw",
-     "target": "barSide",
-     "at": 0.27
+     "target": "k1",
+     "at": 0.33999999999999997
     },
     {
-     "do": "show",
-     "target": "barAxis",
-     "at": 0.32
+     "do": "draw",
+     "target": "n1",
+     "at": 0.36
     },
     {
-     "do": "show",
-     "target": "barLabelA",
+     "do": "write",
+     "target": "t1",
      "at": 0.39
     },
     {
-     "do": "show",
-     "target": "barLabelB",
-     "at": 0.45
+     "do": "draw",
+     "target": "k2",
+     "at": 0.48
     },
     {
-     "do": "show",
-     "target": "greenKey",
-     "at": 0.62
+     "do": "draw",
+     "target": "n2",
+     "at": 0.5
     },
     {
-     "do": "show",
-     "target": "blueKey",
+     "do": "write",
+     "target": "t2",
+     "at": 0.53
+    },
+    {
+     "do": "draw",
+     "target": "k3",
+     "at": 0.6199999999999999
+    },
+    {
+     "do": "draw",
+     "target": "n3",
+     "at": 0.64
+    },
+    {
+     "do": "write",
+     "target": "t3",
+     "at": 0.6699999999999999
+    },
+    {
+     "do": "draw",
+     "target": "k4",
+     "at": 0.76
+    },
+    {
+     "do": "draw",
+     "target": "n4",
      "at": 0.78
+    },
+    {
+     "do": "write",
+     "target": "t4",
+     "at": 0.8099999999999999
     }
    ]
   },
   {
-   "id": "graph5",
+   "id": "d2",
    "narration": {
-    "en": "On Monday, four students in Class A and two in Class B finished all their tasks. On Tuesday, three from Class A and five from Class B did."
+    "en": "The arithmetic mean is the total of the values divided by the number of values; it is also a fair share."
    },
    "actions": [
     {
-     "do": "draw",
-     "target": "bar0",
-     "at": 0.16
-    },
-    {
-     "do": "draw",
-     "target": "bar1",
-     "at": 0.34
-    },
-    {
-     "do": "draw",
-     "target": "bar2",
-     "at": 0.62
-    },
-    {
-     "do": "draw",
-     "target": "bar3",
-     "at": 0.78
+     "do": "pulse",
+     "target": "n0",
+     "at": 0.15,
+     "color": "accent"
     }
    ]
   },
   {
-   "id": "graph6",
+   "id": "d3",
    "narration": {
-    "en": "Class B rose from two on Monday to five on Tuesday. Class A fell from four to three. Compare bars with the same label in the key."
+    "en": "The median is the middle value of sorted data; for an even count it is the average of the two middle values."
    },
    "actions": [
     {
      "do": "pulse",
-     "target": "bar1",
-     "at": 0.16,
+     "target": "n1",
+     "at": 0.15,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "d4",
+   "narration": {
+    "en": "An extreme value can pull the mean up or down. The median is usually less affected by extreme values."
+   },
+   "actions": [
+    {
+     "do": "pulse",
+     "target": "n0",
+     "at": 0.15,
      "color": "accent"
     },
     {
      "do": "pulse",
-     "target": "bar3",
-     "at": 0.32,
+     "target": "n1",
+     "at": 0.35,
      "color": "accent"
-    },
+    }
+   ]
+  },
+  {
+   "id": "d5",
+   "narration": {
+    "en": "Range = maximum - minimum; minimum, maximum and range describe spread."
+   },
+   "actions": [
     {
      "do": "pulse",
-     "target": "bar0",
-     "at": 0.52,
-     "color": "accent"
-    },
-    {
-     "do": "pulse",
-     "target": "bar2",
-     "at": 0.68,
+     "target": "n3",
+     "at": 0.15,
      "color": "accent"
     }
    ]

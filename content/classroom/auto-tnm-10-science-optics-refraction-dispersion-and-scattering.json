@@ -1,0 +1,283 @@
+{
+ "board": "TNMATRIC",
+ "classLevel": 10,
+ "subject": "science",
+ "chapter": "optics",
+ "topic": "refraction-dispersion-and-scattering",
+ "status": "published",
+ "title": {
+  "en": "A convex lens"
+ },
+ "objects": [
+  {
+   "kind": "text",
+   "id": "ttl",
+   "x": 450,
+   "y": 36,
+   "text": "A convex lens",
+   "size": 32,
+   "color": "accent",
+   "anchor": "middle"
+  },
+  {
+   "kind": "path",
+   "id": "lens",
+   "d": "M 450 110 C 510 200 510 330 450 420 C 390 330 390 200 450 110",
+   "stroke": "water",
+   "width": 5,
+   "fill": "#E3F2FD"
+  },
+  {
+   "kind": "line",
+   "id": "ax",
+   "x1": 80,
+   "y1": 265,
+   "x2": 840,
+   "y2": 265,
+   "stroke": "ink",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "f1",
+   "cx": 330,
+   "cy": 265,
+   "r": 6,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "circle",
+   "id": "f2",
+   "cx": 570,
+   "cy": 265,
+   "r": 6,
+   "fill": "#FF8A65",
+   "stroke": "warm",
+   "width": 3
+  },
+  {
+   "kind": "text",
+   "id": "tf1",
+   "x": 330,
+   "y": 295,
+   "text": "F",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tf2",
+   "x": 570,
+   "y": 295,
+   "text": "F",
+   "size": 24,
+   "color": "warm",
+   "anchor": "middle"
+  },
+  {
+   "kind": "text",
+   "id": "tp",
+   "x": 450,
+   "y": 450,
+   "text": "optical centre",
+   "size": 20,
+   "color": "ink",
+   "anchor": "middle"
+  },
+  {
+   "kind": "arrow",
+   "id": "r0",
+   "x1": 120,
+   "y1": 170,
+   "x2": 450,
+   "y2": 170,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "q0",
+   "x1": 450,
+   "y1": 170,
+   "x2": 640,
+   "y2": 320,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "r1",
+   "x1": 120,
+   "y1": 360,
+   "x2": 450,
+   "y2": 360,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "line",
+   "id": "q1",
+   "x1": 450,
+   "y1": 360,
+   "x2": 640,
+   "y2": 210,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "arrow",
+   "id": "rm",
+   "x1": 120,
+   "y1": 265,
+   "x2": 740,
+   "y2": 265,
+   "stroke": "accent",
+   "width": 4
+  },
+  {
+   "kind": "text",
+   "id": "tr",
+   "x": 700,
+   "y": 200,
+   "text": "rays meet at the focus",
+   "size": 22,
+   "color": "good",
+   "anchor": "start"
+  },
+  {
+   "kind": "image",
+   "id": "pic",
+   "x": 150,
+   "y": 70,
+   "w": 600,
+   "h": 360,
+   "src": "rainbow",
+   "alt": "A rainbow in the sky",
+   "caption": "A rainbow"
+  }
+ ],
+ "steps": [
+  {
+   "id": "s1",
+   "narration": {
+    "en": "A convex lens is thicker in the middle than at the edges. The straight line through its centre is the principal axis."
+   },
+   "actions": [
+    {
+     "do": "show",
+     "target": "ttl",
+     "at": 0.05
+    },
+    {
+     "do": "draw",
+     "target": "lens",
+     "at": 0.2,
+     "ms": 1200
+    },
+    {
+     "do": "draw",
+     "target": "ax",
+     "at": 0.6
+    },
+    {
+     "do": "write",
+     "target": "tp",
+     "at": 0.8
+    }
+   ]
+  },
+  {
+   "id": "s2",
+   "narration": {
+    "en": "Rays of light that come in parallel to the axis bend as they pass through the lens, and all of them meet at one point on the other side. This point is the principal focus, F."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "r0",
+     "at": 0.1
+    },
+    {
+     "do": "draw",
+     "target": "r1",
+     "at": 0.2
+    },
+    {
+     "do": "draw",
+     "target": "rm",
+     "at": 0.3
+    },
+    {
+     "do": "draw",
+     "target": "q0",
+     "at": 0.5
+    },
+    {
+     "do": "draw",
+     "target": "q1",
+     "at": 0.6
+    },
+    {
+     "do": "draw",
+     "target": "f2",
+     "at": 0.75
+    },
+    {
+     "do": "write",
+     "target": "tf2",
+     "at": 0.8
+    },
+    {
+     "do": "write",
+     "target": "tr",
+     "at": 0.9
+    }
+   ]
+  },
+  {
+   "id": "s3",
+   "narration": {
+    "en": "A convex lens has a focus on each side, at the same distance from the centre. Because it brings parallel rays together, it is called a converging lens."
+   },
+   "actions": [
+    {
+     "do": "draw",
+     "target": "f1",
+     "at": 0.2
+    },
+    {
+     "do": "write",
+     "target": "tf1",
+     "at": 0.3
+    },
+    {
+     "do": "pulse",
+     "target": "f2",
+     "at": 0.5,
+     "color": "accent"
+    }
+   ]
+  },
+  {
+   "id": "pic",
+   "narration": {
+    "en": "Look at the picture on the board. A rainbow in the sky. Pictures like this help us see what the words are describing."
+   },
+   "actions": [
+    {
+     "do": "clear",
+     "at": 0
+    },
+    {
+     "do": "show",
+     "target": "pic",
+     "at": 0.15,
+     "ms": 700
+    }
+   ]
+  }
+ ]
+}
