@@ -56,6 +56,8 @@ export interface AudioStore {
   phrases(): PhraseSet;
   /** The teacher voices that can be chosen (from voices.json). */
   teachers(): { id: string; label: string; gender: "female" | "male"; accent: "us" | "uk" | "in"; langs: Lang[] }[];
+  /** True if at least one clip for any language of this teacher exists in the manifest. */
+  hasVoice?(teacher: string): boolean;
   /** changes whenever the recordings list or the teacher list changes (used to cache things built from them) */
   version?(): string;
   /** Adds `audio` to every narration sentence that has a recording. Never changes the stored lesson. */
@@ -126,11 +128,29 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     }
     return out.en || out.ta || out.hi ? out : undefined;
   };
+  let voiceSetStamp = "";
+  let voiceSet = new Set<string>();
+  const activeVoices = () => {
+    fresh();
+    const s = `${mTime}:${vTime}`;
+    if (s !== voiceSetStamp) {
+      voiceSet = new Set(Object.values(manifest.entries).map((e) => e.voice));
+      voiceSetStamp = s;
+    }
+    return voiceSet;
+  };
   return {
     version() { fresh(); return `${mTime}:${vTime}`; },
     ref: lookup,
     refs,
     refsPreferred,
+    hasVoice(teacher: string) {
+      fresh();
+      const v = voices[teacher];
+      if (!v) return false;
+      const set = activeVoices();
+      return LANGS.some((l) => v[l]?.voice && set.has(v[l]!.voice));
+    },
     teachers() { fresh(); return Object.entries(voices).map(([id, v]) => ({ id, label: v.label ?? id, gender: v.gender ?? "female", accent: v.accent ?? "us", langs: LANGS.filter((l) => v[l]) })); },
     phrases() {
       fresh();

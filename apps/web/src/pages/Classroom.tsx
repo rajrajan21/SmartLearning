@@ -149,12 +149,12 @@ export function ClassroomPage() {
     return () => { alive = false; };
   }, [on, board, cls, subject, chapter, demo, s]);
   if (!on) return <NotFound />;
+  if (m3 && m3On && !preferM1) {
+    return <Model3Player lesson={m3} topic={topic} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} onSwitchModel1={() => setPreferM1(true)} />;
+  }
   if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
-  if (m3 && m3On && !preferM1) {
-    return <Model3Player lesson={m3} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} onSwitchModel1={() => setPreferM1(true)} />;
-  }
   const sameSubject = idx.status === "ready"
     ? idx.data.items.filter((i) => i.board.toLowerCase() === board.toLowerCase() && String(i.classLevel) === String(cls) && i.subject === subject)
     : [];

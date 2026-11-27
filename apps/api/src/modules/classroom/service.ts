@@ -108,7 +108,7 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       const all = load();
       // a voice is "ready" when it has been recorded for at least one lesson (checking either English or Tamil tracks); worked out again only when the lessons or the recordings change
       const vk = `${stamp}#${audio?.version?.() ?? Date.now()}`;
-      if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: all.some((l) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))) })); voicesKey = vk; }
+      if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: audio?.hasVoice ? audio.hasVoice(t.id) : all.some((l) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))) })); voicesKey = vk; }
       const pref = perf().defaultAudioVoice || "maya";
       return { voices, defaultVoice: voices.some((v) => v.id === pref) ? pref : DEFAULT_VOICE, items };
     },
@@ -118,6 +118,7 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       if (!l) return null;
       const minReady = Math.max(1, Math.ceil(l.steps.length * 0.7));
       const ready = (audio?.teachers() ?? [])
+        .filter((t) => !audio?.hasVoice || audio.hasVoice(t.id))
         .filter((t) => l.steps.filter((st) => !!audio?.refs(t.id, st.narration)).length >= minReady)
         .map((t) => t.id);
       const pref = perf().defaultAudioVoice || "maya";

@@ -17,6 +17,7 @@ import { fileURLToPath } from "node:url";
 const ROOT = resolve(fileURLToPath(new URL("../..", import.meta.url)));
 const CUR_DIR = join(ROOT, "content", "curriculum");
 const L_DIR = join(ROOT, "content", "lessons");
+const Q_DIR = join(ROOT, "content", "questions");
 const M3_DIR = join(ROOT, "content", "model3");
 mkdirSync(M3_DIR, { recursive: true });
 
@@ -42,12 +43,12 @@ function toSpeakEn(s) {
     .replace(/=/g, " equals ");
 }
 
-function pickLabType(subject, chapterSlug, title) {
+function pickLabType(subject, chapterSlug, title, classLevel) {
   const s = `${subject} ${chapterSlug} ${title}`.toLowerCase();
-  if (/circle|pi|circumference|radius|diameter/.test(s)) return "circle-radius-slider";
-  if (/area|perimeter|rectangle|square|mensuration|shape/.test(s)) return "area-perimeter-grid";
-  if (/fraction|percent|ratio|proportion|decimal/.test(s)) return "fraction-explorer";
-  if (/electric|circuit|current|magnet|battery|bulb/.test(s)) return "circuit-builder";
+  if (subject === "maths" && /circle|pi\b|circumference|radius|diameter/.test(s)) return "circle-radius-slider";
+  if (subject === "maths" && classLevel >= 4 && /area|perimeter|mensuration/.test(s)) return "area-perimeter-grid";
+  if (subject === "maths" && /fraction|percent|ratio|proportion|decimal/.test(s)) return "fraction-explorer";
+  if (subject === "science" && /electric|circuit|battery|bulb|switch/.test(s)) return "circuit-builder";
   return "concept-explorer";
 }
 
@@ -114,6 +115,20 @@ function extractChapterContent(ch) {
         }
       }
     } catch {}
+    const qf = join(Q_DIR, `${ch.board}-${ch.classLevel}-${ch.subject}-${ch.chapter}-${t.slug}.json`);
+    if (existsSync(qf)) {
+      try {
+        const qData = JSON.parse(readFileSync(qf, "utf8"));
+        for (const q of qData.questions || []) {
+          const stem = clean(q.stem?.en || "");
+          const steps = (q.solutionSteps || []).map((s) => clean(s?.en || "")).filter(Boolean);
+          const ans = clean(q.explanation?.en || "");
+          if (stem && (steps.length || ans) && !/^complete the textbook statement|^true or false|^identify the correct/i.test(stem)) {
+            examples.push({ q: stem, sol: steps[0] ? `${steps.join(" ")}` : ans, tier: q.tier || "textbook" });
+          }
+        }
+      } catch {}
+    }
   }
   return { concepts: [...new Set(concepts)], examples, tips };
 }
@@ -123,9 +138,9 @@ function buildModel3(ch) {
   const c1 = concepts[0] || `Let us master ${ch.title} step by step with clear visual examples.`;
   const c2 = concepts[1] || `Always check units, definitions, and textbook conditions in ${ch.title}.`;
   const c3 = concepts[2] || `Connecting each step logically makes solving ${ch.title} problems effortless.`;
-  const ex1 = examples[0] || { q: `Apply the core rule of ${ch.title}`, sol: c2 };
-  const ex2 = examples[1] || { q: `Solve a reverse problem in ${ch.title}`, sol: c3 };
-  const labType = pickLabType(ch.subject, ch.chapter, ch.title);
+  const ex1 = examples.find((e) => e.tier !== "advanced") || examples[0] || { q: `Apply the core rule of ${ch.title}`, sol: c2 };
+  const ex2 = examples.find((e) => e.tier === "advanced") || examples.find((e) => e !== ex1) || { q: `Solve a reverse problem in ${ch.title}`, sol: c3 };
+  const labType = pickLabType(ch.subject, ch.chapter, ch.title, ch.classLevel);
   const textbookRef = `${ch.board.toUpperCase()} Class ${ch.classLevel} ${ch.subject} · ${ch.title}`;
 
   const doc = {

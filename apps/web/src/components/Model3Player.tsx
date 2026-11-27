@@ -96,10 +96,12 @@ function ChalkLab({ step, onContinue }: { step: Model3Step; onContinue: () => vo
 
 export function Model3Player({
   lesson,
+  topic,
   back,
   onSwitchModel1,
 }: {
   lesson: Model3Lesson;
+  topic?: string;
   back: string;
   onSwitchModel1: () => void;
 }) {
@@ -112,7 +114,7 @@ export function Model3Player({
   const [done, setDone] = useState(false);
   const [lightBoard, setLightBoard] = useState(s.get("classroom.model3.darkBoard") === false);
   const [wide, setWide] = useState(false);
-  const [speed, setSpeed] = useState(() => Number(store.get("ss_class_speed")) || Number(s.get<string>("classroom.speed")) || 0.85);
+  const [speed, setSpeed] = useState(() => Number(store.get("ss_class_speed")) || Number(s.get<string>("classroom.speed")) || 0.78);
   const [speedSaved, setSpeedSaved] = useState(false);
   const stepPauseMs = s.get<number>("classroom.stepPauseMs") || 1000;
   const [voiceMode, setVoiceMode] = useState<VoiceMode>("en");
@@ -152,7 +154,12 @@ export function Model3Player({
 
   const jumpTo = useCallback((nextStep: number, nextBeat = 0, autoPlay = false) => {
     stopSpeech();
-    const clamped = Math.max(0, Math.min(steps.length - 1, nextStep));
+    if (nextStep >= steps.length) {
+      setDone(true);
+      setPlaying(false);
+      return;
+    }
+    const clamped = Math.max(0, nextStep);
     setStepIdx(clamped);
     setBeatIdx(nextBeat);
     setBeatProg(autoPlay ? 0 : 1);
@@ -177,7 +184,7 @@ export function Model3Player({
       : voiceMode === "tanglish" && curBeat.tanglish ? (curBeat.speakTanglish ?? curBeat.tanglish)
       : (curBeat.speakEn ?? curBeat.en);
 
-    const estMs = Math.max(1600, Math.round((text.length * 62) / speed));
+    const estMs = Math.max(2400, Math.round((text.length * 78) / speed));
     const started = performance.now();
     timerRef.current = window.setInterval(() => {
       if (runRef.current !== myRun) return;
@@ -190,7 +197,7 @@ export function Model3Player({
       if (timerRef.current !== null) { clearInterval(timerRef.current); timerRef.current = null; }
       setBeatProg(1);
       if (beatIdx + 1 < step.beats.length) {
-        window.setTimeout(() => { if (runRef.current === myRun) setBeatIdx((b) => b + 1); }, 150);
+        window.setTimeout(() => { if (runRef.current === myRun) setBeatIdx((b) => b + 1); }, 450);
       } else if (step.kind === "interactive-lab" && step.autoStop !== false) {
         // Mandatory Auto-Stop on Interactive Labs in BOTH Level 1 & Level 2
         setPlaying(false);
@@ -199,8 +206,9 @@ export function Model3Player({
           if (runRef.current === myRun) { setStepIdx((i) => i + 1); setBeatIdx(0); setBeatProg(0); }
         }, stepPauseMs);
       } else {
-        setPlaying(false);
-        setDone(true);
+        window.setTimeout(() => {
+          if (runRef.current === myRun) { setPlaying(false); setDone(true); }
+        }, stepPauseMs);
       }
     };
 
@@ -229,12 +237,16 @@ export function Model3Player({
 
   useEffect(() => () => stopSpeech(), [stopSpeech]);
 
-  // Compute typed chalk cues for the current step up to current beat & beatProg
+  // Show pencil writing only for formulas, calculations, or equations; display plain explanatory lines straight away
   const visibleCues = useMemo(() => {
+    const isFormulaOrCalc = (txt: string) => /[=×÷+\-−π²³]|Formula:|Step\s*\d|^\s*\d+\)/i.test(txt);
     return step.cues.map((c) => {
       const [id, fullText] = c.type;
-      if (c.b < beatIdx || !playing && beatProg >= 1) return { id, text: fullText, done: true, color: c.color ?? "green" };
+      if (c.b < beatIdx || (!playing && beatProg >= 1)) return { id, text: fullText, done: true, color: c.color ?? "green" };
       if (c.b > beatIdx) return null;
+      if (!isFormulaOrCalc(fullText)) {
+        return beatProg >= Math.min(0.1, c.at) ? { id, text: fullText, done: true, color: c.color ?? "green" } : null;
+      }
       if (beatProg < c.at) return null;
       const frac = Math.min(1, (beatProg - c.at) / Math.max(0.15, 1 - c.at));
       const chars = Math.max(1, Math.round(fullText.length * frac));
@@ -274,7 +286,7 @@ export function Model3Player({
       </div>
 
       {tab !== "lesson" ? (
-        <LessonAssessments tab={tab} board={lesson.board} cls={lesson.classLevel} subject={lesson.subject} chapter={lesson.chapter} topic={lesson.chapter} />
+        <LessonAssessments tab={tab} board={lesson.board} cls={lesson.classLevel} subject={lesson.subject} chapter={lesson.chapter} topic={topic ?? lesson.chapter} />
       ) : (
         <>
           <nav className="m3-phases" aria-label="Lesson steps">
@@ -368,10 +380,9 @@ export function Model3Player({
             <label className="m3-ctrl">Speed
               <select value={String(speed)} onChange={(e) => { setSpeed(Number(e.target.value)); setSpeedSaved(false); }}>
                 <option value="0.7">0.7× Very Slow</option>
-                <option value="0.8">0.8× Slow</option>
-                <option value="0.85">0.85× Calm</option>
-                <option value="0.9">0.9× Steady</option>
-                <option value="1">1× Normal</option>
+                <option value="0.78">0.78× Calm Teacher</option>
+                <option value="0.85">0.85× Steady</option>
+                <option value="0.95">0.95× Normal</option>
                 <option value="1.1">1.1× Quick</option>
                 <option value="1.25">1.25× Faster</option>
               </select>

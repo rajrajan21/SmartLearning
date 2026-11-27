@@ -523,3 +523,9 @@ Implemented the SharpStudy admin overview, separate Site settings dropdown, sear
 - **Generated 685 Model 3.0 Chapters (`tools/model3/generate-model3.mjs`)**: Built CBSE Classes 3, 4, 6, 7 (261 chapters) first, followed by all remaining CBSE & TN Matric chapters (`685` total files in `content/model3/`).
 - **Natural Edge-TTS Voices (`content/audio/voices.json`)**: Added `maya` (`edge:en-US-AvaMultilingualNeural`) and upgraded `priya2` (`edge:en-GB-SoniaNeural`) and `ravi2` (`edge:en-IN-PrabhatNeural`).
 - **Tour v2 `s4` (30–40s)**: Re-recorded `s4` showcasing the new Classroom Practice (`Need a Hint?` + `Step-by-Step Solution`) and Worksheet (`Show Answer Key`) tabs.
+
+## 2026-11-27 — Classroom Loading Fix, Model 2.0 Pace/Pencil/Lab Fixes & 685-Lesson Regeneration
+- Fixed `/api/v1/classroom/index` O(60,000) SHA1 hang when `manifest.json` updates by adding `hasVoice(teacher)` (`O(1)` engine voice Set lookup) in `apps/api/src/modules/audio/manifest.ts` and `apps/api/src/modules/classroom/service.ts`.
+- Unblocked `Model3Player` in `apps/web/src/pages/Classroom.tsx` so Model 2.0 lessons render immediately without waiting on `/api/v1/classroom/index`.
+- Fixed `Model3Player.tsx`: `Done — Continue to Next Step →` on the last step now opens the Level Completion Hub cleanly (`setDone(true)`), plain prose renders immediately while only formulas/calculations animate with the `✎` pencil, and default pacing slowed to `0.78× Calm Teacher` (`78ms/char`, `450ms` beat pause, `1000ms` step pause).
+- Updated `tools/model3/generate-model3.mjs` to fix `labType` mismatches and extract real worked examples/solution steps from `content/questions/*.json`, then regenerated and verified all 685 `content/model3/*.json` lessons (`schemaInvalid: 0`, `syncOrSpeechIssues: 0`).
