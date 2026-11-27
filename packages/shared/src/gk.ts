@@ -46,6 +46,12 @@ export const GkLesson = z
     /** short surprising facts shown as "Did you know?" */
     facts: z.array(z.string().min(10).max(240)).max(6).default([]),
     quiz: z.array(GkQuestion).max(6).default([]),
+    video: z.object({
+      youtubeId: z.string().regex(/^[A-Za-z0-9_-]{11}$/),
+      title: z.string().min(3).max(120),
+      publisher: z.string().min(2).max(80),
+      prompt: z.string().min(8).max(160),
+    }).optional(),
     /** present for anything that can change with time, e.g. "as of November 2026" */
     asOf: z.string().max(40).optional(),
     /** where the facts come from / extra notes for parents and teachers */

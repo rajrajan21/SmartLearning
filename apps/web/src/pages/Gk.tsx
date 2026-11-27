@@ -8,6 +8,7 @@ import { GK_AGES, GK_AGE_LABEL, GK_ANIMATED_VISUALS, type GkAge, type GkIndex, t
 import { useSettings } from "../lib/settings";
 import { Crumbs, ErrorBox, Loading, NotFound } from "../components/bits";
 import { GkVisual } from "../components/gk/visuals";
+import { GkVideo } from "../components/gk/GkVideo";
 import { useNarrator } from "../lib/narrator";
 import { csv, gkDone, gt, markGkDone, narrationOf, orderCategories, pickDaily, saveAge, savedAge, sortItems, useGkIndex, useGkLesson, visibleItems, type GkLessonOut } from "../lib/gk";
 
@@ -386,6 +387,9 @@ export function GkLessonPage() {
       )}
       {s.get("gk.facts.enabled") === true && lesson.facts.length > 0 && (
         <section className="gk-facts"><h2>💡 {gt("facts", lang)}</h2><ul>{lesson.facts.slice(0, Number(s.get("gk.facts.max") ?? 3)).map((f) => <li key={f}>{f}</li>)}</ul></section>
+      )}
+      {lesson.video && s.get("gk.video.youtube.enabled") === true && (
+        <GkVideo key={lesson.id} video={lesson.video} lang={lang} onOpen={() => { if (narrator.playing) narrator.pause(); }} />
       )}
       {s.get("gk.quiz.enabled") === true && <Quiz lesson={lesson} onDone={finish} />}
       {s.get("gk.notes.show") === true && lesson.notes && <aside className="gk-notes"><h2>{gt("notes", lang)}</h2><p>{lesson.notes}</p></aside>}
