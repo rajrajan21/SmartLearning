@@ -42,8 +42,8 @@ const INVITE_CODE = process.env.INVITE_CODE || "";
 const CHROME_PATH = process.env.CHROME_PATH || "";
 
 const VIEWPORT = { width: 1280, height: 720 };
-const CLASSROOM_SOLAR = "/classroom/cbse/6/science/beyond-earth/our-solar-system-and-the-milky-way";
-const CLASSROOM_FRACTIONS = "/classroom/cbse/8/maths/ch08-fractions-in-disguise/fractions-and-percentages";
+const CLASSROOM_SHAPES = "/classroom/cbse/4/maths/shapes-around-us/whole-chapter";
+const CLASSROOM_CIRCUITS = "/classroom/cbse/7/science/electricity-circuits-and-their-components/whole-chapter";
 const WORKSHEET_MAGNETS = "/worksheet/cbse/6/science/exploring-magnets";
 const EXAM_MAGNETS = "/exam/cbse/6/science/exploring-magnets";
 
@@ -181,95 +181,59 @@ const CLIPS = [
   {
     id: "s2",
     file: "screen_s2_classroom.mp4",
-    title: "Classroom board animating + timeline advancing (Class 6 Beyond Earth: Solar System)",
-    route: CLASSROOM_SOLAR,
+    title: "Classroom board animating + timeline advancing (Class 4 Shapes Around Us)",
+    route: CLASSROOM_SHAPES,
     async prepare(page) {
-      await page.goto(`${SITE_URL}${CLASSROOM_SOLAR}`, { waitUntil: "domcontentloaded", timeout: 25000 });
+      await page.goto(`${SITE_URL}${CLASSROOM_SHAPES}`, { waitUntil: "domcontentloaded", timeout: 25000 });
       await waitForPageReady(page);
       await page.waitForTimeout(1000);
       await dismissOverlays(page);
-      await tryClick(page, ['button:has-text("Picture it")', 'button:has-text("Learn")'], 500);
+      await tryClick(page, ['button:has-text("Start the lesson")', 'button:has-text("Play")', 'button[aria-label*="Play" i]'], 600);
+      await tryClick(page, ['button:has-text("Picture it")'], 800);
       await page.waitForTimeout(300);
     },
     async run(page, ms) {
-      await page.waitForTimeout(400);
-      await tryClick(page, [
-        'button[aria-label*="Play" i]',
-        'button:has-text("Play")',
-        'button:has-text("Start")',
-      ], 1800);
-      await tryClick(page, ['button:has-text("Next")', 'button[aria-label*="Next" i]'], 2400);
-      await tryClick(page, ['button:has-text("Next")', 'button[aria-label*="Next" i]'], Math.max(1800, ms - 4600));
+      await page.waitForTimeout(Math.max(4000, ms - 500));
     },
   },
   {
     id: "s3",
     file: "screen_s3_voice.mp4",
-    title: "Classroom teacher voice picker + 0.85x speed switch (Class 8 Maths: Fractions & Percentages)",
-    route: CLASSROOM_FRACTIONS,
+    title: "Classroom animated circuits & flow diagrams (Class 7 Electric Circuits)",
+    route: CLASSROOM_CIRCUITS,
     async prepare(page) {
-      await page.goto(`${SITE_URL}${CLASSROOM_FRACTIONS}`, { waitUntil: "domcontentloaded", timeout: 25000 });
+      await page.goto(`${SITE_URL}${CLASSROOM_CIRCUITS}`, { waitUntil: "domcontentloaded", timeout: 25000 });
       await waitForPageReady(page);
       await page.waitForTimeout(1000);
       await dismissOverlays(page);
       await tryClick(page, ['button:has-text("Start the lesson")', 'button:has-text("Play")', 'button[aria-label*="Play" i]'], 600);
-      await tryClick(page, ['button:has-text("Picture it")', 'button:has-text("Learn")'], 800);
+      await tryClick(page, ['button:has-text("Picture it")'], 800);
       await page.waitForTimeout(400);
     },
     async run(page, ms) {
-      await page.waitForTimeout(600);
-      await tryClick(page, [
-        'select[aria-label*="voice" i]',
-        'button:has-text("Lakshmi")',
-        'button:has-text("Teacher voice")',
-        'button[aria-label*="Voice" i]',
-      ], 900);
-      const select = page.locator("select").filter({ hasText: /Lakshmi|Priya|Ram/i }).first();
-      if (await select.isVisible({ timeout: 800 }).catch(() => false)) {
-        const opts = await select.locator("option").allTextContents();
-        for (const name of ["Priya", "Ram", "Lakshmi"]) {
-          const match = opts.find((o) => o.toLowerCase().includes(name.toLowerCase()));
-          if (match) {
-            await select.selectOption({ label: match }).catch(() => {});
-            await page.waitForTimeout(1000);
-          }
-        }
-      } else {
-        await tryClick(page, ['button:has-text("Priya")', '[role="option"]:has-text("Priya")'], 1000);
-        await tryClick(page, ['button:has-text("Ram")', '[role="option"]:has-text("Ram")'], 1000);
-        await tryClick(page, ['button:has-text("Lakshmi")', '[role="option"]:has-text("Lakshmi")'], 900);
-      }
-      await tryClick(page, [
-        'button:has-text("0.85")',
-        'button:has-text("0.85x")',
-        'button:has-text("0.85×")',
-        'button:has-text("Slower")',
-      ], 900);
-      await tryClick(page, [
-        'button[aria-label*="Play" i]',
-        'button:has-text("Play")',
-        'button:has-text("Start")',
-      ], 1600);
-      await tryClick(page, ['button:has-text("Next")', 'button[aria-label*="Next" i]'], Math.max(1200, ms - 6000));
+      await page.waitForTimeout(Math.max(4000, ms - 500));
     },
   },
   {
     id: "s4",
     file: "screen_s4_practice.mp4",
-    title: "Practice question interaction + Printable Worksheet + Chapter Test view",
-    route: WORKSHEET_MAGNETS,
+    title: "Classroom Practice (Need a Hint? + Step-by-Step Solution) & Worksheet Answer Key",
+    route: "/classroom/cbse/6/science/exploring-magnets/magnetic-and-non-magnetic",
     async prepare(page) {
-      await page.goto(`${SITE_URL}${WORKSHEET_MAGNETS}`, { waitUntil: "domcontentloaded", timeout: 25000 });
-      await waitForPageReady(page);
-      await page.waitForTimeout(800);
+      await page.goto(`${SITE_URL}/classroom/cbse/6/science/exploring-magnets/magnetic-and-non-magnetic`, { waitUntil: "domcontentloaded", timeout: 25000 });
+      await page.locator('button.lesson-tab:has-text("Practice")').first().waitFor({ state: "visible", timeout: 30000 }).catch(() => {});
+      await page.waitForTimeout(500);
       await dismissOverlays(page);
+      await tryClick(page, ['button.lesson-tab:has-text("Practice")', 'button:has-text("Practice")'], 1200);
     },
     async run(page) {
       await page.waitForTimeout(700);
-      await smoothScroll(page, 620, 18, 160);
-      await page.waitForTimeout(1200);
-      await smoothScroll(page, 420, 12, 160);
-      await page.waitForTimeout(1000);
+      await tryClick(page, ['button:has-text("Need a Hint")', 'button:has-text("Hint")'], 1100);
+      await tryClick(page, ['button:has-text("Step-by-Step Solution")'], 1400);
+      await smoothScroll(page, 420, 12, 120);
+      await tryClick(page, ['button.lesson-tab:has-text("Worksheet")', 'button:has-text("Worksheet")'], 1300);
+      await tryClick(page, ['button:has-text("Show Answer Key")'], 1400);
+      await smoothScroll(page, 280, 10, 110);
     },
   },
   {

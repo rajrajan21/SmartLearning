@@ -7,6 +7,7 @@ export * from "./mastery.js";
 export * from "./tutor.js";
 export * from "./parent.js";
 export * from "./classroom.js";
+export * from "./model3.js";
 export * from "./composeClassroom.js";
 export * from "./illustrate.js";
 export * from "./visuals/index.js";

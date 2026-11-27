@@ -112,7 +112,7 @@ describe("lesson completion hub and spotlight tour settings", () => {
     expect(v["ux.helpHub.title"]).toEqual({ en: "Study help", ta: "படிப்பு உதவி" });
     expect(v["classroom.fitViewport"]).toBe(true);
     expect(v["classroom.smartVisuals"]).toBe(true);
-    expect(v["audio.defaultVoice"]).toBe("kani");
+    expect(v["audio.defaultVoice"]).toBe("maya");
     expect(v["audio.defaultTamilVoice"]).toBe("valluvar");
     expect(v["classroom.tamilSubjectLanguage"]).toBe("ta-en");
     expect(v["narration.browserVoice"]).toBe(false);

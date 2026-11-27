@@ -8,7 +8,8 @@ import { getProgress, saveProgress } from "../lib/progress";
 import { dayNumber } from "../lib/streak";
 import { recordLessonOpened } from "../lib/lesson-guide";
 import { Link, useParams } from "wouter";
-import { estimateDurationMs, sceneAt, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
+import { estimateDurationMs, sceneAt, type Model3Lesson, type PublicClassroom, type VoiceInfo } from "@studysmart/shared";
+import { Model3Player } from "../components/Model3Player";
 import { useSettings } from "../lib/settings";
 import { visualsPolicy, withoutGeneratedSteps, withoutVisualSteps } from "../lib/visuals";
 import { ui } from "../lib/i18n";
@@ -134,10 +135,26 @@ export function ClassroomPage() {
   const [voice, setVoice] = useState(() => demo ? "kani" : store.get("ss_class_voice") ?? "");
   const chosen = voices.some((v) => v.id === voice && v.ready) ? voice : "";
   const st = useClassroom(board, cls, subject, chapter, topic, on && idx.status !== "loading", attempt, chosen);
+  const [m3, setM3] = useState<Model3Lesson | null>(null);
+  const [preferM1, setPreferM1] = useState(false);
+  const m3On = s.get("classroom.model3.enabled") !== false && s.get<string>("classroom.model3.defaultMode") !== "model1";
+  useEffect(() => {
+    setM3(null);
+    if (!on || s.get("classroom.model3.enabled") === false || demo) return;
+    let alive = true;
+    fetch(`/api/v1/classroom/model3/${board}/${cls}/${subject}/${chapter}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d: Model3Lesson | null) => { if (alive && d?.model === "3.0") setM3(d); })
+      .catch(() => {});
+    return () => { alive = false; };
+  }, [on, board, cls, subject, chapter, demo, s]);
   if (!on) return <NotFound />;
   if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
   if (!st.data) return <NotFound />;
+  if (m3 && m3On && !preferM1) {
+    return <Model3Player lesson={m3} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} onSwitchModel1={() => setPreferM1(true)} />;
+  }
   const sameSubject = idx.status === "ready"
     ? idx.data.items.filter((i) => i.board.toLowerCase() === board.toLowerCase() && String(i.classLevel) === String(cls) && i.subject === subject)
     : [];
@@ -145,7 +162,7 @@ export function ClassroomPage() {
   const nextItem = curIdx >= 0 ? sameSubject[curIdx + 1] : undefined;
   const nextHref = nextItem ? `/classroom/${nextItem.board.toLowerCase()}/${nextItem.classLevel}/${nextItem.subject}/${nextItem.chapter}/${nextItem.topic}` : null;
   const nextLabel = nextItem ? s.name(nextItem.title) : null;
-  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} />;
+  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} hasModel3={!!m3} onSwitchModel3={() => setPreferM1(false)} />;
 }
 
 const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta" | "hi", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;
@@ -155,7 +172,7 @@ function timeIndex<T>(entries: readonly T[], at: number, start: (entry: T) => nu
 }
 const timelineTime = (ms: number) => { const seconds = Math.floor(ms / 1000); return `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, "0")}`; };
 
-function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile, nextHref, nextLabel }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void; nextHref?: string | null; nextLabel?: string | null }) {
+function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profile, nextHref, nextLabel, hasModel3, onSwitchModel3 }: { profile: string; lesson: PublicClassroom; back: string; related?: string; voices: VoiceInfo[]; voice: string; onVoice: (v: string) => void; nextHref?: string | null; nextLabel?: string | null; hasModel3?: boolean; onSwitchModel3?: () => void }) {
   const s = useSettings();
   const { lang } = s;
   const L = (k: Parameters<typeof ui>[0]) => ui(k, lang);
@@ -182,7 +199,9 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const [tab, setTab] = useState<LessonTab>("lesson");
   const [phase, setPhase] = useState<Phase>("idle");
   const [t, setT] = useState(0);
-  const [rate, setRate] = useState(Number(s.get<string>("classroom.speed")) || 1);
+  const [rate, setRate] = useState(() => Number(store.get("ss_class_speed")) || Number(s.get<string>("classroom.speed")) || 0.85);
+  const [rateSaved, setRateSaved] = useState(false);
+  const [darkBoard, setDarkBoard] = useState(style === "chalk");
   const [mute, setMute] = useState(false);
   const [yaw, setYaw] = useState(0);
   const [clock, setClock] = useState(0);
@@ -458,6 +477,12 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
       <p className="small"><Link href={back}>← {L("backToTopic")}</Link>{noteOn && <> <button type="button" className="link heart" aria-pressed={noteSaved} onClick={() => toggleNote({ id: noteId, href: `/classroom${back}`, title: lesson.title, subject: { en: subjectSlug.replace(/-/g, " ") } })}><span aria-hidden="true">{noteSaved ? "❤️" : "🤍"}</span> {noteSaved ? L("nbSaved") : L("nbSave")}</button></>}</p>
       <div className="lesson-title-row no-print">
         <h1>{s.name(related ? sample.title : lesson.title)}</h1>
+        {hasModel3 && s.get("classroom.model3.enabled") !== false && !related && onSwitchModel3 && (
+          <div className="m3-mode-switch" role="group" aria-label="Lesson teaching mode">
+            <button type="button" className="m3-mode-btn active" aria-current="true">📚 Foundation</button>
+            <button type="button" className="m3-mode-btn" onClick={() => { stopVoice(); onSwitchModel3(); }}>📖 Model 2.0 · Textbook</button>
+          </div>
+        )}
         {!related && s.get("feature.practice") === true && (
           <nav className="lesson-tabs" aria-label="Lesson modes">
             {([
@@ -508,8 +533,18 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
       )}
 
         <div className="class-stage" data-tour="lesson-stage">
-          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={style} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(related ? sample.title : lesson.title)} />
-          {phase === "idle" && <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>}
+          <ClassBoard quiet={!!cur.check && (phase === "check" || phase === "feedback")} objects={lesson.objects} scene={scene} style={darkBoard ? "chalk" : "white"} show3d={show3d} clock={vp.motion ? clock * vp.speed : 2} visuals={{ pictures: vp.pictures, credits: vp.credits }} yaw={yaw} onYaw={(d) => setYaw((y) => y + d)} label={s.name(related ? sample.title : lesson.title)} />
+          {phase === "idle" && (
+            <div className="class-start-wrap">
+              <button type="button" className="class-start" onClick={play}><span aria-hidden>▶</span> {L("classroomStart")}</button>
+              {hasModel3 && s.get("classroom.model3.enabled") !== false && !related && onSwitchModel3 && (
+                <div className="m3-mode-switch" role="group" aria-label="Choose teaching mode before starting">
+                  <button type="button" className="m3-mode-btn active" aria-current="true">📚 Foundation</button>
+                  <button type="button" className="m3-mode-btn" onClick={() => { stopVoice(); onSwitchModel3(); }}>📖 Model 2.0 · Textbook</button>
+                </div>
+              )}
+            </div>
+          )}
           {phase === "done" && (
             <LessonCompletionHub
               mode="classroom"
@@ -552,13 +587,16 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
             const restartSpeech = !speechDone.current && !audioEl.current;
             R.current.rate = nextRate;
             setRate(nextRate);
+            setRateSaved(false);
             if (audioEl.current) audioEl.current.playbackRate = nextRate;
             else if (restartSpeech && playing) begin(step);
             else if (restartSpeech) stopVoice();
           }}>
-            <option value={0.75}>0.75×</option><option value={0.85}>0.85×</option><option value={1}>1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
+            <option value={0.7}>0.7×</option><option value={0.8}>0.8×</option><option value={0.85}>0.85×</option><option value={0.9}>0.9×</option><option value={1}>1×</option><option value={1.1}>1.1×</option><option value={1.25}>1.25×</option><option value={1.5}>1.5×</option>
           </select>
         </label>
+        <button type="button" className="btn ghost" onClick={() => { store.set("ss_class_speed", String(rate)); setRateSaved(true); }}>{rateSaved ? "✓ Default speed" : "Set default"}</button>
+        <button type="button" className="btn ghost" onClick={() => setDarkBoard((d) => !d)}>{darkBoard ? "☀️ Light board" : "🌙 Dark board"}</button>
         <label className="class-rate">{L("classroomLanguage")}
           <select value={langMode} onChange={(e) => setLangMode(e.target.value as ClassLangMode)}>
             {isHindiLesson ? (

@@ -109,7 +109,7 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       // a voice is "ready" when it has been recorded for at least one lesson (checking either English or Tamil tracks); worked out again only when the lessons or the recordings change
       const vk = `${stamp}#${audio?.version?.() ?? Date.now()}`;
       if (vk !== voicesKey) { voices = (audio?.teachers() ?? []).map((t) => ({ ...t, ready: all.some((l) => l.steps.some((st) => !!audio?.refs(t.id, st.narration))) })); voicesKey = vk; }
-      const pref = perf().defaultAudioVoice || "kani";
+      const pref = perf().defaultAudioVoice || "maya";
       return { voices, defaultVoice: voices.some((v) => v.id === pref) ? pref : DEFAULT_VOICE, items };
     },
     get(board, classLevel, subject, chapter, topic, voice) {
@@ -120,8 +120,8 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       const ready = (audio?.teachers() ?? [])
         .filter((t) => l.steps.filter((st) => !!audio?.refs(t.id, st.narration)).length >= minReady)
         .map((t) => t.id);
-      const pref = perf().defaultAudioVoice || "kani";
-      const use = voice && ready.includes(voice) ? voice : (([...new Set([pref, "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
+      const pref = perf().defaultAudioVoice || "maya";
+      const use = voice && ready.includes(voice) ? voice : (([...new Set([pref, "maya", "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
       return { ...withAudio(l, use), voicesReady: ready, voiceUsed: use };
     },
     warm() {
