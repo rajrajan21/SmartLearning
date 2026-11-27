@@ -4,10 +4,12 @@ import { Route, Router, Switch } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { SettingsProvider } from "./lib/settings";
 import { AccountProvider } from "./lib/account";
+import { LessonAssessments } from "./components/LessonAssessments";
+import { MeSettings } from "./components/MeSettings";
 import { QuestionCard } from "./components/QuestionCard";
 import { WorksheetPage } from "./pages/Worksheet";
 import { ExamPage } from "./pages/Exam";
-import type { PublicQuestion } from "@studysmart/shared";
+import { AnswerRequest, type PublicQuestion } from "@studysmart/shared";
 
 const TREE = {
   boardCode: "CBSE",
@@ -110,6 +112,7 @@ function mockFetch() {
     }
     if (url.includes("/api/v1/practice/answers")) {
       const body = JSON.parse(String(init?.body ?? "{}"));
+      if (!AnswerRequest.safeParse(body).success) return new Response(null, { status: 400 });
       const q = TIERED_QUESTIONS.find((x) => x.id === body.questionId)!;
       const correct =
         (q.key === "tb-fill-1" && String(body.response?.text ?? "").includes("40")) ||
@@ -151,6 +154,38 @@ beforeEach(() => {
 });
 
 describe("Assessment Upgrade UI (Practice, Worksheet, Chapter Test)", () => {
+  it("submits a valid attempt UUID and shows the score and answers on the in-lesson test", async () => {
+    mockFetch();
+    wrap("/", <LessonAssessments tab="exam" board="cbse" cls={6} subject="maths" chapter="perimeter-and-area" topic="perimeter" />);
+    const input = (await screen.findAllByPlaceholderText("Type your answer…"))[0]!;
+    fireEvent.change(input, { target: { value: "99" } });
+    fireEvent.click(screen.getAllByRole("button", { name: /Submit Chapter Test/ })[0]!);
+    expect(await screen.findByRole("region", { name: "Chapter Test Report Card" })).toBeTruthy();
+    expect(screen.getByText(/Correct: 40 cm/)).toBeTruthy();
+    expect(screen.getByText(/0 \/ 6 marks/)).toBeTruthy();
+  });
+
+  it("restores signed-in palettes by user and shows the site default to guests", async () => {
+    const f = mockFetch();
+    const fallback = f.getMockImplementation()!;
+    let user: string | null = "learner-one";
+    f.mockImplementation((input, init) => String(input).includes("/account/me") && user
+      ? Promise.resolve(Response.json({ user: { id: user, email: "learner@example.test" }, profiles: [], activeProfileId: null }))
+      : fallback(input, init));
+    localStorage.setItem("ss_palette:learner-two", "notebook-blue");
+    const first = wrap("/", <MeSettings />);
+    fireEvent.change(await screen.findByLabelText("Colour palette"), { target: { value: "mint-fresh" } });
+    await waitFor(() => expect(document.documentElement.dataset.palette).toBe("mint-fresh"));
+    first.unmount();
+    user = "learner-two";
+    const second = wrap("/", <MeSettings />);
+    await waitFor(() => expect(document.documentElement.dataset.palette).toBe("notebook-blue"));
+    second.unmount();
+    user = null;
+    wrap("/", <MeSettings />);
+    await waitFor(() => expect(document.documentElement.dataset.palette).not.toBe("notebook-blue"));
+    expect(screen.queryByLabelText("Colour palette")).toBeNull();
+  });
   it("Practice QuestionCard supports fill-in, Need a Hint, Step-by-Step Solution before & after answering", async () => {
     mockFetch();
     render(

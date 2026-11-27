@@ -1,4 +1,5 @@
-import { useAccountOptional } from "../lib/account";
+import { PALETTES } from "@studysmart/shared";
+import { accountPaletteOwner, useAccountOptional } from "../lib/account";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { detectPhone, resolveApp, setThemePref, setViewPref, useThemePref, useViewPref, type ThemePref } from "../lib/appview";
@@ -22,7 +23,8 @@ export function InstallCard() {
 /** Colours (Light / Dark / Auto), text size, language and the app / full-website switch. */
 export function MeSettings({ compact = false }: { compact?: boolean }) {
   const s = useSettings();
-  const parent = useAccountOptional()?.me?.childMode === false;
+  const me = useAccountOptional()?.me;
+  const parent = me?.childMode === false;
   const pref = useThemePref();
   const [view] = useViewPref();
   const app = resolveApp({ enabled: s.get("app.view.enabled") === true, auto: s.get("app.view.autoPhone") === true, pref: view, phone: detectPhone() });
@@ -41,6 +43,15 @@ export function MeSettings({ compact = false }: { compact?: boolean }) {
           ))}
         </fieldset>
       )}
+      {me && s.paletteOwner === accountPaletteOwner(me) && s.get("app.theme.control") === true && <div className="me-block">
+        <label>{s.lang === "ta" ? "வண்ணத் தொகுப்பு" : "Colour palette"}{" "}
+          <select value={s.palette} onChange={e => s.setPalette(e.target.value)}>
+            <option value="">{s.lang === "ta" ? "தளத்தின் இயல்புநிலை" : "Site default"}</option>
+            {PALETTES.map(p => <option key={p.id} value={p.id}>{p.label}</option>)}
+          </select>
+        </label>
+        <p className="small">{s.lang === "ta" ? "இந்த உலாவியில் உங்கள் கணக்கிற்கு மட்டும்." : "Saved for your account on this browser."}</p>
+      </div>}
       <div className="me-block me-row">
         <TextSize />
         {s.get("feature.languageToggle") && s.get("lang.tamil.enabled") && (

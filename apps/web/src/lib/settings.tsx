@@ -1,5 +1,5 @@
 import { createContext, useCallback, useContext, useEffect, useMemo, useState, type ReactNode } from "react";
-import { defaults, publicSettings, type SettingValue } from "@studysmart/shared";
+import { defaults, PALETTES, publicSettings, type SettingValue } from "@studysmart/shared";
 import { store } from "./storage";
 import { applyTheme } from "./theme";
 import { useThemePref } from "./appview";
@@ -16,6 +16,10 @@ interface Ctx {
   text(key: string): string;
   name(n: Named): string;
   online: boolean;
+  palette: string;
+  paletteOwner: string | null;
+  setPalette(palette: string): void;
+  setPaletteOwner(owner: string | null): void;
 }
 const SettingsContext = createContext<Ctx | null>(null);
 export const useSettings = () => { const c = useContext(SettingsContext); if (!c) throw new Error("SettingsProvider missing"); return c; };
@@ -59,7 +63,24 @@ export function SettingsProvider({ children, override, waitForLatest }: { childr
 
   const values = useMemo(() => ({ ...fetched, ...(override ?? {}) }), [fetched, override]);
   const themePref = useThemePref();
-  useEffect(() => { applyTheme(themePref && values["app.theme.control"] !== false ? { ...values, "theme.mode": themePref } : values, prefersDark); }, [values, prefersDark, themePref]);
+  const [{ owner: paletteOwner, palette }, setPaletteState] = useState<{ owner: string | null; palette: string }>({ owner: null, palette: "" });
+  const setPaletteOwner = useCallback((owner: string | null) => {
+    const saved = owner ? store.get(`ss_palette:${owner}`) : "";
+    setPaletteState({ owner, palette: saved && PALETTES.some(p => p.id === saved) ? saved : "" });
+  }, []);
+  const setPalette = useCallback((choice: string) => {
+    if (!paletteOwner || (choice && !PALETTES.some(p => p.id === choice))) return;
+    store.set(`ss_palette:${paletteOwner}`, choice);
+    setPaletteState({ owner: paletteOwner, palette: choice });
+  }, [paletteOwner]);
+  useEffect(() => {
+    const personal = values["app.theme.control"] !== false;
+    applyTheme({
+      ...values,
+      ...(personal && themePref ? { "theme.mode": themePref } : {}),
+      ...(personal && paletteOwner && palette ? { "theme.palette": palette } : {}),
+    }, prefersDark);
+  }, [values, prefersDark, themePref, paletteOwner, palette]);
 
   const tamilOn = values["lang.tamil.enabled"] !== false;
   const effectiveLang: Lang = !tamilOn ? "en" : (lang ?? (values["lang.default"] === "ta" ? "ta" : "en"));
@@ -73,6 +94,6 @@ export function SettingsProvider({ children, override, waitForLatest }: { childr
   }, [values, effectiveLang]);
   const name = useCallback((n: Named) => pickName(n, effectiveLang, values["lang.fallbackToEnglish"] !== false), [effectiveLang, values]);
 
-  const ctx = useMemo<Ctx>(() => ({ values, get, lang: effectiveLang, setLang, text, name, online }), [values, get, effectiveLang, setLang, text, name, online]);
+  const ctx = useMemo<Ctx>(() => ({ values, get, lang: effectiveLang, setLang, text, name, online, palette, paletteOwner, setPalette, setPaletteOwner }), [values, get, effectiveLang, setLang, text, name, online, palette, paletteOwner, setPalette, setPaletteOwner]);
   return <SettingsContext.Provider value={ctx}>{settled ? children : null}</SettingsContext.Provider>;
 }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { defaultMarksFor, type AnswerFeedback, type AnswerResponse, type PublicQuestion, type QuestionTier } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
@@ -9,6 +9,29 @@ import { recordMistake } from "../lib/mistakes";
 import { useAccount } from "../lib/account";
 import { QuestionCard } from "./QuestionCard";
 import { Loading } from "./bits";
+
+type Attempts = Map<string, { response: string; id: string }>;
+function useGradingAttempts() {
+  const attempts = useRef<Attempts>(new Map());
+  return {
+    reset: () => attempts.current.clear(),
+    send: (questionId: string, response: AnswerResponse) => {
+      const signature = JSON.stringify(response);
+      const prior = attempts.current.get(questionId);
+      const id = prior?.response === signature ? prior.id : crypto.randomUUID();
+      attempts.current.set(questionId, { response: signature, id });
+      return sendAnswer(questionId, id, 0, response);
+    },
+  };
+}
+
+async function gradeAll<T>(pending: Promise<T>[]): Promise<T[]> {
+  const results = await Promise.allSettled(pending);
+  return results.map(result => {
+    if (result.status === "rejected") throw result.reason;
+    return result.value;
+  });
+}
 
 export type LessonTab = "lesson" | "practice" | "worksheet" | "exam";
 
@@ -129,8 +152,12 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
   const [graded, setGraded] = useState<Record<string, AnswerFeedback> | null>(null);
   const [studyKey, setStudyKey] = useState<Record<string, StudyKeyItem> | null>(null);
   const [busy, setBusy] = useState(false);
+  const [gradingError, setGradingError] = useState(false);
+  const grader = useGradingAttempts();
 
   const rebuild = () => {
+    grader.reset();
+    setGradingError(false);
     setPaper(pickBalanced(all, count));
     setDrafts({});
     setTexts({});
@@ -150,11 +177,12 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
   const checkAll = async () => {
     if (!paper.length || busy) return;
     setBusy(true);
+    setGradingError(false);
     try {
-      const results = await Promise.all(paper.map(async (q) => {
+      const results = await gradeAll(paper.map(async (q) => {
         const res = drafts[q.id];
         if (!res) return [q.id, null] as const;
-        const fb = await sendAnswer(q.id, `ws-${q.id}-${Date.now()}`, 0, res);
+        const fb = await grader.send(q.id, res);
         if (!fb.correct && s.get("feature.mastery") === true && s.get("mistakes.enabled") === true) recordMistake(q, fb, s.get<number>("mistakes.max") || 60);
         return [q.id, fb] as const;
       }));
@@ -162,6 +190,8 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
       for (const [id, fb] of results) if (fb) map[id] = fb;
       setGraded(map);
       if (!studyKey) void toggleAnswerKey();
+    } catch {
+      setGradingError(true);
     } finally {
       setBusy(false);
     }
@@ -188,6 +218,7 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
         </div>
       </div>
 
+      {gradingError && <p role="alert">We could not check the worksheet. Your answers are still here. Try again.</p>}
       {graded && (
         <div className="score-banner">
           <strong>Worksheet Score: {earnedMarks} / {totalMarks} marks ({totalMarks ? Math.round((earnedMarks / totalMarks) * 100) : 0}%)</strong>
@@ -217,7 +248,7 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
                       {q.options.map((o) => {
                         const isPicked = picked?.type === "mcq" && picked.optionId === o.id;
                         return (
-                          <button key={o.id} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={!!graded}
+                          <button key={o.id} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={busy || !!graded}
                             onClick={() => setDrafts((d) => ({ ...d, [q.id]: { type: "mcq", optionId: o.id } }))}>{s.name(o.text)}</button>
                         );
                       })}
@@ -225,11 +256,14 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
                   )}
                   {(q.type === "fill" || q.type === "short" || q.type === "number") && (
                     <div className="typed-row no-print">
-                      <input className="fill-in" value={texts[q.id] ?? ""} disabled={!!graded} placeholder="Type your answer…"
+                      <input className="fill-in" value={texts[q.id] ?? ""} disabled={busy || !!graded} placeholder="Type your answer…"
                         onChange={(e) => {
                           const val = e.target.value;
                           setTexts((t) => ({ ...t, [q.id]: val }));
-                          if (!val.trim()) return;
+                          if (!val.trim() || (q.type === "number" && !Number.isFinite(Number(val)))) {
+                            setDrafts(({ [q.id]: _old, ...rest }) => rest);
+                            return;
+                          }
                           if (q.type === "number" && Number.isFinite(Number(val))) setDrafts((d) => ({ ...d, [q.id]: { type: "number", value: Number(val) } }));
                           else if (q.type === "fill") setDrafts((d) => ({ ...d, [q.id]: { type: "fill", text: val.trim() } }));
                           else setDrafts((d) => ({ ...d, [q.id]: { type: "short", text: val.trim() } }));
@@ -241,7 +275,7 @@ function WorksheetPanel({ all, count, lang }: { all: PublicQuestion[]; count: nu
                       {([true, false] as const).map((v) => {
                         const isPicked = picked?.type === "true_false" && picked.value === v;
                         return (
-                          <button key={String(v)} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={!!graded}
+                          <button key={String(v)} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={busy || !!graded}
                             onClick={() => setDrafts((d) => ({ ...d, [q.id]: { type: "true_false", value: v } }))}>{v ? "True" : "False"}</button>
                         );
                       })}
@@ -276,8 +310,12 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
   const [texts, setTexts] = useState<Record<string, string>>({});
   const [marked, setMarked] = useState<{ q: PublicQuestion; response?: AnswerResponse; fb: AnswerFeedback | null }[] | null>(null);
   const [busy, setBusy] = useState(false);
+  const [gradingError, setGradingError] = useState(false);
+  const grader = useGradingAttempts();
 
   const rebuild = () => {
+    grader.reset();
+    setGradingError(false);
     setPaper(pickBalanced(all, count));
     setDrafts({});
     setTexts({});
@@ -288,11 +326,12 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
   const submitTest = async () => {
     if (!paper.length || busy) return;
     setBusy(true);
+    setGradingError(false);
     try {
-      const res = await Promise.all(paper.map(async (q) => {
+      const res = await gradeAll(paper.map(async (q) => {
         const response = drafts[q.id];
         if (!response) return { q, response, fb: null };
-        const fb = await sendAnswer(q.id, `exam-${q.id}-${Date.now()}`, 0, response);
+        const fb = await grader.send(q.id, response);
         if (!fb.correct && s.get("feature.mastery") === true && s.get("mistakes.enabled") === true) recordMistake(q, fb, s.get<number>("mistakes.max") || 60);
         return { q, response, fb };
       }));
@@ -300,6 +339,8 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
       const totM = res.reduce((acc, m) => acc + defaultMarksFor(m.q), 0);
       const earnM = res.reduce((acc, m) => acc + (m.fb?.marksAwarded ?? (m.fb?.correct ? defaultMarksFor(m.q) : 0)), 0);
       if (totM > 0) saveScore(scopeKey("exam", board, cls, subject, chapter), Math.round((earnM / totM) * 100));
+    } catch {
+      setGradingError(true);
     } finally {
       setBusy(false);
     }
@@ -340,7 +381,7 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
             <article key={m.q.id} className={`ws-qcard ${m.fb?.correct ? "right" : "wrong"}`}>
               <div className="ws-qhead">
                 <strong>Q{idx + 1}. {s.name(m.q.stem)}</strong>
-                <span className="q-badge marks">{m.fb?.marksAwarded ?? 0}/{defaultMarksFor(m.q)}</span>
+                <span className="q-badge marks">{m.fb?.marksAwarded ?? (m.fb?.correct ? defaultMarksFor(m.q) : 0)}/{defaultMarksFor(m.q)}</span>
               </div>
               <p className="small"><b>Your answer:</b> {m.response ? formatStudentAnswer(m.q, m.response, s.name) : "Skipped"}{m.fb && !m.fb.correct ? ` · Correct: ${s.name(m.fb.correctAnswer)}` : ""}</p>
               {m.fb && <p className="small">{s.name(m.fb.explanation)}</p>}
@@ -361,6 +402,7 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
         </div>
         <button type="button" className="btn" onClick={() => void submitTest()} disabled={busy || paper.length === 0}>{busy ? "Grading…" : "🏆 Submit Chapter Test"}</button>
       </div>
+      {gradingError && <p role="alert">We could not grade the test. Your answers are still here. Try submitting again.</p>}
       {paper.length === 0 ? (
         <p className="soon-note">Chapter test questions are being added soon.</p>
       ) : (
@@ -378,7 +420,7 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
                     {q.options.map((o) => {
                       const isPicked = picked?.type === "mcq" && picked.optionId === o.id;
                       return (
-                        <button key={o.id} type="button" className={`opt${isPicked ? " on" : ""}`}
+                        <button key={o.id} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={busy}
                           onClick={() => setDrafts((d) => ({ ...d, [q.id]: { type: "mcq", optionId: o.id } }))}>{s.name(o.text)}</button>
                       );
                     })}
@@ -386,11 +428,14 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
                 )}
                 {(q.type === "fill" || q.type === "short" || q.type === "number") && (
                   <div className="typed-row">
-                    <input className="fill-in" value={texts[q.id] ?? ""} placeholder="Type your answer…"
+                    <input className="fill-in" value={texts[q.id] ?? ""} disabled={busy} placeholder="Type your answer…"
                       onChange={(e) => {
                         const val = e.target.value;
                         setTexts((t) => ({ ...t, [q.id]: val }));
-                        if (!val.trim()) return;
+                        if (!val.trim() || (q.type === "number" && !Number.isFinite(Number(val)))) {
+                          setDrafts(({ [q.id]: _old, ...rest }) => rest);
+                          return;
+                        }
                         if (q.type === "number" && Number.isFinite(Number(val))) setDrafts((d) => ({ ...d, [q.id]: { type: "number", value: Number(val) } }));
                         else if (q.type === "fill") setDrafts((d) => ({ ...d, [q.id]: { type: "fill", text: val.trim() } }));
                         else setDrafts((d) => ({ ...d, [q.id]: { type: "short", text: val.trim() } }));
@@ -402,7 +447,7 @@ function ChapterTestPanel({ all, count, board, cls, subject, chapter }: { all: P
                     {([true, false] as const).map((v) => {
                       const isPicked = picked?.type === "true_false" && picked.value === v;
                       return (
-                        <button key={String(v)} type="button" className={`opt${isPicked ? " on" : ""}`}
+                        <button key={String(v)} type="button" className={`opt${isPicked ? " on" : ""}`} disabled={busy}
                           onClick={() => setDrafts((d) => ({ ...d, [q.id]: { type: "true_false", value: v } }))}>{v ? "True" : "False"}</button>
                       );
                     })}

@@ -35,6 +35,8 @@ const AccountContext = createContext<Ctx | null>(null);
 export const useAccountOptional = () => useContext(AccountContext);
 export const useAccount = () => { const c = useContext(AccountContext); if (!c) throw new Error("AccountProvider missing"); return c; };
 
+export const accountPaletteOwner = (me: Me | null | undefined) => me ? (me.childMode ? `${me.user.id}:learner:${me.activeProfileId}` : me.user.id) : null;
+
 const OWNER = "ss_sync_owner";
 const API = "/api/v1/account";
 async function call(method: string, path: string, body?: unknown, profile?: string): Promise<{ ok: boolean; status: number; data: unknown }> {
@@ -56,6 +58,9 @@ export function AccountProvider({ children }: { children: ReactNode }) {
   const [sync, setSync] = useState<SyncState>("idle");
   const adopting = useRef(false);
   const activeId = me?.activeProfileId ?? null;
+  const paletteOwner = on ? accountPaletteOwner(me) : null;
+  const { setPaletteOwner } = s;
+  useEffect(() => { setPaletteOwner(paletteOwner); return () => setPaletteOwner(null); }, [paletteOwner, setPaletteOwner]);
 
   useEffect(() => {
     if (!on) { setMe(null); return; }
