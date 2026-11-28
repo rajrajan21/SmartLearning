@@ -69,7 +69,7 @@ export function PracticePage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={crumbs} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
-      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="practice" has={{ learn: true, practice: true }} />
+      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="practice" has={{ learn: true }} />
       {hasTiers && round === null && (
         <div className="tier-chips" role="group" aria-label="Filter questions by level">
           {([

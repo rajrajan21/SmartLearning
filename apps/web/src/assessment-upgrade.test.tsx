@@ -135,12 +135,12 @@ function mockFetch() {
   });
 }
 
-function wrap(path: string, uiEl: React.ReactNode) {
-  const { hook } = memoryLocation({ path });
+function wrap(path: string, uiEl: React.ReactNode, searchPath?: string) {
+  const { hook, searchHook } = memoryLocation({ path, searchPath });
   return render(
     <SettingsProvider>
       <AccountProvider>
-        <Router hook={hook}>
+        <Router hook={hook} searchHook={searchHook}>
           <Switch>{uiEl}</Switch>
         </Router>
       </AccountProvider>
@@ -218,11 +218,13 @@ describe("Assessment Upgrade UI (Practice, Worksheet, Chapter Test)", () => {
 
   it("Worksheet supports Part A/B/C grouping, Interactive Check Worksheet, and Answer Key & Solutions toggle", async () => {
     mockFetch();
-    wrap("/worksheet/cbse/6/maths/perimeter-and-area", <Route path="/worksheet/:board/:cls/:subject/:chapter" component={WorksheetPage} />);
+    wrap("/worksheet/cbse/6/maths/perimeter-and-area", <Route path="/worksheet/:board/:cls/:subject/:chapter" component={WorksheetPage} />, "from=whole-chapter");
 
     await waitFor(() => expect(screen.getByText(/Part A — Textbook Questions/i)).toBeTruthy());
     expect(screen.getByText(/Part B — Extra Exam & Online Questions/i)).toBeTruthy();
     expect(screen.getByText(/Part C — Advanced Challenge/i)).toBeTruthy();
+    expect(screen.getByRole("link", { name: /Back to the topic/i }).getAttribute("href")).toBe("/cbse/6/maths/perimeter-and-area/whole-chapter");
+    expect(screen.getAllByRole("button").at(-1)).toBe(screen.getByRole("button", { name: /Print worksheet/i }));
 
     // Self-study Answer Key & Solutions toggle
     fireEvent.click(screen.getByRole("button", { name: /Show Answer Key & Solutions/i }));

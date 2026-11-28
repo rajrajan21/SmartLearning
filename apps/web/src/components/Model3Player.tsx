@@ -286,7 +286,7 @@ export function Model3Player({
           <div className="m3-mode-switch" role="group" aria-label="Lesson teaching mode">
             <button type="button" className="m3-mode-btn" onClick={() => { stopSpeech(); onSwitchModel1(); }}>📚 Foundation</button>
             <button type="button" className={`m3-mode-btn${edition === "2.0" ? " active" : ""}`} aria-current={edition === "2.0" ? "true" : undefined} onClick={() => setEdition("2.0")}>📖 Model 2.0 · Textbook</button>
-            <button type="button" className={`m3-mode-btn${edition === "3.0" ? " active" : ""}`} aria-current={edition === "3.0" ? "true" : undefined} onClick={() => setEdition("3.0")}>🎓 Model 3.0 · Khan Classroom</button>
+            <button type="button" className={`m3-mode-btn${edition === "3.0" ? " active" : ""}`} aria-current={edition === "3.0" ? "true" : undefined} onClick={() => setEdition("3.0")}>🎓 Model 3.0 · Sharp</button>
           </div>
         </div>
         <div className="m3-level-bar" role="group" aria-label="Lesson Level">
@@ -404,7 +404,7 @@ export function Model3Player({
 
           <div className="m3-timeline-wrap no-print">
             <div className="m3-timeline-head">
-              <span>Chalkboard timeline ({edition === "3.0" ? "Khan-style live diagrams & equations" : "equations & visuals"} synced to teacher voice)</span>
+              <span>Chalkboard timeline ({edition === "3.0" ? "live diagrams & equations" : "equations & visuals"} synced to teacher voice)</span>
               <span>Level {level} · {step.pill} ({stepIdx + 1}/{steps.length})</span>
             </div>
             <input

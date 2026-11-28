@@ -287,12 +287,11 @@ export function TopicPage() {
   const lesson = useLesson(board, level, subject, chapter, topic, lessonOn);
   const [prog] = useTopicProgress(lesson.status === "ready" ? lesson.data?.topicId : undefined);
   const practiceOn = s.get("feature.practice");
-  const practice = usePractice(board, level, subject, chapter, topic, practiceOn);
   const classOn = s.get("feature.classroom") === true;
   const classIdx = useClassroomIndex(classOn);
   const hasClass = classOn && classIdx.status === "ready" && classIdx.data.items.some((i) => i.classLevel === level && i.subject === subject && i.chapter === chapter && i.topic === topic);
   const preferClass = hasClass && s.get("lesson.preferClassroom") === true;
-  const pres = usePracticeResults(practice.status === "ready" ? practice.data?.topicId : undefined);
+  const pres = usePracticeResults(state.status === "ready" ? state.data.topic.id : undefined);
   const notes = useNotebook();
   if (!allowed) return <NotFound />;
   if (state.status === "loading") return <Loading />;
@@ -304,7 +303,7 @@ export function TopicPage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { label: s.name(d.topic.name) }]} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
-      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="learn" has={{ learn: (lessonOn && lesson.status === "ready" && !!lesson.data) || hasClass, practice: practiceOn === true && practice.status === "ready" && !!practice.data }} />
+      <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="learn" has={{ learn: (lessonOn && lesson.status === "ready" && !!lesson.data) || hasClass }} />
       {s.get("notebook.enabled") === true && <p className="actions"><button type="button" className="link heart" aria-pressed={!!notes[d.topic.id]} onClick={() => toggleNote({ id: d.topic.id.slice(0, 60), href: `${base}/${d.chapter.slug}/${d.topic.slug}`, title: d.topic.name, subject: d.subject.name })}><span aria-hidden="true">{notes[d.topic.id] ? "❤️" : "🤍"}</span> {notes[d.topic.id] ? ui("nbSaved", s.lang) : ui("nbSave", s.lang)}</button></p>}
       {hasClass && <p className="actions"><Link className="btn" href={`/classroom/${board}/${level}/${subject}/${chapter}/${topic}`}>🎓 {preferClass ? ui("startLesson", s.lang) : ui("classroomOpen", s.lang)}</Link></p>}
       {lessonOn && lesson.status === "ready" && lesson.data && (
@@ -315,7 +314,7 @@ export function TopicPage() {
           {prog?.done && s.get("lesson.progress.showTicks") && <span className="tick" role="img" aria-label={ui("lessonTick", s.lang)}>✓</span>}
         </p>
       )}
-      {practiceOn && practice.status === "ready" && practice.data && (
+      {practiceOn === true && (
         <p className="actions">
           <Link className="btn ghost" href={`${link({ classLevel: level, subjectSlug: d.subject.slug, chapterSlug: d.chapter.slug, topicSlug: d.topic.slug })}/practice`}>{ui("startPractice", s.lang)}</Link>
           {s.get("practice.stars") && Object.keys(pres).length > 0 && <span className="stars" role="img" aria-label={`${Object.values(pres).reduce((a, r) => a + r.stars, 0)} ${ui("starsLabel", s.lang)}`}>{"★".repeat(Object.values(pres).reduce((a, r) => a + r.stars, 0))}</span>}

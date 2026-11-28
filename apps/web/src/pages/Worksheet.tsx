@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "wouter";
+import { Link, useSearch } from "wouter";
 import { defaultMarksFor, type AnswerFeedback, type AnswerResponse, type PublicQuestion } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { useAccount } from "../lib/account";
@@ -23,8 +23,12 @@ export function WorksheetPage() {
   const { lang } = s;
   const acct = useAccount();
   const sc = useChapterScope();
+  const fromTopic = new URLSearchParams(useSearch()).get("from");
+  const topicBack = fromTopic && sc.topics.includes(fromTopic) ? `${sc.back}/${fromTopic}` : null;
+  const backTo = topicBack ?? sc.back;
+  const backLabel = ui(topicBack ? "backToTopic" : "backToChapter", lang);
   const on = s.get("feature.worksheets") === true && s.get("feature.practice") === true;
-  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, sc.topics, on && sc.tree.status === "ready");
+  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, on);
   const [paper, setPaper] = useState<PublicQuestion[]>([]);
   const [key, setKey] = useState<Record<string, { en: string; ta?: string }> | null>(null);
   const [studyKey, setStudyKey] = useState<Record<string, StudyKeyItem> | null>(null);
@@ -138,7 +142,7 @@ export function WorksheetPage() {
   if (sc.tree.status === "loading" || pool.status === "loading") return <Loading />;
   if (sc.tree.status === "error" || pool.status === "error") return <ErrorBox onRetry={sc.retry} />;
   if (!sc.ch) return <NotFound />;
-  if (all.length === 0) return <div className="paper"><h1>{ui("worksheetWord", lang)}</h1><p className="soon-note">{ui("noQuestionsYet", lang)}</p><Link className="btn" href={sc.back}>{ui("backToChapter", lang)}</Link></div>;
+  if (all.length === 0) return <div className="paper"><h1>{ui("worksheetWord", lang)}</h1><p className="soon-note">{ui("noQuestionsYet", lang)}</p><Link className="btn" href={backTo}>{backLabel}</Link></div>;
 
   const keyOn = s.get("worksheets.answerKey") === true;
   const studyKeyOn = s.get("worksheet.answerKey.allowToggle") !== false;
@@ -162,7 +166,7 @@ export function WorksheetPage() {
   return (
     <div className="paper worksheet">
       <div className="actions noprint">
-        <button type="button" className="btn" onClick={() => window.print()}>🖨 {ui("printWorksheet", lang)}</button>
+        <Link className="btn ghost" href={backTo}>← {backLabel}</Link>
         <button type="button" className="btn ghost" onClick={make}>{ui("newWorksheet", lang)}</button>
         {studyKeyOn && (
           <button type="button" className="btn ghost" onClick={() => void toggleStudyKey()}>
@@ -171,7 +175,6 @@ export function WorksheetPage() {
         )}
         {keyOn && acct.me && (key ? <button type="button" className="btn ghost" onClick={() => setKey(null)}>{ui("hideKey", lang)}</button> : <button type="button" className="btn ghost" onClick={() => void showKey()}>{ui("showKey", lang)}</button>)}
         {paperOn && <button type="button" className="btn ghost" aria-pressed={asPaper} onClick={() => setAsPaper((v) => !v)}>{asPaper ? ui("worksheetBack", lang) : ui("examPaperWord", lang)}</button>}
-        <Link className="btn ghost" href={sc.back}>{ui("backToChapter", lang)}</Link>
       </div>
       {keyOn && !acct.me && <p className="small noprint">{ui("keySignIn", lang)}</p>}
       {keyErr && <p className="err noprint" role="alert">{ui("keySignIn", lang)}</p>}
@@ -329,6 +332,9 @@ export function WorksheetPage() {
       )}
 
       <p className="small sheet-foot">{s.name(s.get("worksheets.footer"))}</p>
+      <div className="actions noprint">
+        <button type="button" className="btn ghost" onClick={() => window.print()}>🖨 {ui("printWorksheet", lang)}</button>
+      </div>
     </div>
   );
 }

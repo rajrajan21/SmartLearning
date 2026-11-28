@@ -19,7 +19,7 @@ export function GamePage() {
   const m = mode as Mode;
   const valid = m === "quickfire" || m === "survival";
   const on = s.get("feature.games") === true && s.get("feature.practice") === true && valid && s.get(`games.${m}`) === true;
-  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, sc.topics, on && sc.tree.status === "ready");
+  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, on);
   const [running, setRunning] = useState(false);
   const [deck, setDeck] = useState<PublicQuestion[]>([]);
   const [i, setI] = useState(0);

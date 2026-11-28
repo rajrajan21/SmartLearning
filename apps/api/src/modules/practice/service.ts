@@ -25,6 +25,7 @@ const pickAudio = (audio: AudioStore | undefined, text: { en?: string; ta?: stri
 export interface PracticeService {
   importQuestions(raw: unknown): Promise<{ topicId: string; added: number; updated: number; unchanged: number }>;
   getPractice(board: string, classLevel: number, subject: string, chapter: string, topic: string): Promise<PracticeSet | null>;
+  getChapterQuestions(board: string, classLevel: number, subject: string, chapter: string): Promise<PublicQuestion[] | null>;
   publishedTopicIds(): Promise<string[]>;
   /** which rounds have published questions, per topic (used to measure mastery) */
   roundsByTopic(): Promise<Record<string, number[]>>;
@@ -40,8 +41,14 @@ export interface PracticeService {
 }
 
 export function createPracticeService(db: Db, curriculum: CurriculumRepository, audio?: AudioStore): PracticeService {
-  const published = (topicId: string) =>
-    db.select().from(s.questions).where(and(eq(s.questions.topicId, topicId), eq(s.questions.status, "published"))).orderBy(asc(s.questions.round), asc(s.questions.key));
+  const published = (topicIds: string[]) =>
+    db.select().from(s.questions).where(and(inArray(s.questions.topicId, topicIds), eq(s.questions.status, "published"))).orderBy(asc(s.questions.round), asc(s.questions.key));
+  const publicQuestion = (row: typeof s.questions.$inferSelect): PublicQuestion => {
+    const question = Question.parse(JSON.parse(row.bodyJson));
+    const payload = toPublic(row.id, question);
+    const stem = pickAudio(audio, question.stem);
+    return stem ? { ...payload, audio: { stem } } : payload;
+  };
 
   return {
     async importQuestions(raw) {
@@ -72,14 +79,9 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
     async getPractice(board, classLevel, subject, chapter, topic) {
       const detail = await curriculum.getTopic(board, classLevel, subject, chapter, topic);
       if (!detail) return null;
-      const rows = await published(detail.topic.id);
+      const rows = await published([detail.topic.id]);
       if (rows.length === 0) return null;
-      const questions: PublicQuestion[] = rows.map((r) => {
-        const q = Question.parse(JSON.parse(r.bodyJson));
-        const pub = toPublic(r.id, q);
-        const stem = pickAudio(audio, q.stem);
-        return stem ? { ...pub, audio: { stem } } : pub;
-      });
+      const questions = rows.map(publicQuestion);
       // Textbook questions first when tiered questions are present, preserving round/key order within each tier
       if (questions.some((q) => q.tier)) {
         questions.sort((a, b) => {
@@ -90,6 +92,15 @@ export function createPracticeService(db: Db, curriculum: CurriculumRepository, 
         });
       }
       return PracticeSet.parse({ topicId: detail.topic.id, questions });
+    },
+
+    async getChapterQuestions(board, classLevel, subject, chapter) {
+      const tree = await curriculum.getBoard(board);
+      const topics = tree?.classes.find(c => c.classLevel === classLevel)?.subjects.find(s => s.slug === subject)?.chapters.find(c => c.slug === chapter)?.topics;
+      if (!topics) return null;
+      if (!topics.length) return [];
+      const rows = await published(topics.map(t => t.id));
+      return rows.map(publicQuestion);
     },
 
     async publishedTopicIds() {

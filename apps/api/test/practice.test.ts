@@ -128,6 +128,12 @@ describe("practice API", () => {
     expect(avail.body.topicIds).toContain(set.topicId);
     expect(avail.body.rounds[set.topicId]).toEqual([1, 2, 3, 4]);
   });
+  it("loads a chapter in one request and keeps answers private", async () => {
+    const pool = await request(app).get("/api/v1/practice/boards/CBSE/3/maths/fun-with-shapes").expect(200);
+    expect(pool.body.questions).toHaveLength(questionCount);
+    expect(JSON.stringify(pool.body)).not.toMatch(/whyWrong|"correct"|explanation|accepted/);
+    await request(app).get("/api/v1/practice/boards/CBSE/3/maths/no-such-chapter").expect(404);
+  });
   it("fetches questions by id for revision, without answers, and ignores unknown ids", async () => {
     const set = await get();
     const ids = [set.questions[0]!.id, set.questions[5]!.id, randomUUID()];

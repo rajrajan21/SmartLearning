@@ -75,7 +75,7 @@ export function ExamPage() {
   const { lang } = s;
   const sc = useChapterScope();
   const on = s.get("feature.exams") === true && s.get("feature.practice") === true;
-  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, sc.topics, on && sc.tree.status === "ready");
+  const pool = useChapterPool(sc.board, sc.cls, sc.subject, sc.chapter, on);
   const [phase, setPhase] = useState<Phase>("intro");
   const [paper, setPaper] = useState<PublicQuestion[]>([]);
   const [at, setAt] = useState(0);
