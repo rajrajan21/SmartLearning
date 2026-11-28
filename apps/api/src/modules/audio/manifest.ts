@@ -1,6 +1,6 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, statSync } from "node:fs";
-import { join } from "node:path";
+import { dirname, join } from "node:path";
 import { z } from "zod";
 import { perf } from "../perf/config.js";
 import { PhraseSet, type AudioRef, type LangAudio, type TopicLesson } from "@studysmart/shared";
@@ -67,8 +67,9 @@ export interface AudioStore {
 
 export function createAudioStore(opts: { manifestPath: string; voicesPath: string; phrasesPath: string; filesDir: string; urlBase?: string }): AudioStore {
   const base = opts.urlBase ?? "/api/v1/audio";
-  let manifest = emptyManifest(), voices: VoiceMap = {};
-  let mTime = -1, vTime = -1;
+  const supplementalPath = join(dirname(opts.manifestPath), "foundation-manifest.json");
+  let manifest = emptyManifest(), supplemental = emptyManifest(), voices: VoiceMap = {};
+  let mTime = -1, fTime = -1, vTime = -1;
   let lastCheck = 0;
   const fresh = () => {
     // Pick up newly generated audio without restarting the server. The files are looked at most once per "file check" interval (Admin > Site and performance).
@@ -78,6 +79,17 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     if (existsSync(opts.manifestPath)) {
       const t = statSync(opts.manifestPath).mtimeMs;
       if (t !== mTime) { const r = Manifest.safeParse(JSON.parse(readFileSync(opts.manifestPath, "utf8"))); if (r.success) { manifest = r.data; mTime = t; } else console.error("invalid_audio_manifest"); }
+    }
+    if (existsSync(supplementalPath)) {
+      const t = statSync(supplementalPath).mtimeMs;
+      if (t !== fTime) {
+        const result = Manifest.safeParse(JSON.parse(readFileSync(supplementalPath, "utf8")));
+        if (result.success) { supplemental = result.data; fTime = t; }
+        else console.error("invalid_foundation_audio_manifest");
+      }
+    } else if (fTime !== -1) {
+      supplemental = emptyManifest();
+      fTime = -1;
     }
     if (existsSync(opts.voicesPath)) {
       const t = statSync(opts.voicesPath).mtimeMs;
@@ -90,7 +102,8 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
     fresh();
     const cfg = voices[teacher]?.[lang];
     if (!cfg || !text?.trim()) return undefined;
-    const e = manifest.entries[audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text: speechText(text, lang) })];
+    const key = audioKey({ lang, voice: cfg.voice, speed: cfg.speed, text: speechText(text, lang) });
+    const e = supplemental.entries[key] ?? manifest.entries[key];
     return e && hasFile(e.file) ? { url: `${base}/${e.file}`, durationMs: e.durationMs, words: e.words } : undefined;
   };
   const refs = (teacher: string, text: { en?: string; ta?: string; hi?: string } | undefined): LangAudio | undefined => {
@@ -132,15 +145,16 @@ export function createAudioStore(opts: { manifestPath: string; voicesPath: strin
   let voiceSet = new Set<string>();
   const activeVoices = () => {
     fresh();
-    const s = `${mTime}:${vTime}`;
+    const s = `${mTime}:${fTime}:${vTime}`;
     if (s !== voiceSetStamp) {
       voiceSet = new Set(Object.values(manifest.entries).map((e) => e.voice));
+      for (const entry of Object.values(supplemental.entries)) voiceSet.add(entry.voice);
       voiceSetStamp = s;
     }
     return voiceSet;
   };
   return {
-    version() { fresh(); return `${mTime}:${vTime}`; },
+    version() { fresh(); return `${mTime}:${fTime}:${vTime}`; },
     ref: lookup,
     refs,
     refsPreferred,

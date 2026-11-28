@@ -108,6 +108,25 @@ describe("serving recorded speech", () => {
     await request(app).get("/api/v1/audio/..%2Fmanifest.json").expect(404);
     await request(app).get("/api/v1/audio/0000000000000000.mp3").expect(404);
   });
+  it("keeps Foundation recordings mapped when the primary manifest is replaced", () => {
+    const { audio } = setup();
+    const main = join(audio, "manifest.json");
+    const files = join(audio, "files");
+    mkdirSync(files, { recursive: true });
+    const voice = "parler:divya-ta";
+    const text = "வணக்கம்.";
+    const key = audioKey({ lang: "ta", voice, speed: 1, text });
+    const file = `${key}.mp3`;
+    writeFileSync(join(audio, "voices.json"), JSON.stringify({ divya: { ta: { voice, speed: 1 } } }));
+    writeFileSync(join(audio, "foundation-manifest.json"), JSON.stringify({ version: 1, entries: { [key]: { file, text, voice, lang: "ta", durationMs: 500, bytes: 3, words: [] } } }));
+    writeFileSync(join(files, file), "ID3");
+    writeFileSync(main, JSON.stringify({ version: 1, entries: {} }));
+    const store = createAudioStore({ manifestPath: main, voicesPath: join(audio, "voices.json"), phrasesPath: join(audio, "phrases.json"), filesDir: files });
+    expect(store.hasVoice?.("divya")).toBe(true);
+    expect(store.ref("divya", "ta", text)?.url).toBe(`/api/v1/audio/${file}`);
+    writeFileSync(main, JSON.stringify({ version: 1, entries: {} }) + "\n");
+    expect(store.ref("divya", "ta", text)?.url).toBe(`/api/v1/audio/${file}`);
+  });
   it("keys depend on text, voice, speed and language", () => {
     const a = audioKey({ lang: "en", voice: "v", speed: 1, text: "Hi" });
     expect(audioKey({ lang: "en", voice: "v", speed: 1, text: "Hi" })).toBe(a);
