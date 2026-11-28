@@ -79,6 +79,7 @@ export function AppFeed({ tree, board, sampleHref, dailyGk, library }: { tree: T
         {s.get("rewards.streak.enabled") === true && <span className="chip-static">🔥 {rewards.streak}</span>}
         {s.get("rewards.dailyGoal.enabled") === true && <span className={`chip-static${doneToday >= goal ? " met" : ""}`}>🎯 {Math.min(doneToday, goal)}/{goal}</span>}
         <button type="button" className="chip" onClick={() => setSheet(true)} aria-haspopup="dialog">{ui("feedClassChip", s.lang)} {cls} ▾</button>
+        {s.get("feature.virtualLab") === true && <Link href="/virtual-lab" className="chip">{ui("virtualLab", s.lang)}</Link>}
         {subjects.map((sub) => <Link key={sub.slug} href={`/${board.toLowerCase()}/${cls}/${sub.slug}`} className="chip"><span aria-hidden="true">{subjectIcon(sub.slug)}</span> <Title name={sub.name} /></Link>)}
       </div>
       {s.get("app.feed.pullRefresh") === true && (

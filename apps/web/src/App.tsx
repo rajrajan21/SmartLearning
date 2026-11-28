@@ -40,6 +40,9 @@ import { ContributePage, MyContributionsPage, ContributorPage } from "./pages/Co
 const GkPage = named(() => import("./pages/Gk"), "GkPage");
 const GkLessonPage = named(() => import("./pages/Gk"), "GkLessonPage");
 
+const VirtualLabHub = named(() => import("./pages/VirtualLab"), "VirtualLabHub");
+const VirtualLabPage = named(() => import("./pages/VirtualLab"), "VirtualLabPage");
+
 export function Routes() {
   return (
     <Suspense fallback={<Loading />}>
@@ -50,6 +53,8 @@ export function Routes() {
       <Route path="/library/my-contributions" component={MyContributionsPage} />
       <Route path="/library/by/:handle" component={ContributorPage} />
       <Route path="/library/:id" component={LibraryBookPage} />
+      <Route path="/virtual-lab" component={VirtualLabHub} />
+      <Route path="/virtual-lab/:id" component={VirtualLabPage} />
       <Route path="/gk" component={GkPage} />
       <Route path="/gk/:id" component={GkLessonPage} />
       <Route path="/account" component={AccountPage} />

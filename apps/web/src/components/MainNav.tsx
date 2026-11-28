@@ -21,13 +21,14 @@ export function MainNav({ bare = false, extrasOnly = false }: { bare?: boolean; 
   if (mastery && s.get("mastery.progressPage") === true) items.push({ href: "/progress", label: ui("myProgress", s.lang), on: loc.startsWith("/progress") });
   if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) items.push({ href: "/notebook", label: ui("navNotebook", s.lang), on: loc.startsWith("/notebook") });
   if (s.get("tour.enabled") === true && s.get("tour.nav.show") === true && s.get("tour.page.enabled") === true) items.push({ href: "/tour", label: s.text("tour.nav.label") || "How it works", on: loc.startsWith("/tour") });
-  if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) items.push({ href: "/library", label: lt("title", s.lang), on: loc.startsWith("/library") });
   if (s.get("feature.textbooks") === true && s.get("textbooks.nav.show") !== false) items.push({ href: "/books", label: ui("textbooks", s.lang), on: loc === "/books" });
   if (s.get("feature.papers") === true && s.get("papers.nav.show") !== false) items.push({ href: "/papers", label: s.lang === "ta" ? "வினாத்தாள்கள்" : "Question papers", on: loc.startsWith("/papers") });
+  if (s.get("feature.virtualLab") === true) items.push({ href: "/virtual-lab", label: ui("virtualLab", s.lang), on: loc.startsWith("/virtual-lab") });
+  if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   const priorities: string[] = {
     classic: [], classroom: ["/classroom"], path: ["/", "/revise", "/progress"], explorer: [items[1]!.href, "/explore"],
-    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/books", "/papers", "/tour", "/gk", "/explore", "/library"], reading: ["/library", "/notebook"],
+    dashboard: ["/", "/progress", "/revise"], activity: ["/", "/classroom", items[1]!.href, "/revise", "/progress", "/notebook", "/books", "/papers", "/virtual-lab", "/gk", "/tour", "/explore", "/library"], reading: ["/library", "/notebook"],
   }[preset];
   if ((bare || preset === "classroom") && s.get("feature.classroom") === true) items.push({
     href: "/classroom", label: ui("classroomTitle", s.lang), on: loc.startsWith("/classroom"),
