@@ -1,26 +1,35 @@
 import { useEffect, useState } from "react";
-import { PracticeSet, type PublicQuestion } from "@studysmart/shared";
+import { PublicQuestion } from "@studysmart/shared";
 import type { Load } from "./curriculum";
 import { store } from "./storage";
 
+const pendingPools = new Map<string, Promise<PublicQuestion[]>>();
+function chapterQuestions(url: string): Promise<PublicQuestion[]> {
+  const pending = pendingPools.get(url);
+  if (pending) return pending;
+  const request = fetch(url)
+    .then(r => r.status === 404 ? { questions: [] } : r.ok ? r.json() : Promise.reject(new Error(String(r.status))))
+    .then(raw => PublicQuestion.array().parse(raw.questions))
+    .finally(() => pendingPools.delete(url));
+  pendingPools.set(url, request);
+  return request;
+}
+
 /** Every published practice question in a chapter (all its topics together). */
-export function useChapterPool(board: string, cls: string, subject: string, chapter: string, topicSlugs: string[], enabled: boolean): Load<PublicQuestion[]> {
-  const [state, setState] = useState<Load<PublicQuestion[]>>({ status: "loading" });
-  const key = topicSlugs.join("|");
+export function useChapterPool(board: string, cls: string, subject: string, chapter: string, enabled: boolean): Load<PublicQuestion[]> {
+  const [result, setResult] = useState<{ url: string; state: Load<PublicQuestion[]> }>();
+  const url = `/api/v1/practice/boards/${board}/${cls}/${subject}/${chapter}`;
   useEffect(() => {
-    if (!enabled) { setState({ status: "ready", data: [] }); return; }
+    if (!enabled) return;
     let alive = true;
-    setState({ status: "loading" });
-    Promise.all(topicSlugs.map((t) =>
-      fetch(`/api/v1/practice/boards/${board}/${cls}/${subject}/${chapter}/${t}`)
-        .then((r) => (r.status === 404 ? null : r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-        .then((raw) => (raw ? PracticeSet.parse(raw).questions : []))))
-      .then((lists) => { if (alive) setState({ status: "ready", data: lists.flat() }); })
-      .catch(() => { if (alive) setState({ status: "error" }); });
+    setResult(undefined);
+    chapterQuestions(url)
+      .then((questions) => { if (alive) setResult({ url, state: { status: "ready", data: questions } }); })
+      .catch(() => { if (alive) setResult({ url, state: { status: "error" } }); });
     return () => { alive = false; };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [board, cls, subject, chapter, key, enabled]);
-  return state;
+  }, [url, enabled]);
+  if (!enabled) return { status: "ready", data: [] };
+  return result?.url === url ? result.state : { status: "loading" };
 }
 
 export interface BestScore { best: number; last: number; tries: number }

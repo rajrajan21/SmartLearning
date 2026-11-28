@@ -2,7 +2,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { defaultMarksFor, type AnswerFeedback, type AnswerResponse, type PublicQuestion, type QuestionTier } from "@studysmart/shared";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
-import { useBoard } from "../lib/curriculum";
 import { fetchStudyKey, formatStudentAnswer, sendAnswer, shuffled, usePractice, type StudyKeyItem } from "../lib/practice";
 import { saveScore, scopeKey, useChapterPool } from "../lib/chapterTools";
 import { recordMistake } from "../lib/mistakes";
@@ -78,16 +77,12 @@ export function LessonAssessments({
   const { lang } = s;
   const practiceOn = s.get("feature.practice") === true;
   const topicSet = usePractice(board, cls, subject, chapter, topic, practiceOn && tab === "practice");
-  const tree = useBoard(board, 0);
-  const topics = useMemo(() => {
-    if (tree.status !== "ready") return [];
-    return tree.data.classes.find((c) => c.classLevel === cls)?.subjects.find((x) => x.slug === subject)?.chapters.find((c) => c.slug === chapter)?.topics.map((t) => t.slug) ?? [];
-  }, [tree, cls, subject, chapter]);
-  const pool = useChapterPool(board, String(cls), subject, chapter, topics, practiceOn && tree.status === "ready");
+  const needsPool = tab !== "practice" || topicSet.status !== "ready" || !topicSet.data?.questions.length;
+  const pool = useChapterPool(board, String(cls), subject, chapter, practiceOn && needsPool);
 
   if (!practiceOn) return null;
   if (tab === "practice") {
-    if (topicSet.status === "loading" && pool.status === "loading") return <Loading />;
+    if (topicSet.status === "loading" || (needsPool && pool.status === "loading")) return <Loading />;
     const qs = (topicSet.status === "ready" && topicSet.data?.questions.length ? topicSet.data.questions : pool.status === "ready" ? pool.data : []);
     return <PracticeSheetPanel questions={qs} />;
   }

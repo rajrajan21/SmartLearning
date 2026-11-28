@@ -15,6 +15,8 @@ const server = (opt("server") ?? process.env.MALAR_URL ?? "http://localhost:8080
 const lang = opt("lang") as Lang | undefined;
 const voicesOpt = opt("voices");
 const only = opt("only");
+const planOnly = args.includes("--plan");
+const foundationOnly = args.includes("--foundation-only");
 const teachers = args.includes("--all-voices") ? Object.keys(JSON.parse(readFileSync(`${audioDir}/voices.json`, "utf8"))) : voicesOpt ? voicesOpt.split(",") : undefined;
 
 // which engines are needed for the voices chosen (so a run of only Kani/Arul does not need the Malar speech server)
@@ -25,15 +27,15 @@ const needMalar = wantedIds.length === 0 || wantedIds.some((v) => !v.startsWith(
 
 const py = process.env.EDGE_PY ?? (process.platform === "win32" ? "py" : "python3");
 const helper = join(dirname(fileURLToPath(import.meta.url)), "..", "..", "..", "..", "tools", "edge", "edge_speak.py");
-if (needEdge) {
+if (!planOnly && needEdge) {
   const ok = spawnSync(py, ["-c", "import edge_tts, miniaudio"], { stdio: "ignore" });
   if (ok.status !== 0) { console.error(`The Kani/Arul voices need Python with two small packages. Run this once, then try again:\n  ${py} -m pip install edge-tts miniaudio`); process.exit(2); }
 }
-if (wantedIds.some((v) => v.startsWith("parler:"))) {
+if (!planOnly && wantedIds.some((v) => v.startsWith("parler:"))) {
   const ph = await fetch(`${process.env.PARLER_URL ?? "http://localhost:8090"}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);
   if (!ph?.tts) { console.error("The Tamil-teacher voice server (port 8090) is not running. Start tools/tamil-voice-trial/serve.py first."); process.exit(2); }
 }
-if (needMalar) {
+if (!planOnly && needMalar) {
   const health = await fetch(`${server}/api/health`).then((r) => r.json() as Promise<{ tts: boolean }>).catch(() => null);
   if (!health) { console.error(`Cannot reach the Malar Teacher speech server at ${server}. Start "Start Malar Teacher.bat" first.`); process.exit(2); }
   if (!health.tts) { console.error("The speech server is still starting its voice engine. Wait a minute and run this again."); process.exit(2); }
@@ -56,7 +58,11 @@ const speak: Speak = async (text, voice, speed) => {
   if (!r.ok) throw new Error(`speech server answered ${r.status}`);
   return r.json();
 };
-const report = await buildAudio({ only, lessonsDir, questionsDir, classroomDir, gkDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? process.env.AUDIO_JOBS ?? 1), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
+const report = await buildAudio({ only, planOnly, foundationOnly, lessonsDir, questionsDir, classroomDir, gkDir, audioDir, teachers, speak, langs: lang ? [lang] : undefined, concurrency: Number(opt("jobs") ?? process.env.AUDIO_JOBS ?? 1), force: args.includes("--force"), prune: args.includes("--prune"), log: console.log });
+if (planOnly) {
+  console.log(JSON.stringify({ wanted: report.wanted, ready: report.reused, missing: report.wanted - report.reused, skipped: report.skipped.length }));
+  process.exit(0);
+}
 const mins = (ms: number) => (ms / 60000).toFixed(1);
 console.log(`\nSentences wanted ${report.wanted}: generated ${report.generated}, already done ${report.reused}${report.pruned ? `, removed ${report.pruned} unused` : ""}.`);
 for (const s of report.skipped) console.log("  skipped:", s);

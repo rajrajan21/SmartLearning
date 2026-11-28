@@ -28,6 +28,15 @@ export function practiceRoutes(svc: PracticeService, maxAge: () => Promise<numbe
     res.set("Cache-Control", age > 0 ? `public, max-age=${age}` : "no-store").json(set);
   });
 
+  r.get("/boards/:board/:classLevel/:subject/:chapter", async (req, res) => {
+    const q = z.object({ board: code, classLevel: z.coerce.number().int().min(1).max(12), subject: slug, chapter: slug }).safeParse(req.params);
+    if (!q.success) return void res.status(400).json({ error: { code: "bad_request", message: "Invalid path" } });
+    const questions = await svc.getChapterQuestions(q.data.board, q.data.classLevel, q.data.subject, q.data.chapter);
+    if (!questions) return void res.status(404).json({ error: { code: "not_found", message: "Chapter not found" } });
+    const age = await maxAge();
+    res.set("Cache-Control", age > 0 ? `public, max-age=${age}` : "no-store").json({ questions });
+  });
+
   // The revision set: questions the child answered before, fetched by id (at most 30 at a time).
   r.post("/by-ids", rateLimit({ windowMs: 60_000, max: 60 }), async (req, res) => {
     const b = z.object({ ids: z.array(z.string().uuid()).min(1).max(30) }).safeParse(req.body);

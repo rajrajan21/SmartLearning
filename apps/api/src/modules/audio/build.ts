@@ -21,6 +21,8 @@ export interface BuildOptions {
   teachers?: string[];
   /** only make audio whose source (lesson, question or classroom file name) contains this text, e.g. one chapter to review */
   only?: string;
+  foundationOnly?: boolean;
+  planOnly?: boolean;
   langs?: Lang[]; force?: boolean; prune?: boolean; log?: (m: string) => void;
   /** clips made at the same time (the speech server runs several engines); default 3 */
   concurrency?: number;
@@ -97,7 +99,7 @@ interface Job { where: string; teacher: string; lang: Lang; text: string }
 export const onlyJobs = <T extends { where: string }>(jobs: T[], only?: string): T[] => (only?.trim() ? jobs.filter((j) => j.where.toLowerCase().includes(only.trim().toLowerCase())) : jobs);
 
 /** Everything the teacher says: lesson sentences, question stems and feedback, and stock phrases. */
-export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "gkDir" | "audioDir">, langs: Lang[]): Job[] {
+export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" | "classroomDir" | "gkDir" | "audioDir" | "foundationOnly">, langs: Lang[]): Job[] {
   const jobs: Job[] = [];
   const add = (where: string, teacher: string, t: { en?: string; ta?: string; hi?: string } | undefined) => { for (const lang of langs) { const text = t?.[lang]?.trim(); if (text) jobs.push({ where, teacher, lang, text }); } };
   for (const f of jsonFiles(o.lessonsDir)) {
@@ -127,7 +129,7 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
       }
     }
   }
-  if (o.gkDir && existsSync(join(o.gkDir, "lessons"))) {
+  if (!o.foundationOnly && o.gkDir && existsSync(join(o.gkDir, "lessons"))) {
     for (const f of jsonFiles(join(o.gkDir, "lessons"))) {
       const r = GkLesson.safeParse(readJson(join(o.gkDir, "lessons", f)));
       if (!r.success) continue; // the content check (check-gk) reports broken files
@@ -135,7 +137,7 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
     }
   }
   const model3Dir = join(dirname(o.lessonsDir), "model3");
-  if (existsSync(model3Dir)) {
+  if (!o.foundationOnly && existsSync(model3Dir)) {
     for (const f of jsonFiles(model3Dir)) {
       const r = Model3Lesson.safeParse(readJson(join(model3Dir, f)));
       if (!r.success) continue;
@@ -155,7 +157,6 @@ export function collectJobs(o: Pick<BuildOptions, "lessonsDir" | "questionsDir" 
 export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
   const log = o.log ?? (() => {});
   const filesDir = join(o.audioDir, "files"), manifestPath = join(o.audioDir, "manifest.json");
-  mkdirSync(filesDir, { recursive: true });
   const voices = VoiceMap.parse(readJson(join(o.audioDir, "voices.json")));
   const manifest = existsSync(manifestPath) ? Manifest.parse(readJson(manifestPath)) : emptyManifest();
   const report: BuildReport = { wanted: 0, generated: 0, reused: 0, skipped: [], pruned: 0, bytes: 0, audioMs: 0, elapsedMs: 0 };
@@ -178,6 +179,8 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
     if (!o.force && have && existsSync(join(filesDir, have.file))) { report.reused++; continue; }
     todo.push({ job, cfg, text, key });
   }
+  if (o.planOnly) return report;
+  mkdirSync(filesDir, { recursive: true });
   const retry = async (t: typeof todo[number]) => {
     for (let n = 1; ; n++) {
       try { return await o.speak(t.text, t.cfg.voice, t.cfg.speed); }

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { render, screen, cleanup, fireEvent, createEvent, within } from "@testing-library/react";
+import { render, screen, waitFor, cleanup, fireEvent, createEvent, within } from "@testing-library/react";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { AccountProvider } from "./lib/account";
@@ -176,7 +176,7 @@ describe("app view screens", () => {
     expect(getThemePref()).toBe("dark");
     expect(document.documentElement.getAttribute("data-mode")).toBe("dark");
     fireEvent.click(screen.getByRole("radio", { name: /Auto/ }));
-    expect(document.documentElement.getAttribute("data-mode")).toBe("light");
+    await waitFor(() => expect(document.documentElement.getAttribute("data-mode")).toBe("light"));
     fireEvent.click(screen.getByRole("button", { name: "View the full website" }));
     expect(localStorage.getItem("ss_view")).toBe("site");
     expect(document.documentElement.hasAttribute("data-app")).toBe(false);
