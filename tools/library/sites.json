@@ -1,11 +1,11 @@
 {
-  "updated": "2026-11-17",
+  "updated": "2026-11-28",
   "note": "Discovery list. status: ready = the collector has a reader for it; planned = open licence confirmed, reader not built yet; needs-check = licence or download route not confirmed; not-allowed = never download. Only openly licensed, redistributable books are ever collected. Dates are when the owner-visible facts were last read by a person or by Discover-Library-Sites.bat.",
   "sites": [
     {
       "id": "storybookscanada",
       "name": "Storybooks Canada",
-      "home": "https://www.storybookscanada.globalstorybooks.net",
+      "home": "https://www.storybookscanada.globalstorybooks.net/stories/en/",
       "status": "ready",
       "access": "public publisher PDF",
       "formats": [
@@ -14,7 +14,11 @@
       "ages": "4–12 editorial bands by reading level",
       "licence": "Per edition CC BY 3.0/4.0",
       "terms": "Publisher provides public downloads. Automated import uses screened, hash-pinned editions only.",
-      "needsBrowser": false
+      "needsBrowser": false,
+      "pictureBooks": {
+        "priority": 4,
+        "reason": "Trusted current source with clear reading levels and illustrated editions."
+      }
     },
     {
       "id": "internet-archive",
@@ -58,11 +62,12 @@
     {
       "id": "book-dash",
       "name": "Book Dash",
-      "home": "https://bookdash.org",
+      "home": "https://bookdash.org/books/",
       "status": "planned",
       "access": "web",
       "formats": [
-        "pdf (inside zip folders)"
+        "public ebook PDF",
+        "print PDF"
       ],
       "languages": [
         "en",
@@ -70,9 +75,14 @@
       ],
       "ages": "0-9",
       "licence": "CC BY 4.0 (stated on every book page)",
-      "terms": "Books may be freely read, downloaded, printed, translated and shared with credit to Book Dash and the creators. Their e-book download is a 60 MB folder (zip) of PDF and page images, so a reader needs to unpack it.",
+      "terms": "Use publisher ebook editions with creator credits and CC BY 4.0. Prefer the digital PDF over print packages.",
       "needsBrowser": false,
-      "verified": "2026-11-17: licence and download links read from a book page."
+      "verified": "2026-11-17: licence and download links read from a book page.",
+      "pictureBooks": {
+        "priority": 1,
+        "reason": "Original illustrated stories, readable layouts, and complete attribution.",
+        "sample": "https://bookdash.org/book-source-files/?view-file=why-the-owl-never-sleeps%2Fe-book%2Fen_english%2Fwhy-the-owl-never-sleeps_en.pdf"
+      }
     },
     {
       "id": "african-storybook",
@@ -96,7 +106,7 @@
     {
       "id": "storyweaver",
       "name": "StoryWeaver (Pratham Books)",
-      "home": "https://storyweaver.org.in",
+      "home": "https://storyweaver.org.in/en/about",
       "status": "planned",
       "access": "web",
       "formats": [
@@ -119,7 +129,12 @@
       "licence": "Most stories CC BY 4.0, but each story shows its own licence",
       "terms": "The terms page could not be read when this list was made. Confirm that bulk download is allowed, and that no login is needed, before building a reader. Best source for Tamil and other Indian-language books.",
       "needsBrowser": true,
-      "verified": "Publisher describes open content. Confirm exact PDF edition, contents and rights before importing."
+      "verified": "Publisher describes open content. Confirm exact PDF edition, contents and rights before importing.",
+      "pictureBooks": {
+        "priority": 2,
+        "reason": "Illustrated English, Hindi and Tamil stories, with publisher web-resolution PDFs.",
+        "licenceEvidence": "https://storyweaver.org.in/en/open-content"
+      }
     },
     {
       "id": "global-digital-library",
@@ -182,8 +197,8 @@
     {
       "id": "free-kids-books",
       "name": "FreeKidsBooks.org",
-      "home": "https://freekidsbooks.org",
-      "status": "not-allowed",
+      "home": "https://freekidsbooks.org/license/creative-commons/",
+      "status": "needs-check",
       "access": "web",
       "formats": [
         "pdf links"
@@ -191,11 +206,16 @@
       "languages": [
         "en"
       ],
-      "ages": "",
-      "licence": "Books are shared by their publishers for reading; no open licence is stated per book",
-      "terms": "Treated as not allowed: redistribution is not granted. Link to it, do not copy from it.",
+      "ages": "Use the age guidance on each reviewed book page",
+      "licence": "Mixed rights. Only review titles with explicit redistributable per-edition licences.",
+      "terms": "Discovery only. Ignore titles without documented redistribution permission. Verify the exact PDF, credits, page quality and age suitability.",
       "needsBrowser": false,
-      "verified": ""
+      "verified": "",
+      "pictureBooks": {
+        "priority": 3,
+        "reason": "Matches the reference style when filtered to illustrated books with an explicit open licence.",
+        "example": "https://freekidsbooks.org/the-fool-and-the-wise-a-childrens-philosophical-tale/"
+      }
     },
     {
       "id": "oxford-owl-raz-epic-scribd",

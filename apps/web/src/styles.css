@@ -532,7 +532,8 @@ a { color: var(--brand); }
 .syllabus { margin: 1rem 0; padding: 1rem 1.2rem; border-radius: var(--radius); border: 2px solid var(--cover, var(--brand)); background: color-mix(in srgb, var(--cover, var(--brand)) 7%, var(--surface)); }
 .syllabus h2 { margin-top: 0; font-size: 1.25rem; } .syllabus h3 { font-size: 1.05rem; margin: .8rem 0 .3rem; } .syl-meta { margin: 0; }
 .syllabus ol { list-style: none; margin: 0; padding: 0; display: grid; gap: .3rem; }
-.syllabus li { display: flex; align-items: center; gap: .6rem; min-height: 36px; }
+.syllabus .syl-topic { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: .6rem; min-height: 44px; padding: .25rem; border-radius: .35rem; }
+.syllabus .syl-topic:hover, .syllabus .syl-topic:focus-visible { background: var(--surface, #fff); }
 .syl-mark { flex: none; display: grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; border: 2px solid var(--cover, var(--brand)); color: #fff; font-size: .85rem; font-weight: 700; }
 .syllabus li.done .syl-mark { background: var(--success); border-color: var(--success); }
 .filters { display: flex; flex-wrap: wrap; gap: .8rem; margin: .8rem 0; }

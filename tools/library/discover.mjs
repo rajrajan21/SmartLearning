@@ -43,12 +43,18 @@ async function main() {
   const cfg = await loadConfig();
   const sites = readJson(join(HERE, "sites.json"), { sites: [] }).sites;
   const extra = parseList(cfg.extraSites).map((x) => x).filter(Boolean);
-  const report = { at: new Date().toISOString(), userAgent: UA, sites: [], extra: [], iaCollections: [] };
+  const report = { at: new Date().toISOString(), userAgent: UA, sites: [], pictureBookShortlist: [], extra: [], iaCollections: [] };
   const lines = [`E-Library site discovery ${report.at}`];
-  for (const s of sites) {
+  const orderedSites = [...sites].sort((a, b) => (a.pictureBooks?.priority ?? Infinity) - (b.pictureBooks?.priority ?? Infinity));
+  for (const s of orderedSites) {
     if (!s.home || s.status === "not-allowed") { report.sites.push({ id: s.id, status: s.status, skipped: "not-allowed or no address" }); lines.push(`${s.id}: ${s.status} (not checked)`); continue; }
     const p = await probeSite(s.home);
     report.sites.push({ id: s.id, status: s.status, ...p });
+    if (s.pictureBooks) {
+      const review = p.reachable && !p.blocked && p.robotsAllowsUs !== false ? "edition review" : "source unavailable";
+      report.pictureBookShortlist.push({ id: s.id, catalogue: s.home, review, ...s.pictureBooks });
+      lines.push(`Picture-book source: ${s.name} (${review}). ${s.pictureBooks.reason}`);
+    }
     lines.push(`${s.id} [${s.status}] ${p.reachable ? "reachable" : "NOT reachable"}; licence on page: ${p.licenceHints.join(",") || "none"}; pdf links: ${p.pdfLinks}; ${p.notes.join("; ")}`);
     await new Promise((r) => setTimeout(r, 2500));
   }
@@ -61,6 +67,7 @@ async function main() {
   }
   void extra;
   try { report.iaCollections = await iaCollections(); lines.push(`Internet Archive children's collections found: ${report.iaCollections.length} (see sites-report.json)`); } catch (e) { lines.push(`Internet Archive collections: ${String(e.message ?? e).slice(0, 80)}`); }
+  lines.push("For each PDF, review all pages for coherent illustrations, readable text, an appropriate reading age and clean layout. Verify the publisher, redistribution licence, credits, and the exact PDF before approving.");
   writeJsonAtomic(join(HERE, "state", "sites-report.json"), report);
   writeFileSync(join(ROOT, "library-discover-report.txt"), lines.join("\n") + "\n");
   console.log(lines.join("\n"));

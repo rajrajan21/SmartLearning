@@ -120,7 +120,7 @@ export type ClassroomLesson = z.infer<typeof ClassroomLesson>;
 /** What the site sends to students: the lesson plus the recorded voice for each spoken part. */
 export const PublicClassroom = ClassroomShape.extend({
   topicId: z.string().uuid().optional(),
-  voicesReady: z.array(z.string()).optional(), voiceUsed: z.string().optional(),
+  voicesReady: z.array(z.string()).optional(), voicesReadyByLanguage: z.object({ en: z.array(z.string()), ta: z.array(z.string()), hi: z.array(z.string()) }).optional(), voiceUsed: z.string().optional(),
   steps: z.array(ClassroomStep.extend({ audio: LangAudio.optional(), checkAudio: z.object({ stem: LangAudio.optional(), explanation: LangAudio.optional() }).optional() })),
 });
 export type PublicClassroom = z.infer<typeof PublicClassroom>;

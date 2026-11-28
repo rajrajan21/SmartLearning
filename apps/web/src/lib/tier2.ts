@@ -63,6 +63,6 @@ export function toggleNote(e: Omit<NoteEntry, "savedAt" | "removedAt">): boolean
 }
 export function useNotebook(): Record<string, NoteEntry> {
   const [all, setAll] = useState(readNotebook);
-  useEffect(() => { const l = () => setAll(readNotebook()); listeners.add(l); return () => { listeners.delete(l); }; }, []);
+  useEffect(() => { const l = () => setAll(readNotebook()); listeners.add(l); l(); return () => { listeners.delete(l); }; }, []);
   return all;
 }
