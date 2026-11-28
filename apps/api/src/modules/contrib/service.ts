@@ -6,6 +6,7 @@ import type { SettingsService } from "../settings/service.js";
 import { hashOf, newId, type ContribStore, type Notice, type Submission, type SubStatus } from "./store.js";
 import { FetchError, parseDomains, safeFetch } from "./ssrf.js";
 import { publisherBook } from "./publisher-evidence.js";
+import { libraryBytes, libraryCap } from "../library/storage.js";
 import { scanContributionPdf } from "./pdfscan.js";
 import { extractPdf, type Extracted } from "./textextract.js";
 import { reviewSubmission, type Declared, type ExistingBook, type Report } from "./review.js";
@@ -266,12 +267,16 @@ export function createContribService(d: ContribDeps): ContribService {
       cover = ex.coverJpeg;
     }
     buf = await sanitize(buf, sub.meta);
+    const extracted = gzipSync(JSON.stringify({ pages: extra.pages, outline: extra.outline }));
+    if (libraryBytes(d.libraryFilesDir) + buf.length + (cover?.length ?? 0) + extracted.length > libraryCap(v)) {
+      throw new ContribError("library_full", "The E-Library has reached its storage limit. The book is held for review.", 409);
+    }
     const pdfDir = join(d.libraryFilesDir, "pdf"), coverDir = join(d.libraryFilesDir, "cover");
     mkdirSync(pdfDir, { recursive: true }); mkdirSync(coverDir, { recursive: true }); mkdirSync(store.dirs.text, { recursive: true });
     const tmp = join(pdfDir, `.${bookId}.tmp`);
     writeFileSync(tmp, buf); renameSync(tmp, join(pdfDir, `${bookId}.pdf`));
     if (cover) writeFileSync(join(coverDir, `${bookId}.jpg`), cover);
-    if (extra.pages.some((p) => p.trim())) writeFileSync(join(store.dirs.text, `${bookId}.json.gz`), gzipSync(JSON.stringify({ pages: extra.pages, outline: extra.outline })));
+    if (extra.pages.some((p) => p.trim())) writeFileSync(join(store.dirs.text, `${bookId}.json.gz`), extracted);
     const m = sub.meta, lic = LICENCES[m.licence]!;
     const dl = String(v["contrib.publish.download"] ?? "licence");
     const tags = [m.board !== "General reading" ? m.board : "", m.classLevel ? `Class ${m.classLevel}` : "", m.subject, "Community"].filter(Boolean);

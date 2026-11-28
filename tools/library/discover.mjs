@@ -13,7 +13,8 @@ export async function probeSite(home, { fetchImpl = fetch } = {}) {
   try {
     const rr = await fetchRetry(`${origin}/robots.txt`, { fetchImpl, tries: 1, timeoutMs: 15000 });
     if (rr.ok) { const g = parseRobots(await rr.text()); out.robotsAllowsUs = robotsAllows(g, new URL(home).pathname || "/"); if (!out.robotsAllowsUs) out.notes.push("robots.txt asks bots to stay out of this page"); } else out.notes.push(`no robots.txt (HTTP ${rr.status})`);
-  } catch (e) { out.notes.push(`robots.txt: ${String(e.message ?? e).slice(0, 60)}`); }
+  } catch (e) { if (e.name === "Blocked") out.blocked = true; out.notes.push(`robots.txt: ${String(e.message ?? e).slice(0, 60)}`); }
+  if (out.robotsAllowsUs === false || out.blocked) return out;
   try {
     const res = await fetchRetry(home, { fetchImpl, tries: 2, timeoutMs: 20000 });
     out.reachable = res.ok; out.status = res.status;

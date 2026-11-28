@@ -234,10 +234,10 @@ export function dirBytes(dir) {
 }
 export const GB = 1024 * 1024 * 1024;
 /** The space cap in force: the current cap, or the planned server cap once the owner switches over. */
-export function capBytes(cfg) { return (cfg.useServerCap ? cfg.serverMaxGB : cfg.maxGB) * GB; }
+export function capBytes(cfg) { return Math.min(10_000_000_000, (cfg.useServerCap ? cfg.serverMaxGB : cfg.maxGB) * 1_000_000_000); }
 
 /** Settings, defaults mirrored from packages/shared/src/library-settings.ts. The site's own values (Admin > E-Library) win when it can be reached. */
-export const DEFAULTS = { enabled: false, runsPerDay: 3, perRun: 10, perSiteMax: 0, siteOrder: "internet-archive,wikimedia-commons", licences: "cc0,pdm,by,by-sa", languages: "en,ta,hi", ageBands: "0-3,4-6,7-9,10-12,13+", onlyTags: "", skipTags: "", minPages: 4, maxPages: 400, disabledSites: "", extraSites: "", browserMode: false, pauseSeconds: 4, maxBookMB: 60, reopenDays: 7, retryBlockedHours: 12, startHour: 0, endHour: 24, minFreeDiskGB: 2, maxGB: 5, serverMaxGB: 50, useServerCap: false };
+export const DEFAULTS = { enabled: false, runsPerDay: 3, perRun: 11, perSiteMax: 0, siteOrder: "internet-archive,wikimedia-commons", licences: "cc0,pdm,by,by-sa", languages: "en,ta,hi", ageBands: "0-3,4-6,7-9,10-12,13+", onlyTags: "", skipTags: "", minPages: 4, maxPages: 400, disabledSites: "", extraSites: "", browserMode: false, pauseSeconds: 4, maxBookMB: 60, reopenDays: 7, retryBlockedHours: 12, startHour: 0, endHour: 24, minFreeDiskGB: 2, maxGB: 10, serverMaxGB: 10, useServerCap: false };
 // config name -> site setting key
 const MAP = { enabled: "job.enabled", runsPerDay: "job.runsPerDay", perRun: "job.perRun", perSiteMax: "job.perSiteMax", siteOrder: "job.siteOrder", licences: "job.licences", languages: "job.languages", ageBands: "job.ageBands", onlyTags: "job.onlyTags", skipTags: "job.skipTags", minPages: "job.minPages", maxPages: "job.maxPages", disabledSites: "job.disabledSites", extraSites: "job.extraSites", browserMode: "job.browserMode", pauseSeconds: "job.pauseSeconds", maxBookMB: "job.maxBookMB", reopenDays: "job.reopenDays", retryBlockedHours: "job.retryBlockedHours", startHour: "job.startHour", endHour: "job.endHour", minFreeDiskGB: "job.minFreeDiskGB", maxGB: "storage.maxGB", serverMaxGB: "storage.serverMaxGB", useServerCap: "storage.useServerCap" };
 export async function loadConfig({ fetchImpl = fetch, file = join(HERE, "config.json") } = {}) {

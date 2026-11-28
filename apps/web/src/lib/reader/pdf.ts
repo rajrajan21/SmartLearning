@@ -32,7 +32,7 @@ export const bucketFor = (w: number) => BUCKETS.find((b) => b >= w) ?? BUCKETS[B
 const THUMB_W = 132;
 const MAX_FULL = 26; // rendered full-size pages kept in memory
 
-export async function openBook(url: string): Promise<PdfBook> {
+export async function openBook(url: string, options?: { rangeChunkSize?: number }): Promise<PdfBook> {
   const task = pdfjs.getDocument({
     url,
     cMapUrl: `${ASSETS}cmaps/`, cMapPacked: true,
@@ -41,7 +41,7 @@ export async function openBook(url: string): Promise<PdfBook> {
     iccUrl: `${ASSETS}iccs/`,
     disableAutoFetch: true, // big textbooks: fetch only the parts needed for the pages being read
     disableStream: true,
-    rangeChunkSize: 2097152,
+    rangeChunkSize: options?.rangeChunkSize ?? (url.startsWith("/api/v1/library/") ? 262144 : 2097152),
     enableXfa: false,
   });
   const doc = await task.promise;

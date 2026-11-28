@@ -7,7 +7,7 @@ import { ADAPTERS } from "./adapters/index.mjs";
 import { AGE_BANDS, Blocked, GB, HERE, ROOT, TooBig, ageBand, bookId, capBytes, compressPdf, dirBytes, download, jitter, langCode, licenceAllowed, loadConfig, looksLikePdf, makeCover, pageCount, parseList, pdfTools, readJson, sha256, sleep, writeJsonAtomic } from "./lib.mjs";
 
 
-export async function runHarvest({ cfg, sites, adapters = ADAPTERS, fetchImpl = fetch, tools = pdfTools(), log = console.log, pauseFn = sleep, browser = null, now = () => new Date(), statePath = join(HERE, "state", "state.json") }) {
+export async function runHarvest({ cfg, sites, adapters = ADAPTERS, fetchImpl = fetch, tools = pdfTools(), log = console.log, pauseFn = sleep, now = () => new Date(), statePath = join(HERE, "state", "state.json") }) {
   const result = { added: [], skipped: 0, blocked: [], sitesDone: [], stoppedBecause: "", sites: {} };
   const files = cfg.libraryDir;
   const catalog = readJson(cfg.catalog, { version: 1, books: [] });
@@ -48,7 +48,7 @@ export async function runHarvest({ cfg, sites, adapters = ADAPTERS, fetchImpl = 
       if (ageDays < REOPEN_DAYS) { log(`[${site.id}] finished ${st.doneAt}; next look in ${Math.ceil(REOPEN_DAYS - ageDays)} day(s)`); continue; }
       st.done = false; st.cursor = {};
     }
-    if (st.blockedAt && !(cfg.browserMode && browser) && (now() - new Date(st.blockedAt)) / 3600000 < BLOCK_HOURS) { log(`[${site.id}] was blocked at ${st.blockedAt}; skipped for now`); result.blocked.push(site.id); continue; }
+    if (st.blockedAt  && (now() - new Date(st.blockedAt)) / 3600000 < BLOCK_HOURS) { log(`[${site.id}] was blocked at ${st.blockedAt}; skipped for now`); result.blocked.push(site.id); continue; }
     let siteAdded = 0;
     log(`[${site.id}] starting${st.cursor && Object.keys(st.cursor).length ? " (continuing)" : ""}`);
     let exhausted = false;
@@ -79,11 +79,7 @@ export async function runHarvest({ cfg, sites, adapters = ADAPTERS, fetchImpl = 
         // ---- download, check, shrink ----
         const raw = join(tmpDir, `${id}.raw.pdf`), out = join(files, "pdf", `${id}.pdf`);
         try {
-          try { await download(c.pdfUrl, raw, { maxBytes, fetchImpl }); }
-          catch (e) {
-            if (e instanceof Blocked && cfg.browserMode && browser) { log(`[${site.id}] plain download blocked, trying the real browser`); await browser.downloadFile(c.pdfUrl, raw, { maxBytes }); }
-            else throw e;
-          }
+          await download(c.pdfUrl, raw, { maxBytes, fetchImpl });
           if (!looksLikePdf(raw)) { skip("not a pdf"); continue; }
           const digest = sha256(raw);
           if (hashes.has(digest)) { skip("duplicate file"); continue; }
@@ -110,7 +106,7 @@ export async function runHarvest({ cfg, sites, adapters = ADAPTERS, fetchImpl = 
         await pause();
       }
     } catch (e) {
-      if (e instanceof Blocked) { st.blockedAt = now().toISOString(); result.blocked.push(site.id); log(`[${site.id}] ${e.message} - moving to the next site (turn on the real-browser option in Admin to try again with Chrome)`); }
+      if (e instanceof Blocked) { st.blockedAt = now().toISOString(); result.blocked.push(site.id); log(`[${site.id}] ${e.message} - waiting before checking this source again`); }
       else { log(`[${site.id}] stopped: ${String(e.message ?? e)}`); }
     }
     if (exhausted) { st.done = true; st.doneAt = now().toISOString(); result.sitesDone.push(site.id); log(`[${site.id}] finished: every book on this site has been looked at`); }
@@ -153,33 +149,17 @@ function insideWindow(cfg, d = new Date()) {
 
 // ---------------- command line ----------------
 async function main() {
-  const args = new Set(process.argv.slice(2));
-  const logFile = join(ROOT, "library-harvest-report.txt");
-  const lines = [];
-  const log = (m) => { const l = `${new Date().toISOString().replace("T", " ").slice(0, 19)}  ${m}`; console.log(l); lines.push(l); };
   const cfg = await loadConfig();
-  log(`E-Library collector. Settings from ${cfg.source}.`);
-  if (!cfg.enabled && !args.has("--force")) {
-    log("The collector job is OFF (Admin > E-Library > Collector job on). Nothing done.");
-    writeFileSync(logFile, lines.join("\n") + "\n");
-    return;
-  }
-  if (!insideWindow(cfg) && !args.has("--force")) { log(`Outside the allowed hours (${cfg.startHour} to ${cfg.endHour}). Nothing done.`); writeFileSync(logFile, lines.join("\n") + "\n"); return; }
-  try { const fs = statfsSync(cfg.libraryDir && existsSync(cfg.libraryDir) ? cfg.libraryDir : ROOT); const freeGB = (fs.bavail * fs.bsize) / GB; if (freeGB < Number(cfg.minFreeDiskGB) && !args.has("--force")) { log(`Only ${freeGB.toFixed(1)} GB free on the drive (needs ${cfg.minFreeDiskGB}). Nothing done.`); writeFileSync(logFile, lines.join("\n") + "\n"); return; } } catch { /* cannot read free space: carry on */ }
-  const sitesFile = readJson(join(HERE, "sites.json"), { sites: [] });
-  let browser = null;
-  if (cfg.browserMode) {
-    try { browser = await (await import("./browser.mjs")).openBrowser(log); } catch (e) { log(`Real-browser mode is on but could not start: ${e.message}`); }
-  }
-  const tools = pdfTools();
-  log(`Tools: Ghostscript ${tools.gs ? "yes" : "NO"}, qpdf ${tools.qpdf ? "yes" : "NO"}, pdftoppm ${tools.pdftoppm ? "yes" : "NO"} ${tools.gs && tools.qpdf ? "" : "(books are stored with less shrinking; install Ghostscript and qpdf for the smallest files)"}`);
-  const before = dirBytes(cfg.libraryDir);
-  log(`Library size ${(before / GB).toFixed(2)} GB of ${cfg.useServerCap ? cfg.serverMaxGB : cfg.maxGB} GB allowed. Books per run: ${cfg.perRun}.`);
-  const r = await runHarvest({ cfg, sites: sitesFile.sites, tools, log, browser });
-  if (browser) await browser.close();
-  log(`Done: ${r.added.length} new, ${r.skipped} skipped, blocked: ${r.blocked.join(", ") || "none"}. Stopped because: ${r.stoppedBecause}. Library now ${(dirBytes(cfg.libraryDir) / GB).toFixed(2)} GB.`);
-  writeJsonAtomic(join(HERE, "state", "last-run.json"), { at: new Date().toISOString(), ...r });
-  writeStatus(cfg, sitesFile.sites, readJson(join(HERE, "state", "state.json"), { sites: {} }), r, { libraryGB: +(dirBytes(cfg.libraryDir) / GB).toFixed(3) });
-  appendFileSync(logFile, ""); writeFileSync(logFile, lines.join("\n") + "\n");
+  const { runReviewed } = await import("./reviewed.mjs");
+  const values = {
+    "feature.library": true, "library.job.enabled": cfg.enabled === true, "library.job.perRun": cfg.perRun,
+    "library.job.languages": cfg.languages, "library.job.ageBands": cfg.ageBands, "library.job.disabledSites": cfg.disabledSites,
+    "library.job.licences": cfg.licences, "library.job.pauseSeconds": cfg.pauseSeconds, "library.job.perSiteMax": cfg.perSiteMax,
+    "library.job.minPages": cfg.minPages, "library.job.maxPages": cfg.maxPages, "library.job.maxBookMB": cfg.maxBookMB,
+    "library.job.onlyTags": cfg.onlyTags, "library.job.skipTags": cfg.skipTags, "library.job.minFreeDiskGB": cfg.minFreeDiskGB,
+    "library.storage.maxGB": cfg.maxGB, "library.storage.serverMaxGB": cfg.serverMaxGB, "library.storage.useServerCap": cfg.useServerCap,
+  };
+  if (!cfg.enabled || !insideWindow(cfg)) { console.log("Collector is OFF or outside its run window."); return; }
+  console.log(JSON.stringify(await runReviewed({ dir: cfg.libraryDir, values })));
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((e) => { console.error(e); process.exit(1); });

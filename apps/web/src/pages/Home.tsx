@@ -3,7 +3,7 @@ import { usePreset } from "../lib/sitePresets";
 import { Link } from "wouter";
 import { useActiveBoard } from "../lib/activeBoard";
 import { BoardChips } from "../components/BoardChips";
-import { lt } from "../lib/library";
+import { bandLabel, lt } from "../lib/library";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { SearchBox } from "../components/SearchBox";
@@ -87,7 +87,21 @@ export function Home() {
     [quick.map((q) => `${q.href}:${q.label}`).join("|")],
   );
   usePageTour(app && s.get("app.feed.enabled") === true ? null : { pageType: "home", quickJumps: homeQuickJumps });
-  if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} dailyGk={gk} />;
+  const libraryBands = String(s.get("library.ageBands") ?? "0-3,4-6,7-9,10-12,13+")
+    .split(",").map((band) => band.trim()).filter((band) => /^(0-3|4-6|7-9|10-12|13\+)$/.test(band));
+  const library = s.get("feature.library") === true && s.get("library.nav.show") !== false && (
+        <section className="revise-card" aria-label={lt("title", s.lang)}>
+          <div>
+            <h2>📖 {lt("title", s.lang)}</h2><p>{lt("intro", s.lang)}</p>
+            <div className="lib-ages">
+              {libraryBands.map((band) =>
+                <Link key={band} className="chip" href={`/library?age=${encodeURIComponent(band)}`}>{bandLabel(band, s.lang)}</Link>)}
+            </div>
+          </div>
+          <Link className="btn" href="/library">{lt("back", s.lang)}</Link>
+        </section>
+      );
+  if (app && s.get("app.feed.enabled") === true) return <AppFeed tree={tree} board={board} sampleHref={sampleReady ? sample.href : undefined} dailyGk={gk} library={library} />;
   const fact = s.get("home.didYouKnow.show") === true && <DidYouKnow />;
   const today = (
     <details className="preset-today" data-tour="home-today" open={["classroom", "dashboard", "activity"].includes(preset)}>
@@ -185,6 +199,7 @@ export function Home() {
           <Link className="btn" href="/classroom">{ui("classroomStart", s.lang)}</Link>
         </section>
       )}
+      {library}
       {s.get("home.search.show") && s.get("feature.search") && <SearchBox board={board} />}
       {s.get("home.boardPicker.show") && (
         <section className={preset === "classic" ? undefined : "preset-boards"} aria-labelledby="boards-h" data-tour={!s.get("home.classPicker.show") ? "home-pickers" : undefined}>

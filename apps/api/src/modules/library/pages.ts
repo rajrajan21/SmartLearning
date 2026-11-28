@@ -2,6 +2,7 @@ import { spawn } from "node:child_process";
 import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, utimesSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { libraryBytes, libraryCap } from "./storage.js";
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/;
 export const PAGE_FILE = /^(\d{1,4})-(t|s|l)\.webp$/;
@@ -74,7 +75,12 @@ export function createLibraryPages(d: PagesDeps): LibraryPages {
         const id = queue.shift()!; current = id;
         let v: Vals = {}; try { v = await d.settings(); } catch { /* defaults */ }
         const env = { LIB_PAGE_WIDTHS: `${num(v["library.pages.widthThumb"], 160, 80, 400)},${num(v["library.pages.widthNormal"], 700, 300, 1400)},${num(v["library.pages.widthLarge"], 1400, 600, 3000)}`, LIB_PAGE_QUALITY: String(num(v["library.pages.quality"], 72, 30, 95)), LIB_PAGE_MAX: String(num(v["library.pages.maxPages"], 600, 0, 5000)) };
-        const ok = await run(id, env).catch(() => false);
+        const cacheCap = num(v["library.pages.cacheMB"], 4096, 0, 500000);
+        const bytesOutsideCache = libraryBytes(d.filesDir) - libraryBytes(root);
+        const spareMB = Math.max(0, Math.floor((libraryCap(v) - bytesOutsideCache) / 1048576));
+        trim(Math.min(cacheCap || spareMB, spareMB));
+        const remaining = Math.max(0, Math.min(libraryCap(v) - libraryBytes(d.filesDir), (cacheCap || spareMB) * 1048576 - libraryBytes(root)));
+        const ok = remaining > 0 && await run(id, { ...env, LIB_PAGE_BUDGET: String(remaining) }).catch(() => false);
         if (!ok || !info(id)) failed.set(id, Date.now()); else failed.delete(id);
         current = null;
       }

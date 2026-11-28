@@ -25,6 +25,7 @@ export interface LibraryBook {
   tags: string[];
   addedAt: string;
   hasCover: boolean;
+  toc?: { title: string; page: number; level: number }[];
   /** set for books added through "Contribute to the E-Library" */
   contributed?: { by: string; handle: string; submissionId: string; download: boolean; hasText: boolean; hasOutline: boolean; licenceNote: string };
 }
@@ -40,7 +41,7 @@ export interface LibraryStore {
   filePath(id: string): string | null;
   coverPath(id: string): string | null;
   /** where the catalogue and the book files live (used by the admin page) */
-  paths: { catalog: string; files: string };
+  paths: { catalog: string; files: string; collector?: string };
 }
 
 const ID = /^[A-Za-z0-9][A-Za-z0-9._-]{0,120}$/;
@@ -77,15 +78,23 @@ export function cleanBook(raw: unknown, bytesOnDisk: number, hasCover: boolean):
     tags: Array.isArray(r.tags) ? r.tags.map((t) => str(t, 40)).filter(Boolean).slice(0, 12) : [],
     addedAt: str(r.addedAt, 30),
     hasCover,
+    ...(Array.isArray(r.toc) ? { toc: r.toc.slice(0, 120).flatMap((item: unknown) => {
+      const e = item as { title?: unknown; page?: unknown; level?: unknown } | null;
+      return e && typeof e.title === "string" && typeof e.page === "number" && Number.isInteger(e.page) &&
+        e.page >= 1 && e.page <= Number(r.pages)
+        ? [{ title: e.title.slice(0, 140), page: e.page, level: typeof e.level === "number" ? Math.max(0, Math.min(3, e.level)) : 0 }] : [];
+    }) } : {}),
     ...(r.contributed && typeof r.contributed === "object" ? { contributed: cleanContributed(r.contributed as Record<string, unknown>) } : {}),
   };
 }
 
 /** `contributedPath` is the file the contribution feature writes (books people sent in); it is merged in so the collector can never overwrite those rows. */
-export function createLibraryStore(catalogPath: string, filesDir: string, contributedPath?: string): LibraryStore {
+export function createLibraryStore(catalogPath: string, filesDir: string, contributedPath?: string, collector?: string): LibraryStore {
   const pdfRoot = resolve(filesDir, "pdf");
   const coverRoot = resolve(filesDir, "cover");
-  let cache: { key: string; list: LibraryList; hidden: Set<string> } | null = null;
+  const collectedPath = collector && join(collector, "catalog.json");
+  const moderationPath = collector && join(collector, "moderation.json");
+  let cache: { key: string; list: LibraryList; visible: Set<string> } | null = null;
 
   function safe(root: string, name: string): string | null {
     if (!ID.test(name) || name.includes("..")) return null;
@@ -103,6 +112,9 @@ export function createLibraryStore(catalogPath: string, filesDir: string, contri
     // the number of files changes the answer too, so key on the folder time as well
     try { key += `:${statSync(join(pdfRoot)).mtimeMs}`; } catch { /* no files yet */ }
     if (contributedPath) { try { const st = statSync(contributedPath); key += `:c${st.mtimeMs}:${st.size}`; } catch { /* none yet */ } }
+    for (const p of [collectedPath, moderationPath]) if (p) {
+      try { const st = statSync(p); key += `:${st.mtimeMs}:${st.size}`; } catch { /* no collector data yet */ }
+    }
     if (cache && cache.key === key) return cache.list;
     let rows: unknown[] = [];
     try {
@@ -115,14 +127,23 @@ export function createLibraryStore(catalogPath: string, filesDir: string, contri
         if (Array.isArray(j.books)) rows = rows.concat(j.books);
       } catch { /* none yet */ }
     }
+    if (collectedPath) {
+      try { const j = JSON.parse(readFileSync(collectedPath, "utf8")); if (Array.isArray(j.books)) rows = rows.concat(j.books); } catch { /* no collector data yet */ }
+    }
     const books: LibraryBook[] = [];
     const hidden = new Set<string>();
+    if (moderationPath) {
+      try {
+        const m = JSON.parse(readFileSync(moderationPath, "utf8"));
+        for (const id of [...(m.hidden ?? []), ...(m.removed ?? [])]) if (typeof id === "string") hidden.add(id);
+      } catch { /* no collector moderation yet */ }
+    }
     for (const raw of rows) { const r = raw as { id?: unknown; hidden?: unknown }; if (r && r.hidden === true && typeof r.id === "string") hidden.add(r.id); }
     const seen = new Set<string>();
     let total = 0;
     for (const raw of rows) {
       const id = typeof (raw as { id?: unknown })?.id === "string" ? (raw as { id: string }).id : "";
-      if (seen.has(id)) continue;
+      if (seen.has(id) || hidden.has(id)) continue;
       const p = safe(pdfRoot, `${id}.pdf`);
       if (!p) continue;
       let bytes = 0;
@@ -138,15 +159,15 @@ export function createLibraryStore(catalogPath: string, filesDir: string, contri
     const langs = new Map<string, number>();
     for (const b of books) langs.set(b.language, (langs.get(b.language) ?? 0) + 1);
     const languages = [...langs].map(([code, count]) => ({ code, count })).sort((a, b) => b.count - a.count || a.code.localeCompare(b.code));
-    cache = { key, list: { books, bands, languages, bytes: total }, hidden };
+    cache = { key, list: { books, bands, languages, bytes: total }, visible: seen };
     return cache.list;
   }
 
   return {
     list,
     // a book hidden by an admin (or by a takedown) is not served by its direct link either
-    filePath: (id) => { if (!existsSync(pdfRoot)) return null; list(); return cache?.hidden.has(id) ? null : safe(pdfRoot, `${id}.pdf`); },
-    coverPath: (id) => { if (!existsSync(coverRoot)) return null; list(); return cache?.hidden.has(id) ? null : safe(coverRoot, `${id}.jpg`); },
-    paths: { catalog: catalogPath, files: filesDir },
+    filePath: (id) => { if (!existsSync(pdfRoot)) return null; list(); return cache?.visible.has(id) ? safe(pdfRoot, `${id}.pdf`) : null; },
+    coverPath: (id) => { if (!existsSync(coverRoot)) return null; list(); return cache?.visible.has(id) ? safe(coverRoot, `${id}.jpg`) : null; },
+    paths: { catalog: catalogPath, files: filesDir, collector },
   };
 }

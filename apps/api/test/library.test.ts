@@ -22,7 +22,8 @@ beforeAll(async () => {
   writeFileSync(join(dir, "files/pdf/ia-two.pdf"), pdf);
   writeFileSync(join(dir, "files/cover/ia-one.jpg"), Buffer.from([0xff, 0xd8, 0xff, 0xd9]));
   writeFileSync(join(dir, "outside.pdf"), pdf);
-  symlinkSync(join(dir, "outside.pdf"), join(dir, "files/pdf/ia-link.pdf"));
+  try { symlinkSync(join(dir, "outside.pdf"), join(dir, "files/pdf/ia-link.pdf")); }
+  catch (err) { if (process.platform !== "win32" || (err as NodeJS.ErrnoException).code !== "EPERM") throw err; }
   writeFileSync(join(dir, "catalog.json"), JSON.stringify({ version: 1, books: [
     row("ia-one"), row("ia-two", { ageBand: "10-12", language: "ta", title: "Tamil tale" }),
     row("ia-missing"), // PDF not on this machine
@@ -51,6 +52,20 @@ describe("E-Library API", () => {
     await request(app).get("/api/v1/library/..%2Fevil/file").expect(404);
     await request(app).get("/api/v1/library/ia-one/file").set("Range", "bytes=99999-").expect(416);
   });
+  it("keeps unlisted files private and preserves collected-book contents", () => {
+    const collector = join(dir, "collected-test");
+    mkdirSync(collector, { recursive: true });
+    writeFileSync(join(dir, "files/pdf/collected.pdf"), pdf);
+    const store = createLibraryStore(join(dir, "catalog.json"), join(dir, "files"), undefined, collector);
+    expect(store.filePath("collected")).toBeNull();
+    writeFileSync(join(collector, "catalog.json"), JSON.stringify({ books: [row("collected", {
+      toc: [{ title: "Story", page: 2, level: 0 }, { title: "Invalid", page: 999, level: 0 }],
+    })] }));
+    expect(store.filePath("collected")).toBeTruthy();
+    expect(store.list().books.find((book) => book.id === "collected")?.toc).toEqual([{ title: "Story", page: 2, level: 0 }]);
+    writeFileSync(join(collector, "moderation.json"), JSON.stringify({ removed: ["collected"] }));
+    expect(store.filePath("collected")).toBeNull();
+  });
   it("serves covers, 404 when a book has none", async () => {
     await request(app).get("/api/v1/library/ia-one/cover").expect(200).expect("content-type", /image\/jpeg/);
     await request(app).get("/api/v1/library/ia-two/cover").expect(404);
@@ -73,17 +88,17 @@ describe("E-Library admin page API", () => {
   });
   it("shows storage against the cap, the tallies, the books and no status yet", async () => {
     const res = await admin(request(app).get("/api/v1/admin/library")).expect(200);
-    expect(res.body.usage).toMatchObject({ books: 2, capGB: 5, plannedServerCapGB: 50, usingServerCap: false, hidden: 0 });
+    expect(res.body.usage).toMatchObject({ books: 2, capGB: 10, plannedServerCapGB: 10, usingServerCap: false, hidden: 0 });
     expect(res.body.usage.missingFiles).toBe(3); // ia-missing, ia-link and the unsafe id have no usable file here
     expect(res.body.by.age.map((x: { key: string }) => x.key).sort()).toEqual(["10-12", "4-6", "unknown"]); // "unknown" = a row on disk without a valid age band
-    expect(res.body.job).toMatchObject({ enabled: false, perRun: 10 }); // the collector is OFF by default
+    expect(res.body.job).toMatchObject({ enabled: false, perRun: 11 }); // the collector is OFF by default
     expect(res.body.status).toBeNull();
     expect(res.body.books[0]).toHaveProperty("title");
   });
   it("uses the server cap once that switch is on", async () => {
     await admin(request(app).put("/api/v1/admin/settings")).send({ changes: { "library.storage.useServerCap": true } }).expect(200);
     const res = await admin(request(app).get("/api/v1/admin/library")).expect(200);
-    expect(res.body.usage).toMatchObject({ capGB: 50, usingServerCap: true });
+    expect(res.body.usage).toMatchObject({ capGB: 10, usingServerCap: true });
     await admin(request(app).put("/api/v1/admin/settings")).send({ changes: { "library.storage.useServerCap": false } }).expect(200);
   });
   it("hides a book from the shelf without deleting it, and shows it again", async () => {

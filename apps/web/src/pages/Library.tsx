@@ -1,7 +1,7 @@
 import { matches as matchSearch } from "../components/SearchBox";
 import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { lazy, Suspense, useEffect, useMemo, useRef, useState } from "react";
-import { Link, useParams } from "wouter";
+import { Link, useParams, useSearch } from "wouter";
 import { useSettings } from "../lib/settings";
 import { Crumbs, Loading, NotFound } from "../components/bits";
 import { bandLabel, coverUrl, fileUrl, lt, mb, useLibrary, type LibBook } from "../lib/library";
@@ -55,7 +55,10 @@ export function LibraryPage() {
   const { state, data } = useLibrary(on);
   const bandsOn = csv(s.get("library.ageBands"));
   const langsOn = csv(s.get("library.languagesShown"));
-  const [age, setAge] = useState<string>(String(s.get("library.defaultAge") ?? "all"));
+  const requestedAge = new URLSearchParams(useSearch()).get("age");
+  const ageFromLink = requestedAge && bandsOn.includes(requestedAge) ? requestedAge : null;
+  const [age, setAge] = useState<string>(ageFromLink ?? String(s.get("library.defaultAge") ?? "all"));
+  useEffect(() => { if (ageFromLink) setAge(ageFromLink); }, [ageFromLink]);
   const [lang, setLang] = useState("");
   const [q, setQ] = useState("");
   const [sort, setSort] = useState<string>(String(s.get("library.sortDefault") ?? "new"));
@@ -73,7 +76,7 @@ export function LibraryPage() {
 
   if (!on || state === "off") return <NotFound />;
   if (state === "loading") return <Loading />;
-  const bands = bandsOn.filter((b) => data?.bands.some((x) => x.band === b));
+  const bands = bandsOn.filter((b) => b === age || data?.bands.some((x) => x.band === b));
   const langs = (data?.languages ?? []).filter((l) => !langsOn.length || langsOn.includes(l.code));
   const intro = s.text("library.intro") || lt("intro", s.lang);
   const newDays = Number(s.get("library.newBadgeDays") ?? 14);
@@ -209,7 +212,7 @@ export function LibraryBookPage() {
     if (!book || !info || useReader) return;
     let alive = true, opened: PdfBook | null = null;
     setPdf(null); setFail(false);
-    void import("../lib/reader/pdf").then((m) => m.openBook(fileUrl(book.id))).then((b) => { opened = b; if (alive) setPdf(b); else b.destroy(); }, () => alive && setFail(true));
+    void import("../lib/reader/pdf").then((m) => m.openBook(fileUrl(book.id), { rangeChunkSize: 262144 })).then((b) => { opened = b; if (alive) setPdf(b); else b.destroy(); }, () => alive && setFail(true));
     return () => { alive = false; opened?.destroy(); };
   }, [book?.id, info, useReader]);
   if (!on || state === "off") return <NotFound />;
@@ -241,7 +244,7 @@ export function LibraryBookPage() {
       <Suspense fallback={<div className="paper"><Loading /></div>}>
         <Reader key={book.id} onFail={info.fallbackPdf ? () => setForcePdf(true) : undefined} book={{
           id: `lib-${book.id}`, title: book.title, subtitle: [book.authors.join(", "), book.licence.name].filter(Boolean).join(" · "), url: fileUrl(book.id), fileName: `${book.id}.pdf`,
-          language: book.language, subject: book.ageBand, readAloudInitiallyOpen: false, backHref: "/library", fast: info.fast, download: canDownload, prefetch: Number.isFinite(prefetch) ? prefetch : 3,
+          language: book.language, subject: book.ageBand, readAloudInitiallyOpen: false, backHref: "/library", fast: info.fast, toc: book.toc, download: canDownload, prefetch: Number.isFinite(prefetch) ? prefetch : 3,
         }} />
       </Suspense>
       {details}

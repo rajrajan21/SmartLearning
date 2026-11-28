@@ -5,6 +5,7 @@ export interface LibBook {
   id: string; title: string; authors: string[]; language: string; ageBand: string; ageSource: "source" | "guess";
   pages: number | null; bytes: number; licence: { code: string; name: string; url: string };
   source: { site: string; siteName: string; url: string }; tags: string[]; addedAt: string; hasCover: boolean;
+  toc?: { title: string; page: number; level: number }[];
   contributed?: { by: string; handle: string; submissionId: string; download: boolean; hasText: boolean; hasOutline: boolean; licenceNote: string };
 }
 export interface LibList { books: LibBook[]; bands: { band: string; count: number }[]; languages: { code: string; count: number }[]; bytes: number }

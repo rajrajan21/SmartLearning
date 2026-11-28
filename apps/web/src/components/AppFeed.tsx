@@ -56,7 +56,7 @@ function QuickQuestion() {
 }
 
 /** Home for phones: one bite-sized card per screen, swipe up for the next (CSS scroll-snap). */
-export function AppFeed({ tree, board, sampleHref, dailyGk }: { tree: TreeLike | null; board: string; sampleHref?: string; dailyGk?: ReactNode }) {
+export function AppFeed({ tree, board, sampleHref, dailyGk, library }: { tree: TreeLike | null; board: string; sampleHref?: string; dailyGk?: ReactNode; library?: ReactNode }) {
   const s = useSettings();
   const open = s.get<number[]>("catalog.openClasses");
   const [cls, setCls] = useState(() => chosenClass(open));
@@ -111,6 +111,7 @@ export function AppFeed({ tree, board, sampleHref, dailyGk }: { tree: TreeLike |
         </section>
         {path.length > 0 && <section className="fcard"><BoardPath nodes={path} streak={0} /></section>}
         {dailyGk && <section className="fcard fc-gk">{dailyGk}</section>}
+        {library}
         {s.get("puzzle.show") === true && <section className="fcard"><PuzzleOfDay /></section>}
         {s.get("home.didYouKnow.show") === true && <section className="fcard"><DidYouKnow tick={tick} /></section>}
         {s.get("app.feed.quiz.show") === true && <section className="fcard" aria-label={ui("feedQuick", s.lang)}><h2>{ui("feedQuick", s.lang)}</h2><QuickQuestion /></section>}

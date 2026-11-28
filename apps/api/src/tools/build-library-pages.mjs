@@ -18,6 +18,7 @@ const SIZES = { t: wt || 160, s: ws || 700, l: wl || 1400 };
 const q = Math.min(95, Math.max(30, Number(process.env.LIB_PAGE_QUALITY ?? 72)));
 const QUALITY = { t: Math.max(30, q - 12), s: q, l: Math.min(95, q + 2) };
 const maxPages = Number(process.env.LIB_PAGE_MAX ?? 600);
+let budget = Number(process.env.LIB_PAGE_BUDGET ?? Number.MAX_SAFE_INTEGER);
 const log = (...a) => console.log(new Date().toISOString().slice(11, 19), ...a);
 
 const require = createRequire(import.meta.url);
@@ -61,7 +62,10 @@ for (const id of ids) {
         let c = f.canvas;
         if (k !== "l") { const w = SIZES[k], h = Math.max(1, Math.round((f.canvas.height * w) / f.canvas.width)); c = createCanvas(w, h); const x = c.getContext("2d"); x.imageSmoothingQuality = "high"; x.drawImage(f.canvas, 0, 0, w, h); }
         const tmp = join(outDir, `.${n}-${k}.tmp`);
-        writeFileSync(tmp, await c.encode("webp", QUALITY[k])); renameSync(tmp, join(outDir, `${n}-${k}.webp`)); // a half-written picture is never served
+        const bytes = await c.encode("webp", QUALITY[k]);
+        if (bytes.length > budget) throw new Error("Library cache has reached its storage budget");
+        budget -= bytes.length;
+        writeFileSync(tmp, bytes); renameSync(tmp, join(outDir, `${n}-${k}.webp`)); // a half-written picture is never served
       }
       page.cleanup(); doc.canvasFactory.destroy(f); made++;
       if (Date.now() - lastLog > 15000) { log(`  ${id}: page ${n}/${doc.numPages}`); lastLog = Date.now(); }
