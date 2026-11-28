@@ -117,13 +117,19 @@ export function createClassroomService(dirs: ClassroomDirs, audio?: AudioStore):
       const l = byKey.get(key({ board, classLevel, subject, chapter, topic }));
       if (!l) return null;
       const minReady = Math.max(1, Math.ceil(l.steps.length * 0.7));
-      const ready = (audio?.teachers() ?? [])
-        .filter((t) => !audio?.hasVoice || audio.hasVoice(t.id))
-        .filter((t) => l.steps.filter((st) => !!audio?.refs(t.id, st.narration)).length >= minReady)
-        .map((t) => t.id);
+      const ready: string[] = [];
+      const voicesReadyByLanguage = { en: [] as string[], ta: [] as string[], hi: [] as string[] };
+      for (const teacher of audio?.teachers() ?? []) {
+        if (audio?.hasVoice && !audio.hasVoice(teacher.id)) continue;
+        const clips = l.steps.map(st => audio?.refs(teacher.id, st.narration));
+        if (clips.filter(Boolean).length >= minReady) ready.push(teacher.id);
+        for (const lang of teacher.langs) {
+          if (clips.some(clip => clip?.[lang])) voicesReadyByLanguage[lang].push(teacher.id);
+        }
+      }
       const pref = perf().defaultAudioVoice || "maya";
-      const use = voice && ready.includes(voice) ? voice : (([...new Set([pref, "maya", "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
-      return { ...withAudio(l, use), voicesReady: ready, voiceUsed: use };
+      const use = voice && Object.values(voicesReadyByLanguage).some(ids => ids.includes(voice)) ? voice : (([...new Set([pref, "maya", "kani", "priya2", DEFAULT_VOICE])].find((v) => ready.includes(v)) ?? ready[0]) ?? DEFAULT_VOICE);
+      return { ...withAudio(l, use), voicesReady: ready, voicesReadyByLanguage, voiceUsed: use };
     },
     warm() {
       const t0 = Date.now(); stamp = ""; const before = Object.keys(compose.lessons).length; load();

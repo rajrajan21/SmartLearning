@@ -216,8 +216,9 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
   const langModeRef = useRef(langMode); langModeRef.current = langMode;
   const narrationLang: "en" | "ta" | "hi" = related ? "en" : (langMode === "ta" || langMode === "ta-en") ? "ta" : (langMode === "hi" || langMode === "hi-en") ? "hi" : "en";
   const secondaryLang: "en" | "ta" | "hi" | null = related ? null : (langMode === "ta-en" || langMode === "hi-en") ? "en" : langMode === "both" ? "ta" : null;
-  const info = voices.find((v) => v.id === (lessonIn.voiceUsed ?? voice));
-  const pickable = s.get("classroom.voicePicker.onlyRecorded") !== false && lessonIn.voicesReady ? voices.filter((v) => lessonIn.voicesReady!.includes(v.id)) : voices;
+  const recordedVoices = lessonIn.voicesReadyByLanguage?.[narrationLang] ?? lessonIn.voicesReady ?? [];
+  const onlyRecorded = s.get("classroom.voicePicker.onlyRecorded") !== false;
+  const pickable = voices.filter(v => v.langs.includes(narrationLang) && (!onlyRecorded || recordedVoices.includes(v.id)));
 
   const cur = lesson.steps[step]!;
   const text = cur.narration[narrationLang] ?? cur.narration.en;
@@ -617,10 +618,11 @@ function Player({ lesson: lessonIn, back, voices, voice, onVoice, related, profi
             )}
           </select>
         </label>
-        {pickable.length > 1 && s.get("classroom.voicePicker") === true && (
+        {!related && s.get("classroom.voicePicker") === true && (
           <label className="class-rate">{L("classroomTeacher")}
-            <select value={lessonIn.voiceUsed ?? voice} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
-              {pickable.map((v) => <option key={v.id} value={v.id}>{v.label}</option>)}
+            <select value={pickable.some(v => v.id === voice && recordedVoices.includes(v.id)) ? voice : ""} onChange={(e) => { stopVoice(); setPhase((p) => (p === "playing" ? "paused" : p)); onVoice(e.target.value); }}>
+              <option value="">{recordedVoices.length ? L("classroomVoiceAuto") : L("classroomVoicePending")}</option>
+              {pickable.map(v => <option key={v.id} value={v.id} disabled={!recordedVoices.includes(v.id)}>{v.label}</option>)}
             </select>
           </label>
         )}

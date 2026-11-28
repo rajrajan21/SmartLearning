@@ -224,9 +224,13 @@ export function ChapterPage() {
           <ol>
             {ch.topics.filter((t) => matches(tq, t.name.en, t.name.ta)).map((t) => (
               <li key={t.id} className={progress[t.id]?.done ? "done" : ""}>
-                <span className="syl-mark" aria-hidden="true">{progress[t.id]?.done ? "✔" : ""}</span>
-                <Title name={t.name} />
-                {progress[t.id]?.done ? <span className="small"> · {ui("syllabusDone", s.lang)}</span> : lessonIds.has(t.id) ? <span className="small"> · {ui("syllabusLesson", s.lang)}</span> : null}
+                <Link className="syl-topic" href={`${chapterPath}/${t.slug}`}>
+                  <span className="syl-mark" aria-hidden="true">{progress[t.id]?.done ? "✔" : ""}</span>
+                  <span><Title name={t.name} />
+                    {progress[t.id]?.done ? <span className="small"> · {ui("syllabusDone", s.lang)}</span> : lessonIds.has(t.id) ? <span className="small"> · {ui("syllabusLesson", s.lang)}</span> : null}
+                  </span>
+                  <span aria-hidden="true">→</span>
+                </Link>
               </li>
             ))}
           </ol>

@@ -159,6 +159,10 @@ export async function buildAudio(o: BuildOptions): Promise<BuildReport> {
   const filesDir = join(o.audioDir, "files"), manifestPath = join(o.audioDir, "manifest.json");
   const voices = VoiceMap.parse(readJson(join(o.audioDir, "voices.json")));
   const manifest = existsSync(manifestPath) ? Manifest.parse(readJson(manifestPath)) : emptyManifest();
+  const supplementalPath = join(o.audioDir, "foundation-manifest.json");
+  if (o.planOnly && existsSync(supplementalPath)) {
+    Object.assign(manifest.entries, Manifest.parse(readJson(supplementalPath)).entries);
+  }
   const report: BuildReport = { wanted: 0, generated: 0, reused: 0, skipped: [], pruned: 0, bytes: 0, audioMs: 0, elapsedMs: 0 };
   const t0 = Date.now();
   const used = new Set<string>();
