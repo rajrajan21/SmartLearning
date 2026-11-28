@@ -354,6 +354,8 @@ export const UI = {
   classroomResumeAt: { en: "Continue: ", ta: "தொடர்க: " },
   classroomNextPart: { en: "Next part →", ta: "அடுத்த பகுதி →" },
   classroomParts: { en: "Parts of the lesson", ta: "பாடத்தின் பகுதிகள்" },
+  classroomVoiceAuto: { en: "Automatic", ta: "தானாக" },
+  classroomVoicePending: { en: "Recordings pending", ta: "குரல் பதிவு தயாராகிறது" },
   classroomTeacher: { en: "Teacher", ta: "ஆசிரியர்" },
   classroomLanguage: { en: "Language", ta: "மொழி" },
   backToTop: { en: "Top", ta: "மேலே" },

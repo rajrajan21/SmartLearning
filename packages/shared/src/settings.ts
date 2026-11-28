@@ -720,7 +720,7 @@ export const SETTINGS: SettingDef[] = [
   bool("home.footer.showSources", "home", "Footer", "Show textbook source note on chapter lists", true, { help: "Tells students which official textbook each subject follows." }),
 
   // ---------------- Languages ----------------
-  bool("lang.tamil.enabled", "languages", "Tamil", "Offer Tamil", true),
+  bool("lang.tamil.enabled", "languages", "Tamil", "Enable Tamil site interface", true, { help: "Turn off to use English navigation and hide the Tamil switch on desktop and mobile. Tamil subjects and lesson narration remain available." }),
   { key: "lang.default", panel: "languages", section: "Default", label: "Language when a student first arrives", public: true, type: "select", default: "en",
     options: [{ value: "en", label: "English" }, { value: "ta", label: "தமிழ் (Tamil)" }] },
   bool("lang.fallbackToEnglish", "languages", "Default", "Show the English title when a Tamil one is missing", true),
