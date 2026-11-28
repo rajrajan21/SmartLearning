@@ -53,7 +53,7 @@ export const PANELS: { id: PanelId; label: string; help: string }[] = [
   { id: "catalog", label: "Classes and boards", help: "Which classes and boards are open to students." },
   { id: "accounts", label: "Accounts", help: "Parent sign-in, child profiles and saving progress across devices." },
   { id: "mastery", label: "Mastery and revision", help: "How progress is measured and how old questions come back to be remembered." },
-  { id: "tutor", label: "Ask the teacher", help: "The question helper: where it appears, daily limits and safety." },
+  { id: "tutor", label: "Sharp Teacher AI", help: "The question helper: where it appears, daily limits and safety." },
   { id: "parent", label: "Parent dashboard", help: "What parents can see about their children and download." },
   { id: "classroom", label: "Classroom boards", help: "Animated board lessons: the teacher talks while the board draws, writes and turns 3D shapes step by step." },
   { id: "textbooks", label: "Textbooks", help: "The book reader for the school textbooks you downloaded: which reader look students get, read aloud, download and print." },
@@ -106,7 +106,7 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.practice", "features", "Learning", "Practice rounds", true, { help: "Four practice rounds on every topic that has questions." }),
   bool("feature.accounts", "features", "Learning", "Parent accounts and child profiles", true, { help: "Lets a parent sign in, add children and keep progress across devices. Students can still learn without signing in." }),
   bool("feature.mastery", "features", "Learning", "Mastery and daily revision", true, { help: "Shows how well each topic and chapter is known, and a daily revision set of questions to remember." }),
-  bool("feature.aiTutor", "features", "Learning", "Ask the teacher (question helper)", true, { help: "Students can ask Malar Teacher questions about a lesson. Answers come only from that lesson; a language model is used only if a key is set on the server." }),
+  bool("feature.aiTutor", "features", "Learning", "Sharp Teacher AI (question helper)", true, { help: "Students can ask Sharp Teacher AI questions about a lesson. Answers come only from that lesson; a language model is used only if a key is set on the server." }),
   bool("feature.parentDashboard", "features", "Learning", "Parent dashboard", true, { dependsOn: "feature.accounts", help: "Signed-in parents see each child's progress, activity and tricky questions, and can print or download a report." }),
   bool("feature.lessons", "features", "Learning", "Lessons", true, { help: "Step-by-step lessons on topic pages. Turn off to hide all lessons." }),
   bool("feature.printView", "features", "Reliability", "Print-friendly chapter list", true),
@@ -391,8 +391,8 @@ export const SETTINGS: SettingDef[] = [
   { key: "mastery.revision.intervals", panel: "mastery", section: "Revision", label: "Days before each question comes back", public: true, type: "numberlist", default: [1, 3, 7, 14, 30], options: [1, 2, 3, 5, 7, 10, 14, 21, 30, 45, 60], dependsOn: "mastery.revision.enabled", help: "Up to five steps, from the first return to the last (sorted automatically). Fewer steps means the last gap repeats." },
 
   // ---------------- Ask the teacher ----------------
-  bool("tutor.inLessons", "tutor", "Where it appears", "Show 'Ask Malar Teacher' inside lessons", true, { dependsOn: "feature.aiTutor" }),
-  bool("tutor.inPractice", "tutor", "Where it appears", "Show 'Ask Malar Teacher' after answering a practice question", true, { dependsOn: "feature.aiTutor" }),
+  bool("tutor.inLessons", "tutor", "Where it appears", "Show 'Ask Sharp Teacher AI' inside lessons", true, { dependsOn: "feature.aiTutor" }),
+  bool("tutor.inPractice", "tutor", "Where it appears", "Show 'Ask Sharp Teacher AI' after answering a practice question", true, { dependsOn: "feature.aiTutor" }),
   bool("tutor.useAI", "tutor", "Answers", "Use the AI model when one is set up on the server", true, { dependsOn: "feature.aiTutor", help: "Off = answers are always taken straight from the lesson. Nothing is sent to any AI service when this is off or no key is set." }),
   bool("tutor.feedback.show", "tutor", "Answers", "Ask 'Was this helpful?' under each answer", true, { dependsOn: "feature.aiTutor", help: "A 'not helpful' answer is sent to Admin > Reports (needs 'Report a problem' on). No name is sent." }),
   bool("tutor.showAiNote", "tutor", "Answers", "Tell students when an answer was written by AI", true, { dependsOn: "feature.aiTutor" }),

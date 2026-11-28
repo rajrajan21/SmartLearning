@@ -7,7 +7,7 @@ import { anonId } from "../lib/practice";
 type Mode = "explain" | "example" | "hint" | "free";
 interface Turn { role: "child" | "teacher"; text: string; source?: "ai" | "lesson" | "safety" }
 
-/** "Ask Malar Teacher": questions about this lesson or practice question. Answers come from the lesson; AI answers are labelled. */
+/** "Sharp Teacher AI": questions about this lesson or practice question. Answers come from the lesson; AI answers are labelled. */
 export function AskTeacher({ topicId, questionId, about, afterAnswer }: { topicId?: string; questionId?: string; about: string; afterAnswer?: boolean }) {
   const s = useSettings();
   const { lang } = s;
@@ -43,7 +43,8 @@ export function AskTeacher({ topicId, questionId, about, afterAnswer }: { topicI
   if (!open) return <p className="ask-open"><button type="button" className="btn ghost sm" onClick={() => setOpen(true)}>💬 {ui("askTeacher", lang)}</button></p>;
   return (
     <section className="ask" aria-label={ui("askTeacher", lang)}>
-      <div className="ask-head"><b>{s.text("tutor.greeting")}</b><button type="button" className="link" onClick={() => setOpen(false)}>{ui("close", lang)}</button></div>
+      <div className="ask-head"><b>Sharp Teacher AI</b><button type="button" className="link" onClick={() => setOpen(false)}>{ui("close", lang)}</button></div>
+      <p className="small">{s.text("tutor.greeting")}</p>
       <ul className="ask-log" aria-live="polite">
         {turns.map((t, i) => (
           <li key={i} className={t.role === "child" ? "me" : "teacher"}>

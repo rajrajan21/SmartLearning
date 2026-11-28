@@ -31,3 +31,11 @@ The workbench loads exactly one of the original standalone HTML layouts with its
 The HTML packs retain the browser-selected English voice and their built-in tutor answers. The standalone Gemini proxy and custom speech endpoints are blank. A restrictive content policy prevents the supplied files from calling network services. Malar recordings remain in the compact pilot views.
 
 To import another supplied pack, review the document's source, then run the prepare-suite.py script in tools/virtual-lab with the supplied HTML path and the new public output path. Register the pack and its experiment identifiers in VirtualLabWorkbench.tsx. Browser-check every direct link, the toolbar, in-pack navigation, mobile layout, and the exported HTML. Keep exact board and class mappings separate until checked against the applicable syllabus.
+
+## Science Pack 4, Maths Playground and faster navigation
+
+The catalogue contains 54 distinct workbenches. Subject tiles, search, science-pack filters and four maths topics provide different ways to find a lab. Heading and control colours use the active theme's foreground and surface. The HTML workbenches retain their own simulation palettes, controls, Save HTML and narration.
+
+Sharp Teacher AI is the common student-facing name in topics, lessons, Classroom, practice and labs. The classroom and practice helper uses SharpStudy lesson material, and the lab panel uses the supplied built-in explanations. SharpStudy does not route student text to standard Gemini API or Google Cloud generative endpoints. Their published age restrictions apply to services directed at under-18s. See https://aistudio.google.com/docs/terms#age-requirements and https://cloud.google.com/terms/service-terms.
+
+The browser coalesces in-flight curriculum tree, lesson availability and Classroom index requests. Reopening a page within 30 seconds reuses the last successful result. Existing retry and offline paths remain available. Account screens, book contribution forms and the step-by-step lesson player are loaded on demand. A local Vite production build reduced the startup JavaScript chunk from 298.61 to 274.28 kB gzip (8.1%). This measures the startup artifact, rather than a site-wide page-load time.

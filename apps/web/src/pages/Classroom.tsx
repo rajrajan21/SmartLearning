@@ -1,3 +1,4 @@
+import { AskTeacher } from "../components/AskTeacher";
 import { matches as matchSearch } from "../components/SearchBox";
 import { VoiceSearchInput } from "../components/VoiceSearchInput";
 import { LessonCompletionHub, Timeline } from "../components/LessonFlow";
@@ -151,8 +152,12 @@ export function ClassroomPage() {
     return () => { alive = false; };
   }, [on, board, cls, subject, chapter, demo, s]);
   if (!on) return <NotFound />;
+  const currentLesson = st.status === "ready" ? st.data : null;
+  const teacher = currentLesson?.topicId && s.get("feature.aiTutor") === true && s.get("tutor.inLessons") === true
+    ? <AskTeacher key={currentLesson.topicId} topicId={currentLesson.topicId} about={s.name(currentLesson.title)} />
+    : null;
   if (m3 && m3On && !preferM1) {
-    return <Model3Player lesson={m3} topic={topic} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} onSwitchModel1={() => setPreferM1(true)} />;
+    return <><Model3Player lesson={m3} topic={topic} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} onSwitchModel1={() => setPreferM1(true)} />{teacher}</>;
   }
   if (idx.status === "loading" || st.status === "loading") return <Loading />;
   if (st.status === "error") return <ErrorBox onRetry={retry} />;
@@ -164,7 +169,7 @@ export function ClassroomPage() {
   const nextItem = curIdx >= 0 ? sameSubject[curIdx + 1] : undefined;
   const nextHref = nextItem ? `/classroom/${nextItem.board.toLowerCase()}/${nextItem.classLevel}/${nextItem.subject}/${nextItem.chapter}/${nextItem.topic}` : null;
   const nextLabel = nextItem ? s.name(nextItem.title) : null;
-  return <Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} hasModel3={!!m3} onSwitchModel3={() => setPreferM1(false)} />;
+  return <><Player key={JSON.stringify([profile, board, cls, subject, chapter, topic])} profile={profile} lesson={st.data} voices={voices} voice={chosen} onVoice={(v) => { setVoice(v); if (!demo) store.set("ss_class_voice", v); }} related={demo ? sample.chapterHref : undefined} back={`/${board}/${cls}/${subject}/${chapter}/${topic}`} nextHref={nextHref} nextLabel={nextLabel} hasModel3={!!m3} onSwitchModel3={() => setPreferM1(false)} />{teacher}</>;
 }
 
 const recording = (step: PublicClassroom["steps"][number], lang: "en" | "ta" | "hi", mute: boolean) => mute ? undefined : step.audio?.[lang] ?? step.audio?.en;

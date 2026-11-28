@@ -15,7 +15,7 @@ import { useAllProgress, useTopicProgress } from "../lib/progress";
 import { usePractice, usePracticeResults } from "../lib/practice";
 import { useMastery } from "../lib/mastery";
 import { MasteryTag } from "./Progress";
-import { LessonPlayer } from "../components/LessonPlayer";
+import { AskTeacher } from "../components/AskTeacher";
 import { subjectVar } from "../lib/theme";
 import { chapterFrac, subjectFrac, subjectIcon } from "../lib/browseStats";
 import { BoardPath, MasteryBar } from "../components/Tier1";
@@ -24,10 +24,12 @@ import { JourneyMap } from "../components/JourneyMap";
 import { roughMinutes, THEMES, toggleNote, useNotebook } from "../lib/tier2";
 import { BottomSheet } from "../components/BottomSheet";
 import { useApp } from "../lib/useApp";
-import { useMemo, useState } from "react";
+import { lazy, useMemo, useState } from "react";
 import { FilterBox, matches } from "../components/SearchBox";
 import { Crumbs, ErrorBox, Loading, NotFound, Title } from "../components/bits";
 import { TextbookEntry } from "../components/reader/TextbookEntry";
+
+const LessonPlayer = lazy(() => import("../components/LessonPlayer").then(module => ({ default: module.LessonPlayer })));
 
 function useCurriculum() {
   const { board = "cbse", cls = "0" } = useParams<{ board: string; cls: string }>();
@@ -307,6 +309,8 @@ export function TopicPage() {
     <div className="paper" style={{ ["--cover" as string]: subjectVar(d.subject.slug) }}>
       <Crumbs items={[{ href: "/", label: ui("home", s.lang) }, { href: base, label: s.name(d.subject.name) }, { href: `${base}/${d.chapter.slug}`, label: s.name(d.chapter.name) }, { label: s.name(d.topic.name) }]} />
       <h1 className="cover-title"><Title name={d.topic.name} /></h1>
+      {lesson.status === "ready" && lesson.data && s.get("feature.aiTutor") === true && s.get("tutor.inLessons") === true &&
+        <AskTeacher key={lesson.data.topicId} topicId={lesson.data.topicId} about={s.name(d.topic.name)} />}
       <TopicTabs base={base} chapter={d.chapter.slug} topic={d.topic.slug} board={board} level={level} subject={d.subject.slug} current="learn" has={{ learn: (lessonOn && lesson.status === "ready" && !!lesson.data) || hasClass }} />
       {s.get("notebook.enabled") === true && <p className="actions"><button type="button" className="link heart" aria-pressed={!!notes[d.topic.id]} onClick={() => toggleNote({ id: d.topic.id.slice(0, 60), href: `${base}/${d.chapter.slug}/${d.topic.slug}`, title: d.topic.name, subject: d.subject.name })}><span aria-hidden="true">{notes[d.topic.id] ? "❤️" : "🤍"}</span> {notes[d.topic.id] ? ui("nbSaved", s.lang) : ui("nbSave", s.lang)}</button></p>}
       {hasClass && <p className="actions"><Link className="btn" href={`/classroom/${board}/${level}/${subject}/${chapter}/${topic}`}>🎓 {preferClass ? ui("startLesson", s.lang) : ui("classroomOpen", s.lang)}</Link></p>}

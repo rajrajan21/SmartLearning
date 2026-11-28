@@ -36,9 +36,17 @@ describe("Virtual Lab pilot", () => {
   it("links to each lab and changes the catalogue with the subject filter", async () => {
     mount("/virtual-lab");
     expect((await screen.findByRole("link", { name: /Transformer playground/i })).getAttribute("href")).toBe("/virtual-lab/transformer");
-    fireEvent.change(screen.getByLabelText("Show labs"), { target: { value: "chemistry" } });
+    fireEvent.click(screen.getByRole("button", { name: /Chemistry/ }));
     expect(screen.queryByRole("link", { name: /Transformer playground/i })).toBeNull();
     expect(screen.getByRole("link", { name: /Colour and pH/i }).getAttribute("href")).toBe("/virtual-lab/indicator");
+  });
+  it("shows twelve maths labs and narrows them by topic", async () => {
+    mount("/virtual-lab");
+    fireEvent.click(await screen.findByRole("button", { name: /Maths/ }));
+    expect(screen.getByRole("status").textContent).toBe("12 labs");
+    fireEvent.change(screen.getByLabelText("Topic"), { target: { value: "numbers" } });
+    expect(screen.getByRole("status").textContent).toBe("3 labs");
+    expect(screen.getByRole("link", { name: /Fraction Pizza Chef/ }).getAttribute("href")).toBe("/virtual-lab/fraction-pizza");
   });
   it("can dismiss or reopen the walkthrough and test the transformer controls", async () => {
     mount("/virtual-lab/transformer", true);

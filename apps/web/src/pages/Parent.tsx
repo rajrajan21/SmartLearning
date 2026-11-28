@@ -7,7 +7,7 @@ import { useAccount } from "../lib/account";
 import { ui } from "../lib/i18n";
 import { useBoard, useRetry } from "../lib/curriculum";
 import { useMasteryFor } from "../lib/mastery";
-import { AVATAR_EMOJI } from "./Account";
+import { AVATAR_EMOJI } from "../lib/avatarEmoji";
 import { MasteryTag } from "./Progress";
 import { MasteryBar } from "../components/Tier1";
 import { subjectIcon } from "../lib/browseStats";

@@ -36,7 +36,9 @@ const BookReaderPage = named(() => import("./pages/Books"), "BookReaderPage");
 const BooksPage = named(() => import("./pages/Books"), "BooksPage");
 const LibraryPage = named(() => import("./pages/Library"), "LibraryPage");
 const LibraryBookPage = named(() => import("./pages/Library"), "LibraryBookPage");
-import { ContributePage, MyContributionsPage, ContributorPage } from "./pages/Contribute";
+const ContributePage = named(() => import("./pages/Contribute"), "ContributePage");
+const MyContributionsPage = named(() => import("./pages/Contribute"), "MyContributionsPage");
+const ContributorPage = named(() => import("./pages/Contribute"), "ContributorPage");
 const GkPage = named(() => import("./pages/Gk"), "GkPage");
 const GkLessonPage = named(() => import("./pages/Gk"), "GkLessonPage");
 

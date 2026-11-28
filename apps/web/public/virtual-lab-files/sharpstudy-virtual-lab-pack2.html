@@ -734,8 +734,8 @@
     <!-- RIGHT COLUMN: DOCKED GEMINI AI LAB TUTOR -->
     <aside class="tutor-panel">
       <div class="tutor-header">
-        <h3>✨ Gemini AI Lab Tutor</h3>
-        <p>Ask about the experiment or try a suggested question</p>
+        <h3>✨ Sharp Teacher AI</h3>
+        <p>Built-in lab explanations</p>
       </div>
       <div class="live-state-pill">
         <span class="live-dot"></span>
@@ -2641,13 +2641,16 @@
     const embedded = params.get('embedded') === '1' && window.parent !== window;
     if (embedded) document.documentElement.setAttribute('data-embedded', '');
     else document.documentElement.removeAttribute('data-embedded');
+    const hasTopics = typeof activeTopic !== 'undefined';
     const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
     if (selectedLab) activeLabId = selectedLab.id;
-    const storedSubject = params.get('subject');
-    if (selectedLab && selectedLab.subject === storedSubject) {
-      activeSubject = storedSubject;
-      document.querySelectorAll('.subj-btn').forEach(button => {
-        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + activeSubject + "'"));
+    const groupKey = hasTopics ? 'topic' : 'subject';
+    const storedGroup = params.get(groupKey);
+    if (selectedLab && selectedLab[groupKey] === storedGroup) {
+      if (hasTopics) activeTopic = storedGroup;
+      else activeSubject = storedGroup;
+      document.querySelectorAll(hasTopics ? '.topic-btn' : '.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + storedGroup + "'"));
       });
     }
     const resizeReport = () => {
@@ -2664,9 +2667,11 @@
 
     const unwrappedSelect = selectLab;
     selectLab = (id, showBriefing) => {
-      if (!LABS.some(lab => lab.id === id) || isAutoSolving) return;
+      if (!LABS.some(lab => lab.id === id)) return;
+      if (isAutoSolving && !hasTopics) return;
+      if (hasTopics) cancelAutoSolve();
       if (embedded && id !== activeLabId) {
-        parent.postMessage({ source: 'sharpstudy-lab', lab: id, subject: activeSubject }, location.origin);
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, [groupKey]: hasTopics ? activeTopic : activeSubject }, location.origin);
         return;
       }
       unwrappedSelect(id, showBriefing);

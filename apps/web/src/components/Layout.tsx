@@ -10,7 +10,7 @@ import { Link } from "wouter";
 import { useSettings } from "../lib/settings";
 import { ui } from "../lib/i18n";
 import { useAccountOptional } from "../lib/account";
-import { AVATAR_EMOJI } from "../pages/Account";
+import { AVATAR_EMOJI } from "../lib/avatarEmoji";
 import { BottomNav } from "./BottomNav";
 import { TextSize } from "./TextSize";
 import { HighContrast } from "./HighContrast";
@@ -99,7 +99,7 @@ export function Layout({ children }: { children: ReactNode }) {
       {banner && <div className={`banner tone-${s.get<string>("home.announcement.tone")}`} role="status">{s.text("home.announcement.text")}</div>}
       <div className="body-row" data-picker={picker}>
         {preset === "dashboard" && <MainNav />}
-        {(picker === "left" || picker === "right") && !maintenance && !onLesson && <BoardRail />}
+        {(picker === "left" || picker === "right") && !maintenance && !onLesson && loc !== "/virtual-lab" && <BoardRail />}
         <main id="main" className="page" tabIndex={-1}>
           {maintenance ? (
             <section className="notice">

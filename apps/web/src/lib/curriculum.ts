@@ -2,28 +2,39 @@ import { useCallback, useEffect, useState } from "react";
 import { BoardCurriculum, TopicDetail, SearchHit, TopicLesson } from "@studysmart/shared";
 import { store } from "./storage";
 
-const mem = new Map<string, BoardCurriculum>();
+import { publicResource } from "./publicResource";
+
+const boards = publicResource<BoardCurriculum>();
+const lessonIds = publicResource<string[]>();
 
 export type Load<T> = { status: "loading" } | { status: "ready"; data: T } | { status: "error" };
 
 /** Curriculum tree: memory, then network (refreshing the saved copy), then the saved copy when offline. */
 export function useBoard(board: string, attempt = 0): Load<BoardCurriculum> {
   const key = board.toUpperCase();
-  const [state, setState] = useState<Load<BoardCurriculum>>(() => { const m = mem.get(key); return m ? { status: "ready", data: m } : { status: "loading" }; });
+  const [response, setResponse] = useState<{ key: string; state: Load<BoardCurriculum> }>();
   useEffect(() => {
     let alive = true;
-    fetch(`/api/v1/curriculum/boards/${encodeURIComponent(board)}`)
+    boards.read(key, () => fetch(`/api/v1/curriculum/boards/${encodeURIComponent(board)}`)
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((raw) => { const d = BoardCurriculum.parse(raw); mem.set(key, d); store.setJson(`ss_tree_${key}`, d); if (alive) setState({ status: "ready", data: d }); })
+      .then((raw) => {
+        const tree = BoardCurriculum.parse(raw);
+        store.setJson(`ss_tree_${key}`, tree);
+        return tree;
+      }), attempt > 0)
+      .then((data) => { if (alive) setResponse({ key, state: { status: "ready", data } }); })
       .catch(() => {
         if (!alive) return;
-        const saved = store.getJson<unknown>(`ss_tree_${key}`);
-        const parsed = saved ? BoardCurriculum.safeParse(saved) : null;
-        setState(parsed?.success ? { status: "ready", data: parsed.data } : { status: "error" });
+        const recent = boards.peek(key);
+        const saved = recent ?? store.getJson<unknown>(`ss_tree_${key}`);
+        const parsed = BoardCurriculum.safeParse(saved);
+        setResponse({ key, state: parsed.success ? { status: "ready", data: parsed.data } : { status: "error" } });
       });
     return () => { alive = false; };
   }, [board, key, attempt]);
-  return state;
+  if (response?.key === key) return response.state;
+  const cached = boards.peek(key);
+  return cached ? { status: "ready", data: cached } : { status: "loading" };
 }
 
 export function useRetry(): [number, () => void] {
@@ -91,8 +102,9 @@ export function useLessonTopicIds(enabled: boolean): Set<string> {
   useEffect(() => {
     if (!enabled) return;
     let alive = true;
-    fetch("/api/v1/lessons/available").then((r) => (r.ok ? r.json() : Promise.reject(new Error("x"))))
-      .then((d: { topicIds: string[] }) => { if (alive) { setIds(new Set(d.topicIds)); store.setJson("ss_lesson_ids", d.topicIds); } })
+    lessonIds.read("all", () => fetch("/api/v1/lessons/available").then((r) => (r.ok ? r.json() : Promise.reject(new Error("x"))))
+      .then((d: { topicIds: string[] }) => { store.setJson("ss_lesson_ids", d.topicIds); return d.topicIds; }))
+      .then(ids => { if (alive) setIds(new Set(ids)); })
       .catch(() => { /* keep saved list */ });
     return () => { alive = false; };
   }, [enabled]);

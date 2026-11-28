@@ -1,0 +1,3010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpStudy Virtual Interactive Lab — Pack 4 (12 Brand-New Playful Labs)</title>
+  <style>
+    /* =====================================================================
+       DESIGN TOKENS & ZPERIOD-INSPIRED CLEAN PLAYFUL THEME
+    ===================================================================== */
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-soft: #eff6ff;
+      --accent: #0ea5e9;
+      --success: #16a34a;
+      --success-soft: #f0fdf4;
+      --warn: #d97706;
+      --warn-soft: #fffbeb;
+      --danger: #dc2626;
+      --danger-soft: #fef2f2;
+      --purple: #7c3aed;
+      --purple-soft: #f5f3ff;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* ==================== TOP STICKY HEADER ==================== */
+    .topbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .topbar-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #7c3aed);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.26);
+      flex-shrink: 0;
+    }
+    .brand h1 {
+      font-size: 15.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--purple-soft);
+      color: var(--purple);
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd6fe;
+    }
+    .brand p { font-size: 11.5px; color: var(--muted); }
+
+    .subject-filters {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      flex-wrap: wrap;
+    }
+    .subj-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .subj-btn.active {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #f8fafc; transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-voice.active { background: #ecfdf5; border-color: #86efac; color: #15803d; }
+    .btn-save {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border-color: #6d28d9;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
+    }
+    .btn-save:hover { filter: brightness(1.08); background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+    /* Horizontal Scrollable 12-Lab Selector Strip */
+    .lab-strip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      scrollbar-width: thin;
+    }
+    .lab-pill {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
+    }
+    .lab-pill:hover { border-color: #93c5fd; background: var(--primary-soft); }
+    .lab-pill.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    }
+
+    /* ==================== MAIN 2-COLUMN WORKSPACE ==================== */
+    .workspace {
+      max-width: 1480px;
+      margin: 14px auto;
+      padding: 0 16px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lab-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .lab-title-group h2 { font-size: 15.5px; font-weight: 800; }
+    .status-badge {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-badge.good { background: #dcfce7; color: #15803d; }
+    .status-badge.warn { background: #fef3c7; color: #b45309; }
+    .status-badge.danger { background: #fee2e2; color: #dc2626; }
+
+    .mode-switch {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      gap: 2px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .mode-btn.active { background: #0f172a; color: #fff; }
+
+    /* Missions Bar */
+    .missions-bar {
+      padding: 9px 18px;
+      background: #fbfdff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .missions-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .mission-chip {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .mission-chip:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .mission-chip.active { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+    .mission-chip.done { border-color: #86efac; background: #f0fdf4; color: #15803d; font-weight: 700; }
+
+    /* Canvas Stage */
+    .stage-wrap {
+      position: relative;
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 22px 22px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+    }
+    .formula-pill {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.94);
+      color: #f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 15px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
+      z-index: 4;
+      white-space: nowrap;
+      max-width: 94%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+    .formula-pill.show { display: block; }
+
+    canvas.lab-canvas {
+      width: 100%;
+      height: 345px;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Dedicated Inline Live Coach & Explanation Bar (Zero Overlap!) */
+    .coach-bar {
+      padding: 11px 18px;
+      background: #eff6ff;
+      border-bottom: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-height: 70px;
+      transition: background 0.25s ease;
+    }
+    .coach-bar.state-info { background: #eff6ff; border-bottom-color: #bfdbfe; }
+    .coach-bar.state-success { background: #f0fdf4; border-bottom-color: #bbf7d0; }
+    .coach-bar.state-warn { background: #fffbeb; border-bottom-color: #fde68a; }
+    .coach-bar.state-danger { background: #fef2f2; border-bottom-color: #fecaca; }
+    .coach-bar.state-solving { background: #f5f3ff; border-bottom-color: #ddd6fe; }
+
+    .coach-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      flex: 1;
+      min-width: 240px;
+    }
+    .coach-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .coach-title { font-size: 13.5px; font-weight: 800; margin-bottom: 2px; }
+    .coach-text { font-size: 12.5px; color: #334155; }
+    .coach-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .btn-solve {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.28);
+      animation: softPulse 2s infinite;
+    }
+    .btn-solve:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-solve:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.42); }
+      50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+    }
+
+    /* 3-Column Controls Deck */
+    .controls-deck {
+      padding: 14px 18px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .control-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: #fcfdff;
+      transition: all 0.2s ease;
+    }
+    .control-box.span-2 { grid-column: span 2; }
+    .control-box.span-3 { grid-column: span 3; }
+
+    .pulse-target {
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.34) !important;
+      background: #faf5ff !important;
+      transform: scale(1.015);
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .control-head .badge {
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(66px, 1fr));
+      gap: 7px;
+    }
+    .choice-card {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 11px;
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .choice-card:hover { border-color: #93c5fd; }
+    .choice-card.active { border-color: var(--primary); background: var(--primary-soft); }
+    .choice-card.cta-go {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-color: #2563eb;
+      color: #fff;
+    }
+    .choice-card.cta-go strong, .choice-card.cta-go small { color: #fff; }
+    .choice-card.cta-fire {
+      background: linear-gradient(135deg, #ea580c, #dc2626);
+      border-color: #dc2626;
+      color: #fff;
+    }
+    .choice-card.cta-fire strong, .choice-card.cta-fire small { color: #fff; }
+    .choice-card:disabled { opacity: 0.45; cursor: not-allowed; }
+    .choice-card strong { display: block; font-size: 11.8px; margin-top: 2px; color: var(--text); }
+    .choice-card small { display: block; font-size: 10px; color: var(--muted); }
+
+    input[type="range"].lab-slider {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin: 6px 0 4px;
+    }
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ==================== RIGHT GEMINI AI TUTOR ==================== */
+    .tutor-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 122px);
+      max-height: 760px;
+      position: sticky;
+      top: 106px;
+      overflow: hidden;
+    }
+    .tutor-header {
+      padding: 13px 15px;
+      background: linear-gradient(135deg, #1e293b, #4f46e5);
+      color: #fff;
+    }
+    .tutor-header h3 { font-size: 14px; font-weight: 800; }
+    .tutor-header p { font-size: 11px; opacity: 0.88; margin-top: 2px; }
+    .live-state-pill {
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+    .chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      background: #fcfdff;
+    }
+    .msg {
+      max-width: 92%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .msg.bot { align-self: flex-start; background: #f1f5f9; color: #0f172a; border-bottom-left-radius: 4px; }
+    .msg.user { align-self: flex-end; background: #2563eb; color: #fff; border-bottom-right-radius: 4px; }
+    .msg-speak {
+      margin-top: 6px;
+      border: none;
+      background: #fff;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .quick-chips {
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .q-chip {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .q-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+    .chat-input-row {
+      padding: 9px 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+      background: #fff;
+    }
+    .chat-input-row input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      outline: none;
+    }
+    .chat-input-row input:focus { border-color: var(--primary); }
+
+    /* ==================== LEARN FIRST MODAL ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal-card {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      overflow: hidden;
+    }
+    .modal-top {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-top h3 { font-size: 16px; font-weight: 800; }
+    .modal-body { padding: 18px 20px; }
+    .step-dots { display: flex; gap: 6px; margin-bottom: 12px; }
+    .step-dot { height: 6px; flex: 1; border-radius: 999px; background: #e2e8f0; }
+    .step-dot.active { background: var(--primary); }
+    .mini-visual {
+      width: 100%;
+      height: 138px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-body h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 5px; }
+    .modal-body p { font-size: 13px; color: #334155; }
+    .modal-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fcfdff;
+    }
+
+    @media (max-width: 1080px) {
+      .workspace { grid-template-columns: 1fr; }
+      .tutor-panel { position: static; height: 460px; }
+      .controls-deck { grid-template-columns: 1fr; }
+      .control-box.span-2, .control-box.span-3 { grid-column: span 1; }
+    }
+    html[data-embedded] .modal-backdrop {
+      align-items: flex-start;
+      padding-top: clamp(16px, 7vw, 92px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP STICKY HEADER -->
+  <header class="topbar">
+    <div class="topbar-row1">
+      <div class="brand">
+        <div class="brand-icon">🎢</div>
+        <div>
+          <h1>SharpStudy Virtual Lab <span class="pill-tag">Pack 4 • 12 Playful Labs</span></h1>
+          <p>CBSE &amp; Matric Interactive Playground • Learn concepts first, play live &amp; watch slow Auto-Solve</p>
+        </div>
+      </div>
+
+      <div class="subject-filters" id="subjectFilters">
+        <button class="subj-btn active" onclick="filterSubject('all')">All (12)</button>
+        <button class="subj-btn" onclick="filterSubject('physics')">⚡ Physics (4)</button>
+        <button class="subj-btn" onclick="filterSubject('chemistry')">🧪 Chemistry (4)</button>
+        <button class="subj-btn" onclick="filterSubject('biology')">🧬 Biology (4)</button>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn" onclick="openConceptModal()">📖 Learn Concepts</button>
+        <button class="btn btn-voice active" id="voiceToggleBtn" onclick="toggleVoice()">🔊 Voice On</button>
+        <button class="btn btn-save" onclick="saveHtmlFile()" title="Download Pack 4 as a standalone HTML file">⬇️ Save HTML</button>
+      </div>
+    </div>
+
+    <!-- Horizontal Scrollable 12-Lab Selector Strip -->
+    <nav class="lab-strip" id="labStrip" aria-label="Select Pack 4 Virtual Lab"></nav>
+  </header>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT COLUMN: ACTIVE LAB -->
+    <section class="lab-card">
+      <div class="lab-header">
+        <div class="lab-title-group">
+          <h2 id="labTitle">🎢 Roller Coaster Energy Lab</h2>
+          <span class="status-badge" id="labBadge">Ready</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <div class="mode-switch">
+            <button class="mode-btn active" id="kidModeBtn" onclick="setDisplayMode('kid')">🧒 Kid Mode</button>
+            <button class="mode-btn" id="formulaModeBtn" onclick="setDisplayMode('formula')">🎓 Formula Mode (CBSE/Matric)</button>
+          </div>
+          <button class="btn" onclick="resetCurrentLab()">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- Missions Bar -->
+      <div class="missions-bar" id="missionsBar"></div>
+
+      <!-- High-Powered Canvas Stage -->
+      <div class="stage-wrap">
+        <div class="formula-pill" id="formulaPill">Formula</div>
+        <canvas id="labCanvas" role="img" aria-label="Animated simulation. Read the Live Coach for the current result." class="lab-canvas" width="900" height="345"></canvas>
+      </div>
+
+      <!-- Dedicated Inline Live Coach & Explanation Bar (NEVER overlaps controls) -->
+      <div class="coach-bar state-info" id="coachBar">
+        <div class="coach-left">
+          <div class="coach-icon" id="coachIcon">💡</div>
+          <div>
+            <div class="coach-title" id="coachTitle">Welcome to SharpStudy Pack 4!</div>
+            <div class="coach-text" aria-live="polite" id="coachText">Try the playful controls below or click Show Me How for a slow guided walkthrough.</div>
+          </div>
+        </div>
+        <div class="coach-actions">
+          <button class="btn-solve" id="solveBtn" onclick="runAutoSolve()">✨ Show Me How (Auto-Solve)</button>
+          <button class="btn" onclick="replayCoachAudio()">🔊 Replay</button>
+        </div>
+      </div>
+
+      <!-- 3-Column Dynamic Controls Deck -->
+      <div class="controls-deck" id="controlsDeck"></div>
+    </section>
+
+    <!-- RIGHT COLUMN: DOCKED GEMINI AI LAB TUTOR -->
+    <aside class="tutor-panel">
+      <div class="tutor-header">
+        <h3>✨ Sharp Teacher AI</h3>
+        <p>Built-in lab explanations</p>
+      </div>
+      <div class="live-state-pill">
+        <span class="live-dot"></span>
+        <span id="liveStateSummary">Live Lab: Ready</span>
+      </div>
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">
+          Hello! Welcome to SharpStudy Pack 4! Pick any of these 12 playful Physics, Chemistry, or Biology labs and ask me anything!
+          <br />
+          <button class="msg-speak" onclick="VoiceEngine.speak('Hello! Welcome to SharpStudy Pack 4! Pick any of these 12 playful Physics, Chemistry, or Biology labs and ask me anything!')">🔊 Read Answer</button>
+        </div>
+      </div>
+      <div class="quick-chips" id="quickChips"></div>
+      <form class="chat-input-row" onsubmit="handleChatSubmit(event)">
+        <input type="text" maxlength="240" aria-label="Ask the lab tutor" id="chatInput" placeholder="Ask about this lab..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </aside>
+  </main>
+
+  <!-- LEARN FIRST 3-STEP CONCEPT BRIEFING MODAL -->
+  <div class="modal-backdrop open" id="conceptModal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalHeaderTitle">
+      <div class="modal-top">
+        <h3 id="modalHeaderTitle">📖 Learn First</h3>
+        <button class="btn" onclick="closeConceptModal()">Skip ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="step-dots" id="modalDots"></div>
+        <canvas id="miniConceptCanvas" class="mini-visual" width="560" height="138"></canvas>
+        <h4 id="modalStepTitle">Step 1</h4>
+        <p id="modalStepText"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="modalPrevBtn" onclick="stepConcept(-1)">← Back</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" onclick="speakCurrentConcept()">🔊 Listen</button>
+          <button class="btn btn-primary" id="modalNextBtn" onclick="stepConcept(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       1. CONFIGURATION & SITE INTEGRATION HOOKS
+    ===================================================================== */
+    const LAB_CONFIG = {
+      CUSTOM_TTS_ENDPOINT: "",      // e.g. "/api/tts" (Google Cloud en-IN-Neural2-A or Azure en-IN-NeerjaNeural)
+      GEMINI_PROXY_ENDPOINT: "",    // e.g. "/api/gemini-tutor"
+      NORMAL_SPEECH_RATE: 0.92,     // Calm, clear Indian classroom pace
+      SOLVE_SPEECH_RATE: 0.80,      // Extra slow & gentle during Auto-Solve
+      SOLVE_STEP_DELAY_MS: 2600,    // Step rhythm
+      SOLVE_PAUSE_MS: 1050          // Breathing pause after each Auto-Solve narration
+    };
+
+    /* =====================================================================
+       2. NATURAL INDIAN-ENGLISH FEMALE VOICE ENGINE
+    ===================================================================== */
+    const VoiceEngine = {
+      enabled: true,
+      selectedVoice: null,
+      currentAudio: null,
+
+      init() {
+        if (!('speechSynthesis' in window)) return;
+        const pick = () => {
+          const voices = window.speechSynthesis.getVoices();
+          if (!voices.length) return;
+          const preferred = [
+            'microsoft neerja online (natural)',
+            'neerja',
+            'veena',
+            'heera',
+            'kavya',
+            'ananya',
+            'priya',
+            'google english (india)',
+            'samantha',
+            'aria online (natural)'
+          ];
+          let best = null, bestScore = -1;
+          for (const v of voices) {
+            const name = v.name.toLowerCase();
+            const lang = (v.lang || '').toLowerCase();
+            let score = lang.includes('en-in') ? 65 : (lang.startsWith('en') ? 20 : 0);
+            preferred.forEach((p, idx) => {
+              if (name.includes(p)) score += (105 - idx * 9);
+            });
+            if (name.includes('natural') || name.includes('neural') || name.includes('google')) score += 15;
+            if (name.includes('female') || name.includes('woman')) score += 12;
+            if (/(male|ravi|prabhat|david|mark|daniel|george|alex)/i.test(name)) score -= 85;
+            if (score > bestScore) { bestScore = score; best = v; }
+          }
+          this.selectedVoice = best;
+        };
+        pick();
+        window.speechSynthesis.onvoiceschanged = pick;
+      },
+
+      stop() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+      },
+
+      async speak(text, { slow = false } = {}) {
+        if (!this.enabled || !text) return;
+        this.stop();
+        const rate = slow ? LAB_CONFIG.SOLVE_SPEECH_RATE : LAB_CONFIG.NORMAL_SPEECH_RATE;
+
+        if (LAB_CONFIG.CUSTOM_TTS_ENDPOINT) {
+          try {
+            const res = await fetch(LAB_CONFIG.CUSTOM_TTS_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text, rate, voice: 'en-IN-female-teacher' })
+            });
+            if (res.ok) {
+              const url = URL.createObjectURL(await res.blob());
+              this.currentAudio = new Audio(url);
+              this.currentAudio.playbackRate = slow ? 0.90 : 1.0;
+              await new Promise(r => {
+                this.currentAudio.onended = r;
+                this.currentAudio.onerror = r;
+                this.currentAudio.play().catch(r);
+              });
+              return;
+            }
+          } catch (_) {}
+        }
+
+        if (!('speechSynthesis' in window)) return;
+        return new Promise(resolve => {
+          const u = new SpeechSynthesisUtterance(text);
+          if (this.selectedVoice) u.voice = this.selectedVoice;
+          u.lang = (this.selectedVoice && this.selectedVoice.lang) || 'en-IN';
+          u.rate = rate;
+          u.pitch = 1.02;
+          u.onend = resolve;
+          u.onerror = resolve;
+          window.speechSynthesis.speak(u);
+        });
+      }
+    };
+    VoiceEngine.init();
+
+    function toggleVoice() {
+      VoiceEngine.enabled = !VoiceEngine.enabled;
+      const btn = document.getElementById('voiceToggleBtn');
+      btn.classList.toggle('active', VoiceEngine.enabled);
+      btn.textContent = VoiceEngine.enabled ? '🔊 Voice On' : '🔇 Voice Off';
+      if (!VoiceEngine.enabled) VoiceEngine.stop();
+    }
+
+    function saveHtmlFile() {
+      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sharpstudy-virtual-lab-pack4.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* =====================================================================
+       3. PACK 4 — 12 BRAND-NEW PLAYFUL LABS CATALOG
+    ===================================================================== */
+    const LABS = [
+      {
+        id: 'coaster', subject: 'physics', icon: '🎢', short: 'Roller Coaster',
+        title: '🎢 Roller Coaster Energy Lab',
+        missions: [
+          { id: 1, label: '🎢 Clear the Giant Loop & Finish!' },
+          { id: 2, label: '🔥 Watch Sand Friction Turn Speed into Heat' }
+        ],
+        chips: ['Difference between Potential & Kinetic Energy?', 'Why did the coaster stop on Sand?', 'What is Conservation of Energy?'],
+        concepts: [
+          { t: '1. Potential Energy at the Top (PE = mgh)', d: 'Climbing a tall hill stores Potential Energy! The higher the hill and heavier the car, the more energy you store for the thrilling drop!' },
+          { t: '2. Kinetic Energy in the Dip (KE = ½mv²)', d: 'As the coaster zooms down, Potential Energy transforms into speedy Kinetic Energy — pushing the car fast enough to flip around the giant loop!' },
+          { t: '3. Friction Turns Motion into Thermal Heat', d: 'On smooth Ice, almost zero energy is lost! On gritty Sand, friction sparks heat up the wheels and steal speed into Thermal Energy!' }
+        ]
+      },
+      {
+        id: 'lever', subject: 'physics', icon: '⚖️', short: 'Seesaw Torque',
+        title: '⚖️ Seesaw Lever & Torque Playground',
+        missions: [
+          { id: 1, label: '🐼 Balance Panda (6kg) vs Elephant (12kg)' },
+          { id: 2, label: '🤖 Balance Robot (10kg) vs Cat (2kg)' }
+        ],
+        chips: ['How can a small Cat balance a heavy Robot?', 'What is Torque (F × d)?', 'Why does moving farther from the center help?'],
+        concepts: [
+          { t: '1. The Fulcrum & Lever Arm', d: 'A seesaw is a Class-1 Lever resting on a middle pivot called a Fulcrum. Both Weight AND Distance from the center matter!' },
+          { t: '2. Torque = Force × Distance (τ = F × d)', d: 'Sitting farther from the fulcrum multiplies your turning power! A light 6kg Panda at 4 meters has the exact same torque (24) as a 12kg Elephant at 2 meters!' },
+          { t: '3. Perfect Balance!', d: 'When Left Torque equals Right Torque (F₁ × d₁ = F₂ × d₂), the seesaw levels out smoothly and celebrates!' }
+        ]
+      },
+      {
+        id: 'static', subject: 'physics', icon: '🎈', short: 'Static & Lightning',
+        title: '🎈 Static Electricity & Lightning Lab',
+        missions: [
+          { id: 1, label: '🎈 Charge Balloon & Stick it to the Wall' },
+          { id: 2, label: '⚡ Trigger a Lightning Zap at the Doorknob' }
+        ],
+        chips: ['Why does rubbing a balloon give it a charge?', 'Why does a charged balloon stick to a wall?', 'How does a doorknob shock work like lightning?'],
+        concepts: [
+          { t: '1. Rubbing Transfers Electrons (−)', d: 'Everything has + protons and − electrons. Rubbing a rubber balloon on a woolly sweater pulls tiny blue minus-electrons onto the balloon!' },
+          { t: '2. Opposite Charges Attract (Wall Stick!)', d: 'Bring the negatively charged balloon near a wall: it pushes the wall’s electrons away, leaving + charges on the surface so the balloon sticks!' },
+          { t: '3. Spark Discharge (Mini Lightning!)', d: 'Touch a metal doorknob and all those extra electrons leap across the air gap at once in a bright blue lightning zap!' }
+        ]
+      },
+      {
+        id: 'heat', subject: 'physics', icon: '🔥', short: 'Heat Transfer',
+        title: '🔥 Heat Transfer Lab (Conduction, Convection, Radiation)',
+        missions: [
+          { id: 1, label: '🥄 Melt all wax drops fastest with Copper' },
+          { id: 2, label: '🍲 Watch Convection currents swirl in Soup' },
+          { id: 3, label: '☀️ Compare Black vs Silver cup in Radiation' }
+        ],
+        chips: ['How is Conduction different from Convection?', 'Why does Copper heat faster than Wood?', 'Why does a Black cup warm faster than Silver?'],
+        concepts: [
+          { t: '1. Conduction (Solid Touch)', d: 'In solids like a Copper rod, hot vibrating atoms bump their neighbors, passing heat down the rod and melting wax drops!' },
+          { t: '2. Convection (Flowing Liquids & Gases)', d: 'Hot soup at the bottom expands, gets lighter, and rises in red swirls while cooler blue soup sinks — creating a Convection Current!' },
+          { t: '3. Radiation (Invisible Infrared Waves)', d: 'Heat from the Sun or a Campfire travels across empty space as infrared waves! Dark Black surfaces absorb waves fast, while shiny Silver reflects them!' }
+        ]
+      },
+      {
+        id: 'flame', subject: 'chemistry', icon: '🌈', short: 'Flame Fireworks',
+        title: '🌈 Flame Test Fireworks Lab',
+        missions: [
+          { id: 1, label: '💚 Create Blue-Green Copper Fireworks' },
+          { id: 2, label: '❤️ Create Crimson Red Strontium Fireworks' }
+        ],
+        chips: ['Why do metal salts make different flame colors?', 'How do real fireworks get their colors?', 'What is an atomic emission spectrum?'],
+        concepts: [
+          { t: '1. Excited Electrons Jump Up', d: 'When you hold a metal salt in a roaring Bunsen flame, heat kicks its electrons up to higher energy levels!' },
+          { t: '2. Falling Back Releases Colored Light', d: 'As electrons drop back down, they release a flash of pure light! Each metal has its own secret color fingerprint!' },
+          { t: '3. Secret of Real Fireworks!', d: 'Sodium glows Golden Yellow, Copper glows Blue-Green, Strontium glows Crimson Red, Potassium glows Lilac, and Barium glows Apple Green!' }
+        ]
+      },
+      {
+        id: 'fire', subject: 'chemistry', icon: '🚒', short: 'Fire Triangle',
+        title: '🚒 Fire Triangle & Extinguisher Lab',
+        missions: [
+          { id: 1, label: '🪵 Safely Extinguish a Wood Fire' },
+          { id: 2, label: '🛢️ Extinguish an Oil Fire WITHOUT Water!' }
+        ],
+        chips: ['What are the 3 sides of the Fire Triangle?', 'Why should you NEVER pour water on an Oil fire?', 'How does CO₂ Foam put out fire?'],
+        concepts: [
+          { t: '1. The 3 Sides of the Fire Triangle', d: 'Fire needs three friends to burn: HEAT, FUEL, and OXYGEN. Remove even ONE side, and the fire goes out!' },
+          { t: '2. Matching the Right Extinguisher', d: 'Water cools Wood/Paper fires (removes Heat). CO₂ Foam and Sand Blankets smother fires by cutting off Oxygen!' },
+          { t: '3. Oil Fire Safety Rule!', d: 'Oil floats on top of water! Spraying water on burning oil causes a dangerous steam flare-up — always use CO₂ Foam or a Sand Blanket instead!' }
+        ]
+      },
+      {
+        id: 'crystal', subject: 'chemistry', icon: '💎', short: 'Crystal Growing',
+        title: '💎 Crystal Growing & Solubility Lab',
+        missions: [
+          { id: 1, label: '🔥 Make a Hot Supersaturated Copper Sulfate Solution' },
+          { id: 2, label: '💎 Cool Down & Grow Sparkling Blue Crystals' }
+        ],
+        chips: ['What does Supersaturated mean?', 'Why does hot water dissolve more solute?', 'How do crystals grow when the solution cools?'],
+        concepts: [
+          { t: '1. Hot Water Holds More Solute', d: 'Warm water molecules zoom faster and can dissolve far more scoops of Copper Sulfate, Sugar, or Salt than cold water!' },
+          { t: '2. Unsaturated → Saturated → Supersaturated', d: 'Keep adding scoops to hot water until it is packed full! When you cool it gently, it holds MORE than cold water normally allows (Supersaturated)!' },
+          { t: '3. Sparkling Geometric Crystallization', d: 'As the beaker cools, extra solute particles snap neatly onto the hanging string, growing dazzling 3D-faceted crystals!' }
+        ]
+      },
+      {
+        id: 'gaslaw', subject: 'chemistry', icon: '🎈', short: 'Gas Laws',
+        title: '🎈 Gas Laws Syringe & Balloon Lab',
+        missions: [
+          { id: 1, label: '💉 Double Pressure in Boyle’s Law (Half Volume)' },
+          { id: 2, label: '🔥 Inflate & Float the Balloon in Charles’s Law' }
+        ],
+        chips: ['Explain Boyle’s Law (P₁V₁ = P₂V₂)', 'Explain Charles’s Law (V₁/T₁ = V₂/T₂)', 'Why does squeezing a syringe raise pressure?'],
+        concepts: [
+          { t: '1. Boyle’s Law: Squeeze Volume → Pressure Spikes!', d: 'Push the syringe plunger inward to shrink volume. Gas molecules have less room, so they slam into the walls twice as often — doubling Pressure!' },
+          { t: '2. Charles’s Law: Heat Gas → Balloon Expands!', d: 'Warming a gas makes molecules zip faster and push outward harder, inflating a hot-air balloon so it becomes lighter and floats!' },
+          { t: '3. Cool It Down → Balloon Shrinks', d: 'Put the balloon over Ice and the sluggish gas molecules take up less space, gently shrinking the balloon back down!' }
+        ]
+      },
+      {
+        id: 'eye', subject: 'biology', icon: '👁️', short: 'Human Eye',
+        title: '👁️ Human Eye & Vision Corrector Lab',
+        missions: [
+          { id: 1, label: '👓 Correct Myopia with a Concave Lens' },
+          { id: 2, label: '👓 Correct Hypermetropia with a Convex Lens' }
+        ],
+        chips: ['What is Myopia (Short-Sightedness)?', 'What is Hypermetropia (Far-Sightedness)?', 'How do Concave and Convex glasses fix vision?'],
+        concepts: [
+          { t: '1. Crisp Focus on the Retina', d: 'Your eye’s natural lens bends incoming light rays so they meet at a razor-sharp point right on the Retina at the back of your eye!' },
+          { t: '2. Myopia (Short-Sighted)', d: 'In Myopia, rays focus IN FRONT of the retina, making distant boards blurry. A diverging Concave (−) lens spreads rays slightly to hit the retina!' },
+          { t: '3. Hypermetropia (Far-Sighted)', d: 'In Hypermetropia, rays focus BEHIND the retina, making books blurry. A converging Convex (+) lens bends rays sooner onto the retina!' }
+        ]
+      },
+      {
+        id: 'watercycle', subject: 'biology', icon: '💧', short: 'Water Cycle',
+        title: '💧 Water Cycle & Cloud Maker Terrarium',
+        missions: [
+          { id: 1, label: '🌧️ Trigger a Full Rainstorm Over the Mountains' },
+          { id: 2, label: '❄️ Create Mountain Snowfall with High Chill' }
+        ],
+        chips: ['What are Evaporation & Condensation?', 'How do clouds turn dark and make rain?', 'When does rain turn into snow?'],
+        concepts: [
+          { t: '1. Evaporation (Sun Warms Ocean)', d: 'Bright Sunlight heats ocean water, turning liquid droplets into invisible rising water vapor!' },
+          { t: '2. Condensation (Cloud Formation)', d: 'Wind blows vapor up over chilly mountains, where cooling turns vapor into fluffy white clouds that grow heavy and dark!' },
+          { t: '3. Precipitation & Collection', d: 'Heavy clouds release Rain (or Snow when Mountain Chill is high!), feeding sparkling rivers that flow right back to the ocean!' }
+        ]
+      },
+      {
+        id: 'foodweb', subject: 'biology', icon: '🦁', short: 'Food Web',
+        title: '🦁 Ecosystem & Food Web Balance Lab',
+        missions: [
+          { id: 1, label: '🌿 Keep All 4 Species Thriving in Balance' },
+          { id: 2, label: '🏜️ Test a Drought & Restore the Meadow' }
+        ],
+        chips: ['What is a Producer vs Consumer?', 'Why do Foxes drop if Rabbits disappear?', 'How does a Drought affect the whole Food Web?'],
+        concepts: [
+          { t: '1. Producers Start the Energy Chain', d: 'Green Grass is the Producer — using rain and sunlight to grow food for the entire meadow!' },
+          { t: '2. Herbivores & Predators', d: 'Hopping Rabbits eat Grass. Prowling Foxes hunt Rabbits. Soaring Eagles are Apex Predators at the top!' },
+          { t: '3. Delicate Balance of Nature', d: 'Too many Foxes eat all the Rabbits; a Drought shrinks the Grass and ripples up the whole food web! Keep them balanced!' }
+        ]
+      },
+      {
+        id: 'immune', subject: 'biology', icon: '🦠', short: 'Immune Defender',
+        title: '🦠 Immune System Defender Lab',
+        missions: [
+          { id: 1, label: '🛡️ Defeat a Bacterial Infection with Antibodies' },
+          { id: 2, label: '💉 Vaccinate First & Watch Rapid Memory Defense' }
+        ],
+        chips: ['What do Macrophages and Antibodies do?', 'How does a Vaccine create Memory Cells?', 'Difference between Bacteria and Viruses?'],
+        concepts: [
+          { t: '1. Invading Germs Enter the Bloodstream', d: 'Wiggly Bacteria and spiky Viruses try to multiply inside your blood vessels — triggering an immune alarm!' },
+          { t: '2. Macrophages & Y-Shaped Antibodies', d: 'White blood cells called Macrophages chomp germs, while B-cells fire Y-shaped Antibodies that tag and POP invaders!' },
+          { t: '3. Vaccines Train Memory Cells!', d: 'A Vaccine safely introduces Memory Cells ahead of time — so if real germs arrive, your body blasts them away 3× faster!' }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       4. CONSTANTS & INITIAL PER-LAB STATE
+    ===================================================================== */
+    const LEVER_CHARS = {
+      Cat:      { mass: 2,  emoji: '🐱', lbl: 'Cat (2kg)' },
+      Panda:    { mass: 6,  emoji: '🐼', lbl: 'Panda (6kg)' },
+      Robot:    { mass: 10, emoji: '🤖', lbl: 'Robot (10kg)' },
+      Elephant: { mass: 12, emoji: '🐘', lbl: 'Elephant (12kg)' }
+    };
+
+    const FLAME_SALTS = {
+      Na: { name: 'Sodium (Na⁺)',     col: '#facc15', glow: '#f59e0b', nm: 589, colorName: 'Golden Yellow' },
+      K:  { name: 'Potassium (K⁺)',   col: '#c084fc', glow: '#a855f7', nm: 766, colorName: 'Lilac Purple' },
+      Cu: { name: 'Copper (Cu²⁺)',    col: '#10b981', glow: '#06b6d4', nm: 515, colorName: 'Blue-Green' },
+      Sr: { name: 'Strontium (Sr²⁺)', col: '#ef4444', glow: '#dc2626', nm: 650, colorName: 'Crimson Red' },
+      Ba: { name: 'Barium (Ba²⁺)',    col: '#84cc16', glow: '#4ade80', nm: 524, colorName: 'Apple Green' }
+    };
+
+    const ROD_METALS = {
+      Copper: { k: 1.00, col: '#ea580c', lbl: 'Copper (Fastest)' },
+      Iron:   { k: 0.55, col: '#64748b', lbl: 'Iron (Medium)' },
+      Glass:  { k: 0.22, col: '#38bdf8', lbl: 'Glass (Slow)' },
+      Wood:   { k: 0.08, col: '#a16207', lbl: 'Wood (Insulator)' }
+    };
+
+    const CRYSTAL_SOLUTES = {
+      CopperSulfate: { name: 'Copper Sulfate', col: '#2563eb', light: '#60a5fa', baseSol: 2, slope: 0.06 },
+      Sugar:         { name: 'Sugar',          col: '#f59e0b', light: '#fde68a', baseSol: 3, slope: 0.065 },
+      Salt:          { name: 'Table Salt',     col: '#94a3b8', light: '#f1f5f9', baseSol: 4, slope: 0.02 }
+    };
+
+    function makeGasMols() {
+      return Array.from({ length: 24 }, () => ({
+        x: 240 + Math.random() * 240,
+        y: 125 + Math.random() * 100,
+        vx: (Math.random() - 0.5) * 4.5,
+        vy: (Math.random() - 0.5) * 4.5
+      }));
+    }
+
+    function makeInitialStates() {
+      const bloodCells = Array.from({ length: 18 }, (_, i) => ({
+        x: (i / 18) * 900,
+        y: 75 + Math.random() * 195,
+        vx: 1.4 + Math.random() * 1.2
+      }));
+      const convParts = Array.from({ length: 24 }, () => ({
+        x: 310 + Math.random() * 280,
+        y: 120 + Math.random() * 135,
+        hot: Math.random() > 0.5
+      }));
+      return {
+        coaster: {
+          height: 15, mass: 250, surface: 'Steel',
+          running: false, s: 0, v: 0, thermal: 0, clearedLoop: false, stalled: false, sparks: []
+        },
+        lever: {
+          leftChar: 'Panda', leftDist: 3, rightChar: 'Elephant', rightDist: 2,
+          angle: 0, angVel: 0, balancedCelebrated: false
+        },
+        static: {
+          balloonCharge: 0, pos: 'Sweater', bx: 240, by: 175,
+          zapTimer: 0, sparks: [], rubAnim: 0
+        },
+        heat: {
+          mode: 'Conduction', rod: 'Copper', heating: true,
+          rodProg: 0, waxDropped: [false, false, false, false],
+          convHeat: 'High', convParts,
+          radSource: 'Sun', blackTemp: 25, silverTemp: 25
+        },
+        flame: {
+          salt: 'Na', dipped: true, dipProg: 1, sparks: [], fireworks: []
+        },
+        fire: {
+          oxygen: 21, fuel: 'Wood', burning: true, heatLevel: 100,
+          extinguisher: null, extTimer: 0, oilFlare: 0, particles: []
+        },
+        crystal: {
+          solute: 'CopperSulfate', scoops: 2, temp: 75,
+          stirring: 0, crystalSize: 0, undissolved: [], cooled: false
+        },
+        gaslaw: {
+          mode: 'Boyle', volume: 60, tempK: 300, mols: makeGasMols(), balloonY: 165
+        },
+        eye: {
+          condition: 'Myopia', lens: 'None'
+        },
+        watercycle: {
+          sun: 75, wind: 60, chill: 45,
+          vapors: [], drops: [], cloudDark: 0.4, cloudX: 430
+        },
+        foodweb: {
+          rain: 70, grass: 75, rabbits: 55, foxes: 32, eagles: 18,
+          drought: false, testedDrought: false
+        },
+        immune: {
+          vaccinated: false, germs: [], defenders: [], antibodies: [], pops: [], bloodCells,
+          defeatedCount: 0
+        }
+      };
+    }
+
+    let activeSubject = 'all';
+    let activeLabId = 'coaster';
+    let displayMode = 'kid';
+    let isAutoSolving = false;
+    let animSpeed = 1.0;
+    let animT = 0;
+    let lastCoachSpeech = '';
+    const activeMissionByLab = {};
+    const completedMissions = {};
+    let confetti = [];
+    let S = makeInitialStates();
+
+    /* =====================================================================
+       5. NAVIGATION, MISSIONS & CONFETTI
+    ===================================================================== */
+    function spawnConfetti(cx = 450, cy = 150) {
+      for (let i = 0; i < 34; i++) {
+        confetti.push({
+          x: cx + (Math.random() - 0.5) * 110,
+          y: cy + (Math.random() - 0.5) * 40,
+          vx: (Math.random() - 0.5) * 6.5,
+          vy: -Math.random() * 5.2 - 1.5,
+          color: ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6'][i % 5],
+          life: 70
+        });
+      }
+    }
+
+    function filterSubject(subj) {
+      activeSubject = subj;
+      document.querySelectorAll('.subj-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick').includes(`'${subj}'`));
+      });
+      renderLabStrip();
+      const visible = LABS.filter(l => subj === 'all' || l.subject === subj);
+      if (!visible.some(l => l.id === activeLabId)) selectLab(visible[0].id, true);
+    }
+
+    function renderLabStrip() {
+      const strip = document.getElementById('labStrip');
+      const visible = LABS.filter(l => activeSubject === 'all' || l.subject === activeSubject);
+      strip.innerHTML = visible.map(l => `
+        <button class="lab-pill ${l.id === activeLabId ? 'active' : ''}" onclick="selectLab('${l.id}', true)">
+          ${l.icon} ${l.short}
+        </button>
+      `).join('');
+    }
+
+    function selectLab(id, showBriefing = true) {
+      if (isAutoSolving) return;
+      activeLabId = id;
+      VoiceEngine.stop();
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      if (showBriefing) openConceptModal();
+    }
+
+    function setDisplayMode(mode) {
+      displayMode = mode;
+      document.getElementById('kidModeBtn').classList.toggle('active', mode === 'kid');
+      document.getElementById('formulaModeBtn').classList.toggle('active', mode === 'formula');
+      document.getElementById('formulaPill').classList.toggle('show', mode === 'formula');
+      updateLabState(false);
+    }
+
+    function markMissionDone(labId, mId) {
+      if (!completedMissions[labId]) completedMissions[labId] = new Set();
+      if (!completedMissions[labId].has(mId)) {
+        completedMissions[labId].add(mId);
+        renderMissions();
+        spawnConfetti(450, 145);
+      }
+    }
+
+    function renderMissions() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const doneSet = completedMissions[activeLabId] || new Set();
+      const curM = activeMissionByLab[activeLabId] || 1;
+      document.getElementById('missionsBar').innerHTML =
+        `<span class="missions-label">🎯 Missions:</span>` +
+        lab.missions.map(m => `
+          <button class="mission-chip ${curM === m.id ? 'active' : ''} ${doneSet.has(m.id) ? 'done' : ''}" onclick="selectMission(${m.id})">
+            ${doneSet.has(m.id) ? '✅ ' : ''}${m.label}
+          </button>
+        `).join('');
+    }
+
+    function selectMission(mId) {
+      if (isAutoSolving) return;
+      activeMissionByLab[activeLabId] = mId;
+      renderMissions();
+      const lab = LABS.find(l => l.id === activeLabId);
+      const m = lab.missions.find(x => x.id === mId);
+      setCoach('🎯', `Active Mission: ${m.label}`, 'Try the controls below to solve this mission, or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!', 'state-info', true);
+    }
+
+    function setCoach(icon, title, text, stateClass = 'state-info', speak = false) {
+      document.getElementById('coachBar').className = `coach-bar ${stateClass}`;
+      document.getElementById('coachIcon').textContent = icon;
+      document.getElementById('coachTitle').textContent = title;
+      document.getElementById('coachText').textContent = text;
+      lastCoachSpeech = `${title}. ${text}`;
+      if (speak && !isAutoSolving) VoiceEngine.speak(lastCoachSpeech);
+    }
+
+    function replayCoachAudio() {
+      VoiceEngine.speak(lastCoachSpeech, { slow: false });
+    }
+
+    function resetCurrentLab() {
+      if (isAutoSolving) return;
+      VoiceEngine.stop();
+      const fresh = makeInitialStates();
+      S[activeLabId] = fresh[activeLabId];
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       6. DYNAMIC 3-COLUMN CONTROLS DECK FOR ALL 12 PACK 4 LABS
+    ===================================================================== */
+    function renderControls() {
+      const deck = document.getElementById('controlsDeck');
+
+      if (activeLabId === 'coaster') {
+        const c = S.coaster;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlCoastH">
+            <div class="control-head"><span>1. Start Hill Height</span><span class="badge">${c.height} m</span></div>
+            <input type="range" class="lab-slider" min="2" max="20" step="1" value="${c.height}"
+              oninput="S.coaster.height=+this.value; S.coaster.running=false; S.coaster.s=0; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>2m (Tiny)</span><span>12m (Loop)</span><span>20m (Mega)</span></div>
+          </div>
+          <div class="control-box" id="ctrlCoastM">
+            <div class="control-head"><span>2. Coaster Mass</span><span class="badge">${c.mass} kg</span></div>
+            <input type="range" class="lab-slider" min="100" max="500" step="50" value="${c.mass}"
+              oninput="S.coaster.mass=+this.value; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>100kg</span><span>300kg</span><span>500kg</span></div>
+          </div>
+          <div class="control-box" id="ctrlCoastRun">
+            <div class="control-head"><span>3. Track Surface &amp; Launch</span><span class="badge">${c.surface}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${c.surface==='Ice'?'active':''}" id="btnSurfIce" onclick="S.coaster.surface='Ice'; renderControls(); updateLabState(true);"><strong>🧊 Ice</strong><small>0 Fric</small></button>
+              <button class="choice-card ${c.surface==='Steel'?'active':''}" id="btnSurfSteel" onclick="S.coaster.surface='Steel'; renderControls(); updateLabState(true);"><strong>🛤️ Steel</strong><small>Low</small></button>
+              <button class="choice-card ${c.surface==='Sand'?'active':''}" id="btnSurfSand" onclick="S.coaster.surface='Sand'; renderControls(); updateLabState(true);"><strong>🏖️ Sand</strong><small>High</small></button>
+              <button class="choice-card cta-go" id="btnCoastLaunch" onclick="launchCoaster()"><strong>🚀 Launch!</strong><small>Go</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'lever') {
+        const lv = S.lever;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlLevL">
+            <div class="control-head"><span>1. Left Character</span><span class="badge">${LEVER_CHARS[lv.leftChar].mass} kg × ${lv.leftDist}m</span></div>
+            <div class="choice-grid">
+              ${Object.keys(LEVER_CHARS).map(k => `
+                <button class="choice-card ${lv.leftChar===k?'active':''}" id="btnLevL${k}" onclick="S.lever.leftChar='${k}'; S.lever.balancedCelebrated=false; renderControls(); updateLabState(true);">
+                  <div>${LEVER_CHARS[k].emoji}</div><strong>${k}</strong><small>${LEVER_CHARS[k].mass}kg</small>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlLevDist">
+            <div class="control-head"><span>2. Slide Distances (1m–5m)</span><span class="badge">L:${lv.leftDist}m | R:${lv.rightDist}m</span></div>
+            <label style="font-size:11px;font-weight:700;color:#2563eb;">Left Distance (d₁): ${lv.leftDist} m</label>
+            <input type="range" class="lab-slider" min="1" max="5" step="1" value="${lv.leftDist}"
+              oninput="S.lever.leftDist=+this.value; S.lever.balancedCelebrated=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <label style="font-size:11px;font-weight:700;color:#7c3aed;">Right Distance (d₂): ${lv.rightDist} m</label>
+            <input type="range" class="lab-slider" min="1" max="5" step="1" value="${lv.rightDist}"
+              oninput="S.lever.rightDist=+this.value; S.lever.balancedCelebrated=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+          </div>
+          <div class="control-box" id="ctrlLevR">
+            <div class="control-head"><span>3. Right Character</span><span class="badge">${LEVER_CHARS[lv.rightChar].mass} kg × ${lv.rightDist}m</span></div>
+            <div class="choice-grid">
+              ${Object.keys(LEVER_CHARS).map(k => `
+                <button class="choice-card ${lv.rightChar===k?'active':''}" id="btnLevR${k}" onclick="S.lever.rightChar='${k}'; S.lever.balancedCelebrated=false; renderControls(); updateLabState(true);">
+                  <div>${LEVER_CHARS[k].emoji}</div><strong>${k}</strong><small>${LEVER_CHARS[k].mass}kg</small>
+                </button>`).join('')}
+            </div>
+          </div>`;
+      } else if (activeLabId === 'static') {
+        const st = S.static;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlStatRub">
+            <div class="control-head"><span>1. Rub on Woolly Sweater</span><span class="badge">−${st.balloonCharge} e⁻</span></div>
+            <button class="choice-card cta-go" id="btnRubBalloon" style="width:100%" onclick="rubBalloon()">
+              <div>🧶🎈</div><strong>Rub Balloon on Sweater!</strong><small>Tap multiple times to collect electrons</small>
+            </button>
+          </div>
+          <div class="control-box span-2" id="ctrlStatPos">
+            <div class="control-head"><span>2. Move Charged Balloon</span><span class="badge">${st.pos.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${st.pos==='Sweater'?'active':''}" onclick="moveBalloon('Sweater')"><div>🧶</div><strong>At Sweater</strong><small>Collect −e</small></button>
+              <button class="choice-card ${st.pos==='Wall'?'active':''}" id="btnStatWall" onclick="moveBalloon('Wall')"><div>🧱</div><strong>Near Wall</strong><small>Stick!</small></button>
+              <button class="choice-card ${st.pos==='Doorknob'?'active':''}" id="btnStatKnob" onclick="moveBalloon('Doorknob')"><div>⚡</div><strong>Metal Doorknob</strong><small>Lightning Zap!</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'heat') {
+        const h = S.heat;
+        let subCtrl = '';
+        if (h.mode === 'Conduction') {
+          subCtrl = `
+            <div class="control-box span-2" id="ctrlHeatSub">
+              <div class="control-head"><span>2. Select Metal/Solid Rod Material</span><span class="badge">${h.rod}</span></div>
+              <div class="choice-grid">
+                ${Object.keys(ROD_METALS).map(k => `
+                  <button class="choice-card ${h.rod===k?'active':''}" id="btnRod${k}" onclick="selectHeatRod('${k}')">
+                    <strong>${k}</strong><small>${k==='Copper'?'Fastest':(k==='Wood'?'Insulator':k)}</small>
+                  </button>`).join('')}
+              </div>
+            </div>`;
+        } else if (h.mode === 'Convection') {
+          subCtrl = `
+            <div class="control-box span-2" id="ctrlHeatSub">
+              <div class="control-head"><span>2. Soup Pot Burner Intensity</span><span class="badge">${h.convHeat.toUpperCase()}</span></div>
+              <div class="choice-grid">
+                <button class="choice-card ${h.convHeat==='Off'?'active':''}" onclick="S.heat.convHeat='Off'; renderControls(); updateLabState(true);"><div>❄️</div><strong>Off</strong><small>Still</small></button>
+                <button class="choice-card ${h.convHeat==='Low'?'active':''}" onclick="S.heat.convHeat='Low'; renderControls(); updateLabState(true);"><div>🕯️</div><strong>Low Flame</strong><small>Gentle Swirl</small></button>
+                <button class="choice-card ${h.convHeat==='High'?'active':''}" id="btnConvHigh" onclick="S.heat.convHeat='High'; renderControls(); updateLabState(true);"><div>🔥</div><strong>High Flame</strong><small>Fast Currents!</small></button>
+              </div>
+            </div>`;
+        } else {
+          subCtrl = `
+            <div class="control-box span-2" id="ctrlHeatSub">
+              <div class="control-head"><span>2. Infrared Radiation Source (Black vs Silver Cup)</span><span class="badge">${h.radSource}</span></div>
+              <div class="choice-grid">
+                <button class="choice-card ${h.radSource==='Sun'?'active':''}" id="btnRadSun" onclick="S.heat.radSource='Sun'; S.heat.blackTemp=25; S.heat.silverTemp=25; renderControls(); updateLabState(true);"><div>☀️</div><strong>Bright Sun</strong><small>Strong IR</small></button>
+                <button class="choice-card ${h.radSource==='Campfire'?'active':''}" onclick="S.heat.radSource='Campfire'; S.heat.blackTemp=25; S.heat.silverTemp=25; renderControls(); updateLabState(true);"><div>🏕️</div><strong>Campfire</strong><small>Warm IR</small></button>
+              </div>
+            </div>`;
+        }
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlHeatMode">
+            <div class="control-head"><span>1. Heat Transfer Mode</span><span class="badge">${h.mode}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${h.mode==='Conduction'?'active':''}" id="btnHeatCond" onclick="S.heat.mode='Conduction'; renderControls(); updateLabState(true);"><strong>🥄 Conduct</strong></button>
+              <button class="choice-card ${h.mode==='Convection'?'active':''}" id="btnHeatConv" onclick="S.heat.mode='Convection'; renderControls(); updateLabState(true);"><strong>🍲 Convect</strong></button>
+              <button class="choice-card ${h.mode==='Radiation'?'active':''}" id="btnHeatRad" onclick="S.heat.mode='Radiation'; renderControls(); updateLabState(true);"><strong>☀️ Radiate</strong></button>
+            </div>
+          </div>` + subCtrl;
+      } else if (activeLabId === 'flame') {
+        const fl = S.flame;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlFlameSalts">
+            <div class="control-head"><span>1. Dip Wire Loop into Metal Salt</span><span class="badge">${FLAME_SALTS[fl.salt].nm} nm</span></div>
+            <div class="choice-grid">
+              ${Object.keys(FLAME_SALTS).map(k => `
+                <button class="choice-card ${fl.salt===k?'active':''}" id="btnSalt${k}" style="border-color:${fl.salt===k?FLAME_SALTS[k].col:'var(--border)'}" onclick="dipFlameSalt('${k}')">
+                  <strong style="color:${FLAME_SALTS[k].glow}">${k}⁺</strong><small>${FLAME_SALTS[k].colorName.split(' ')[0]}</small>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlFlameBurst">
+            <div class="control-head"><span>2. Fireworks Burst</span><span class="badge">${FLAME_SALTS[fl.salt].colorName}</span></div>
+            <button class="choice-card cta-go" style="width:100%" onclick="triggerFlameFireworks()">
+              <div>🎆</div><strong>Launch Color Sparks!</strong><small>Excite Electrons</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'fire') {
+        const fi = S.fire;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlFireOx">
+            <div class="control-head"><span>1. Oxygen Level &amp; Spark</span><span class="badge">${fi.oxygen}% O₂</span></div>
+            <input type="range" class="lab-slider" min="0" max="30" step="1" value="${fi.oxygen}"
+              oninput="S.fire.oxygen=+this.value; if(S.fire.oxygen<10) S.fire.burning=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <button class="choice-card ${fi.burning?'':'cta-fire'}" style="width:100%;margin-top:6px;padding:5px;" onclick="igniteFire()">
+              <strong>🔥 ${fi.burning ? 'Fire Burning' : 'Strike Heat Spark!'}</strong>
+            </button>
+          </div>
+          <div class="control-box" id="ctrlFireFuel">
+            <div class="control-head"><span>2. Fuel Type</span><span class="badge">${fi.fuel}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${fi.fuel==='Wood'?'active':''}" id="btnFuelWood" onclick="S.fire.fuel='Wood'; igniteFire();"><div>🪵</div><strong>Wood</strong></button>
+              <button class="choice-card ${fi.fuel==='Paper'?'active':''}" onclick="S.fire.fuel='Paper'; igniteFire();"><div>📄</div><strong>Paper</strong></button>
+              <button class="choice-card ${fi.fuel==='Oil'?'active':''}" id="btnFuelOil" onclick="S.fire.fuel='Oil'; igniteFire();"><div>🛢️</div><strong>Oil</strong></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlFireExt">
+            <div class="control-head"><span>3. Choose Extinguisher</span><span class="badge">SAFETY</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnExtWater" onclick="useExtinguisher('Water')"><div>💧</div><strong>Water</strong><small>Cools</small></button>
+              <button class="choice-card" id="btnExtCO2" onclick="useExtinguisher('CO2')"><div>☁️</div><strong>CO₂ Foam</strong><small>All Safe</small></button>
+              <button class="choice-card" id="btnExtSand" onclick="useExtinguisher('Sand')"><div>🏖️</div><strong>Sand</strong><small>Smothers</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'crystal') {
+        const cr = S.crystal;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlCrysSol">
+            <div class="control-head"><span>1. Solute &amp; Scoops</span><span class="badge">${cr.scoops} Scoops</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${cr.solute==='CopperSulfate'?'active':''}" id="btnCrysCu" onclick="S.crystal.solute='CopperSulfate'; S.crystal.crystalSize=0; renderControls(); updateLabState(true);"><strong>💎 CuSO₄</strong><small>Blue</small></button>
+              <button class="choice-card ${cr.solute==='Sugar'?'active':''}" onclick="S.crystal.solute='Sugar'; S.crystal.crystalSize=0; renderControls(); updateLabState(true);"><strong>🍬 Sugar</strong><small>Amber</small></button>
+              <button class="choice-card cta-go" id="btnAddScoop" onclick="addCrystalScoop()"><strong>➕ Scoop</strong><small>Add</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlCrysTemp">
+            <div class="control-head"><span>2. Water Temp (10–95°C)</span><span class="badge">${cr.temp}°C</span></div>
+            <input type="range" class="lab-slider" min="10" max="95" step="5" value="${cr.temp}"
+              oninput="S.crystal.temp=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>10°C (Cool)</span><span>55°C</span><span>95°C (Hot)</span></div>
+          </div>
+          <div class="control-box" id="ctrlCrysAct">
+            <div class="control-head"><span>3. Stir &amp; Crystallize</span><span class="badge">${Math.round(cr.crystalSize*100)}% Grown</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnStirCrys" onclick="S.crystal.stirring=45; updateLabState(true);"><div>🥄</div><strong>Stir</strong><small>Dissolve</small></button>
+              <button class="choice-card cta-go" id="btnCoolCrys" onclick="coolToCrystallize()"><div>❄️</div><strong>Cool Down</strong><small>Grow!</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'gaslaw') {
+        const gl = S.gaslaw;
+        if (gl.mode === 'Boyle') {
+          const P = +(100 * 60 / gl.volume).toFixed(0);
+          deck.innerHTML = `
+            <div class="control-box" id="ctrlGasMode">
+              <div class="control-head"><span>1. Gas Law Mode</span><span class="badge">BOYLE'S</span></div>
+              <div class="choice-grid">
+                <button class="choice-card active" onclick="S.gaslaw.mode='Boyle'; renderControls(); updateLabState(true);"><strong>💉 Boyle's</strong><small>P &amp; V</small></button>
+                <button class="choice-card" id="btnGasCharles" onclick="S.gaslaw.mode='Charles'; renderControls(); updateLabState(true);"><strong>🎈 Charles's</strong><small>V &amp; T</small></button>
+              </div>
+            </div>
+            <div class="control-box span-2" id="ctrlGasVol">
+              <div class="control-head"><span>2. Push / Pull Syringe Plunger (Volume)</span><span class="badge">V = ${gl.volume} mL • P = ${P} kPa</span></div>
+              <input type="range" class="lab-slider" min="20" max="100" step="5" value="${gl.volume}"
+                oninput="S.gaslaw.volume=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+              <div class="slider-ticks"><span>20 mL (High Pressure!)</span><span>60 mL</span><span>100 mL (Low Pressure)</span></div>
+            </div>`;
+        } else {
+          deck.innerHTML = `
+            <div class="control-box" id="ctrlGasMode">
+              <div class="control-head"><span>1. Gas Law Mode</span><span class="badge">CHARLES'S</span></div>
+              <div class="choice-grid">
+                <button class="choice-card" id="btnGasBoyle" onclick="S.gaslaw.mode='Boyle'; renderControls(); updateLabState(true);"><strong>💉 Boyle's</strong><small>P &amp; V</small></button>
+                <button class="choice-card active" onclick="S.gaslaw.mode='Charles'; renderControls(); updateLabState(true);"><strong>🎈 Charles's</strong><small>V &amp; T</small></button>
+              </div>
+            </div>
+            <div class="control-box span-2" id="ctrlGasTemp">
+              <div class="control-head"><span>2. Balloon Temperature (Kelvin / °C)</span><span class="badge">${gl.tempK} K (${gl.tempK - 273}°C)</span></div>
+              <input type="range" class="lab-slider" min="200" max="450" step="10" value="${gl.tempK}"
+                oninput="S.gaslaw.tempK=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+              <div class="slider-ticks"><span>200K (Ice ❄️)</span><span>300K (Room)</span><span>450K (Hot Air 🔥)</span></div>
+            </div>`;
+        }
+      } else if (activeLabId === 'eye') {
+        const ey = S.eye;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlEyeCond">
+            <div class="control-head"><span>1. Select Eye Condition</span><span class="badge">${ey.condition}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${ey.condition==='Normal'?'active':''}" onclick="S.eye.condition='Normal'; S.eye.lens='None'; renderControls(); updateLabState(true);"><div>👁️</div><strong>Normal Eye</strong><small>On Retina</small></button>
+              <button class="choice-card ${ey.condition==='Myopia'?'active':''}" id="btnEyeMyopia" onclick="S.eye.condition='Myopia'; S.eye.lens='None'; renderControls(); updateLabState(true);"><div>👓</div><strong>Myopia</strong><small>Short-Sighted</small></button>
+              <button class="choice-card ${ey.condition==='Hypermetropia'?'active':''}" id="btnEyeHyper" onclick="S.eye.condition='Hypermetropia'; S.eye.lens='None'; renderControls(); updateLabState(true);"><div>📖</div><strong>Hypermetropia</strong><small>Far-Sighted</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlEyeLens">
+            <div class="control-head"><span>2. Snap On Spectacles</span><span class="badge">${ey.lens}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${ey.lens==='None'?'active':''}" onclick="S.eye.lens='None'; renderControls(); updateLabState(true);"><strong>None</strong></button>
+              <button class="choice-card ${ey.lens==='Concave'?'active':''}" id="btnLensConcave" onclick="S.eye.lens='Concave'; renderControls(); updateLabState(true);"><strong>Concave (−)</strong></button>
+              <button class="choice-card ${ey.lens==='Convex'?'active':''}" id="btnLensConvex" onclick="S.eye.lens='Convex'; renderControls(); updateLabState(true);"><strong>Convex (+)</strong></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'watercycle') {
+        const wc = S.watercycle;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlWcSun">
+            <div class="control-head"><span>1. Sun Intensity (Evaporation)</span><span class="badge">${wc.sun}%</span></div>
+            <input type="range" class="lab-slider" min="0" max="100" step="5" value="${wc.sun}"
+              oninput="S.watercycle.sun=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>0% (Cloudy)</span><span>50%</span><span>100% (Hot Sun)</span></div>
+          </div>
+          <div class="control-box" id="ctrlWcWind">
+            <div class="control-head"><span>2. Wind Speed (Cloud Drift)</span><span class="badge">${wc.wind}%</span></div>
+            <input type="range" class="lab-slider" min="0" max="100" step="5" value="${wc.wind}"
+              oninput="S.watercycle.wind=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+          </div>
+          <div class="control-box" id="ctrlWcChill">
+            <div class="control-head"><span>3. Mountain Chill (Rain / Snow)</span><span class="badge">${wc.chill}%</span></div>
+            <input type="range" class="lab-slider" min="0" max="100" step="5" value="${wc.chill}"
+              oninput="S.watercycle.chill=+this.value; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>Warm</span><span>Rain 🌧️</span><span>Freezing ❄️</span></div>
+          </div>`;
+      } else if (activeLabId === 'foodweb') {
+        const fw = S.foodweb;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlFwRain">
+            <div class="control-head"><span>1. Meadow Rainfall (Grass)</span><span class="badge">${fw.drought ? 'DROUGHT!' : fw.rain + '%'}</span></div>
+            <input type="range" class="lab-slider" min="10" max="100" step="5" value="${fw.rain}"
+              oninput="S.foodweb.rain=+this.value; S.foodweb.drought=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+          </div>
+          <div class="control-box" id="ctrlFwPop">
+            <div class="control-head"><span>2. Adjust Critters</span><span class="badge">🐇 ${Math.round(fw.rabbits)} | 🦊 ${Math.round(fw.foxes)}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" onclick="S.foodweb.rabbits=Math.min(95,S.foodweb.rabbits+18); updateLabState(true);"><strong>+🐇 Rabbits</strong></button>
+              <button class="choice-card" onclick="S.foodweb.foxes=Math.min(90,S.foodweb.foxes+16); updateLabState(true);"><strong>+🦊 Foxes</strong></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlFwEvent">
+            <div class="control-head"><span>3. Ecosystem Events</span><span class="badge">${fw.drought ? 'DRY' : 'LUSH'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${fw.drought?'cta-fire':''}" id="btnFwDrought" onclick="S.foodweb.drought=true; S.foodweb.rain=12; S.foodweb.testedDrought=true; renderControls(); updateLabState(true);"><strong>🏜️ Drought</strong></button>
+              <button class="choice-card cta-go" id="btnFwRestore" onclick="S.foodweb.drought=false; S.foodweb.rain=80; S.foodweb.grass=80; S.foodweb.rabbits=58; S.foodweb.foxes=35; S.foodweb.eagles=22; renderControls(); updateLabState(true);"><strong>🌿 Restore</strong></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'immune') {
+        const im = S.immune;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlImmGerms">
+            <div class="control-head"><span>1. Release Invaders into Bloodstream</span><span class="badge">${im.germs.length} Active Germs</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnRelBact" onclick="releaseGerms('Bacteria')"><div>🦠</div><strong>Release Bacteria</strong><small>Wiggly Rods</small></button>
+              <button class="choice-card" id="btnRelVirus" onclick="releaseGerms('Virus')"><div>👾</div><strong>Release Viruses</strong><small>Spiky Spheres</small></button>
+              <button class="choice-card cta-go" id="btnSendDef" onclick="sendDefenders()"><div>🛡️</div><strong>Send Antibodies!</strong><small>Defend</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlImmVax">
+            <div class="control-head"><span>2. Preventive Medicine</span><span class="badge">${im.vaccinated ? 'MEMORY READY' : 'UNVACCINATED'}</span></div>
+            <button class="choice-card ${im.vaccinated ? 'active' : ''}" id="btnVaccine" style="width:100%" onclick="S.immune.vaccinated=!S.immune.vaccinated; renderControls(); updateLabState(true);">
+              <div>💉</div><strong>${im.vaccinated ? 'Vaccine Active (3× Faster!)' : 'Give Vaccine (Memory Cells)'}</strong>
+              <small>Instant rapid immune response</small>
+            </button>
+          </div>`;
+      }
+    }
+
+    /* ==================== INTERACTIVE ACTION HANDLERS ==================== */
+    function launchCoaster() {
+      const c = S.coaster;
+      c.running = true; c.s = 0; c.v = 0; c.thermal = 0; c.clearedLoop = false; c.stalled = false; c.sparks = [];
+      updateLabState(false);
+    }
+
+    function rubBalloon() {
+      const st = S.static;
+      st.pos = 'Sweater';
+      st.balloonCharge = Math.min(10, st.balloonCharge + 2);
+      st.rubAnim = 18;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function moveBalloon(pos) {
+      const st = S.static;
+      st.pos = pos;
+      if (pos === 'Doorknob' && st.balloonCharge >= 4) {
+        st.zapTimer = 36;
+        for (let i = 0; i < 20; i++) {
+          st.sparks.push({ x: 755, y: 175, vx: (Math.random() - 0.5) * 8, vy: (Math.random() - 0.5) * 8, life: 26 });
+        }
+        st.balloonCharge = 0;
+        markMissionDone('static', 2);
+      } else if (pos === 'Wall' && st.balloonCharge >= 4) {
+        markMissionDone('static', 1);
+      }
+      renderControls();
+      updateLabState(true);
+    }
+
+    function selectHeatRod(rod) {
+      S.heat.rod = rod;
+      S.heat.rodProg = 0;
+      S.heat.waxDropped = [false, false, false, false];
+      renderControls();
+      updateLabState(true);
+    }
+
+    function dipFlameSalt(salt) {
+      S.flame.salt = salt;
+      S.flame.dipped = true;
+      triggerFlameFireworks();
+      renderControls();
+      updateLabState(true);
+    }
+
+    function triggerFlameFireworks() {
+      const col = FLAME_SALTS[S.flame.salt].col;
+      for (let i = 0; i < 26; i++) {
+        const ang = -Math.PI / 2 + (Math.random() - 0.5) * 1.4;
+        const spd = 2.5 + Math.random() * 4.5;
+        S.flame.fireworks.push({ x: 450, y: 135, vx: Math.cos(ang) * spd, vy: Math.sin(ang) * spd, col, life: 42 });
+      }
+    }
+
+    function igniteFire() {
+      S.fire.oxygen = Math.max(18, S.fire.oxygen);
+      S.fire.burning = true;
+      S.fire.heatLevel = 100;
+      S.fire.oilFlare = 0;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function useExtinguisher(type) {
+      const fi = S.fire;
+      fi.extinguisher = type;
+      fi.extTimer = 42;
+      if (fi.fuel === 'Oil' && type === 'Water' && fi.burning) {
+        fi.oilFlare = 50;
+        setCoach('🚨', 'DANGER! Never Use Water on an Oil Fire!', 'Oil floats on water and causes a violent steam flare-up! Use CO₂ Foam or a Sand Blanket to safely smother Oil fires!', 'state-danger', true);
+        return;
+      }
+      if (fi.burning) {
+        fi.burning = false;
+        fi.heatLevel = 10;
+        if (fi.fuel === 'Wood') markMissionDone('fire', 1);
+        if (fi.fuel === 'Oil' && (type === 'CO2' || type === 'Sand')) markMissionDone('fire', 2);
+      }
+      renderControls();
+      updateLabState(true);
+    }
+
+    function addCrystalScoop() {
+      const cr = S.crystal;
+      cr.scoops = Math.min(8, cr.scoops + 1);
+      cr.cooled = false;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function coolToCrystallize() {
+      const cr = S.crystal;
+      cr.temp = 15;
+      cr.cooled = true;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function releaseGerms(type) {
+      const im = S.immune;
+      for (let i = 0; i < 5; i++) {
+        im.germs.push({
+          type,
+          x: 70 + Math.random() * 140,
+          y: 90 + Math.random() * 165,
+          vx: 1.0 + Math.random() * 1.1,
+          vy: (Math.random() - 0.5) * 1.2,
+          hp: 2
+        });
+      }
+      if (im.vaccinated) sendDefenders();
+      renderControls();
+      updateLabState(true);
+    }
+
+    function sendDefenders() {
+      const im = S.immune;
+      const count = im.vaccinated ? 6 : 3;
+      for (let i = 0; i < count; i++) {
+        im.defenders.push({
+          x: 780 + Math.random() * 70,
+          y: 95 + Math.random() * 160,
+          speed: im.vaccinated ? 3.8 : 2.1,
+          isMacro: i % 2 === 0
+        });
+      }
+      renderControls();
+    }
+
+    /* =====================================================================
+       7. LIVE STATE EVALUATION & COACH BAR UPDATES (ALL 12 LABS)
+    ===================================================================== */
+    function updateLabState(shouldSpeak = false) {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('labTitle').textContent = lab.title;
+      const badge = document.getElementById('labBadge');
+      const fPill = document.getElementById('formulaPill');
+      fPill.classList.toggle('show', displayMode === 'formula');
+
+      if (activeLabId === 'coaster') {
+        const c = S.coaster;
+        const peMax = Math.round(c.mass * 9.8 * c.height / 1000);
+        fPill.textContent = `PE = mgh = ${peMax} kJ  |  KE = ½mv²  |  Total E = PE + KE + Thermal`;
+        if (c.clearedLoop) {
+          badge.className = 'status-badge good'; badge.textContent = '🎉 LOOP CLEARED!';
+          setCoach('🎢', 'Woohoo! You Cleared the Giant Loop!', `Starting from ${c.height}m gave enough Kinetic Energy to flip upside down and reach the finish!`, 'state-success', shouldSpeak);
+        } else if (c.stalled) {
+          badge.className = 'status-badge warn'; badge.textContent = '🛑 Stalled on Track!';
+          setCoach('🛑', 'Not Enough Energy to Clear the Loop!', 'Raise the Starting Hill Height (≥ 14m) or switch off high-friction Sand!', 'state-warn', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `Height: ${c.height}m • ${c.surface}`;
+          setCoach('🎢', `Ready on ${c.surface} Track (${c.height}m Hill)`, 'Hit 🚀 Launch! to watch Potential Energy transform into Kinetic Energy and Thermal heat!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'lever') {
+        const lv = S.lever;
+        const m1 = LEVER_CHARS[lv.leftChar].mass, m2 = LEVER_CHARS[lv.rightChar].mass;
+        const t1 = m1 * lv.leftDist, t2 = m2 * lv.rightDist;
+        fPill.textContent = `Left Torque τ₁ = ${m1}×${lv.leftDist} = ${t1}  |  Right Torque τ₂ = ${m2}×${lv.rightDist} = ${t2}`;
+        if (t1 === t2) {
+          badge.className = 'status-badge good'; badge.textContent = `⚖️ PERFECTLY BALANCED (${t1} = ${t2})!`;
+          if (!lv.balancedCelebrated) { lv.balancedCelebrated = true; spawnConfetti(450, 140); }
+          if ((lv.leftChar==='Panda' && lv.rightChar==='Elephant') || (lv.leftChar==='Elephant' && lv.rightChar==='Panda')) markMissionDone('lever', 1);
+          if ((lv.leftChar==='Robot' && lv.rightChar==='Cat') || (lv.leftChar==='Cat' && lv.rightChar==='Robot')) markMissionDone('lever', 2);
+          setCoach('🎉', `Perfect Balance! (${t1} = ${t2})`, `${lv.leftChar} (${m1}kg at ${lv.leftDist}m) balances ${lv.rightChar} (${m2}kg at ${lv.rightDist}m) because F₁ × d₁ = F₂ × d₂!`, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge warn'; badge.textContent = t1 > t2 ? '⬅️ Tilting Left' : '➡️ Tilting Right';
+          setCoach('⚖️', t1 > t2 ? `Left Side is Heavier (${t1} vs ${t2})` : `Right Side is Heavier (${t2} vs ${t1})`, 'Slide the distances until Left Torque equals Right Torque!', 'state-warn', shouldSpeak);
+        }
+      } else if (activeLabId === 'static') {
+        const st = S.static;
+        fPill.textContent = `Balloon Charge: -${st.balloonCharge}e⁻  |  Sweater: +${st.balloonCharge}e⁺  |  Opposite Charges Attract!`;
+        if (st.zapTimer > 0) {
+          badge.className = 'status-badge good'; badge.textContent = '⚡ LIGHTNING ZAP!';
+          setCoach('⚡', 'ZAP! Static Discharge at the Doorknob!', 'All the collected electrons leaped across the air gap into the metal doorknob — just like a mini lightning bolt!', 'state-success', shouldSpeak);
+        } else if (st.pos === 'Wall' && st.balloonCharge >= 4) {
+          badge.className = 'status-badge good'; badge.textContent = '🎈 STUCK TO WALL!';
+          setCoach('🎉', 'Magic! The Balloon Stuck to the Wall!', 'Your negatively charged balloon pushed the wall’s electrons away, leaving + charges that pull the balloon tight!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `Charge: −${st.balloonCharge} e⁻`;
+          setCoach('🎈', st.balloonCharge < 4 ? 'Rub the Balloon to Charge It!' : 'Balloon Charged! Move to Wall or Doorknob!', 'Collect at least 4 blue electrons on the sweater, then test sticking to the wall or zapping the doorknob!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'heat') {
+        const h = S.heat;
+        if (h.mode === 'Conduction') {
+          fPill.textContent = `Conduction: Q/t = k·A·ΔT/L  |  Rod: ${h.rod} (k_rel = ${ROD_METALS[h.rod].k})`;
+          badge.className = 'status-badge'; badge.textContent = `🥄 Conduction (${h.rod})`;
+          setCoach('🥄', `Heating ${h.rod} Rod`, h.rod === 'Copper' ? 'Copper is an awesome conductor — vibrating atoms rapidly melt all 4 wax drops!' : 'Compare how slowly heat travels through Iron, Glass, or Wood compared to Copper!', 'state-info', shouldSpeak);
+        } else if (h.mode === 'Convection') {
+          fPill.textContent = `Convection: Hot Fluid (Less Dense) Rises ↑  |  Cool Fluid (Denser) Sinks ↓`;
+          badge.className = 'status-badge good'; badge.textContent = `🍲 Convection (${h.convHeat})`;
+          if (h.convHeat === 'High') markMissionDone('heat', 2);
+          setCoach('🍲', 'Convection Currents Swirling!', 'Red-hot liquid at the bottom expands and rises while cooler blue liquid sinks to take its place!', 'state-success', shouldSpeak);
+        } else {
+          fPill.textContent = `Radiation: Infrared Waves Travel Without Air  |  Black: ${Math.round(h.blackTemp)}°C vs Silver: ${Math.round(h.silverTemp)}°C`;
+          badge.className = 'status-badge good'; badge.textContent = `☀️ Radiation (${h.radSource})`;
+          setCoach('☀️', 'Black Absorbs, Silver Reflects!', 'Watch the Black cup’s thermometer climb much faster than the shiny Silver cup under infrared waves!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'flame') {
+        const fl = S.flame;
+        const s = FLAME_SALTS[fl.salt];
+        fPill.textContent = `ΔE = h·c / λ  |  ${s.name} Emission Line: λ = ${s.nm} nm (${s.colorName})`;
+        badge.className = 'status-badge good'; badge.textContent = `🌈 ${s.name}: ${s.colorName}`;
+        if (fl.salt === 'Cu') markMissionDone('flame', 1);
+        if (fl.salt === 'Sr') markMissionDone('flame', 2);
+        setCoach('🎆', `${s.name} Burns ${s.colorName}!`, `Excited electrons jump and emit pure ${s.nm} nanometer light — the exact chemistry used in festival fireworks!`, 'state-success', shouldSpeak);
+      } else if (activeLabId === 'fire') {
+        const fi = S.fire;
+        fPill.textContent = `Fire Triangle = HEAT + FUEL (${fi.fuel}) + OXYGEN (${fi.oxygen}%)`;
+        if (!fi.burning) {
+          badge.className = 'status-badge good'; badge.textContent = '✅ FIRE EXTINGUISHED!';
+          setCoach('🚒', `Safely Extinguished the ${fi.fuel} Fire!`, 'Breaking any one side of the Fire Triangle (Heat, Fuel, or Oxygen) puts the fire out completely!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge danger'; badge.textContent = `🔥 ${fi.fuel} Fire Burning (${fi.oxygen}% O₂)`;
+          setCoach('🔥', `${fi.fuel} Fire Active!`, fi.fuel === 'Oil' ? 'Careful! Oil floats on water — pick CO₂ Foam or Sand Blanket to cut off Oxygen!' : 'Choose an Extinguisher or drop Oxygen below 10% to break the Fire Triangle!', 'state-warn', shouldSpeak);
+        }
+      } else if (activeLabId === 'crystal') {
+        const cr = S.crystal;
+        const sol = CRYSTAL_SOLUTES[cr.solute];
+        const maxCap = +(sol.baseSol + cr.temp * sol.slope).toFixed(1);
+        const stateStr = cr.scoops > maxCap ? 'SUPERSATURATED' : (cr.scoops >= maxCap - 0.8 ? 'SATURATED' : 'UNSATURATED');
+        fPill.textContent = `${sol.name}  |  Scoops: ${cr.scoops} / Capacity at ${cr.temp}°C: ${maxCap}  |  ${stateStr}`;
+        if (cr.solute === 'CopperSulfate' && cr.scoops >= 6 && cr.temp >= 75) markMissionDone('crystal', 1);
+        if (cr.cooled && cr.scoops >= 5) {
+          markMissionDone('crystal', 2);
+          badge.className = 'status-badge good'; badge.textContent = '💎 SPARKLING CRYSTALS GROWN!';
+          setCoach('💎', `Beautiful ${sol.name} Crystals Formed!`, 'Cooling the hot supersaturated liquid forced extra solute molecules to snap neatly into sparkling crystals on the string!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `${stateStr} (${cr.temp}°C)`;
+          setCoach('🧪', `${stateStr} Solution (${cr.scoops} scoops)`, 'Heat to 85°C, add 6+ scoops, Stir, then hit ❄️ Cool Down to watch giant crystals grow!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'gaslaw') {
+        const gl = S.gaslaw;
+        if (gl.mode === 'Boyle') {
+          const P = +(100 * 60 / gl.volume).toFixed(0);
+          fPill.textContent = `Boyle's Law: P₁V₁ = P₂V₂  |  ${P} kPa × ${gl.volume} mL = 6000`;
+          if (P >= 200) markMissionDone('gaslaw', 1);
+          badge.className = P >= 200 ? 'status-badge good' : 'status-badge';
+          badge.textContent = `💉 P = ${P} kPa • V = ${gl.volume} mL`;
+          setCoach('💉', P >= 200 ? `Pressure Doubled to ${P} kPa!` : `Boyle's Law: Pressure = ${P} kPa`, 'Squeezing the plunger cuts Volume in half, so gas molecules slam the walls twice as often!', P >= 200 ? 'state-success' : 'state-info', shouldSpeak);
+        } else {
+          fPill.textContent = `Charles's Law: V₁ / T₁ = V₂ / T₂  |  Temp = ${gl.tempK} K (${gl.tempK - 273}°C)`;
+          if (gl.tempK >= 400) markMissionDone('gaslaw', 2);
+          badge.className = gl.tempK >= 400 ? 'status-badge good' : 'status-badge';
+          badge.textContent = `🎈 Temp: ${gl.tempK} K`;
+          setCoach('🎈', gl.tempK >= 400 ? 'Hot-Air Balloon Inflated & Floating!' : 'Charles’s Law Balloon', 'Raise Temperature above 400K to watch the gas expand and lift the colorful balloon high!', gl.tempK >= 400 ? 'state-success' : 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'eye') {
+        const ey = S.eye;
+        const fixed = (ey.condition === 'Normal' && ey.lens === 'None') ||
+                      (ey.condition === 'Myopia' && ey.lens === 'Concave') ||
+                      (ey.condition === 'Hypermetropia' && ey.lens === 'Convex');
+        fPill.textContent = `Power P = 1/f(m)  |  Myopia → Concave (−D)  |  Hypermetropia → Convex (+D)`;
+        if (fixed && ey.condition === 'Myopia') markMissionDone('eye', 1);
+        if (fixed && ey.condition === 'Hypermetropia') markMissionDone('eye', 2);
+        badge.className = fixed ? 'status-badge good' : 'status-badge warn';
+        badge.textContent = fixed ? '✅ 20/20 CRYSTAL CLEAR!' : '😵 BLURRY VISION';
+        setCoach(fixed ? '🎉' : '👓',
+          fixed ? `Sharp Focus Right on the Retina!` : `${ey.condition}: Blurry Focus!`,
+          fixed ? `The ${ey.lens === 'None' ? 'healthy eye' : ey.lens + ' spectacle lens'} bent the light rays precisely onto the retina!`
+                : (ey.condition === 'Myopia' ? 'Rays cross IN FRONT of the retina! Snap on a Concave (−) lens to diverge them onto the retina!' : 'Rays meet BEHIND the retina! Snap on a Convex (+) lens to converge them onto the retina!'),
+          fixed ? 'state-success' : 'state-warn', shouldSpeak);
+      } else if (activeLabId === 'watercycle') {
+        const wc = S.watercycle;
+        const snowing = wc.sun >= 55 && wc.chill >= 75;
+        const raining = wc.sun >= 55 && wc.chill >= 40 && !snowing;
+        fPill.textContent = `Evaporation (${wc.sun}%) → Condensation → ${snowing ? 'Snowfall ❄️' : (raining ? 'Rainfall 🌧️' : 'Clouds ☁️')} → River Collection`;
+        if (raining) markMissionDone('watercycle', 1);
+        if (snowing) markMissionDone('watercycle', 2);
+        badge.className = (raining || snowing) ? 'status-badge good' : 'status-badge';
+        badge.textContent = snowing ? '❄️ MOUNTAIN SNOWFALL!' : (raining ? '🌧️ RAINSTORM ACTIVE!' : '☀️ Evaporating...');
+        setCoach(snowing ? '❄️' : (raining ? '🌧️' : '☀️'),
+          snowing ? 'Snowflakes Falling on the Chilly Peaks!' : (raining ? 'Rainstorm Filling the River!' : 'Adjust Sun, Wind & Mountain Chill'),
+          'High Sun evaporates ocean water into clouds; Mountain Chill condenses clouds into Rain (40–74%) or Snow (≥75%)!',
+          (raining || snowing) ? 'state-success' : 'state-info', shouldSpeak);
+      } else if (activeLabId === 'foodweb') {
+        const fw = S.foodweb;
+        const balanced = !fw.drought && fw.grass > 35 && fw.rabbits > 25 && fw.foxes > 15 && fw.eagles > 10;
+        fPill.textContent = `10% Energy Rule: Grass (${Math.round(fw.grass)}) → Rabbits (${Math.round(fw.rabbits)}) → Foxes (${Math.round(fw.foxes)}) → Eagles (${Math.round(fw.eagles)})`;
+        if (balanced) markMissionDone('foodweb', 1);
+        if (fw.testedDrought && balanced) markMissionDone('foodweb', 2);
+        badge.className = fw.drought ? 'status-badge danger' : (balanced ? 'status-badge good' : 'status-badge warn');
+        badge.textContent = fw.drought ? '🏜️ DROUGHT STRESS!' : (balanced ? '🌿 BALANCED ECOSYSTEM' : '⚠️ Shifting Populations');
+        setCoach(fw.drought ? '🏜️' : '🦁',
+          fw.drought ? 'Drought Shrinking the Meadow!' : (balanced ? 'All 4 Species Thriving in Balance!' : 'Watch the Food Web Rebalance!'),
+          fw.drought ? 'Without rain, Grass drops first — causing Rabbits, Foxes, and Eagles to decline too! Click 🌿 Restore to save them!' : 'Try triggering a Drought or adding extra predators to see how every level depends on the others!',
+          fw.drought ? 'state-danger' : 'state-success', shouldSpeak);
+      } else if (activeLabId === 'immune') {
+        const im = S.immune;
+        fPill.textContent = `Immune Defense: Macrophages + Y-Antibodies  |  Vaccine Memory: ${im.vaccinated ? 'ACTIVE (3× Speed)' : 'OFF'}`;
+        if (im.germs.length === 0 && im.defeatedCount > 0) {
+          markMissionDone('immune', 1);
+          if (im.vaccinated) markMissionDone('immune', 2);
+          badge.className = 'status-badge good'; badge.textContent = '💚 BODY 100% HEALED!';
+          setCoach('🎉', 'Infection Defeated! Body Healed!', `Your white blood cells and antibodies popped ${im.defeatedCount} germs!`, 'state-success', shouldSpeak);
+        } else if (im.germs.length > 0) {
+          badge.className = 'status-badge danger'; badge.textContent = `🦠 ${im.germs.length} Germs Active!`;
+          setCoach('🛡️', `${im.germs.length} Germs in the Bloodstream!`, 'Tap 🛡️ Send Antibodies! (or turn on the Vaccine) to watch Macrophages and Y-Antibodies pop every invader!', 'state-warn', shouldSpeak);
+        } else {
+          badge.className = 'status-badge good'; badge.textContent = im.vaccinated ? '💉 Vaccinated & Healthy' : '💚 Healthy Bloodstream';
+          setCoach('🦠', 'Bloodstream Healthy & Ready', 'Release Bacteria or Viruses, then send Antibodies or test the Vaccine Memory Cells!', 'state-info', shouldSpeak);
+        }
+      }
+
+      updateLiveStateSummary();
+    }
+
+    /* =====================================================================
+       8. SLOWER ANIMATED AUTO-SOLVE & EXPLAIN (ALL 12 LABS)
+    ===================================================================== */
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    async function runAutoSolve() {
+      if (isAutoSolving) return;
+      isAutoSolving = true;
+      animSpeed = 0.45; // Calm 0.45x slow-motion canvas while solving
+      document.getElementById('solveBtn').disabled = true;
+
+      const step = async (title, msg, highlightId = null) => {
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.add('pulse-target');
+        }
+        setCoach('✨', title, msg, 'state-solving', false);
+        await VoiceEngine.speak(msg, { slow: true });
+        await sleep(LAB_CONFIG.SOLVE_PAUSE_MS);
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.remove('pulse-target');
+        }
+      };
+
+      if (activeLabId === 'coaster') {
+        await step('Step 1: Choose Smooth Ice Track', 'First, let us pick the frictionless Ice track so zero energy is wasted as heat.', 'btnSurfIce');
+        S.coaster.surface = 'Ice'; renderControls();
+        await step('Step 2: Raise Starting Hill to 18m', 'Next, we raise the starting hill to 18 meters to store plenty of Potential Energy.', 'ctrlCoastH');
+        S.coaster.height = 18; renderControls();
+        await step('Step 3: Launch the Roller Coaster!', 'Watch Potential Energy turn into Kinetic Energy as the riders flip smoothly around the loop!', 'btnCoastLaunch');
+        launchCoaster();
+        await sleep(2200);
+      } else if (activeLabId === 'lever') {
+        await step('Step 1: Place Panda (6kg) & Elephant (12kg)', 'Let us put the 6 kilogram Panda on the left and the 12 kilogram Elephant on the right.', 'btnLevLPanda');
+        S.lever.leftChar = 'Panda'; S.lever.rightChar = 'Elephant'; renderControls();
+        await step('Step 2: Set Left = 4m and Right = 2m', 'Watch Torque: 6 times 4 equals 24, and 12 times 2 also equals 24! The seesaw balances perfectly!', 'ctrlLevDist');
+        S.lever.leftDist = 4; S.lever.rightDist = 2; renderControls();
+      } else if (activeLabId === 'static') {
+        await step('Step 1: Rub Balloon on Woolly Sweater', 'Let us rub the balloon three times on the sweater to collect glowing blue minus-electrons.', 'btnRubBalloon');
+        rubBalloon(); await sleep(450); rubBalloon(); await sleep(450); rubBalloon();
+        await step('Step 2: Move Charged Balloon to the Wall', 'Watch the wall’s negative electrons push away so the balloon sticks tightly!', 'btnStatWall');
+        moveBalloon('Wall'); await sleep(1100);
+        await step('Step 3: Touch the Metal Doorknob!', 'Now watch a mini lightning zap as all those extra electrons jump into the doorknob!', 'btnStatKnob');
+        moveBalloon('Doorknob');
+      } else if (activeLabId === 'heat') {
+        await step('Step 1: Conduction with Copper Rod', 'Copper is a super conductor — watch heat race across the rod and melt every wax drop!', 'btnRodCopper');
+        S.heat.mode = 'Conduction'; selectHeatRod('Copper'); renderControls(); await sleep(1600);
+        await step('Step 2: Radiation — Black vs Silver Cup', 'Now switch to Radiation! The Black cup absorbs infrared waves and warms much faster than shiny Silver!', 'btnHeatRad');
+        S.heat.mode = 'Radiation'; S.heat.radSource = 'Sun'; renderControls();
+      } else if (activeLabId === 'flame') {
+        await step('Step 1: Dip Copper (Cu²⁺) Salt', 'Hold Copper salt in the Bunsen flame to unleash dazzling Blue-Green firework sparks!', 'btnSaltCu');
+        dipFlameSalt('Cu'); await sleep(1200);
+        await step('Step 2: Dip Strontium (Sr²⁺) Salt', 'Now dip Strontium salt for brilliant Crimson Red 650 nanometer light!', 'btnSaltSr');
+        dipFlameSalt('Sr');
+      } else if (activeLabId === 'fire') {
+        await step('Step 1: Select Oil Fire', 'Let us test an Oil fire — remember, NEVER spray water on burning oil!', 'btnFuelOil');
+        S.fire.fuel = 'Oil'; igniteFire();
+        await step('Step 2: Smother Safely with CO₂ Foam!', 'CO₂ Foam cuts off Oxygen from the Fire Triangle and extinguishes the Oil fire safely!', 'btnExtCO2');
+        useExtinguisher('CO2');
+      } else if (activeLabId === 'crystal') {
+        await step('Step 1: Heat Water to 90°C & Add 7 Scoops of Blue CuSO₄', 'Hot water dissolves 7 scoops of Copper Sulfate to make a packed supersaturated solution!', 'btnAddScoop');
+        S.crystal.solute = 'CopperSulfate'; S.crystal.temp = 90; S.crystal.scoops = 7; S.crystal.stirring = 40; renderControls(); await sleep(1200);
+        await step('Step 2: Cool Down to Crystallize!', 'Cooling down forces the extra Copper Sulfate to grow sparkling blue crystals right on the string!', 'btnCoolCrys');
+        coolToCrystallize();
+      } else if (activeLabId === 'gaslaw') {
+        await step('Step 1: Boyle’s Law — Squeeze Volume to 30 mL', 'Cutting the syringe volume in half makes molecules collide twice as fast, doubling Pressure to 200 kPa!', 'ctrlGasVol');
+        S.gaslaw.mode = 'Boyle'; S.gaslaw.volume = 30; renderControls(); await sleep(1200);
+        await step('Step 2: Charles’s Law — Heat Balloon to 430 K', 'Now switch to Charles’s Law and heat the air so the colorful balloon inflates and floats up!', 'btnGasCharles');
+        S.gaslaw.mode = 'Charles'; S.gaslaw.tempK = 430; renderControls();
+      } else if (activeLabId === 'eye') {
+        await step('Step 1: Inspect Myopia (Short-Sighted Eye)', 'In Myopia, light rays cross in front of the retina, making the board blurry.', 'btnEyeMyopia');
+        S.eye.condition = 'Myopia'; S.eye.lens = 'None'; renderControls();
+        await step('Step 2: Snap On Concave (−) Spectacles!', 'The Concave lens spreads the rays slightly so they focus sharply right on the retina — crystal clear 20/20!', 'btnLensConcave');
+        S.eye.lens = 'Concave'; renderControls();
+      } else if (activeLabId === 'watercycle') {
+        await step('Step 1: Boost Sun (90%) & Wind (75%)', 'Bright sunlight evaporates ocean water and wind blows fluffy clouds toward the mountain.', 'ctrlWcSun');
+        S.watercycle.sun = 90; S.watercycle.wind = 75; S.watercycle.chill = 60; renderControls(); await sleep(1200);
+        await step('Step 2: Raise Mountain Chill to 90% for Snowfall!', 'Freezing mountain air turns the dark rain clouds into falling snowflakes!', 'ctrlWcChill');
+        S.watercycle.chill = 90; renderControls();
+      } else if (activeLabId === 'foodweb') {
+        await step('Step 1: Trigger a Drought', 'Watch what happens when rain stops: Grass shrinks first, then Rabbits and Foxes decline too.', 'btnFwDrought');
+        S.foodweb.drought = true; S.foodweb.rain = 12; S.foodweb.testedDrought = true; renderControls(); await sleep(1400);
+        await step('Step 2: Restore the Meadow!', 'Bringing back healthy rainfall restores the Grass and balances all 4 species!', 'btnFwRestore');
+        S.foodweb.drought = false; S.foodweb.rain = 80; S.foodweb.grass = 80; S.foodweb.rabbits = 58; S.foodweb.foxes = 35; S.foodweb.eagles = 22; renderControls();
+      } else if (activeLabId === 'immune') {
+        await step('Step 1: Give Vaccine (Train Memory Cells)', 'First, let us vaccinate so Memory Cells are ready on standby!', 'btnVaccine');
+        S.immune.vaccinated = true; renderControls();
+        await step('Step 2: Release Bacteria & Watch Rapid Defense!', 'Now watch our vaccinated Macrophages and Y-shaped Antibodies chase and POP every germ 3 times faster!', 'btnRelBact');
+        releaseGerms('Bacteria');
+        await sleep(2200);
+      }
+
+      animSpeed = 1.0;
+      isAutoSolving = false;
+      document.getElementById('solveBtn').disabled = false;
+      updateLabState(false);
+    }
+
+    /* =====================================================================
+       9. HIGH-POWERED 60FPS HTML5 CANVAS RENDERERS (ALL 12 PACK 4 LABS)
+    ===================================================================== */
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function rr(c, x, y, w, h, r) {
+      c.beginPath();
+      c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r);
+      c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r);
+      c.arcTo(x, y, x + w, y, r); c.closePath();
+    }
+
+    // Track point helper for Roller Coaster (s in [0, 1])
+    function getCoasterPoint(s, startH) {
+      const startY = 278 - startH * 10.5;
+      if (s < 0.32) {
+        const u = s / 0.32;
+        const x = 75 + u * 270;
+        const y = startY + (278 - startY) * (0.5 - 0.5 * Math.cos(u * Math.PI));
+        return { x, y, h: (278 - y) / 10.5 };
+      } else if (s < 0.72) {
+        // Giant Loop-the-Loop centered at (435, 200), radius 78
+        const u = (s - 0.32) / 0.40;
+        const ang = Math.PI / 2 - u * Math.PI * 2;
+        const x = 435 + Math.cos(ang) * 78;
+        const y = 200 + Math.sin(ang) * 78;
+        return { x, y, h: (278 - y) / 10.5 };
+      } else {
+        const u = (s - 0.72) / 0.28;
+        const x = 435 + u * 380;
+        const y = 278 - Math.sin(u * Math.PI) * 50;
+        return { x, y, h: (278 - y) / 10.5 };
+      }
+    }
+
+    function drawActiveLab() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (activeLabId === 'coaster') drawCoaster();
+      else if (activeLabId === 'lever') drawLever();
+      else if (activeLabId === 'static') drawStatic();
+      else if (activeLabId === 'heat') drawHeat();
+      else if (activeLabId === 'flame') drawFlame();
+      else if (activeLabId === 'fire') drawFire();
+      else if (activeLabId === 'crystal') drawCrystal();
+      else if (activeLabId === 'gaslaw') drawGasLaw();
+      else if (activeLabId === 'eye') drawEye();
+      else if (activeLabId === 'watercycle') drawWaterCycle();
+      else if (activeLabId === 'foodweb') drawFoodWeb();
+      else if (activeLabId === 'immune') drawImmune();
+
+      // Confetti overlay
+      confetti.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.14; p.life--;
+        ctx.fillStyle = p.color; ctx.fillRect(p.x, p.y, 7, 7);
+      });
+      confetti = confetti.filter(p => p.life > 0);
+    }
+
+    /* ---------- 1. ROLLER COASTER ENERGY LAB ---------- */
+    function drawCoaster() {
+      const c = S.coaster;
+      // Sky & Ground
+      ctx.fillStyle = '#eff6ff'; rr(ctx, 14, 12, 872, 275, 14); ctx.fill();
+      ctx.fillStyle = '#86efac'; ctx.fillRect(14, 285, 872, 46);
+
+      // Draw Track Curve
+      ctx.strokeStyle = c.surface === 'Ice' ? '#38bdf8' : (c.surface === 'Sand' ? '#d97706' : '#475569');
+      ctx.lineWidth = 7; ctx.lineCap = 'round';
+      ctx.beginPath();
+      for (let i = 0; i <= 120; i++) {
+        const pt = getCoasterPoint(i / 120, c.height);
+        i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y);
+      }
+      ctx.stroke();
+
+      // Finish Flag
+      ctx.font = '24px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('🏁', 815, 272);
+
+      // Physics Update
+      const mu = c.surface === 'Ice' ? 0.0 : (c.surface === 'Steel' ? 0.12 : 0.45);
+      const totalE = c.mass * 9.8 * c.height;
+      let curPt = getCoasterPoint(c.s, c.height);
+      if (c.running) {
+        c.thermal = Math.min(totalE * 0.92, c.thermal + mu * c.mass * 1.15 * animSpeed);
+        const curPE = c.mass * 9.8 * Math.max(0, curPt.h);
+        const curKE = totalE - curPE - c.thermal;
+        if (curKE <= 20 && c.s > 0.05) {
+          c.running = false; c.stalled = true;
+          if (c.surface === 'Sand') markMissionDone('coaster', 2);
+          updateLabState(true);
+        } else {
+          c.v = Math.sqrt(Math.max(0, (2 * curKE) / c.mass));
+          c.s += (0.0028 + c.v * 0.00055) * animSpeed;
+          if (c.surface === 'Sand' && Math.random() < 0.45) {
+            c.sparks.push({ x: curPt.x, y: curPt.y, vx: -2 - Math.random() * 2, vy: -Math.random() * 3, life: 16 });
+          }
+          if (c.s >= 1) {
+            c.s = 1; c.running = false; c.clearedLoop = true;
+            markMissionDone('coaster', 1);
+            if (c.surface === 'Sand') markMissionDone('coaster', 2);
+            updateLabState(true);
+          }
+        }
+        curPt = getCoasterPoint(c.s, c.height);
+      }
+
+      // Sparks on Sand friction
+      c.sparks.forEach(sp => {
+        sp.x += sp.vx; sp.y += sp.vy; sp.life--;
+        ctx.fillStyle = '#f97316'; ctx.beginPath(); ctx.arc(sp.x, sp.y, 3.5, 0, Math.PI * 2); ctx.fill();
+      });
+      c.sparks = c.sparks.filter(sp => sp.life > 0);
+
+      // Cartoon Coaster Car with Waving Rider
+      ctx.fillStyle = '#ef4444'; ctx.strokeStyle = '#991b1b'; ctx.lineWidth = 2.5;
+      rr(ctx, curPt.x - 22, curPt.y - 20, 44, 18, 7); ctx.fill(); ctx.stroke();
+      ctx.font = '18px sans-serif'; ctx.fillText('🙌', curPt.x, curPt.y - 22);
+
+      // Live Energy Bars (Top Right)
+      const pe = Math.min(totalE, c.mass * 9.8 * Math.max(0, curPt.h));
+      const ke = Math.max(0, totalE - pe - c.thermal);
+      const bars = [
+        { lbl: 'PE', val: pe / Math.max(1, totalE), col: '#2563eb', x: 675 },
+        { lbl: 'KE', val: ke / Math.max(1, totalE), col: '#16a34a', x: 735 },
+        { lbl: 'Heat', val: c.thermal / Math.max(1, totalE), col: '#ea580c', x: 795 }
+      ];
+      ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 650, 26, 205, 118, 12); ctx.fill(); ctx.stroke();
+      bars.forEach(b => {
+        const bh = Math.max(4, b.val * 68);
+        ctx.fillStyle = '#e2e8f0'; ctx.fillRect(b.x, 46, 32, 68);
+        ctx.fillStyle = b.col; ctx.fillRect(b.x, 114 - bh, 32, bh);
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(b.lbl, b.x + 16, 132);
+      });
+    }
+
+    /* ---------- 2. SEESAW LEVER & TORQUE PLAYGROUND ---------- */
+    function drawLever() {
+      const lv = S.lever;
+      const t1 = LEVER_CHARS[lv.leftChar].mass * lv.leftDist;
+      const t2 = LEVER_CHARS[lv.rightChar].mass * lv.rightDist;
+      const targetAng = t1 === t2 ? 0 : (t1 > t2 ? -0.24 : 0.24);
+      lv.angVel += (targetAng - lv.angle) * 0.08 * animSpeed;
+      lv.angVel *= 0.84;
+      lv.angle += lv.angVel * animSpeed;
+
+      // Park Grass
+      ctx.fillStyle = '#dcfce7'; ctx.fillRect(20, 265, 860, 62);
+
+      // Triangular Fulcrum Pivot
+      ctx.fillStyle = '#475569'; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(450, 192); ctx.lineTo(405, 272); ctx.lineTo(495, 272); ctx.closePath(); ctx.fill(); ctx.stroke();
+
+      // Tilting Wooden Seesaw Plank
+      ctx.save();
+      ctx.translate(450, 192);
+      ctx.rotate(lv.angle);
+
+      ctx.fillStyle = '#d97706'; ctx.strokeStyle = '#92400e'; ctx.lineWidth = 3;
+      rr(ctx, -310, -10, 620, 20, 8); ctx.fill(); ctx.stroke();
+
+      // Distance Ticks (1m–5m)
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center';
+      for (let d = 1; d <= 5; d++) {
+        ctx.fillText(`${d}m`, -d * 56, 4);
+        ctx.fillText(`${d}m`, d * 56, 4);
+      }
+
+      // Left & Right Playful Characters
+      const lx = -lv.leftDist * 56, rx = lv.rightDist * 56;
+      ctx.font = '44px sans-serif';
+      ctx.fillText(LEVER_CHARS[lv.leftChar].emoji, lx, -18);
+      ctx.fillText(LEVER_CHARS[lv.rightChar].emoji, rx, -18);
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif';
+      ctx.fillText(`${LEVER_CHARS[lv.leftChar].mass}kg`, lx, -66);
+      ctx.fillText(`${LEVER_CHARS[lv.rightChar].mass}kg`, rx, -66);
+      ctx.restore();
+
+      // Torque Scoreboards
+      ctx.fillStyle = '#eff6ff'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2;
+      rr(ctx, 55, 34, 185, 58, 12); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1d4ed8'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`Left Torque: ${t1}`, 147, 68);
+
+      ctx.fillStyle = '#f5f3ff'; ctx.strokeStyle = '#7c3aed';
+      rr(ctx, 660, 34, 185, 58, 12); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#6d28d9';
+      ctx.fillText(`Right Torque: ${t2}`, 752, 68);
+    }
+
+    /* ---------- 3. STATIC ELECTRICITY & LIGHTNING LAB ---------- */
+    function drawStatic() {
+      const st = S.static;
+      const targetX = st.pos === 'Sweater' ? 235 : (st.pos === 'Wall' ? 565 : 715);
+      st.bx += (targetX - st.bx) * 0.10 * animSpeed;
+      if (st.rubAnim > 0) st.rubAnim--;
+      const rubOff = st.rubAnim > 0 ? Math.sin(st.rubAnim * 1.5) * 18 : 0;
+
+      // Woolly Sweater (Left)
+      ctx.fillStyle = '#fda4af'; ctx.strokeStyle = '#e11d48'; ctx.lineWidth = 3;
+      rr(ctx, 75, 85, 130, 175, 18); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#9f1239'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('WOOLLY SWEATER', 140, 282);
+      // Plus charges left on sweater
+      for (let i = 0; i < 6; i++) {
+        ctx.fillStyle = '#dc2626'; ctx.font = 'bold 14px sans-serif';
+        ctx.fillText('+', 105 + (i % 2) * 55, 125 + Math.floor(i / 2) * 48);
+        if (i >= st.balloonCharge / 2) {
+          ctx.fillStyle = '#2563eb'; ctx.fillText('−', 122 + (i % 2) * 55, 125 + Math.floor(i / 2) * 48);
+        }
+      }
+
+      // Wall (Center-Right)
+      ctx.fillStyle = '#fef3c7'; ctx.strokeStyle = '#d97706'; ctx.lineWidth = 3;
+      rr(ctx, 610, 58, 72, 225, 10); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#92400e'; ctx.font = 'bold 12px sans-serif'; ctx.fillText('WALL', 646, 302);
+      const polarized = st.pos === 'Wall' && st.balloonCharge >= 4;
+      for (let i = 0; i < 4; i++) {
+        const wy = 95 + i * 48;
+        ctx.fillStyle = '#dc2626'; ctx.font = 'bold 14px sans-serif'; ctx.fillText('+', 628, wy);
+        ctx.fillStyle = '#2563eb'; ctx.fillText('−', polarized ? 668 : 648, wy); // Electrons push away!
+      }
+
+      // Metal Doorknob (Far Right)
+      ctx.fillStyle = '#94a3b8'; ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(795, 175, 28, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 11.5px sans-serif'; ctx.fillText('DOORKNOB', 795, 224);
+
+      // Colorful Balloon
+      const bx = st.bx + rubOff, by = 175;
+      ctx.fillStyle = '#f43f5e'; ctx.strokeStyle = '#be123c'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.ellipse(bx, by, 44, 54, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(bx, by + 54); ctx.quadraticCurveTo(bx - 12, by + 88, bx + 6, by + 115); ctx.stroke();
+
+      // Glowing Blue Electrons on Balloon
+      for (let i = 0; i < st.balloonCharge; i++) {
+        const a = (i / Math.max(1, st.balloonCharge)) * Math.PI * 2 + animT;
+        ctx.fillStyle = '#38bdf8'; ctx.beginPath(); ctx.arc(bx + Math.cos(a) * 26, by + Math.sin(a) * 32, 7, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 11px sans-serif'; ctx.fillText('−', bx + Math.cos(a) * 26, by + Math.sin(a) * 32 + 4);
+      }
+
+      // Crackling Lightning Zap!
+      if (st.zapTimer > 0) {
+        st.zapTimer--;
+        ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.moveTo(bx + 42, by); ctx.lineTo(745, by - 14); ctx.lineTo(758, by + 12); ctx.lineTo(772, by); ctx.stroke();
+        ctx.fillStyle = '#0284c7'; ctx.font = 'bold 18px sans-serif'; ctx.fillText('⚡ ZAP!', 755, 128);
+      }
+      st.sparks.forEach(sp => {
+        sp.x += sp.vx; sp.y += sp.vy; sp.life--;
+        ctx.fillStyle = '#facc15'; ctx.beginPath(); ctx.arc(sp.x, sp.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      st.sparks = st.sparks.filter(sp => sp.life > 0);
+    }
+
+    /* ---------- 4. HEAT TRANSFER LAB ---------- */
+    function drawHeat() {
+      const h = S.heat;
+      if (h.mode === 'Conduction') {
+        const rm = ROD_METALS[h.rod];
+        h.rodProg = Math.min(1, h.rodProg + 0.004 * rm.k * animSpeed);
+
+        // Bunsen Flame (Left)
+        ctx.fillStyle = '#475569'; ctx.fillRect(120, 220, 24, 65);
+        ctx.fillStyle = 'rgba(249, 115, 22, 0.9)';
+        ctx.beginPath(); ctx.ellipse(132, 198, 16, 26 + Math.sin(animT * 14) * 4, 0, 0, Math.PI * 2); ctx.fill();
+
+        // Solid Rod with Heat Gradient
+        const grad = ctx.createLinearGradient(130, 160, 740, 160);
+        grad.addColorStop(0, '#ef4444');
+        grad.addColorStop(Math.max(0.05, h.rodProg), '#f97316');
+        grad.addColorStop(Math.min(1, h.rodProg + 0.15), rm.col);
+        ctx.fillStyle = grad; ctx.strokeStyle = '#334155'; ctx.lineWidth = 2.5;
+        rr(ctx, 130, 148, 610, 28, 8); ctx.fill(); ctx.stroke();
+
+        // Vibrating Atoms & Melting Wax Drops
+        for (let i = 0; i < 4; i++) {
+          const wx = 260 + i * 135;
+          const frac = (wx - 130) / 610;
+          if (h.rodProg >= frac) h.waxDropped[i] = true;
+          const wy = h.waxDropped[i] ? 276 : 184;
+          ctx.fillStyle = '#fef08a'; ctx.strokeStyle = '#ca8a04'; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(wx, wy, 10, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        }
+        if (h.rod === 'Copper' && h.waxDropped[3]) markMissionDone('heat', 1);
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(`Conduction through ${h.rod} Rod — Wax Drops Melted: ${h.waxDropped.filter(Boolean).length}/4`, 450, 314);
+      } else if (h.mode === 'Convection') {
+        const spd = h.convHeat === 'Off' ? 0 : (h.convHeat === 'Low' ? 0.9 : 2.2) * animSpeed;
+        // Soup Pot
+        ctx.fillStyle = 'rgba(254, 215, 170, 0.5)'; ctx.fillRect(280, 95, 340, 175);
+        ctx.strokeStyle = '#475569'; ctx.lineWidth = 5; ctx.strokeRect(280, 95, 340, 175);
+        // Burner Flame
+        if (h.convHeat !== 'Off') {
+          ctx.fillStyle = 'rgba(239, 68, 68, 0.85)';
+          ctx.beginPath(); ctx.ellipse(450, 288, h.convHeat === 'High' ? 65 : 32, 16, 0, 0, Math.PI * 2); ctx.fill();
+        }
+        // Swirling Convection Particles
+        h.convParts.forEach((p, idx) => {
+          if (spd > 0) {
+            const dx = p.x - 450;
+            if (Math.abs(dx) < 65) { p.y -= spd * 1.4; p.hot = true; }
+            else { p.y += spd * 1.1; p.hot = false; }
+            if (p.y < 110) { p.y = 110; p.x += (idx % 2 === 0 ? -1 : 1) * spd * 3; }
+            if (p.y > 255) { p.y = 255; p.x += (p.x < 450 ? 1 : -1) * spd * 3; }
+            if (p.x < 295) p.x = 295; if (p.x > 605) p.x = 605;
+          }
+          ctx.fillStyle = p.hot ? '#ef4444' : '#2563eb';
+          ctx.beginPath(); ctx.arc(p.x, p.y, 7, 0, Math.PI * 2); ctx.fill();
+        });
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('🔴 Hot Liquid Rises in Center  |  🔵 Cool Liquid Sinks on Sides', 450, 72);
+      } else {
+        // Radiation: Sun/Campfire warming Black vs Silver Cup
+        const inc = (h.radSource === 'Sun' ? 0.14 : 0.08) * animSpeed;
+        h.blackTemp = Math.min(82, h.blackTemp + inc);
+        h.silverTemp = Math.min(44, h.silverTemp + inc * 0.35);
+        if (h.blackTemp > 55) markMissionDone('heat', 3);
+
+        ctx.font = '56px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(h.radSource === 'Sun' ? '☀️' : '🏕️', 140, 175);
+
+        // Wavy Infrared Radiation Rays
+        ctx.strokeStyle = '#f97316'; ctx.lineWidth = 3;
+        for (let r = 0; r < 3; r++) {
+          ctx.beginPath();
+          for (let x = 200; x <= 480; x += 6) {
+            const y = 115 + r * 55 + Math.sin(x * 0.09 - animT * 6) * 8;
+            x === 200 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+          }
+          ctx.stroke();
+        }
+
+        // Black Cup (Top Right) vs Silver Cup (Bottom Right)
+        ctx.fillStyle = '#0f172a'; rr(ctx, 540, 75, 95, 85, 12); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 14px sans-serif'; ctx.fillText(`Black`, 587, 112);
+        ctx.fillStyle = '#f87171'; ctx.fillText(`${Math.round(h.blackTemp)}°C 🔥`, 587, 138);
+
+        ctx.fillStyle = '#e2e8f0'; ctx.strokeStyle = '#64748b'; ctx.lineWidth = 3;
+        rr(ctx, 540, 195, 95, 85, 12); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#0f172a'; ctx.fillText(`Silver`, 587, 232);
+        ctx.fillStyle = '#0284c7'; ctx.fillText(`${Math.round(h.silverTemp)}°C ✨`, 587, 258);
+      }
+    }
+
+    /* ---------- 5. FLAME TEST FIREWORKS LAB ---------- */
+    function drawFlame() {
+      const fl = S.flame;
+      const s = FLAME_SALTS[fl.salt];
+
+      ctx.fillStyle = '#0f172a'; rr(ctx, 16, 14, 868, 316, 16); ctx.fill();
+
+      // Bunsen Burner Tube
+      ctx.fillStyle = '#64748b'; ctx.fillRect(434, 240, 32, 72); ctx.fillRect(398, 302, 104, 16);
+
+      // Outer Colored Flame Plume
+      const sway = Math.sin(animT * 10) * 6;
+      const grad = ctx.createRadialGradient(450 + sway, 175, 12, 450, 180, 95);
+      grad.addColorStop(0, '#ffffff');
+      grad.addColorStop(0.35, s.col);
+      grad.addColorStop(1, 'rgba(0,0,0,0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath(); ctx.ellipse(450 + sway, 172, 48, 88 + Math.sin(animT * 14) * 8, 0, 0, Math.PI * 2); ctx.fill();
+
+      // Dipping Nichrome Wire Loop
+      ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(260, 210); ctx.lineTo(445, 178); ctx.stroke();
+      ctx.fillStyle = s.col; ctx.beginPath(); ctx.arc(448, 178, 8, 0, Math.PI * 2); ctx.fill();
+
+      // Firework Sparks
+      if (Math.random() < 0.35 * animSpeed) {
+        fl.fireworks.push({ x: 450 + (Math.random() - 0.5) * 30, y: 150, vx: (Math.random() - 0.5) * 3, vy: -2 - Math.random() * 2.5, col: s.col, life: 32 });
+      }
+      fl.fireworks.forEach(p => {
+        p.x += p.vx * animSpeed; p.y += p.vy * animSpeed; p.life--;
+        ctx.fillStyle = p.col; ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      fl.fireworks = fl.fireworks.filter(p => p.life > 0);
+
+      // Live Atomic Emission Spectrum Strip (Bottom Left)
+      ctx.fillStyle = '#020617'; ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
+      rr(ctx, 48, 250, 265, 52, 10); ctx.fill(); ctx.stroke();
+      const lineX = 65 + ((s.nm - 400) / 400) * 230;
+      ctx.strokeStyle = s.col; ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.moveTo(lineX, 254); ctx.lineTo(lineX, 298); ctx.stroke();
+      ctx.fillStyle = '#cbd5e1'; ctx.font = 'bold 11px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`EMISSION SPECTRUM: ${s.nm} nm`, 180, 240);
+
+      // Flame Name Badge (Right)
+      ctx.fillStyle = s.col; ctx.font = 'bold 20px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(s.name, 710, 150);
+      ctx.fillStyle = '#f8fafc'; ctx.font = 'bold 14px sans-serif';
+      ctx.fillText(s.colorName, 710, 180);
+    }
+
+    /* ---------- 6. FIRE TRIANGLE & EXTINGUISHER LAB ---------- */
+    function drawFire() {
+      const fi = S.fire;
+      if (fi.extTimer > 0) fi.extTimer--;
+      if (fi.oilFlare > 0) fi.oilFlare--;
+
+      // Glass Bell Dome
+      ctx.fillStyle = 'rgba(226, 232, 240, 0.25)'; ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(340, 210, 145, Math.PI, 0); ctx.lineTo(485, 295); ctx.lineTo(195, 295); ctx.closePath(); ctx.fill(); ctx.stroke();
+
+      // Fuel Pile
+      ctx.font = '38px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(fi.fuel === 'Wood' ? '🪵' : (fi.fuel === 'Paper' ? '📄' : '🛢️'), 340, 282);
+
+      // Roaring Fire Flame
+      if (fi.burning) {
+        const scale = (fi.oxygen / 21) * (fi.oilFlare > 0 ? 1.85 : 1.0);
+        ctx.fillStyle = fi.oilFlare > 0 ? 'rgba(220, 38, 38, 0.92)' : 'rgba(249, 115, 22, 0.88)';
+        ctx.beginPath(); ctx.ellipse(340, 225 - scale * 18, 34 * scale, 52 * scale + Math.sin(animT * 14) * 6, 0, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fde047';
+        ctx.beginPath(); ctx.ellipse(340, 238, 18 * scale, 28 * scale, 0, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Extinguisher Spray Effect
+      if (fi.extTimer > 0) {
+        ctx.fillStyle = fi.extinguisher === 'Water' ? 'rgba(56, 189, 248, 0.65)' : (fi.extinguisher === 'CO2' ? 'rgba(241, 245, 249, 0.85)' : 'rgba(217, 119, 6, 0.72)');
+        for (let i = 0; i < 12; i++) {
+          ctx.beginPath(); ctx.arc(260 + Math.random() * 160, 160 + Math.random() * 110, 10 + Math.random() * 12, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+
+      // Live Fire Triangle Graphic (Right)
+      const tx = 700, ty = 175;
+      const sides = [
+        { p1: [tx, ty - 85], p2: [tx - 95, ty + 75], on: fi.heatLevel > 20, col: '#ef4444', lbl: 'HEAT' },
+        { p1: [tx - 95, ty + 75], p2: [tx + 95, ty + 75], on: true, col: '#f59e0b', lbl: 'FUEL' },
+        { p1: [tx + 95, ty + 75], p2: [tx, ty - 85], on: fi.oxygen >= 10 && fi.extinguisher !== 'CO2' && fi.extinguisher !== 'Sand', col: '#3b82f6', lbl: `OXYGEN (${fi.oxygen}%)` }
+      ];
+      sides.forEach(s => {
+        ctx.strokeStyle = s.on ? s.col : '#cbd5e1'; ctx.lineWidth = s.on ? 9 : 4;
+        if (!s.on) ctx.setLineDash([8, 8]);
+        ctx.beginPath(); ctx.moveTo(s.p1[0], s.p1[1]); ctx.lineTo(s.p2[0], s.p2[1]); ctx.stroke();
+        ctx.setLineDash([]);
+      });
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('HEAT 🔥', tx - 72, ty - 12);
+      ctx.fillText(`OXYGEN (${fi.oxygen}%)`, tx + 82, ty - 12);
+      ctx.fillText(`FUEL: ${fi.fuel}`, tx, ty + 98);
+      ctx.fillStyle = fi.burning ? '#dc2626' : '#16a34a'; ctx.font = 'bold 15px sans-serif';
+      ctx.fillText(fi.burning ? 'TRIANGLE COMPLETE' : 'TRIANGLE BROKEN ✅', tx, ty + 28);
+    }
+
+    /* ---------- 7. CRYSTAL GROWING & SOLUBILITY LAB ---------- */
+    function drawCrystal() {
+      const cr = S.crystal;
+      const sol = CRYSTAL_SOLUTES[cr.solute];
+      if (cr.stirring > 0) cr.stirring--;
+      if (cr.cooled && cr.scoops >= 5) cr.crystalSize = Math.min(1, cr.crystalSize + 0.008 * animSpeed);
+
+      // Glass Beaker Liquid
+      ctx.fillStyle = cr.solute === 'CopperSulfate' ? 'rgba(37, 99, 235, 0.35)' : (cr.solute === 'Sugar' ? 'rgba(251, 191, 36, 0.28)' : 'rgba(203, 213, 225, 0.38)');
+      ctx.fillRect(320, 115, 260, 175);
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(318, 65); ctx.lineTo(318, 292); ctx.lineTo(582, 292); ctx.lineTo(582, 65); ctx.stroke();
+
+      // Pencil across top + Hanging String
+      ctx.fillStyle = '#f59e0b'; ctx.fillRect(295, 58, 310, 12);
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(450, 70); ctx.lineTo(450, 235); ctx.stroke();
+
+      // Sparkling Geometric 3D-Faceted Crystals growing on string!
+      const cSz = 8 + cr.crystalSize * 46;
+      if (cr.crystalSize > 0.05) {
+        const pts = [[450, 195], [430, 165], [472, 175], [442, 225]];
+        pts.forEach(([cx, cy], idx) => {
+          const r = cSz * (idx === 0 ? 1 : 0.62);
+          ctx.fillStyle = sol.col; ctx.strokeStyle = sol.light; ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.moveTo(cx, cy - r); ctx.lineTo(cx + r * 0.72, cy); ctx.lineTo(cx, cy + r); ctx.lineTo(cx - r * 0.72, cy);
+          ctx.closePath(); ctx.fill(); ctx.stroke();
+        });
+      }
+
+      // Swirling Dissolving Solute Particles
+      for (let i = 0; i < cr.scoops * 3; i++) {
+        const ang = animT * (cr.stirring > 0 ? 5 : 1.2) + i * 1.1;
+        const px = 450 + Math.cos(ang) * (40 + (i % 4) * 22);
+        const py = 140 + ((i * 23) % 130);
+        ctx.fillStyle = sol.col; ctx.beginPath(); ctx.arc(px, py, 3.5, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Thermometer on Left
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 110, 75, 42, 190, 20); ctx.fill(); ctx.stroke();
+      const fh = (cr.temp / 100) * 135;
+      ctx.fillStyle = cr.temp > 60 ? '#ef4444' : '#3b82f6';
+      rr(ctx, 125, 225 - fh, 12, fh, 6); ctx.fill();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${cr.temp}°C`, 131, 286);
+    }
+
+    /* ---------- 8. GAS LAWS SYRINGE & BALLOON LAB ---------- */
+    function drawGasLaw() {
+      const gl = S.gaslaw;
+      if (gl.mode === 'Boyle') {
+        const P = +(100 * 60 / gl.volume).toFixed(0);
+        const chamberW = 110 + gl.volume * 2.9;
+        const leftX = 160, rightX = leftX + chamberW;
+
+        // Transparent Syringe Barrel
+        ctx.fillStyle = 'rgba(224, 242, 254, 0.45)'; ctx.fillRect(leftX, 110, chamberW, 130);
+        ctx.strokeStyle = '#475569'; ctx.lineWidth = 4; ctx.strokeRect(leftX, 110, 400, 130);
+        // Plunger
+        ctx.fillStyle = '#1e293b'; ctx.fillRect(rightX, 112, 22, 126);
+        ctx.fillStyle = '#64748b'; ctx.fillRect(rightX + 22, 165, 95, 20);
+
+        // Bouncy Gas Molecules
+        const spd = (1.0 + (100 - gl.volume) / 35) * animSpeed;
+        gl.mols.forEach(m => {
+          m.x += m.vx * spd; m.y += m.vy * spd;
+          if (m.x < leftX + 10) { m.x = leftX + 10; m.vx = Math.abs(m.vx); }
+          if (m.x > rightX - 10) { m.x = rightX - 10; m.vx = -Math.abs(m.vx); }
+          if (m.y < 120 || m.y > 230) m.vy *= -1;
+          ctx.fillStyle = P >= 180 ? '#ef4444' : '#2563eb';
+          ctx.beginPath(); ctx.arc(m.x, m.y, 5.5, 0, Math.PI * 2); ctx.fill();
+        });
+
+        // Analog Pressure Gauge (Right)
+        ctx.fillStyle = '#fff'; ctx.strokeStyle = P >= 180 ? '#dc2626' : '#2563eb'; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.arc(745, 175, 62, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 20px monospace'; ctx.textAlign = 'center';
+        ctx.fillText(`${P} kPa`, 745, 180);
+        ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#64748b'; ctx.fillText('PRESSURE', 745, 202);
+      } else {
+        // Charles's Law Hot-Air Balloon
+        const scale = 0.62 + ((gl.tempK - 200) / 250) * 0.65;
+        const targetY = 215 - ((gl.tempK - 200) / 250) * 105;
+        gl.balloonY += (targetY - gl.balloonY) * 0.08 * animSpeed;
+
+        // Heater or Ice Block at Bottom
+        ctx.font = '38px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(gl.tempK < 270 ? '🧊' : '🔥', 450, 315);
+
+        // Colorful Hot-Air Balloon
+        const by = gl.balloonY;
+        ctx.fillStyle = '#f43f5e'; ctx.strokeStyle = '#9f1239'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.ellipse(450, by, 54 * scale, 64 * scale, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#facc15';
+        ctx.beginPath(); ctx.ellipse(450, by, 22 * scale, 62 * scale, 0, 0, Math.PI * 2); ctx.fill();
+        // Basket
+        ctx.fillStyle = '#92400e'; rr(ctx, 434, by + 64 * scale + 12, 32, 22, 5); ctx.fill();
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif';
+        ctx.fillText(`Volume expands with Temp: ${gl.tempK} K`, 450, 42);
+      }
+    }
+
+    /* ---------- 9. HUMAN EYE & VISION CORRECTOR LAB ---------- */
+    function drawEye() {
+      const ey = S.eye;
+      const ex = 490, cy = 175;
+      const retinaX = ex + 108;
+
+      // Determine focal point X
+      let focusX = retinaX;
+      if (ey.condition === 'Myopia') focusX = ey.lens === 'Concave' ? retinaX : (ey.lens === 'Convex' ? ex + 48 : ex + 72);
+      else if (ey.condition === 'Hypermetropia') focusX = ey.lens === 'Convex' ? retinaX : (ey.lens === 'Concave' ? ex + 168 : ex + 144);
+      else focusX = ey.lens === 'None' ? retinaX : (ey.lens === 'Concave' ? ex + 135 : ex + 82);
+
+      // Eyeball Cross-Section
+      ctx.fillStyle = '#fef2f2'; ctx.strokeStyle = '#64748b'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(ex, cy, 110, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      // Retina Arc (Back of Eye)
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.arc(ex, cy, 108, -0.75, 0.75); ctx.stroke();
+
+      // Natural Eye Lens
+      ctx.fillStyle = 'rgba(147, 197, 253, 0.65)'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.ellipse(ex - 72, cy, 12, 38, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Optional Spectacle Lens (in front of eye)
+      const specX = ex - 165;
+      if (ey.lens !== 'None') {
+        ctx.fillStyle = 'rgba(56, 189, 248, 0.35)'; ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 3;
+        if (ey.lens === 'Convex') {
+          ctx.beginPath(); ctx.ellipse(specX, cy, 12, 48, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        } else {
+          ctx.beginPath(); ctx.moveTo(specX - 12, cy - 48); ctx.quadraticCurveTo(specX, cy, specX - 12, cy + 48);
+          ctx.lineTo(specX + 12, cy + 48); ctx.quadraticCurveTo(specX, cy, specX + 12, cy - 48); ctx.closePath(); ctx.fill(); ctx.stroke();
+        }
+      }
+
+      // Parallel Incoming Light Rays Bending to Focus!
+      ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 3;
+      [-26, 0, 26].forEach(dy => {
+        ctx.beginPath();
+        ctx.moveTo(120, cy + dy);
+        ctx.lineTo(specX, cy + dy);
+        const midY = ey.lens === 'Concave' ? cy + dy * 1.25 : (ey.lens === 'Convex' ? cy + dy * 0.78 : cy + dy);
+        ctx.lineTo(ex - 72, midY);
+        ctx.lineTo(focusX, cy);
+        ctx.stroke();
+      });
+
+      // Focus Dot
+      const isSharp = Math.abs(focusX - retinaX) <= 3;
+      ctx.fillStyle = isSharp ? '#16a34a' : '#dc2626';
+      ctx.beginPath(); ctx.arc(focusX, cy, 7, 0, Math.PI * 2); ctx.fill();
+
+      // "What the Student Sees" Preview Box (Top Right)
+      ctx.fillStyle = '#0f172a'; rr(ctx, 680, 45, 195, 110, 14); ctx.fill();
+      ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 10.5px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('WHAT THE STUDENT SEES', 777, 68);
+      ctx.save();
+      if (!isSharp) ctx.filter = 'blur(3.5px)';
+      ctx.fillStyle = '#4ade80'; ctx.font = 'bold 20px sans-serif';
+      ctx.fillText('SHARP STUDY', 777, 114);
+      ctx.restore();
+      ctx.fillStyle = isSharp ? '#4ade80' : '#f87171'; ctx.font = 'bold 11px sans-serif';
+      ctx.fillText(isSharp ? '✅ Crystal Clear!' : '😵 Blurry Focus', 777, 142);
+    }
+
+    /* ---------- 10. WATER CYCLE & CLOUD MAKER TERRARIUM ---------- */
+    function drawWaterCycle() {
+      const wc = S.watercycle;
+      // Sky
+      ctx.fillStyle = '#e0f2fe'; rr(ctx, 14, 12, 872, 318, 16); ctx.fill();
+
+      // Sun
+      ctx.fillStyle = `rgba(250, 204, 21, ${0.2 + (wc.sun / 100) * 0.8})`;
+      ctx.beginPath(); ctx.arc(110, 74, 34 + (wc.sun / 100) * 14, 0, Math.PI * 2); ctx.fill();
+      ctx.font = '34px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('☀️', 110, 86);
+
+      // Ocean (Left) & Mountains (Right)
+      ctx.fillStyle = '#0284c7'; ctx.fillRect(14, 260, 440, 70);
+      ctx.fillStyle = '#64748b';
+      ctx.beginPath(); ctx.moveTo(420, 330); ctx.lineTo(630, 120); ctx.lineTo(886, 330); ctx.closePath(); ctx.fill();
+      // Snowcap
+      if (wc.chill > 60) {
+        ctx.fillStyle = '#ffffff';
+        ctx.beginPath(); ctx.moveTo(578, 172); ctx.lineTo(630, 120); ctx.lineTo(692, 172); ctx.closePath(); ctx.fill();
+      }
+      // Flowing River back to ocean
+      ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 10;
+      ctx.beginPath(); ctx.moveTo(615, 225); ctx.quadraticCurveTo(510, 255, 440, 275); ctx.stroke();
+
+      // Evaporation Vapor Wisps
+      if (wc.sun > 20 && Math.random() < (wc.sun / 100) * 0.35 * animSpeed) {
+        wc.vapors.push({ x: 80 + Math.random() * 280, y: 255, vy: 1.2 + wc.sun * 0.01 });
+      }
+      ctx.strokeStyle = 'rgba(255,255,255,0.85)'; ctx.lineWidth = 2.5;
+      wc.vapors.forEach(v => {
+        v.y -= v.vy * animSpeed;
+        ctx.beginPath(); ctx.arc(v.x + Math.sin(v.y * 0.08) * 6, v.y, 4, 0, Math.PI * 2); ctx.stroke();
+      });
+      wc.vapors = wc.vapors.filter(v => v.y > 95);
+
+      // Drifting Condensing Cloud
+      wc.cloudX = 240 + (wc.wind / 100) * 380 + Math.sin(animT) * 12;
+      const dark = Math.min(1, (wc.sun / 100) * (wc.chill / 100) * 1.4);
+      const cVal = Math.round(255 - dark * 125);
+      ctx.fillStyle = `rgb(${cVal}, ${cVal + 5}, ${cVal + 15})`;
+      ctx.beginPath();
+      ctx.arc(wc.cloudX, 82, 34, 0, Math.PI * 2);
+      ctx.arc(wc.cloudX + 34, 76, 40, 0, Math.PI * 2);
+      ctx.arc(wc.cloudX + 70, 84, 30, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Raindrops or Snowflakes
+      const precip = wc.sun >= 55 && wc.chill >= 40;
+      const isSnow = wc.chill >= 75;
+      if (precip && Math.random() < 0.55 * animSpeed) {
+        wc.drops.push({ x: wc.cloudX + Math.random() * 75, y: 112, vy: isSnow ? 1.3 : 4.2, snow: isSnow });
+      }
+      wc.drops.forEach(d => {
+        d.y += d.vy * animSpeed;
+        if (d.snow) {
+          ctx.fillStyle = '#ffffff'; ctx.beginPath(); ctx.arc(d.x + Math.sin(d.y * 0.08) * 5, d.y, 4, 0, Math.PI * 2); ctx.fill();
+        } else {
+          ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2.5;
+          ctx.beginPath(); ctx.moveTo(d.x, d.y); ctx.lineTo(d.x - 2, d.y + 10); ctx.stroke();
+        }
+      });
+      wc.drops = wc.drops.filter(d => d.y < 265);
+    }
+
+    /* ---------- 11. ECOSYSTEM & FOOD WEB BALANCE LAB ---------- */
+    function drawFoodWeb() {
+      const fw = S.foodweb;
+      // Gentle ecological balance update
+      const targetGrass = fw.drought ? 14 : fw.rain;
+      fw.grass += (targetGrass - fw.grass) * 0.015 * animSpeed;
+      const targetRab = Math.max(6, Math.min(95, fw.grass * 0.85 - fw.foxes * 0.35));
+      fw.rabbits += (targetRab - fw.rabbits) * 0.01 * animSpeed;
+      const targetFox = Math.max(4, Math.min(85, fw.rabbits * 0.65 - fw.eagles * 0.25));
+      fw.foxes += (targetFox - fw.foxes) * 0.01 * animSpeed;
+      const targetEag = Math.max(3, Math.min(60, fw.foxes * 0.55));
+      fw.eagles += (targetEag - fw.eagles) * 0.01 * animSpeed;
+
+      // Sky & Lush/Dry Meadow
+      ctx.fillStyle = fw.drought ? '#fef3c7' : '#e0f2fe'; rr(ctx, 14, 12, 872, 220, 14); ctx.fill();
+      ctx.fillStyle = fw.drought ? '#d97706' : '#86efac'; ctx.fillRect(14, 225, 872, 105);
+
+      // Animated Critters in Meadow
+      ctx.textAlign = 'center';
+      const nGrass = Math.round(fw.grass / 10);
+      ctx.font = '24px sans-serif';
+      for (let i = 0; i < nGrass; i++) ctx.fillText('🌿', 55 + i * 58, 260 + Math.sin(animT * 3 + i) * 3);
+
+      const nRab = Math.max(1, Math.round(fw.rabbits / 15));
+      ctx.font = '28px sans-serif';
+      for (let i = 0; i < nRab; i++) ctx.fillText('🐇', 90 + i * 110 + Math.sin(animT * 2 + i) * 18, 290 - Math.abs(Math.sin(animT * 4 + i)) * 12);
+
+      const nFox = Math.max(1, Math.round(fw.foxes / 18));
+      for (let i = 0; i < nFox; i++) ctx.fillText('🦊', 150 + i * 165 + Math.cos(animT * 1.5 + i) * 22, 315);
+
+      const nEag = Math.max(1, Math.round(fw.eagles / 15));
+      for (let i = 0; i < nEag; i++) ctx.fillText('🦅', 160 + ((animT * 45 + i * 240) % 580), 68 + Math.sin(animT * 2 + i) * 14);
+
+      // 4 Live Population Bars (Top Right)
+      const bars = [
+        { lbl: '🌿', val: fw.grass, col: '#16a34a', x: 645 },
+        { lbl: '🐇', val: fw.rabbits, col: '#2563eb', x: 700 },
+        { lbl: '🦊', val: fw.foxes, col: '#ea580c', x: 755 },
+        { lbl: '🦅', val: fw.eagles, col: '#7c3aed', x: 810 }
+      ];
+      ctx.fillStyle = 'rgba(255,255,255,0.92)'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 628, 24, 242, 120, 12); ctx.fill(); ctx.stroke();
+      bars.forEach(b => {
+        const bh = Math.max(4, (b.val / 100) * 72);
+        ctx.fillStyle = '#e2e8f0'; ctx.fillRect(b.x, 42, 32, 72);
+        ctx.fillStyle = b.col; ctx.fillRect(b.x, 114 - bh, 32, bh);
+        ctx.font = '15px sans-serif'; ctx.fillText(b.lbl, b.x + 16, 134);
+      });
+    }
+
+    /* ---------- 12. IMMUNE SYSTEM DEFENDER LAB ---------- */
+    function drawImmune() {
+      const im = S.immune;
+      // Blood Vessel Background
+      ctx.fillStyle = '#fee2e2'; rr(ctx, 14, 18, 872, 308, 22); ctx.fill();
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 10;
+      ctx.beginPath(); ctx.moveTo(18, 24); ctx.lineTo(882, 24); ctx.moveTo(18, 320); ctx.lineTo(882, 320); ctx.stroke();
+
+      // Flowing Red Blood Cells
+      im.bloodCells.forEach(bc => {
+        bc.x = (bc.x + bc.vx * animSpeed) % 900;
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.35)';
+        ctx.beginPath(); ctx.ellipse(bc.x, bc.y, 18, 11, 0, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Germs (Bacteria & Viruses)
+      im.germs.forEach(g => {
+        g.x += g.vx * animSpeed; g.y += g.vy * animSpeed;
+        if (g.x < 40 || g.x > 840) g.vx *= -1;
+        if (g.y < 52 || g.y > 292) g.vy *= -1;
+        ctx.font = '28px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(g.type === 'Bacteria' ? '🦠' : '👾', g.x, g.y + 10);
+      });
+
+      // Macrophages & Y-Shaped Antibodies Chasing Germs!
+      im.defenders.forEach(def => {
+        if (im.germs.length > 0) {
+          const tgt = im.germs[0];
+          const dx = tgt.x - def.x, dy = tgt.y - def.y, dist = Math.hypot(dx, dy) || 1;
+          def.x += (dx / dist) * def.speed * animSpeed;
+          def.y += (dy / dist) * def.speed * animSpeed;
+          if (dist < 24) {
+            im.germs.shift();
+            im.defeatedCount++;
+            im.pops.push({ x: tgt.x, y: tgt.y, life: 22 });
+            if (im.germs.length === 0) updateLabState(true);
+            renderControls();
+          }
+        } else {
+          def.x += Math.sin(animT + def.y) * 0.8;
+        }
+        if (def.isMacro) {
+          ctx.fillStyle = '#fff'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
+          ctx.beginPath(); ctx.arc(def.x, def.y, 18, 0.3, Math.PI * 2 - 0.3); ctx.lineTo(def.x, def.y); ctx.closePath(); ctx.fill(); ctx.stroke();
+        } else {
+          ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 4;
+          ctx.beginPath(); ctx.moveTo(def.x, def.y + 12); ctx.lineTo(def.x, def.y); ctx.lineTo(def.x - 10, def.y - 10); ctx.moveTo(def.x, def.y); ctx.lineTo(def.x + 10, def.y - 10); ctx.stroke();
+        }
+      });
+
+      // Comic POP! Burst Effects
+      im.pops.forEach(p => {
+        p.life--;
+        ctx.fillStyle = '#f59e0b'; ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('💥 POP!', p.x, p.y - (22 - p.life));
+      });
+      im.pops = im.pops.filter(p => p.life > 0);
+    }
+
+    /* =====================================================================
+       10. LEARN FIRST 3-STEP CONCEPT MODAL & MAIN RENDER LOOP
+    ===================================================================== */
+    let modalStep = 0;
+    const miniCanvas = document.getElementById('miniConceptCanvas');
+    const miniCtx = miniCanvas.getContext('2d');
+
+    function openConceptModal() {
+      modalStep = 0;
+      document.getElementById('conceptModal').classList.add('open');
+      renderConceptStep();
+    }
+    function closeConceptModal() {
+      document.getElementById('conceptModal').classList.remove('open');
+      VoiceEngine.stop();
+    }
+    function renderConceptStep() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const s = lab.concepts[modalStep];
+      document.getElementById('modalHeaderTitle').textContent = `📖 Learn First: ${lab.short}`;
+      document.getElementById('modalStepTitle').textContent = s.t;
+      document.getElementById('modalStepText').textContent = s.d;
+      document.getElementById('modalDots').innerHTML = lab.concepts.map((_, i) => `<div class="step-dot ${i <= modalStep ? 'active' : ''}"></div>`).join('');
+      document.getElementById('modalPrevBtn').style.visibility = modalStep === 0 ? 'hidden' : 'visible';
+      document.getElementById('modalNextBtn').textContent = modalStep === 2 ? 'Start Experiment 🚀' : 'Next →';
+    }
+    function stepConcept(dir) {
+      if (dir > 0 && modalStep === 2) { closeConceptModal(); return; }
+      modalStep = Math.max(0, Math.min(2, modalStep + dir));
+      renderConceptStep();
+      speakCurrentConcept();
+    }
+    function speakCurrentConcept() {
+      const s = LABS.find(l => l.id === activeLabId).concepts[modalStep];
+      VoiceEngine.speak(`${s.t}. ${s.d}`);
+    }
+
+    function drawMiniConcept() {
+      miniCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+      const lab = LABS.find(l => l.id === activeLabId);
+      miniCtx.fillStyle = '#eff6ff'; rr(miniCtx, 12, 12, 536, 114, 14); miniCtx.fill();
+      miniCtx.font = '44px sans-serif'; miniCtx.textAlign = 'center';
+      miniCtx.fillText(lab.icon, 280 + Math.sin(animT * 3) * 18, 72);
+      miniCtx.fillStyle = '#1e3a8a'; miniCtx.font = 'bold 13px sans-serif';
+      miniCtx.fillText(lab.concepts[modalStep].t, 280, 108);
+    }
+
+    function mainLoop() {
+      animT += 0.03 * animSpeed;
+      drawActiveLab();
+      if (document.getElementById('conceptModal').classList.contains('open')) drawMiniConcept();
+      requestAnimationFrame(mainLoop);
+    }
+
+    /* =====================================================================
+       11. RIGHT-DOCKED GEMINI AI LAB TUTOR (ALL 12 PACK 4 LABS)
+    ===================================================================== */
+    function updateLiveStateSummary() {
+      const el = document.getElementById('liveStateSummary');
+      const lab = LABS.find(l => l.id === activeLabId);
+      let info = '';
+      if (activeLabId === 'coaster') info = `Hill ${S.coaster.height}m, ${S.coaster.mass}kg, ${S.coaster.surface}`;
+      else if (activeLabId === 'lever') info = `${S.lever.leftChar}@${S.lever.leftDist}m vs ${S.lever.rightChar}@${S.lever.rightDist}m`;
+      else if (activeLabId === 'static') info = `Charge -${S.static.balloonCharge}e⁻ at ${S.static.pos}`;
+      else if (activeLabId === 'heat') info = `${S.heat.mode} (${S.heat.mode==='Conduction'?S.heat.rod:(S.heat.mode==='Convection'?S.heat.convHeat:S.heat.radSource)})`;
+      else if (activeLabId === 'flame') info = `${FLAME_SALTS[S.flame.salt].name} (${FLAME_SALTS[S.flame.salt].colorName})`;
+      else if (activeLabId === 'fire') info = `${S.fire.fuel}, O₂ ${S.fire.oxygen}%, ${S.fire.burning?'Burning':'Out'}`;
+      else if (activeLabId === 'crystal') info = `${S.crystal.solute}, ${S.crystal.scoops} scoops, ${S.crystal.temp}°C`;
+      else if (activeLabId === 'gaslaw') info = S.gaslaw.mode === 'Boyle' ? `Boyle V=${S.gaslaw.volume}mL` : `Charles T=${S.gaslaw.tempK}K`;
+      else if (activeLabId === 'eye') info = `${S.eye.condition} + ${S.eye.lens} lens`;
+      else if (activeLabId === 'watercycle') info = `Sun ${S.watercycle.sun}%, Wind ${S.watercycle.wind}%, Chill ${S.watercycle.chill}%`;
+      else if (activeLabId === 'foodweb') info = `Grass ${Math.round(S.foodweb.grass)}, Rabbits ${Math.round(S.foodweb.rabbits)}, Foxes ${Math.round(S.foodweb.foxes)}`;
+      else if (activeLabId === 'immune') info = `${S.immune.germs.length} germs, Vaccine:${S.immune.vaccinated?'ON':'OFF'}`;
+      el.textContent = `Live: ${lab.short} (${info})`;
+    }
+
+    function updateQuickChips() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('quickChips').innerHTML = lab.chips.map(c =>
+        `<button class="q-chip" onclick="askTutor('${c.replace(/'/g, "\\'")}')">${c}</button>`
+      ).join('');
+    }
+
+    function appendMsg(role, text) {
+      const log = document.getElementById('chatLog');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      if (role === 'bot') {
+        const btn = document.createElement('button');
+        btn.className = 'msg-speak';
+        btn.textContent = '🔊 Read Answer';
+        btn.onclick = () => VoiceEngine.speak(text);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(btn);
+      }
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const inp = document.getElementById('chatInput');
+      const q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      askTutor(q);
+    }
+
+    async function askTutor(question) {
+      appendMsg('user', question);
+      const liveContext = document.getElementById('liveStateSummary').textContent;
+
+      if (LAB_CONFIG.GEMINI_PROXY_ENDPOINT) {
+        try {
+          const res = await fetch(LAB_CONFIG.GEMINI_PROXY_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, liveContext })
+          });
+          if (res.ok) { appendMsg('bot', (await res.json()).reply); return; }
+        } catch (_) {}
+      }
+
+      const q = question.toLowerCase();
+      let r = '';
+      if (q.includes('potential') || q.includes('kinetic') || q.includes('coaster') || q.includes('sand')) r = 'Potential Energy (mgh) is stored height energy at the top of the hill. As the coaster drops, it becomes Kinetic Energy (½mv²). Sand friction steals speed and turns it into Thermal heat!';
+      else if (q.includes('torque') || q.includes('cat') || q.includes('seesaw') || q.includes('fulcrum')) r = 'Torque = Force × Distance (F × d). A light 2kg Cat sitting far out at 5m produces 10 units of torque — balancing a heavy 10kg Robot sitting close at 1m!';
+      else if (q.includes('balloon') || q.includes('static') || q.includes('doorknob') || q.includes('lightning')) r = 'Rubbing transfers minus-electrons onto the balloon. Near a wall, opposite charges attract so it sticks; near a metal doorknob, electrons leap across the gap in a mini lightning zap!';
+      else if (q.includes('conduction') || q.includes('convection') || q.includes('copper') || q.includes('black')) r = 'Conduction passes vibrations through solids (Copper is fastest!). Convection swirls hot rising and cool sinking fluids. Radiation sends infrared waves — absorbed fast by Black and reflected by Silver!';
+      else if (q.includes('flame') || q.includes('firework') || q.includes('spectrum')) r = 'Heat excites metal electrons to higher orbits; when they drop back, they emit pure colored light (Sodium = Yellow, Copper = Blue-Green, Strontium = Crimson Red) — the exact science of fireworks!';
+      else if (q.includes('fire') || q.includes('oil') || q.includes('triangle') || q.includes('co2')) r = 'Fire needs Heat, Fuel, and Oxygen. Never pour water on burning Oil because oil floats and flares up violently! CO₂ Foam or Sand safely smothers the fire by cutting off Oxygen.';
+      else if (q.includes('crystal') || q.includes('supersaturated') || q.includes('solute')) r = 'Hot water dissolves extra solute scoops to become Supersaturated. When cooled, the extra Copper Sulfate or Sugar molecules snap neatly onto the string to grow geometric crystals!';
+      else if (q.includes('boyle') || q.includes('charles') || q.includes('syringe') || q.includes('pressure')) r = 'Boyle’s Law (P₁V₁ = P₂V₂): squeezing a syringe halves Volume and doubles Pressure! Charles’s Law (V₁/T₁ = V₂/T₂): heating gas makes a hot-air balloon expand and float!';
+      else if (q.includes('myopia') || q.includes('hypermetropia') || q.includes('concave') || q.includes('convex')) r = 'In Myopia (short-sighted), rays focus in front of the retina — fixed by a diverging Concave (−) lens. In Hypermetropia (far-sighted), rays focus behind — fixed by a converging Convex (+) lens!';
+      else if (q.includes('evaporat') || q.includes('cloud') || q.includes('rain') || q.includes('snow')) r = 'Sunlight evaporates ocean water into rising vapor. Chilly mountains condense vapor into dark rain clouds — or falling Snowflakes when Mountain Chill is freezing!';
+      else if (q.includes('producer') || q.includes('fox') || q.includes('drought') || q.includes('food')) r = 'Grass is the Producer making food from sun and rain. A Drought shrinks the Grass first, which ripples up to Rabbits, Foxes, and Eagles!';
+      else if (q.includes('macrophage') || q.includes('antibod') || q.includes('vaccine') || q.includes('bacteria')) r = 'Macrophages chomp germs and Y-shaped Antibodies tag and pop invaders! A Vaccine safely trains Memory Cells ahead of time so your immune system wins 3× faster!';
+      else r = `Looking at your live lab (${liveContext}) — try adjusting the playful controls below or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!`;
+
+      appendMsg('bot', r);
+    }
+
+    // SharpStudy standalone and embedded entry point.
+    const params = new URLSearchParams(location.search);
+    const embedded = params.get('embedded') === '1' && window.parent !== window;
+    if (embedded) document.documentElement.setAttribute('data-embedded', '');
+    else document.documentElement.removeAttribute('data-embedded');
+    const hasTopics = typeof activeTopic !== 'undefined';
+    const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
+    if (selectedLab) activeLabId = selectedLab.id;
+    const groupKey = hasTopics ? 'topic' : 'subject';
+    const storedGroup = params.get(groupKey);
+    if (selectedLab && selectedLab[groupKey] === storedGroup) {
+      if (hasTopics) activeTopic = storedGroup;
+      else activeSubject = storedGroup;
+      document.querySelectorAll(hasTopics ? '.topic-btn' : '.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + storedGroup + "'"));
+      });
+    }
+    const resizeReport = () => {
+      const workspace = document.querySelector('main');
+      if (embedded && workspace) parent.postMessage({ source: 'sharpstudy-lab', height: Math.max(500, Math.ceil(workspace.getBoundingClientRect().bottom + scrollY + 18)) }, location.origin);
+    };
+
+    function updateRangeBadge(input) {
+      const badge = input.closest('.control-box')?.querySelector('.badge');
+      if (!badge) return;
+      const text = badge.textContent;
+      badge.textContent = text.replace(/-?\d+(?:\.\d+)?/, input.value);
+    }
+
+    const unwrappedSelect = selectLab;
+    selectLab = (id, showBriefing) => {
+      if (!LABS.some(lab => lab.id === id)) return;
+      if (isAutoSolving && !hasTopics) return;
+      if (hasTopics) cancelAutoSolve();
+      if (embedded && id !== activeLabId) {
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, [groupKey]: hasTopics ? activeTopic : activeSubject }, location.origin);
+        return;
+      }
+      unwrappedSelect(id, showBriefing);
+    };
+
+    const nativeClose = closeConceptModal;
+    closeConceptModal = () => {
+      nativeClose();
+      try { sessionStorage.setItem('sharpstudy-lab-guide-' + activeLabId, 'done'); } catch {}
+    };
+    try {
+      if (sessionStorage.getItem('sharpstudy-lab-guide-' + activeLabId) === 'done') document.getElementById('conceptModal').classList.remove('open');
+    } catch {}
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.getElementById('conceptModal').classList.contains('open')) closeConceptModal();
+    });
+    window.addEventListener('pagehide', () => {
+      VoiceEngine.stop();
+      if (typeof SoundAudio !== 'undefined') SoundAudio.stop?.();
+    });
+    if (embedded) {
+      const observer = new ResizeObserver(resizeReport);
+      observer.observe(document.body);
+      window.addEventListener('load', resizeReport, { once: true });
+    }
+
+    // Boot Application cleanly on window load
+    window.onload = function () {
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      renderConceptStep();
+      mainLoop();
+    };
+  </script>
+</body>
+</html>

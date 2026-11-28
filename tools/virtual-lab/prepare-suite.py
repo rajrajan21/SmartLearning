@@ -6,7 +6,8 @@ source, output = map(Path, sys.argv[1:3])
 html = source.read_text(encoding="utf-8-sig")
 pack_marker = re.search(r"Boot Pack (\d+) Application", html)
 pack = int(pack_marker.group(1)) if pack_marker else 1
-save_name = "sharpstudy-10-virtual-labs.html" if pack == 1 else f"sharpstudy-virtual-lab-pack{pack}.html"
+maths = re.search(r"^    let activeTopic = ", html, re.M) is not None
+save_name = "sharpstudy-math-lab-12.html" if maths else "sharpstudy-10-virtual-labs.html" if pack == 1 else f"sharpstudy-virtual-lab-pack{pack}.html"
 
 assert html.count("<script>") == 1 and html.count("</script>") == 1
 assert "CUSTOM_TTS_ENDPOINT: \"\"" in html and "GEMINI_PROXY_ENDPOINT: \"\"" in html
@@ -14,7 +15,10 @@ assert not re.search(r'<(?:script|iframe)[^>]+src=|document\.cookie|\beval\(', h
 html = html.replace("<meta charset=\"UTF-8\" />", """<meta charset="UTF-8" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'" />""", 1)
 assert "Content-Security-Policy" in html
-html = html.replace("Ask Gemini about this lab...", "Ask about this lab...")
+html = re.sub(r"Gemini AI (?:Lab|Maths) Tutor|SharpStudy (?:AI Maths|Lab) Tutor", "Sharp Teacher AI", html)
+html = re.sub(r"Ask Gemini about this (?:maths )?lab\.\.\.", "Ask about this lab...", html)
+html = html.replace("Ask about the experiment or try a suggested question", "Built-in lab explanations")
+html = html.replace("Ask anything about the live experiment on your screen", "Built-in lab explanations")
 html = html.replace("Ask anything about the live experiment on your screen", "Ask about the experiment or try a suggested question")
 html = html.replace("  </style>", """    html[data-embedded] .modal-backdrop {
       align-items: flex-start;
@@ -52,13 +56,16 @@ html = html.replace("    // Boot Application", r"""    // SharpStudy standalone 
     const embedded = params.get('embedded') === '1' && window.parent !== window;
     if (embedded) document.documentElement.setAttribute('data-embedded', '');
     else document.documentElement.removeAttribute('data-embedded');
+    const hasTopics = typeof activeTopic !== 'undefined';
     const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
     if (selectedLab) activeLabId = selectedLab.id;
-    const storedSubject = params.get('subject');
-    if (selectedLab && selectedLab.subject === storedSubject) {
-      activeSubject = storedSubject;
-      document.querySelectorAll('.subj-btn').forEach(button => {
-        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + activeSubject + "'"));
+    const groupKey = hasTopics ? 'topic' : 'subject';
+    const storedGroup = params.get(groupKey);
+    if (selectedLab && selectedLab[groupKey] === storedGroup) {
+      if (hasTopics) activeTopic = storedGroup;
+      else activeSubject = storedGroup;
+      document.querySelectorAll(hasTopics ? '.topic-btn' : '.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + storedGroup + "'"));
       });
     }
     const resizeReport = () => {
@@ -75,9 +82,11 @@ html = html.replace("    // Boot Application", r"""    // SharpStudy standalone 
 
     const unwrappedSelect = selectLab;
     selectLab = (id, showBriefing) => {
-      if (!LABS.some(lab => lab.id === id) || isAutoSolving) return;
+      if (!LABS.some(lab => lab.id === id)) return;
+      if (isAutoSolving && !hasTopics) return;
+      if (hasTopics) cancelAutoSolve();
       if (embedded && id !== activeLabId) {
-        parent.postMessage({ source: 'sharpstudy-lab', lab: id, subject: activeSubject }, location.origin);
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, [groupKey]: hasTopics ? activeTopic : activeSubject }, location.origin);
         return;
       }
       unwrappedSelect(id, showBriefing);

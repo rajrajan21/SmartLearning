@@ -229,7 +229,7 @@ export const UI = {
   lvlMastered: { en: "Mastered", ta: "தேர்ச்சி" },
   progressIntro: { en: "How well you know each chapter. Open a chapter to learn or practise more.", ta: "ஒவ்வொரு பாடத்தையும் எவ்வளவு அறிவீர்கள். மேலும் கற்க ஒரு பாடத்தைத் திறக்கவும்." },
   progressNone: { en: "Nothing to measure here yet.", ta: "இங்கே அளவிட இன்னும் எதுவும் இல்லை." },
-  askTeacher: { en: "Ask Malar Teacher", ta: "மலர் டீச்சரிடம் கேள்" },
+  askTeacher: { en: "Ask Sharp Teacher AI", ta: "Sharp Teacher AI-யிடம் கேள்" },
   askPlaceholder: { en: "Type your question", ta: "உன் கேள்வியை எழுது" },
   askButton: { en: "Ask", ta: "கேள்" },
   explainAgain: { en: "Explain again", ta: "மீண்டும் விளக்கு" },

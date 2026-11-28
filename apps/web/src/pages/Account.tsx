@@ -10,7 +10,7 @@ import { useApp } from "../lib/useApp";
 import { st } from "../lib/signin-text";
 import { SocialButtons } from "../components/SocialButtons";
 
-export const AVATAR_EMOJI: Record<string, string> = { owl: "🦉", fox: "🦊", panda: "🐼", lion: "🦁", rabbit: "🐰", turtle: "🐢", parrot: "🦜", elephant: "🐘" };
+import { AVATAR_EMOJI } from "../lib/avatarEmoji";
 
 
 function ExtraClasses({ classes, main, more, setMore, max, lang }: { classes: number[]; main: number; more: number[]; setMore: (v: number[]) => void; max: number; lang: "en" | "ta" }) {

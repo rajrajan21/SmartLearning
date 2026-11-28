@@ -3,7 +3,7 @@ import { Link, useParams, useSearch } from "wouter";
 import { useSettings } from "../lib/settings";
 import { NotFound } from "../components/bits";
 import { LabScene } from "./virtualLabScene";
-import { packs, VirtualLabWorkbench, workbenches } from "./VirtualLabWorkbench";
+import { labSubjects, mathsTopics, packLabel, packs, VirtualLabWorkbench, workbenches } from "./VirtualLabWorkbench";
 import { labs, narration, nominalPh, transformer, type LabId, type VoiceCue } from "./virtualLabData";
 import "./virtualLab.css";
 
@@ -15,60 +15,81 @@ const recordSeen = (id: LabId) => { try { localStorage.setItem(guideKey(id), "se
 
 export function VirtualLabHub() {
   const s = useSettings();
-  const search = useSearch();
-  const subject = new URLSearchParams(search).get("subject");
-  const [filter, setFilter] = useState(subject === "physics" || subject === "chemistry" || subject === "biology" ? subject : "all");
+  const params = new URLSearchParams(useSearch());
+  const subject = params.get("subject");
+  const [filter, setFilter] = useState(subject ?? "all");
+  const [topic, setTopic] = useState(params.get("topic") ?? "all");
   const [query, setQuery] = useState("");
   const [pack, setPack] = useState("all");
   if (s.get("feature.virtualLab") !== true) return <NotFound />;
-  const subjects = [
-    { id: "physics", name: "Physics", icon: "⚡" },
-    { id: "chemistry", name: "Chemistry", icon: "⚗️" },
-    { id: "biology", name: "Biology", icon: "🌱" },
-  ];
+  const active = labSubjects.find(group => group.id === filter);
   const matching = workbenches.filter(entry =>
-    (filter === "all" || entry.subject === filter) &&
+    (!active || entry.subject === active.id) &&
+    (active?.id !== "maths" || topic === "all" || entry.topic === topic) &&
     (pack === "all" || String(entry.pack) === pack) &&
     entry.title.toLowerCase().includes(query.trim().toLowerCase()));
-  return <div className="paper vl">
+  function chooseSubject(next: string) {
+    setFilter(next);
+    setTopic("all");
+    setPack("all");
+  }
+  function cards(entries: typeof workbenches) {
+    return <div className="vl-cards">
+      {entries.map(entry => (
+        <Link className="vl-card" href={"/virtual-lab/" + entry.id} key={entry.id}>
+          <span className="vl-meta">{packLabel(entry.pack)}</span>
+          <h3>{entry.title}</h3>
+          <span className="vl-open">Open lab <span aria-hidden="true">↗</span></span>
+        </Link>
+      ))}
+    </div>;
+  }
+  return <div className="vl vl-catalog">
     <header className="vl-hero">
-      <h1>{label(s.lang === "ta")}</h1>
-      <p>Choose an experiment to open its workbench.</p>
+      <div><h1>{label(s.lang === "ta")}</h1><p>Try an experiment or play a maths challenge.</p></div>
+      <label className="vl-search">Find a lab
+        <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try fractions or light" />
+      </label>
     </header>
-    <div className="vl-catalog-controls">
-      <label className="vl-filter">Find an experiment
-        <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try lens or heart" />
-      </label>
-      <label className="vl-filter">Show labs
-        <select value={filter} onChange={e => setFilter(e.target.value)}>
-          <option value="all">All subjects</option>
-          {subjects.map(subject => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
-        </select>
-      </label>
-      <label className="vl-filter">Show pack
-        <select value={pack} onChange={e => setPack(e.target.value)}>
-          <option value="all">All packs</option><option value="1">Pack 1</option><option value="2">Pack 2</option><option value="3">Pack 3</option>
-        </select>
-      </label>
+    <div className="vl-subjects" role="group" aria-label="Choose a lab subject">
+      {labSubjects.map(group => (
+        <button className="vl-subject" key={group.id} type="button" aria-pressed={active?.id === group.id} onClick={() => chooseSubject(group.id)}>
+          <span aria-hidden="true" className="vl-subject-icon">{group.icon}</span>
+          <strong>{group.name}</strong>
+          <span>{group.description}</span>
+          <span className="vl-count">{workbenches.filter(entry => entry.subject === group.id).length} labs</span>
+        </button>
+      ))}
     </div>
-    {subjects.filter(subject => matching.some(entry => entry.subject === subject.id)).map(subject => (
-      <section key={subject.id} className="vl-catalog-group" aria-labelledby={"vl-" + subject.id}>
-        <h2 id={"vl-" + subject.id}><span aria-hidden="true">{subject.icon}</span> {subject.name}</h2>
-        <div className="vl-cards">
-          {matching.filter(entry => entry.subject === subject.id).map(entry => (
-            <Link className="vl-card" href={"/virtual-lab/" + entry.id} key={entry.id}>
-              <div><span className="vl-meta">Pack {entry.pack}</span><h3>{entry.title}</h3><b>Open lab <span aria-hidden="true">→</span></b></div>
-            </Link>
-          ))}
-        </div>
+    <div className="vl-toolbar">
+      <button className="btn ghost" type="button" aria-pressed={!active} onClick={() => chooseSubject("all")}>All subjects</button>
+      {active?.id === "maths" ? <label>Topic <select value={topic} onChange={event => setTopic(event.target.value)}>
+        <option value="all">All maths topics</option>
+        {mathsTopics.map(group => <option key={group.id} value={group.id}>{group.name}</option>)}
+      </select></label> : <label>Pack <select value={pack} onChange={event => setPack(event.target.value)}>
+        <option value="all">All packs</option>
+        {([1, 2, 3, 4] as const).map(id => <option key={id} value={id}>{packLabel(id)}</option>)}
+      </select></label>}
+      <span className="vl-result" role="status">{matching.length} {matching.length === 1 ? "lab" : "labs"}</span>
+    </div>
+    {labSubjects.filter(group => matching.some(entry => entry.subject === group.id)).map(group => (
+      <section key={group.id} className="vl-catalog-group" aria-labelledby={"vl-" + group.id}>
+        <h2 id={"vl-" + group.id}>{group.name}</h2>
+        {group.id === "maths" ? mathsTopics.map(category => {
+          const entries = matching.filter(entry => entry.topic === category.id);
+          return entries.length > 0 && <section className="vl-topic-group" key={category.id} aria-label={category.name}>
+            <h3>{category.name}</h3>{cards(entries)}
+          </section>;
+        }) : cards(matching.filter(entry => entry.subject === group.id))}
       </section>
     ))}
-    {matching.length === 0 && <p role="status">No labs match these filters.</p>}
-    <div className="vl-catalog-downloads">
-      <a className="btn ghost" href={packs[1]} download>Download Pack 1 HTML</a>
-      <a className="btn ghost" href={packs[2]} download>Download Pack 2 HTML</a>
-      <a className="btn ghost" href={packs[3]} download>Download Pack 3 HTML</a>
-    </div>
+    {matching.length === 0 && <p>No labs match. Try a different search or clear the filters.</p>}
+    <details className="vl-downloads">
+      <summary>Download a pack for offline use</summary>
+      <div className="vl-catalog-downloads">
+        {([1, 2, 3, 4, "maths"] as const).map(id => <a className="btn ghost" key={id} href={packs[id]} download>{packLabel(id)} HTML</a>)}
+      </div>
+    </details>
   </div>;
 }
 

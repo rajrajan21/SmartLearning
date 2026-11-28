@@ -30,10 +30,10 @@ function mount(settings: Record<string, unknown> = {}) {
 }
 beforeEach(() => { cleanup(); localStorage.clear(); reply = { status: 200, body: { answer: "A corner is where two sides meet.", source: "ai", remaining: 19 } }; });
 
-describe("ask Malar Teacher", () => {
+describe("Sharp Teacher AI", () => {
   it("asks about the lesson, shows the answer labelled as AI, and the remaining count", async () => {
     mount();
-    fireEvent.click(await screen.findByRole("button", { name: /Ask Malar Teacher/ }));
+    fireEvent.click(await screen.findByRole("button", { name: /Ask Sharp Teacher AI/ }));
     fireEvent.change(screen.getByPlaceholderText("Type your question"), { target: { value: "What is a corner?" } });
     fireEvent.click(screen.getByRole("button", { name: "Ask" }));
     await screen.findByText("A corner is where two sides meet.");
@@ -44,7 +44,7 @@ describe("ask Malar Teacher", () => {
   it("lesson-sourced answers carry no AI label, and 'Explain again' uses the lesson title when nothing is typed", async () => {
     reply = { status: 200, body: { answer: "From your lesson:\nA side is a straight edge.", source: "lesson", remaining: null } };
     mount();
-    fireEvent.click(await screen.findByRole("button", { name: /Ask Malar Teacher/ }));
+    fireEvent.click(await screen.findByRole("button", { name: /Ask Sharp Teacher AI/ }));
     fireEvent.click(screen.getByRole("button", { name: "Explain again" }));
     await screen.findByText(/A side is a straight edge/);
     expect(screen.queryByText(/Written by AI/)).toBeNull();
@@ -53,17 +53,17 @@ describe("ask Malar Teacher", () => {
   it("shows friendly messages for rate limits and sign-in requirements", async () => {
     reply = { status: 429, body: { error: { message: "x" } } };
     mount();
-    fireEvent.click(await screen.findByRole("button", { name: /Ask Malar Teacher/ }));
+    fireEvent.click(await screen.findByRole("button", { name: /Ask Sharp Teacher AI/ }));
     fireEvent.click(screen.getByRole("button", { name: "Give an example" }));
     await screen.findByText(/asking very fast/);
   });
   it("is absent when the admin hides it in lessons or switches the tutor off", async () => {
     mount({ "tutor.inLessons": false });
     await screen.findByText("A side is a straight edge.");
-    expect(screen.queryByRole("button", { name: /Ask Malar Teacher/ })).toBeNull();
+    expect(screen.queryByRole("button", { name: /Ask Sharp Teacher AI/ })).toBeNull();
     cleanup();
     mount({ "feature.aiTutor": false });
     await screen.findByText("A side is a straight edge.");
-    expect(screen.queryByRole("button", { name: /Ask Malar Teacher/ })).toBeNull();
+    expect(screen.queryByRole("button", { name: /Ask Sharp Teacher AI/ })).toBeNull();
   });
 });

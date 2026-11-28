@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpStudy Virtual Interactive Maths Lab — 12-Lab Gamified Math Playground</title>
+  <style>
+    /* =====================================================================
+       1. DESIGN TOKENS & PLAYFUL SHARPSTUDY LIGHT THEME (ZERO DEPENDENCIES)
+    ===================================================================== */
+    :root {
+      --bg: #f3f6fc;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-soft: #eff6ff;
+      --accent: #0ea5e9;
+      --success: #16a34a;
+      --success-soft: #f0fdf4;
+      --warn: #d97706;
+      --warn-soft: #fffbeb;
+      --danger: #dc2626;
+      --danger-soft: #fef2f2;
+      --purple: #7c3aed;
+      --purple-soft: #f5f3ff;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* ==================== TOP STICKY HEADER ==================== */
+    .topbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .topbar-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, #0f172a, #2563eb 55%, #7c3aed);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 20px;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.28);
+      flex-shrink: 0;
+    }
+    .brand h1 {
+      font-size: 16px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-tag {
+      font-size: 11px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      color: #4f46e5;
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid #c7d2fe;
+    }
+    .brand p { font-size: 11.5px; color: var(--muted); }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #f8fafc; transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-voice.active { background: #ecfdf5; border-color: #86efac; color: #15803d; }
+    .btn-save {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border-color: #6d28d9;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.30);
+    }
+    .btn-save:hover { filter: brightness(1.08); background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+    /* Topic Filter Pills + 12-Lab Selector Strip */
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .topic-btn {
+      border: 1.5px solid var(--border);
+      background: #f8fafc;
+      color: var(--muted);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .topic-btn:hover { border-color: #93c5fd; color: var(--primary); }
+    .topic-btn.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #fff;
+      box-shadow: 0 3px 8px rgba(15, 23, 42, 0.16);
+    }
+
+    .lab-strip {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 2px 4px;
+      scrollbar-width: thin;
+    }
+    .lab-card-tab {
+      border: 1.5px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+      padding: 6px 13px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
+    }
+    .lab-card-tab:hover { border-color: #93c5fd; background: var(--primary-soft); }
+    .lab-card-tab.active {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .done-badge {
+      display: inline-grid;
+      place-items: center;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: #22c55e;
+      color: #fff;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    /* ==================== MAIN 2-COLUMN WORKSPACE ==================== */
+    .workspace {
+      max-width: 1480px;
+      margin: 14px auto;
+      padding: 0 16px 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lab-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+    .lab-title-group h2 { font-size: 16px; font-weight: 800; }
+    .status-badge {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-badge.good { background: #dcfce7; color: #15803d; }
+    .status-badge.warn { background: #fef3c7; color: #b45309; }
+    .status-badge.danger { background: #fee2e2; color: #dc2626; }
+
+    .mode-switch {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      gap: 2px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .mode-btn.active { background: #0f172a; color: #fff; }
+
+    /* Missions Bar */
+    .missions-bar {
+      padding: 9px 18px;
+      background: #fbfdff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .missions-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .mission-chip {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .mission-chip:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .mission-chip.active { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+    .mission-chip.done { border-color: #86efac; background: #f0fdf4; color: #15803d; font-weight: 700; }
+
+    /* 60fps Canvas Stage */
+    .stage-wrap {
+      position: relative;
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 22px 22px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+    }
+    .formula-pill {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.94);
+      color: #f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 15px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
+      z-index: 4;
+      white-space: nowrap;
+      max-width: 94%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+    .formula-pill.show { display: block; }
+
+    canvas.lab-canvas {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 900 / 340;
+      max-height: 360px;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Dedicated Inline Live Coach & Explanation Bar (Zero Overlap!) */
+    .coach-bar {
+      padding: 12px 18px;
+      background: #eff6ff;
+      border-bottom: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-height: 72px;
+      transition: background 0.25s ease;
+    }
+    .coach-bar.state-info { background: #eff6ff; border-bottom-color: #bfdbfe; }
+    .coach-bar.state-success { background: #f0fdf4; border-bottom-color: #bbf7d0; }
+    .coach-bar.state-warn { background: #fffbeb; border-bottom-color: #fde68a; }
+    .coach-bar.state-danger { background: #fef2f2; border-bottom-color: #fecaca; }
+    .coach-bar.state-solving { background: #f5f3ff; border-bottom-color: #ddd6fe; }
+
+    .coach-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      flex: 1;
+      min-width: 240px;
+    }
+    .coach-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      flex-shrink: 0;
+    }
+    .coach-title { font-size: 13.5px; font-weight: 800; margin-bottom: 2px; }
+    .coach-text { font-size: 12.5px; color: #334155; }
+    .coach-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .btn-solve {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.30);
+      animation: softPulse 2s infinite;
+    }
+    .btn-solve:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-solve:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.42); }
+      50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+    }
+
+    /* 3-Column Chunky Game Controls Deck */
+    .controls-deck {
+      padding: 14px 18px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .control-box {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: #fcfdff;
+      transition: all 0.2s ease;
+    }
+    .control-box.span-2 { grid-column: span 2; }
+    .control-box.span-3 { grid-column: span 3; }
+
+    .pulse-target {
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.34) !important;
+      background: #faf5ff !important;
+      transform: scale(1.02);
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .control-head .badge {
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(64px, 1fr));
+      gap: 7px;
+    }
+    .choice-card {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 12px;
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .choice-card:hover { border-color: #93c5fd; transform: translateY(-1px); }
+    .choice-card.active { border-color: var(--primary); background: var(--primary-soft); }
+    .choice-card.cta-go {
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      border-color: #2563eb;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .choice-card.cta-go strong, .choice-card.cta-go small { color: #fff; }
+    .choice-card.cta-fire {
+      background: linear-gradient(135deg, #f97316, #dc2626);
+      border-color: #dc2626;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.25);
+    }
+    .choice-card.cta-fire strong, .choice-card.cta-fire small { color: #fff; }
+    .choice-card.cta-green {
+      background: linear-gradient(135deg, #16a34a, #059669);
+      border-color: #16a34a;
+      color: #fff;
+    }
+    .choice-card.cta-green strong, .choice-card.cta-green small { color: #fff; }
+    .choice-card:disabled { opacity: 0.45; cursor: not-allowed; transform: none; }
+    .choice-card strong { display: block; font-size: 12px; margin-top: 2px; color: var(--text); }
+    .choice-card small { display: block; font-size: 10px; color: var(--muted); }
+
+    .stepper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 5px 8px;
+    }
+    .step-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: #f8fafc;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--text);
+      transition: all 0.14s ease;
+    }
+    .step-btn:hover { background: #e2e8f0; }
+    .step-val {
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--primary);
+      min-width: 36px;
+      text-align: center;
+    }
+
+    input[type="range"].lab-slider {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin: 6px 0 4px;
+    }
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ==================== RIGHT GEMINI AI MATHS TUTOR ==================== */
+    .tutor-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 140px);
+      max-height: 760px;
+      min-height: 520px;
+      position: sticky;
+      top: 124px;
+      overflow: hidden;
+    }
+    .tutor-header {
+      padding: 13px 15px;
+      background: linear-gradient(135deg, #0f172a, #2563eb 65%, #7c3aed);
+      color: #fff;
+    }
+    .tutor-header h3 { font-size: 14px; font-weight: 800; }
+    .tutor-header p { font-size: 11px; opacity: 0.9; margin-top: 2px; }
+    .live-state-pill {
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      color: #334155;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.22);
+      flex-shrink: 0;
+    }
+    .chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      background: #fcfdff;
+    }
+    .msg {
+      max-width: 92%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .msg.bot { align-self: flex-start; background: #f1f5f9; color: #0f172a; border-bottom-left-radius: 4px; }
+    .msg.user { align-self: flex-end; background: #2563eb; color: #fff; border-bottom-right-radius: 4px; }
+    .msg-speak {
+      margin-top: 6px;
+      border: none;
+      background: #fff;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .quick-chips {
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .q-chip {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .q-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+    .chat-input-row {
+      padding: 9px 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+      background: #fff;
+    }
+    .chat-input-row input {
+      flex: 1;
+      border: 1.5px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      outline: none;
+    }
+    .chat-input-row input:focus { border-color: var(--primary); }
+
+    /* ==================== LEARN FIRST MODAL ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal-card {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      overflow: hidden;
+    }
+    .modal-top {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-top h3 { font-size: 16px; font-weight: 800; }
+    .modal-body { padding: 18px 20px; }
+    .step-dots { display: flex; gap: 6px; margin-bottom: 12px; }
+    .step-dot { height: 6px; flex: 1; border-radius: 999px; background: #e2e8f0; }
+    .step-dot.active { background: var(--primary); }
+    .mini-visual {
+      width: 100%;
+      height: 135px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-body h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 5px; }
+    .modal-body p { font-size: 13px; color: #334155; }
+    .modal-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fcfdff;
+    }
+
+    @media (max-width: 1080px) {
+      .workspace { grid-template-columns: 1fr; }
+      .tutor-panel { position: static; height: 460px; min-height: 420px; }
+      .controls-deck { grid-template-columns: 1fr; }
+      .control-box.span-2, .control-box.span-3 { grid-column: span 1; }
+    }
+    html[data-embedded] .modal-backdrop {
+      align-items: flex-start;
+      padding-top: clamp(16px, 7vw, 92px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP STICKY HEADER -->
+  <header class="topbar">
+    <div class="topbar-row1">
+      <div class="brand">
+        <div class="brand-icon">🧮</div>
+        <div>
+          <h1>SharpStudy Virtual Maths Lab <span class="pill-tag">12 Gamified Math Playgrounds</span></h1>
+          <p>CBSE &amp; Matric Grades 3–12 • Play, visualize formulas &amp; watch slow guided Auto-Solve</p>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn" onclick="openConceptModal()">📖 Learn Concepts</button>
+        <button class="btn btn-voice active" id="voiceToggleBtn" onclick="toggleVoice()">🔊 Voice On</button>
+        <button class="btn btn-save" onclick="saveHtmlFile()" title="Download complete 12-Lab Maths Playground">⬇️ Save HTML</button>
+      </div>
+    </div>
+
+    <!-- Topic Filter Pills -->
+    <div class="filter-row" id="topicFilters">
+      <button class="topic-btn active" onclick="filterTopic('all')">🌟 All 12 Labs</button>
+      <button class="topic-btn" onclick="filterTopic('numbers')">🍕 Numbers &amp; Fractions</button>
+      <button class="topic-btn" onclick="filterTopic('geometry')">📐 Geometry &amp; Angles</button>
+      <button class="topic-btn" onclick="filterTopic('algebra')">⚖️ Algebra &amp; Graphs</button>
+      <button class="topic-btn" onclick="filterTopic('trig3d')">🎲 Trig, Prob &amp; 3D</button>
+    </div>
+
+    <!-- 12-Lab Selector Strip -->
+    <nav class="lab-strip" id="labStrip" aria-label="Select Virtual Maths Lab"></nav>
+  </header>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT COLUMN: ACTIVE MATHS LAB -->
+    <section class="lab-card">
+      <div class="lab-header">
+        <div class="lab-title-group">
+          <h2 id="labTitle">🍕 Fraction Pizza Chef</h2>
+          <span class="status-badge" id="labBadge">Ready</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <div class="mode-switch">
+            <button class="mode-btn active" id="kidModeBtn" onclick="setDisplayMode('kid')">🧒 Kid Mode</button>
+            <button class="mode-btn" id="formulaModeBtn" onclick="setDisplayMode('formula')">🎓 Formula Mode (CBSE/Matric)</button>
+          </div>
+          <button class="btn" onclick="resetCurrentLab()">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- Missions Bar -->
+      <div class="missions-bar" id="missionsBar"></div>
+
+      <!-- 60fps Interactive Canvas Stage -->
+      <div class="stage-wrap">
+        <div class="formula-pill" id="formulaPill">Formula</div>
+        <canvas id="labCanvas" role="img" aria-label="Animated simulation. Read the Live Coach for the current result." class="lab-canvas" width="900" height="340"></canvas>
+      </div>
+
+      <!-- Dedicated Inline Live Coach & Explanation Bar (NEVER overlaps buttons!) -->
+      <div class="coach-bar state-info" id="coachBar">
+        <div class="coach-left">
+          <div class="coach-icon" id="coachIcon">💡</div>
+          <div>
+            <div class="coach-title" id="coachTitle">Welcome to SharpStudy Virtual Maths Lab!</div>
+            <div class="coach-text" aria-live="polite" id="coachText">Try the game controls below or click Show Me How for a slow guided walkthrough.</div>
+          </div>
+        </div>
+        <div class="coach-actions">
+          <button class="btn-solve" id="solveBtn" onclick="runAutoSolve()">✨ Show Me How (Auto-Solve)</button>
+          <button class="btn" onclick="replayCoachAudio()">🔊 Replay</button>
+        </div>
+      </div>
+
+      <!-- Bottom Chunky Game Controls Deck -->
+      <div class="controls-deck" id="controlsDeck"></div>
+    </section>
+
+    <!-- RIGHT COLUMN: DOCKED GEMINI AI MATHS TUTOR -->
+    <aside class="tutor-panel">
+      <div class="tutor-header">
+        <h3>✨ Sharp Teacher AI</h3>
+        <p>Ask anything about the live maths game on your screen</p>
+      </div>
+      <div class="live-state-pill">
+        <span class="live-dot"></span>
+        <span id="liveStateSummary">Live Lab: Ready</span>
+      </div>
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">
+          Hello! I am your Sharp Teacher AI. Play any of the 12 interactive maths labs and ask me why a formula works or how to beat a mission!
+          <br />
+          <button class="msg-speak" onclick="VoiceEngine.speak('Hello! I am your Sharp Teacher AI. Play any of the 12 interactive maths labs and ask me why a formula works or how to beat a mission!')">🔊 Read Answer</button>
+        </div>
+      </div>
+      <div class="quick-chips" id="quickChips"></div>
+      <form class="chat-input-row" onsubmit="handleChatSubmit(event)">
+        <input type="text" maxlength="240" aria-label="Ask the lab tutor" id="chatInput" placeholder="Ask about this lab..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </aside>
+  </main>
+
+  <!-- LEARN FIRST 3-STEP ANIMATED CONCEPT BRIEFING MODAL -->
+  <div class="modal-backdrop open" id="conceptModal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalHeaderTitle">
+      <div class="modal-top">
+        <h3 id="modalHeaderTitle">📖 Learn First</h3>
+        <button class="btn" onclick="closeConceptModal()">Skip ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="step-dots" id="modalDots"></div>
+        <canvas id="miniConceptCanvas" class="mini-visual" width="560" height="135"></canvas>
+        <h4 id="modalStepTitle">Step 1</h4>
+        <p id="modalStepText"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="modalPrevBtn" onclick="stepConcept(-1)">← Back</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" onclick="speakCurrentConcept()">🔊 Listen</button>
+          <button class="btn btn-primary" id="modalNextBtn" onclick="stepConcept(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       1. CONFIGURATION & SITE INTEGRATION HOOKS
+    ===================================================================== */
+    const LAB_CONFIG = {
+      CUSTOM_TTS_ENDPOINT: "",
+      GEMINI_PROXY_ENDPOINT: "",
+      NORMAL_SPEECH_RATE: 0.92,
+      SOLVE_SPEECH_RATE: 0.80,
+      SOLVE_STEP_DELAY_MS: 2400
+    };
+
+    /* =====================================================================
+       2. NATURAL INDIAN-ENGLISH FEMALE VOICE ENGINE
+    ===================================================================== */
+    const VoiceEngine = {
+      enabled: true,
+      selectedVoice: null,
+      currentAudio: null,
+
+      init() {
+        if (!('speechSynthesis' in window)) return;
+        const pick = () => {
+          const voices = window.speechSynthesis.getVoices();
+          if (!voices.length) return;
+          const preferred = [
+            'microsoft neerja online (natural)',
+            'neerja',
+            'veena',
+            'heera',
+            'kavya',
+            'ananya',
+            'priya',
+            'google english (india)',
+            'samantha',
+            'aria online (natural)'
+          ];
+          let best = null, bestScore = -1;
+          for (const v of voices) {
+            const name = v.name.toLowerCase();
+            const lang = (v.lang || '').toLowerCase();
+            let score = lang.includes('en-in') ? 70 : (lang.startsWith('en') ? 20 : 0);
+            preferred.forEach((p, idx) => {
+              if (name.includes(p)) score += (110 - idx * 9);
+            });
+            if (name.includes('natural') || name.includes('neural') || name.includes('google')) score += 15;
+            if (name.includes('female') || name.includes('woman')) score += 12;
+            if (/(male|ravi|prabhat|david|mark|daniel|george|alex|guy|richard)/i.test(name)) score -= 90;
+            if (score > bestScore) { bestScore = score; best = v; }
+          }
+          this.selectedVoice = best;
+        };
+        pick();
+        window.speechSynthesis.onvoiceschanged = pick;
+      },
+
+      stop() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+      },
+
+      async speak(text, { slow = false } = {}) {
+        if (!this.enabled || !text) return;
+        this.stop();
+        const rate = slow ? LAB_CONFIG.SOLVE_SPEECH_RATE : LAB_CONFIG.NORMAL_SPEECH_RATE;
+
+        if (LAB_CONFIG.CUSTOM_TTS_ENDPOINT) {
+          try {
+            const res = await fetch(LAB_CONFIG.CUSTOM_TTS_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text, rate, voice: 'en-IN-female-teacher' })
+            });
+            if (res.ok) {
+              const url = URL.createObjectURL(await res.blob());
+              this.currentAudio = new Audio(url);
+              this.currentAudio.playbackRate = slow ? 0.90 : 1.0;
+              await new Promise(r => {
+                this.currentAudio.onended = r;
+                this.currentAudio.onerror = r;
+                this.currentAudio.play().catch(r);
+              });
+              return;
+            }
+          } catch (_) {}
+        }
+
+        if (!('speechSynthesis' in window)) return;
+        return new Promise(resolve => {
+          const u = new SpeechSynthesisUtterance(text);
+          if (this.selectedVoice) u.voice = this.selectedVoice;
+          u.lang = (this.selectedVoice && this.selectedVoice.lang) || 'en-IN';
+          u.rate = rate;
+          u.pitch = 1.02;
+          u.onend = resolve;
+          u.onerror = resolve;
+          window.speechSynthesis.speak(u);
+        });
+      }
+    };
+    VoiceEngine.init();
+
+    function toggleVoice() {
+      VoiceEngine.enabled = !VoiceEngine.enabled;
+      const btn = document.getElementById('voiceToggleBtn');
+      btn.classList.toggle('active', VoiceEngine.enabled);
+      btn.textContent = VoiceEngine.enabled ? '🔊 Voice On' : '🔇 Voice Off';
+      if (!VoiceEngine.enabled) VoiceEngine.stop();
+    }
+
+    function saveHtmlFile() {
+      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sharpstudy-math-lab-12.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* =====================================================================
+       3. ALL 12 GAMIFIED MATHS LABS CATALOG
+    ===================================================================== */
+    const LABS = [
+      // CATEGORY 1: NUMBERS & FRACTIONS
+      {
+        id: 'pizza', topic: 'numbers', icon: '🍕', short: 'Fraction Pizza',
+        title: '🍕 Fraction Pizza Chef',
+        missions: [
+          { id: 1, label: '🍕 Serve 3/4 Pizza to the hungry customer' },
+          { id: 2, label: '✨ Make Equivalent to 1/2 using 8 slices (4/8)' },
+          { id: 3, label: '➕ Combine 1/2 + 1/4 to serve 3/4' }
+        ],
+        chips: ['What are Numerator and Denominator?', 'Why is 4/8 equal to 1/2?', 'How do we add 1/2 + 1/4?'],
+        concepts: [
+          { t: '1. Numerator & Denominator', d: 'The bottom number (Denominator) tells how many equal slices a pizza is cut into. The top number (Numerator) counts how many tasty slices you serve!' },
+          { t: '2. Equivalent Fractions', d: '4 out of 8 slices (4/8) covers the EXACT same half-pizza as 1 out of 2 slices (1/2)! They look different but have equal value!' },
+          { t: '3. Adding Fractions Together', d: 'Turn on Add Mode to combine Pizza A and Pizza B! For example, 1/2 + 1/4 equals 2/4 + 1/4 = 3/4 of a whole pizza!' }
+        ]
+      },
+      {
+        id: 'frog', topic: 'numbers', icon: '🐸', short: 'Integer Frog',
+        title: '🐸 Number Line Frog Jump (Integers)',
+        missions: [
+          { id: 1, label: '🦟 Catch fly at +4 starting from -3 (+7)' },
+          { id: 2, label: '⬅️ Hop backward from +2 to -5 (-7)' },
+          { id: 3, label: '🤯 Subtract a negative: -2 − (−6) = +4!' }
+        ],
+        chips: ['Why does subtracting a negative move RIGHT?', 'How do negative numbers work on a number line?', 'Explain -2 - (-6) simply'],
+        concepts: [
+          { t: '1. Positive Right, Negative Left', d: 'On our lily-pad pond, 0 sits in the center. Adding a positive number hops our frog RIGHT (+). Subtracting a positive hops LEFT (−)!' },
+          { t: '2. Crossing Zero into Negatives', d: 'Numbers below zero (-1, -2, -3...) are negative integers — just like underground floors or freezing temperatures!' },
+          { t: '3. The Double-Negative Superpower!', d: 'Subtracting a negative (like -2 − (-6)) flips direction twice — turning into +6 so the frog leaps RIGHT to +4!' }
+        ]
+      },
+      {
+        id: 'prime', topic: 'numbers', icon: '🚀', short: 'Prime Blaster',
+        title: '🚀 Prime Factor Rocket Blaster',
+        missions: [
+          { id: 1, label: '☄️ Factorize 24 into 2³ × 3' },
+          { id: 2, label: '☄️ Factorize 60 into 2² × 3 × 5' },
+          { id: 3, label: '☄️ Factorize 84 into 2² × 3 × 7' }
+        ],
+        chips: ['What is a Prime Number?', 'Why did my laser bounce off the asteroid?', 'Explain Prime Factorization Trees'],
+        concepts: [
+          { t: '1. Prime vs. Composite Numbers', d: 'Prime numbers (2, 3, 5, 7...) can only be divided by 1 and themselves. Composite numbers (24, 60, 84) can be blasted apart into primes!' },
+          { t: '2. Fire Prime Lasers to Split Asteroids', d: 'Choose a prime divisor (÷2, ÷3, ÷5, ÷7). If it divides evenly, your laser splits the asteroid into a glowing Factor Tree! Otherwise it bounces off!' },
+          { t: '3. Fundamental Theorem of Arithmetic', d: 'Every composite number has one unique prime recipe — like 24 = 2 × 2 × 2 × 3 = 2³ × 3!' }
+        ]
+      },
+      // CATEGORY 2: GEOMETRY & ANGLES
+      {
+        id: 'archer', topic: 'geometry', icon: '🏹', short: 'Angle Archer',
+        title: '🏹 Angle Archer & Protractor Arena',
+        missions: [
+          { id: 1, label: '🎯 Hit the Right Angle (90°) bullseye' },
+          { id: 2, label: '📐 Find the Complement of 35° (55°)' },
+          { id: 3, label: '📏 Find the Supplement of 120° (60°)' }
+        ],
+        chips: ['Difference between Acute, Right & Obtuse?', 'What are Complementary angles?', 'What are Supplementary angles?'],
+        concepts: [
+          { t: '1. Measuring Angles on a Protractor', d: 'Angles measure turn in degrees (°): Acute is under 90°, Right is exact 90°, Obtuse is between 90° and 180°, and Straight is 180°!' },
+          { t: '2. Complementary Angles Add to 90°', d: 'Two angles that team up to form a perfect 90° corner are Complementary! For 35°, its partner is 90° − 35° = 55°.' },
+          { t: '3. Supplementary Angles Add to 180°', d: 'Two angles that form a flat 180° straight line are Supplementary! For 120°, its partner is 180° − 120° = 60°.' }
+        ]
+      },
+      {
+        id: 'pythagoras', topic: 'geometry', icon: '🧱', short: 'Pythagoras Tiles',
+        title: '🧱 Pythagoras Square Builder',
+        missions: [
+          { id: 1, label: '🧱 Build classic 3-4-5 Triple & Pour Squares' },
+          { id: 2, label: '🧱 Build 6-8-10 Triple & Pour Squares' },
+          { id: 3, label: '🏆 Build 5-12-13 Triple & Pour Squares' }
+        ],
+        chips: ['What is the Hypotenuse?', 'Why does a² + b² = c² work?', 'What is a Pythagorean Triple?'],
+        concepts: [
+          { t: '1. Meet the Right Triangle', d: 'A right triangle has one 90° corner. The two shorter legs are a and b, and the longest slanted side across from 90° is the Hypotenuse (c)!' },
+          { t: '2. Squares Built on Every Side', d: 'Attach a grid of a×a tiles to side a, and b×b tiles to side b. Count how many unit squares sit on both legs!' },
+          { t: '3. Pouring Proof: a² + b² = c²', d: 'Click ✨ Pour Squares! to watch every single glowing tile from a² and b² flow seamlessly to fill the exact c² square!' }
+        ]
+      },
+      {
+        id: 'circlepi', topic: 'geometry', icon: '🎡', short: 'Circle Pi (π)',
+        title: '🎡 Circle Pi (π) Unroller & Area Slicer',
+        missions: [
+          { id: 1, label: '🛞 Unroll r = 2 wheel to see C ≈ 12.57' },
+          { id: 2, label: '🍕 Slice into 16 wedges to prove Area = πr²' },
+          { id: 3, label: '✨ Find Area when r = 3 (28.27)' }
+        ],
+        chips: ['What is Pi (π ≈ 3.1416)?', 'How does unrolling prove C = 2πr?', 'Why do circle slices make a rectangle of πr × r?'],
+        concepts: [
+          { t: '1. The Magic Number Pi (π ≈ 3.1416)', d: 'No matter how big or tiny a circle is, its distance around (Circumference) divided by its width (Diameter) is ALWAYS π ≈ 3.1416!' },
+          { t: '2. Unrolling the Wheel (C = 2πr)', d: 'Roll a wheel one full turn along a ruler and its neon ribbon unrolls to exactly 2 × π × radius!' },
+          { t: '3. Slicing into a Rectangle (Area = πr²)', d: 'Cut a circle into 16 or 24 pizza wedges and interlock them alternating up & down — they form a rectangle of width πr and height r, so Area = πr²!' }
+        ]
+      },
+      // CATEGORY 3: ALGEBRA & GRAPHS
+      {
+        id: 'algebra', topic: 'algebra', icon: '⚖️', short: 'Algebra Scale',
+        title: '⚖️ Algebra Balance Scale Ninja',
+        missions: [
+          { id: 1, label: '⚖️ Solve 2x + 3 = 11 (Find x = 4)' },
+          { id: 2, label: '⚖️ Solve 3x + 2 = 14 (Find x = 4)' },
+          { id: 3, label: '⚖️ Solve 2x − 2 = 8 (Find x = 5)' }
+        ],
+        chips: ['What is the Golden Rule of Algebra?', 'How do I isolate the mystery x box?', 'How do we solve 2x - 2 = 8?'],
+        concepts: [
+          { t: '1. An Equation is a Balance Scale', d: 'The equals sign (=) means both pans weigh the exact same! Our goal is to get ONE purple x Mystery Box alone on the left pan.' },
+          { t: '2. The Golden Rule: Do the Same to Both Sides!', d: 'To remove +1 coins from the left pan, subtract 1 from BOTH sides. To cancel −1 anti-coins, add +1 to BOTH sides so the scale stays level!' },
+          { t: '3. Divide Equally to Reveal x!', d: 'Once you have 2x = 8 or 3x = 12, divide BOTH pans by 2 or 3 to unlock the secret value of 1x!' }
+        ]
+      },
+      {
+        id: 'coords', topic: 'algebra', icon: '🛸', short: 'Space Coords',
+        title: '🛸 Coordinate Plane Space Rescue',
+        missions: [
+          { id: 1, label: '🌟 Rescue in Quadrant I at (4, 3)' },
+          { id: 2, label: '🌟 Rescue in Quadrant II at (−3, 5)' },
+          { id: 3, label: '🌟 Rescue in Quadrant III at (−4, −2)' }
+        ],
+        chips: ['Which coordinate comes first: X or Y?', 'Explain the 4 Quadrants (I, II, III, IV)', 'What is the Origin (0, 0)?'],
+        concepts: [
+          { t: '1. Start at the Origin (0, 0)', d: 'Every rescue mission launches from the Origin (0, 0) where the horizontal X-axis and vertical Y-axis cross!' },
+          { t: '2. Run Along X First, Then Fly Along Y', d: 'An ordered pair (x, y) always tells you LEFT/RIGHT (x) first, then UP/DOWN (y) — remember: walk to the elevator before going up or down!' },
+          { t: '3. The Four Space Quadrants', d: 'Quadrant I is (+, +), Quadrant II is (−, +), Quadrant III is (−, −), and Quadrant IV is (+, −)!' }
+        ]
+      },
+      {
+        id: 'slope', topic: 'algebra', icon: '🎢', short: 'Slope Coaster',
+        title: '🎢 Linear Slope (y = mx + c) Roller Coaster',
+        missions: [
+          { id: 1, label: '⭐ Collect 3 stars on y = 1x + 1' },
+          { id: 2, label: '⛰️ Climb steep uphill y = 2x − 2' },
+          { id: 3, label: '📉 Slide downhill on y = −1x + 3' }
+        ],
+        chips: ['What does Slope (m) control?', 'What is the Y-Intercept (c)?', 'What does a negative slope look like?'],
+        concepts: [
+          { t: '1. Meet y = mx + c', d: 'Every straight roller coaster rail follows y = mx + c! Just two numbers — Slope (m) and Y-Intercept (c) — build any line on the grid!' },
+          { t: '2. Y-Intercept (c) Moves Track Up/Down', d: 'c is the exact height where your rail crosses the vertical Y-axis (when x = 0).' },
+          { t: '3. Slope (m = Rise / Run) Tilts the Track', d: 'Positive m climbs UPHILL, negative m slides DOWNHILL, and m = 0 makes a flat horizontal rail! Align your rail with the 3 stars and ride!' }
+        ]
+      },
+      // CATEGORY 4: TRIGONOMETRY, PROBABILITY & 3D
+      {
+        id: 'trig', topic: 'trig3d', icon: '🌊', short: 'Trig Waves',
+        title: '🌊 Trigonometry Wave & Unit Circle Lighthouse',
+        missions: [
+          { id: 1, label: '⬆️ Reach wave peak at 90° (sin 90° = 1)' },
+          { id: 2, label: '⚖️ Balance sin & cos at 45° (0.71)' },
+          { id: 3, label: '⬇️ Dive to bottom trough at 270° (sin = −1)' }
+        ],
+        chips: ['What are sin θ and cos θ on the Unit Circle?', 'Why is sin 90° = 1 and cos 90° = 0?', 'Why do sin 45° and cos 45° equal 0.71?'],
+        concepts: [
+          { t: '1. The Unit Circle (Radius = 1)', d: 'A lighthouse beam sweeps around a circle of radius 1 from 0° to 360°. Its tip traces coordinates (cos θ, sin θ)!' },
+          { t: '2. Red Vertical = sin θ, Blue Horizontal = cos θ', d: 'Think of sin θ as the boat’s HEIGHT on the ocean wave (vertical red bar) and cos θ as its horizontal reach (blue bar)!' },
+          { t: '3. Waves Repeat Every 360°', d: 'At 90° the boat hits the highest crest (+1), at 180° it crosses sea level (0), and at 270° it dives into the deepest trough (−1)!' }
+        ]
+      },
+      {
+        id: 'prob', topic: 'trig3d', icon: '🎲', short: 'Probability Wheel',
+        title: '🎲 Carnival Probability Spinner & Dice Lab',
+        missions: [
+          { id: 1, label: '🔴 Make 50% Red wheel & Turbo Spin 25x' },
+          { id: 2, label: '🚫 Create an Impossible Event (0% Gold)' },
+          { id: 3, label: '⚖️ Build a Fair 4-Way Wheel (25% each)' }
+        ],
+        chips: ['Theoretical vs Experimental Probability?', 'What is the Law of Large Numbers?', 'What is an Impossible vs Certain event?'],
+        concepts: [
+          { t: '1. Probability = Favorable / Total', d: 'If 4 out of 8 wheel slices are Red, your Theoretical Probability of landing on Red is 4/8 = 50%!' },
+          { t: '2. Impossible (0%) vs. Certain (100%)', d: 'If a color has 0 slices, it is an Impossible Event (0%). If every slice is the same color, it is Certain (100%)!' },
+          { t: '3. Law of Large Numbers', d: 'A few spins can be lucky or random, but hit ⚡ Turbo Spin 25x and watch the Experimental bars match the Theoretical prediction!' }
+        ]
+      },
+      {
+        id: 'volume3d', topic: 'trig3d', icon: '📦', short: '3D Volume & Net',
+        title: '📦 3D Volume & Net Folder Factory',
+        missions: [
+          { id: 1, label: '🧊 Build a Cube with Volume = 27 (3×3×3)' },
+          { id: 2, label: '📦 Build a Box with Volume = 24 (4×3×2)' },
+          { id: 3, label: '📐 Unfold 2D Net to inspect all 6 faces!' }
+        ],
+        chips: ['Difference between Volume and Surface Area?', 'Explain V = l × w × h using unit cubes', 'How does a 2D Net show Surface Area?'],
+        concepts: [
+          { t: '1. Volume = Counting 1×1×1 Unit Cubes', d: 'Volume measures how much 3D space fits inside a box! Each flat layer holds (l × w) cubes, stacked h layers high: V = l × w × h!' },
+          { t: '2. Surface Area = Wrapping Paper Outside', d: 'Surface Area measures the total area of all 6 flat faces covering the outside of the box: SA = 2(lw + lh + wh)!' },
+          { t: '3. Unfold into a Flat 2D Net!', d: 'Click 📐 Toggle 3D / 2D Net to smoothly unfold the cuboid flat and inspect all 6 matching face pairs!' }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       4. GLOBAL & PER-LAB INTERACTIVE STATE
+    ===================================================================== */
+    let activeTopic = 'all';
+    let activeLabId = 'pizza';
+    let displayMode = 'kid';
+    let isAutoSolving = false;
+    let solveRunId = 0;       // Incremented on cancel/switch/reset to abort old Auto-Solves cleanly
+    let animSpeed = 1.0;
+    let animT = 0;
+    let lastCoachSpeech = '';
+    const activeMissionByLab = {};
+    const completedMissions = {};
+    const seenBriefings = new Set(['pizza']); // First lab opens briefing on load
+    let confetti = [];
+
+    function makeInitialStates() {
+      return {
+        pizza: {
+          aNum: 1, aDen: 4, bNum: 1, bDen: 4, addMode: false,
+          served: false, customerHappy: 0, orderText: 'I want 3/4 Pizza!', targetVal: 0.75, reqDen: null, reqAdd: false
+        },
+        frog: {
+          start: -3, op: '+', jump: 7, target: 4,
+          frogPos: -3, hopping: false, hopProg: 0, hopFrom: -3, hopTo: -3, ripples: [], caught: false
+        },
+        prime: {
+          target: 24, remaining: 24, factors: [],
+          laser: null, shieldFlash: 0, sparks: []
+        },
+        archer: {
+          angle: 45, mode: 'Single', givenAngle: 35, targetAngle: 90,
+          shooting: false, arrowProg: 0, hit: false, lastShotAngle: null
+        },
+        pythagoras: {
+          a: 3, b: 4, pouring: false, pourProg: 0, poured: false
+        },
+        circlepi: {
+          r: 2, mode: 'Unroll', slices: 16, animating: false, prog: 0
+        },
+        algebra: {
+          eqId: 0, // 0: 2x+3=11, 1: 3x+2=14, 2: 2x-2=8
+          xCoeff: 2, leftConst: 3, rightConst: 11, solution: 4,
+          tilt: 0, tiltVel: 0, flying: [], solved: false
+        },
+        coords: {
+          tx: 4, ty: 3, inX: 0, inY: 0,
+          shipX: 0, shipY: 0, flying: false, phase: 0, trail: [], rescued: false
+        },
+        slope: {
+          m: 1, c: 0, targetM: 1, targetC: 1,
+          riding: false, rideX: -5, collected: [false, false, false], sparks: []
+        },
+        trig: {
+          angle: 30, autoRotate: false
+        },
+        prob: {
+          slices: { Red: 3, Blue: 3, Green: 2, Gold: 2 },
+          counts: { Red: 0, Blue: 0, Green: 0, Gold: 0 },
+          totalSpins: 0, wheelAngle: 0, spinVel: 0, spinning: false, lastWinner: null
+        },
+        volume3d: {
+          l: 3, w: 3, h: 3,
+          fillMode: false, fillCount: 0, netMode: false, netProg: 0
+        }
+      };
+    }
+
+    let S = makeInitialStates();
+
+    const ALGEBRA_EQS = [
+      { label: '2x + 3 = 11', xCoeff: 2, leftConst: 3, rightConst: 11, sol: 4 },
+      { label: '3x + 2 = 14', xCoeff: 3, leftConst: 2, rightConst: 14, sol: 4 },
+      { label: '2x − 2 = 8',  xCoeff: 2, leftConst: -2, rightConst: 8, sol: 5 }
+    ];
+
+    /* =====================================================================
+       5. NAVIGATION, FILTERING, MISSIONS & CONFETTI
+    ===================================================================== */
+    function spawnConfetti(cx = 450, cy = 140) {
+      for (let i = 0; i < 36; i++) {
+        confetti.push({
+          x: cx + (Math.random() - 0.5) * 120,
+          y: cy + (Math.random() - 0.5) * 40,
+          vx: (Math.random() - 0.5) * 7,
+          vy: -Math.random() * 5.5 - 1.5,
+          color: ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6', '#06b6d4'][i % 6],
+          life: 72
+        });
+      }
+    }
+
+    function cancelAutoSolve() {
+      solveRunId++;
+      isAutoSolving = false;
+      animSpeed = 1.0;
+      const btn = document.getElementById('solveBtn');
+      if (btn) btn.disabled = false;
+      document.querySelectorAll('.pulse-target').forEach(el => el.classList.remove('pulse-target'));
+      VoiceEngine.stop();
+    }
+
+    function filterTopic(topic) {
+      activeTopic = topic;
+      document.querySelectorAll('.topic-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick').includes(`'${topic}'`));
+      });
+      renderLabStrip();
+      const visible = LABS.filter(l => topic === 'all' || l.topic === topic);
+      if (!visible.some(l => l.id === activeLabId)) selectLab(visible[0].id);
+    }
+
+    function renderLabStrip() {
+      const strip = document.getElementById('labStrip');
+      const visible = LABS.filter(l => activeTopic === 'all' || l.topic === activeTopic);
+      strip.innerHTML = visible.map(l => {
+        const hasDone = completedMissions[l.id] && completedMissions[l.id].size > 0;
+        return `
+          <button class="lab-card-tab ${l.id === activeLabId ? 'active' : ''}" onclick="selectLab('${l.id}')">
+            <span>${l.icon}</span>
+            <span>${l.short}</span>
+            ${hasDone ? '<span class="done-badge">✓</span>' : ''}
+          </button>`;
+      }).join('');
+    }
+
+    function selectLab(id) {
+      cancelAutoSolve();
+      activeLabId = id;
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      if (!seenBriefings.has(id)) {
+        seenBriefings.add(id);
+        openConceptModal();
+      }
+    }
+
+    function setDisplayMode(mode) {
+      displayMode = mode;
+      document.getElementById('kidModeBtn').classList.toggle('active', mode === 'kid');
+      document.getElementById('formulaModeBtn').classList.toggle('active', mode === 'formula');
+      document.getElementById('formulaPill').classList.toggle('show', mode === 'formula');
+      updateLabState(false);
+    }
+
+    function markMissionDone(labId, mId) {
+      if (!completedMissions[labId]) completedMissions[labId] = new Set();
+      if (!completedMissions[labId].has(mId)) {
+        completedMissions[labId].add(mId);
+        renderMissions();
+        renderLabStrip();
+        spawnConfetti(450, 145);
+      }
+    }
+
+    function renderMissions() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const doneSet = completedMissions[activeLabId] || new Set();
+      const curM = activeMissionByLab[activeLabId] || 1;
+      document.getElementById('missionsBar').innerHTML =
+        `<span class="missions-label">🎯 Missions:</span>` +
+        lab.missions.map(m => `
+          <button class="mission-chip ${curM === m.id ? 'active' : ''} ${doneSet.has(m.id) ? 'done' : ''}" onclick="selectMission(${m.id})">
+            ${doneSet.has(m.id) ? '⭐ ' : ''}${m.label}
+          </button>
+        `).join('');
+    }
+
+    function selectMission(mId) {
+      cancelAutoSolve();
+      activeMissionByLab[activeLabId] = mId;
+      // Configure mission-specific target setups cleanly
+      if (activeLabId === 'pizza') {
+        const p = S.pizza; p.served = false; p.customerHappy = 0;
+        if (mId === 1) { p.addMode = false; p.orderText = 'I want 3/4 Pizza!'; p.targetVal = 0.75; p.reqDen = 4; p.reqAdd = false; }
+        else if (mId === 2) { p.addMode = false; p.orderText = 'Make 1/2 using 8 slices!'; p.targetVal = 0.5; p.reqDen = 8; p.reqAdd = false; }
+        else { p.addMode = true; p.aNum = 1; p.aDen = 2; p.bNum = 1; p.bDen = 8; p.orderText = 'Add 1/2 + 1/4 = 3/4!'; p.targetVal = 0.75; p.reqDen = null; p.reqAdd = true; }
+      } else if (activeLabId === 'frog') {
+        const f = S.frog; f.hopping = false; f.caught = false;
+        if (mId === 1) { f.start = -3; f.frogPos = -3; f.op = '+'; f.jump = 4; f.target = 4; }
+        else if (mId === 2) { f.start = 2; f.frogPos = 2; f.op = '-'; f.jump = 4; f.target = -5; }
+        else { f.start = -2; f.frogPos = -2; f.op = '-'; f.jump = -4; f.target = 4; }
+      } else if (activeLabId === 'prime') {
+        const tgt = mId === 1 ? 24 : (mId === 2 ? 60 : 84);
+        S.prime = { target: tgt, remaining: tgt, factors: [], laser: null, shieldFlash: 0, sparks: [] };
+      } else if (activeLabId === 'archer') {
+        const a = S.archer; a.hit = false; a.shooting = false;
+        if (mId === 1) { a.mode = 'Single'; a.targetAngle = 90; a.angle = 45; }
+        else if (mId === 2) { a.mode = 'Complementary'; a.givenAngle = 35; a.targetAngle = 55; a.angle = 30; }
+        else { a.mode = 'Supplementary'; a.givenAngle = 120; a.targetAngle = 60; a.angle = 30; }
+      } else if (activeLabId === 'algebra') {
+        loadAlgebraEq(mId - 1);
+      } else if (activeLabId === 'coords') {
+        const c = S.coords; c.shipX = 0; c.shipY = 0; c.trail = []; c.flying = false; c.rescued = false;
+        if (mId === 1) { c.tx = 4; c.ty = 3; }
+        else if (mId === 2) { c.tx = -3; c.ty = 5; }
+        else { c.tx = -4; c.ty = -2; }
+      } else if (activeLabId === 'slope') {
+        const sl = S.slope; sl.riding = false; sl.collected = [false, false, false];
+        if (mId === 1) { sl.targetM = 1; sl.targetC = 1; }
+        else if (mId === 2) { sl.targetM = 2; sl.targetC = -2; }
+        else { sl.targetM = -1; sl.targetC = 3; }
+      }
+      renderMissions();
+      renderControls();
+      const lab = LABS.find(l => l.id === activeLabId);
+      const m = lab.missions.find(x => x.id === mId);
+      setCoach('🎯', `Mission ${mId}: ${m.label}`, 'Play with the controls below to beat this mission, or click "✨ Show Me How (Auto-Solve)"!', 'state-info', true);
+    }
+
+    function setCoach(icon, title, text, stateClass = 'state-info', speak = false) {
+      document.getElementById('coachBar').className = `coach-bar ${stateClass}`;
+      document.getElementById('coachIcon').textContent = icon;
+      document.getElementById('coachTitle').textContent = title;
+      document.getElementById('coachText').textContent = text;
+      lastCoachSpeech = `${title}. ${text}`;
+      if (speak && !isAutoSolving) VoiceEngine.speak(lastCoachSpeech);
+    }
+
+    function replayCoachAudio() {
+      VoiceEngine.speak(lastCoachSpeech, { slow: false });
+    }
+
+    function resetCurrentLab() {
+      cancelAutoSolve();
+      const fresh = makeInitialStates();
+      S[activeLabId] = fresh[activeLabId];
+      activeMissionByLab[activeLabId] = 1;
+      renderMissions();
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       6. DYNAMIC CONTROLS DECK FOR ALL 12 MATHS LABS
+    ===================================================================== */
+    function renderControls() {
+      const deck = document.getElementById('controlsDeck');
+
+      if (activeLabId === 'pizza') {
+        const p = S.pizza;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlPizzaA">
+            <div class="control-head"><span>1. Pizza A (Top / Slices)</span><span class="badge">${p.aNum} / ${p.aDen}</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+              <div>
+                <small style="font-size:10px;color:#64748b;font-weight:700;">Numerator</small>
+                <div class="stepper-row">
+                  <button class="step-btn" onclick="S.pizza.aNum=Math.max(0,S.pizza.aNum-1); renderControls(); updateLabState(false);">−</button>
+                  <span class="step-val">${p.aNum}</span>
+                  <button class="step-btn" onclick="S.pizza.aNum=Math.min(S.pizza.aDen,S.pizza.aNum+1); renderControls(); updateLabState(false);">+</button>
+                </div>
+              </div>
+              <div>
+                <small style="font-size:10px;color:#64748b;font-weight:700;">Denominator</small>
+                <div class="stepper-row">
+                  <button class="step-btn" onclick="S.pizza.aDen=Math.max(2,S.pizza.aDen-1); S.pizza.aNum=Math.min(S.pizza.aNum,S.pizza.aDen); renderControls(); updateLabState(false);">−</button>
+                  <span class="step-val">${p.aDen}</span>
+                  <button class="step-btn" onclick="S.pizza.aDen=Math.min(12,S.pizza.aDen+1); renderControls(); updateLabState(false);">+</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPizzaB">
+            <div class="control-head"><span>2. Pizza B (Add Mode)</span><span class="badge">${p.addMode ? p.bNum + '/' + p.bDen : 'OFF'}</span></div>
+            <div style="display:flex;gap:6px;align-items:center;">
+              <button class="choice-card ${p.addMode?'active':''}" style="min-width:74px" id="btnPizzaAdd" onclick="S.pizza.addMode=!S.pizza.addMode; renderControls(); updateLabState(true);">
+                <strong>${p.addMode ? '➕ ON' : '➕ Add'}</strong>
+              </button>
+              <div style="flex:1;opacity:${p.addMode?1:0.45}">
+                <div class="stepper-row" style="margin-bottom:4px;">
+                  <button class="step-btn" ${p.addMode?'':'disabled'} onclick="S.pizza.bNum=Math.max(0,S.pizza.bNum-1); renderControls(); updateLabState(false);">−</button>
+                  <span class="step-val" style="font-size:13px">${p.bNum}/${p.bDen}</span>
+                  <button class="step-btn" ${p.addMode?'':'disabled'} onclick="S.pizza.bNum=Math.min(S.pizza.bDen,S.pizza.bNum+1); renderControls(); updateLabState(false);">+</button>
+                </div>
+                <div class="choice-grid">
+                  ${[2,4,8].map(d => `<button class="choice-card ${p.bDen===d?'active':''}" style="padding:3px" ${p.addMode?'':'disabled'} onclick="S.pizza.bDen=${d}; S.pizza.bNum=Math.min(S.pizza.bNum,${d}); renderControls(); updateLabState(false);"><strong>/${d}</strong></button>`).join('')}
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPizzaServe">
+            <div class="control-head"><span>3. Serve Hungry Customer</span><span class="badge">ORDER</span></div>
+            <button class="choice-card cta-fire" id="btnServePizza" style="width:100%;padding:12px;" onclick="servePizza()">
+              <div>🍽️</div><strong>Serve Order!</strong><small>${p.orderText}</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'frog') {
+        const f = S.frog;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlFrogStart">
+            <div class="control-head"><span>1. Start Lily Pad</span><span class="badge">${f.start}</span></div>
+            <div class="stepper-row">
+              <button class="step-btn" onclick="S.frog.start=Math.max(-9,S.frog.start-1); S.frog.frogPos=S.frog.start; renderControls(); updateLabState(false);">−</button>
+              <span class="step-val">${f.start > 0 ? '+' + f.start : f.start}</span>
+              <button class="step-btn" onclick="S.frog.start=Math.min(9,S.frog.start+1); S.frog.frogPos=S.frog.start; renderControls(); updateLabState(false);">+</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlFrogOp">
+            <div class="control-head"><span>2. Operation &amp; Jump (−8 to +8)</span><span class="badge">${f.op} (${f.jump})</span></div>
+            <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:7px;">
+              <div class="choice-grid">
+                <button class="choice-card ${f.op==='+'?'active':''}" id="btnFrogPlus" onclick="S.frog.op='+'; renderControls(); updateLabState(false);"><strong>+ Add</strong></button>
+                <button class="choice-card ${f.op==='-'?'active':''}" id="btnFrogMinus" onclick="S.frog.op='-'; renderControls(); updateLabState(false);"><strong>− Sub</strong></button>
+              </div>
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.frog.jump=Math.max(-8,S.frog.jump-1); renderControls(); updateLabState(false);">−</button>
+                <span class="step-val">${f.jump > 0 ? '+' + f.jump : f.jump}</span>
+                <button class="step-btn" onclick="S.frog.jump=Math.min(8,S.frog.jump+1); renderControls(); updateLabState(false);">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlFrogGo">
+            <div class="control-head"><span>3. Catch Fly at ${f.target > 0 ? '+' + f.target : f.target}</span><span class="badge">JUMP</span></div>
+            <button class="choice-card cta-green" id="btnFrogHop" style="width:100%;padding:11px;" onclick="frogHop()">
+              <div>🐸</div><strong>HOP!</strong><small>${f.start} ${f.op} (${f.jump})</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'prime') {
+        const pr = S.prime;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlPrimeTgt">
+            <div class="control-head"><span>1. Choose Asteroid</span><span class="badge">${pr.target}</span></div>
+            <div class="choice-grid">
+              ${[24, 36, 60, 84].map(n => `
+                <button class="choice-card ${pr.target===n?'active':''}" id="btnAst${n}" onclick="S.prime={target:${n},remaining:${n},factors:[],laser:null,shieldFlash:0,sparks:[]}; renderControls(); updateLabState(true);">
+                  <strong>☄️ ${n}</strong>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box span-2" id="ctrlPrimeLasers">
+            <div class="control-head"><span>2. Fire Prime Laser to Split (${pr.remaining} left)</span><span class="badge">PRIMES ONLY</span></div>
+            <div class="choice-grid">
+              ${[2, 3, 5, 7].map(p => `
+                <button class="choice-card cta-go" id="btnLaser${p}" ${pr.remaining === 1 ? 'disabled' : ''} onclick="firePrimeLaser(${p})">
+                  <div>⚡</div><strong>÷ ${p}</strong><small>Prime ${p}</small>
+                </button>`).join('')}
+            </div>
+          </div>`;
+      } else if (activeLabId === 'archer') {
+        const a = S.archer;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlArchMode">
+            <div class="control-head"><span>1. Arena Mode</span><span class="badge">${a.mode}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${a.mode==='Single'?'active':''}" onclick="selectMission(1)"><strong>🎯 Single</strong><small>90°</small></button>
+              <button class="choice-card ${a.mode==='Complementary'?'active':''}" onclick="selectMission(2)"><strong>📐 Comp</strong><small>Sum 90°</small></button>
+              <button class="choice-card ${a.mode==='Supplementary'?'active':''}" onclick="selectMission(3)"><strong>📏 Supp</strong><small>Sum 180°</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlArchAng">
+            <div class="control-head"><span>2. Aim Bow Angle (0°–180°)</span><span class="badge">${a.angle}°</span></div>
+            <input type="range" class="lab-slider" min="0" max="180" step="1" value="${a.angle}"
+              oninput="S.archer.angle=+this.value; updateRangeBadge(this); updateLabState(false);" />
+            <div style="display:flex;justify-content:space-between;gap:6px;margin-top:4px;">
+              <button class="step-btn" style="width:48%;height:28px;font-size:13px;" onclick="S.archer.angle=Math.max(0,S.archer.angle-5); renderControls(); updateLabState(false);">−5°</button>
+              <button class="step-btn" style="width:48%;height:28px;font-size:13px;" onclick="S.archer.angle=Math.min(180,S.archer.angle+5); renderControls(); updateLabState(false);">+5°</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlArchFire">
+            <div class="control-head"><span>3. Release Arrow</span><span class="badge">TARGET: ${a.mode==='Single'?'90°':'?'}</span></div>
+            <button class="choice-card cta-fire" id="btnShootArrow" style="width:100%;padding:11px;" onclick="shootArrow()">
+              <div>🏹</div><strong>Shoot Arrow!</strong><small>Aimed at ${a.angle}°</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'pythagoras') {
+        const py = S.pythagoras;
+        const cVal = Math.hypot(py.a, py.b);
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlPyA">
+            <div class="control-head"><span>1. Side a (3 to 8)</span><span class="badge">a² = ${py.a * py.a}</span></div>
+            <div class="stepper-row">
+              <button class="step-btn" onclick="S.pythagoras.a=Math.max(3,S.pythagoras.a-1); S.pythagoras.pourProg=0; S.pythagoras.poured=false; renderControls(); updateLabState(true);">−</button>
+              <span class="step-val">${py.a}</span>
+              <button class="step-btn" onclick="S.pythagoras.a=Math.min(8,S.pythagoras.a+1); S.pythagoras.pourProg=0; S.pythagoras.poured=false; renderControls(); updateLabState(true);">+</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPyB">
+            <div class="control-head"><span>2. Side b (3 to 12)</span><span class="badge">b² = ${py.b * py.b}</span></div>
+            <div class="stepper-row">
+              <button class="step-btn" onclick="S.pythagoras.b=Math.max(3,S.pythagoras.b-1); S.pythagoras.pourProg=0; S.pythagoras.poured=false; renderControls(); updateLabState(true);">−</button>
+              <span class="step-val">${py.b}</span>
+              <button class="step-btn" onclick="S.pythagoras.b=Math.min(12,S.pythagoras.b+1); S.pythagoras.pourProg=0; S.pythagoras.poured=false; renderControls(); updateLabState(true);">+</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPyPour">
+            <div class="control-head"><span>3. Hypotenuse c = ${Number.isInteger(cVal)?cVal:cVal.toFixed(2)}</span><span class="badge">PROVE IT</span></div>
+            <button class="choice-card cta-go" id="btnPourSq" style="width:100%;padding:10px;" onclick="pourPythagoras()">
+              <div>✨</div><strong>Pour Squares!</strong><small>${py.a*py.a} + ${py.b*py.b} = ${py.a*py.a + py.b*py.b}</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'circlepi') {
+        const ci = S.circlepi;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlPiR">
+            <div class="control-head"><span>1. Circle Radius (r)</span><span class="badge">r = ${ci.r}</span></div>
+            <input type="range" class="lab-slider" min="1" max="5" step="1" value="${ci.r}"
+              oninput="S.circlepi.r=+this.value; S.circlepi.prog=0; S.circlepi.animating=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+          </div>
+          <div class="control-box" id="ctrlPiMode">
+            <div class="control-head"><span>2. Mode &amp; Wedges</span><span class="badge">${ci.mode}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${ci.mode==='Unroll'?'active':''}" id="btnPiUnroll" onclick="S.circlepi.mode='Unroll'; S.circlepi.prog=0; S.circlepi.animating=false; renderControls(); updateLabState(true);"><strong>🛞 Unroll</strong><small>C = 2πr</small></button>
+              <button class="choice-card ${ci.mode==='Area'?'active':''}" id="btnPiArea" onclick="S.circlepi.mode='Area'; S.circlepi.prog=0; S.circlepi.animating=false; renderControls(); updateLabState(true);"><strong>🍕 Area</strong><small>A = πr²</small></button>
+              ${ci.mode === 'Area' ? [8, 16, 24].map(n => `<button class="choice-card ${ci.slices===n?'active':''}" onclick="S.circlepi.slices=${n}; S.circlepi.prog=0; renderControls(); updateLabState(false);"><strong>${n}</strong><small>wedges</small></button>`).join('') : ''}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPiGo">
+            <div class="control-head"><span>3. Run Visual Proof</span><span class="badge">PLAY</span></div>
+            <button class="choice-card cta-go" id="btnPiAnim" style="width:100%;padding:11px;" onclick="animateCirclePi()">
+              <div>▶️</div><strong>Animate!</strong><small>${ci.mode==='Unroll'?'Roll Wheel':'Rearrange Slices'}</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'algebra') {
+        const al = S.algebra;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlAlgEq">
+            <div class="control-head"><span>1. Equation</span><span class="badge">SOLVE x</span></div>
+            <div class="choice-grid">
+              ${ALGEBRA_EQS.map((e, idx) => `
+                <button class="choice-card ${al.eqId===idx?'active':''}" onclick="selectMission(${idx+1})">
+                  <strong>${e.label}</strong>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box span-2" id="ctrlAlgOps">
+            <div class="control-head"><span>2. Balance Operations (Applied to BOTH Pans!)</span><span class="badge">KEEP LEVEL</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnAlgSub1" ${al.solved?'disabled':''} onclick="applyAlgebraOp('sub1')"><strong>−1 Both</strong><small>Remove 1</small></button>
+              <button class="choice-card" id="btnAlgAdd1" ${al.solved?'disabled':''} onclick="applyAlgebraOp('add1')"><strong>+1 Both</strong><small>Add 1</small></button>
+              <button class="choice-card cta-go" id="btnAlgDiv2" ${al.solved?'disabled':''} onclick="applyAlgebraOp('div2')"><strong>÷2 Both</strong><small>Split in 2</small></button>
+              <button class="choice-card cta-go" id="btnAlgDiv3" ${al.solved?'disabled':''} onclick="applyAlgebraOp('div3')"><strong>÷3 Both</strong><small>Split in 3</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'coords') {
+        const co = S.coords;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlCoX">
+            <div class="control-head"><span>1. X-Thruster (Left / Right)</span><span class="badge">X = ${co.inX}</span></div>
+            <div class="stepper-row">
+              <button class="step-btn" onclick="S.coords.inX=Math.max(-6,S.coords.inX-1); renderControls(); updateLabState(false);">−</button>
+              <span class="step-val">${co.inX}</span>
+              <button class="step-btn" onclick="S.coords.inX=Math.min(6,S.coords.inX+1); renderControls(); updateLabState(false);">+</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlCoY">
+            <div class="control-head"><span>2. Y-Thruster (Down / Up)</span><span class="badge">Y = ${co.inY}</span></div>
+            <div class="stepper-row">
+              <button class="step-btn" onclick="S.coords.inY=Math.max(-6,S.coords.inY-1); renderControls(); updateLabState(false);">−</button>
+              <span class="step-val">${co.inY}</span>
+              <button class="step-btn" onclick="S.coords.inY=Math.min(6,S.coords.inY+1); renderControls(); updateLabState(false);">+</button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlCoGo">
+            <div class="control-head"><span>3. Target: (${co.tx}, ${co.ty})</span><span class="badge">RESCUE</span></div>
+            <button class="choice-card cta-go" id="btnCoordLaunch" style="width:100%;padding:10px;" onclick="launchRescue()">
+              <div>🚀</div><strong>Launch Rescue!</strong><small>Fly to (${co.inX}, ${co.inY})</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'slope') {
+        const sl = S.slope;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlSlopeM">
+            <div class="control-head"><span>1. Slope m (−3 to +3)</span><span class="badge">m = ${sl.m}</span></div>
+            <input type="range" class="lab-slider" min="-3" max="3" step="0.5" value="${sl.m}"
+              oninput="S.slope.m=+this.value; S.slope.riding=false; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>−3 (Down)</span><span>0 (Flat)</span><span>+3 (Up)</span></div>
+          </div>
+          <div class="control-box" id="ctrlSlopeC">
+            <div class="control-head"><span>2. Y-Intercept c (−4 to +4)</span><span class="badge">c = ${sl.c}</span></div>
+            <input type="range" class="lab-slider" min="-4" max="4" step="1" value="${sl.c}"
+              oninput="S.slope.c=+this.value; S.slope.riding=false; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>−4</span><span>0</span><span>+4</span></div>
+          </div>
+          <div class="control-box" id="ctrlSlopeGo">
+            <div class="control-head"><span>3. Collect 3 Stars</span><span class="badge">y = ${sl.m}x ${sl.c>=0?'+ '+sl.c:'− '+Math.abs(sl.c)}</span></div>
+            <button class="choice-card cta-fire" id="btnRideSlope" style="width:100%;padding:10px;" onclick="rideSlope()">
+              <div>🎢</div><strong>Ride Track!</strong><small>Collect Stars</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'trig') {
+        const tr = S.trig;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlTrigAng">
+            <div class="control-head"><span>1. Angle θ (0°–360°)</span><span class="badge">${Math.round(tr.angle)}°</span></div>
+            <input type="range" class="lab-slider" min="0" max="360" step="1" value="${Math.round(tr.angle)}"
+              oninput="S.trig.angle=+this.value; S.trig.autoRotate=false; updateRangeBadge(this); updateLabState(false);" onchange="updateLabState(true);" />
+            <button class="choice-card ${tr.autoRotate?'active':''}" style="width:100%;padding:5px;margin-top:4px;" onclick="S.trig.autoRotate=!S.trig.autoRotate; renderControls();">
+              <strong>${tr.autoRotate ? '⏸️ Pause Rotation' : '▶️ Auto-Rotate Lighthouse'}</strong>
+            </button>
+          </div>
+          <div class="control-box span-2" id="ctrlTrigPresets">
+            <div class="control-head"><span>2. Quick Preset Angles</span><span class="badge">SPECIAL ANGLES</span></div>
+            <div class="choice-grid">
+              ${[0, 30, 45, 60, 90, 180, 270].map(deg => `
+                <button class="choice-card ${Math.round(tr.angle)===deg?'active':''}" id="btnTrig${deg}" onclick="S.trig.angle=${deg}; S.trig.autoRotate=false; renderControls(); updateLabState(true);">
+                  <strong>${deg}°</strong>
+                </button>`).join('')}
+            </div>
+          </div>`;
+      } else if (activeLabId === 'prob') {
+        const pb = S.prob;
+        const tot = pb.slices.Red + pb.slices.Blue + pb.slices.Green + pb.slices.Gold;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlProbSlices">
+            <div class="control-head"><span>1. Customize Wheel Slices (Total: ${tot} / 2–12)</span><span class="badge">THEORETICAL</span></div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;">
+              ${[['Red','#ef4444'],['Blue','#3b82f6'],['Green','#22c55e'],['Gold','#f59e0b']].map(([c, hex]) => `
+                <div style="text-align:center;border:1.5px solid ${hex};border-radius:10px;padding:5px;">
+                  <strong style="font-size:11px;color:${hex}">${c} (${Math.round(pb.slices[c]/tot*100)}%)</strong>
+                  <div style="display:flex;justify-content:space-between;align-items:center;margin-top:4px;">
+                    <button class="step-btn" style="width:24px;height:24px;font-size:14px;" onclick="adjProbSlice('${c}',-1)">−</button>
+                    <strong style="font-size:14px">${pb.slices[c]}</strong>
+                    <button class="step-btn" style="width:24px;height:24px;font-size:14px;" onclick="adjProbSlice('${c}',1)">+</button>
+                  </div>
+                </div>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlProbSpin">
+            <div class="control-head"><span>2. Spin Carnival Wheel</span><span class="badge">${pb.totalSpins} Spins</span></div>
+            <div class="choice-grid">
+              <button class="choice-card cta-go" id="btnSpin1" onclick="spinWheel1x()"><strong>🎡 Spin 1x</strong></button>
+              <button class="choice-card cta-fire" id="btnSpin25" onclick="turboSpin25x()"><strong>⚡ 25x</strong></button>
+              <button class="choice-card" onclick="S.prob.counts={Red:0,Blue:0,Green:0,Gold:0}; S.prob.totalSpins=0; renderControls(); updateLabState(false);"><strong>🧹 Clear</strong></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'volume3d') {
+        const v = S.volume3d;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlVolDims">
+            <div class="control-head"><span>1. Cuboid Dimensions (1–5 units)</span><span class="badge">V = ${v.l*v.w*v.h} • SA = ${2*(v.l*v.w+v.l*v.h+v.w*v.h)}</span></div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;">
+              ${[['l','Length (l)'],['w','Width (w)'],['h','Height (h)']].map(([k, lbl]) => `
+                <div>
+                  <small style="font-size:10.5px;font-weight:700;color:#64748b">${lbl}</small>
+                  <div class="stepper-row">
+                    <button class="step-btn" onclick="S.volume3d.${k}=Math.max(1,S.volume3d.${k}-1); S.volume3d.fillCount=0; renderControls(); updateLabState(true);">−</button>
+                    <span class="step-val">${v[k]}</span>
+                    <button class="step-btn" onclick="S.volume3d.${k}=Math.min(5,S.volume3d.${k}+1); S.volume3d.fillCount=0; renderControls(); updateLabState(true);">+</button>
+                  </div>
+                </div>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlVolAct">
+            <div class="control-head"><span>2. 3D Factory Modes</span><span class="badge">${v.netMode ? '2D NET' : '3D BOX'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card cta-go" id="btnVolFill" onclick="S.volume3d.netMode=false; S.volume3d.fillMode=true; S.volume3d.fillCount=0; renderControls(); updateLabState(true);"><strong>🧊 Fill Cubes</strong></button>
+              <button class="choice-card ${v.netMode?'active':''}" id="btnVolNet" onclick="S.volume3d.netMode=!S.volume3d.netMode; S.volume3d.fillMode=false; renderControls(); updateLabState(true);"><strong>📐 ${v.netMode?'Fold 3D':'Unfold 2D'}</strong></button>
+            </div>
+          </div>`;
+      }
+    }
+
+    /* ==================== INTERACTIVE ACTION HANDLERS ==================== */
+    function servePizza() {
+      const p = S.pizza;
+      const valA = p.aNum / p.aDen;
+      const valB = p.addMode ? (p.bNum / p.bDen) : 0;
+      const total = valA + valB;
+      const matchVal = Math.abs(total - p.targetVal) < 0.005;
+      const matchDen = !p.reqDen || p.aDen === p.reqDen;
+      const matchAdd = !p.reqAdd || (p.addMode && Math.abs(valA - 0.5) < 0.01 && Math.abs(valB - 0.25) < 0.01);
+
+      p.served = true;
+      if (matchVal && matchDen && matchAdd) {
+        p.customerHappy = 1;
+        const mId = activeMissionByLab.pizza || 1;
+        markMissionDone('pizza', mId);
+        setCoach('🎉', 'Yum! Exact Order Served!', `You served ${(total * 100).toFixed(0)}% of a pizza — exact match for "${p.orderText}"!`, 'state-success', !isAutoSolving);
+      } else {
+        p.customerHappy = -1;
+        setCoach('🤔', 'Not Quite the Right Fraction!', `You served ${(total).toFixed(2)}, but the customer asked for "${p.orderText}". Adjust slices or click Show Me How!`, 'state-warn', !isAutoSolving);
+      }
+    }
+
+    function frogHop() {
+      const f = S.frog;
+      const delta = f.op === '+' ? f.jump : -f.jump;
+      const dest = Math.max(-10, Math.min(10, f.start + delta));
+      f.hopFrom = f.start; f.hopTo = dest; f.hopProg = 0; f.hopping = true; f.caught = false;
+      updateLabState(false);
+    }
+
+    function firePrimeLaser(p) {
+      const pr = S.prime;
+      if (pr.remaining <= 1) return;
+      if (pr.remaining % p === 0) {
+        pr.laser = { p, hit: true, life: 22 };
+        pr.factors.push(p);
+        pr.remaining = pr.remaining / p;
+        for (let i = 0; i < 14; i++) pr.sparks.push({ x: 450, y: 120, vx: (Math.random() - 0.5) * 7, vy: (Math.random() - 0.5) * 7, col: '#4ade80', life: 24 });
+        if (pr.remaining === 1) {
+          if (pr.target === 24) markMissionDone('prime', 1);
+          if (pr.target === 60) markMissionDone('prime', 2);
+          if (pr.target === 84) markMissionDone('prime', 3);
+        }
+        renderControls();
+        updateLabState(true);
+      } else {
+        pr.laser = { p, hit: false, life: 20 };
+        pr.shieldFlash = 18;
+        setCoach('🛡️', `Laser ÷${p} Bounced Off!`, `${pr.remaining} is NOT evenly divisible by ${p}. Try another prime number!`, 'state-warn', !isAutoSolving);
+      }
+    }
+
+    function shootArrow() {
+      const a = S.archer;
+      a.shooting = true; a.arrowProg = 0; a.hit = false; a.lastShotAngle = a.angle;
+      updateLabState(false);
+    }
+
+    function pourPythagoras() {
+      const py = S.pythagoras;
+      py.pouring = true; py.pourProg = 0; py.poured = false;
+      updateLabState(false);
+    }
+
+    function animateCirclePi() {
+      S.circlepi.animating = true; S.circlepi.prog = 0;
+      updateLabState(false);
+    }
+
+    function loadAlgebraEq(idx) {
+      const eq = ALGEBRA_EQS[idx];
+      S.algebra = {
+        eqId: idx, xCoeff: eq.xCoeff, leftConst: eq.leftConst, rightConst: eq.rightConst,
+        solution: eq.sol, tilt: 0, tiltVel: 0, flying: [], solved: false
+      };
+    }
+
+    function applyAlgebraOp(op) {
+      const al = S.algebra;
+      if (al.solved) return;
+      if (op === 'sub1') {
+        al.leftConst -= 1; al.rightConst -= 1;
+        al.flying.push({ x: 265, y: 165, vy: -3, txt: '−1', life: 26 }, { x: 635, y: 165, vy: -3, txt: '−1', life: 26 });
+      } else if (op === 'add1') {
+        al.leftConst += 1; al.rightConst += 1;
+        al.flying.push({ x: 265, y: 165, vy: -3, txt: '+1', life: 26 }, { x: 635, y: 165, vy: -3, txt: '+1', life: 26 });
+      } else if (op === 'div2') {
+        if (al.leftConst !== 0 || al.xCoeff % 2 !== 0 || al.rightConst % 2 !== 0) {
+          al.tiltVel = 0.08;
+          setCoach('⚠️', 'Clear the Loose Coins First!', 'Remove or cancel the loose coins on the left pan before dividing by 2!', 'state-warn', !isAutoSolving);
+          return;
+        }
+        al.xCoeff /= 2; al.rightConst /= 2;
+      } else if (op === 'div3') {
+        if (al.leftConst !== 0 || al.xCoeff % 3 !== 0 || al.rightConst % 3 !== 0) {
+          al.tiltVel = -0.08;
+          setCoach('⚠️', 'Not Divisible by 3 Yet!', 'Clear loose coins first and make sure there are 3 mystery boxes!', 'state-warn', !isAutoSolving);
+          return;
+        }
+        al.xCoeff /= 3; al.rightConst /= 3;
+      }
+      if (al.xCoeff === 1 && al.leftConst === 0) {
+        al.solved = true;
+        markMissionDone('algebra', al.eqId + 1);
+      }
+      renderControls();
+      updateLabState(true);
+    }
+
+    function launchRescue() {
+      const co = S.coords;
+      co.shipX = 0; co.shipY = 0; co.flying = true; co.phase = 0; co.trail = [{ x: 0, y: 0 }]; co.rescued = false;
+      updateLabState(false);
+    }
+
+    function rideSlope() {
+      const sl = S.slope;
+      sl.riding = true; sl.rideX = -5; sl.collected = [false, false, false];
+      updateLabState(false);
+    }
+
+    function adjProbSlice(col, delta) {
+      const pb = S.prob;
+      const tot = pb.slices.Red + pb.slices.Blue + pb.slices.Green + pb.slices.Gold;
+      const nv = pb.slices[col] + delta;
+      if (nv < 0 || tot + delta < 2 || tot + delta > 12) return;
+      pb.slices[col] = nv;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function pickWeightedColor() {
+      const pb = S.prob;
+      const arr = [];
+      ['Red', 'Blue', 'Green', 'Gold'].forEach(c => { for (let i = 0; i < pb.slices[c]; i++) arr.push(c); });
+      return arr[Math.floor(Math.random() * arr.length)];
+    }
+
+    function spinWheel1x() {
+      if (S.prob.spinning) return;
+      S.prob.spinning = true;
+      S.prob.spinVel = 0.28 + Math.random() * 0.22;
+    }
+
+    function turboSpin25x() {
+      const pb = S.prob;
+      for (let i = 0; i < 25; i++) {
+        const w = pickWeightedColor();
+        pb.counts[w]++; pb.totalSpins++; pb.lastWinner = w;
+      }
+      pb.wheelAngle += 3.5;
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       7. LIVE STATE EVALUATION & COACH BAR UPDATES (ALL 12 LABS)
+    ===================================================================== */
+    function updateLabState(shouldSpeak = false) {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('labTitle').textContent = lab.title;
+      const badge = document.getElementById('labBadge');
+      const fPill = document.getElementById('formulaPill');
+      fPill.classList.toggle('show', displayMode === 'formula');
+
+      if (activeLabId === 'pizza') {
+        const p = S.pizza;
+        const tot = p.aNum / p.aDen + (p.addMode ? p.bNum / p.bDen : 0);
+        fPill.textContent = p.addMode
+          ? `${p.aNum}/${p.aDen} + ${p.bNum}/${p.bDen} = ${(tot * 100).toFixed(0)}%  |  Target: ${p.orderText}`
+          : `Fraction = ${p.aNum}/${p.aDen} = ${(tot * 100).toFixed(0)}%  |  Target: ${p.orderText}`;
+        badge.className = p.customerHappy === 1 ? 'status-badge good' : 'status-badge';
+        badge.textContent = p.addMode ? `${p.aNum}/${p.aDen} + ${p.bNum}/${p.bDen}` : `${p.aNum}/${p.aDen} Pizza`;
+        if (!p.served) {
+          setCoach('🍕', `Order: "${p.orderText}"`, 'Use the steppers to slice and fill your pizza, then hit 🍽️ Serve Order!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'frog') {
+        const f = S.frog;
+        const ans = f.op === '+' ? f.start + f.jump : f.start - f.jump;
+        fPill.textContent = `${f.start} ${f.op} (${f.jump}) = ${ans}  |  Target Fly: ${f.target > 0 ? '+' + f.target : f.target}`;
+        badge.className = f.caught ? 'status-badge good' : 'status-badge';
+        badge.textContent = f.caught ? `🐸 Caught Fly at ${f.target}!` : `Frog at ${Math.round(f.frogPos)} → Fly at ${f.target}`;
+        if (!f.hopping && !f.caught) {
+          setCoach('🐸', `Aim for the Fly at ${f.target > 0 ? '+' + f.target : f.target}!`, `Current hop equation: ${f.start} ${f.op} (${f.jump}). Hit 🐸 HOP! to jump!`, 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'prime') {
+        const pr = S.prime;
+        const str = pr.factors.length ? pr.factors.join(' × ') : 'No lasers fired yet';
+        fPill.textContent = `${pr.target} = ${str}${pr.remaining > 1 ? ' × ' + pr.remaining : ' (100% Prime!)'}`;
+        if (pr.remaining === 1) {
+          badge.className = 'status-badge good'; badge.textContent = `🚀 Factorized: ${pr.factors.join('×')}`;
+          setCoach('🎉', `Asteroid ${pr.target} Completely Factorized!`, `${pr.target} = ${pr.factors.join(' × ')}! Every leaf on your Factor Tree is a Prime Number!`, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `☄️ Remaining: ${pr.remaining}`;
+          setCoach('🚀', `Blast Asteroid ${pr.remaining}!`, 'Fire a Prime Laser (÷2, ÷3, ÷5, or ÷7) that divides cleanly into the asteroid!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'archer') {
+        const a = S.archer;
+        const cls = a.angle === 0 ? 'Zero' : (a.angle < 90 ? 'Acute (<90°)' : (a.angle === 90 ? 'Right (90°)' : (a.angle < 180 ? 'Obtuse (>90°)' : 'Straight (180°)')));
+        fPill.textContent = a.mode === 'Single'
+          ? `Angle θ = ${a.angle}° (${cls})`
+          : (a.mode === 'Complementary' ? `Complementary: ${a.givenAngle}° + ${a.angle}° = ${a.givenAngle + a.angle}° (Target 90°)` : `Supplementary: ${a.givenAngle}° + ${a.angle}° = ${a.givenAngle + a.angle}° (Target 180°)`);
+        badge.className = a.hit ? 'status-badge good' : 'status-badge';
+        badge.textContent = `${a.angle}° • ${cls}`;
+        if (!a.shooting && !a.hit) {
+          setCoach('🏹', a.mode === 'Single' ? 'Hit the 90° Right Angle!' : (a.mode === 'Complementary' ? `Find Complement of ${a.givenAngle}°` : `Find Supplement of ${a.givenAngle}°`), 'Aim your bow using the slider and hit 🏹 Shoot Arrow!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'pythagoras') {
+        const py = S.pythagoras;
+        const c = Math.hypot(py.a, py.b);
+        const isTriple = Math.abs(c - Math.round(c)) < 0.001;
+        fPill.textContent = `a² + b² = c²  |  ${py.a}² + ${py.b}² = ${py.a*py.a} + ${py.b*py.b} = ${py.a*py.a + py.b*py.b}  →  c = ${isTriple ? Math.round(c) : c.toFixed(2)}`;
+        badge.className = isTriple ? 'status-badge good' : 'status-badge';
+        badge.textContent = isTriple ? `🏆 Triple: ${py.a}-${py.b}-${Math.round(c)}!` : `c = ${c.toFixed(2)}`;
+        if (!py.pouring && !py.poured) {
+          setCoach('🧱', isTriple ? `Pythagorean Triple (${py.a}, ${py.b}, ${Math.round(c)})!` : `Triangle Legs: a=${py.a}, b=${py.b}`, 'Click ✨ Pour Squares! to watch unit tiles flow from a² and b² into c²!', isTriple ? 'state-success' : 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'circlepi') {
+        const ci = S.circlepi;
+        const C = (2 * Math.PI * ci.r).toFixed(2);
+        const A = (Math.PI * ci.r * ci.r).toFixed(2);
+        fPill.textContent = ci.mode === 'Unroll'
+          ? `C = 2πr = 2 × 3.1416 × ${ci.r} = ${C}`
+          : `Area = πr² = 3.1416 × ${ci.r}² = ${A}  (${ci.slices} wedges → πr × r)`;
+        badge.className = 'status-badge good';
+        badge.textContent = ci.mode === 'Unroll' ? `C = ${C}` : `Area = ${A}`;
+        setCoach('🎡', ci.mode === 'Unroll' ? `Wheel Radius r = ${ci.r} (C = ${C})` : `Area Slicer: ${ci.slices} Wedges (Area = ${A})`, 'Hit ▶️ Animate! to see Pi (π) in action!', 'state-info', shouldSpeak);
+      } else if (activeLabId === 'algebra') {
+        const al = S.algebra;
+        const sign = al.leftConst >= 0 ? `+ ${al.leftConst}` : `− ${Math.abs(al.leftConst)}`;
+        const eqStr = al.leftConst === 0 ? `${al.xCoeff === 1 ? '' : al.xCoeff}x = ${al.rightConst}` : `${al.xCoeff}x ${sign} = ${al.rightConst}`;
+        fPill.textContent = `Current Balance: ${eqStr}`;
+        if (al.solved) {
+          badge.className = 'status-badge good'; badge.textContent = `🎉 SOLVED: x = ${al.rightConst}!`;
+          setCoach('🎉', `Mystery Unlocked! x = ${al.rightConst}!`, 'You kept both pans balanced and isolated 1 mystery x box!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = eqStr;
+          setCoach('⚖️', `Balance Equation: ${eqStr}`, 'Remove or cancel loose coins on BOTH sides first, then divide equally to isolate 1x!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'coords') {
+        const co = S.coords;
+        const qName = co.tx > 0 && co.ty > 0 ? 'Quadrant I (+,+)' : (co.tx < 0 && co.ty > 0 ? 'Quadrant II (−,+)' : 'Quadrant III (−,−)');
+        fPill.textContent = `Target Astronaut: (${co.tx}, ${co.ty}) in ${qName}  |  Thrusters: (${co.inX}, ${co.inY})`;
+        badge.className = co.rescued ? 'status-badge good' : 'status-badge';
+        badge.textContent = co.rescued ? `🛸 Astronaut Rescued!` : `Target (${co.tx}, ${co.ty})`;
+        if (!co.flying && !co.rescued) {
+          setCoach('🛸', `Rescue Astronaut in ${qName}!`, `Set X-Thruster to ${co.tx} and Y-Thruster to ${co.ty}, then hit 🚀 Launch Rescue!`, 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'slope') {
+        const sl = S.slope;
+        fPill.textContent = `Your Rail: y = ${sl.m}x ${sl.c >= 0 ? '+ ' + sl.c : '− ' + Math.abs(sl.c)}  |  Target Stars: y = ${sl.targetM}x ${sl.targetC >= 0 ? '+ ' + sl.targetC : '− ' + Math.abs(sl.targetC)}`;
+        const starsHit = sl.collected.filter(Boolean).length;
+        badge.className = starsHit === 3 ? 'status-badge good' : 'status-badge';
+        badge.textContent = `⭐ ${starsHit}/3 Stars • m=${sl.m}, c=${sl.c}`;
+        if (!sl.riding) {
+          setCoach('🎢', starsHit === 3 ? 'All 3 Stars Collected!' : `Aim Your Rail at the 3 Golden Stars!`, 'Adjust Slope (m) to tilt the track and Y-Intercept (c) to shift it up/down, then hit 🎢 Ride Track!', starsHit === 3 ? 'state-success' : 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'trig') {
+        const tr = S.trig;
+        const rad = tr.angle * Math.PI / 180;
+        const sv = Math.sin(rad), cv = Math.cos(rad);
+        fPill.textContent = `θ = ${Math.round(tr.angle)}°  |  sin θ = ${sv.toFixed(2)}  |  cos θ = ${cv.toFixed(2)}  |  sin²θ + cos²θ = 1`;
+        if (Math.abs(tr.angle - 90) <= 2) markMissionDone('trig', 1);
+        if (Math.abs(tr.angle - 45) <= 2) markMissionDone('trig', 2);
+        if (Math.abs(tr.angle - 270) <= 2) markMissionDone('trig', 3);
+        badge.className = 'status-badge good'; badge.textContent = `sin ${Math.round(tr.angle)}° = ${sv.toFixed(2)} • cos = ${cv.toFixed(2)}`;
+        setCoach('🌊', `Lighthouse Beam at ${Math.round(tr.angle)}°`, `Boat height (sin θ) is ${sv.toFixed(2)} and horizontal reach (cos θ) is ${cv.toFixed(2)}!`, 'state-info', shouldSpeak);
+      } else if (activeLabId === 'prob') {
+        const pb = S.prob;
+        const tot = pb.slices.Red + pb.slices.Blue + pb.slices.Green + pb.slices.Gold;
+        const redPct = Math.round((pb.slices.Red / tot) * 100);
+        const goldPct = Math.round((pb.slices.Gold / tot) * 100);
+        fPill.textContent = `P(Red) = ${pb.slices.Red}/${tot} (${redPct}%)  |  Total Spins: ${pb.totalSpins}`;
+        if (redPct === 50 && pb.totalSpins >= 25) markMissionDone('prob', 1);
+        if (goldPct === 0) markMissionDone('prob', 2);
+        if (pb.slices.Red === pb.slices.Blue && pb.slices.Blue === pb.slices.Green && pb.slices.Green === pb.slices.Gold && pb.slices.Red > 0) markMissionDone('prob', 3);
+        badge.className = 'status-badge good'; badge.textContent = `🎡 P(Red)=${redPct}% • ${pb.totalSpins} Spins`;
+        setCoach('🎲', pb.lastWinner ? `Landed on ${pb.lastWinner}!` : 'Customize Slices & Spin the Wheel!', 'Compare Theoretical % (striped bars) against Experimental % (solid bars) as you spin!', 'state-info', shouldSpeak);
+      } else if (activeLabId === 'volume3d') {
+        const v = S.volume3d;
+        const vol = v.l * v.w * v.h;
+        const sa = 2 * (v.l * v.w + v.l * v.h + v.w * v.h);
+        fPill.textContent = `Volume = ${v.l}×${v.w}×${v.h} = ${vol} units³  |  Surface Area = 2(lw+lh+wh) = ${sa} units²`;
+        if (v.l === 3 && v.w === 3 && v.h === 3) markMissionDone('volume3d', 1);
+        if (vol === 24) markMissionDone('volume3d', 2);
+        if (v.netMode) markMissionDone('volume3d', 3);
+        badge.className = 'status-badge good'; badge.textContent = `📦 V = ${vol} • SA = ${sa}`;
+        setCoach('📦', v.netMode ? `2D Unfolded Net (6 Faces • SA = ${sa})` : `3D Cuboid (${v.l} × ${v.w} × ${v.h})`, v.netMode ? 'Count all 6 flat faces: Top & Bottom, Front & Back, Left & Right!' : 'Hit 🧊 Fill Cubes to drop unit cubes layer by layer, or 📐 Unfold 2D Net!', 'state-info', shouldSpeak);
+      }
+
+      updateLiveStateSummary();
+    }
+
+    /* =====================================================================
+       8. SLOWER STEP-BY-STEP ANIMATED AUTO-SOLVE (ALL 12 MATHS LABS)
+    ===================================================================== */
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    async function runAutoSolve() {
+      if (isAutoSolving) return;
+      const myRun = ++solveRunId;
+      isAutoSolving = true;
+      animSpeed = 0.45;
+      document.getElementById('solveBtn').disabled = true;
+
+      const alive = () => myRun === solveRunId;
+      const step = async (title, msg, highlightId = null) => {
+        if (!alive()) return false;
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.add('pulse-target');
+        }
+        setCoach('✨', title, msg, 'state-solving', false);
+        await VoiceEngine.speak(msg, { slow: true });
+        if (!alive()) return false;
+        await sleep(Math.max(850, LAB_CONFIG.SOLVE_STEP_DELAY_MS - 1200));
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.remove('pulse-target');
+        }
+        return alive();
+      };
+
+      const mId = activeMissionByLab[activeLabId] || 1;
+
+      if (activeLabId === 'pizza') {
+        if (mId === 2) {
+          if (!(await step('Step 1: Cut Pizza into 8 Equal Slices', 'To make an equivalent fraction to one half using 8 slices, we set the denominator to 8.', 'ctrlPizzaA'))) return;
+          S.pizza.addMode = false; S.pizza.aDen = 8; S.pizza.aNum = 4; renderControls();
+          if (!(await step('Step 2: Fill 4 of 8 Slices & Serve!', 'Four eighths covers the exact same half pizza as one half! Let us serve it!', 'btnServePizza'))) return;
+          servePizza();
+        } else if (mId === 3) {
+          if (!(await step('Step 1: Set Pizza A to 1/2 & Pizza B to 1/4', 'Turn on Add Mode! One half equals two fourths, plus one fourth makes three fourths!', 'ctrlPizzaB'))) return;
+          S.pizza.addMode = true; S.pizza.aNum = 1; S.pizza.aDen = 2; S.pizza.bNum = 1; S.pizza.bDen = 4; renderControls();
+          if (!(await step('Step 2: Serve Combined 3/4 Pizza!', 'Now click Serve Order to delight our customer!', 'btnServePizza'))) return;
+          servePizza();
+        } else {
+          if (!(await step('Step 1: Slice Pizza A into 4 Quarters', 'Set denominator to 4 and numerator to 3 to build three fourths of a pizza.', 'ctrlPizzaA'))) return;
+          S.pizza.addMode = false; S.pizza.aDen = 4; S.pizza.aNum = 3; renderControls();
+          if (!(await step('Step 2: Serve 3/4 Pizza!', 'Three out of four slices equals 75 percent — let us serve!', 'btnServePizza'))) return;
+          servePizza();
+        }
+      } else if (activeLabId === 'frog') {
+        const cfg = mId === 1 ? [-3, '+', 7, 4, 'Adding plus 7 from minus 3 hops 7 pads right to plus 4!']
+                  : (mId === 2 ? [2, '-', 7, -5, 'Subtracting 7 from plus 2 hops 7 pads left across zero to minus 5!']
+                  : [-2, '-', -6, 4, 'Subtracting negative 6 flips into adding plus 6, hopping right from minus 2 to plus 4!']);
+        S.frog.start = cfg[0]; S.frog.frogPos = cfg[0]; S.frog.op = cfg[1]; S.frog.jump = cfg[2]; S.frog.target = cfg[3]; renderControls();
+        if (!(await step('Step 1: Set Integer Hop Equation', cfg[4], 'ctrlFrogOp'))) return;
+        if (!(await step('Step 2: Jump Frog, Jump!', 'Watch our frog leap in a smooth arc and catch the golden fly!', 'btnFrogHop'))) return;
+        frogHop(); await sleep(1600);
+      } else if (activeLabId === 'prime') {
+        const tgt = mId === 1 ? 24 : (mId === 2 ? 60 : 84);
+        S.prime = { target: tgt, remaining: tgt, factors: [], laser: null, shieldFlash: 0, sparks: [] }; renderControls();
+        if (!(await step(`Auto-Solve: Factorizing ${tgt}`, `Let us blast asteroid ${tgt} apart using only Prime Lasers!`, 'ctrlPrimeLasers'))) return;
+        for (const p of [2, 3, 5, 7]) {
+          while (S.prime.remaining % p === 0 && S.prime.remaining > 1) {
+            if (!(await step(`Firing Prime Laser ÷${p}`, `${S.prime.remaining} divides evenly by prime ${p}!`, `btnLaser${p}`))) return;
+            firePrimeLaser(p);
+          }
+        }
+      } else if (activeLabId === 'archer') {
+        const tgt = S.archer.targetAngle;
+        const why = S.archer.mode === 'Single' ? 'A Right Angle is exactly 90 degrees!'
+                  : (S.archer.mode === 'Complementary' ? `90 minus ${S.archer.givenAngle} equals ${tgt} degrees!`
+                  : `180 minus ${S.archer.givenAngle} equals ${tgt} degrees!`);
+        if (!(await step(`Step 1: Aim Bow to ${tgt}°`, why, 'ctrlArchAng'))) return;
+        S.archer.angle = tgt; renderControls();
+        if (!(await step('Step 2: Shoot Arrow!', 'Watch the glowing arrow strike the bullseye!', 'btnShootArrow'))) return;
+        shootArrow(); await sleep(1400);
+      } else if (activeLabId === 'pythagoras') {
+        const [a, b] = mId === 1 ? [3, 4] : (mId === 2 ? [6, 8] : [5, 12]);
+        S.pythagoras.a = a; S.pythagoras.b = b; S.pythagoras.pourProg = 0; S.pythagoras.poured = false; renderControls();
+        if (!(await step(`Step 1: Build ${a}-${b}-${Math.hypot(a,b)} Right Triangle`, `${a} squared is ${a*a} and ${b} squared is ${b*b}. Together they equal ${a*a+b*b}!`, 'ctrlPyA'))) return;
+        if (!(await step('Step 2: Pour Unit Squares into c²!', 'Watch every tile pour smoothly to fill the hypotenuse square!', 'btnPourSq'))) return;
+        pourPythagoras(); await sleep(1800);
+      } else if (activeLabId === 'circlepi') {
+        if (mId === 1) {
+          S.circlepi.mode = 'Unroll'; S.circlepi.r = 2; renderControls();
+          if (!(await step('Step 1: Unroll Radius 2 Wheel', 'Circumference equals 2 times pi times 2, which is about 12.57!', 'btnPiAnim'))) return;
+          animateCirclePi(); await sleep(1800);
+        } else {
+          S.circlepi.mode = 'Area'; S.circlepi.r = mId === 3 ? 3 : 2; S.circlepi.slices = 16; renderControls();
+          if (!(await step('Step 1: Slice into 16 Pizza Wedges', 'Watch the 16 wedges rearrange into a rectangle of width pi times r and height r — proving Area equals pi r squared!', 'btnPiAnim'))) return;
+          animateCirclePi(); await sleep(1800);
+        }
+      } else if (activeLabId === 'algebra') {
+        loadAlgebraEq(mId - 1); renderControls();
+        if (!(await step('Step 1: Clear Loose Coins on Both Pans', 'Remember the Golden Rule: whatever we do to the left pan, we do to the right pan!', 'ctrlAlgOps'))) return;
+        while (S.algebra.leftConst > 0) {
+          applyAlgebraOp('sub1'); if (!alive()) return; await sleep(500);
+        }
+        while (S.algebra.leftConst < 0) {
+          applyAlgebraOp('add1'); if (!alive()) return; await sleep(500);
+        }
+        const divBtn = S.algebra.xCoeff === 3 ? 'btnAlgDiv3' : 'btnAlgDiv2';
+        if (!(await step(`Step 2: Divide Both Sides by ${S.algebra.xCoeff}`, `Now divide both sides equally by ${S.algebra.xCoeff} to reveal one mystery box x!`, divBtn))) return;
+        applyAlgebraOp(S.algebra.xCoeff === 3 ? 'div3' : 'div2');
+      } else if (activeLabId === 'coords') {
+        const co = S.coords;
+        if (!(await step(`Step 1: Dial X = ${co.tx} and Y = ${co.ty}`, `Always run horizontally along X to ${co.tx} first, then fly vertically along Y to ${co.ty}!`, 'ctrlCoX'))) return;
+        co.inX = co.tx; co.inY = co.ty; renderControls();
+        if (!(await step('Step 2: Launch Space Rescue!', 'Watch the spaceship trace X first, then Y, to rescue the astronaut!', 'btnCoordLaunch'))) return;
+        launchRescue(); await sleep(1800);
+      } else if (activeLabId === 'slope') {
+        const sl = S.slope;
+        if (!(await step(`Step 1: Set Slope m = ${sl.targetM} & Intercept c = ${sl.targetC}`, `Slope ${sl.targetM} tilts the rail and Y-intercept ${sl.targetC} aligns it with all 3 golden stars!`, 'ctrlSlopeM'))) return;
+        sl.m = sl.targetM; sl.c = sl.targetC; renderControls();
+        if (!(await step('Step 2: Ride the Roller Coaster!', 'Watch the cart zip along y equals m x plus c and collect every star!', 'btnRideSlope'))) return;
+        rideSlope(); await sleep(1800);
+      } else if (activeLabId === 'trig') {
+        const deg = mId === 1 ? 90 : (mId === 2 ? 45 : 270);
+        if (!(await step(`Rotating Lighthouse to ${deg}°`, `At ${deg} degrees, watch the red vertical sine bar and the ocean boat move right into position!`, `btnTrig${deg}`))) return;
+        S.trig.angle = deg; S.trig.autoRotate = false; renderControls(); updateLabState(false);
+      } else if (activeLabId === 'prob') {
+        if (mId === 2) {
+          if (!(await step('Creating an Impossible Event (0% Gold)', 'Setting Gold slices to zero makes landing on Gold 0 percent — completely impossible!', 'ctrlProbSlices'))) return;
+          S.prob.slices = { Red: 4, Blue: 4, Green: 2, Gold: 0 }; renderControls();
+        } else if (mId === 3) {
+          if (!(await step('Building a Fair 4-Way Wheel', 'Giving every color 2 equal slices makes each probability exactly 25 percent!', 'ctrlProbSlices'))) return;
+          S.prob.slices = { Red: 2, Blue: 2, Green: 2, Gold: 2 }; renderControls();
+        } else {
+          if (!(await step('Step 1: Make 50% Red Wheel (4 of 8 slices)', 'Four Red slices out of 8 total gives 50 percent theoretical probability.', 'ctrlProbSlices'))) return;
+          S.prob.slices = { Red: 4, Blue: 2, Green: 1, Gold: 1 }; renderControls();
+          if (!(await step('Step 2: Turbo Spin 25 Times!', 'Watch the Law of Large Numbers bring the experimental Red bar close to 50 percent!', 'btnSpin25'))) return;
+          turboSpin25x();
+        }
+      } else if (activeLabId === 'volume3d') {
+        if (mId === 3) {
+          if (!(await step('Unfolding the 3D Box into a 2D Net', 'Watch all 6 faces unfold flat so you can see Surface Area equals 2 times l w plus l h plus w h!', 'btnVolNet'))) return;
+          S.volume3d.netMode = true; S.volume3d.fillMode = false; renderControls();
+        } else {
+          const [l, w, h] = mId === 1 ? [3, 3, 3] : [4, 3, 2];
+          S.volume3d.l = l; S.volume3d.w = w; S.volume3d.h = h; S.volume3d.netMode = false; S.volume3d.fillMode = true; S.volume3d.fillCount = 0; renderControls();
+          if (!(await step(`Filling ${l}×${w}×${h} Box with Unit Cubes`, `Each layer holds ${l*w} cubes, stacked ${h} layers high, for a total volume of ${l*w*h} cubic units!`, 'btnVolFill'))) return;
+          await sleep(1600);
+        }
+      }
+
+      if (!alive()) return;
+      animSpeed = 1.0;
+      isAutoSolving = false;
+      document.getElementById('solveBtn').disabled = false;
+      updateLabState(false);
+    }
+
+    /* =====================================================================
+       9. 60FPS HTML5 CANVAS RENDERERS FOR ALL 12 MATHS LABS
+    ===================================================================== */
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function rr(c, x, y, w, h, r) {
+      c.beginPath();
+      c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r);
+      c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r);
+      c.arcTo(x, y, x + w, y, r); c.closePath();
+    }
+
+    function drawActiveLab() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (activeLabId === 'pizza') drawPizza();
+      else if (activeLabId === 'frog') drawFrog();
+      else if (activeLabId === 'prime') drawPrime();
+      else if (activeLabId === 'archer') drawArcher();
+      else if (activeLabId === 'pythagoras') drawPythagoras();
+      else if (activeLabId === 'circlepi') drawCirclePi();
+      else if (activeLabId === 'algebra') drawAlgebra();
+      else if (activeLabId === 'coords') drawCoords();
+      else if (activeLabId === 'slope') drawSlope();
+      else if (activeLabId === 'trig') drawTrig();
+      else if (activeLabId === 'prob') drawProb();
+      else if (activeLabId === 'volume3d') drawVolume3D();
+
+      // Celebration Confetti Overlay
+      confetti.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.14; p.life--;
+        ctx.fillStyle = p.color; ctx.fillRect(p.x, p.y, 7, 7);
+      });
+      confetti = confetti.filter(p => p.life > 0);
+    }
+
+    /* ---------- 1. FRACTION PIZZA CHEF ---------- */
+    function drawOnePizza(cx, cy, r, num, den, label) {
+      // Wooden board
+      ctx.fillStyle = '#fde68a'; ctx.strokeStyle = '#d97706'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.arc(cx, cy, r + 10, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Empty pan outline
+      ctx.fillStyle = '#f8fafc'; ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.fill();
+
+      // Filled Pepperoni Cheese Slices
+      for (let i = 0; i < den; i++) {
+        const a0 = -Math.PI / 2 + (i / den) * Math.PI * 2;
+        const a1 = -Math.PI / 2 + ((i + 1) / den) * Math.PI * 2;
+        if (i < num) {
+          // Crust
+          ctx.fillStyle = '#d97706';
+          ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r, a0, a1); ctx.closePath(); ctx.fill();
+          // Cheese
+          ctx.fillStyle = '#facc15';
+          ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, r - 9, a0, a1); ctx.closePath(); ctx.fill();
+          // Pepperoni dot
+          const mid = (a0 + a1) / 2;
+          ctx.fillStyle = '#dc2626';
+          ctx.beginPath(); ctx.arc(cx + Math.cos(mid) * (r * 0.52), cy + Math.sin(mid) * (r * 0.52), 7, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.strokeStyle = '#92400e'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(a0) * r, cy + Math.sin(a0) * r); ctx.stroke();
+      }
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${label}: ${num}/${den}`, cx, cy + r + 32);
+    }
+
+    function drawPizza() {
+      const p = S.pizza;
+      if (p.addMode) {
+        drawOnePizza(215, 175, 84, p.aNum, p.aDen, 'Pizza A');
+        ctx.fillStyle = '#2563eb'; ctx.font = 'bold 34px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('+', 338, 185);
+        drawOnePizza(460, 175, 84, p.bNum, p.bDen, 'Pizza B');
+      } else {
+        drawOnePizza(310, 175, 96, p.aNum, p.aDen, 'Your Pizza');
+      }
+
+      // Hungry Customer + Speech Bubble (Right)
+      const cx = 740, cy = 195;
+      ctx.fillStyle = '#eff6ff'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
+      rr(ctx, 610, 48, 255, 68, 16); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#1e3a8a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(p.orderText, 738, 86);
+
+      ctx.font = '68px sans-serif';
+      ctx.fillText(p.customerHappy === 1 ? '😋' : (p.customerHappy === -1 ? '😕' : '🧑🏽‍🍳'), cx, cy + 20);
+
+      // Equivalent Fraction Meter
+      const tot = p.aNum / p.aDen + (p.addMode ? p.bNum / p.bDen : 0);
+      const match = Math.abs(tot - p.targetVal) < 0.005;
+      ctx.fillStyle = '#e2e8f0'; rr(ctx, 635, 255, 205, 22, 11); ctx.fill();
+      ctx.fillStyle = match ? '#16a34a' : '#3b82f6';
+      rr(ctx, 635, 255, Math.min(205, tot * 205), 22, 11); ctx.fill();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif';
+      ctx.fillText(`Total Served: ${(tot * 100).toFixed(0)}%`, 738, 298);
+    }
+
+    /* ---------- 2. NUMBER LINE FROG JUMP (INTEGERS) ---------- */
+    function drawFrog() {
+      const f = S.frog;
+      // Pond Backdrop
+      ctx.fillStyle = '#e0f2fe'; rr(ctx, 14, 14, 872, 312, 16); ctx.fill();
+      ctx.fillStyle = '#38bdf8'; ctx.fillRect(14, 210, 872, 116);
+
+      const xOf = n => 450 + n * 39;
+
+      // Lily Pads -10 to +10
+      for (let n = -10; n <= 10; n++) {
+        const lx = xOf(n);
+        ctx.fillStyle = n === 0 ? '#16a34a' : '#4ade80';
+        ctx.strokeStyle = '#15803d'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.ellipse(lx, 232, 16, 9, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = n === 0 ? '#0f172a' : '#1e293b';
+        ctx.font = n === 0 ? 'bold 13px sans-serif' : 'bold 11px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(n > 0 ? `+${n}` : `${n}`, lx, 260);
+      }
+
+      // Buzzing Golden Fly at Target
+      if (!f.caught) {
+        const fx = xOf(f.target), fy = 152 + Math.sin(animT * 7) * 8;
+        ctx.fillStyle = 'rgba(250, 204, 21, 0.35)'; ctx.beginPath(); ctx.arc(fx, fy, 18, 0, Math.PI * 2); ctx.fill();
+        ctx.font = '24px sans-serif'; ctx.fillText('🦟', fx, fy + 8);
+      }
+
+      // Parabolic Frog Hop Animation
+      let frogX = xOf(f.frogPos), frogY = 212;
+      if (f.hopping) {
+        f.hopProg = Math.min(1, f.hopProg + 0.025 * animSpeed);
+        const curN = f.hopFrom + (f.hopTo - f.hopFrom) * f.hopProg;
+        frogX = xOf(curN);
+        frogY = 212 - Math.sin(f.hopProg * Math.PI) * 95;
+        // Arc trail
+        ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 3; ctx.setLineDash([6, 4]);
+        ctx.beginPath();
+        ctx.moveTo(xOf(f.hopFrom), 212);
+        ctx.quadraticCurveTo((xOf(f.hopFrom) + xOf(f.hopTo)) / 2, 75, xOf(f.hopTo), 212);
+        ctx.stroke(); ctx.setLineDash([]);
+
+        if (f.hopProg >= 1) {
+          f.hopping = false; f.frogPos = f.hopTo;
+          f.ripples.push({ x: frogX, r: 8, life: 28 });
+          if (f.frogPos === f.target) {
+            f.caught = true;
+            markMissionDone('frog', activeMissionByLab.frog || 1);
+            setCoach('🎉', `Yum! Caught the Fly at ${f.target > 0 ? '+' + f.target : f.target}!`, `${f.start} ${f.op} (${f.jump}) = ${f.target}! Awesome integer jump!`, 'state-success', !isAutoSolving);
+          } else {
+            setCoach('🐸', `Landed on ${f.frogPos} (Fly is at ${f.target})`, 'Adjust your operation or jump distance and hop again!', 'state-warn', !isAutoSolving);
+          }
+        }
+      }
+
+      // Water Ripples
+      f.ripples.forEach(rp => {
+        rp.r += 1.6; rp.life--;
+        ctx.strokeStyle = `rgba(255,255,255,${rp.life / 28})`; ctx.lineWidth = 2.5;
+        ctx.beginPath(); ctx.ellipse(rp.x, 232, rp.r, rp.r * 0.4, 0, 0, Math.PI * 2); ctx.stroke();
+      });
+      f.ripples = f.ripples.filter(rp => rp.life > 0);
+
+      ctx.font = '38px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('🐸', frogX, frogY);
+    }
+
+    /* ---------- 3. PRIME FACTOR ROCKET BLASTER ---------- */
+    function drawPrime() {
+      const pr = S.prime;
+      // Space Arena
+      ctx.fillStyle = '#0f172a'; rr(ctx, 14, 12, 872, 316, 16); ctx.fill();
+
+      // Glowing Composite Asteroid (Top Center)
+      const ax = 450, ay = 105;
+      if (pr.remaining > 1) {
+        const r = 34 + Math.min(24, pr.remaining * 0.35);
+        ctx.fillStyle = pr.shieldFlash > 0 ? '#ef4444' : '#475569';
+        ctx.strokeStyle = pr.shieldFlash > 0 ? '#fca5a5' : '#38bdf8'; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.arc(ax, ay, r, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 28px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(pr.remaining, ax, ay + 10);
+      } else {
+        ctx.fillStyle = '#4ade80'; ctx.font = 'bold 24px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(`✨ ${pr.target} = ${pr.factors.join(' × ')} ✨`, ax, ay + 8);
+      }
+      if (pr.shieldFlash > 0) pr.shieldFlash--;
+
+      // Rocket Blaster at Bottom
+      ctx.font = '44px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('🚀', 450, 305);
+
+      // Laser Beam
+      if (pr.laser && pr.laser.life > 0) {
+        pr.laser.life--;
+        ctx.strokeStyle = pr.laser.hit ? '#4ade80' : '#f87171'; ctx.lineWidth = 6;
+        ctx.beginPath(); ctx.moveTo(450, 260); ctx.lineTo(450, ay + 35); ctx.stroke();
+      }
+
+      // Glowing Collected Prime Factor Tree Badges
+      pr.factors.forEach((f, idx) => {
+        const fx = 140 + idx * 115, fy = 215;
+        ctx.strokeStyle = 'rgba(56, 189, 248, 0.45)'; ctx.lineWidth = 2;
+        ctx.beginPath(); ctx.moveTo(450, ay + 25); ctx.lineTo(fx, fy - 20); ctx.stroke();
+        ctx.fillStyle = '#2563eb'; ctx.strokeStyle = '#93c5fd'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(fx, fy, 24, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(f, fx, fy + 6);
+      });
+
+      // Sparks
+      pr.sparks.forEach(sp => {
+        sp.x += sp.vx; sp.y += sp.vy; sp.life--;
+        ctx.fillStyle = sp.col; ctx.beginPath(); ctx.arc(sp.x, sp.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      pr.sparks = pr.sparks.filter(sp => sp.life > 0);
+    }
+
+    /* ---------- 4. ANGLE ARCHER & PROTRACTOR ARENA ---------- */
+    function drawArcher() {
+      const a = S.archer;
+      const cx = 450, cy = 282, R = 215;
+
+      // Holographic 180° Protractor
+      ctx.fillStyle = 'rgba(239, 246, 255, 0.72)'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(cx, cy, R, Math.PI, 0); ctx.closePath(); ctx.fill(); ctx.stroke();
+
+      // Degree Ticks every 15°
+      ctx.fillStyle = '#475569'; ctx.font = 'bold 10.5px sans-serif'; ctx.textAlign = 'center';
+      for (let d = 0; d <= 180; d += 15) {
+        const rad = -d * Math.PI / 180;
+        ctx.strokeStyle = d % 45 === 0 ? '#1d4ed8' : '#94a3b8'; ctx.lineWidth = d % 45 === 0 ? 2.5 : 1.5;
+        ctx.beginPath();
+        ctx.moveTo(cx + Math.cos(rad) * (R - 14), cy + Math.sin(rad) * (R - 14));
+        ctx.lineTo(cx + Math.cos(rad) * R, cy + Math.sin(rad) * R);
+        ctx.stroke();
+        if (d % 30 === 0) ctx.fillText(`${d}°`, cx + Math.cos(rad) * (R + 18), cy + Math.sin(rad) * (R + 18) + 4);
+      }
+
+      // Given Reference Wedge for Complementary/Supplementary Modes
+      if (a.mode !== 'Single') {
+        ctx.fillStyle = 'rgba(245, 158, 11, 0.25)';
+        ctx.beginPath(); ctx.moveTo(cx, cy);
+        ctx.arc(cx, cy, R * 0.65, 0, -a.givenAngle * Math.PI / 180, true);
+        ctx.closePath(); ctx.fill();
+        ctx.fillStyle = '#b45309'; ctx.font = 'bold 12px sans-serif';
+        ctx.fillText(`Given: ${a.givenAngle}°`, cx + 95, cy - 22);
+      }
+
+      // Target Bullseye
+      const tRad = -(a.mode === 'Single' ? a.targetAngle : (a.givenAngle + a.targetAngle)) * Math.PI / 180;
+      const tx = cx + Math.cos(tRad) * (R - 22), ty = cy + Math.sin(tRad) * (R - 22);
+      ctx.fillStyle = '#ef4444'; ctx.beginPath(); ctx.arc(tx, ty, 16, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(tx, ty, 9, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#ef4444'; ctx.beginPath(); ctx.arc(tx, ty, 4, 0, Math.PI * 2); ctx.fill();
+
+      // Aimed Ray + Angle Arc
+      const aimDeg = a.mode === 'Single' ? a.angle : (a.givenAngle + a.angle);
+      const aimRad = -aimDeg * Math.PI / 180;
+      ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 4; ctx.setLineDash([6, 4]);
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(aimRad) * R, cy + Math.sin(aimRad) * R); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Flying Arrow
+      if (a.shooting) {
+        a.arrowProg = Math.min(1, a.arrowProg + 0.045 * animSpeed);
+        const ax = cx + Math.cos(aimRad) * (a.arrowProg * (R - 20));
+        const ay = cy + Math.sin(aimRad) * (a.arrowProg * (R - 20));
+        ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.moveTo(cx + Math.cos(aimRad) * Math.max(0, a.arrowProg * (R - 20) - 30), cy + Math.sin(aimRad) * Math.max(0, a.arrowProg * (R - 20) - 30));
+        ctx.lineTo(ax, ay); ctx.stroke();
+        if (a.arrowProg >= 1) {
+          a.shooting = false;
+          if (Math.abs(a.angle - a.targetAngle) <= 2) {
+            a.hit = true;
+            markMissionDone('archer', activeMissionByLab.archer || 1);
+            setCoach('🎯', `BULLSEYE at ${a.angle}°!`, 'Spot-on angle calculation!', 'state-success', !isAutoSolving);
+          } else {
+            setCoach('🏹', `Shot ${a.angle}° — Missed Bullseye!`, a.angle < a.targetAngle ? 'Try a slightly LARGER angle!' : 'Try a slightly SMALLER angle!', 'state-warn', !isAutoSolving);
+          }
+        }
+      }
+
+      // Archer Icon at Origin
+      ctx.font = '32px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('🏹', cx, cy + 12);
+    }
+
+    /* ---------- 5. PYTHAGORAS SQUARE BUILDER ---------- */
+    function drawPythagoras() {
+      const py = S.pythagoras;
+      if (py.pouring) {
+        py.pourProg = Math.min(1, py.pourProg + 0.014 * animSpeed);
+        if (py.pourProg >= 1) {
+          py.pouring = false; py.poured = true;
+          if (py.a === 3 && py.b === 4) markMissionDone('pythagoras', 1);
+          if ((py.a === 6 && py.b === 8) || (py.a === 8 && py.b === 6)) markMissionDone('pythagoras', 2);
+          if (py.a === 5 && py.b === 12) markMissionDone('pythagoras', 3);
+          setCoach('🎉', `Proven! ${py.a}² + ${py.b}² = ${py.a*py.a + py.b*py.b}!`, `All ${py.a*py.a} blue tiles and ${py.b*py.b} orange tiles filled the exact hypotenuse square!`, 'state-success', !isAutoSolving);
+        }
+      }
+
+      const scale = Math.min(20, 145 / Math.max(py.a, py.b));
+      const aPx = py.a * scale, bPx = py.b * scale;
+      const ox = 365, oy = 225;
+
+      // Side a² Square (Left of vertical leg)
+      const aAlpha = 1 - py.pourProg * 0.65;
+      ctx.fillStyle = `rgba(37, 99, 235, ${aAlpha * 0.35})`; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 2;
+      ctx.fillRect(ox - aPx, oy - aPx, aPx, aPx); ctx.strokeRect(ox - aPx, oy - aPx, aPx, aPx);
+      for (let i = 1; i < py.a; i++) {
+        ctx.beginPath(); ctx.moveTo(ox - aPx + i * scale, oy - aPx); ctx.lineTo(ox - aPx + i * scale, oy);
+        ctx.moveTo(ox - aPx, oy - aPx + i * scale); ctx.lineTo(ox, oy - aPx + i * scale); ctx.stroke();
+      }
+
+      // Side b² Square (Below horizontal leg)
+      ctx.fillStyle = `rgba(249, 115, 22, ${aAlpha * 0.35})`; ctx.strokeStyle = '#ea580c';
+      ctx.fillRect(ox, oy, bPx, Math.min(100, bPx)); ctx.strokeRect(ox, oy, bPx, Math.min(100, bPx));
+
+      // Right Triangle
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(ox, oy); ctx.lineTo(ox, oy - aPx); ctx.lineTo(ox + bPx, oy); ctx.closePath();
+      ctx.fill(); ctx.stroke();
+      ctx.strokeRect(ox, oy - 14, 14, 14); // 90° corner mark
+
+      // Hypotenuse c² Visual Comparison Box (Right Side)
+      const c2 = py.a * py.a + py.b * py.b;
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 3;
+      rr(ctx, 645, 60, 210, 215, 16); ctx.fill(); ctx.stroke();
+
+      const fillH = py.pourProg * 155;
+      ctx.fillStyle = 'rgba(34, 197, 94, 0.42)';
+      ctx.fillRect(670, 235 - fillH, 160, fillH);
+      ctx.strokeStyle = '#15803d'; ctx.lineWidth = 2; ctx.strokeRect(670, 80, 160, 155);
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`c² Tank = ${c2} tiles`, 750, 262);
+      ctx.fillStyle = '#1d4ed8'; ctx.fillText(`a² = ${py.a*py.a}`, ox - aPx / 2, oy - aPx - 10);
+      ctx.fillStyle = '#c2410c'; ctx.fillText(`b² = ${py.b*py.b}`, ox + bPx / 2, oy + 24);
+    }
+
+    /* ---------- 6. CIRCLE PI (π) UNROLLER & AREA SLICER ---------- */
+    function drawCirclePi() {
+      const ci = S.circlepi;
+      if (ci.animating) {
+        ci.prog = Math.min(1, ci.prog + 0.012 * animSpeed);
+        if (ci.prog >= 1) {
+          ci.animating = false;
+          if (ci.mode === 'Unroll' && ci.r === 2) markMissionDone('circlepi', 1);
+          if (ci.mode === 'Area' && ci.slices === 16) markMissionDone('circlepi', 2);
+          if (ci.mode === 'Area' && ci.r === 3) markMissionDone('circlepi', 3);
+        }
+      }
+
+      if (ci.mode === 'Unroll') {
+        const pxR = 24 + ci.r * 9;
+        const startX = 115, groundY = 250;
+        const dist = 2 * Math.PI * pxR;
+        const wx = startX + ci.prog * dist;
+        const rot = ci.prog * Math.PI * 2;
+
+        // Ruler Ground
+        ctx.strokeStyle = '#475569'; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(75, groundY); ctx.lineTo(845, groundY); ctx.stroke();
+
+        // Glowing Unrolled Circumference Ribbon
+        ctx.strokeStyle = '#ec4899'; ctx.lineWidth = 8;
+        ctx.beginPath(); ctx.moveTo(startX, groundY); ctx.lineTo(wx, groundY); ctx.stroke();
+
+        // Rolling Neon Wheel
+        ctx.save(); ctx.translate(wx, groundY - pxR); ctx.rotate(rot);
+        ctx.fillStyle = 'rgba(37, 99, 235, 0.16)'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.arc(0, 0, pxR, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.strokeStyle = '#ef4444'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(0, 0); ctx.lineTo(0, pxR); ctx.stroke();
+        ctx.restore();
+
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(`Unrolled Circumference = ${(2 * Math.PI * ci.r * ci.prog).toFixed(2)} / ${(2 * Math.PI * ci.r).toFixed(2)}`, 450, 295);
+      } else {
+        // Area Slicer: Circle (Left) morphs into Interlocking Rectangle (Right)
+        const n = ci.slices, pxR = 78;
+        const cx = 225, cy = 175;
+        const wedgeW = (Math.PI * pxR) / (n / 2);
+
+        for (let i = 0; i < n; i++) {
+          const a0 = (i / n) * Math.PI * 2;
+          const a1 = ((i + 1) / n) * Math.PI * 2;
+          const isTop = i % 2 === 0;
+          const col = isTop ? '#3b82f6' : '#f97316';
+
+          // Target position in Parallelogram/Rectangle on right
+          const slot = Math.floor(i / 2);
+          const rx = 435 + slot * wedgeW + (isTop ? 0 : wedgeW * 0.5);
+          const ry = isTop ? 125 : 210;
+
+          const drawX = cx + (rx - cx) * ci.prog;
+          const drawY = cy + (ry - cy) * ci.prog;
+
+          ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          if (ci.prog < 0.5) {
+            ctx.moveTo(drawX, drawY); ctx.arc(drawX, drawY, pxR, a0, a1); ctx.closePath();
+          } else {
+            const dir = isTop ? 1 : -1;
+            ctx.moveTo(drawX, drawY);
+            ctx.lineTo(drawX - wedgeW * 0.52, drawY + dir * pxR);
+            ctx.lineTo(drawX + wedgeW * 0.52, drawY + dir * pxR);
+            ctx.closePath();
+          }
+          ctx.fill(); ctx.stroke();
+        }
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(`Width ≈ πr = ${(Math.PI * ci.r).toFixed(2)}  ×  Height r = ${ci.r}  ⇒  Area = ${(Math.PI * ci.r * ci.r).toFixed(2)}`, 610, 310);
+      }
+    }
+
+    /* ---------- 7. ALGEBRA BALANCE SCALE NINJA ---------- */
+    function drawAlgebra() {
+      const al = S.algebra;
+      al.tiltVel += (0 - al.tilt) * 0.08;
+      al.tiltVel *= 0.85;
+      al.tilt += al.tiltVel;
+
+      // Golden Stand
+      ctx.fillStyle = '#b45309'; ctx.fillRect(438, 120, 24, 165);
+      ctx.fillStyle = '#92400e'; rr(ctx, 365, 275, 170, 24, 10); ctx.fill();
+
+      ctx.save();
+      ctx.translate(450, 125);
+      ctx.rotate(al.tilt);
+
+      // Beam
+      ctx.fillStyle = '#f59e0b'; rr(ctx, -230, -8, 460, 16, 8); ctx.fill();
+
+      // Left Pan & Right Pan
+      [-185, 185].forEach(px => {
+        ctx.strokeStyle = '#78350f'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(px, 8); ctx.lineTo(px - 50, 82); ctx.moveTo(px, 8); ctx.lineTo(px + 50, 82); ctx.stroke();
+        ctx.fillStyle = '#fde68a'; ctx.strokeStyle = '#d97706'; ctx.lineWidth = 3;
+        rr(ctx, px - 92, 80, 184, 18, 9); ctx.fill(); ctx.stroke();
+      });
+
+      // Left Pan Items: Purple x Mystery Boxes + Coins
+      for (let i = 0; i < al.xCoeff; i++) {
+        const bx = -245 + i * 48;
+        ctx.fillStyle = '#7c3aed'; ctx.strokeStyle = '#4c1d95'; ctx.lineWidth = 2.5;
+        rr(ctx, bx, 38, 40, 40, 8); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(al.solved ? al.rightConst : 'x', bx + 20, 65);
+      }
+      const absL = Math.abs(al.leftConst);
+      for (let i = 0; i < Math.min(8, absL); i++) {
+        const cx = -135 + (i % 3) * 24, cy = 66 - Math.floor(i / 3) * 22;
+        ctx.fillStyle = al.leftConst > 0 ? '#facc15' : '#ef4444';
+        ctx.beginPath(); ctx.arc(cx, cy, 10, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = al.leftConst > 0 ? '#0f172a' : '#fff'; ctx.font = 'bold 10px sans-serif';
+        ctx.fillText(al.leftConst > 0 ? '+1' : '-1', cx, cy + 3);
+      }
+
+      // Right Pan Items: Gold +1 Coins
+      for (let i = 0; i < Math.min(18, Math.max(0, al.rightConst)); i++) {
+        const cx = 122 + (i % 6) * 25, cy = 66 - Math.floor(i / 6) * 22;
+        ctx.fillStyle = '#facc15'; ctx.strokeStyle = '#b45309'; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.arc(cx, cy, 10, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 10px sans-serif'; ctx.fillText('1', cx, cy + 3);
+      }
+      ctx.restore();
+
+      // Flying removed items
+      al.flying.forEach(fl => {
+        fl.y += fl.vy; fl.life--;
+        ctx.fillStyle = '#7c3aed'; ctx.font = 'bold 16px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(fl.txt, fl.x, fl.y);
+      });
+      al.flying = al.flying.filter(fl => fl.life > 0);
+    }
+
+    /* ---------- 8. COORDINATE PLANE SPACE RESCUE ---------- */
+    function drawCoords() {
+      const co = S.coords;
+      const cx = 450, cy = 172, step = 24;
+
+      // Star Grid Backdrop
+      ctx.fillStyle = '#0f172a'; rr(ctx, 14, 10, 872, 320, 16); ctx.fill();
+
+      // Grid lines -6 to +6
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.22)'; ctx.lineWidth = 1;
+      for (let i = -6; i <= 6; i++) {
+        ctx.beginPath(); ctx.moveTo(cx + i * step, cy - 6 * step); ctx.lineTo(cx + i * step, cy + 6 * step); ctx.stroke();
+        ctx.beginPath(); ctx.moveTo(cx - 6 * step, cy + i * step); ctx.lineTo(cx + 6 * step, cy + i * step); ctx.stroke();
+      }
+      // Axes
+      ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(cx - 165, cy); ctx.lineTo(cx + 165, cy); ctx.moveTo(cx, cy - 150); ctx.lineTo(cx, cy + 150); ctx.stroke();
+
+      // Quadrant Labels
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.65)'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Q-I (+, +)', cx + 100, cy - 115);
+      ctx.fillText('Q-II (−, +)', cx - 100, cy - 115);
+      ctx.fillText('Q-III (−, −)', cx - 100, cy + 128);
+      ctx.fillText('Q-IV (+, −)', cx + 100, cy + 128);
+
+      // Update Spaceship Flight (X first, then Y!)
+      if (co.flying) {
+        const spd = 0.08 * animSpeed;
+        if (co.phase === 0) {
+          const dx = co.inX - co.shipX;
+          if (Math.abs(dx) <= spd) { co.shipX = co.inX; co.phase = 1; }
+          else co.shipX += Math.sign(dx) * spd;
+        } else {
+          const dy = co.inY - co.shipY;
+          if (Math.abs(dy) <= spd) {
+            co.shipY = co.inY; co.flying = false;
+            if (co.inX === co.tx && co.inY === co.ty) {
+              co.rescued = true;
+              markMissionDone('coords', activeMissionByLab.coords || 1);
+              setCoach('🎉', `Astronaut Rescued at (${co.tx}, ${co.ty})!`, 'Great coordinate navigation — X first, then Y!', 'state-success', !isAutoSolving);
+            } else {
+              setCoach('🛸', `Landed at (${co.inX}, ${co.inY}) — Missed Astronaut!`, `The astronaut is waving at (${co.tx}, ${co.ty}). Adjust thrusters and try again!`, 'state-warn', !isAutoSolving);
+            }
+          } else co.shipY += Math.sign(dy) * spd;
+        }
+        co.trail.push({ x: co.shipX, y: co.shipY });
+      }
+
+      // Neon Dashed Flight Trail
+      if (co.trail.length > 1) {
+        ctx.strokeStyle = '#facc15'; ctx.lineWidth = 3; ctx.setLineDash([5, 4]);
+        ctx.beginPath();
+        co.trail.forEach((pt, i) => {
+          const px = cx + pt.x * step, py = cy - pt.y * step;
+          i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
+        });
+        ctx.stroke(); ctx.setLineDash([]);
+      }
+
+      // Waving Astronaut at Target
+      ctx.font = '26px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('🧑🏽‍🚀', cx + co.tx * step, cy - co.ty * step + 8);
+
+      // Cute Spaceship
+      ctx.fillText('🛸', cx + co.shipX * step, cy - co.shipY * step + 8);
+    }
+
+    /* ---------- 9. LINEAR SLOPE (y = mx + c) ROLLER COASTER ---------- */
+    function drawSlope() {
+      const sl = S.slope;
+      const cx = 450, cy = 175, sx = 55, sy = 28;
+      const px = x => cx + x * sx, py = y => cy - y * sy;
+
+      // Grid
+      ctx.strokeStyle = '#e2e8f0'; ctx.lineWidth = 1;
+      for (let x = -6; x <= 6; x++) { ctx.beginPath(); ctx.moveTo(px(x), 20); ctx.lineTo(px(x), 320); ctx.stroke(); }
+      for (let y = -5; y <= 5; y++) { ctx.beginPath(); ctx.moveTo(80, py(y)); ctx.lineTo(820, py(y)); ctx.stroke(); }
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.moveTo(80, cy); ctx.lineTo(820, cy); ctx.moveTo(cx, 20); ctx.lineTo(cx, 320); ctx.stroke();
+
+      // 3 Target Golden Stars along target line (x = -1, 0, 2)
+      const starXs = [-1, 0, 2];
+      starXs.forEach((x, i) => {
+        const y = sl.targetM * x + sl.targetC;
+        if (!sl.collected[i]) {
+          ctx.font = '26px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText('⭐', px(x), py(y) + 9);
+        }
+      });
+
+      // Glowing Roller Coaster Rail for y = mx + c
+      ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 6;
+      ctx.beginPath();
+      ctx.moveTo(px(-6), py(sl.m * -6 + sl.c));
+      ctx.lineTo(px(6), py(sl.m * 6 + sl.c));
+      ctx.stroke();
+
+      // Coaster Cart Riding Track
+      if (sl.riding) {
+        sl.rideX += 0.08 * animSpeed;
+        const ry = sl.m * sl.rideX + sl.c;
+        starXs.forEach((sxVal, i) => {
+          const syVal = sl.targetM * sxVal + sl.targetC;
+          if (!sl.collected[i] && Math.hypot(sl.rideX - sxVal, ry - syVal) < 0.55) {
+            sl.collected[i] = true;
+            for (let k = 0; k < 10; k++) sl.sparks.push({ x: px(sxVal), y: py(syVal), vx: (Math.random() - 0.5) * 6, vy: (Math.random() - 0.5) * 6, life: 20 });
+          }
+        });
+        ctx.font = '28px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('🎢', px(sl.rideX), py(ry) + 6);
+        if (sl.rideX >= 5) {
+          sl.riding = false;
+          if (sl.collected.every(Boolean)) {
+            markMissionDone('slope', activeMissionByLab.slope || 1);
+            updateLabState(true);
+          } else {
+            setCoach('🎢', `Collected ${sl.collected.filter(Boolean).length}/3 Stars`, 'Adjust Slope (m) and Y-Intercept (c) so your blue rail passes through all 3 stars!', 'state-warn', !isAutoSolving);
+          }
+        }
+      }
+
+      sl.sparks.forEach(sp => {
+        sp.x += sp.vx; sp.y += sp.vy; sp.life--;
+        ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(sp.x, sp.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      sl.sparks = sl.sparks.filter(sp => sp.life > 0);
+    }
+
+    /* ---------- 10. TRIGONOMETRY WAVE & UNIT CIRCLE LIGHTHOUSE ---------- */
+    function drawTrig() {
+      const tr = S.trig;
+      if (tr.autoRotate) {
+        tr.angle = (tr.angle + 0.9 * animSpeed) % 360;
+        if (Math.round(tr.angle) % 15 === 0) updateLiveStateSummary();
+      }
+      const rad = tr.angle * Math.PI / 180;
+      const cx = 185, cy = 172, R = 105;
+      const bx = cx + Math.cos(rad) * R, by = cy - Math.sin(rad) * R;
+
+      // Unit Circle (Left)
+      ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(cx, cy, R, 0, Math.PI * 2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(cx - R - 20, cy); ctx.lineTo(cx + R + 20, cy); ctx.moveTo(cx, cy - R - 20); ctx.lineTo(cx, cy + R + 20); ctx.stroke();
+
+      // Lighthouse Beam
+      ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(bx, by); ctx.stroke();
+      // Blue Horizontal cos θ Bar & Red Vertical sin θ Bar
+      ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(bx, cy); ctx.stroke();
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 5;
+      ctx.beginPath(); ctx.moveTo(bx, cy); ctx.lineTo(bx, by); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.beginPath(); ctx.arc(bx, by, 7, 0, Math.PI * 2); ctx.fill();
+
+      // Right Side: Live Ocean Sine & Cosine Waves (0° to 360°)
+      const wx0 = 365, wW = 480;
+      ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(wx0, cy); ctx.lineTo(wx0 + wW, cy); ctx.stroke();
+
+      // Cosine Wave (Blue dashed)
+      ctx.strokeStyle = 'rgba(37, 99, 235, 0.45)'; ctx.lineWidth = 2.5; ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      for (let d = 0; d <= 360; d += 4) {
+        const x = wx0 + (d / 360) * wW, y = cy - Math.cos(d * Math.PI / 180) * R;
+        d === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke(); ctx.setLineDash([]);
+
+      // Sine Ocean Wave (Glowing Red/Cyan)
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 4;
+      ctx.beginPath();
+      for (let d = 0; d <= 360; d += 4) {
+        const x = wx0 + (d / 360) * wW, y = cy - Math.sin(d * Math.PI / 180) * R;
+        d === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // Connector dashed line from Unit Circle tip to Floating Boat!
+      const boatX = wx0 + (tr.angle / 360) * wW;
+      ctx.strokeStyle = 'rgba(220, 38, 38, 0.4)'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]);
+      ctx.beginPath(); ctx.moveTo(bx, by); ctx.lineTo(boatX, by); ctx.stroke(); ctx.setLineDash([]);
+
+      ctx.font = '28px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('⛵', boatX, by + 6);
+    }
+
+    /* ---------- 11. CARNIVAL PROBABILITY SPINNER ---------- */
+    function drawProb() {
+      const pb = S.prob;
+      const cols = [['Red', '#ef4444'], ['Blue', '#3b82f6'], ['Green', '#22c55e'], ['Gold', '#f59e0b']];
+      const tot = pb.slices.Red + pb.slices.Blue + pb.slices.Green + pb.slices.Gold;
+
+      if (pb.spinning) {
+        pb.wheelAngle += pb.spinVel * animSpeed;
+        pb.spinVel *= 0.965;
+        if (pb.spinVel < 0.008) {
+          pb.spinning = false;
+          // Determine winning slice under top pointer (-PI/2)
+          const norm = ((-Math.PI / 2 - pb.wheelAngle) % (Math.PI * 2) + Math.PI * 2) % (Math.PI * 2);
+          let acc = 0, winner = 'Red';
+          for (const [c] of cols) {
+            const span = (pb.slices[c] / tot) * Math.PI * 2;
+            if (norm >= acc && norm < acc + span) { winner = c; break; }
+            acc += span;
+          }
+          pb.counts[winner]++; pb.totalSpins++; pb.lastWinner = winner;
+          renderControls(); updateLabState(true);
+        }
+      }
+
+      // Glossy Carnival Wheel (Left)
+      const cx = 230, cy = 178, R = 122;
+      let start = pb.wheelAngle;
+      cols.forEach(([c, hex]) => {
+        const span = (pb.slices[c] / tot) * Math.PI * 2;
+        if (span > 0) {
+          ctx.fillStyle = hex; ctx.strokeStyle = '#fff'; ctx.lineWidth = 3;
+          ctx.beginPath(); ctx.moveTo(cx, cy); ctx.arc(cx, cy, R, start, start + span); ctx.closePath();
+          ctx.fill(); ctx.stroke();
+          start += span;
+        }
+      });
+      ctx.fillStyle = '#0f172a'; ctx.beginPath(); ctx.arc(cx, cy, 18, 0, Math.PI * 2); ctx.fill();
+      // Top Pointer Flapper
+      ctx.fillStyle = '#0f172a';
+      ctx.beginPath(); ctx.moveTo(cx, cy - R + 16); ctx.lineTo(cx - 12, cy - R - 14); ctx.lineTo(cx + 12, cy - R - 14); ctx.closePath(); ctx.fill();
+
+      // Side-by-Side Bar Chart: Theoretical % vs Experimental % (Right)
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 415, 34, 450, 275, 16); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('THEORETICAL % (Light)  vs.  EXPERIMENTAL % (Solid)', 640, 58);
+
+      cols.forEach(([c, hex], idx) => {
+        const bx = 460 + idx * 102;
+        const theo = (pb.slices[c] / tot) * 100;
+        const exp = pb.totalSpins > 0 ? (pb.counts[c] / pb.totalSpins) * 100 : 0;
+
+        ctx.fillStyle = hex; ctx.globalAlpha = 0.35;
+        ctx.fillRect(bx, 255 - theo * 1.7, 28, theo * 1.7);
+        ctx.globalAlpha = 1;
+        ctx.fillRect(bx + 32, 255 - exp * 1.7, 28, exp * 1.7);
+
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 11px sans-serif';
+        ctx.fillText(c, bx + 30, 275);
+        ctx.fillStyle = '#64748b'; ctx.font = '10px monospace';
+        ctx.fillText(`${Math.round(theo)}%/${Math.round(exp)}%`, bx + 30, 293);
+      });
+    }
+
+    /* ---------- 12. 3D VOLUME & NET FOLDER FACTORY ---------- */
+    function drawVolume3D() {
+      const v = S.volume3d;
+      const targetNet = v.netMode ? 1 : 0;
+      v.netProg += (targetNet - v.netProg) * 0.08 * animSpeed;
+
+      if (v.netProg > 0.35) {
+        // 2D Unfolded 6-Face Net View
+        const sc = 24;
+        const lw = v.l * sc, ww = v.w * sc, hh = v.h * sc;
+        const bx = 410, by = 145;
+        const faces = [
+          { x: bx, y: by, w: lw, h: ww, col: '#bfdbfe', lbl: `Bottom (${v.l}×${v.w})` },
+          { x: bx, y: by - hh, w: lw, h: hh, col: '#fde68a', lbl: `Back` },
+          { x: bx, y: by + ww, w: lw, h: hh, col: '#fde68a', lbl: `Front` },
+          { x: bx - hh, y: by, w: hh, h: ww, col: '#bbf7d0', lbl: `Left` },
+          { x: bx + lw, y: by, w: hh, h: ww, col: '#bbf7d0', lbl: `Right` },
+          { x: bx, y: by + ww + hh, w: lw, h: ww, col: '#bfdbfe', lbl: `Top` }
+        ];
+        faces.forEach(f => {
+          ctx.fillStyle = f.col; ctx.strokeStyle = '#334155'; ctx.lineWidth = 2.5;
+          ctx.fillRect(f.x, f.y, f.w, f.h); ctx.strokeRect(f.x, f.y, f.w, f.h);
+          ctx.fillStyle = '#0f172a'; ctx.font = 'bold 10px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText(f.lbl, f.x + f.w / 2, f.y + f.h / 2 + 4);
+        });
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(`6 Unfolded Faces  •  Total Surface Area = ${2*(v.l*v.w+v.l*v.h+v.w*v.h)} sq units`, 450, 326);
+        return;
+      }
+
+      // Isometric 3D Cuboid Projection
+      const ox = 450, oy = 250, s = 26;
+      const iso = (x, y, z) => [ox + (x - y) * s * 0.86, oy + (x + y) * s * 0.48 - z * s];
+
+      const totalCubes = v.l * v.w * v.h;
+      if (v.fillMode && v.fillCount < totalCubes) {
+        v.fillCount = Math.min(totalCubes, v.fillCount + 0.35 * animSpeed);
+      }
+
+      // Draw Unit Cubes layer-by-layer if Fill Mode active
+      const drawCube = (x, y, z, col) => {
+        const p = [iso(x,y,z+1), iso(x+1,y,z+1), iso(x+1,y+1,z+1), iso(x,y+1,z+1), iso(x+1,y,z), iso(x+1,y+1,z), iso(x,y+1,z)];
+        // Top
+        ctx.fillStyle = col; ctx.strokeStyle = '#fff'; ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(...p[0]); ctx.lineTo(...p[1]); ctx.lineTo(...p[2]); ctx.lineTo(...p[3]); ctx.closePath(); ctx.fill(); ctx.stroke();
+        // Right
+        ctx.fillStyle = 'rgba(37,99,235,0.65)';
+        ctx.beginPath(); ctx.moveTo(...p[1]); ctx.lineTo(...p[4]); ctx.lineTo(...p[5]); ctx.lineTo(...p[2]); ctx.closePath(); ctx.fill(); ctx.stroke();
+        // Left
+        ctx.fillStyle = 'rgba(29,78,216,0.8)';
+        ctx.beginPath(); ctx.moveTo(...p[3]); ctx.lineTo(...p[2]); ctx.lineTo(...p[5]); ctx.lineTo(...p[6]); ctx.closePath(); ctx.fill(); ctx.stroke();
+      };
+
+      const maxDraw = v.fillMode ? Math.floor(v.fillCount) : totalCubes;
+      let drawn = 0;
+      const layerCols = ['#60a5fa', '#34d399', '#fbbf24', '#f472b6', '#a78bfa'];
+      for (let z = 0; z < v.h; z++) {
+        for (let y = 0; y < v.w; y++) {
+          for (let x = 0; x < v.l; x++) {
+            if (drawn < maxDraw) drawCube(x, y, z, layerCols[z % layerCols.length]);
+            drawn++;
+          }
+        }
+      }
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`Unit Cubes Inside: ${maxDraw} / ${totalCubes}  (${v.l} × ${v.w} × ${v.h})`, 450, 322);
+    }
+
+    /* =====================================================================
+       10. LEARN FIRST 3-STEP CONCEPT MODAL & MAIN RENDER LOOP
+    ===================================================================== */
+    let modalStep = 0;
+    const miniCanvas = document.getElementById('miniConceptCanvas');
+    const miniCtx = miniCanvas.getContext('2d');
+
+    function openConceptModal() {
+      modalStep = 0;
+      document.getElementById('conceptModal').classList.add('open');
+      renderConceptStep();
+    }
+    function closeConceptModal() {
+      document.getElementById('conceptModal').classList.remove('open');
+      VoiceEngine.stop();
+    }
+    function renderConceptStep() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const s = lab.concepts[modalStep];
+      document.getElementById('modalHeaderTitle').textContent = `📖 Learn First: ${lab.short}`;
+      document.getElementById('modalStepTitle').textContent = s.t;
+      document.getElementById('modalStepText').textContent = s.d;
+      document.getElementById('modalDots').innerHTML = lab.concepts.map((_, i) => `<div class="step-dot ${i <= modalStep ? 'active' : ''}"></div>`).join('');
+      document.getElementById('modalPrevBtn').style.visibility = modalStep === 0 ? 'hidden' : 'visible';
+      document.getElementById('modalNextBtn').textContent = modalStep === 2 ? 'Start Playing 🚀' : 'Next →';
+    }
+    function stepConcept(dir) {
+      if (dir > 0 && modalStep === 2) { closeConceptModal(); return; }
+      modalStep = Math.max(0, Math.min(2, modalStep + dir));
+      renderConceptStep();
+      speakCurrentConcept();
+    }
+    function speakCurrentConcept() {
+      const s = LABS.find(l => l.id === activeLabId).concepts[modalStep];
+      VoiceEngine.speak(`${s.t}. ${s.d}`);
+    }
+
+    function drawMiniConcept() {
+      miniCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+      const lab = LABS.find(l => l.id === activeLabId);
+      miniCtx.fillStyle = '#eff6ff'; rr(miniCtx, 12, 12, 536, 111, 14); miniCtx.fill();
+      miniCtx.font = '44px sans-serif'; miniCtx.textAlign = 'center';
+      miniCtx.fillText(lab.icon, 280 + Math.sin(animT * 3) * 18, 70);
+      miniCtx.fillStyle = '#1e3a8a'; miniCtx.font = 'bold 13px sans-serif';
+      miniCtx.fillText(lab.concepts[modalStep].t, 280, 106);
+    }
+
+    function mainLoop() {
+      animT += 0.03 * animSpeed;
+      drawActiveLab();
+      if (document.getElementById('conceptModal').classList.contains('open')) drawMiniConcept();
+      requestAnimationFrame(mainLoop);
+    }
+
+    /* =====================================================================
+       11. RIGHT-DOCKED GEMINI AI MATHS TUTOR (ALL 12 MATHS LABS)
+    ===================================================================== */
+    function updateLiveStateSummary() {
+      const el = document.getElementById('liveStateSummary');
+      const lab = LABS.find(l => l.id === activeLabId);
+      let info = '';
+      if (activeLabId === 'pizza') info = `${S.pizza.aNum}/${S.pizza.aDen}${S.pizza.addMode?'+'+S.pizza.bNum+'/'+S.pizza.bDen:''} • Order: ${S.pizza.orderText}`;
+      else if (activeLabId === 'frog') info = `${S.frog.start} ${S.frog.op} (${S.frog.jump}) • Fly at ${S.frog.target}`;
+      else if (activeLabId === 'prime') info = `Target ${S.prime.target} • Left ${S.prime.remaining}`;
+      else if (activeLabId === 'archer') info = `${S.archer.mode} • Bow ${S.archer.angle}°`;
+      else if (activeLabId === 'pythagoras') info = `a=${S.pythagoras.a}, b=${S.pythagoras.b}, c=${Math.hypot(S.pythagoras.a,S.pythagoras.b).toFixed(2)}`;
+      else if (activeLabId === 'circlepi') info = `${S.circlepi.mode} • r=${S.circlepi.r}`;
+      else if (activeLabId === 'algebra') info = `${S.algebra.xCoeff}x + (${S.algebra.leftConst}) = ${S.algebra.rightConst}`;
+      else if (activeLabId === 'coords') info = `Thrusters (${S.coords.inX},${S.coords.inY}) • Target (${S.coords.tx},${S.coords.ty})`;
+      else if (activeLabId === 'slope') info = `y = ${S.slope.m}x + (${S.slope.c})`;
+      else if (activeLabId === 'trig') info = `θ=${Math.round(S.trig.angle)}° • sin=${Math.sin(S.trig.angle*Math.PI/180).toFixed(2)}`;
+      else if (activeLabId === 'prob') info = `${S.prob.totalSpins} spins • Red:${S.prob.slices.Red}`;
+      else if (activeLabId === 'volume3d') info = `${S.volume3d.l}×${S.volume3d.w}×${S.volume3d.h} (V=${S.volume3d.l*S.volume3d.w*S.volume3d.h})`;
+      el.textContent = `Live Lab: ${lab.short} • ${info}`;
+    }
+
+    function updateQuickChips() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('quickChips').innerHTML = lab.chips.map(c =>
+        `<button class="q-chip" onclick="askTutor('${c.replace(/'/g, "\\'")}')">${c}</button>`
+      ).join('');
+    }
+
+    function appendMsg(role, text) {
+      const log = document.getElementById('chatLog');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      if (role === 'bot') {
+        const btn = document.createElement('button');
+        btn.className = 'msg-speak';
+        btn.textContent = '🔊 Read Answer';
+        btn.onclick = () => VoiceEngine.speak(text);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(btn);
+      }
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const inp = document.getElementById('chatInput');
+      const q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      askTutor(q);
+    }
+
+    async function askTutor(question) {
+      appendMsg('user', question);
+      const liveContext = document.getElementById('liveStateSummary').textContent;
+
+      if (LAB_CONFIG.GEMINI_PROXY_ENDPOINT) {
+        try {
+          const res = await fetch(LAB_CONFIG.GEMINI_PROXY_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, liveContext })
+          });
+          if (res.ok) { appendMsg('bot', (await res.json()).reply); return; }
+        } catch (_) {}
+      }
+
+      const q = question.toLowerCase();
+      let r = '';
+      if (q.includes('numerator') || q.includes('4/8') || q.includes('1/2')) r = 'The Denominator (bottom) is the total equal slices; the Numerator (top) is how many slices you serve! 4/8 equals 1/2 because multiplying top and bottom by 4 keeps the exact same half-pizza, and 1/2 + 1/4 = 2/4 + 1/4 = 3/4!';
+      else if (q.includes('negative') || q.includes('frog') || q.includes('-2')) r = 'Subtracting a negative flips direction twice! So -2 − (−6) turns into -2 + 6 = +4, hopping our frog 6 lily pads to the right!';
+      else if (q.includes('prime') || q.includes('laser') || q.includes('tree')) r = 'A Prime Number (2, 3, 5, 7...) only divides evenly by 1 and itself. If your laser bounced, that prime did not divide cleanly into the remaining asteroid!';
+      else if (q.includes('acute') || q.includes('complement') || q.includes('supplement') || q.includes('angle')) r = 'Acute is < 90°, Right is 90°, and Obtuse is > 90°. Complementary angles add to 90° (35° + 55° = 90°), while Supplementary angles add to 180° (120° + 60° = 180°)!';
+      else if (q.includes('hypotenuse') || q.includes('a²') || q.includes('triple')) r = 'The Hypotenuse (c) is the longest side opposite the 90° corner. A Pythagorean Triple (like 3-4-5, 6-8-10, 5-12-13) has whole numbers satisfying a² + b² = c²!';
+      else if (q.includes('pi') || q.includes('2πr') || q.includes('rectangle')) r = 'Pi (π ≈ 3.1416) is Circumference divided by Diameter for EVERY circle! Slicing a circle into wedges and interlocking them forms a rectangle of width πr and height r, proving Area = πr²!';
+      else if (q.includes('algebra') || q.includes('isolate') || q.includes('2x')) r = 'The Golden Rule of Algebra: whatever you add, subtract, or divide on the left pan, do the EXACT same to the right pan! For 2x − 2 = 8, add +1 twice to get 2x = 10, then divide by 2 to get x = 5!';
+      else if (q.includes('quadrant') || q.includes('origin') || q.includes('first')) r = 'Always start at the Origin (0,0) and move along X (left/right) FIRST, then Y (up/down). Q-I is (+,+), Q-II is (−,+), Q-III is (−,−), and Q-IV is (+,−)!';
+      else if (q.includes('slope') || q.includes('intercept') || q.includes('mx')) r = 'In y = mx + c, Slope (m = Rise/Run) tilts the line uphill (+) or downhill (−), while Y-Intercept (c) slides the whole line up or down along the Y-axis!';
+      else if (q.includes('sin') || q.includes('cos') || q.includes('unit circle')) r = 'On the Unit Circle, sin θ is the vertical height (red bar) and cos θ is the horizontal reach (blue bar). At 90°, height is max (sin 90° = 1); at 45°, both are equal (0.71)!';
+      else if (q.includes('theoretical') || q.includes('large numbers') || q.includes('impossible')) r = 'Theoretical probability is exact math (Favorable ÷ Total). By the Law of Large Numbers, spinning 25+ times makes Experimental results match Theoretical %! 0 slices = Impossible (0%).';
+      else if (q.includes('volume') || q.includes('surface') || q.includes('net')) r = 'Volume (l × w × h) counts 1×1×1 unit cubes inside the box, while Surface Area = 2(lw + lh + wh) measures the total area of all 6 flat faces in the unfolded 2D Net!';
+      else r = `Looking at your live maths lab (${liveContext}) — try adjusting the controls below or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!`;
+
+      appendMsg('bot', r);
+    }
+
+    // SharpStudy standalone and embedded entry point.
+    const params = new URLSearchParams(location.search);
+    const embedded = params.get('embedded') === '1' && window.parent !== window;
+    if (embedded) document.documentElement.setAttribute('data-embedded', '');
+    else document.documentElement.removeAttribute('data-embedded');
+    const hasTopics = typeof activeTopic !== 'undefined';
+    const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
+    if (selectedLab) activeLabId = selectedLab.id;
+    const groupKey = hasTopics ? 'topic' : 'subject';
+    const storedGroup = params.get(groupKey);
+    if (selectedLab && selectedLab[groupKey] === storedGroup) {
+      if (hasTopics) activeTopic = storedGroup;
+      else activeSubject = storedGroup;
+      document.querySelectorAll(hasTopics ? '.topic-btn' : '.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + storedGroup + "'"));
+      });
+    }
+    const resizeReport = () => {
+      const workspace = document.querySelector('main');
+      if (embedded && workspace) parent.postMessage({ source: 'sharpstudy-lab', height: Math.max(500, Math.ceil(workspace.getBoundingClientRect().bottom + scrollY + 18)) }, location.origin);
+    };
+
+    function updateRangeBadge(input) {
+      const badge = input.closest('.control-box')?.querySelector('.badge');
+      if (!badge) return;
+      const text = badge.textContent;
+      badge.textContent = text.replace(/-?\d+(?:\.\d+)?/, input.value);
+    }
+
+    const unwrappedSelect = selectLab;
+    selectLab = (id, showBriefing) => {
+      if (!LABS.some(lab => lab.id === id)) return;
+      if (isAutoSolving && !hasTopics) return;
+      if (hasTopics) cancelAutoSolve();
+      if (embedded && id !== activeLabId) {
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, [groupKey]: hasTopics ? activeTopic : activeSubject }, location.origin);
+        return;
+      }
+      unwrappedSelect(id, showBriefing);
+    };
+
+    const nativeClose = closeConceptModal;
+    closeConceptModal = () => {
+      nativeClose();
+      try { sessionStorage.setItem('sharpstudy-lab-guide-' + activeLabId, 'done'); } catch {}
+    };
+    try {
+      if (sessionStorage.getItem('sharpstudy-lab-guide-' + activeLabId) === 'done') document.getElementById('conceptModal').classList.remove('open');
+    } catch {}
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.getElementById('conceptModal').classList.contains('open')) closeConceptModal();
+    });
+    window.addEventListener('pagehide', () => {
+      VoiceEngine.stop();
+      if (typeof SoundAudio !== 'undefined') SoundAudio.stop?.();
+    });
+    if (embedded) {
+      const observer = new ResizeObserver(resizeReport);
+      observer.observe(document.body);
+      window.addEventListener('load', resizeReport, { once: true });
+    }
+
+    // Boot Application cleanly on window load
+    window.onload = function () {
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      renderConceptStep();
+      mainLoop();
+    };
+  </script>
+</body>
+</html>
