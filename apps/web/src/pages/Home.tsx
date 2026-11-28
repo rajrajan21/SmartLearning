@@ -71,6 +71,7 @@ export function Home() {
   if (mastery && s.get("mastery.progressPage") === true) quick.push({ href: "/progress", icon: "⭐", label: ui("myProgress", s.lang) });
   if (s.get("browse.explore.enabled") === true) quick.push({ href: "/explore", icon: "🎨", label: ui("navExplore", s.lang) });
   if (s.get("notebook.enabled") === true && s.get("feature.lessons") === true) quick.push({ href: "/notebook", icon: "📓", label: ui("navNotebook", s.lang) });
+  if (s.get("feature.virtualLab") === true) quick.push({ href: "/virtual-lab", icon: "⚗️", label: ui("virtualLab", s.lang) });
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) quick.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang) });
   if (s.get("feature.library") === true && s.get("library.nav.show") !== false) quick.push({ href: "/library", icon: "📖", label: lt("title", s.lang) });
   if (s.get("feature.textbooks") === true) quick.push({ href: "/books", icon: "📚", label: ui("textbooks", s.lang) });

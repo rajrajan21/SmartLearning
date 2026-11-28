@@ -22,6 +22,7 @@ export function BottomNav() {
   ];
   if (mastery && s.get("mastery.revision.enabled") === true) items.push({ href: "/revise", icon: "🔁", label: ui("navRevise", s.lang), on: loc.startsWith("/revise") });
   if (mastery && s.get("mastery.progressPage") === true) items.push({ href: "/progress", icon: "⭐", label: ui("myProgress", s.lang), on: loc.startsWith("/progress") });
+  if (s.get("feature.virtualLab") === true) items.push({ href: "/virtual-lab", icon: "⚗️", label: ui("virtualLab", s.lang), on: loc.startsWith("/virtual-lab") });
   if (s.get("feature.gk") === true && s.get("gk.nav.show") !== false) items.push({ href: "/gk", icon: "💡", label: s.text("gk.tab.label") || gt("title", s.lang), on: loc.startsWith("/gk") });
   if (s.get("feature.accounts") === true) items.push({ href: "/account", icon: "🙂", label: ui("account", s.lang), on: loc.startsWith("/account") });
   if (app) {

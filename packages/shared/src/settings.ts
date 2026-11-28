@@ -118,6 +118,7 @@ export const SETTINGS: SettingDef[] = [
   bool("feature.textbooks", "features", "Learning", "Textbooks (book reader)", true, { help: "Adds a Textbooks entry to every class page and opens the downloaded textbook PDFs in the page-turning reader. Nothing is shown for a class until its books are in content/books (run Download-Books.bat on the server PC)." }),
   bool("feature.papers", "features", "Learning", "Question papers and quizzes", true, { help: "The Question papers page: free sample, previous-year and model papers with answer boxes, multiple choice and a marking review." }),
   bool("feature.library", "features", "Learning", "E-Library (free kids' books)", true, { help: "Adds an E-Library tab with free, openly licensed children's books grouped by age. The tab only shows once at least one book has been collected (run Harvest-Library-Books.bat on the PC)." }),
+  bool("feature.virtualLab", "features", "Learning", "Virtual Lab pilot", true, { help: "Interactive science simulations, guided tips and recorded narration. Turn off to hide the lab section." }),
   bool("feature.gk", "features", "Learning", "GK (General Knowledge) section", true, { help: "A GK tab with space, nature, history, the world, India, science and puzzles that build thinking skills, with animated explainers, slides and quizzes. Four admin pages (GK: ...) control it." }),
   planned("feature.adminEmails", "Admin e-mail notifications", "Off by default; added with accounts."),
 

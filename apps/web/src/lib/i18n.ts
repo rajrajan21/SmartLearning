@@ -356,6 +356,7 @@ export const UI = {
   classroomParts: { en: "Parts of the lesson", ta: "பாடத்தின் பகுதிகள்" },
   classroomVoiceAuto: { en: "Automatic", ta: "தானாக" },
   classroomVoicePending: { en: "Recordings pending", ta: "குரல் பதிவு தயாராகிறது" },
+  virtualLab: { en: "Virtual Lab", ta: "மெய்நிகர் ஆய்வகம்" },
   classroomTeacher: { en: "Teacher", ta: "ஆசிரியர்" },
   classroomLanguage: { en: "Language", ta: "மொழி" },
   backToTop: { en: "Top", ta: "மேலே" },
