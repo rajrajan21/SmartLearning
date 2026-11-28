@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { Link, useParams } from "wouter";
+import { Link, useParams, useSearch } from "wouter";
 import { useSettings } from "../lib/settings";
 import { NotFound } from "../components/bits";
 import { LabScene } from "./virtualLabScene";
+import { packs, VirtualLabWorkbench, workbenches } from "./VirtualLabWorkbench";
 import { labs, narration, nominalPh, transformer, type LabId, type VoiceCue } from "./virtualLabData";
 import "./virtualLab.css";
 
@@ -14,30 +15,74 @@ const recordSeen = (id: LabId) => { try { localStorage.setItem(guideKey(id), "se
 
 export function VirtualLabHub() {
   const s = useSettings();
-  const [filter, setFilter] = useState("all");
+  const search = useSearch();
+  const subject = new URLSearchParams(search).get("subject");
+  const [filter, setFilter] = useState(subject === "physics" || subject === "chemistry" || subject === "biology" ? subject : "all");
+  const [query, setQuery] = useState("");
+  const [pack, setPack] = useState("all");
   if (s.get("feature.virtualLab") !== true) return <NotFound />;
+  const subjects = [
+    { id: "physics", name: "Physics", icon: "⚡" },
+    { id: "chemistry", name: "Chemistry", icon: "⚗️" },
+    { id: "biology", name: "Biology", icon: "🌱" },
+  ];
+  const matching = workbenches.filter(entry =>
+    (filter === "all" || entry.subject === filter) &&
+    (pack === "all" || String(entry.pack) === pack) &&
+    entry.title.toLowerCase().includes(query.trim().toLowerCase()));
   return <div className="paper vl">
     <header className="vl-hero">
       <h1>{label(s.lang === "ta")}</h1>
-      <p>Change one thing at a time, watch what happens, and test your prediction.</p>
+      <p>Choose an experiment to open its workbench.</p>
     </header>
-    <label className="vl-filter">Show labs
-      <select value={filter} onChange={e => setFilter(e.target.value)}>
-        <option value="all">All labs</option><option value="physics">Physics</option><option value="chemistry">Chemistry</option>
-      </select>
-    </label>
-    <div className="vl-cards">
-      {labs.filter(lab => filter === "all" || lab.subject === filter).map(lab => (
-        <Link className="vl-card" href={"/virtual-lab/" + lab.id} key={lab.id}>
-          <LabScene kind={lab.id} preview />
-          <div><span className="vl-meta">{lab.subject} · {lab.level}</span><h2>{lab.title}</h2><p>{lab.description}</p><b>Open lab <span aria-hidden="true">→</span></b></div>
-        </Link>
-      ))}
+    <div className="vl-catalog-controls">
+      <label className="vl-filter">Find an experiment
+        <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder="Try lens or heart" />
+      </label>
+      <label className="vl-filter">Show labs
+        <select value={filter} onChange={e => setFilter(e.target.value)}>
+          <option value="all">All subjects</option>
+          {subjects.map(subject => <option key={subject.id} value={subject.id}>{subject.name}</option>)}
+        </select>
+      </label>
+      <label className="vl-filter">Show pack
+        <select value={pack} onChange={e => setPack(e.target.value)}>
+          <option value="all">All packs</option><option value="1">Pack 1</option><option value="2">Pack 2</option><option value="3">Pack 3</option>
+        </select>
+      </label>
+    </div>
+    {subjects.filter(subject => matching.some(entry => entry.subject === subject.id)).map(subject => (
+      <section key={subject.id} className="vl-catalog-group" aria-labelledby={"vl-" + subject.id}>
+        <h2 id={"vl-" + subject.id}><span aria-hidden="true">{subject.icon}</span> {subject.name}</h2>
+        <div className="vl-cards">
+          {matching.filter(entry => entry.subject === subject.id).map(entry => (
+            <Link className="vl-card" href={"/virtual-lab/" + entry.id} key={entry.id}>
+              <div><span className="vl-meta">Pack {entry.pack}</span><h3>{entry.title}</h3><b>Open lab <span aria-hidden="true">→</span></b></div>
+            </Link>
+          ))}
+        </div>
+      </section>
+    ))}
+    {matching.length === 0 && <p role="status">No labs match these filters.</p>}
+    <div className="vl-catalog-downloads">
+      <a className="btn ghost" href={packs[1]} download>Download Pack 1 HTML</a>
+      <a className="btn ghost" href={packs[2]} download>Download Pack 2 HTML</a>
+      <a className="btn ghost" href={packs[3]} download>Download Pack 3 HTML</a>
     </div>
   </div>;
 }
 
 export function VirtualLabPage() {
+  const s = useSettings();
+  const { id } = useParams<{ id: string }>();
+  const search = useSearch();
+  const entry = workbenches.find(lab => lab.id === id);
+  if (s.get("feature.virtualLab") !== true || !entry) return <NotFound />;
+  if (new URLSearchParams(search).get("view") === "compact" && (id === "transformer" || id === "indicator")) return <CompactVirtualLabPage />;
+  return <VirtualLabWorkbench key={entry.id} entry={entry} back={label(s.lang === "ta")} />;
+}
+
+export function CompactVirtualLabPage() {
   const s = useSettings();
   const { id } = useParams<{ id: string }>();
   const lab = labs.find(item => item.id === id);

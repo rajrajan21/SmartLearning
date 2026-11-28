@@ -1,0 +1,2706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpStudy Virtual Interactive Lab — Pack 2 (10 Brand-New Labs)</title>
+  <style>
+    /* =====================================================================
+       DESIGN TOKENS & ZPERIOD-INSPIRED CLEAN LIGHT THEME
+    ===================================================================== */
+    :root {
+      --bg: #f5f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-soft: #eff6ff;
+      --accent: #0ea5e9;
+      --success: #16a34a;
+      --success-soft: #f0fdf4;
+      --warn: #d97706;
+      --warn-soft: #fffbeb;
+      --danger: #dc2626;
+      --danger-soft: #fef2f2;
+      --purple: #7c3aed;
+      --purple-soft: #f5f3ff;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* ==================== TOP STICKY HEADER ==================== */
+    .topbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .topbar-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #1d4ed8);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.22);
+      flex-shrink: 0;
+    }
+    .brand h1 {
+      font-size: 15.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 2px 9px;
+      border-radius: 999px;
+      border: 1px solid #bfdbfe;
+    }
+    .brand p { font-size: 11.5px; color: var(--muted); }
+
+    .subject-filters {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      flex-wrap: wrap;
+    }
+    .subj-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .subj-btn.active {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #f8fafc; transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-voice.active { background: #ecfdf5; border-color: #86efac; color: #15803d; }
+    .btn-save {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border-color: #6d28d9;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
+    }
+    .btn-save:hover { filter: brightness(1.08); background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+    /* Horizontal Scrollable 10-Lab Selector Strip */
+    .lab-strip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      scrollbar-width: thin;
+    }
+    .lab-pill {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
+    }
+    .lab-pill:hover { border-color: #93c5fd; background: var(--primary-soft); }
+    .lab-pill.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    }
+
+    /* ==================== MAIN 2-COLUMN WORKSPACE ==================== */
+    .workspace {
+      max-width: 1480px;
+      margin: 14px auto;
+      padding: 0 16px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lab-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group h2 { font-size: 15.5px; font-weight: 800; }
+    .status-badge {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-badge.good { background: #dcfce7; color: #15803d; }
+    .status-badge.warn { background: #fef3c7; color: #b45309; }
+    .status-badge.danger { background: #fee2e2; color: #dc2626; }
+
+    .mode-switch {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      gap: 2px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .mode-btn.active { background: #0f172a; color: #fff; }
+
+    /* Missions Bar */
+    .missions-bar {
+      padding: 9px 18px;
+      background: #fbfdff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .missions-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .mission-chip {
+      border: 1px solid var(--border);
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .mission-chip:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .mission-chip.done { border-color: #86efac; background: #f0fdf4; color: #15803d; font-weight: 700; }
+
+    /* Canvas Stage */
+    .stage-wrap {
+      position: relative;
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 22px 22px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+    }
+    .formula-pill {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0f172a;
+      color: #f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 15px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.18);
+      z-index: 4;
+      white-space: nowrap;
+      max-width: 94%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+    .formula-pill.show { display: block; }
+
+    canvas.lab-canvas {
+      width: 100%;
+      height: 335px;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Dedicated Inline Live Coach & Explanation Bar (Zero Overlap) */
+    .coach-bar {
+      padding: 11px 18px;
+      background: #eff6ff;
+      border-bottom: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-height: 70px;
+      transition: background 0.25s ease;
+    }
+    .coach-bar.state-info { background: #eff6ff; border-bottom-color: #bfdbfe; }
+    .coach-bar.state-success { background: #f0fdf4; border-bottom-color: #bbf7d0; }
+    .coach-bar.state-warn { background: #fffbeb; border-bottom-color: #fde68a; }
+    .coach-bar.state-danger { background: #fef2f2; border-bottom-color: #fecaca; }
+    .coach-bar.state-solving { background: #f5f3ff; border-bottom-color: #ddd6fe; }
+
+    .coach-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      flex: 1;
+      min-width: 240px;
+    }
+    .coach-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .coach-title { font-size: 13.5px; font-weight: 800; margin-bottom: 2px; }
+    .coach-text { font-size: 12.5px; color: #334155; }
+    .coach-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .btn-solve {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.28);
+      animation: softPulse 2s infinite;
+    }
+    .btn-solve:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-solve:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.42); }
+      50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+    }
+
+    /* 3-Column Controls Deck */
+    .controls-deck {
+      padding: 14px 18px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .control-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: #fcfdff;
+      transition: all 0.2s ease;
+    }
+    .control-box.span-2 { grid-column: span 2; }
+    .control-box.span-3 { grid-column: span 3; }
+
+    .pulse-target {
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.30) !important;
+      background: #faf5ff !important;
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .control-head .badge {
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      gap: 7px;
+    }
+    .choice-card {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 11px;
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .choice-card:hover { border-color: #93c5fd; }
+    .choice-card.active { border-color: var(--primary); background: var(--primary-soft); }
+    .choice-card:disabled { opacity: 0.45; cursor: not-allowed; }
+    .choice-card strong { display: block; font-size: 12px; margin-top: 2px; color: var(--text); }
+    .choice-card small { display: block; font-size: 10.5px; color: var(--muted); }
+
+    .stepper-box {
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 8px;
+      background: #fff;
+      text-align: center;
+    }
+    .stepper-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .step-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      font-size: 18px;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--text);
+    }
+    .step-btn:hover { background: #e2e8f0; }
+    .step-val { font-size: 17px; font-weight: 900; color: var(--primary); min-width: 36px; }
+
+    input[type="range"].lab-slider {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin: 6px 0 4px;
+    }
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ==================== RIGHT GEMINI AI TUTOR ==================== */
+    .tutor-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 122px);
+      max-height: 750px;
+      position: sticky;
+      top: 106px;
+      overflow: hidden;
+    }
+    .tutor-header {
+      padding: 13px 15px;
+      background: linear-gradient(135deg, #1e293b, #1d4ed8);
+      color: #fff;
+    }
+    .tutor-header h3 { font-size: 14px; font-weight: 800; }
+    .tutor-header p { font-size: 11px; opacity: 0.88; margin-top: 2px; }
+    .live-state-pill {
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+    .chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      background: #fcfdff;
+    }
+    .msg {
+      max-width: 92%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .msg.bot { align-self: flex-start; background: #f1f5f9; color: #0f172a; border-bottom-left-radius: 4px; }
+    .msg.user { align-self: flex-end; background: #2563eb; color: #fff; border-bottom-right-radius: 4px; }
+    .msg-speak {
+      margin-top: 6px;
+      border: none;
+      background: #fff;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .quick-chips {
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .q-chip {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .q-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+    .chat-input-row {
+      padding: 9px 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+      background: #fff;
+    }
+    .chat-input-row input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      outline: none;
+    }
+    .chat-input-row input:focus { border-color: var(--primary); }
+
+    /* ==================== LEARN FIRST MODAL ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal-card {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      overflow: hidden;
+    }
+    .modal-top {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-top h3 { font-size: 16px; font-weight: 800; }
+    .modal-body { padding: 18px 20px; }
+    .step-dots { display: flex; gap: 6px; margin-bottom: 12px; }
+    .step-dot { height: 6px; flex: 1; border-radius: 999px; background: #e2e8f0; }
+    .step-dot.active { background: var(--primary); }
+    .mini-visual {
+      width: 100%;
+      height: 136px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-body h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 5px; }
+    .modal-body p { font-size: 13px; color: #334155; }
+    .modal-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fcfdff;
+    }
+
+    @media (max-width: 1080px) {
+      .workspace { grid-template-columns: 1fr; }
+      .tutor-panel { position: static; height: 460px; }
+      .controls-deck { grid-template-columns: 1fr; }
+      .control-box.span-2, .control-box.span-3 { grid-column: span 1; }
+    }
+    html[data-embedded] .modal-backdrop {
+      align-items: flex-start;
+      padding-top: clamp(16px, 7vw, 92px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP STICKY HEADER -->
+  <header class="topbar">
+    <div class="topbar-row1">
+      <div class="brand">
+        <div class="brand-icon">🔬</div>
+        <div>
+          <h1>SharpStudy Virtual Lab — Pack 2 <span class="pill-tag">10 Brand-New Labs • CBSE &amp; Matric</span></h1>
+          <p>Learn concepts first, experiment live at 60fps &amp; watch slow step-by-step Auto-Solve</p>
+        </div>
+      </div>
+
+      <div class="subject-filters" id="subjectFilters">
+        <button class="subj-btn active" onclick="filterSubject('all')">All (10)</button>
+        <button class="subj-btn" onclick="filterSubject('physics')">⚡ Physics (4)</button>
+        <button class="subj-btn" onclick="filterSubject('chemistry')">🧪 Chemistry (3)</button>
+        <button class="subj-btn" onclick="filterSubject('biology')">🧬 Biology (3)</button>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn" onclick="openConceptModal()">📖 Learn Concepts</button>
+        <button class="btn btn-voice active" id="voiceToggleBtn" onclick="toggleVoice()">🔊 Voice On</button>
+        <button class="btn btn-save" onclick="saveHtmlFile()" title="Download Pack 2 as a standalone HTML file">⬇️ Save HTML</button>
+      </div>
+    </div>
+
+    <!-- Horizontal Scrollable 10-Lab Selector Strip -->
+    <nav class="lab-strip" id="labStrip" aria-label="Select Pack 2 Virtual Lab"></nav>
+  </header>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT COLUMN: ACTIVE LAB -->
+    <section class="lab-card">
+      <div class="lab-header">
+        <div class="lab-title-group">
+          <h2 id="labTitle">🧲 Electromagnet &amp; Magnetic Field Lab</h2>
+          <span class="status-badge" id="labBadge">Ready</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <div class="mode-switch">
+            <button class="mode-btn active" id="kidModeBtn" onclick="setDisplayMode('kid')">🧒 Kid Mode</button>
+            <button class="mode-btn" id="formulaModeBtn" onclick="setDisplayMode('formula')">🎓 Formula Mode (CBSE/Matric)</button>
+          </div>
+          <button class="btn" onclick="resetCurrentLab()">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- Missions Bar -->
+      <div class="missions-bar" id="missionsBar"></div>
+
+      <!-- Canvas Stage -->
+      <div class="stage-wrap">
+        <div class="formula-pill" id="formulaPill">Formula</div>
+        <canvas id="labCanvas" role="img" aria-label="Animated simulation. Read the Live Coach for the current result." class="lab-canvas" width="900" height="335"></canvas>
+      </div>
+
+      <!-- Dedicated Inline Live Coach & Explanation Bar (NEVER overlaps controls) -->
+      <div class="coach-bar state-info" id="coachBar">
+        <div class="coach-left">
+          <div class="coach-icon" id="coachIcon">💡</div>
+          <div>
+            <div class="coach-title" id="coachTitle">Welcome to Pack 2!</div>
+            <div class="coach-text" aria-live="polite" id="coachText">Explore the controls below or click Show Me How for a slow guided walkthrough.</div>
+          </div>
+        </div>
+        <div class="coach-actions">
+          <button class="btn-solve" id="solveBtn" onclick="runAutoSolve()">✨ Show Me How (Auto-Solve)</button>
+          <button class="btn" onclick="replayCoachAudio()">🔊 Replay</button>
+        </div>
+      </div>
+
+      <!-- 3-Column Dynamic Controls Deck -->
+      <div class="controls-deck" id="controlsDeck"></div>
+    </section>
+
+    <!-- RIGHT COLUMN: DOCKED GEMINI AI LAB TUTOR -->
+    <aside class="tutor-panel">
+      <div class="tutor-header">
+        <h3>✨ Gemini AI Lab Tutor</h3>
+        <p>Ask about the experiment or try a suggested question</p>
+      </div>
+      <div class="live-state-pill">
+        <span class="live-dot"></span>
+        <span id="liveStateSummary">Live Lab: Ready</span>
+      </div>
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">
+          Hello! Welcome to SharpStudy Pack 2. Explore any of the 10 brand-new Physics, Chemistry, or Biology labs and ask me questions anytime!
+          <br />
+          <button class="msg-speak" onclick="VoiceEngine.speak('Hello! Welcome to SharpStudy Pack 2. Explore any of the 10 brand-new Physics, Chemistry, or Biology labs and ask me questions anytime!')">🔊 Read Answer</button>
+        </div>
+      </div>
+      <div class="quick-chips" id="quickChips"></div>
+      <form class="chat-input-row" onsubmit="handleChatSubmit(event)">
+        <input type="text" maxlength="240" aria-label="Ask the lab tutor" id="chatInput" placeholder="Ask about this lab..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </aside>
+  </main>
+
+  <!-- LEARN FIRST 3-STEP CONCEPT BRIEFING MODAL -->
+  <div class="modal-backdrop open" id="conceptModal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalHeaderTitle">
+      <div class="modal-top">
+        <h3 id="modalHeaderTitle">📖 Learn First</h3>
+        <button class="btn" onclick="closeConceptModal()">Skip ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="step-dots" id="modalDots"></div>
+        <canvas id="miniConceptCanvas" class="mini-visual" width="560" height="136"></canvas>
+        <h4 id="modalStepTitle">Step 1</h4>
+        <p id="modalStepText"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="modalPrevBtn" onclick="stepConcept(-1)">← Back</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" onclick="speakCurrentConcept()">🔊 Listen</button>
+          <button class="btn btn-primary" id="modalNextBtn" onclick="stepConcept(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       1. CONFIGURATION & SITE INTEGRATION HOOKS
+    ===================================================================== */
+    const LAB_CONFIG = {
+      CUSTOM_TTS_ENDPOINT: "",      // e.g. "/api/tts" (Google Cloud en-IN-Neural2-A or Azure en-IN-NeerjaNeural)
+      GEMINI_PROXY_ENDPOINT: "",    // e.g. "/api/gemini-tutor"
+      NORMAL_SPEECH_RATE: 0.92,     // Calm, natural Indian classroom pace
+      SOLVE_SPEECH_RATE: 0.80,      // Slow, gentle Auto-Solve pace
+      SOLVE_PAUSE_MS: 1200          // Breathing pause after each Auto-Solve voice step
+    };
+
+    /* =====================================================================
+       2. NATURAL INDIAN-ENGLISH FEMALE VOICE ENGINE
+    ===================================================================== */
+    const VoiceEngine = {
+      enabled: true,
+      selectedVoice: null,
+      currentAudio: null,
+
+      init() {
+        if (!('speechSynthesis' in window)) return;
+        const pick = () => {
+          const voices = window.speechSynthesis.getVoices();
+          if (!voices.length) return;
+          const preferred = [
+            'microsoft neerja online (natural)',
+            'neerja',
+            'veena',
+            'heera',
+            'kavya',
+            'ananya',
+            'priya',
+            'google english (india)',
+            'samantha',
+            'aria online (natural)'
+          ];
+          let best = null, bestScore = -1;
+          for (const v of voices) {
+            const name = v.name.toLowerCase();
+            const lang = (v.lang || '').toLowerCase();
+            let score = lang.includes('en-in') ? 65 : (lang.startsWith('en') ? 20 : 0);
+            preferred.forEach((p, idx) => {
+              if (name.includes(p)) score += (105 - idx * 9);
+            });
+            if (name.includes('natural') || name.includes('neural') || name.includes('google')) score += 15;
+            if (name.includes('female') || name.includes('woman')) score += 12;
+            if (/(male|ravi|prabhat|david|mark|daniel|george|alex)/i.test(name)) score -= 75;
+            if (score > bestScore) { bestScore = score; best = v; }
+          }
+          this.selectedVoice = best;
+        };
+        pick();
+        window.speechSynthesis.onvoiceschanged = pick;
+      },
+
+      stop() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+      },
+
+      async speak(text, { slow = false } = {}) {
+        if (!this.enabled || !text) return;
+        this.stop();
+        const rate = slow ? LAB_CONFIG.SOLVE_SPEECH_RATE : LAB_CONFIG.NORMAL_SPEECH_RATE;
+
+        if (LAB_CONFIG.CUSTOM_TTS_ENDPOINT) {
+          try {
+            const res = await fetch(LAB_CONFIG.CUSTOM_TTS_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text, rate, voice: 'en-IN-female-teacher' })
+            });
+            if (res.ok) {
+              const url = URL.createObjectURL(await res.blob());
+              this.currentAudio = new Audio(url);
+              this.currentAudio.playbackRate = slow ? 0.90 : 1.0;
+              await new Promise(r => {
+                this.currentAudio.onended = r;
+                this.currentAudio.onerror = r;
+                this.currentAudio.play().catch(r);
+              });
+              return;
+            }
+          } catch (_) {}
+        }
+
+        if (!('speechSynthesis' in window)) return;
+        return new Promise(resolve => {
+          const u = new SpeechSynthesisUtterance(text);
+          if (this.selectedVoice) u.voice = this.selectedVoice;
+          u.lang = (this.selectedVoice && this.selectedVoice.lang) || 'en-IN';
+          u.rate = rate;
+          u.pitch = 1.02;
+          u.onend = resolve;
+          u.onerror = resolve;
+          window.speechSynthesis.speak(u);
+        });
+      }
+    };
+    VoiceEngine.init();
+
+    function toggleVoice() {
+      VoiceEngine.enabled = !VoiceEngine.enabled;
+      const btn = document.getElementById('voiceToggleBtn');
+      btn.classList.toggle('active', VoiceEngine.enabled);
+      btn.textContent = VoiceEngine.enabled ? '🔊 Voice On' : '🔇 Voice Off';
+      if (!VoiceEngine.enabled) VoiceEngine.stop();
+    }
+
+    function saveHtmlFile() {
+      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sharpstudy-virtual-lab-pack2.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* =====================================================================
+       3. PACK 2 — THE 10 BRAND-NEW LABS CATALOG
+    ===================================================================== */
+    const LABS = [
+      {
+        id: 'electromagnet', subject: 'physics', icon: '🧲', short: 'Electromagnet',
+        title: '🧲 Electromagnet & Magnetic Field Lab',
+        missions: [
+          { id: 1, label: '📎 Lift at least 12 paperclips' },
+          { id: 2, label: '💨 Test Air Core vs. Iron Core' }
+        ],
+        chips: ['Why does the Iron Core lift so many more clips?', 'How do I lift 12+ paperclips?', 'What does B ∝ N × I mean?'],
+        concepts: [
+          { t: '1. Electricity Makes a Magnet', d: 'When current from a battery flows through coiled copper wire, it creates a magnetic field around the coil — an electromagnet that you can switch on and off!' },
+          { t: '2. Soft Iron Supercharges the Pull', d: 'An Air Core produces a very weak field. Sliding a soft Iron Nail inside concentrates the magnetic lines dramatically, letting it snatch up lots of paperclips!' },
+          { t: '3. More Turns & More Voltage = Stronger Pull', d: 'Boost Battery Voltage (0–12V) and wrap more copper turns (5–30) to increase magnetic strength B ∝ N × I.' }
+        ]
+      },
+      {
+        id: 'prism', subject: 'physics', icon: '🌈', short: 'Prism & Light',
+        title: '🌈 Prism & Light Dispersion Lab',
+        missions: [
+          { id: 1, label: '🌈 Create a clear VIBGYOR rainbow' },
+          { id: 2, label: '💎 Trigger Total Internal Reflection (TIR)' }
+        ],
+        chips: ['Why does white light split into VIBGYOR?', 'What is Total Internal Reflection?', 'Explain Snell’s Law simply'],
+        concepts: [
+          { t: '1. White Sunlight Hides 7 Colors', d: 'White sunlight is a mix of 7 colors: Violet, Indigo, Blue, Green, Yellow, Orange, and Red (VIBGYOR)!' },
+          { t: '2. Refraction Splits the Rainbow', d: 'Inside a Glass, Water, or Diamond prism, Violet slows down and bends the MOST, while Red bends the LEAST — fanning out into a bright rainbow!' },
+          { t: '3. Total Internal Reflection (TIR)', d: 'When the light hits the inner prism wall steeper than the critical angle (especially in Diamond!), it reflects 100% inside like a mirror!' }
+        ]
+      },
+      {
+        id: 'sound', subject: 'physics', icon: '🌊', short: 'Sound Waves',
+        title: '🌊 Sound Waves & Pitch/Loudness Lab',
+        missions: [
+          { id: 1, label: '🔊 Make a high-pitched loud sound' },
+          { id: 2, label: '🔉 Make a low-pitched gentle hum' }
+        ],
+        chips: ['Difference between Frequency and Amplitude?', 'How do air molecules carry sound?', 'What is v = f × λ?'],
+        concepts: [
+          { t: '1. Vibrating Speaker Pushes Air Molecules', d: 'A vibrating speaker cone squeezes air molecules together (compressions) and spreads them apart (rarefactions) in a longitudinal wave!' },
+          { t: '2. Frequency = Pitch (Hz)', d: 'Higher frequency (up to 900 Hz) packs waves tightly together, making a high squeaky pitch. Low frequency (150 Hz) makes a deep bass hum!' },
+          { t: '3. Amplitude = Loudness (%)', d: 'Larger amplitude makes the speaker vibrate wider and the oscilloscope wave taller — creating a louder sound!' }
+        ]
+      },
+      {
+        id: 'newton', subject: 'physics', icon: '🚀', short: "Newton's Laws",
+        title: "🚀 Newton's Laws & Force/Motion Lab",
+        missions: [
+          { id: 1, label: '🧊 Reach acceleration ≥ 5 m/s² on Ice' },
+          { id: 2, label: '🏖️ Overcome Sand friction to move the cart' }
+        ],
+        chips: ['Explain F_net = m × a simply', 'Why does the cart glide so fast on Ice?', 'How do I overcome Rough Sand friction?'],
+        concepts: [
+          { t: '1. Applied Force vs. Surface Friction', d: 'When you push the lab cart forward, surface friction pushes backward. The leftover Net Force (F_net = F_applied − f_friction) moves the cart!' },
+          { t: '2. Newton’s 2nd Law: F_net = m × a', d: 'Acceleration equals Net Force divided by Mass. Lighter carts accelerate faster; heavier carts resist speeding up!' },
+          { t: '3. Ice, Wood & Rough Sand', d: 'Frictionless Ice (μ = 0) lets the cart zoom effortlessly, Smooth Wood slows it slightly, and Rough Sand grips tightly until your push beats friction!' }
+        ]
+      },
+      {
+        id: 'electrolysis', subject: 'chemistry', icon: '🔋', short: 'Electrolysis',
+        title: '🔋 Electrolysis of Water Lab',
+        missions: [
+          { id: 1, label: '🫧 Collect 2:1 Hydrogen-to-Oxygen ratio' },
+          { id: 2, label: '🔥 Run the Hydrogen Pop Test' }
+        ],
+        chips: ['Why is Hydrogen double the volume of Oxygen?', 'Why do we add Dilute Acid (Electrolyte)?', 'Why does Hydrogen make a pop sound?'],
+        concepts: [
+          { t: '1. Splitting Water with Electricity', d: 'Each water molecule (H₂O) has 2 Hydrogen atoms and 1 Oxygen atom. Direct current (DC) splits water back into pure H₂ and O₂ gases!' },
+          { t: '2. Electrolyte Unlocks Conductivity', d: 'Pure water conducts electricity poorly. Adding Dilute Acid provides free ions so bubbles immediately stream off both electrodes!' },
+          { t: '3. 2:1 Ratio & The Famous Pop Test', d: '2H₂O → 2H₂ + O₂ means TWICE as much Hydrogen collects at the Cathode (−) as Oxygen at the Anode (+). The virtual alert represents the characteristic pop from the hydrogen demonstration.' }
+        ]
+      },
+      {
+        id: 'atom', subject: 'chemistry', icon: '⚛️', short: 'Atom Builder',
+        title: '⚛️ Atom Builder & Bohr Model Lab',
+        missions: [
+          { id: 1, label: '🧪 Build neutral Carbon-12 (6p, 6n, 6e)' },
+          { id: 2, label: '⚡ Build a Sodium Ion Na⁺ (11p, 12n, 10e)' }
+        ],
+        chips: ['How do Protons decide the element?', 'What is the difference between an Atom and an Ion?', 'How do K, L, M electron shells fill?'],
+        concepts: [
+          { t: '1. Protons = Atomic Number (Z)', d: 'The number of red Protons in the nucleus identifies the element! 1 is Hydrogen, 6 is Carbon, 11 is Sodium, and 12 is Magnesium.' },
+          { t: '2. Mass Number (A) & Stability', d: 'Mass Number A = Protons + Neutrons. Grey Neutrons act like nuclear glue keeping the nucleus stable.' },
+          { t: '3. Bohr Shells (K=2, L=8, M=8) & Charge', d: 'Electrons fill K (2), L (8), then M (8). Equal Protons and Electrons = Neutral Atom. Losing an electron creates a positive Ion (like Na⁺)!' }
+        ]
+      },
+      {
+        id: 'displacement', subject: 'chemistry', icon: '⚗️', short: 'Metal Reactivity',
+        title: '⚗️ Metal Reactivity & Displacement Lab',
+        missions: [
+          { id: 1, label: '🥉 Displace Copper from blue CuSO₄ using Zinc' },
+          { id: 2, label: '🚫 Test why Copper does not react with FeSO₄' }
+        ],
+        chips: ['What is the Reactivity Series order?', 'Why does blue CuSO₄ fade when Zinc is dipped?', 'Why does Copper not react with FeSO₄?'],
+        concepts: [
+          { t: '1. The Metal Reactivity Series', d: 'Some metals are bullies! Magnesium (Mg) > Zinc (Zn) > Iron (Fe) > Copper (Cu). A more reactive metal kicks a weaker metal out of its salt solution!' },
+          { t: '2. Watching Displacement Live', d: 'Dip Zinc or Iron into blue Copper Sulphate (CuSO₄). The blue color fades as Copper metal gets pushed out and coats the strip in reddish-brown crystals!' },
+          { t: '3. No Reaction Rule', d: 'If you dip weaker Copper into Iron Sulphate (FeSO₄), Copper cannot push out stronger Iron — so nothing happens!' }
+        ]
+      },
+      {
+        id: 'lungs', subject: 'biology', icon: '🫁', short: 'Human Lungs',
+        title: '🫁 Human Lungs & Breathing Mechanics Lab',
+        missions: [
+          { id: 1, label: '🌬️ Perform a deep Inhalation' },
+          { id: 2, label: '🏃 Compare Resting vs. Running breathing rate' }
+        ],
+        chips: ['How does the diaphragm pull air into lungs?', 'What happens to air pressure when inhaling?', 'Why do we breathe faster while running?'],
+        concepts: [
+          { t: '1. Diaphragm & Ribcage Mechanics', d: 'When your dome-shaped diaphragm pulls DOWN and flattens, your ribcage expands, lung volume increases, and air pressure inside drops — pulling air in!' },
+          { t: '2. Exhalation Pushes CO₂ Out', d: 'When the diaphragm relaxes UP into a dome, chest space shrinks, pressure rises, and amber CO₂ waste gas is pushed out!' },
+          { t: '3. Resting vs. Running', d: 'Running muscles burn more energy and need extra blue Oxygen (O₂), so your breathing speeds up from 14 to 32 breaths per minute!' }
+        ]
+      },
+      {
+        id: 'digestion', subject: 'biology', icon: '🍎', short: 'Digestive Journey',
+        title: '🧬 Human Digestive System Journey Lab',
+        missions: [
+          { id: 1, label: '🍚 Digest Rice (Starch) to Glucose' },
+          { id: 2, label: '🥚 Complete full Protein digestion' }
+        ],
+        chips: ['What does Salivary Amylase digest?', 'What happens to food inside the Stomach?', 'Where are nutrients absorbed into blood?'],
+        concepts: [
+          { t: '1. Mouth & Esophagus', d: 'Chewing breaks food physically while Salivary Amylase begins turning Starch into sweet sugars. The Esophagus glides the bolus down!' },
+          { t: '2. Stomach Acid & Pepsin', d: 'Inside the Stomach, Hydrochloric Acid (HCl) kills germs and Pepsin enzymes chop Proteins into smaller peptides!' },
+          { t: '3. Small & Large Intestine', d: 'Bile & Lipase handle fats, and millions of tiny Villi in the Small Intestine absorb Glucose, Amino Acids, and Vitamins into your blood!' }
+        ]
+      },
+      {
+        id: 'osmosis', subject: 'biology', icon: '🌿', short: 'Osmosis & Turgidity',
+        title: '🌿 Osmosis & Plant Cell Turgidity Lab',
+        missions: [
+          { id: 1, label: '💧 Make a wilted cell Turgid in Pure Water' },
+          { id: 2, label: '🧂 Demonstrate Plasmolysis in Salty Water' }
+        ],
+        chips: ['What is Osmosis in simple words?', 'Why does Pure Water make a plant cell Turgid?', 'What is Plasmolysis in Salty Water?'],
+        concepts: [
+          { t: '1. Water Crosses the Semi-Permeable Membrane', d: 'Osmosis is the movement of water molecules from a region of high water concentration to low water concentration across a semi-permeable membrane!' },
+          { t: '2. Pure Water (Hypotonic) → Turgid Cell', d: 'In Pure Water, water rushes INTO the central vacuole, swelling it until the cell presses firmly against its rigid Cell Wall — crisp and Turgid!' },
+          { t: '3. Salty Water (Hypertonic) → Plasmolysis', d: 'In Salty Water, water rushes OUT of the vacuole! The cell membrane shrinks away from the Cell Wall — called Plasmolysis!' }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       4. GLOBAL & PER-LAB INTERACTIVE STATE
+    ===================================================================== */
+    let activeSubject = 'all';
+    let activeLabId = 'electromagnet';
+    let displayMode = 'kid';
+    let isAutoSolving = false;
+    let animSpeed = 1.0;
+    let animT = 0;
+    let lastCoachSpeech = '';
+    const completedMissions = {};
+    let confetti = [];
+
+    // Safe Web Audio API tone generator for Sound Waves Lab
+    const SoundAudio = {
+      ctx: null, osc: null, gain: null, playing: false,
+      start(freq, amp) {
+        try {
+          if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          this.stop();
+          this.osc = this.ctx.createOscillator();
+          this.gain = this.ctx.createGain();
+          this.osc.type = 'sine';
+          this.osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+          this.gain.gain.setValueAtTime((amp / 100) * 0.12, this.ctx.currentTime);
+          this.osc.connect(this.gain);
+          this.gain.connect(this.ctx.destination);
+          this.osc.start();
+          this.playing = true;
+        } catch (_) {}
+      },
+      update(freq, amp) {
+        if (!this.playing || !this.osc || !this.gain || !this.ctx) return;
+        this.osc.frequency.setTargetAtTime(freq, this.ctx.currentTime, 0.03);
+        this.gain.gain.setTargetAtTime((amp / 100) * 0.12, this.ctx.currentTime, 0.03);
+      },
+      stop() {
+        try {
+          if (this.osc) { this.osc.stop(); this.osc.disconnect(); this.osc = null; }
+          if (this.gain) { this.gain.disconnect(); this.gain = null; }
+        } catch (_) {}
+        this.playing = false;
+      },
+      playPop() {
+        try {
+          if (!this.ctx) this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+          if (this.ctx.state === 'suspended') this.ctx.resume();
+          const osc = this.ctx.createOscillator();
+          const g = this.ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(280, this.ctx.currentTime);
+          osc.frequency.exponentialRampToValueAtTime(55, this.ctx.currentTime + 0.14);
+          g.gain.setValueAtTime(0.3, this.ctx.currentTime);
+          g.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + 0.16);
+          osc.connect(g); g.connect(this.ctx.destination);
+          osc.start(); osc.stop(this.ctx.currentTime + 0.17);
+        } catch (_) {}
+      }
+    };
+
+    const ELEMENTS = [
+      null,
+      { z: 1, sym: 'H',  name: 'Hydrogen',  stableN: [0, 1] },
+      { z: 2, sym: 'He', name: 'Helium',    stableN: [1, 2] },
+      { z: 3, sym: 'Li', name: 'Lithium',   stableN: [3, 4] },
+      { z: 4, sym: 'Be', name: 'Beryllium', stableN: [5] },
+      { z: 5, sym: 'B',  name: 'Boron',     stableN: [5, 6] },
+      { z: 6, sym: 'C',  name: 'Carbon',    stableN: [6, 7] },
+      { z: 7, sym: 'N',  name: 'Nitrogen',  stableN: [7, 8] },
+      { z: 8, sym: 'O',  name: 'Oxygen',    stableN: [8, 9, 10] },
+      { z: 9, sym: 'F',  name: 'Fluorine',  stableN: [10] },
+      { z: 10, sym: 'Ne', name: 'Neon',     stableN: [10, 11, 12] },
+      { z: 11, sym: 'Na', name: 'Sodium',   stableN: [12] },
+      { z: 12, sym: 'Mg', name: 'Magnesium',stableN: [12, 13, 14] }
+    ];
+
+    const REACTIVITY = { Mg: 4, Zn: 3, Fe: 2, Cu: 1 };
+
+    const DIGEST_ORGANS = [
+      { id: 0, name: 'Mouth', x: 130, y: 100, enzyme: 'Salivary Amylase',
+        info: { Rice: 'Salivary Amylase breaks Rice starch into sweet maltose!', Egg: 'Teeth chew the Egg into small pieces to form a soft bolus.', Apple: 'Teeth crush Apple fibers and saliva moistens the bite.' } },
+      { id: 1, name: 'Esophagus', x: 265, y: 120, enzyme: 'Peristalsis Waves',
+        info: { Rice: 'Smooth muscle waves (peristalsis) gently push the rice bolus downward.', Egg: 'Peristalsis pushes the chewed egg smoothly into the stomach.', Apple: 'The apple bolus glides down the esophagus tube.' } },
+      { id: 2, name: 'Stomach', x: 430, y: 185, enzyme: 'HCl Acid + Pepsin',
+        info: { Rice: 'Stomach acid kills germs and churns rice into soft chyme.', Egg: 'HCl acid + Pepsin enzymes chop Egg Protein into amino-acid peptides!', Apple: 'Stomach acid breaks down apple pulp and destroys bacteria.' } },
+      { id: 3, name: 'Small Intestine', x: 615, y: 215, enzyme: 'Bile + Lipase + Villi',
+        info: { Rice: 'Enzymes finish converting starch to Glucose — absorbed by Villi into blood!', Egg: 'Proteins become Amino Acids and Villi absorb them for muscle growth!', Apple: 'Glucose and Vitamins from the apple are absorbed through Villi!' } },
+      { id: 4, name: 'Large Intestine', x: 775, y: 155, enzyme: 'Water Absorption',
+        info: { Rice: 'Remaining water & minerals are absorbed. Rice Starch → Glucose complete!', Egg: 'Water is reclaimed. Full Protein digestion is complete!', Apple: 'Water & fiber pass smoothly. Apple digestion is complete!' } }
+    ];
+
+    function makeInitialStates() {
+      const clips = [];
+      for (let i = 0; i < 16; i++) {
+        clips.push({
+          homeX: 520 + (i % 8) * 32,
+          homeY: 268 + Math.floor(i / 8) * 20,
+          x: 520 + (i % 8) * 32,
+          y: 268 + Math.floor(i / 8) * 20
+        });
+      }
+      const waterMols = [];
+      for (let i = 0; i < 28; i++) {
+        waterMols.push({
+          x: 190 + Math.random() * 520,
+          y: 65 + Math.random() * 205,
+          vx: (Math.random() - 0.5) * 2.2,
+          vy: (Math.random() - 0.5) * 2.2
+        });
+      }
+      return {
+        electromagnet: { voltage: 6, turns: 10, core: 'Iron', clips },
+        prism: { angle: 36, material: 'Glass' }, // Glass (1.52), Water (1.33), Diamond (2.42)
+        sound: { freq: 360, amp: 55, toneOn: false },
+        newton: { force: 20, mass: 5, surface: 'Wood', velocity: 0, bgOff: 0 },
+        electrolysis: { voltage: 6, electrolyte: true, h2: 0, o2: 0, bubbles: [], popFlash: 0, popDone: false },
+        atom: { p: 3, n: 4, e: 3 },
+        displacement: { solution: 'CuSO4', metal: 'None', progress: 0, bubbles: [] },
+        lungs: { action: 'auto', activity: 'rest', phase: 0.5, particles: [], testedRest: true, testedRun: false },
+        digestion: { food: 'Rice', running: false, progress: 0, stageIdx: 0, carbAbs: 0, protAbs: 0, vitAbs: 0 },
+        osmosis: { solution: 'Isotonic', turgor: 0.55, mols: waterMols }
+      };
+    }
+
+    let S = makeInitialStates();
+
+    /* =====================================================================
+       5. NAVIGATION, FILTERING & CELEBRATION CONFETTI
+    ===================================================================== */
+    function spawnConfetti(cx = 450, cy = 140) {
+      for (let i = 0; i < 32; i++) {
+        confetti.push({
+          x: cx + (Math.random() - 0.5) * 100,
+          y: cy + (Math.random() - 0.5) * 40,
+          vx: (Math.random() - 0.5) * 6,
+          vy: -Math.random() * 5 - 1.5,
+          color: ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6'][i % 5],
+          life: 68
+        });
+      }
+    }
+
+    function filterSubject(subj) {
+      activeSubject = subj;
+      document.querySelectorAll('.subj-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick').includes(`'${subj}'`));
+      });
+      renderLabStrip();
+      const visible = LABS.filter(l => subj === 'all' || l.subject === subj);
+      if (!visible.some(l => l.id === activeLabId)) selectLab(visible[0].id, true);
+    }
+
+    function renderLabStrip() {
+      const strip = document.getElementById('labStrip');
+      const visible = LABS.filter(l => activeSubject === 'all' || l.subject === activeSubject);
+      strip.innerHTML = visible.map(l => `
+        <button class="lab-pill ${l.id === activeLabId ? 'active' : ''}" onclick="selectLab('${l.id}', true)">
+          ${l.icon} ${l.short}
+        </button>
+      `).join('');
+    }
+
+    function selectLab(id, showBriefing = true) {
+      if (isAutoSolving) return;
+      SoundAudio.stop();
+      S.sound.toneOn = false;
+      activeLabId = id;
+      VoiceEngine.stop();
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      if (showBriefing) openConceptModal();
+    }
+
+    function setDisplayMode(mode) {
+      displayMode = mode;
+      document.getElementById('kidModeBtn').classList.toggle('active', mode === 'kid');
+      document.getElementById('formulaModeBtn').classList.toggle('active', mode === 'formula');
+      document.getElementById('formulaPill').classList.toggle('show', mode === 'formula');
+      updateLabState(false);
+    }
+
+    function markMissionDone(labId, mId) {
+      if (!completedMissions[labId]) completedMissions[labId] = new Set();
+      if (!completedMissions[labId].has(mId)) {
+        completedMissions[labId].add(mId);
+        renderMissions();
+        spawnConfetti(450, 140);
+      }
+    }
+
+    function renderMissions() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const doneSet = completedMissions[activeLabId] || new Set();
+      document.getElementById('missionsBar').innerHTML =
+        `<span class="missions-label">🎯 Missions:</span>` +
+        lab.missions.map(m => `
+          <button class="mission-chip ${doneSet.has(m.id) ? 'done' : ''}" onclick="triggerMissionHint(${m.id})">
+            ${doneSet.has(m.id) ? '✅ ' : ''}${m.label}
+          </button>
+        `).join('');
+    }
+
+    function triggerMissionHint(mId) {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const m = lab.missions.find(x => x.id === mId);
+      setCoach('🎯', `Mission ${mId}: ${m.label}`, 'Adjust the controls below to complete this mission, or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!', 'state-info', true);
+    }
+
+    function setCoach(icon, title, text, stateClass = 'state-info', speak = false) {
+      document.getElementById('coachBar').className = `coach-bar ${stateClass}`;
+      document.getElementById('coachIcon').textContent = icon;
+      document.getElementById('coachTitle').textContent = title;
+      document.getElementById('coachText').textContent = text;
+      lastCoachSpeech = `${title}. ${text}`;
+      if (speak && !isAutoSolving) VoiceEngine.speak(lastCoachSpeech);
+    }
+
+    function replayCoachAudio() {
+      VoiceEngine.speak(lastCoachSpeech, { slow: false });
+    }
+
+    function resetCurrentLab() {
+      if (isAutoSolving) return;
+      VoiceEngine.stop();
+      SoundAudio.stop();
+      const fresh = makeInitialStates();
+      S[activeLabId] = fresh[activeLabId];
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       6. PHYSICS & CHEMISTRY HELPER FORMULAS
+    ===================================================================== */
+    function getEmLiftedCount() {
+      const em = S.electromagnet;
+      const mu = em.core === 'Iron' ? 1.0 : 0.14;
+      const strength = (em.voltage / 12) * (em.turns / 30) * mu;
+      return Math.min(16, Math.round(strength * 18));
+    }
+
+    function getPrismMetrics() {
+      const p = S.prism;
+      const nMap = { Water: 1.33, Glass: 1.52, Diamond: 2.42 };
+      const n = nMap[p.material];
+      const critAngle = +(Math.asin(1 / n) * 180 / Math.PI).toFixed(1);
+      // Internal incidence angle rises with beam angle & refractive index
+      const internalAngle = +(p.angle * 0.85 + (n - 1.3) * 12).toFixed(1);
+      const isTIR = internalAngle >= critAngle;
+      return { n, critAngle, internalAngle, isTIR };
+    }
+
+    function getNewtonMetrics() {
+      const n = S.newton;
+      const muMap = { Ice: 0.0, Wood: 0.20, Sand: 0.50 };
+      const mu = muMap[n.surface];
+      const maxFriction = +(mu * n.mass * 9.8).toFixed(1);
+      const netForce = Math.max(0, +(n.force - maxFriction).toFixed(1));
+      const accel = +(netForce / n.mass).toFixed(2);
+      return { mu, maxFriction, netForce, accel };
+    }
+
+    function getDisplacementInfo() {
+      const d = S.displacement;
+      if (d.metal === 'None') return { reacts: false, eq: 'Select a metal strip to dip into the beaker!' };
+      const solMetal = d.solution === 'CuSO4' ? 'Cu' : 'Fe';
+      const reacts = REACTIVITY[d.metal] > REACTIVITY[solMetal];
+      let eq = '';
+      if (reacts) {
+        eq = `${d.metal}(s) + ${d.solution}(aq) → ${d.metal}SO₄(aq) + ${solMetal}(s)↓`;
+      } else {
+        eq = `${d.metal}(s) + ${d.solution}(aq) → No Reaction (${d.metal} is not more reactive than ${solMetal})`;
+      }
+      return { reacts, solMetal, eq };
+    }
+
+    /* =====================================================================
+       7. DYNAMIC 3-COLUMN CONTROLS DECK FOR ALL 10 LABS
+    ===================================================================== */
+    function renderControls() {
+      const deck = document.getElementById('controlsDeck');
+
+      if (activeLabId === 'electromagnet') {
+        const em = S.electromagnet;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlEmVolt">
+            <div class="control-head"><span>1. Battery Voltage (0–12V)</span><span class="badge">${em.voltage} V</span></div>
+            <div class="stepper-box">
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.electromagnet.voltage=Math.max(0,S.electromagnet.voltage-2); renderControls(); updateLabState(true);">−</button>
+                <span class="step-val">${em.voltage}V</span>
+                <button class="step-btn" onclick="S.electromagnet.voltage=Math.min(12,S.electromagnet.voltage+2); renderControls(); updateLabState(true);">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlEmTurns">
+            <div class="control-head"><span>2. Copper Coil Turns (5–30)</span><span class="badge">${em.turns} turns</span></div>
+            <div class="stepper-box">
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.electromagnet.turns=Math.max(5,S.electromagnet.turns-5); renderControls(); updateLabState(true);">−</button>
+                <span class="step-val">${em.turns}</span>
+                <button class="step-btn" onclick="S.electromagnet.turns=Math.min(30,S.electromagnet.turns+5); renderControls(); updateLabState(true);">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlEmCore">
+            <div class="control-head"><span>3. Core Material</span><span class="badge">${em.core.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${em.core==='Iron'?'active':''}" id="btnIronCore" onclick="S.electromagnet.core='Iron'; renderControls(); updateLabState(true);"><div>🔩</div><strong>Iron Core</strong><small>Strong</small></button>
+              <button class="choice-card ${em.core==='Air'?'active':''}" id="btnAirCore" onclick="S.electromagnet.core='Air'; renderControls(); updateLabState(true);"><div>💨</div><strong>Air Core</strong><small>Weak</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'prism') {
+        const p = S.prism;
+        const m = getPrismMetrics();
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlPrismAngle">
+            <div class="control-head"><span>1. Light Beam Angle (θ₁)</span><span class="badge">${p.angle}°</span></div>
+            <input type="range" class="lab-slider" min="15" max="65" value="${p.angle}"
+              oninput="S.prism.angle=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>15° (Gentle)</span><span>40°</span><span>65° (Steep)</span></div>
+          </div>
+          <div class="control-box span-2" id="ctrlPrismMat">
+            <div class="control-head"><span>2. Prism Material (Refractive Index n)</span><span class="badge">n = ${m.n} • θc = ${m.critAngle}°</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${p.material==='Water'?'active':''}" onclick="S.prism.material='Water'; renderControls(); updateLabState(true);"><div>💧</div><strong>Water Prism</strong><small>n = 1.33</small></button>
+              <button class="choice-card ${p.material==='Glass'?'active':''}" id="btnPrismGlass" onclick="S.prism.material='Glass'; renderControls(); updateLabState(true);"><div>🪟</div><strong>Glass Prism</strong><small>n = 1.52</small></button>
+              <button class="choice-card ${p.material==='Diamond'?'active':''}" id="btnPrismDiamond" onclick="S.prism.material='Diamond'; renderControls(); updateLabState(true);"><div>💎</div><strong>Diamond Prism</strong><small>n = 2.42</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'sound') {
+        const sd = S.sound;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlSoundFreq">
+            <div class="control-head"><span>1. Frequency / Pitch</span><span class="badge">${sd.freq} Hz</span></div>
+            <input type="range" class="lab-slider" min="150" max="900" step="10" value="${sd.freq}"
+              oninput="S.sound.freq=+this.value; SoundAudio.update(S.sound.freq, S.sound.amp); updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>150Hz (Low)</span><span>500Hz</span><span>900Hz (High)</span></div>
+          </div>
+          <div class="control-box" id="ctrlSoundAmp">
+            <div class="control-head"><span>2. Amplitude / Loudness</span><span class="badge">${sd.amp}%</span></div>
+            <input type="range" class="lab-slider" min="10" max="100" step="5" value="${sd.amp}"
+              oninput="S.sound.amp=+this.value; SoundAudio.update(S.sound.freq, S.sound.amp); updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>10% (Soft)</span><span>55%</span><span>100% (Loud)</span></div>
+          </div>
+          <div class="control-box" id="ctrlSoundTone">
+            <div class="control-head"><span>3. Safe Audio Tone</span><span class="badge">${sd.toneOn ? 'ON' : 'OFF'}</span></div>
+            <button class="choice-card ${sd.toneOn ? 'active' : ''}" style="width:100%" onclick="toggleSoundTone()">
+              <div>${sd.toneOn ? '🔇' : '🔊'}</div>
+              <strong>${sd.toneOn ? 'Stop Tone' : 'Play Real Tone'}</strong>
+              <small>Hear live pitch &amp; loudness</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'newton') {
+        const n = S.newton;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlNewtForce">
+            <div class="control-head"><span>1. Applied Force (0–50N)</span><span class="badge">${n.force} N</span></div>
+            <input type="range" class="lab-slider" min="0" max="50" step="2" value="${n.force}"
+              oninput="S.newton.force=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>0N</span><span>25N</span><span>50N</span></div>
+          </div>
+          <div class="control-box" id="ctrlNewtMass">
+            <div class="control-head"><span>2. Cart Mass (1–10kg)</span><span class="badge">${n.mass} kg</span></div>
+            <input type="range" class="lab-slider" min="1" max="10" step="1" value="${n.mass}"
+              oninput="S.newton.mass=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>1kg (Light)</span><span>5kg</span><span>10kg (Heavy)</span></div>
+          </div>
+          <div class="control-box" id="ctrlNewtSurf">
+            <div class="control-head"><span>3. Track Surface</span><span class="badge">${n.surface}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${n.surface==='Ice'?'active':''}" id="btnSurfIce" onclick="S.newton.surface='Ice'; renderControls(); updateLabState(true);"><div>🧊</div><strong>Ice</strong><small>μ=0.0</small></button>
+              <button class="choice-card ${n.surface==='Wood'?'active':''}" onclick="S.newton.surface='Wood'; renderControls(); updateLabState(true);"><div>🪵</div><strong>Wood</strong><small>μ=0.2</small></button>
+              <button class="choice-card ${n.surface==='Sand'?'active':''}" id="btnSurfSand" onclick="S.newton.surface='Sand'; renderControls(); updateLabState(true);"><div>🏖️</div><strong>Sand</strong><small>μ=0.5</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'electrolysis') {
+        const el = S.electrolysis;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlElVolt">
+            <div class="control-head"><span>1. DC Battery Voltage</span><span class="badge">${el.voltage} V</span></div>
+            <input type="range" class="lab-slider" min="0" max="12" step="1" value="${el.voltage}"
+              oninput="S.electrolysis.voltage=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>0V (Off)</span><span>6V</span><span>12V (Fast)</span></div>
+          </div>
+          <div class="control-box" id="ctrlElAcid">
+            <div class="control-head"><span>2. Dilute Acid (Electrolyte)</span><span class="badge">${el.electrolyte ? 'ADDED' : 'NONE'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${el.electrolyte?'active':''}" id="btnAcidOn" onclick="S.electrolysis.electrolyte=true; renderControls(); updateLabState(true);"><div>🧪</div><strong>Acid Added</strong><small>Conducts!</small></button>
+              <button class="choice-card ${!el.electrolyte?'active':''}" onclick="S.electrolysis.electrolyte=false; renderControls(); updateLabState(true);"><div>💧</div><strong>Pure Water</strong><small>No Ions</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlElPop">
+            <div class="control-head"><span>3. Test Collected H₂ Gas</span><span class="badge">H₂: ${Math.round(el.h2)}%</span></div>
+            <button class="choice-card ${el.h2 >= 25 ? 'active' : ''}" id="btnPopTest" style="width:100%" ${el.h2 < 25 ? 'disabled' : ''} onclick="runPopTest()">
+              <div>🔥</div>
+              <strong>Pop Test 🔥</strong>
+              <small>${el.h2 >= 25 ? 'Play the virtual demonstration' : 'Collect ≥25% H₂ first'}</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'atom') {
+        const a = S.atom;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlAtomP">
+            <div class="control-head"><span>1. Protons (p⁺, 1–12)</span><span class="badge">Z = ${a.p}</span></div>
+            <div class="stepper-box">
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.atom.p=Math.max(1,S.atom.p-1); renderControls(); updateLabState(true);">−</button>
+                <span class="step-val" style="color:#dc2626">${a.p}</span>
+                <button class="step-btn" onclick="S.atom.p=Math.min(12,S.atom.p+1); renderControls(); updateLabState(true);">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlAtomN">
+            <div class="control-head"><span>2. Neutrons (n⁰, 0–12)</span><span class="badge">A = ${a.p + a.n}</span></div>
+            <div class="stepper-box">
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.atom.n=Math.max(0,S.atom.n-1); renderControls(); updateLabState(true);">−</button>
+                <span class="step-val" style="color:#475569">${a.n}</span>
+                <button class="step-btn" onclick="S.atom.n=Math.min(12,S.atom.n+1); renderControls(); updateLabState(true);">+</button>
+              </div>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlAtomE">
+            <div class="control-head"><span>3. Electrons (e⁻, 1–12)</span><span class="badge">Charge ${a.p-a.e===0?'0':(a.p-a.e>0?'+'+(a.p-a.e):(a.p-a.e))}</span></div>
+            <div class="stepper-box">
+              <div class="stepper-row">
+                <button class="step-btn" onclick="S.atom.e=Math.max(1,S.atom.e-1); renderControls(); updateLabState(true);">−</button>
+                <span class="step-val" style="color:#2563eb">${a.e}</span>
+                <button class="step-btn" onclick="S.atom.e=Math.min(12,S.atom.e+1); renderControls(); updateLabState(true);">+</button>
+              </div>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'displacement') {
+        const d = S.displacement;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlDispSol">
+            <div class="control-head"><span>1. Salt Solution</span><span class="badge">${d.solution}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${d.solution==='CuSO4'?'active':''}" id="btnSolCu" onclick="S.displacement.solution='CuSO4'; S.displacement.progress=0; renderControls(); updateLabState(true);"><div>🔵</div><strong>CuSO₄</strong><small>Blue Copper</small></button>
+              <button class="choice-card ${d.solution==='FeSO4'?'active':''}" id="btnSolFe" onclick="S.displacement.solution='FeSO4'; S.displacement.progress=0; renderControls(); updateLabState(true);"><div>🟢</div><strong>FeSO₄</strong><small>Green Iron</small></button>
+            </div>
+          </div>
+          <div class="control-box span-2" id="ctrlDispMetal">
+            <div class="control-head"><span>2. Dip a Metal Strip (Mg &gt; Zn &gt; Fe &gt; Cu)</span><span class="badge">${d.metal}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${d.metal==='Mg'?'active':''}" onclick="dipMetal('Mg')"><strong>Mg</strong><small>Magnesium</small></button>
+              <button class="choice-card ${d.metal==='Zn'?'active':''}" id="btnDipZn" onclick="dipMetal('Zn')"><strong>Zn</strong><small>Zinc</small></button>
+              <button class="choice-card ${d.metal==='Fe'?'active':''}" onclick="dipMetal('Fe')"><strong>Fe</strong><small>Iron</small></button>
+              <button class="choice-card ${d.metal==='Cu'?'active':''}" id="btnDipCu" onclick="dipMetal('Cu')"><strong>Cu</strong><small>Copper</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'lungs') {
+        const lg = S.lungs;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlLungAct">
+            <div class="control-head"><span>1. Diaphragm Control</span><span class="badge">${lg.action.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${lg.action==='inhale'?'active':''}" id="btnLungInhale" onclick="S.lungs.action='inhale'; renderControls(); updateLabState(true);"><div>🌬️</div><strong>Deep Inhale</strong><small>Diaphragm Down</small></button>
+              <button class="choice-card ${lg.action==='exhale'?'active':''}" onclick="S.lungs.action='exhale'; renderControls(); updateLabState(true);"><div>😮‍💨</div><strong>Exhale</strong><small>Diaphragm Up</small></button>
+              <button class="choice-card ${lg.action==='auto'?'active':''}" onclick="S.lungs.action='auto'; renderControls(); updateLabState(true);"><div>🔄</div><strong>Auto Breathe</strong><small>Live Cycle</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlLungRate">
+            <div class="control-head"><span>2. Activity Mode</span><span class="badge">${lg.activity==='rest'?'14 bpm':'32 bpm'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${lg.activity==='rest'?'active':''}" onclick="S.lungs.activity='rest'; S.lungs.action='auto'; S.lungs.testedRest=true; renderControls(); updateLabState(true);"><div>🧘</div><strong>Resting</strong><small>14 bpm</small></button>
+              <button class="choice-card ${lg.activity==='run'?'active':''}" id="btnLungRun" onclick="S.lungs.activity='run'; S.lungs.action='auto'; S.lungs.testedRun=true; renderControls(); updateLabState(true);"><div>🏃</div><strong>Running</strong><small>32 bpm</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'digestion') {
+        const dg = S.digestion;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlDigFood">
+            <div class="control-head"><span>1. Pick Food to Digest</span><span class="badge">${dg.food}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${dg.food==='Rice'?'active':''}" id="btnFoodRice" onclick="selectFood('Rice')"><div>🍚</div><strong>Rice</strong><small>Starch → Glucose</small></button>
+              <button class="choice-card ${dg.food==='Egg'?'active':''}" id="btnFoodEgg" onclick="selectFood('Egg')"><div>🥚</div><strong>Egg</strong><small>Protein → Amino</small></button>
+              <button class="choice-card ${dg.food==='Apple'?'active':''}" onclick="selectFood('Apple')"><div>🍎</div><strong>Apple</strong><small>Vitamins + Fiber</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlDigGo">
+            <div class="control-head"><span>2. Journey Controls</span><span class="badge">${DIGEST_ORGANS[dg.stageIdx].name}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${dg.running?'active':''}" id="btnDigPlay" onclick="startDigestion()"><div>▶️</div><strong>${dg.running ? 'Digesting...' : 'Eat &amp; Digest'}</strong><small>Animate</small></button>
+              <button class="choice-card" onclick="stepDigestion()"><div>⏭️</div><strong>Next Organ</strong><small>Step-by-Step</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'osmosis') {
+        const os = S.osmosis;
+        deck.innerHTML = `
+          <div class="control-box span-3" id="ctrlOsmSol">
+            <div class="control-head"><span>Choose External Solution Surrounding the Plant Cell</span><span class="badge">${os.solution.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${os.solution==='Hypotonic'?'active':''}" id="btnOsmPure" onclick="S.osmosis.solution='Hypotonic'; renderControls(); updateLabState(true);">
+                <div>💧</div><strong>Pure Water (Hypotonic)</strong><small>Water rushes IN → Swells Turgid!</small>
+              </button>
+              <button class="choice-card ${os.solution==='Isotonic'?'active':''}" onclick="S.osmosis.solution='Isotonic'; renderControls(); updateLabState(true);">
+                <div>⚖️</div><strong>Balanced (Isotonic)</strong><small>Equal water flow → Flaccid</small>
+              </button>
+              <button class="choice-card ${os.solution==='Hypertonic'?'active':''}" id="btnOsmSalt" onclick="S.osmosis.solution='Hypertonic'; renderControls(); updateLabState(true);">
+                <div>🧂</div><strong>Salty Water (Hypertonic)</strong><small>Water rushes OUT → Plasmolyzed!</small>
+              </button>
+            </div>
+          </div>`;
+      }
+    }
+
+    function toggleSoundTone() {
+      S.sound.toneOn = !S.sound.toneOn;
+      if (S.sound.toneOn) SoundAudio.start(S.sound.freq, S.sound.amp);
+      else SoundAudio.stop();
+      renderControls();
+    }
+
+    function runPopTest() {
+      if (S.electrolysis.h2 < 25) return;
+      SoundAudio.playPop();
+      S.electrolysis.popFlash = 35;
+      S.electrolysis.popDone = true;
+      S.electrolysis.h2 = 0;
+      S.electrolysis.o2 = 0;
+      markMissionDone('electrolysis', 2);
+      renderControls();
+      setCoach('🔥', 'POP! Hydrogen Gas Confirmed!', 'Hydrogen burns explosively with a sharp squeaky POP sound when touched by a burning splint!', 'state-success', true);
+    }
+
+    function dipMetal(metal) {
+      S.displacement.metal = metal;
+      S.displacement.progress = 0;
+      S.displacement.bubbles = [];
+      renderControls();
+      updateLabState(true);
+    }
+
+    function selectFood(food) {
+      S.digestion = { food, running: false, progress: 0, stageIdx: 0, carbAbs: 0, protAbs: 0, vitAbs: 0 };
+      renderControls();
+      updateLabState(true);
+    }
+
+    function startDigestion() {
+      if (S.digestion.progress >= 1) {
+        S.digestion.progress = 0; S.digestion.stageIdx = 0;
+        S.digestion.carbAbs = 0; S.digestion.protAbs = 0; S.digestion.vitAbs = 0;
+      }
+      S.digestion.running = true;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function stepDigestion() {
+      S.digestion.running = false;
+      const next = Math.min(4, S.digestion.stageIdx + 1);
+      S.digestion.stageIdx = next;
+      S.digestion.progress = next / 4;
+      if (next >= 3) updateDigestionNutrients();
+      renderControls();
+      updateLabState(true);
+    }
+
+    function updateDigestionNutrients() {
+      const f = S.digestion.food;
+      if (f === 'Rice') { S.digestion.carbAbs = 95; S.digestion.protAbs = 18; S.digestion.vitAbs = 25; }
+      else if (f === 'Egg') { S.digestion.carbAbs = 10; S.digestion.protAbs = 96; S.digestion.vitAbs = 40; }
+      else { S.digestion.carbAbs = 55; S.digestion.protAbs = 12; S.digestion.vitAbs = 95; }
+    }
+
+    /* =====================================================================
+       8. LIVE STATE EVALUATION & COACH BAR UPDATES
+    ===================================================================== */
+    function updateLabState(shouldSpeak = false) {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('labTitle').textContent = lab.title;
+      const badge = document.getElementById('labBadge');
+      const fPill = document.getElementById('formulaPill');
+      fPill.classList.toggle('show', displayMode === 'formula');
+
+      if (activeLabId === 'electromagnet') {
+        const em = S.electromagnet;
+        const lifted = getEmLiftedCount();
+        fPill.textContent = `B ∝ N × I × μ  |  N = ${em.turns}, V = ${em.voltage}V, Core = ${em.core} → ${lifted} clips`;
+        if (em.core === 'Air') {
+          markMissionDone('electromagnet', 2);
+          badge.className = 'status-badge warn'; badge.textContent = `💨 Air Core (${lifted} clips)`;
+          setCoach('💨', `Air Core is Weak (${lifted} clips lifted)`, 'Without an Iron Core, magnetic lines spread out weakly. Switch back to Iron Core to supercharge the magnet!', 'state-warn', shouldSpeak);
+        } else if (lifted >= 12) {
+          markMissionDone('electromagnet', 1);
+          badge.className = 'status-badge good'; badge.textContent = `🧲 Super Strong (${lifted} clips!)`;
+          setCoach('🎉', `Awesome! Lifted ${lifted} Paperclips!`, `With ${em.voltage}V, ${em.turns} copper turns, and an Iron Core, your electromagnet is super strong!`, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `📎 Lifted ${lifted} / 16 clips`;
+          setCoach('🧲', `Lifting ${lifted} Paperclips`, 'Increase Battery Voltage and Copper Coil Turns to lift at least 12 paperclips!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'prism') {
+        const p = S.prism;
+        const m = getPrismMetrics();
+        fPill.textContent = `Snell's Law: n₁·sin(θ₁) = n₂·sin(θ₂)  |  n = ${m.n}, θc = ${m.critAngle}°`;
+        if (m.isTIR) {
+          markMissionDone('prism', 2);
+          badge.className = 'status-badge good'; badge.textContent = `💎 TOTAL INTERNAL REFLECTION!`;
+          setCoach('💎', 'Total Internal Reflection Triggered!', `Inside ${p.material} (n=${m.n}), the internal angle (${m.internalAngle}°) beat the critical angle (${m.critAngle}°), reflecting the beam like a mirror!`, 'state-success', shouldSpeak);
+        } else {
+          markMissionDone('prism', 1);
+          badge.className = 'status-badge good'; badge.textContent = `🌈 VIBGYOR Spectrum (${p.material})`;
+          setCoach('🌈', `Vivid VIBGYOR Rainbow in ${p.material}!`, 'White light refracted into 7 colors! Violet bends the most and Red bends the least. Try Diamond + steeper angle for Total Internal Reflection!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'sound') {
+        const sd = S.sound;
+        const lambda = (343 / sd.freq).toFixed(2);
+        fPill.textContent = `v = f × λ  |  343 m/s = ${sd.freq} Hz × ${lambda} m`;
+        if (sd.freq >= 650 && sd.amp >= 75) {
+          markMissionDone('sound', 1);
+          badge.className = 'status-badge good'; badge.textContent = `🔊 High Pitch & Loud (${sd.freq}Hz)`;
+          setCoach('🎉', 'High-Pitched Loud Sound!', 'Tightly packed, tall waves mean high frequency (squeaky pitch) and large amplitude (loud volume)!', 'state-success', shouldSpeak);
+        } else if (sd.freq <= 260 && sd.amp <= 35) {
+          markMissionDone('sound', 2);
+          badge.className = 'status-badge good'; badge.textContent = `🔉 Low Gentle Hum (${sd.freq}Hz)`;
+          setCoach('🎵', 'Low-Pitched Gentle Hum!', 'Wide, short waves create a calm, deep bass sound.', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `${sd.freq} Hz • ${sd.amp}% Loud`;
+          setCoach('🌊', `Frequency ${sd.freq} Hz • Loudness ${sd.amp}%`, 'Watch air molecules bunch up in compressions! Adjust sliders or tap Play Real Tone to hear it.', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'newton') {
+        const n = S.newton;
+        const m = getNewtonMetrics();
+        fPill.textContent = `F_net = F − f = ${n.force}N − ${m.maxFriction}N = ${m.netForce}N  |  a = F_net/m = ${m.accel} m/s²`;
+        if (n.surface === 'Ice' && m.accel >= 5) {
+          markMissionDone('newton', 1);
+          badge.className = 'status-badge good'; badge.textContent = `🧊 Fast! a = ${m.accel} m/s²`;
+          setCoach('🚀', `Zooming at ${m.accel} m/s² on Ice!`, 'With zero friction on Ice, every single Newton of your push accelerates the cart!', 'state-success', shouldSpeak);
+        } else if (n.surface === 'Sand' && m.accel > 0) {
+          markMissionDone('newton', 2);
+          badge.className = 'status-badge good'; badge.textContent = `🏖️ Moving on Sand (${m.accel} m/s²)`;
+          setCoach('🎉', 'You Overcame Sand Friction!', `Your ${n.force}N push beat Sand's ${m.maxFriction}N friction, accelerating the cart at ${m.accel} m/s²!`, 'state-success', shouldSpeak);
+        } else if (m.accel === 0 && n.force > 0) {
+          badge.className = 'status-badge warn'; badge.textContent = `🛑 Stuck (Friction ≥ Push)`;
+          setCoach('🛑', 'Friction is Holding the Cart Still!', `Surface friction (${m.maxFriction}N) matches your push (${n.force}N). Push harder or reduce cart mass!`, 'state-warn', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `a = ${m.accel} m/s² (${n.surface})`;
+          setCoach('🚀', `Acceleration: ${m.accel} m/s²`, 'Compare how Ice, Wood, and Rough Sand change Net Force and acceleration!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'electrolysis') {
+        const el = S.electrolysis;
+        fPill.textContent = `2H₂O(l) → 2H₂(g) [Cathode −] + O₂(g) [Anode +]  |  Ratio 2 : 1`;
+        if (!el.electrolyte) {
+          badge.className = 'status-badge warn'; badge.textContent = '💧 Pure Water (No Bubbles)';
+          setCoach('💧', 'Pure Water Cannot Conduct Well!', 'Add Dilute Acid (Electrolyte) so free ions allow electric current to split water!', 'state-warn', shouldSpeak);
+        } else if (el.voltage === 0) {
+          badge.className = 'status-badge'; badge.textContent = '⏸️ Battery Off (0V)';
+          setCoach('🔋', 'Turn Up DC Battery Voltage!', 'Slide voltage above 0V to start splitting water into 2 parts Hydrogen and 1 part Oxygen.', 'state-info', shouldSpeak);
+        } else {
+          badge.className = 'status-badge good'; badge.textContent = `🫧 H₂ ${Math.round(el.h2)}% : O₂ ${Math.round(el.o2)}% (2:1)`;
+          setCoach('⚡', 'Splitting Water at 2:1 Ratio!', 'Notice twice as many Hydrogen bubbles rising at the Cathode (−) as Oxygen at the Anode (+). Tap Pop Test 🔥 when H₂ reaches 25%!', 'state-success', shouldSpeak);
+        }
+      } else if (activeLabId === 'atom') {
+        const a = S.atom;
+        const el = ELEMENTS[a.p];
+        const charge = a.p - a.e;
+        const mass = a.p + a.n;
+        const stable = el.stableN.includes(a.n);
+        const chargeStr = charge === 0 ? 'Neutral Atom' : (charge > 0 ? `+${charge} Cation` : `${charge} Anion`);
+        fPill.textContent = `${el.sym} (${el.name})  |  Z = ${a.p}, A = ${mass}, Charge = ${charge > 0 ? '+'+charge : charge}  |  ${stable ? 'Stable' : 'Unstable'}`;
+        badge.className = stable ? 'status-badge good' : 'status-badge warn';
+        badge.textContent = `${el.sym}-${mass} • ${chargeStr} • ${stable ? 'Stable' : 'Unstable'}`;
+        if (a.p === 6 && a.n === 6 && a.e === 6) {
+          markMissionDone('atom', 1);
+          setCoach('🎉', 'Mission Complete: Neutral Carbon-12!', '6 Protons, 6 Neutrons, and 6 Electrons (2 in K-shell, 4 in L-shell) make a stable Carbon-12 atom!', 'state-success', shouldSpeak);
+        } else if (a.p === 11 && a.n === 12 && a.e === 10) {
+          markMissionDone('atom', 2);
+          setCoach('⚡', 'Mission Complete: Sodium Ion (Na⁺)!', '11 Protons and 10 Electrons give a +1 charge with a full outer L-shell of 8 electrons!', 'state-success', shouldSpeak);
+        } else {
+          setCoach('⚛️', `${el.name}-${mass} (${chargeStr})`, `Protons decide the element (${el.name}). Try building Carbon-12 (6p, 6n, 6e) or Sodium Ion Na⁺ (11p, 12n, 10e)!`, stable ? 'state-info' : 'state-warn', shouldSpeak);
+        }
+      } else if (activeLabId === 'displacement') {
+        const d = S.displacement;
+        const info = getDisplacementInfo();
+        fPill.textContent = info.eq;
+        if (d.metal === 'None') {
+          badge.className = 'status-badge'; badge.textContent = `Beaker: ${d.solution}`;
+          setCoach('⚗️', `Pick a Metal to Dip into ${d.solution}`, 'Remember the Reactivity Series: Magnesium > Zinc > Iron > Copper!', 'state-info', shouldSpeak);
+        } else if (info.reacts) {
+          badge.className = 'status-badge good'; badge.textContent = `✨ Displacement Reaction!`;
+          setCoach('💥', `${d.metal} Displaces ${info.solMetal} from ${d.solution}!`, `Because ${d.metal} is more reactive than ${info.solMetal}, the solution fades and ${info.solMetal} coats the strip!`, 'state-success', shouldSpeak);
+          if (d.solution === 'CuSO4' && d.metal === 'Zn') markMissionDone('displacement', 1);
+        } else {
+          badge.className = 'status-badge warn'; badge.textContent = `🚫 No Reaction`;
+          setCoach('🚫', `No Reaction! (${d.metal} cannot displace ${info.solMetal})`, `${d.metal} sits lower than (or equal to) ${info.solMetal} in the Reactivity Series, so the solution stays unchanged!`, 'state-warn', shouldSpeak);
+          if (d.solution === 'FeSO4' && d.metal === 'Cu') markMissionDone('displacement', 2);
+        }
+      } else if (activeLabId === 'lungs') {
+        const lg = S.lungs;
+        const bpm = lg.activity === 'run' ? 32 : 14;
+        fPill.textContent = `Boyle's Law: P₁V₁ = P₂V₂  |  Rate: ${bpm} breaths/min (${lg.activity === 'run' ? 'Running' : 'Resting'})`;
+        if (lg.action === 'inhale') {
+          markMissionDone('lungs', 1);
+          badge.className = 'status-badge good'; badge.textContent = '🌬️ Deep Inhalation (Volume ↑, Pressure ↓)';
+          setCoach('🌬️', 'Deep Inhalation!', 'The diaphragm pulled DOWN and flattened, expanding the ribcage so lower lung pressure draws fresh blue O₂ in!', 'state-success', shouldSpeak);
+        } else if (lg.testedRest && lg.testedRun) {
+          markMissionDone('lungs', 2);
+          badge.className = 'status-badge good'; badge.textContent = `🏃 Running (${bpm} bpm)`;
+          setCoach('🏃', 'Great Comparison: Resting vs. Running!', 'Running increases your breathing rate from 14 to 32 breaths per minute to supply extra oxygen to your muscles!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `🫁 ${bpm} breaths/min`;
+          setCoach('🫁', `Breathing at ${bpm} breaths/min`, 'Click Deep Inhale to watch the diaphragm flatten, or switch to Running Mode to compare rates!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'digestion') {
+        const dg = S.digestion;
+        const org = DIGEST_ORGANS[dg.stageIdx];
+        fPill.textContent = `Organ: ${org.name}  |  Active Enzyme: ${org.enzyme}`;
+        badge.className = dg.stageIdx === 4 ? 'status-badge good' : 'status-badge';
+        badge.textContent = `${org.name} • ${org.enzyme}`;
+        setCoach('🧬', `${org.name}: ${org.enzyme}`, org.info[dg.food], dg.stageIdx === 4 ? 'state-success' : 'state-info', shouldSpeak);
+        if (dg.stageIdx === 4 && dg.food === 'Rice') markMissionDone('digestion', 1);
+        if (dg.stageIdx === 4 && dg.food === 'Egg') markMissionDone('digestion', 2);
+      } else if (activeLabId === 'osmosis') {
+        const os = S.osmosis;
+        fPill.textContent = `Osmosis: Water moves High → Low Water Potential  |  Solution: ${os.solution}`;
+        if (os.solution === 'Hypotonic') {
+          markMissionDone('osmosis', 1);
+          badge.className = 'status-badge good'; badge.textContent = '💧 TURGID (Swollen Vacuole)';
+          setCoach('💧', 'Plant Cell is Firm & Turgid!', 'In Pure Water (Hypotonic), water rushes INTO the central vacuole, pushing firmly against the rigid Cell Wall!', 'state-success', shouldSpeak);
+        } else if (os.solution === 'Hypertonic') {
+          markMissionDone('osmosis', 2);
+          badge.className = 'status-badge danger'; badge.textContent = '🧂 PLASMOLYZED (Shrunk Membrane)';
+          setCoach('🧂', 'Plasmolysis in Salty Water!', 'In Salty Water (Hypertonic), water rushes OUT of the vacuole and the cell membrane pulls away from the Cell Wall!', 'state-danger', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = '⚖️ ISOTONIC (Flaccid / Balanced)';
+          setCoach('⚖️', 'Balanced Isotonic Solution', 'Equal numbers of water molecules enter and leave the cell. Try Pure Water or Salty Water to see dramatic osmosis!', 'state-info', shouldSpeak);
+        }
+      }
+
+      updateLiveStateSummary();
+    }
+
+    /* =====================================================================
+       9. SLOWER ANIMATED AUTO-SOLVE & EXPLAIN (ALL 10 LABS)
+    ===================================================================== */
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    async function runAutoSolve() {
+      if (isAutoSolving) return;
+      isAutoSolving = true;
+      animSpeed = 0.45; // Noticeably slower, calmer animation while solving
+      document.getElementById('solveBtn').disabled = true;
+
+      const step = async (title, msg, highlightId = null) => {
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.add('pulse-target');
+        }
+        setCoach('✨', title, msg, 'state-solving', false);
+        await VoiceEngine.speak(msg, { slow: true });
+        await sleep(LAB_CONFIG.SOLVE_PAUSE_MS);
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.remove('pulse-target');
+        }
+      };
+
+      if (activeLabId === 'electromagnet') {
+        await step('Auto-Solve Step 1: Select Iron Core', 'First, we make sure the soft Iron Core is inside the coil to concentrate the magnetic field.', 'btnIronCore');
+        S.electromagnet.core = 'Iron'; renderControls();
+        await step('Auto-Solve Step 2: Boost Voltage to 12V', 'Now let us raise the battery voltage to 12 volts so strong current flows through the copper wire.', 'ctrlEmVolt');
+        S.electromagnet.voltage = 12; renderControls();
+        await step('Auto-Solve Step 3: Wrap 25 Copper Turns', 'Next, we wrap 25 copper turns around the nail. Watch all those paperclips fly up and stick!', 'ctrlEmTurns');
+        S.electromagnet.turns = 25; renderControls();
+        await step('🎉 Solved!', 'Because magnetic strength B is proportional to turns times current, the Iron Core electromagnet easily lifts over 12 paperclips!');
+      } else if (activeLabId === 'prism') {
+        await step('Auto-Solve Step 1: Glass Prism Rainbow', 'First, let us pick the Glass Prism at 36 degrees to see white light split into a vivid VIBGYOR rainbow.', 'btnPrismGlass');
+        S.prism.material = 'Glass'; S.prism.angle = 36; renderControls();
+        await step('Auto-Solve Step 2: Diamond + Steep Angle (TIR)', 'Now watch carefully as we switch to Diamond and steepen the angle to 55 degrees to trigger Total Internal Reflection!', 'btnPrismDiamond');
+        S.prism.material = 'Diamond'; S.prism.angle = 55; renderControls();
+        await step('🎉 Solved!', 'Because Diamond has a huge refractive index of 2.42, the light hits steeper than the critical angle and bounces completely inside!');
+      } else if (activeLabId === 'sound') {
+        await step('Auto-Solve Step 1: High Frequency (780 Hz)', 'Let us slide Frequency up to 780 Hertz so the air waves pack tightly together for a high pitch.', 'ctrlSoundFreq');
+        S.sound.freq = 780; renderControls();
+        await step('Auto-Solve Step 2: High Amplitude (90%)', 'Now let us raise Amplitude to 90 percent so the speaker cone vibrates strongly for a loud sound!', 'ctrlSoundAmp');
+        S.sound.amp = 90; renderControls();
+        await step('🎉 Solved!', 'High frequency creates a high pitch, and tall amplitude creates a loud volume!');
+      } else if (activeLabId === 'newton') {
+        await step('Auto-Solve Step 1: Switch to Frictionless Ice', 'First, let us switch the track to Frictionless Ice so the model ignores friction.', 'btnSurfIce');
+        S.newton.surface = 'Ice'; renderControls();
+        await step('Auto-Solve Step 2: Set Light Mass (4 kg) & Strong Push (32 N)', 'With a 4 kilogram cart and a 32 Newton push, Net Force divided by Mass gives 8 meters per second squared!', 'ctrlNewtForce');
+        S.newton.mass = 4; S.newton.force = 32; renderControls();
+        await step('🎉 Solved!', 'Newton’s Second Law F equals m times a shows that a strong push on a light cart over Ice gives super fast acceleration!');
+      } else if (activeLabId === 'electrolysis') {
+        await step('Auto-Solve Step 1: Add Dilute Acid Electrolyte', 'First, we add Dilute Acid so ions can carry electric current through the water.', 'btnAcidOn');
+        S.electrolysis.electrolyte = true; renderControls();
+        await step('Auto-Solve Step 2: Set 10V DC Power', 'Now we turn the battery to 10 volts. Watch twice as much Hydrogen gas collect at the Cathode as Oxygen at the Anode!', 'ctrlElVolt');
+        S.electrolysis.voltage = 10; S.electrolysis.h2 = 44; S.electrolysis.o2 = 22; renderControls();
+        await step('Auto-Solve Step 3: Run the Hydrogen Pop Test!', 'We have collected plenty of Hydrogen gas! Select Pop Test to see the simulated result.', 'btnPopTest');
+        runPopTest();
+      } else if (activeLabId === 'atom') {
+        await step('Auto-Solve: Building Neutral Carbon-12', 'Let us build Carbon-12 step by step. Carbon has Atomic Number 6, so we set Protons to 6.', 'ctrlAtomP');
+        S.atom.p = 6; renderControls();
+        await step('Step 2: Add 6 Neutrons for Mass 12', 'Next, we set Neutrons to 6 so Mass Number A equals 6 plus 6, which is 12 — a stable nucleus!', 'ctrlAtomN');
+        S.atom.n = 6; renderControls();
+        await step('Step 3: Balance with 6 Electrons', 'Finally, we set Electrons to 6: 2 fill the inner K-shell and 4 orbit the L-shell, making a Neutral Carbon-12 atom!', 'ctrlAtomE');
+        S.atom.e = 6; renderControls();
+      } else if (activeLabId === 'displacement') {
+        await step('Auto-Solve Step 1: Choose Blue Copper Sulphate', 'First, we fill the beaker with bright blue Copper Sulphate solution.', 'btnSolCu');
+        S.displacement.solution = 'CuSO4'; renderControls();
+        await step('Auto-Solve Step 2: Dip a Zinc Strip', 'Now watch as we dip a Zinc strip into the blue solution!', 'btnDipZn');
+        dipMetal('Zn');
+        await sleep(1500);
+        await step('🎉 Solved!', 'Because Zinc is more reactive than Copper, Zinc displaces Copper — fading the blue liquid and coating the strip in reddish-brown Copper!');
+      } else if (activeLabId === 'lungs') {
+        await step('Auto-Solve Step 1: Deep Inhalation', 'Watch the diaphragm pull downward and flatten, expanding the lungs so blue Oxygen rushes in!', 'btnLungInhale');
+        S.lungs.action = 'inhale'; renderControls();
+        await step('Auto-Solve Step 2: Switch to Running Mode', 'Now let us switch to Running Mode so you can see breathing speed up from 14 to 32 breaths per minute!', 'btnLungRun');
+        S.lungs.activity = 'run'; S.lungs.action = 'auto'; S.lungs.testedRun = true; renderControls();
+      } else if (activeLabId === 'digestion') {
+        await step('Auto-Solve Step 1: Choose Rice (Starch)', 'Let us pick Rice to watch how Starch is digested into Glucose.', 'btnFoodRice');
+        selectFood('Rice');
+        for (let i = 1; i <= 4; i++) {
+          S.digestion.stageIdx = i; S.digestion.progress = i / 4;
+          if (i >= 3) updateDigestionNutrients();
+          renderControls();
+          const org = DIGEST_ORGANS[i];
+          await step(`Stage ${i + 1}: ${org.name} (${org.enzyme})`, org.info.Rice, 'ctrlDigGo');
+        }
+      } else if (activeLabId === 'osmosis') {
+        await step('Auto-Solve Step 1: Pure Water (Hypotonic)', 'First, place the plant cell in Pure Water. Watch water molecules rush IN and swell the central vacuole until the cell is firm and Turgid!', 'btnOsmPure');
+        S.osmosis.solution = 'Hypotonic'; renderControls();
+        await step('Auto-Solve Step 2: Salty Water (Hypertonic)', 'Now switch to Salty Water! Water rushes OUT and the membrane pulls away from the cell wall — demonstrating Plasmolysis!', 'btnOsmSalt');
+        S.osmosis.solution = 'Hypertonic'; renderControls();
+      }
+
+      animSpeed = 1.0;
+      isAutoSolving = false;
+      document.getElementById('solveBtn').disabled = false;
+      updateLabState(false);
+    }
+
+    /* =====================================================================
+       10. 60FPS HTML5 CANVAS RENDERERS FOR ALL 10 BRAND-NEW LABS
+    ===================================================================== */
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function rr(c, x, y, w, h, r) {
+      c.beginPath();
+      c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r);
+      c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r);
+      c.arcTo(x, y, x + w, y, r); c.closePath();
+    }
+
+    function drawActiveLab() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (activeLabId === 'electromagnet') drawElectromagnet();
+      else if (activeLabId === 'prism') drawPrism();
+      else if (activeLabId === 'sound') drawSound();
+      else if (activeLabId === 'newton') drawNewton();
+      else if (activeLabId === 'electrolysis') drawElectrolysis();
+      else if (activeLabId === 'atom') drawAtom();
+      else if (activeLabId === 'displacement') drawDisplacement();
+      else if (activeLabId === 'lungs') drawLungs();
+      else if (activeLabId === 'digestion') drawDigestion();
+      else if (activeLabId === 'osmosis') drawOsmosis();
+
+      // Celebration Confetti overlay
+      confetti.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.14; p.life--;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, 7, 7);
+      });
+      confetti = confetti.filter(p => p.life > 0);
+    }
+
+    // 1. ELECTROMAGNET & MAGNETIC FIELD LAB
+    function drawElectromagnet() {
+      const em = S.electromagnet;
+      const lifted = getEmLiftedCount();
+      const fieldAlpha = Math.min(0.85, (lifted / 16) * 0.9);
+
+      // Battery on left
+      ctx.fillStyle = '#1e293b'; rr(ctx, 85, 110, 88, 120, 14); ctx.fill();
+      ctx.fillStyle = '#f59e0b'; ctx.fillRect(112, 98, 34, 12);
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${em.voltage}V`, 129, 175);
+      ctx.font = 'bold 11px sans-serif'; ctx.fillStyle = '#94a3b8'; ctx.fillText('DC BATTERY', 129, 198);
+
+      // Connecting wires
+      ctx.strokeStyle = '#d97706'; ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(173, 130); ctx.lineTo(350, 130);
+      ctx.moveTo(173, 210); ctx.lineTo(540, 210); ctx.lineTo(540, 175);
+      ctx.stroke();
+
+      // Animated magnetic field loops
+      if (lifted > 0) {
+        ctx.strokeStyle = `rgba(14, 165, 233, ${fieldAlpha})`;
+        ctx.lineWidth = 2.5;
+        ctx.setLineDash([7, 5]);
+        ctx.lineDashOffset = -animT * 24;
+        for (let i = 1; i <= 3; i++) {
+          ctx.beginPath();
+          ctx.ellipse(445, 145, 115 + i * 24, 34 + i * 22, 0, 0, Math.PI * 2);
+          ctx.stroke();
+        }
+        ctx.setLineDash([]);
+      }
+
+      // Iron Nail or Air Core
+      if (em.core === 'Iron') {
+        ctx.fillStyle = '#94a3b8'; ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+        rr(ctx, 325, 130, 245, 30, 6); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = '#64748b'; ctx.fillRect(315, 120, 14, 50); // Nail head
+      } else {
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
+        rr(ctx, 330, 130, 235, 30, 6); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 12px sans-serif'; ctx.fillText('AIR CORE (Hollow)', 448, 150);
+      }
+
+      // Copper Coil Turns
+      const loops = Math.max(5, Math.round(em.turns * 0.6));
+      const span = 180;
+      ctx.strokeStyle = '#ea580c'; ctx.lineWidth = 5; ctx.lineCap = 'round';
+      for (let i = 0; i < loops; i++) {
+        const lx = 355 + (i / Math.max(1, loops - 1)) * span;
+        ctx.beginPath(); ctx.moveTo(lx, 122); ctx.lineTo(lx + 6, 168); ctx.stroke();
+      }
+
+      // Tray of Paperclips that fly up and stick to nail tip
+      ctx.fillStyle = '#f1f5f9'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 490, 250, 290, 56, 12); ctx.fill(); ctx.stroke();
+
+      em.clips.forEach((c, idx) => {
+        const isStuck = idx < lifted;
+        const tx = isStuck ? 555 + (idx % 4) * 14 : c.homeX;
+        const ty = isStuck ? 168 + Math.floor(idx / 4) * 13 : c.homeY;
+        c.x += (tx - c.x) * 0.14;
+        c.y += (ty - c.y) * 0.14;
+
+        ctx.strokeStyle = isStuck ? '#2563eb' : '#64748b';
+        ctx.lineWidth = 2.5;
+        rr(ctx, c.x - 9, c.y - 4, 18, 8, 4); ctx.stroke();
+      });
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`Paperclips Lifted: ${lifted} / 16`, 635, 322);
+    }
+
+    // 2. PRISM & LIGHT DISPERSION LAB
+    function drawPrism() {
+      const p = S.prism;
+      const m = getPrismMetrics();
+      const colors = ['#ef4444', '#f97316', '#eab308', '#22c55e', '#3b82f6', '#4f46e5', '#9333ea'];
+
+      // Dark room backdrop for glowing rainbow
+      ctx.fillStyle = '#0f172a'; rr(ctx, 18, 16, 864, 302, 16); ctx.fill();
+
+      // Light Source Lamp (Left)
+      const rad = (p.angle - 35) * Math.PI / 180;
+      const hitX = 390, hitY = 175;
+      const srcX = hitX - Math.cos(rad) * 260, srcY = hitY + Math.sin(rad) * 260;
+
+      ctx.strokeStyle = '#ffffff'; ctx.lineWidth = 7;
+      ctx.beginPath(); ctx.moveTo(srcX, srcY); ctx.lineTo(hitX, hitY); ctx.stroke();
+
+      // Triangular Prism
+      ctx.fillStyle = p.material === 'Diamond' ? 'rgba(186, 230, 253, 0.38)' : (p.material === 'Water' ? 'rgba(56, 189, 248, 0.28)' : 'rgba(226, 232, 240, 0.28)');
+      ctx.strokeStyle = '#93c5fd'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(450, 62); ctx.lineTo(340, 265); ctx.lineTo(560, 265); ctx.closePath();
+      ctx.fill(); ctx.stroke();
+
+      // Viewing Screen on Right
+      ctx.fillStyle = '#1e293b'; ctx.strokeStyle = '#475569'; ctx.lineWidth = 2;
+      ctx.fillRect(790, 55, 22, 230); ctx.strokeRect(790, 55, 22, 230);
+
+      if (m.isTIR) {
+        // Total Internal Reflection bounce inside prism!
+        ctx.strokeStyle = '#38bdf8'; ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(hitX, hitY);
+        ctx.lineTo(505, 165);
+        ctx.lineTo(455, 265);
+        ctx.lineTo(435, 310);
+        ctx.stroke();
+        ctx.fillStyle = '#38bdf8'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('💎 TOTAL INTERNAL REFLECTION!', 655, 130);
+      } else {
+        // VIBGYOR Rainbow Dispersion to screen
+        const spread = (m.n - 1.1) * 22;
+        colors.forEach((col, i) => {
+          const offset = (i - 3) * (spread * 0.28);
+          const exitX = 505 + i * 1.4, exitY = 175 + offset * 0.35;
+          const scrY = 170 + offset * 2.2;
+          ctx.strokeStyle = col; ctx.lineWidth = 4;
+          ctx.beginPath();
+          ctx.moveTo(hitX, hitY);
+          ctx.lineTo(exitX, exitY);
+          ctx.lineTo(790, scrY);
+          ctx.stroke();
+        });
+        ctx.fillStyle = '#f8fafc'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('VIBGYOR', 801, 45);
+      }
+
+      ctx.fillStyle = '#cbd5e1'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${p.material} Prism (n=${m.n})`, 450, 290);
+    }
+
+    // 3. SOUND WAVES & PITCH/LOUDNESS LAB
+    function drawSound() {
+      const sd = S.sound;
+      const coneVib = Math.sin(animT * (sd.freq / 45)) * (sd.amp * 0.12);
+
+      // Speaker Cone (Left)
+      ctx.fillStyle = '#1e293b'; rr(ctx, 55, 105, 58, 120, 10); ctx.fill();
+      ctx.fillStyle = '#475569';
+      ctx.beginPath();
+      ctx.moveTo(113, 125); ctx.lineTo(155 + coneVib, 85); ctx.lineTo(155 + coneVib, 245); ctx.lineTo(113, 205);
+      ctx.closePath(); ctx.fill();
+
+      // Longitudinal Air Molecules (Compression & Rarefaction)
+      const cols = 22, rows = 6;
+      const k = sd.freq / 2400;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          const baseX = 195 + c * 20;
+          const baseY = 78 + r * 34;
+          const disp = Math.sin(baseX * k * 0.14 - animT * (sd.freq / 85)) * (sd.amp * 0.14);
+          ctx.fillStyle = disp > 0 ? '#2563eb' : '#38bdf8';
+          ctx.beginPath(); ctx.arc(baseX + disp, baseY, 4.5, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Longitudinal Air Molecules (Compressions & Rarefactions)', 405, 295);
+
+      // Live Oscilloscope Box (Right)
+      ctx.fillStyle = '#0f172a'; rr(ctx, 645, 55, 225, 210, 14); ctx.fill();
+      ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.moveTo(645, 160); ctx.lineTo(870, 160); ctx.stroke();
+
+      ctx.strokeStyle = '#22c55e'; ctx.lineWidth = 3; ctx.beginPath();
+      for (let x = 0; x <= 205; x += 2) {
+        const y = 160 + Math.sin(x * (sd.freq / 3200) - animT * 4) * (sd.amp * 0.72);
+        x === 0 ? ctx.moveTo(655 + x, y) : ctx.lineTo(655 + x, y);
+      }
+      ctx.stroke();
+      ctx.fillStyle = '#4ade80'; ctx.font = 'bold 11.5px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`OSCILLOSCOPE: ${sd.freq}Hz`, 757, 78);
+    }
+
+    // 4. NEWTON'S LAWS & FORCE/MOTION LAB
+    function drawNewton() {
+      const n = S.newton;
+      const m = getNewtonMetrics();
+      if (m.accel > 0) n.velocity = Math.min(28, n.velocity + m.accel * 0.03 * animSpeed);
+      else n.velocity = Math.max(0, n.velocity - 0.15);
+      n.bgOff = (n.bgOff + n.velocity * 0.6 * animSpeed) % 60;
+
+      // Track Surface
+      const surfCol = n.surface === 'Ice' ? '#bae6fd' : (n.surface === 'Wood' ? '#fde68a' : '#fed7aa');
+      const tickCol = n.surface === 'Ice' ? '#7dd3fc' : (n.surface === 'Wood' ? '#d97706' : '#c2410c');
+      ctx.fillStyle = surfCol; ctx.fillRect(30, 235, 840, 62);
+      ctx.strokeStyle = tickCol; ctx.lineWidth = 3;
+      for (let x = 30 - n.bgOff; x < 870; x += 60) {
+        ctx.beginPath(); ctx.moveTo(x, 235); ctx.lineTo(x - 12, 255); ctx.stroke();
+      }
+
+      // Lab Cart
+      const cx = 420, cy = 170;
+      ctx.fillStyle = '#2563eb'; rr(ctx, cx - 55, cy - 22, 110, 68, 12); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 18px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${n.mass} kg`, cx, cy + 18);
+
+      // Wheels
+      [cx - 34, cx + 34].forEach(wx => {
+        ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(wx, 224, 15, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(wx, 224); ctx.lineTo(wx + Math.cos(n.bgOff * 0.15) * 11, 224 + Math.sin(n.bgOff * 0.15) * 11);
+        ctx.stroke();
+      });
+
+      // Applied Force Arrow (Green, Right)
+      if (n.force > 0) {
+        const len = 30 + n.force * 3.2;
+        ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 6;
+        ctx.beginPath(); ctx.moveTo(cx + 58, cy + 10); ctx.lineTo(cx + 58 + len, cy + 10); ctx.stroke();
+        ctx.fillStyle = '#16a34a'; ctx.font = 'bold 13px sans-serif';
+        ctx.fillText(`Push: ${n.force}N →`, cx + 58 + len / 2, cy - 6);
+      }
+
+      // Friction Arrow (Red, Left)
+      const shownFric = Math.min(n.force, m.maxFriction);
+      if (shownFric > 0) {
+        const len = 25 + shownFric * 3.0;
+        ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 6;
+        ctx.beginPath(); ctx.moveTo(cx - 58, cy + 10); ctx.lineTo(cx - 58 - len, cy + 10); ctx.stroke();
+        ctx.fillStyle = '#dc2626'; ctx.font = 'bold 13px sans-serif';
+        ctx.fillText(`← Friction: ${shownFric.toFixed(1)}N`, cx - 58 - len / 2, cy - 6);
+      }
+
+      // Speedometer Gauge (Top Right)
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#0f172a'; ctx.lineWidth = 3;
+      rr(ctx, 685, 36, 175, 86, 14); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 18px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`a = ${m.accel} m/s²`, 772, 72);
+      ctx.fillStyle = '#2563eb'; ctx.font = 'bold 13px monospace';
+      ctx.fillText(`Speed: ${n.velocity.toFixed(1)} m/s`, 772, 102);
+    }
+
+    // 5. ELECTROLYSIS OF WATER LAB
+    function drawElectrolysis() {
+      const el = S.electrolysis;
+      const active = el.electrolyte && el.voltage > 0;
+      if (active && el.h2 < 96) {
+        const step = el.voltage * 0.015 * animSpeed;
+        el.h2 = Math.min(96, el.h2 + step * 2);
+        el.o2 = Math.min(48, el.o2 + step);
+        if (el.h2 >= 30 && !completedMissions.electrolysis?.has(1)) {
+          markMissionDone('electrolysis', 1);
+          renderControls();
+        }
+        if (Math.random() < 0.45 * animSpeed) {
+          el.bubbles.push({ x: 350 + (Math.random() - 0.5) * 18, y: 245, vy: 2.2, col: '#38bdf8' });
+          el.bubbles.push({ x: 350 + (Math.random() - 0.5) * 18, y: 245, vy: 2.0, col: '#38bdf8' }); // 2x H2
+          el.bubbles.push({ x: 550 + (Math.random() - 0.5) * 18, y: 245, vy: 1.9, col: '#f87171' }); // 1x O2
+        }
+      }
+
+      // Tank & Water
+      ctx.fillStyle = el.electrolyte ? 'rgba(186, 230, 253, 0.55)' : 'rgba(226, 232, 240, 0.45)';
+      ctx.fillRect(250, 140, 400, 145);
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 4; ctx.strokeRect(250, 115, 400, 170);
+
+      // Two Inverted Test Tubes (Cathode H2 on Left, Anode O2 on Right)
+      const drawTube = (x, gasPct, label, gasCol) => {
+        const gasH = (gasPct / 100) * 115;
+        ctx.fillStyle = gasCol; ctx.fillRect(x - 28, 72, 56, gasH);
+        ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+        rr(ctx, x - 28, 70, 56, 175, 14); ctx.stroke();
+        // Electrode Rod
+        ctx.fillStyle = '#1e293b'; ctx.fillRect(x - 6, 215, 12, 68);
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(label, x, 58);
+      };
+      drawTube(350, el.h2, `Cathode (−): H₂ (${Math.round(el.h2)}%)`, 'rgba(56, 189, 248, 0.42)');
+      drawTube(550, el.o2, `Anode (+): O₂ (${Math.round(el.o2)}%)`, 'rgba(248, 113, 113, 0.35)');
+
+      // Rising Gas Bubbles
+      el.bubbles.forEach(b => {
+        b.y -= b.vy * animSpeed;
+        ctx.fillStyle = b.col; ctx.beginPath(); ctx.arc(b.x, b.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      el.bubbles = el.bubbles.filter(b => b.y > 145);
+
+      // Battery Box on Left
+      ctx.fillStyle = '#0f172a'; rr(ctx, 85, 165, 95, 85, 12); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 17px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`${el.voltage}V DC`, 132, 214);
+
+      // Pop Test Flash!
+      if (el.popFlash > 0) {
+        el.popFlash--;
+        ctx.fillStyle = `rgba(249, 115, 22, ${el.popFlash / 35})`;
+        ctx.beginPath(); ctx.arc(350, 88, 55 - el.popFlash, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 20px sans-serif'; ctx.fillText('🔥 POP!', 350, 95);
+      }
+    }
+
+    // 6. ATOM BUILDER & BOHR MODEL LAB
+    function drawAtom() {
+      const a = S.atom;
+      const el = ELEMENTS[a.p];
+      const cx = 360, cy = 168;
+
+      // Bohr Shells (K=2, L=8, M=8)
+      const radii = [58, 96, 134];
+      const caps = [2, 8, 8];
+      radii.forEach((r, idx) => {
+        ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2; ctx.setLineDash([5, 5]);
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+        ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 11px sans-serif'; ctx.fillText(['K', 'L', 'M'][idx], cx + r + 8, cy);
+      });
+
+      // Glowing Nucleus (Protons + Neutrons)
+      ctx.fillStyle = 'rgba(239, 68, 68, 0.14)';
+      ctx.beginPath(); ctx.arc(cx, cy, 34, 0, Math.PI * 2); ctx.fill();
+      const totalNuc = a.p + a.n;
+      for (let i = 0; i < totalNuc; i++) {
+        const ang = i * 2.39996;
+        const rad = Math.min(22, Math.sqrt(i) * 5.2);
+        ctx.fillStyle = i < a.p ? '#ef4444' : '#64748b';
+        ctx.beginPath(); ctx.arc(cx + Math.cos(ang) * rad, cy + Math.sin(ang) * rad, 6.5, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Orbiting Electrons
+      let rem = a.e;
+      radii.forEach((r, sIdx) => {
+        const count = Math.min(rem, caps[sIdx]);
+        rem -= count;
+        for (let i = 0; i < count; i++) {
+          const ang = animT * (1.5 - sIdx * 0.35) + (i / count) * Math.PI * 2;
+          const ex = cx + Math.cos(ang) * r, ey = cy + Math.sin(ang) * r;
+          ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(ex, ey, 6.5, 0, Math.PI * 2); ctx.fill();
+          ctx.fillStyle = '#fff'; ctx.font = 'bold 9px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('−', ex, ey + 3);
+        }
+      });
+
+      // Element Info Card (Right)
+      const charge = a.p - a.e;
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 3;
+      rr(ctx, 600, 52, 230, 225, 18); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#2563eb'; ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'left';
+      ctx.fillText(`Z = ${a.p}`, 622, 82);
+      ctx.textAlign = 'right'; ctx.fillText(`A = ${a.p + a.n}`, 808, 82);
+      ctx.textAlign = 'center'; ctx.fillStyle = '#0f172a'; ctx.font = 'bold 64px sans-serif';
+      ctx.fillText(el.sym, 715, 165);
+      ctx.font = 'bold 18px sans-serif'; ctx.fillText(el.name, 715, 198);
+      ctx.font = 'bold 13px sans-serif'; ctx.fillStyle = charge === 0 ? '#16a34a' : '#7c3aed';
+      ctx.fillText(charge === 0 ? 'Neutral Atom (0)' : `Ion Charge: ${charge > 0 ? '+'+charge : charge}`, 715, 228);
+      ctx.fillStyle = el.stableN.includes(a.n) ? '#16a34a' : '#d97706';
+      ctx.fillText(el.stableN.includes(a.n) ? '✅ Stable Nucleus' : '⚠️ Unstable Isotope', 715, 254);
+    }
+
+    // 7. METAL REACTIVITY & DISPLACEMENT LAB
+    function drawDisplacement() {
+      const d = S.displacement;
+      const info = getDisplacementInfo();
+      if (info.reacts && d.progress < 1) {
+        d.progress = Math.min(1, d.progress + 0.006 * animSpeed);
+        if (Math.random() < 0.35 * animSpeed) {
+          d.bubbles.push({ x: 450 + (Math.random() - 0.5) * 32, y: 220, vy: 1.8 });
+        }
+      }
+
+      // Solution Color Interpolation
+      let liquidCol = 'rgba(37, 99, 235, 0.52)'; // CuSO4 Blue
+      if (d.solution === 'CuSO4') {
+        const fade = info.reacts ? d.progress : 0;
+        const r = Math.round(37 + fade * 150), g = Math.round(99 + fade * 125), b = Math.round(235 - fade * 35);
+        liquidCol = `rgba(${r}, ${g}, ${b}, ${0.52 - fade * 0.25})`;
+      } else {
+        const fade = info.reacts ? d.progress : 0;
+        liquidCol = `rgba(134, 239, 172, ${0.55 - fade * 0.25})`;
+      }
+
+      ctx.fillStyle = liquidCol; ctx.fillRect(340, 145, 220, 130);
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(338, 70); ctx.lineTo(338, 277); ctx.lineTo(562, 277); ctx.lineTo(562, 70); ctx.stroke();
+
+      // Metal Strip dipped inside
+      if (d.metal !== 'None') {
+        const mCol = { Mg: '#e2e8f0', Zn: '#cbd5e1', Fe: '#94a3b8', Cu: '#d97706' }[d.metal];
+        ctx.fillStyle = mCol; ctx.strokeStyle = '#475569'; ctx.lineWidth = 2;
+        rr(ctx, 434, 52, 32, 198, 6); ctx.fill(); ctx.stroke();
+
+        // Reddish-brown Copper crystal coating if Cu is displaced!
+        if (info.reacts && d.solution === 'CuSO4' && d.progress > 0.1) {
+          ctx.fillStyle = `rgba(180, 83, 9, ${d.progress * 0.92})`;
+          rr(ctx, 431, 145, 38, 105, 5); ctx.fill();
+        }
+        ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(d.metal, 450, 82);
+      }
+
+      // Fizz bubbles
+      ctx.fillStyle = 'rgba(255,255,255,0.85)';
+      d.bubbles.forEach(b => { b.y -= b.vy * animSpeed; ctx.beginPath(); ctx.arc(b.x, b.y, 4, 0, Math.PI * 2); ctx.fill(); });
+      d.bubbles = d.bubbles.filter(b => b.y > 145);
+
+      // Reactivity Series Ladder (Left)
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 55, 65, 190, 195, 14); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('REACTIVITY SERIES', 150, 90);
+      ['1. Magnesium (Mg) 🔥', '2. Zinc (Zn) ⚡', '3. Iron (Fe) 🔩', '4. Copper (Cu) 🥉'].forEach((txt, i) => {
+        ctx.fillStyle = i === 0 ? '#dc2626' : (i === 3 ? '#b45309' : '#334155');
+        ctx.fillText(txt, 150, 125 + i * 34);
+      });
+    }
+
+    // 8. HUMAN LUNGS & BREATHING MECHANICS LAB
+    function drawLungs() {
+      const lg = S.lungs;
+      const rate = lg.activity === 'run' ? 2.8 : 1.1;
+      if (lg.action === 'inhale') lg.phase += (1 - lg.phase) * 0.08 * animSpeed;
+      else if (lg.action === 'exhale') lg.phase += (0 - lg.phase) * 0.08 * animSpeed;
+      else lg.phase = 0.5 + 0.5 * Math.sin(animT * rate);
+
+      const cx = 450;
+      const lungScale = 0.78 + lg.phase * 0.30;
+      const diaY = 235 + lg.phase * 36; // Flattens down on inhale!
+
+      // Thoracic Bell Jar / Ribcage
+      ctx.strokeStyle = '#64748b'; ctx.lineWidth = 4;
+      rr(ctx, 305, 65, 290, 225, 45); ctx.stroke();
+
+      // Trachea
+      ctx.fillStyle = '#cbd5e1'; ctx.fillRect(cx - 12, 22, 24, 95);
+
+      // Left & Right Lungs
+      ctx.fillStyle = `rgba(244, 114, 182, ${0.55 + lg.phase * 0.3})`;
+      ctx.strokeStyle = '#db2777'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.ellipse(cx - 56, 165, 48 * lungScale, 68 * lungScale, -0.1, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.beginPath(); ctx.ellipse(cx + 56, 165, 48 * lungScale, 68 * lungScale, 0.1, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Diaphragm Muscle Dome
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 8; ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(315, 272);
+      ctx.quadraticCurveTo(cx, diaY - (1 - lg.phase) * 38, 585, 272);
+      ctx.stroke();
+
+      // O2 (Blue in) & CO2 (Amber out) particles
+      if (Math.random() < 0.28 * animSpeed) {
+        const inhaling = lg.action === 'inhale' || (lg.action === 'auto' && Math.cos(animT * rate) > 0);
+        lg.particles.push({ x: cx + (Math.random() - 0.5) * 10, y: inhaling ? 25 : 140, vy: inhaling ? 2.6 : -2.6, col: inhaling ? '#2563eb' : '#f59e0b' });
+      }
+      lg.particles.forEach(p => {
+        p.y += p.vy * animSpeed;
+        ctx.fillStyle = p.col; ctx.beginPath(); ctx.arc(p.x, p.y, 5, 0, Math.PI * 2); ctx.fill();
+      });
+      lg.particles = lg.particles.filter(p => p.y > 18 && p.y < 165);
+
+      // Live Pressure & Volume Meters
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(`Lung Volume: ${Math.round(50 + lg.phase * 50)}%`, 160, 145);
+      ctx.fillText(`Air Pressure: ${lg.phase > 0.5 ? 'LOW (Air In 🔵)' : 'HIGH (CO₂ Out 🟠)'}`, 740, 145);
+      ctx.fillStyle = '#dc2626'; ctx.fillText('DIAPHRAGM', cx, 306);
+    }
+
+    // 9. HUMAN DIGESTIVE SYSTEM JOURNEY LAB
+    function drawDigestion() {
+      const dg = S.digestion;
+      if (dg.running) {
+        dg.progress = Math.min(1, dg.progress + 0.0032 * animSpeed);
+        const newIdx = Math.min(4, Math.floor(dg.progress * 4.99));
+        if (newIdx !== dg.stageIdx) {
+          dg.stageIdx = newIdx;
+          if (newIdx >= 3) updateDigestionNutrients();
+          renderControls();
+          updateLabState(true);
+        }
+        if (dg.progress >= 1) { dg.running = false; renderControls(); updateLabState(true); }
+      }
+
+      // Digestive Path
+      ctx.strokeStyle = '#fda4af'; ctx.lineWidth = 22; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+      ctx.beginPath();
+      DIGEST_ORGANS.forEach((o, i) => i === 0 ? ctx.moveTo(o.x, o.y) : ctx.lineTo(o.x, o.y));
+      ctx.stroke();
+
+      // Organ Nodes
+      DIGEST_ORGANS.forEach((o, i) => {
+        const active = i === dg.stageIdx;
+        ctx.fillStyle = active ? '#2563eb' : '#fff';
+        ctx.strokeStyle = active ? '#1d4ed8' : '#e11d48'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(o.x, o.y, active ? 32 : 25, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+        ctx.fillStyle = active ? '#fff' : '#0f172a'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(o.name, o.x, o.y + 4);
+        if (active) {
+          ctx.fillStyle = '#7c3aed'; ctx.font = 'bold 12px sans-serif';
+          ctx.fillText(`🧪 ${o.enzyme}`, o.x, o.y - 42);
+        }
+      });
+
+      // Moving Food Bolus
+      const idxF = dg.progress * 4;
+      const i0 = Math.min(3, Math.floor(idxF)), frac = idxF - i0;
+      const bx = DIGEST_ORGANS[i0].x + (DIGEST_ORGANS[i0 + 1].x - DIGEST_ORGANS[i0].x) * frac;
+      const by = DIGEST_ORGANS[i0].y + (DIGEST_ORGANS[i0 + 1].y - DIGEST_ORGANS[i0].y) * frac;
+      ctx.font = '26px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(dg.food === 'Rice' ? '🍚' : (dg.food === 'Egg' ? '🥚' : '🍎'), bx, by + 9);
+
+      // Nutrient Absorption Bars (Bottom)
+      const bars = [
+        { lbl: 'Glucose (Carbs)', val: dg.carbAbs, col: '#f59e0b', x: 110 },
+        { lbl: 'Amino Acids (Protein)', val: dg.protAbs, col: '#2563eb', x: 360 },
+        { lbl: 'Vitamins & Water', val: dg.vitAbs, col: '#16a34a', x: 610 }
+      ];
+      bars.forEach(b => {
+        ctx.fillStyle = '#e2e8f0'; rr(ctx, b.x, 282, 180, 14, 7); ctx.fill();
+        ctx.fillStyle = b.col; rr(ctx, b.x, 282, (b.val / 100) * 180, 14, 7); ctx.fill();
+        ctx.fillStyle = '#334155'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'left';
+        ctx.fillText(`${b.lbl}: ${b.val}%`, b.x, 274);
+      });
+    }
+
+    // 10. OSMOSIS & PLANT CELL TURGIDITY LAB
+    function drawOsmosis() {
+      const os = S.osmosis;
+      const targetTurgor = os.solution === 'Hypotonic' ? 0.96 : (os.solution === 'Hypertonic' ? 0.28 : 0.62);
+      os.turgor += (targetTurgor - os.turgor) * 0.04 * animSpeed;
+
+      // External Solution Background
+      ctx.fillStyle = os.solution === 'Hypotonic' ? 'rgba(186, 230, 253, 0.45)' : (os.solution === 'Hypertonic' ? 'rgba(254, 240, 138, 0.48)' : 'rgba(220, 252, 231, 0.40)');
+      rr(ctx, 40, 22, 820, 290, 18); ctx.fill();
+
+      // Rigid Boxy Plant Cell Wall
+      ctx.fillStyle = '#dcfce7'; ctx.strokeStyle = '#15803d'; ctx.lineWidth = 10;
+      rr(ctx, 270, 56, 360, 220, 26); ctx.fill(); ctx.stroke();
+
+      // Semi-Permeable Cell Membrane (shrinks inward during Plasmolysis!)
+      const inset = (1 - os.turgor) * 46;
+      ctx.fillStyle = '#bbf7d0'; ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 3;
+      rr(ctx, 278 + inset, 64 + inset * 0.6, 344 - inset * 2, 204 - inset * 1.2, 20);
+      ctx.fill(); ctx.stroke();
+
+      // Central Vacuole
+      const vw = 100 + os.turgor * 155, vh = 45 + os.turgor * 92;
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.65)'; ctx.strokeStyle = '#0284c7'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.ellipse(450, 166, vw / 2, vh / 2, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0c4a6e'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Central Vacuole', 450, 170);
+
+      // Animated Water Molecules crossing membrane
+      os.mols.forEach(m => {
+        if (os.solution === 'Hypotonic') {
+          m.x += (450 - m.x) * 0.015 * animSpeed + m.vx * 0.5;
+          m.y += (166 - m.y) * 0.015 * animSpeed + m.vy * 0.5;
+          if (Math.hypot(m.x - 450, m.y - 166) < 28) { m.x = Math.random() < 0.5 ? 100 : 800; m.y = 70 + Math.random() * 190; }
+        } else if (os.solution === 'Hypertonic') {
+          const dx = m.x - 450, dy = m.y - 166, d = Math.hypot(dx, dy) || 1;
+          m.x += (dx / d) * 1.6 * animSpeed;
+          m.y += (dy / d) * 1.6 * animSpeed;
+          if (m.x < 65 || m.x > 835 || m.y < 38 || m.y > 295) { m.x = 450 + (Math.random() - 0.5) * 80; m.y = 166 + (Math.random() - 0.5) * 50; }
+        } else {
+          m.x += m.vx * animSpeed; m.y += m.vy * animSpeed;
+          if (m.x < 70 || m.x > 830) m.vx *= -1;
+          if (m.y < 45 || m.y > 285) m.vy *= -1;
+        }
+        ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(m.x, m.y, 4.5, 0, Math.PI * 2); ctx.fill();
+      });
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+      const statusTxt = os.solution === 'Hypotonic' ? '💧 Water IN → TURGID' : (os.solution === 'Hypertonic' ? '🧂 Water OUT → PLASMOLYZED' : '⚖️ Equal Flow → FLACCID');
+      ctx.fillText(statusTxt, 450, 300);
+    }
+
+    /* =====================================================================
+       11. LEARN FIRST 3-STEP CONCEPT MODAL & MAIN RENDER LOOP
+    ===================================================================== */
+    let modalStep = 0;
+    const miniCanvas = document.getElementById('miniConceptCanvas');
+    const miniCtx = miniCanvas.getContext('2d');
+
+    function openConceptModal() {
+      modalStep = 0;
+      document.getElementById('conceptModal').classList.add('open');
+      renderConceptStep();
+    }
+    function closeConceptModal() {
+      document.getElementById('conceptModal').classList.remove('open');
+      VoiceEngine.stop();
+    }
+    function renderConceptStep() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const s = lab.concepts[modalStep];
+      document.getElementById('modalHeaderTitle').textContent = `📖 Learn First: ${lab.short}`;
+      document.getElementById('modalStepTitle').textContent = s.t;
+      document.getElementById('modalStepText').textContent = s.d;
+      document.getElementById('modalDots').innerHTML = lab.concepts.map((_, i) => `<div class="step-dot ${i <= modalStep ? 'active' : ''}"></div>`).join('');
+      document.getElementById('modalPrevBtn').style.visibility = modalStep === 0 ? 'hidden' : 'visible';
+      document.getElementById('modalNextBtn').textContent = modalStep === 2 ? 'Start Experiment 🚀' : 'Next →';
+    }
+    function stepConcept(dir) {
+      if (dir > 0 && modalStep === 2) { closeConceptModal(); return; }
+      modalStep = Math.max(0, Math.min(2, modalStep + dir));
+      renderConceptStep();
+      speakCurrentConcept();
+    }
+    function speakCurrentConcept() {
+      const s = LABS.find(l => l.id === activeLabId).concepts[modalStep];
+      VoiceEngine.speak(`${s.t}. ${s.d}`);
+    }
+
+    function drawMiniConcept() {
+      miniCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+      const lab = LABS.find(l => l.id === activeLabId);
+      miniCtx.fillStyle = '#eff6ff'; rr(miniCtx, 14, 14, 532, 108, 14); miniCtx.fill();
+      miniCtx.font = '40px sans-serif'; miniCtx.textAlign = 'center';
+      miniCtx.fillText(lab.icon, 280 + Math.sin(animT * 3) * 16, 70);
+      miniCtx.fillStyle = '#1e3a8a'; miniCtx.font = 'bold 13px sans-serif';
+      miniCtx.fillText(lab.concepts[modalStep].t, 280, 106);
+    }
+
+    function mainLoop() {
+      animT += 0.03 * animSpeed;
+      drawActiveLab();
+      if (document.getElementById('conceptModal').classList.contains('open')) drawMiniConcept();
+      requestAnimationFrame(mainLoop);
+    }
+
+    /* =====================================================================
+       12. RIGHT-DOCKED GEMINI AI LAB TUTOR (ALL 10 PACK 2 LABS)
+    ===================================================================== */
+    function updateLiveStateSummary() {
+      const el = document.getElementById('liveStateSummary');
+      const lab = LABS.find(l => l.id === activeLabId);
+      let info = '';
+      if (activeLabId === 'electromagnet') info = `${S.electromagnet.voltage}V, ${S.electromagnet.turns} turns, ${S.electromagnet.core} (${getEmLiftedCount()} clips)`;
+      else if (activeLabId === 'prism') info = `${S.prism.material} prism, angle ${S.prism.angle}°`;
+      else if (activeLabId === 'sound') info = `${S.sound.freq}Hz, ${S.sound.amp}% amplitude`;
+      else if (activeLabId === 'newton') info = `${S.newton.force}N on ${S.newton.mass}kg (${S.newton.surface}, a=${getNewtonMetrics().accel}m/s²)`;
+      else if (activeLabId === 'electrolysis') info = `${S.electrolysis.voltage}V, H₂:${Math.round(S.electrolysis.h2)}% O₂:${Math.round(S.electrolysis.o2)}%`;
+      else if (activeLabId === 'atom') info = `${ELEMENTS[S.atom.p].name}-${S.atom.p+S.atom.n} (${S.atom.p}p, ${S.atom.n}n, ${S.atom.e}e)`;
+      else if (activeLabId === 'displacement') info = `${S.displacement.metal} in ${S.displacement.solution}`;
+      else if (activeLabId === 'lungs') info = `${S.lungs.action}, ${S.lungs.activity === 'run' ? '32' : '14'} bpm`;
+      else if (activeLabId === 'digestion') info = `${S.digestion.food} at ${DIGEST_ORGANS[S.digestion.stageIdx].name}`;
+      else if (activeLabId === 'osmosis') info = `${S.osmosis.solution} solution`;
+      el.textContent = `Live: ${lab.short} (${info})`;
+    }
+
+    function updateQuickChips() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('quickChips').innerHTML = lab.chips.map(c =>
+        `<button class="q-chip" onclick="askTutor('${c.replace(/'/g, "\\'")}')">${c}</button>`
+      ).join('');
+    }
+
+    function appendMsg(role, text) {
+      const log = document.getElementById('chatLog');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      if (role === 'bot') {
+        const btn = document.createElement('button');
+        btn.className = 'msg-speak';
+        btn.textContent = '🔊 Read Answer';
+        btn.onclick = () => VoiceEngine.speak(text);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(btn);
+      }
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const inp = document.getElementById('chatInput');
+      const q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      askTutor(q);
+    }
+
+    async function askTutor(question) {
+      appendMsg('user', question);
+      const liveContext = document.getElementById('liveStateSummary').textContent;
+
+      if (LAB_CONFIG.GEMINI_PROXY_ENDPOINT) {
+        try {
+          const res = await fetch(LAB_CONFIG.GEMINI_PROXY_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, liveContext })
+          });
+          if (res.ok) { appendMsg('bot', (await res.json()).reply); return; }
+        } catch (_) {}
+      }
+
+      const q = question.toLowerCase();
+      let r = '';
+      if (q.includes('iron') || q.includes('clip') || q.includes('b ∝')) r = 'A soft Iron Core concentrates magnetic field lines hundreds of times better than air! Increase both Voltage (up to 12V) and Copper Turns (up to 30) to lift 12+ paperclips.';
+      else if (q.includes('vibgyor') || q.includes('prism') || q.includes('snell') || q.includes('internal')) r = 'White light splits into VIBGYOR because Violet bends more than Red inside a prism (Snell’s Law: n₁sinθ₁ = n₂sinθ₂). When light hits steeper than the critical angle (like in Diamond), it reflects 100% inside — Total Internal Reflection!';
+      else if (q.includes('frequency') || q.includes('amplitude') || q.includes('sound') || q.includes('v = f')) r = 'Frequency (Hz) controls Pitch — high frequency means a squeaky high note. Amplitude (%) controls Loudness — taller waves mean louder sound. Wave speed follows v = f × λ!';
+      else if (q.includes('newton') || q.includes('friction') || q.includes('ice') || q.includes('sand')) r = 'Newton’s Second Law is F_net = m × a. In the ideal frictionless model, the ice surface lets the cart zooms fast, while Rough Sand pushes back strongly until your Applied Force exceeds friction!';
+      else if (q.includes('hydrogen') || q.includes('pop') || q.includes('electrolyte') || q.includes('oxygen')) r = 'Water is H₂O — two Hydrogen atoms for every one Oxygen atom! Water electrolysis produces twice as much hydrogen at the cathode as oxygen at the anode in this model. The Pop Test button plays a virtual demonstration.';
+      else if (q.includes('proton') || q.includes('ion') || q.includes('shell') || q.includes('carbon')) r = 'Protons decide the element (6 = Carbon, 11 = Sodium). Electrons fill K(2), L(8), M(8). Equal protons & electrons = Neutral Atom; losing 1 electron creates a +1 Ion like Na⁺!';
+      else if (q.includes('reactivity') || q.includes('cuso4') || q.includes('feso4') || q.includes('copper')) r = 'In the Reactivity Series (Mg > Zn > Fe > Cu), a stronger metal displaces a weaker metal from its salt. Zinc kicks Copper out of blue CuSO₄, but weaker Copper cannot displace Iron from FeSO₄!';
+      else if (q.includes('diaphragm') || q.includes('pressure') || q.includes('lung') || q.includes('running')) r = 'When the diaphragm pulls DOWN, lung volume rises and air pressure drops (Boyle’s Law), bringing air into the lungs! Running raises breathing from 14 to 32 breaths per minute.';
+      else if (q.includes('amylase') || q.includes('stomach') || q.includes('villi') || q.includes('digest')) r = 'Salivary Amylase starts digesting Starch in the Mouth, HCl + Pepsin break down Protein in the Stomach, and tiny Villi in the Small Intestine absorb Glucose and Amino Acids into the blood!';
+      else if (q.includes('osmosis') || q.includes('turgid') || q.includes('plasmolysis') || q.includes('salty')) r = 'Osmosis moves water across a semi-permeable membrane. In Pure Water (Hypotonic), water rushes IN making the cell firm and Turgid. In Salty Water (Hypertonic), water rushes OUT causing Plasmolysis!';
+      else r = `Looking at your live experiment (${liveContext}) — try adjusting the controls below or click "✨ Show Me How (Auto-Solve)" for a slow step-by-step walkthrough!`;
+
+      appendMsg('bot', r);
+    }
+
+    // SharpStudy standalone and embedded entry point.
+    const params = new URLSearchParams(location.search);
+    const embedded = params.get('embedded') === '1' && window.parent !== window;
+    if (embedded) document.documentElement.setAttribute('data-embedded', '');
+    else document.documentElement.removeAttribute('data-embedded');
+    const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
+    if (selectedLab) activeLabId = selectedLab.id;
+    const storedSubject = params.get('subject');
+    if (selectedLab && selectedLab.subject === storedSubject) {
+      activeSubject = storedSubject;
+      document.querySelectorAll('.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + activeSubject + "'"));
+      });
+    }
+    const resizeReport = () => {
+      const workspace = document.querySelector('main');
+      if (embedded && workspace) parent.postMessage({ source: 'sharpstudy-lab', height: Math.max(500, Math.ceil(workspace.getBoundingClientRect().bottom + scrollY + 18)) }, location.origin);
+    };
+
+    function updateRangeBadge(input) {
+      const badge = input.closest('.control-box')?.querySelector('.badge');
+      if (!badge) return;
+      const text = badge.textContent;
+      badge.textContent = text.replace(/-?\d+(?:\.\d+)?/, input.value);
+    }
+
+    const unwrappedSelect = selectLab;
+    selectLab = (id, showBriefing) => {
+      if (!LABS.some(lab => lab.id === id) || isAutoSolving) return;
+      if (embedded && id !== activeLabId) {
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, subject: activeSubject }, location.origin);
+        return;
+      }
+      unwrappedSelect(id, showBriefing);
+    };
+
+    const nativeClose = closeConceptModal;
+    closeConceptModal = () => {
+      nativeClose();
+      try { sessionStorage.setItem('sharpstudy-lab-guide-' + activeLabId, 'done'); } catch {}
+    };
+    try {
+      if (sessionStorage.getItem('sharpstudy-lab-guide-' + activeLabId) === 'done') document.getElementById('conceptModal').classList.remove('open');
+    } catch {}
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.getElementById('conceptModal').classList.contains('open')) closeConceptModal();
+    });
+    window.addEventListener('pagehide', () => {
+      VoiceEngine.stop();
+      if (typeof SoundAudio !== 'undefined') SoundAudio.stop?.();
+    });
+    if (embedded) {
+      const observer = new ResizeObserver(resizeReport);
+      observer.observe(document.body);
+      window.addEventListener('load', resizeReport, { once: true });
+    }
+
+    // Boot Application
+    renderLabStrip();
+    renderMissions();
+    renderControls();
+    updateQuickChips();
+    updateLabState(false);
+    renderConceptStep();
+    mainLoop();
+  </script>
+</body>
+</html>

@@ -58,7 +58,7 @@ export function Layout({ children }: { children: ReactNode }) {
   const picker = s.get<string>("layout.picker");
   const classroomLesson = loc.startsWith("/classroom/");
   const libraryReader = /^\/library\/(?!contribute(?:\/|$)|my-contributions(?:\/|$))[^/]+\/?$/.test(loc);
-  const onLesson = libraryReader || classroomLesson || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
+  const onLesson = loc.startsWith("/virtual-lab/") || libraryReader || classroomLesson || loc.endsWith("/learn") || loc.startsWith("/books/") || loc.startsWith("/play/");
   const banner = s.get("home.announcement.show") && s.text("home.announcement.text");
   return (
     <PresetContext.Provider value={preset}>

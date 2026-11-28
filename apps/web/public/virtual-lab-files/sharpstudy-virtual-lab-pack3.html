@@ -1,0 +1,3020 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; img-src data:; media-src 'self' blob:; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpStudy Virtual Interactive Lab — Pack 3 (10 Brand-New Labs)</title>
+  <style>
+    /* =====================================================================
+       DESIGN TOKENS & ZPERIOD-INSPIRED MODERN MINIMALIST THEME
+    ===================================================================== */
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f8fafc;
+      --border: #e2e8f0;
+      --text: #0f172a;
+      --muted: #64748b;
+      --primary: #2563eb;
+      --primary-soft: #eff6ff;
+      --accent: #0ea5e9;
+      --success: #16a34a;
+      --success-soft: #f0fdf4;
+      --warn: #d97706;
+      --warn-soft: #fffbeb;
+      --danger: #dc2626;
+      --danger-soft: #fef2f2;
+      --purple: #7c3aed;
+      --purple-soft: #f5f3ff;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.45;
+      overflow-x: hidden;
+    }
+
+    /* ==================== TOP STICKY HEADER ==================== */
+    .topbar {
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 18px;
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .topbar-row1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #0f172a, #2563eb);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 19px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.24);
+      flex-shrink: 0;
+    }
+    .brand h1 {
+      font-size: 15.5px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pill-tag {
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--purple-soft);
+      color: var(--purple);
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid #ddd6fe;
+    }
+    .brand p { font-size: 11.5px; color: var(--muted); }
+
+    .subject-filters {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      flex-wrap: wrap;
+    }
+    .subj-btn {
+      border: none;
+      background: transparent;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .subj-btn.active {
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 2px 6px rgba(15, 23, 42, 0.08);
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--text);
+      padding: 7px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.16s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { background: #f8fafc; transform: translateY(-1px); }
+    .btn:disabled { opacity: 0.55; cursor: not-allowed; transform: none; }
+    .btn-primary { background: var(--primary); border-color: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #1d4ed8; }
+    .btn-voice.active { background: #ecfdf5; border-color: #86efac; color: #15803d; }
+    .btn-save {
+      background: linear-gradient(135deg, #7c3aed, #6d28d9);
+      border-color: #6d28d9;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.28);
+    }
+    .btn-save:hover { filter: brightness(1.08); background: linear-gradient(135deg, #7c3aed, #6d28d9); }
+
+    /* Horizontal Scrollable 10-Lab Selector Strip */
+    .lab-strip {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 3px;
+      scrollbar-width: thin;
+    }
+    .lab-pill {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.16s ease;
+      flex-shrink: 0;
+    }
+    .lab-pill:hover { border-color: #93c5fd; background: var(--primary-soft); }
+    .lab-pill.active {
+      background: #0f172a;
+      border-color: #0f172a;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.18);
+    }
+
+    /* ==================== MAIN 2-COLUMN WORKSPACE ==================== */
+    .workspace {
+      max-width: 1480px;
+      margin: 14px auto;
+      padding: 0 16px 24px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 340px;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .lab-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .lab-header {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .lab-title-group h2 { font-size: 15.5px; font-weight: 800; }
+    .status-badge {
+      font-size: 11.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+    }
+    .status-badge.good { background: #dcfce7; color: #15803d; }
+    .status-badge.warn { background: #fef3c7; color: #b45309; }
+    .status-badge.danger { background: #fee2e2; color: #dc2626; }
+
+    .mode-switch {
+      display: inline-flex;
+      background: #f1f5f9;
+      padding: 3px;
+      border-radius: 999px;
+      gap: 2px;
+    }
+    .mode-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 11px;
+      border-radius: 999px;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+    }
+    .mode-btn.active { background: #0f172a; color: #fff; }
+
+    /* Missions Bar */
+    .missions-bar {
+      padding: 9px 18px;
+      background: #fbfdff;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .missions-label {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+    .mission-chip {
+      border: 1.5px solid var(--border);
+      background: #fff;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .mission-chip:hover { border-color: var(--primary); background: var(--primary-soft); }
+    .mission-chip.active { border-color: var(--primary); background: var(--primary-soft); color: var(--primary); font-weight: 700; }
+    .mission-chip.done { border-color: #86efac; background: #f0fdf4; color: #15803d; font-weight: 700; }
+
+    /* Canvas Stage */
+    .stage-wrap {
+      position: relative;
+      background-color: #ffffff;
+      background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+      background-size: 22px 22px;
+      border-bottom: 1px solid var(--border);
+      padding: 10px;
+    }
+    .formula-pill {
+      position: absolute;
+      top: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.94);
+      color: #f8fafc;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 6px 15px;
+      border-radius: 999px;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.22);
+      z-index: 4;
+      white-space: nowrap;
+      max-width: 94%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: none;
+    }
+    .formula-pill.show { display: block; }
+
+    canvas.lab-canvas {
+      width: 100%;
+      height: 340px;
+      display: block;
+      border-radius: 12px;
+    }
+
+    /* Dedicated Inline Live Coach & Explanation Bar (Zero Overlap!) */
+    .coach-bar {
+      padding: 11px 18px;
+      background: #eff6ff;
+      border-bottom: 1px solid #bfdbfe;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      min-height: 70px;
+      transition: background 0.25s ease;
+    }
+    .coach-bar.state-info { background: #eff6ff; border-bottom-color: #bfdbfe; }
+    .coach-bar.state-success { background: #f0fdf4; border-bottom-color: #bbf7d0; }
+    .coach-bar.state-warn { background: #fffbeb; border-bottom-color: #fde68a; }
+    .coach-bar.state-danger { background: #fef2f2; border-bottom-color: #fecaca; }
+    .coach-bar.state-solving { background: #f5f3ff; border-bottom-color: #ddd6fe; }
+
+    .coach-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      flex: 1;
+      min-width: 240px;
+    }
+    .coach-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: #fff;
+      border: 1px solid rgba(15, 23, 42, 0.08);
+      display: grid;
+      place-items: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+    .coach-title { font-size: 13.5px; font-weight: 800; margin-bottom: 2px; }
+    .coach-text { font-size: 12.5px; color: #334155; }
+    .coach-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+    .btn-solve {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+      color: #fff;
+      border: none;
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(124, 58, 237, 0.28);
+      animation: softPulse 2s infinite;
+    }
+    .btn-solve:hover { filter: brightness(1.06); transform: translateY(-1px); }
+    .btn-solve:disabled { opacity: 0.6; cursor: not-allowed; animation: none; }
+
+    @keyframes softPulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.42); }
+      50% { box-shadow: 0 0 0 8px rgba(124, 58, 237, 0); }
+    }
+
+    /* 3-Column Controls Deck */
+    .controls-deck {
+      padding: 14px 18px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .control-box {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px;
+      background: #fcfdff;
+      transition: all 0.2s ease;
+    }
+    .control-box.span-2 { grid-column: span 2; }
+    .control-box.span-3 { grid-column: span 3; }
+
+    .pulse-target {
+      border-color: #7c3aed !important;
+      box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.34) !important;
+      background: #faf5ff !important;
+      transform: scale(1.015);
+    }
+
+    .control-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 9px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+    }
+    .control-head .badge {
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 11.5px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+      gap: 7px;
+    }
+    .choice-card {
+      border: 2px solid var(--border);
+      background: #fff;
+      border-radius: 11px;
+      padding: 8px 6px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+    .choice-card:hover { border-color: #93c5fd; }
+    .choice-card.active { border-color: var(--primary); background: var(--primary-soft); }
+    .choice-card.cta-fire {
+      background: linear-gradient(135deg, #ea580c, #dc2626);
+      border-color: #dc2626;
+      color: #fff;
+    }
+    .choice-card.cta-fire strong, .choice-card.cta-fire small { color: #fff; }
+    .choice-card.cta-fire:hover { filter: brightness(1.08); }
+    .choice-card:disabled { opacity: 0.45; cursor: not-allowed; }
+    .choice-card strong { display: block; font-size: 12px; margin-top: 2px; color: var(--text); }
+    .choice-card small { display: block; font-size: 10.5px; color: var(--muted); }
+
+    input[type="range"].lab-slider {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      margin: 6px 0 4px;
+    }
+    .slider-ticks {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ==================== RIGHT GEMINI AI TUTOR ==================== */
+    .tutor-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 122px);
+      max-height: 760px;
+      position: sticky;
+      top: 106px;
+      overflow: hidden;
+    }
+    .tutor-header {
+      padding: 13px 15px;
+      background: linear-gradient(135deg, #1e293b, #1d4ed8);
+      color: #fff;
+    }
+    .tutor-header h3 { font-size: 14px; font-weight: 800; }
+    .tutor-header p { font-size: 11px; opacity: 0.88; margin-top: 2px; }
+    .live-state-pill {
+      padding: 8px 12px;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      font-size: 11px;
+      color: #475569;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #22c55e;
+      flex-shrink: 0;
+    }
+    .chat-log {
+      flex: 1;
+      overflow-y: auto;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      background: #fcfdff;
+    }
+    .msg {
+      max-width: 92%;
+      padding: 9px 12px;
+      border-radius: 14px;
+      font-size: 12.5px;
+      line-height: 1.45;
+    }
+    .msg.bot { align-self: flex-start; background: #f1f5f9; color: #0f172a; border-bottom-left-radius: 4px; }
+    .msg.user { align-self: flex-end; background: #2563eb; color: #fff; border-bottom-right-radius: 4px; }
+    .msg-speak {
+      margin-top: 6px;
+      border: none;
+      background: #fff;
+      color: #1d4ed8;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .quick-chips {
+      padding: 8px 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .q-chip {
+      border: 1px solid var(--border);
+      background: #f8fafc;
+      color: #334155;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 5px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .q-chip:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-soft); }
+    .chat-input-row {
+      padding: 9px 10px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      gap: 7px;
+      background: #fff;
+    }
+    .chat-input-row input {
+      flex: 1;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 12.5px;
+      outline: none;
+    }
+    .chat-input-row input:focus { border-color: var(--primary); }
+
+    /* ==================== LEARN FIRST MODAL ==================== */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      place-items: center;
+      z-index: 60;
+      padding: 16px;
+    }
+    .modal-backdrop.open { display: grid; }
+    .modal-card {
+      width: 100%;
+      max-width: 600px;
+      background: #fff;
+      border-radius: 22px;
+      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.28);
+      overflow: hidden;
+    }
+    .modal-top {
+      padding: 16px 20px;
+      background: linear-gradient(135deg, #eff6ff, #f5f3ff);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .modal-top h3 { font-size: 16px; font-weight: 800; }
+    .modal-body { padding: 18px 20px; }
+    .step-dots { display: flex; gap: 6px; margin-bottom: 12px; }
+    .step-dot { height: 6px; flex: 1; border-radius: 999px; background: #e2e8f0; }
+    .step-dot.active { background: var(--primary); }
+    .mini-visual {
+      width: 100%;
+      height: 138px;
+      border-radius: 14px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      margin-bottom: 12px;
+      display: block;
+    }
+    .modal-body h4 { font-size: 15.5px; font-weight: 800; margin-bottom: 5px; }
+    .modal-body p { font-size: 13px; color: #334155; }
+    .modal-footer {
+      padding: 12px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fcfdff;
+    }
+
+    @media (max-width: 1080px) {
+      .workspace { grid-template-columns: 1fr; }
+      .tutor-panel { position: static; height: 460px; }
+      .controls-deck { grid-template-columns: 1fr; }
+      .control-box.span-2, .control-box.span-3 { grid-column: span 1; }
+    }
+    html[data-embedded] .modal-backdrop {
+      align-items: flex-start;
+      padding-top: clamp(16px, 7vw, 92px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP STICKY HEADER -->
+  <header class="topbar">
+    <div class="topbar-row1">
+      <div class="brand">
+        <div class="brand-icon">🚀</div>
+        <div>
+          <h1>SharpStudy Virtual Lab <span class="pill-tag">Pack 3 • 10 New Labs</span></h1>
+          <p>Learn concepts first, experiment safely, and watch guided step-by-step solutions</p>
+        </div>
+      </div>
+
+      <div class="subject-filters" id="subjectFilters">
+        <button class="subj-btn active" onclick="filterSubject('all')">All (10)</button>
+        <button class="subj-btn" onclick="filterSubject('physics')">⚡ Physics (4)</button>
+        <button class="subj-btn" onclick="filterSubject('chemistry')">🧪 Chemistry (3)</button>
+        <button class="subj-btn" onclick="filterSubject('biology')">🧬 Biology (3)</button>
+      </div>
+
+      <div class="top-actions">
+        <button class="btn" onclick="openConceptModal()">📖 Learn Concepts</button>
+        <button class="btn btn-voice active" id="voiceToggleBtn" onclick="toggleVoice()">🔊 Voice On</button>
+        <button class="btn btn-save" onclick="saveHtmlFile()" title="Download Pack 3 as a standalone HTML file">⬇️ Save HTML</button>
+      </div>
+    </div>
+
+    <!-- Horizontal Scrollable 10-Lab Selector Strip -->
+    <nav class="lab-strip" id="labStrip" aria-label="Select Pack 3 Virtual Lab"></nav>
+  </header>
+
+  <!-- MAIN 2-COLUMN WORKSPACE -->
+  <main class="workspace">
+    <!-- LEFT COLUMN: ACTIVE LAB -->
+    <section class="lab-card">
+      <div class="lab-header">
+        <div class="lab-title-group">
+          <h2 id="labTitle">⚓ Buoyancy &amp; Archimedes' Principle</h2>
+          <span class="status-badge" id="labBadge">Ready</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+          <div class="mode-switch">
+            <button class="mode-btn active" id="kidModeBtn" onclick="setDisplayMode('kid')">🧒 Kid Mode</button>
+            <button class="mode-btn" id="formulaModeBtn" onclick="setDisplayMode('formula')">🎓 Formula Mode (CBSE/Matric)</button>
+          </div>
+          <button class="btn" onclick="resetCurrentLab()">↺ Reset</button>
+        </div>
+      </div>
+
+      <!-- Missions Bar -->
+      <div class="missions-bar" id="missionsBar"></div>
+
+      <!-- High-Powered Canvas Stage -->
+      <div class="stage-wrap">
+        <div class="formula-pill" id="formulaPill">Formula</div>
+        <canvas id="labCanvas" role="img" aria-label="Animated simulation. Read the Live Coach for the current result." class="lab-canvas" width="900" height="340"></canvas>
+      </div>
+
+      <!-- Dedicated Inline Live Coach & Explanation Bar (NEVER overlaps controls) -->
+      <div class="coach-bar state-info" id="coachBar">
+        <div class="coach-left">
+          <div class="coach-icon" id="coachIcon">💡</div>
+          <div>
+            <div class="coach-title" id="coachTitle">Welcome to SharpStudy Pack 3!</div>
+            <div class="coach-text" aria-live="polite" id="coachText">Try the controls below or click Show Me How for a slow guided walkthrough.</div>
+          </div>
+        </div>
+        <div class="coach-actions">
+          <button class="btn-solve" id="solveBtn" onclick="runAutoSolve()">✨ Show Me How (Auto-Solve)</button>
+          <button class="btn" onclick="replayCoachAudio()">🔊 Replay</button>
+        </div>
+      </div>
+
+      <!-- 3-Column Dynamic Controls Deck -->
+      <div class="controls-deck" id="controlsDeck"></div>
+    </section>
+
+    <!-- RIGHT COLUMN: DOCKED GEMINI AI LAB TUTOR -->
+    <aside class="tutor-panel">
+      <div class="tutor-header">
+        <h3>✨ Gemini AI Lab Tutor</h3>
+        <p>Ask about the experiment or try a suggested question</p>
+      </div>
+      <div class="live-state-pill">
+        <span class="live-dot"></span>
+        <span id="liveStateSummary">Live Lab: Ready</span>
+      </div>
+      <div class="chat-log" id="chatLog">
+        <div class="msg bot">
+          Hello! Welcome to SharpStudy Pack 3. Explore any of these 10 brand-new Physics, Chemistry, or Biology labs and ask me questions anytime!
+          <br />
+          <button class="msg-speak" onclick="VoiceEngine.speak('Hello! Welcome to SharpStudy Pack 3. Explore any of these 10 brand-new Physics, Chemistry, or Biology labs and ask me questions anytime!')">🔊 Read Answer</button>
+        </div>
+      </div>
+      <div class="quick-chips" id="quickChips"></div>
+      <form class="chat-input-row" onsubmit="handleChatSubmit(event)">
+        <input type="text" maxlength="240" aria-label="Ask the lab tutor" id="chatInput" placeholder="Ask about this lab..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </aside>
+  </main>
+
+  <!-- LEARN FIRST 3-STEP CONCEPT BRIEFING MODAL -->
+  <div class="modal-backdrop open" id="conceptModal">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalHeaderTitle">
+      <div class="modal-top">
+        <h3 id="modalHeaderTitle">📖 Learn First</h3>
+        <button class="btn" onclick="closeConceptModal()">Skip ✕</button>
+      </div>
+      <div class="modal-body">
+        <div class="step-dots" id="modalDots"></div>
+        <canvas id="miniConceptCanvas" class="mini-visual" width="560" height="138"></canvas>
+        <h4 id="modalStepTitle">Step 1</h4>
+        <p id="modalStepText"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" id="modalPrevBtn" onclick="stepConcept(-1)">← Back</button>
+        <div style="display:flex; gap:8px;">
+          <button class="btn" onclick="speakCurrentConcept()">🔊 Listen</button>
+          <button class="btn btn-primary" id="modalNextBtn" onclick="stepConcept(1)">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* =====================================================================
+       1. CONFIGURATION & SITE INTEGRATION HOOKS
+    ===================================================================== */
+    const LAB_CONFIG = {
+      CUSTOM_TTS_ENDPOINT: "",      // e.g. "/api/tts" (Google Cloud en-IN-Neural2-A or Azure en-IN-NeerjaNeural)
+      GEMINI_PROXY_ENDPOINT: "",    // e.g. "/api/gemini-tutor"
+      NORMAL_SPEECH_RATE: 0.92,     // Calm, clear Indian classroom pace
+      SOLVE_SPEECH_RATE: 0.80,      // Slow, gentle Auto-Solve pace
+      SOLVE_STEP_DELAY_MS: 2600,    // Total step breathing rhythm
+      SOLVE_PAUSE_MS: 1000          // Calm pause after each Auto-Solve voice line
+    };
+
+    /* =====================================================================
+       2. NATURAL INDIAN-ENGLISH FEMALE VOICE ENGINE
+    ===================================================================== */
+    const VoiceEngine = {
+      enabled: true,
+      selectedVoice: null,
+      currentAudio: null,
+
+      init() {
+        if (!('speechSynthesis' in window)) return;
+        const pick = () => {
+          const voices = window.speechSynthesis.getVoices();
+          if (!voices.length) return;
+          const preferred = [
+            'microsoft neerja online (natural)',
+            'neerja',
+            'veena',
+            'heera',
+            'kavya',
+            'ananya',
+            'priya',
+            'google english (india)',
+            'samantha',
+            'aria online (natural)'
+          ];
+          let best = null, bestScore = -1;
+          for (const v of voices) {
+            const name = v.name.toLowerCase();
+            const lang = (v.lang || '').toLowerCase();
+            let score = lang.includes('en-in') ? 65 : (lang.startsWith('en') ? 20 : 0);
+            preferred.forEach((p, idx) => {
+              if (name.includes(p)) score += (105 - idx * 9);
+            });
+            if (name.includes('natural') || name.includes('neural') || name.includes('google')) score += 15;
+            if (name.includes('female') || name.includes('woman')) score += 12;
+            if (/(male|ravi|prabhat|david|mark|daniel|george|alex)/i.test(name)) score -= 80;
+            if (score > bestScore) { bestScore = score; best = v; }
+          }
+          this.selectedVoice = best;
+        };
+        pick();
+        window.speechSynthesis.onvoiceschanged = pick;
+      },
+
+      stop() {
+        if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+        if (this.currentAudio) {
+          this.currentAudio.pause();
+          this.currentAudio = null;
+        }
+      },
+
+      async speak(text, { slow = false } = {}) {
+        if (!this.enabled || !text) return;
+        this.stop();
+        const rate = slow ? LAB_CONFIG.SOLVE_SPEECH_RATE : LAB_CONFIG.NORMAL_SPEECH_RATE;
+
+        if (LAB_CONFIG.CUSTOM_TTS_ENDPOINT) {
+          try {
+            const res = await fetch(LAB_CONFIG.CUSTOM_TTS_ENDPOINT, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ text, rate, voice: 'en-IN-female-teacher' })
+            });
+            if (res.ok) {
+              const url = URL.createObjectURL(await res.blob());
+              this.currentAudio = new Audio(url);
+              this.currentAudio.playbackRate = slow ? 0.90 : 1.0;
+              await new Promise(r => {
+                this.currentAudio.onended = r;
+                this.currentAudio.onerror = r;
+                this.currentAudio.play().catch(r);
+              });
+              return;
+            }
+          } catch (_) {}
+        }
+
+        if (!('speechSynthesis' in window)) return;
+        return new Promise(resolve => {
+          const u = new SpeechSynthesisUtterance(text);
+          if (this.selectedVoice) u.voice = this.selectedVoice;
+          u.lang = (this.selectedVoice && this.selectedVoice.lang) || 'en-IN';
+          u.rate = rate;
+          u.pitch = 1.02;
+          u.onend = resolve;
+          u.onerror = resolve;
+          window.speechSynthesis.speak(u);
+        });
+      }
+    };
+    VoiceEngine.init();
+
+    function toggleVoice() {
+      VoiceEngine.enabled = !VoiceEngine.enabled;
+      const btn = document.getElementById('voiceToggleBtn');
+      btn.classList.toggle('active', VoiceEngine.enabled);
+      btn.textContent = VoiceEngine.enabled ? '🔊 Voice On' : '🔇 Voice Off';
+      if (!VoiceEngine.enabled) VoiceEngine.stop();
+    }
+
+    function saveHtmlFile() {
+      const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+      const blob = new Blob([html], { type: 'text/html;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sharpstudy-virtual-lab-pack3.html';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /* =====================================================================
+       3. PACK 3 — 10 BRAND-NEW LABS CATALOG
+    ===================================================================== */
+    const LABS = [
+      {
+        id: 'buoyancy', subject: 'physics', icon: '⚓', short: 'Buoyancy',
+        title: "⚓ Buoyancy & Archimedes' Principle",
+        missions: [
+          { id: 1, label: '🪵 Make Wood float & measure displaced water' },
+          { id: 2, label: '🔩 Sink Iron & compare Weight vs Upthrust' },
+          { id: 3, label: '🌊 Float Ice higher using Dead Sea Brine' }
+        ],
+        chips: ['Why does Wood float while Iron sinks?', 'What is Archimedes’ Principle?', 'Why is floating easier in Dead Sea Brine?'],
+        concepts: [
+          { t: '1. Upthrust vs. Weight', d: 'When you drop an object into a liquid, gravity pulls it DOWN (Weight) while the liquid pushes it UP (Upthrust / Buoyant Force).' },
+          { t: '2. Archimedes’ Principle', d: 'The upward Buoyant Force equals the EXACT weight of the liquid spilled out through the overflow spout!' },
+          { t: '3. Density Decides Float or Sink', d: 'If the object is less dense than the liquid (like Wood in Water), it floats! Salty Dead Sea Brine is super dense (1.25 g/cm³), pushing objects even higher!' }
+        ]
+      },
+      {
+        id: 'eclipse', subject: 'physics', icon: '☀️', short: 'Eclipses',
+        title: '☀️ Solar System Orbits & Eclipses',
+        missions: [
+          { id: 1, label: '🌑 Create a Total Solar Eclipse' },
+          { id: 2, label: '🩸 Create a Blood Moon Lunar Eclipse' },
+          { id: 3, label: '📐 Test 5° Orbital Tilt (Why no eclipse every month?)' }
+        ],
+        chips: ['How does a Total Solar Eclipse happen?', 'Why does the Moon turn red in a Lunar Eclipse?', 'Why don’t eclipses happen every month?'],
+        concepts: [
+          { t: '1. Solar Eclipse (Sun → Moon → Earth)', d: 'When the Moon slips directly between the Sun and Earth, its dark inner shadow (Umbra) falls on Earth and reveals the glowing solar corona!' },
+          { t: '2. Lunar Eclipse (Sun → Earth → Moon)', d: 'When Earth steps between the Sun and a Full Moon, Earth’s shadow covers the Moon — bending red sunset light onto it to create a Blood Moon!' },
+          { t: '3. The 5° Orbital Tilt Secret', d: 'The Moon’s orbit is tilted by 5 degrees, so most months its shadow passes slightly above or below Earth instead of lining up!' }
+        ]
+      },
+      {
+        id: 'projectile', subject: 'physics', icon: '🎯', short: 'Gravity Cannon',
+        title: '🎯 Projectile Motion & Gravity Cannon',
+        missions: [
+          { id: 1, label: '🎯 Hit the 60m Bullseye on Earth' },
+          { id: 2, label: '📐 Test Maximum Range Angle (45°)' },
+          { id: 3, label: '🌕 Launch on the Moon (Low Gravity!)' }
+        ],
+        chips: ['Why does 45° give the longest range?', 'Explain horizontal vs vertical velocity', 'Why does the ball fly farther on the Moon?'],
+        concepts: [
+          { t: '1. Parabolic Curved Path', d: 'A cannonball moves forward at steady horizontal speed (vx) while gravity pulls its vertical speed (vy) downward — tracing a smooth parabola!' },
+          { t: '2. The Magic 45° Angle', d: 'Low angles hit the ground too soon; steep angles go high but not far. 45° balances forward speed and hang-time for maximum range!' },
+          { t: '3. Planet Gravity Changes Everything', d: 'On Earth (9.8 m/s²) gravity pulls hard. On the Moon (1.6 m/s²), the exact same cannon shot soars 6 times farther!' }
+        ]
+      },
+      {
+        id: 'circuits', subject: 'physics', icon: '⚡', short: 'Series vs Parallel',
+        title: '⚡ Series vs. Parallel Circuits & Fuse Safety',
+        missions: [
+          { id: 1, label: '💡 Compare 3 bright Parallel bulbs vs dim Series' },
+          { id: 2, label: '💥 Trigger & safely replace a blown Fuse' },
+          { id: 3, label: '🔋 Verify Parallel keeps 12V across every bulb' }
+        ],
+        chips: ['Why do Series bulbs dim when you add more?', 'Why are homes wired in Parallel?', 'How does a Safety Fuse protect us?'],
+        concepts: [
+          { t: '1. Series Circuit (Single Lane)', d: 'In Series, electrons flow through one single loop. Adding more bulbs increases total resistance, so every bulb gets dimmer!' },
+          { t: '2. Parallel Circuit (Multi-Lane Highway)', d: 'In Parallel, each bulb gets its own direct 12V lane! Adding more bulbs keeps every single bulb shining at full brightness!' },
+          { t: '3. Fuse Safety (> 4.0A Trips!)', d: 'Too many parallel branches or a Short Circuit draws huge current. A thin wire inside the glass Fuse melts and snaps safely before wires overheat!' }
+        ]
+      },
+      {
+        id: 'kinetics', subject: 'chemistry', icon: '🔥', short: 'Reaction Rate',
+        title: '🔥 Reaction Rate & Catalyst Energy Lab',
+        missions: [
+          { id: 1, label: '🌡️ Speed up collisions with High Temp (≥80°C)' },
+          { id: 2, label: '✨ Lower the Activation Energy hill with a Catalyst' },
+          { id: 3, label: '🚀 Reach Maximum Reaction Rate (≥85%)' }
+        ],
+        chips: ['What is Collision Theory?', 'How does a Catalyst lower Activation Energy?', 'Why does heating speed up chemical reactions?'],
+        concepts: [
+          { t: '1. Collision Theory', d: 'For Blue (A) and Amber (B) molecules to turn into Green Product (AB), they must collide hard enough to climb the Activation Energy (Ea) hill!' },
+          { t: '2. Temperature & Concentration', d: 'Higher temperature makes molecules zoom faster with stronger collisions. Higher concentration packs more molecules so they bump more often!' },
+          { t: '3. Catalysts Are Energy Shortcuts', d: 'Adding a Platinum/Enzyme Catalyst lowers the Activation Energy hill — letting far more collisions succeed without the catalyst getting used up!' }
+        ]
+      },
+      {
+        id: 'distillation', subject: 'chemistry', icon: '💧', short: 'Distillation',
+        title: '💧 Distillation & Mixture Separation Lab',
+        missions: [
+          { id: 1, label: '🧪 Separate pure Ethanol at 78°C (below 100°C)' },
+          { id: 2, label: '❄️ Turn on Condenser Cooling to collect pure water' }
+        ],
+        chips: ['How does Distillation separate Ethanol & Water?', 'What is the job of the Liebig Condenser?', 'Why does salt stay behind in the flask?'],
+        concepts: [
+          { t: '1. Different Boiling Points', d: 'Every liquid boils at its own temperature! Ethanol boils at 78°C, while pure Water boils at 100°C — and dissolved salt never evaporates!' },
+          { t: '2. Evaporation → Condensation', d: 'Heating turns the lower-boiling liquid into rising vapor. The vapor travels into the slanted Liebig Condenser tube.' },
+          { t: '3. Cold-Water Cooling Jacket', d: 'Flowing cold blue water around the condenser cools the hot vapor back into sparkling pure liquid droplets in the receiving flask!' }
+        ]
+      },
+      {
+        id: 'bonding', subject: 'chemistry', icon: '🔗', short: 'Chemical Bonds',
+        title: '🔗 Ionic vs. Covalent Bonding Lab',
+        missions: [
+          { id: 1, label: '🧂 Form an Ionic Bond (NaCl) by electron transfer' },
+          { id: 2, label: '🫧 Form a Double Covalent Bond (O=O)' },
+          { id: 3, label: '💧 Build a Covalent Water molecule (H₂O)' }
+        ],
+        chips: ['Difference between Ionic and Covalent bonds?', 'Why does Sodium give 1 electron to Chlorine?', 'What is a Double Covalent Bond?'],
+        concepts: [
+          { t: '1. Atoms Want Full Outer Shells', d: 'Atoms are happiest when their outermost electron shell is full (2 for Hydrogen, 8 for most others — the Octet Rule)!' },
+          { t: '2. Ionic Bond = Give & Take (Transfer)', d: 'Sodium (Na) transfers its lone outer electron to Chlorine (Cl), forming Na⁺ and Cl⁻ ions that snap together by opposite electric charges!' },
+          { t: '3. Covalent Bond = Sharing Electrons', d: 'Non-metals like Hydrogen (H₂), Oxygen (O=O), and Water (H₂O) share valence electron pairs smoothly in overlapping orbital clouds!' }
+        ]
+      },
+      {
+        id: 'reflex', subject: 'biology', icon: '🧠', short: 'Reflex Arc',
+        title: '🧠 Reflex Arc & Neuron Impulse Lab',
+        missions: [
+          { id: 1, label: '🔥 Trigger a Hot Flame Reflex & trace all 5 parts' },
+          { id: 2, label: '⏱️ Compare Reflex (~0.15s) vs Voluntary Brain (~0.45s)' },
+          { id: 3, label: '🔍 Inspect Synaptic Transmission in Slow Motion' }
+        ],
+        chips: ['What are the 5 parts of a Reflex Arc?', 'Why is a reflex faster than thinking?', 'What happens at a synapse?'],
+        concepts: [
+          { t: '1. Receptor → Sensory Neuron', d: 'Touch a hot flame and skin receptors fire a blazing electrical signal along the Sensory Neuron at ~100 meters per second!' },
+          { t: '2. Spinal Cord Shortcut (Relay Neuron)', d: 'To save precious milliseconds, the Spinal Cord’s Relay Interneuron sends an instant command straight back — without waiting for the brain!' },
+          { t: '3. Motor Neuron → Muscle Pulls Back!', d: 'The Motor Neuron signals your Biceps Muscle (Effector) to yank your hand to safety in ~0.15s, compared to ~0.45s for voluntary brain decisions!' }
+        ]
+      },
+      {
+        id: 'dna', subject: 'biology', icon: '🧬', short: 'DNA Helix',
+        title: '🧬 DNA Double Helix & Base-Pairing Lab',
+        missions: [
+          { id: 1, label: '🧬 Complete a 6-base DNA strand with 100% accuracy' },
+          { id: 2, label: '🔗 Inspect Hydrogen Bonds (A=T has 2, G≡C has 3)' }
+        ],
+        chips: ['What is Chargaff’s Base-Pairing Rule?', 'How many hydrogen bonds hold A-T vs G-C?', 'Why is DNA shaped like a twisted ladder?'],
+        concepts: [
+          { t: '1. The Twisted Ladder of Life', d: 'DNA is a double helix — two sugar-phosphate ribbons twisted like a spiral staircase, connected by chemical rungs called nitrogenous bases!' },
+          { t: '2. Chargaff’s Complementary Rule', d: 'Adenine (A) ALWAYS pairs with Thymine (T), and Guanine (G) ALWAYS pairs with Cytosine (C) — like puzzle pieces that only fit their match!' },
+          { t: '3. Hydrogen Bonds Lock the Rungs', d: 'A and T are held by 2 Hydrogen bonds (A=T), while G and C are held even tighter by 3 Hydrogen bonds (G≡C)!' }
+        ]
+      },
+      {
+        id: 'pollination', subject: 'biology', icon: '🌸', short: 'Pollination',
+        title: '🌸 Flower Pollination & Fertilization Lab',
+        missions: [
+          { id: 1, label: '🐝 Complete all 4 stages from Pollen to Fruit' },
+          { id: 2, label: '💨 Compare Insect vs. Wind Pollination' },
+          { id: 3, label: '🍎 Watch the Ovary transform into a ripe Fruit' }
+        ],
+        chips: ['Difference between Pollination and Fertilization?', 'What does the Pollen Tube do?', 'Which part becomes the Seed and which becomes the Fruit?'],
+        concepts: [
+          { t: '1. Pollination: Anther → Stigma', d: 'A buzzing honeybee (or gentle wind) carries golden pollen grains from the male Anther onto the sticky female Stigma.' },
+          { t: '2. Pollen Tube & Fertilization', d: 'The pollen grain germinates and grows a glowing Pollen Tube down the Style right into the Ovule, where male and female gametes fuse into a Zygote!' },
+          { t: '3. Ovule → Seed, Ovary → Fruit!', d: 'After fertilization, petals fall away, each fertilized Ovule develops into a Seed, and the surrounding Ovary swells into a delicious Fruit!' }
+        ]
+      }
+    ];
+
+    /* =====================================================================
+       4. CONSTANTS & INITIAL PER-LAB STATE
+    ===================================================================== */
+    const BUOY_MATS = {
+      Wood:     { rho: 0.60, col: '#b45309', top: '#d97706', lbl: 'Wood (0.6)' },
+      Ice:      { rho: 0.92, col: '#bae6fd', top: '#e0f2fe', lbl: 'Ice (0.92)' },
+      Aluminum: { rho: 2.70, col: '#94a3b8', top: '#cbd5e1', lbl: 'Aluminum (2.7)' },
+      Iron:     { rho: 7.80, col: '#475569', top: '#64748b', lbl: 'Iron (7.8)' }
+    };
+    const BUOY_LIQS = {
+      Oil:   { rho: 0.80, col: 'rgba(250, 204, 21, 0.55)', surf: '#eab308', lbl: 'Oil (0.8)' },
+      Water: { rho: 1.00, col: 'rgba(56, 189, 248, 0.55)', surf: '#0284c7', lbl: 'Fresh Water (1.0)' },
+      Brine: { rho: 1.25, col: 'rgba(20, 184, 166, 0.62)', surf: '#0f766e', lbl: 'Dead Sea Brine (1.25)' }
+    };
+    const GRAVITIES = {
+      Earth: { g: 9.8, sky: '#e0f2fe', gnd: '#86efac', lbl: 'Earth (9.8)' },
+      Mars:  { g: 3.7, sky: '#ffedd5', gnd: '#fdba74', lbl: 'Mars (3.7)' },
+      Moon:  { g: 1.6, sky: '#1e293b', gnd: '#94a3b8', lbl: 'Moon (1.6)' }
+    };
+    const DNA_COMP = { A: 'T', T: 'A', G: 'C', C: 'G' };
+    const DNA_COLS = { A: '#ef4444', T: '#3b82f6', G: '#22c55e', C: '#f59e0b' };
+
+    function makeKineticsMols(conc) {
+      const count = conc === 'Low' ? 14 : (conc === 'Medium' ? 24 : 36);
+      const arr = [];
+      for (let i = 0; i < count; i++) {
+        arr.push({
+          x: 65 + Math.random() * 320,
+          y: 75 + Math.random() * 195,
+          vx: (Math.random() - 0.5) * 3.2,
+          vy: (Math.random() - 0.5) * 3.2,
+          type: i % 2 === 0 ? 'A' : 'B',
+          cooldown: 0
+        });
+      }
+      return arr;
+    }
+
+    function randomDnaTemplate() {
+      const bases = ['A', 'T', 'G', 'C'];
+      return Array.from({ length: 6 }, () => bases[Math.floor(Math.random() * 4)]);
+    }
+
+    function makeInitialStates() {
+      const stars = Array.from({ length: 65 }, () => ({
+        x: Math.random() * 900, y: Math.random() * 340,
+        r: 0.8 + Math.random() * 1.6, phase: Math.random() * 6.28
+      }));
+      return {
+        buoyancy: {
+          mat: 'Wood', liq: 'Water', vol: 300,
+          blockY: 110, blockVy: 0, waveAmp: 4, pourAmt: 0, splashes: []
+        },
+        eclipse: {
+          angle: 180, playing: false, tilted: false, stars
+        },
+        projectile: {
+          angle: 45, speed: 24, planet: 'Earth',
+          flying: false, t: 0, trail: [], hitMsg: '', lastRange: 0, lastHeight: 0, boom: 0
+        },
+        circuits: {
+          mode: 'Parallel', bulbs: 2, switchOn: true, fuseBlown: false, shortCircuit: false, sparks: []
+        },
+        kinetics: {
+          temp: 40, conc: 'Medium', catalyst: false,
+          mols: makeKineticsMols('Medium'), sparks: [], products: 0, ratePct: 28
+        },
+        distillation: {
+          mixture: 'EthanolWater', temp: 25, cooling: false,
+          vapor: [], drops: [], collectedEthanol: 0, collectedWater: 0
+        },
+        bonding: {
+          pair: 'NaCl', bonded: false, progress: 0, showShells: true
+        },
+        reflex: {
+          stimulus: 'Flame', slowMo: false, active: false, progress: 0,
+          handPull: 0, elapsedMs: 0, lastReflexMs: 0, lastBrainMs: 0, sparks: []
+        },
+        dna: {
+          template: ['A', 'G', 'T', 'C', 'A', 'G'],
+          paired: [null, null, null, null, null, null],
+          cursor: 0, highlightH: true, shake: 0, mistakes: 0
+        },
+        pollination: {
+          stage: 0, mode: 'Insect', tubeProg: 0, fruitProg: 0,
+          beeX: 250, beeY: 110, windGrains: []
+        }
+      };
+    }
+
+    let activeSubject = 'all';
+    let activeLabId = 'buoyancy';
+    let displayMode = 'kid';
+    let isAutoSolving = false;
+    let animSpeed = 1.0;
+    let animT = 0;
+    let lastCoachSpeech = '';
+    const activeMissionByLab = {};
+    const completedMissions = {};
+    let confetti = [];
+    let S = makeInitialStates();
+
+    /* =====================================================================
+       5. NAVIGATION, MISSIONS & CELEBRATION CONFETTI
+    ===================================================================== */
+    function spawnConfetti(cx = 450, cy = 150) {
+      for (let i = 0; i < 34; i++) {
+        confetti.push({
+          x: cx + (Math.random() - 0.5) * 110,
+          y: cy + (Math.random() - 0.5) * 40,
+          vx: (Math.random() - 0.5) * 6.5,
+          vy: -Math.random() * 5.2 - 1.5,
+          color: ['#22c55e', '#3b82f6', '#f59e0b', '#ec4899', '#8b5cf6'][i % 5],
+          life: 70
+        });
+      }
+    }
+
+    function filterSubject(subj) {
+      activeSubject = subj;
+      document.querySelectorAll('.subj-btn').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('onclick').includes(`'${subj}'`));
+      });
+      renderLabStrip();
+      const visible = LABS.filter(l => subj === 'all' || l.subject === subj);
+      if (!visible.some(l => l.id === activeLabId)) selectLab(visible[0].id, true);
+    }
+
+    function renderLabStrip() {
+      const strip = document.getElementById('labStrip');
+      const visible = LABS.filter(l => activeSubject === 'all' || l.subject === activeSubject);
+      strip.innerHTML = visible.map(l => `
+        <button class="lab-pill ${l.id === activeLabId ? 'active' : ''}" onclick="selectLab('${l.id}', true)">
+          ${l.icon} ${l.short}
+        </button>
+      `).join('');
+    }
+
+    function selectLab(id, showBriefing = true) {
+      if (isAutoSolving) return;
+      activeLabId = id;
+      VoiceEngine.stop();
+      renderLabStrip();
+      renderMissions();
+      renderControls();
+      updateQuickChips();
+      updateLabState(false);
+      if (showBriefing) openConceptModal();
+    }
+
+    function setDisplayMode(mode) {
+      displayMode = mode;
+      document.getElementById('kidModeBtn').classList.toggle('active', mode === 'kid');
+      document.getElementById('formulaModeBtn').classList.toggle('active', mode === 'formula');
+      document.getElementById('formulaPill').classList.toggle('show', mode === 'formula');
+      updateLabState(false);
+    }
+
+    function markMissionDone(labId, mId) {
+      if (!completedMissions[labId]) completedMissions[labId] = new Set();
+      if (!completedMissions[labId].has(mId)) {
+        completedMissions[labId].add(mId);
+        renderMissions();
+        spawnConfetti(450, 140);
+      }
+    }
+
+    function renderMissions() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const doneSet = completedMissions[activeLabId] || new Set();
+      const curM = activeMissionByLab[activeLabId] || 1;
+      document.getElementById('missionsBar').innerHTML =
+        `<span class="missions-label">🎯 Missions:</span>` +
+        lab.missions.map(m => `
+          <button class="mission-chip ${curM === m.id ? 'active' : ''} ${doneSet.has(m.id) ? 'done' : ''}" onclick="selectMission(${m.id})">
+            ${doneSet.has(m.id) ? '✅ ' : ''}${m.label}
+          </button>
+        `).join('');
+    }
+
+    function selectMission(mId) {
+      if (isAutoSolving) return;
+      activeMissionByLab[activeLabId] = mId;
+      renderMissions();
+      const lab = LABS.find(l => l.id === activeLabId);
+      const m = lab.missions.find(x => x.id === mId);
+      setCoach('🎯', `Active Mission: ${m.label}`, 'Try the controls below to solve this mission, or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!', 'state-info', true);
+    }
+
+    function setCoach(icon, title, text, stateClass = 'state-info', speak = false) {
+      document.getElementById('coachBar').className = `coach-bar ${stateClass}`;
+      document.getElementById('coachIcon').textContent = icon;
+      document.getElementById('coachTitle').textContent = title;
+      document.getElementById('coachText').textContent = text;
+      lastCoachSpeech = `${title}. ${text}`;
+      if (speak && !isAutoSolving) VoiceEngine.speak(lastCoachSpeech);
+    }
+
+    function replayCoachAudio() {
+      VoiceEngine.speak(lastCoachSpeech, { slow: false });
+    }
+
+    function resetCurrentLab() {
+      if (isAutoSolving) return;
+      VoiceEngine.stop();
+      const fresh = makeInitialStates();
+      S[activeLabId] = fresh[activeLabId];
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       6. SCIENTIFIC METRICS HELPERS
+    ===================================================================== */
+    function getBuoyancyMetrics() {
+      const b = S.buoyancy;
+      const rhoObj = BUOY_MATS[b.mat].rho;
+      const rhoLiq = BUOY_LIQS[b.liq].rho;
+      const g = 9.8;
+      const weightN = +((rhoObj * b.vol / 1000) * g).toFixed(2);
+      const floats = rhoObj <= rhoLiq;
+      const subFrac = floats ? Math.min(1, rhoObj / rhoLiq) : 1.0;
+      const dispVol = +(b.vol * subFrac).toFixed(0);
+      const fbN = +((rhoLiq * dispVol / 1000) * g).toFixed(2);
+      return { rhoObj, rhoLiq, weightN, fbN, floats, subFrac, dispVol };
+    }
+
+    function getCircuitMetrics() {
+      const c = S.circuits;
+      const V = 12, Rbulb = 6;
+      if (!c.switchOn || c.fuseBlown) return { totalR: Infinity, I: 0, bulbV: 0, brightness: 0 };
+      if (c.shortCircuit) return { totalR: 0.5, I: 24.0, bulbV: 0, brightness: 0 };
+      if (c.mode === 'Series') {
+        const totalR = c.bulbs * Rbulb;
+        const I = +(V / totalR).toFixed(2);
+        const bulbV = +(V / c.bulbs).toFixed(1);
+        const brightness = Math.min(1, bulbV / 12);
+        return { totalR, I, bulbV, brightness };
+      } else {
+        const totalR = +(Rbulb / c.bulbs).toFixed(2);
+        const I = +(V / totalR).toFixed(2);
+        return { totalR, I, bulbV: 12.0, brightness: 1.0 };
+      }
+    }
+
+    function getKineticsRate() {
+      const k = S.kinetics;
+      const cFactor = k.conc === 'Low' ? 0.45 : (k.conc === 'Medium' ? 0.72 : 1.0);
+      const tFactor = (k.temp - 10) / 90;
+      const catBoost = k.catalyst ? 1.48 : 0.72;
+      return Math.min(100, Math.round(tFactor * cFactor * catBoost * 92));
+    }
+
+    /* =====================================================================
+       7. DYNAMIC 3-COLUMN CONTROLS DECK FOR ALL 10 PACK 3 LABS
+    ===================================================================== */
+    function renderControls() {
+      const deck = document.getElementById('controlsDeck');
+
+      if (activeLabId === 'buoyancy') {
+        const b = S.buoyancy;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlBuoyMat">
+            <div class="control-head"><span>1. Block Material</span><span class="badge">${BUOY_MATS[b.mat].rho} g/cm³</span></div>
+            <div class="choice-grid">
+              ${Object.keys(BUOY_MATS).map(k => `
+                <button class="choice-card ${b.mat===k?'active':''}" id="btnMat${k}" onclick="S.buoyancy.mat='${k}'; S.buoyancy.blockY=75; S.buoyancy.blockVy=0; renderControls(); updateLabState(true);">
+                  <strong>${k}</strong><small>${BUOY_MATS[k].rho}</small>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlBuoyLiq">
+            <div class="control-head"><span>2. Tank Liquid</span><span class="badge">${BUOY_LIQS[b.liq].rho} g/cm³</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${b.liq==='Oil'?'active':''}" onclick="S.buoyancy.liq='Oil'; renderControls(); updateLabState(true);"><div>🛢️</div><strong>Oil</strong><small>0.80</small></button>
+              <button class="choice-card ${b.liq==='Water'?'active':''}" id="btnLiqWater" onclick="S.buoyancy.liq='Water'; renderControls(); updateLabState(true);"><div>💧</div><strong>Water</strong><small>1.00</small></button>
+              <button class="choice-card ${b.liq==='Brine'?'active':''}" id="btnLiqBrine" onclick="S.buoyancy.liq='Brine'; renderControls(); updateLabState(true);"><div>🌊</div><strong>Brine</strong><small>1.25</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlBuoyVol">
+            <div class="control-head"><span>3. Block Volume</span><span class="badge">${b.vol} cm³</span></div>
+            <input type="range" class="lab-slider" min="100" max="500" step="50" value="${b.vol}"
+              oninput="S.buoyancy.vol=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>100 cm³</span><span>300 cm³</span><span>500 cm³</span></div>
+          </div>`;
+      } else if (activeLabId === 'eclipse') {
+        const e = S.eclipse;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlEclAngle">
+            <div class="control-head"><span>1. Moon Orbit Angle</span><span class="badge">${Math.round(e.angle)}°</span></div>
+            <input type="range" class="lab-slider" min="0" max="360" step="1" value="${Math.round(e.angle)}"
+              oninput="S.eclipse.angle=+this.value; S.eclipse.playing=false; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>0° (Lunar)</span><span>180° (Solar)</span><span>360°</span></div>
+          </div>
+          <div class="control-box" id="ctrlEclTilt">
+            <div class="control-head"><span>2. Orbital Tilt &amp; Motion</span><span class="badge">${e.tilted ? '5° TILTED' : '0° ALIGNED'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${!e.tilted?'active':''}" id="btnTiltOff" onclick="S.eclipse.tilted=false; renderControls(); updateLabState(true);"><div>🎯</div><strong>Aligned 0°</strong><small>Eclipses!</small></button>
+              <button class="choice-card ${e.tilted?'active':''}" id="btnTiltOn" onclick="S.eclipse.tilted=true; renderControls(); updateLabState(true);"><div>📐</div><strong>Tilted 5°</strong><small>Normal Orbit</small></button>
+              <button class="choice-card ${e.playing?'active':''}" onclick="S.eclipse.playing=!S.eclipse.playing; renderControls();"><div>${e.playing?'⏸️':'▶️'}</div><strong>${e.playing?'Pause':'Orbit'}</strong><small>Animate</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlEclJump">
+            <div class="control-head"><span>3. Quick-Jump Phase</span><span class="badge">ALIGN</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnJumpSolar" onclick="S.eclipse.angle=180; S.eclipse.playing=false; renderControls(); updateLabState(true);"><div>🌑</div><strong>New Moon</strong><small>180° (Solar)</small></button>
+              <button class="choice-card" id="btnJumpLunar" onclick="S.eclipse.angle=0; S.eclipse.playing=false; renderControls(); updateLabState(true);"><div>🌕</div><strong>Full Moon</strong><small>0° (Lunar)</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'projectile') {
+        const p = S.projectile;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlProjAng">
+            <div class="control-head"><span>1. Launch Angle (θ)</span><span class="badge">${p.angle}°</span></div>
+            <input type="range" class="lab-slider" min="15" max="85" step="1" value="${p.angle}"
+              oninput="S.projectile.angle=+this.value; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>15°</span><span>45° (Max)</span><span>85°</span></div>
+          </div>
+          <div class="control-box" id="ctrlProjSpd">
+            <div class="control-head"><span>2. Launch Speed (v)</span><span class="badge">${p.speed} m/s</span></div>
+            <input type="range" class="lab-slider" min="10" max="35" step="1" value="${p.speed}"
+              oninput="S.projectile.speed=+this.value; updateRangeBadge(this); updateLabState(false);" />
+            <div class="slider-ticks"><span>10 m/s</span><span>24 m/s</span><span>35 m/s</span></div>
+          </div>
+          <div class="control-box" id="ctrlProjFire">
+            <div class="control-head"><span>3. Planet &amp; Fire</span><span class="badge">${GRAVITIES[p.planet].g} m/s²</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${p.planet==='Earth'?'active':''}" id="btnPlanEarth" onclick="S.projectile.planet='Earth'; renderControls(); updateLabState(true);"><strong>🌍 Earth</strong><small>9.8</small></button>
+              <button class="choice-card ${p.planet==='Moon'?'active':''}" id="btnPlanMoon" onclick="S.projectile.planet='Moon'; renderControls(); updateLabState(true);"><strong>🌕 Moon</strong><small>1.6</small></button>
+              <button class="choice-card ${p.planet==='Mars'?'active':''}" onclick="S.projectile.planet='Mars'; renderControls(); updateLabState(true);"><strong>🔴 Mars</strong><small>3.7</small></button>
+              <button class="choice-card cta-fire" id="btnFireCannon" onclick="fireCannon()"><strong>🔥 Fire!</strong><small>Launch</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'circuits') {
+        const c = S.circuits;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlCirMode">
+            <div class="control-head"><span>1. Wiring Mode</span><span class="badge">${c.mode.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${c.mode==='Series'?'active':''}" id="btnCirSeries" onclick="S.circuits.mode='Series'; S.circuits.shortCircuit=false; renderControls(); updateLabState(true);"><div>➖</div><strong>Series</strong><small>1 Loop</small></button>
+              <button class="choice-card ${c.mode==='Parallel'?'active':''}" id="btnCirParallel" onclick="S.circuits.mode='Parallel'; S.circuits.shortCircuit=false; renderControls(); updateLabState(true);"><div>🔀</div><strong>Parallel</strong><small>Full 12V</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlCirBulbs">
+            <div class="control-head"><span>2. Number of Bulbs</span><span class="badge">${c.bulbs} Bulbs</span></div>
+            <div class="choice-grid">
+              ${[1, 2, 3].map(n => `
+                <button class="choice-card ${c.bulbs===n?'active':''}" id="btnBulbs${n}" onclick="S.circuits.bulbs=${n}; S.circuits.shortCircuit=false; renderControls(); updateLabState(true);">
+                  <div>💡</div><strong>${n} Bulb${n>1?'s':''}</strong>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlCirSafe">
+            <div class="control-head"><span>3. Switch &amp; 4A Fuse</span><span class="badge">${c.fuseBlown?'BLOWN':'SAFE'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${c.switchOn?'active':''}" onclick="S.circuits.switchOn=!S.circuits.switchOn; renderControls(); updateLabState(true);"><strong>${c.switchOn?'🟢 ON':'⚫ OFF'}</strong><small>Switch</small></button>
+              <button class="choice-card" id="btnShortCir" onclick="triggerShortCircuit()"><strong>⚡ Overload</strong><small>Test Fuse</small></button>
+              <button class="choice-card ${c.fuseBlown?'cta-fire':''}" id="btnFixFuse" onclick="replaceFuse()"><strong>🔧 Fix Fuse</strong><small>Replace</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'kinetics') {
+        const k = S.kinetics;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlKinTemp">
+            <div class="control-head"><span>1. Temperature</span><span class="badge">${k.temp}°C</span></div>
+            <input type="range" class="lab-slider" min="20" max="100" step="5" value="${k.temp}"
+              oninput="S.kinetics.temp=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>20°C (Cold)</span><span>60°C</span><span>100°C (Hot)</span></div>
+          </div>
+          <div class="control-box" id="ctrlKinConc">
+            <div class="control-head"><span>2. Concentration</span><span class="badge">${k.conc}</span></div>
+            <div class="choice-grid">
+              ${['Low', 'Medium', 'High'].map(lv => `
+                <button class="choice-card ${k.conc===lv?'active':''}" id="btnConc${lv}" onclick="S.kinetics.conc='${lv}'; S.kinetics.mols=makeKineticsMols('${lv}'); renderControls(); updateLabState(true);">
+                  <strong>${lv}</strong>
+                </button>`).join('')}
+            </div>
+          </div>
+          <div class="control-box" id="ctrlKinCat">
+            <div class="control-head"><span>3. Catalyst Bed</span><span class="badge">${k.catalyst?'ACTIVE':'OFF'}</span></div>
+            <button class="choice-card ${k.catalyst?'active':''}" id="btnCatalyst" style="width:100%" onclick="S.kinetics.catalyst=!S.kinetics.catalyst; renderControls(); updateLabState(true);">
+              <div>✨</div><strong>${k.catalyst ? 'Catalyst ON (Lower Ea!)' : 'Add Platinum Catalyst'}</strong>
+              <small>Lowers Activation Energy hill</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'distillation') {
+        const d = S.distillation;
+        deck.innerHTML = `
+          <div class="control-box" id="ctrlDistMix">
+            <div class="control-head"><span>1. Liquid Mixture</span><span class="badge">${d.mixture==='EthanolWater'?'78°C / 100°C':'100°C'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${d.mixture==='EthanolWater'?'active':''}" id="btnMixEth" onclick="S.distillation.mixture='EthanolWater'; S.distillation.collectedEthanol=0; S.distillation.collectedWater=0; renderControls(); updateLabState(true);"><div>🧪</div><strong>Ethanol+Water</strong><small>78°C &amp; 100°C</small></button>
+              <button class="choice-card ${d.mixture==='SaltWater'?'active':''}" id="btnMixSalt" onclick="S.distillation.mixture='SaltWater'; S.distillation.collectedEthanol=0; S.distillation.collectedWater=0; renderControls(); updateLabState(true);"><div>🧂</div><strong>Salt+Water</strong><small>Water 100°C</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlDistTemp">
+            <div class="control-head"><span>2. Bunsen Heater Temp</span><span class="badge">${d.temp}°C</span></div>
+            <input type="range" class="lab-slider" min="25" max="110" step="1" value="${d.temp}"
+              oninput="S.distillation.temp=+this.value; updateRangeBadge(this); updateLabState(false);"
+              onchange="updateLabState(true);" />
+            <div class="slider-ticks"><span>25°C</span><span>78°C (Eth)</span><span>100°C (H₂O)</span></div>
+          </div>
+          <div class="control-box" id="ctrlDistCool">
+            <div class="control-head"><span>3. Liebig Condenser</span><span class="badge">${d.cooling?'COOLING ON':'OFF'}</span></div>
+            <button class="choice-card ${d.cooling?'active':''}" id="btnDistCool" style="width:100%" onclick="S.distillation.cooling=!S.distillation.cooling; renderControls(); updateLabState(true);">
+              <div>❄️</div><strong>${d.cooling ? 'Cold Water Flowing' : 'Turn ON Cooling Water'}</strong>
+              <small>Condenses vapor into pure drops</small>
+            </button>
+          </div>`;
+      } else if (activeLabId === 'bonding') {
+        const b = S.bonding;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlBondPair">
+            <div class="control-head"><span>1. Choose Atom Pair</span><span class="badge">${b.pair}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${b.pair==='NaCl'?'active':''}" id="btnPairNaCl" onclick="selectBondPair('NaCl')"><div>🧂</div><strong>Na + Cl</strong><small>Ionic Salt</small></button>
+              <button class="choice-card ${b.pair==='H2'?'active':''}" id="btnPairH2" onclick="selectBondPair('H2')"><div>🎈</div><strong>H + H</strong><small>Single Cov</small></button>
+              <button class="choice-card ${b.pair==='O2'?'active':''}" id="btnPairO2" onclick="selectBondPair('O2')"><div>🫧</div><strong>O + O</strong><small>Double Cov</small></button>
+              <button class="choice-card ${b.pair==='H2O'?'active':''}" id="btnPairH2O" onclick="selectBondPair('H2O')"><div>💧</div><strong>H₂O</strong><small>Water Cov</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlBondAct">
+            <div class="control-head"><span>2. Bond Action</span><span class="badge">${b.bonded?'BONDED':'SEPARATE'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${b.bonded?'active':'cta-fire'}" id="btnFormBond" onclick="S.bonding.bonded=!S.bonding.bonded; renderControls(); updateLabState(true);">
+                <div>⚡</div><strong>${b.bonded?'Separate':'Form Bond'}</strong>
+              </button>
+              <button class="choice-card ${b.showShells?'active':''}" onclick="S.bonding.showShells=!S.bonding.showShells; renderControls();">
+                <div>⭕</div><strong>Shells</strong><small>${b.showShells?'ON':'OFF'}</small>
+              </button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'reflex') {
+        const r = S.reflex;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlRefStim">
+            <div class="control-head"><span>1. Choose Stimulus</span><span class="badge">${r.stimulus}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${r.stimulus==='Flame'?'active':''}" id="btnStimFlame" onclick="S.reflex.stimulus='Flame'; renderControls(); updateLabState(true);"><div>🔥</div><strong>Hot Flame</strong><small>Spinal Reflex</small></button>
+              <button class="choice-card ${r.stimulus==='Pin'?'active':''}" onclick="S.reflex.stimulus='Pin'; renderControls(); updateLabState(true);"><div>📌</div><strong>Sharp Pin</strong><small>Spinal Reflex</small></button>
+              <button class="choice-card ${r.stimulus==='Bell'?'active':''}" id="btnStimBell" onclick="S.reflex.stimulus='Bell'; renderControls(); updateLabState(true);"><div>🔔</div><strong>Bell Sound</strong><small>Voluntary Brain</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlRefGo">
+            <div class="control-head"><span>2. Trigger &amp; Speed</span><span class="badge">${r.slowMo?'0.4× SLOW':'1× NORMAL'}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card cta-fire" id="btnTrigReflex" onclick="triggerReflex()"><div>⚡</div><strong>Trigger!</strong><small>Fire Signal</small></button>
+              <button class="choice-card ${r.slowMo?'active':''}" id="btnRefSlow" onclick="S.reflex.slowMo=!S.reflex.slowMo; renderControls(); updateLabState(true);"><div>🔍</div><strong>Slow-Mo</strong><small>${r.slowMo?'ON':'OFF'}</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'dna') {
+        const d = S.dna;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlDnaBases">
+            <div class="control-head"><span>1. Snap Complementary Base (A=T, G≡C)</span><span class="badge">${d.cursor}/6 Paired</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" id="btnBaseA" style="border-color:#ef4444" onclick="pickDnaBase('A')"><strong style="color:#dc2626;font-size:16px;">A</strong><small>Adenine</small></button>
+              <button class="choice-card" id="btnBaseT" style="border-color:#3b82f6" onclick="pickDnaBase('T')"><strong style="color:#2563eb;font-size:16px;">T</strong><small>Thymine</small></button>
+              <button class="choice-card" id="btnBaseG" style="border-color:#22c55e" onclick="pickDnaBase('G')"><strong style="color:#16a34a;font-size:16px;">G</strong><small>Guanine</small></button>
+              <button class="choice-card" id="btnBaseC" style="border-color:#f59e0b" onclick="pickDnaBase('C')"><strong style="color:#d97706;font-size:16px;">C</strong><small>Cytosine</small></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlDnaTools">
+            <div class="control-head"><span>2. Strand Tools</span><span class="badge">CHARGAFF</span></div>
+            <div class="choice-grid">
+              <button class="choice-card" onclick="newDnaStrand()"><div>🔄</div><strong>New Strand</strong></button>
+              <button class="choice-card ${d.highlightH?'active':''}" id="btnDnaHBond" onclick="S.dna.highlightH=!S.dna.highlightH; renderControls(); updateLabState(true);"><div>🔗</div><strong>H-Bonds</strong><small>${d.highlightH?'ON':'OFF'}</small></button>
+            </div>
+          </div>`;
+      } else if (activeLabId === 'pollination') {
+        const pl = S.pollination;
+        deck.innerHTML = `
+          <div class="control-box span-2" id="ctrlPolStages">
+            <div class="control-head"><span>1. Pollination &amp; Fertilization Stages</span><span class="badge">Stage ${pl.stage}/4</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${pl.stage===1?'active':''}" id="btnPol1" onclick="setPolStage(1)"><div>🐝</div><strong>1. Pick Pollen</strong></button>
+              <button class="choice-card ${pl.stage===2?'active':''}" id="btnPol2" onclick="setPolStage(2)"><div>🌸</div><strong>2. Pollinate</strong></button>
+              <button class="choice-card ${pl.stage===3?'active':''}" id="btnPol3" onclick="setPolStage(3)"><div>🌱</div><strong>3. Pollen Tube</strong></button>
+              <button class="choice-card ${pl.stage===4?'active':''}" id="btnPol4" onclick="setPolStage(4)"><div>🍎</div><strong>4. Grow Fruit</strong></button>
+            </div>
+          </div>
+          <div class="control-box" id="ctrlPolMode">
+            <div class="control-head"><span>2. Pollination Type</span><span class="badge">${pl.mode.toUpperCase()}</span></div>
+            <div class="choice-grid">
+              <button class="choice-card ${pl.mode==='Insect'?'active':''}" id="btnPolInsect" onclick="S.pollination.mode='Insect'; renderControls(); updateLabState(true);"><div>🐝</div><strong>Insect</strong><small>Honeybee</small></button>
+              <button class="choice-card ${pl.mode==='Wind'?'active':''}" id="btnPolWind" onclick="S.pollination.mode='Wind'; renderControls(); updateLabState(true);"><div>💨</div><strong>Wind</strong><small>Breeze</small></button>
+            </div>
+          </div>`;
+      }
+    }
+
+    /* ==================== INTERACTIVE LAB ACTIONS ==================== */
+    function fireCannon() {
+      const p = S.projectile;
+      p.flying = true; p.t = 0; p.trail = []; p.hitMsg = ''; p.boom = 0;
+      const g = GRAVITIES[p.planet].g;
+      const rad = p.angle * Math.PI / 180;
+      p.lastRange = +((p.speed * p.speed * Math.sin(2 * rad)) / g).toFixed(1);
+      p.lastHeight = +((p.speed * p.speed * Math.sin(rad) * Math.sin(rad)) / (2 * g)).toFixed(1);
+      if (p.angle === 45) markMissionDone('projectile', 2);
+      if (p.planet === 'Moon') markMissionDone('projectile', 3);
+      updateLabState(false);
+    }
+
+    function triggerShortCircuit() {
+      S.circuits.shortCircuit = true;
+      S.circuits.switchOn = true;
+      S.circuits.fuseBlown = true;
+      for (let i = 0; i < 18; i++) {
+        S.circuits.sparks.push({ x: 350, y: 78, vx: (Math.random() - 0.5) * 6, vy: (Math.random() - 0.5) * 6, life: 32 });
+      }
+      renderControls();
+      updateLabState(true);
+    }
+
+    function replaceFuse() {
+      const wasBlown = S.circuits.fuseBlown;
+      S.circuits.fuseBlown = false;
+      S.circuits.shortCircuit = false;
+      if (wasBlown) markMissionDone('circuits', 2);
+      renderControls();
+      updateLabState(true);
+    }
+
+    function selectBondPair(pair) {
+      S.bonding.pair = pair;
+      S.bonding.bonded = false;
+      S.bonding.progress = 0;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function triggerReflex() {
+      S.reflex.active = true;
+      S.reflex.progress = 0;
+      S.reflex.handPull = 0;
+      S.reflex.elapsedMs = 0;
+      if (S.reflex.slowMo) markMissionDone('reflex', 3);
+      updateLabState(false);
+    }
+
+    function pickDnaBase(base) {
+      const d = S.dna;
+      if (d.cursor >= 6) return;
+      const expected = DNA_COMP[d.template[d.cursor]];
+      if (base === expected) {
+        d.paired[d.cursor] = base;
+        d.cursor++;
+        renderControls();
+        if (d.cursor === 6) {
+          markMissionDone('dna', 1);
+          setCoach('🎉', 'DNA Strand 100% Complete!', 'Every base paired accurately: A with T (2 H-bonds) and G with C (3 H-bonds)!', 'state-success', true);
+        } else {
+          const bonds = (base === 'A' || base === 'T') ? '2 Hydrogen bonds' : '3 Hydrogen bonds';
+          setCoach('✅', `Perfect Match: ${d.template[d.cursor - 1]} — ${base}!`, `Snapped into place with ${bonds}! Now match the next base: ${d.template[d.cursor]}.`, 'state-success', !isAutoSolving);
+        }
+      } else {
+        d.shake = 22;
+        d.mistakes++;
+        setCoach('⚠️', `Mismatch! ${base} cannot pair with ${d.template[d.cursor]}`, `Remember Chargaff's Rule: Adenine (A) only pairs with Thymine (T), and Guanine (G) only pairs with Cytosine (C)!`, 'state-danger', !isAutoSolving);
+      }
+      updateLiveStateSummary();
+    }
+
+    function newDnaStrand() {
+      S.dna.template = randomDnaTemplate();
+      S.dna.paired = [null, null, null, null, null, null];
+      S.dna.cursor = 0;
+      S.dna.mistakes = 0;
+      renderControls();
+      updateLabState(true);
+    }
+
+    function setPolStage(st) {
+      S.pollination.stage = st;
+      if (st < 3) S.pollination.tubeProg = 0;
+      if (st < 4) S.pollination.fruitProg = 0;
+      renderControls();
+      updateLabState(true);
+    }
+
+    /* =====================================================================
+       8. LIVE STATE EVALUATION & COACH BAR UPDATES
+    ===================================================================== */
+    function updateLabState(shouldSpeak = false) {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('labTitle').textContent = lab.title;
+      const badge = document.getElementById('labBadge');
+      const fPill = document.getElementById('formulaPill');
+      fPill.classList.toggle('show', displayMode === 'formula');
+
+      if (activeLabId === 'buoyancy') {
+        const m = getBuoyancyMetrics();
+        const b = S.buoyancy;
+        fPill.textContent = `Fb = ρ_liq·V_sub·g = ${m.fbN}N  |  W = ρ_obj·V·g = ${m.weightN}N  |  Displaced: ${m.dispVol} cm³`;
+        if (m.floats) {
+          badge.className = 'status-badge good'; badge.textContent = `⛵ FLOATS (${Math.round(m.subFrac * 100)}% submerged)`;
+          setCoach('⛵', `${b.mat} Floats in ${b.liq}!`, `Because ${b.mat} (${m.rhoObj}) is less dense than ${b.liq} (${m.rhoLiq}), Upthrust (${m.fbN}N) balances Weight (${m.weightN}N) and displaces ${m.dispVol} cm³!`, 'state-success', shouldSpeak);
+          if (b.mat === 'Wood' && b.liq === 'Water') markMissionDone('buoyancy', 1);
+          if (b.liq === 'Brine' && b.mat === 'Ice') markMissionDone('buoyancy', 3);
+        } else {
+          badge.className = 'status-badge danger'; badge.textContent = `⚓ SINKS (W ${m.weightN}N > Fb ${m.fbN}N)`;
+          setCoach('⚓', `${b.mat} Sinks in ${b.liq}!`, `Weight (${m.weightN}N) is stronger than maximum Upthrust (${m.fbN}N), so ${b.mat} sinks and spills ${m.dispVol} cm³ into the beaker!`, 'state-warn', shouldSpeak);
+          if (b.mat === 'Iron') markMissionDone('buoyancy', 2);
+        }
+      } else if (activeLabId === 'eclipse') {
+        const e = S.eclipse;
+        const ang = ((e.angle % 360) + 360) % 360;
+        const nearSolar = Math.abs(ang - 180) <= 10;
+        const nearLunar = ang <= 10 || ang >= 350;
+        fPill.textContent = `Orbit Angle: ${Math.round(ang)}°  |  Tilt: ${e.tilted ? '5° (Misses Shadow)' : '0° (Umbra Aligned)'}  |  Kepler Speed ≈ 1.02 km/s`;
+        if (e.tilted) {
+          markMissionDone('eclipse', 3);
+          badge.className = 'status-badge warn'; badge.textContent = '📐 5° Tilt — Shadow Misses!';
+          setCoach('📐', 'Why Eclipses Don’t Happen Every Month!', 'With the real 5° orbital tilt turned ON, the Moon passes slightly above or below Earth’s shadow cone!', 'state-warn', shouldSpeak);
+        } else if (nearSolar) {
+          markMissionDone('eclipse', 1);
+          badge.className = 'status-badge good'; badge.textContent = '🌑 TOTAL SOLAR ECLIPSE!';
+          setCoach('🌑', 'Total Solar Eclipse! (Sun → Moon → Earth)', 'The Moon blocks the Sun’s disc completely, casting its dark Umbra on Earth and revealing the glowing solar corona!', 'state-success', shouldSpeak);
+        } else if (nearLunar) {
+          markMissionDone('eclipse', 2);
+          badge.className = 'status-badge danger'; badge.textContent = '🩸 BLOOD MOON LUNAR ECLIPSE!';
+          setCoach('🩸', 'Blood Moon Lunar Eclipse! (Sun → Earth → Moon)', 'Earth’s shadow falls across the Full Moon, bending red sunset light onto its surface!', 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `🌙 Moon Orbit: ${Math.round(ang)}°`;
+          setCoach('☀️', 'Sweep the Moon to Align an Eclipse!', 'Set 180° for a Solar Eclipse or 0° for a Blood Moon Lunar Eclipse (with 0° Aligned tilt).', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'projectile') {
+        const p = S.projectile;
+        const g = GRAVITIES[p.planet].g;
+        const rad = p.angle * Math.PI / 180;
+        const R = +((p.speed * p.speed * Math.sin(2 * rad)) / g).toFixed(1);
+        const H = +((p.speed * p.speed * Math.sin(rad) * Math.sin(rad)) / (2 * g)).toFixed(1);
+        fPill.textContent = `R = v²·sin(2θ)/g = ${R}m  |  H_max = v²·sin²θ/(2g) = ${H}m  (g = ${g})`;
+        if (p.hitMsg) {
+          badge.className = 'status-badge good'; badge.textContent = '🎯 BULLSEYE HIT!';
+          setCoach('🎉', p.hitMsg, `Angle ${p.angle}° at ${p.speed} m/s on ${p.planet} landed right on the 60m bullseye flag!`, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `Predicted Range: ${R}m (${p.planet})`;
+          setCoach('🎯', `Cannon Aimed at ${p.angle}° • ${p.speed} m/s`, 'Tap 🔥 Fire! to launch the cannonball and try hitting the 60m red bullseye flag!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'circuits') {
+        const c = S.circuits;
+        const m = getCircuitMetrics();
+        fPill.textContent = c.mode === 'Series'
+          ? `R_series = ${c.bulbs}×6Ω = ${m.totalR}Ω  |  I = 12V / ${m.totalR}Ω = ${m.I}A  |  ${m.bulbV}V/bulb`
+          : `1/R_par = ${c.bulbs}/6Ω → R = ${m.totalR}Ω  |  I = 12V / ${m.totalR}Ω = ${m.I}A  |  12.0V/bulb`;
+        if (c.fuseBlown) {
+          badge.className = 'status-badge danger'; badge.textContent = '💥 FUSE BLOWN (> 4A Safety Trip!)';
+          setCoach('💥', 'Safety Fuse Snapped to Protect the Circuit!', 'Current exceeded 4 Amps! The thin wire inside the glass fuse melted safely. Tap 🔧 Fix Fuse to restore power.', 'state-danger', shouldSpeak);
+        } else if (!c.switchOn) {
+          badge.className = 'status-badge warn'; badge.textContent = '⚫ Circuit Switch OFF';
+          setCoach('⚫', 'Circuit Open (Switch OFF)', 'Electrons cannot complete the loop while the switch is open.', 'state-warn', shouldSpeak);
+        } else if (c.mode === 'Parallel') {
+          if (c.bulbs === 3) { markMissionDone('circuits', 1); markMissionDone('circuits', 3); }
+          badge.className = 'status-badge good'; badge.textContent = `💡 Parallel: Full 12V (${m.I}A)`;
+          setCoach('⚡', `Parallel Circuit — All ${c.bulbs} Bulbs Shine Brightly!`, `Every branch gets the full 12V from the battery! Total current is ${m.I}A (4A fuse safe).`, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge warn'; badge.textContent = `➖ Series: ${m.bulbV}V/bulb (${m.I}A)`;
+          setCoach('💡', `Series Circuit — Bulbs Share the 12V (${m.bulbV}V each)`, 'Adding more bulbs in a single Series loop raises resistance and dims every bulb!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'kinetics') {
+        const k = S.kinetics;
+        const rate = getKineticsRate();
+        k.ratePct = rate;
+        const ea = k.catalyst ? 35 : 75;
+        fPill.textContent = `k = A·e^(-Ea/RT)  |  Temp: ${k.temp}°C, Ea: ${ea} kJ/mol  |  Rate: ${rate}%`;
+        if (k.temp >= 80) markMissionDone('kinetics', 1);
+        if (k.catalyst) markMissionDone('kinetics', 2);
+        if (rate >= 85) markMissionDone('kinetics', 3);
+        badge.className = rate >= 75 ? 'status-badge good' : 'status-badge';
+        badge.textContent = `⚡ Speed: ${rate}% • Ea = ${ea} kJ/mol`;
+        setCoach(
+          rate >= 85 ? '🚀' : (k.catalyst ? '✨' : '🔥'),
+          rate >= 85 ? `Maximum Reaction Rate (${rate}%)!` : `Reaction Rate: ${rate}%`,
+          k.catalyst
+            ? 'The Catalyst lowered the Activation Energy hill so far more A + B collisions spark into Green Product AB!'
+            : 'Raise Temperature, boost Concentration, or add the Platinum Catalyst to lower the Activation Energy hill!',
+          rate >= 85 ? 'state-success' : 'state-info',
+          shouldSpeak
+        );
+      } else if (activeLabId === 'distillation') {
+        const d = S.distillation;
+        const isEth = d.mixture === 'EthanolWater';
+        fPill.textContent = isEth
+          ? `BP_ethanol = 78°C, BP_water = 100°C  |  Flask: ${d.temp}°C  |  Condenser: ${d.cooling ? 'ON' : 'OFF'}`
+          : `BP_water = 100°C (Salt stays behind!)  |  Flask: ${d.temp}°C  |  Condenser: ${d.cooling ? 'ON' : 'OFF'}`;
+        if (isEth && d.temp >= 78 && d.temp < 96 && d.cooling) {
+          markMissionDone('distillation', 1);
+          badge.className = 'status-badge good'; badge.textContent = '🧪 Pure Ethanol Distilling (78°C)!';
+          setCoach('🎉', 'Separating Pure Ethanol at 78°C!', 'Ethanol boils at 78°C and condenses in the cold Liebig jacket, while Water stays behind below 100°C!', 'state-success', shouldSpeak);
+        } else if (!isEth && d.temp >= 100 && d.cooling) {
+          markMissionDone('distillation', 2);
+          badge.className = 'status-badge good'; badge.textContent = '💧 Pure Distilled Water Collecting!';
+          setCoach('💧', 'Collecting Pure Distilled Water at 100°C!', 'Water evaporates at 100°C, condenses into pure drops, and leaves all salt crystals behind!', 'state-success', shouldSpeak);
+        } else if (d.temp >= (isEth ? 78 : 100) && !d.cooling) {
+          badge.className = 'status-badge warn'; badge.textContent = '💨 Vapor Escaping (Turn ON Cooling!)';
+          setCoach('❄️', 'Turn ON Condenser Cooling Water!', 'Vapor is boiling out of the flask, but without cold cooling water it cannot condense into pure droplets!', 'state-warn', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `🌡️ Flask Temp: ${d.temp}°C`;
+          setCoach('💧', `Heating ${isEth ? 'Ethanol + Water' : 'Salt + Water'}`, `Turn ON Condenser Cooling and heat to ${isEth ? '78°C for pure Ethanol' : '100°C for pure Water'}!`, 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'bonding') {
+        const b = S.bonding;
+        const eqMap = {
+          NaCl: 'Ionic Transfer: Na → Na⁺ + e⁻  &  Cl + e⁻ → Cl⁻  ⇒  NaCl',
+          H2:   'Single Covalent Bond: H· + ·H → H—H (2 shared electrons)',
+          O2:   'Double Covalent Bond: O + O → O=O (4 shared electrons)',
+          H2O:  'Polar Covalent Bonds: 2H + O → H—O—H (Octet Complete!)'
+        };
+        fPill.textContent = eqMap[b.pair];
+        if (b.bonded) {
+          if (b.pair === 'NaCl') markMissionDone('bonding', 1);
+          if (b.pair === 'O2') markMissionDone('bonding', 2);
+          if (b.pair === 'H2O') markMissionDone('bonding', 3);
+          badge.className = 'status-badge good';
+          badge.textContent = b.pair === 'NaCl' ? '⚡ IONIC BOND FORMED!' : `🔗 COVALENT ${b.pair} FORMED!`;
+          const desc = b.pair === 'NaCl'
+            ? 'Sodium transferred 1 outer electron to Chlorine, forming Na⁺ and Cl⁻ ions pulled together by electrostatic attraction!'
+            : (b.pair === 'O2' ? 'Two Oxygen atoms share 2 pairs (4 electrons) in a strong Double Covalent Bond (O=O)!'
+              : (b.pair === 'H2O' ? 'Oxygen shares electrons with two Hydrogens to complete its outer shell of 8 — forming Water (H₂O)!'
+                : 'Two Hydrogen atoms share 1 pair of electrons in a Single Covalent Bond (H—H)!'));
+          setCoach('🎉', `${b.pair} Bond Complete!`, desc, 'state-success', shouldSpeak);
+        } else {
+          badge.className = 'status-badge'; badge.textContent = `${b.pair} — Ready to Bond`;
+          setCoach('🔗', `Unbonded ${b.pair} Atoms`, 'Click ⚡ Form Bond to watch whether electrons transfer (Ionic) or share (Covalent)!', 'state-info', shouldSpeak);
+        }
+      } else if (activeLabId === 'reflex') {
+        const r = S.reflex;
+        fPill.textContent = r.stimulus === 'Bell'
+          ? 'Voluntary Path: Ear → Brain Cortex → Motor Neuron → Muscle (~0.45s)'
+          : 'Reflex Arc: Receptor → Sensory → Spinal Cord (Relay) → Motor → Muscle (~0.15s)';
+        badge.className = r.stimulus === 'Bell' ? 'status-badge warn' : 'status-badge good';
+        badge.textContent = r.stimulus === 'Bell' ? '🔔 Voluntary Brain (~0.45s)' : '⚡ Spinal Reflex (~0.15s)';
+        setCoach('🧠', `${r.stimulus} Stimulus Ready`, 'Tap ⚡ Trigger! to watch the golden nerve impulse race along the neurons and compare reaction speed!', 'state-info', shouldSpeak);
+      } else if (activeLabId === 'dna') {
+        const d = S.dna;
+        const nextBase = d.cursor < 6 ? d.template[d.cursor] : 'Done';
+        fPill.textContent = `Chargaff's Rule: A = T (2 H-bonds), G ≡ C (3 H-bonds)  |  Paired: ${d.cursor}/6`;
+        if (d.highlightH) markMissionDone('dna', 2);
+        badge.className = d.cursor === 6 ? 'status-badge good' : 'status-badge';
+        badge.textContent = d.cursor === 6 ? '🧬 6/6 Strand Complete!' : `Next Template Base: ${nextBase}`;
+        setCoach('🧬', d.cursor === 6 ? 'Complete DNA Double Helix!' : `Pair Template Base: ${nextBase}`, 'Tap the complementary nucleotide button below (A pairs with T, G pairs with C)!', d.cursor === 6 ? 'state-success' : 'state-info', shouldSpeak);
+      } else if (activeLabId === 'pollination') {
+        const pl = S.pollination;
+        fPill.textContent = 'Pollen (n) + Egg (n) → Zygote (2n)  |  Ovule → Seed  |  Ovary → Fruit';
+        if (pl.mode === 'Wind') markMissionDone('pollination', 2);
+        if (pl.stage === 4) { markMissionDone('pollination', 1); markMissionDone('pollination', 3); }
+        const titles = ['Flower Ready for Pollination', '1. Pollen Picked Up from Anther!', '2. Pollen Lands on Sticky Stigma!', '3. Pollen Tube Grows Down the Style!', '4. Fertilized! Ovary Swells into a Ripe Fruit!'];
+        const texts = [
+          'Click Stage 1–4 below or choose Insect vs. Wind pollination to trace how seeds and fruits form.',
+          `${pl.mode === 'Insect' ? 'The honeybee brushes against the Anther and collects golden pollen!' : 'A gentle breeze shakes golden pollen grains loose from the Anther!'}`,
+          'Pollination complete! Golden pollen sticks to the Stigma at the top of the pistil.',
+          'The pollen grain germinates and grows a glowing Pollen Tube down the Style right into the Ovule!',
+          'Male and female gametes fuse into a Zygote! The Ovule becomes a Seed and the Ovary swells into a sweet Fruit!'
+        ];
+        badge.className = pl.stage === 4 ? 'status-badge good' : 'status-badge';
+        badge.textContent = pl.stage === 4 ? '🍎 Fruit & Seeds Formed!' : `Stage ${pl.stage} / 4 (${pl.mode})`;
+        setCoach(pl.stage === 4 ? '🍎' : '🌸', titles[pl.stage], texts[pl.stage], pl.stage === 4 ? 'state-success' : 'state-info', shouldSpeak);
+      }
+
+      updateLiveStateSummary();
+    }
+
+    /* =====================================================================
+       9. SLOW, GENTLE STEP-BY-STEP AUTO-SOLVE (ALL 10 PACK 3 LABS)
+    ===================================================================== */
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+    async function runAutoSolve() {
+      if (isAutoSolving) return;
+      isAutoSolving = true;
+      animSpeed = 0.45; // Calm 0.45x slow-motion canvas while solving
+      document.getElementById('solveBtn').disabled = true;
+
+      const step = async (title, msg, highlightId = null) => {
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.add('pulse-target');
+        }
+        setCoach('✨', title, msg, 'state-solving', false);
+        await VoiceEngine.speak(msg, { slow: true });
+        await sleep(LAB_CONFIG.SOLVE_PAUSE_MS);
+        if (highlightId) {
+          const el = document.getElementById(highlightId);
+          if (el) el.classList.remove('pulse-target');
+        }
+      };
+
+      const mId = activeMissionByLab[activeLabId] || 1;
+
+      if (activeLabId === 'buoyancy') {
+        if (mId === 2) {
+          await step('Auto-Solve: Sinking Iron in Water', 'Let us select Fresh Water and drop a dense Iron block to compare Weight and Upthrust.', 'btnMatIron');
+          S.buoyancy.liq = 'Water'; S.buoyancy.mat = 'Iron'; S.buoyancy.blockY = 70; S.buoyancy.blockVy = 0; renderControls();
+          await step('🎉 Solved!', 'Iron has density 7.8, much heavier than Water at 1.0, so Weight beats Upthrust and Iron sinks!');
+        } else if (mId === 3) {
+          await step('Step 1: Select Ice Block', 'First, let us drop an Ice block with density 0.92.', 'btnMatIce');
+          S.buoyancy.mat = 'Ice'; S.buoyancy.liq = 'Water'; renderControls();
+          await step('Step 2: Switch to Dead Sea Brine', 'Now switch to salty Dead Sea Brine with density 1.25. Watch Ice bob higher because dense brine gives stronger Upthrust!', 'btnLiqBrine');
+          S.buoyancy.liq = 'Brine'; renderControls();
+          await step('🎉 Solved!', 'Higher liquid density increases Upthrust so the Ice block floats noticeably higher!');
+        } else {
+          await step('Auto-Solve: Floating Wood in Water', 'Let us pick Wood and Fresh Water and watch the displaced water pour into the measuring cylinder.', 'btnMatWood');
+          S.buoyancy.mat = 'Wood'; S.buoyancy.liq = 'Water'; S.buoyancy.vol = 300; S.buoyancy.blockY = 70; renderControls();
+          await step('🎉 Solved!', 'Wood has density 0.6, less than Water at 1.0, so it floats while displacing 180 cubic centimeters of water!');
+        }
+      } else if (activeLabId === 'eclipse') {
+        await step('Step 1: Align Orbital Tilt to 0°', 'First, we align the Moon’s orbit to 0 degrees so it passes directly through the shadow line.', 'btnTiltOff');
+        S.eclipse.tilted = false; S.eclipse.playing = false; renderControls();
+        if (mId === 2) {
+          await step('Step 2: Move Moon to 0° (Full Moon)', 'Now watch the Moon move behind Earth into Earth’s dark Umbra shadow — creating a glowing Blood Moon Lunar Eclipse!', 'btnJumpLunar');
+          S.eclipse.angle = 0; renderControls();
+        } else {
+          await step('Step 2: Move Moon to 180° (New Moon)', 'Now watch the Moon glide directly between the Sun and Earth — blocking sunlight to create a Total Solar Eclipse!', 'btnJumpSolar');
+          S.eclipse.angle = 180; renderControls();
+        }
+        await step('🎉 Solved!', 'Look at the View from Earth inset — exact alignment creates a spectacular eclipse!');
+      } else if (activeLabId === 'projectile') {
+        await step('Step 1: Select Earth Gravity & 45° Angle', 'First, let us pick Earth and aim the brass cannon at 45 degrees — the ideal angle for maximum range.', 'ctrlProjAng');
+        S.projectile.planet = 'Earth'; S.projectile.angle = 45; renderControls();
+        await step('Step 2: Dial Launch Speed to 24 m/s', 'Next, we set Launch Speed to 24 meters per second so the formula v squared divided by g lands right at 60 meters!', 'ctrlProjSpd');
+        S.projectile.speed = 24; renderControls();
+        await step('Step 3: Fire the Cannon!', 'Ready, aim, fire! Watch the glowing parabolic arc and velocity arrows score a bullseye!', 'btnFireCannon');
+        fireCannon();
+        await sleep(2000);
+      } else if (activeLabId === 'circuits') {
+        await step('Step 1: Switch to Parallel Wiring', 'Let us wire the circuit in Parallel so every bulb gets its own direct 12 volt lane.', 'btnCirParallel');
+        S.circuits.mode = 'Parallel'; S.circuits.switchOn = true; S.circuits.fuseBlown = false; S.circuits.shortCircuit = false; renderControls();
+        await step('Step 2: Connect 3 Bulbs', 'Now we connect 3 bulbs. Notice how all 3 bulbs shine at full brightness while total current stays safely under 4 Amps!', 'btnBulbs3');
+        S.circuits.bulbs = 3; renderControls();
+        await step('🎉 Solved!', 'That is why homes use Parallel circuits with a safety fuse — every light stays bright!');
+      } else if (activeLabId === 'kinetics') {
+        await step('Step 1: Raise Temperature to 90°C', 'First, let us heat the chamber to 90 degrees so molecules zoom faster with energetic collisions.', 'ctrlKinTemp');
+        S.kinetics.temp = 90; renderControls();
+        await step('Step 2: Set High Concentration', 'Next, we choose High Concentration so many more A and B molecules bump into each other.', 'btnConcHigh');
+        S.kinetics.conc = 'High'; S.kinetics.mols = makeKineticsMols('High'); renderControls();
+        await step('Step 3: Add Platinum Catalyst', 'Finally, drop in the Catalyst! Watch the Activation Energy hill drop on the right graph and reaction speed soar!', 'btnCatalyst');
+        S.kinetics.catalyst = true; renderControls();
+      } else if (activeLabId === 'distillation') {
+        await step('Step 1: Choose Ethanol + Water Mixture', 'Let us pour Ethanol and Water into the round-bottom flask. Ethanol boils at 78 degrees while Water boils at 100 degrees.', 'btnMixEth');
+        S.distillation.mixture = 'EthanolWater'; renderControls();
+        await step('Step 2: Turn ON Liebig Condenser Cooling', 'Next, we turn on the cold blue cooling water jacket so hot vapor condenses into pure drops.', 'btnDistCool');
+        S.distillation.cooling = true; renderControls();
+        await step('Step 3: Heat Carefully to 80°C', 'Now we dial the Bunsen burner to 80 degrees — hot enough to boil pure Ethanol at 78 degrees while leaving Water behind!', 'ctrlDistTemp');
+        S.distillation.temp = 80; renderControls();
+      } else if (activeLabId === 'bonding') {
+        const target = mId === 2 ? 'O2' : (mId === 3 ? 'H2O' : 'NaCl');
+        await step(`Step 1: Select ${target}`, `Let us choose ${target} to observe how its outer electrons achieve a full stable shell.`, `btnPair${target}`);
+        selectBondPair(target);
+        await step('Step 2: Form the Chemical Bond!', 'Watch closely as the atoms come together!', 'btnFormBond');
+        S.bonding.bonded = true; renderControls();
+        await sleep(1400);
+        await step('🎉 Solved!', target === 'NaCl'
+          ? 'Sodium transferred its valence electron to Chlorine, forming Na plus and Cl minus ions in a strong Ionic bond!'
+          : 'The non-metal atoms shared valence electron pairs in overlapping clouds, creating a stable Covalent bond!');
+      } else if (activeLabId === 'reflex') {
+        await step('Step 1: Turn ON Slow Motion (0.4×)', 'Let us switch to Slow Motion so you can clearly trace every neuron and synapse.', 'btnRefSlow');
+        S.reflex.slowMo = true; S.reflex.stimulus = 'Flame'; renderControls();
+        await step('Step 2: Trigger Hot Flame Reflex!', 'Watch the golden impulse race from the finger through the Sensory Neuron, across the Spinal Cord Relay, and down the Motor Neuron to pull the hand back in 0.15 seconds!', 'btnTrigReflex');
+        triggerReflex();
+        await sleep(2600);
+      } else if (activeLabId === 'dna') {
+        await step('Auto-Solve: Chargaff’s Base-Pairing Rule', 'Let us complete this DNA strand slowly! Remember: A always pairs with T, and G always pairs with C.');
+        if (S.dna.cursor >= 6) newDnaStrand();
+        while (S.dna.cursor < 6) {
+          const tpl = S.dna.template[S.dna.cursor];
+          const comp = DNA_COMP[tpl];
+          await step(`Pairing Base ${S.dna.cursor + 1} of 6`, `Template base is ${tpl}, so we snap in complementary base ${comp}!`, `btnBase${comp}`);
+          pickDnaBase(comp);
+        }
+      } else if (activeLabId === 'pollination') {
+        S.pollination.mode = 'Insect';
+        for (let st = 1; st <= 4; st++) {
+          const lines = [
+            '',
+            'Stage 1: The buzzing honeybee picks up golden pollen grains from the male Anther.',
+            'Stage 2: The bee carries pollen to the sticky female Stigma — completing Pollination!',
+            'Stage 3: A glowing Pollen Tube grows down the Style right into the Ovule.',
+            'Stage 4: Fertilization happens! The Ovule becomes a Seed and the Ovary swells into a ripe Fruit!'
+          ];
+          setPolStage(st);
+          await step(`Pollination Stage ${st} of 4`, lines[st], `btnPol${st}`);
+        }
+      }
+
+      animSpeed = 1.0;
+      isAutoSolving = false;
+      document.getElementById('solveBtn').disabled = false;
+      updateLabState(false);
+    }
+
+    /* =====================================================================
+       10. HIGH-POWERED 60FPS CANVAS RENDERERS (ALL 10 PACK 3 LABS)
+    ===================================================================== */
+    const canvas = document.getElementById('labCanvas');
+    const ctx = canvas.getContext('2d');
+
+    function rr(c, x, y, w, h, r) {
+      c.beginPath();
+      c.moveTo(x + r, y); c.arcTo(x + w, y, x + w, y + h, r);
+      c.arcTo(x + w, y + h, x, y + h, r); c.arcTo(x, y + h, x, y, r);
+      c.arcTo(x, y, x + w, y, r); c.closePath();
+    }
+
+    function drawArrow(x1, y1, x2, y2, color, lw = 4) {
+      const ang = Math.atan2(y2 - y1, x2 - x1);
+      ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = lw; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(x2, y2);
+      ctx.lineTo(x2 - 11 * Math.cos(ang - 0.45), y2 - 11 * Math.sin(ang - 0.45));
+      ctx.lineTo(x2 - 11 * Math.cos(ang + 0.45), y2 - 11 * Math.sin(ang + 0.45));
+      ctx.closePath(); ctx.fill();
+    }
+
+    function drawActiveLab() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      if (activeLabId === 'buoyancy') drawBuoyancy();
+      else if (activeLabId === 'eclipse') drawEclipse();
+      else if (activeLabId === 'projectile') drawProjectile();
+      else if (activeLabId === 'circuits') drawCircuits();
+      else if (activeLabId === 'kinetics') drawKinetics();
+      else if (activeLabId === 'distillation') drawDistillation();
+      else if (activeLabId === 'bonding') drawBonding();
+      else if (activeLabId === 'reflex') drawReflex();
+      else if (activeLabId === 'dna') drawDna();
+      else if (activeLabId === 'pollination') drawPollination();
+
+      // Celebration Confetti Overlay
+      confetti.forEach(p => {
+        p.x += p.vx; p.y += p.vy; p.vy += 0.14; p.life--;
+        ctx.fillStyle = p.color;
+        ctx.fillRect(p.x, p.y, 7, 7);
+      });
+      confetti = confetti.filter(p => p.life > 0);
+    }
+
+    /* ---------- 1. BUOYANCY & ARCHIMEDES' PRINCIPLE ---------- */
+    function drawBuoyancy() {
+      const b = S.buoyancy;
+      const m = getBuoyancyMetrics();
+      const liq = BUOY_LIQS[b.liq];
+      const mat = BUOY_MATS[b.mat];
+      const sz = 52 + (b.vol - 100) * 0.08;
+      const surfY = 148;
+
+      // Spring-damped target Y for floating vs sinking
+      const targetY = m.floats ? (surfY - sz * (1 - m.subFrac)) : (292 - sz);
+      b.blockVy += (targetY - b.blockY) * 0.06 * animSpeed;
+      b.blockVy *= 0.84;
+      b.blockY += b.blockVy * animSpeed;
+      b.pourAmt += (m.dispVol - b.pourAmt) * 0.08 * animSpeed;
+
+      // Glass Tank Liquid with 60fps spring waves
+      ctx.fillStyle = liq.col;
+      ctx.beginPath();
+      ctx.moveTo(155, 294);
+      for (let x = 155; x <= 445; x += 6) {
+        const wy = surfY + Math.sin(x * 0.05 + animT * 4) * (2.5 + Math.abs(b.blockVy) * 0.4);
+        ctx.lineTo(x, wy);
+      }
+      ctx.lineTo(445, 294); ctx.closePath(); ctx.fill();
+
+      // Overflow Spout Stream into Measuring Cylinder
+      if (b.pourAmt > 5) {
+        ctx.strokeStyle = liq.surf; ctx.lineWidth = 6;
+        ctx.beginPath();
+        ctx.moveTo(445, 148);
+        ctx.quadraticCurveTo(535, 152, 580, 272);
+        ctx.stroke();
+      }
+
+      // 3D-Shaded Material Block
+      const bx = 300 - sz / 2, by = b.blockY;
+      ctx.fillStyle = mat.col; ctx.strokeStyle = '#1e293b'; ctx.lineWidth = 2.5;
+      rr(ctx, bx, by, sz, sz, 8); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = mat.top;
+      ctx.fillRect(bx + 4, by + 4, sz - 8, 12);
+      ctx.fillStyle = b.mat === 'Ice' ? '#0f172a' : '#fff';
+      ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(b.mat, 300, by + sz / 2 + 5);
+
+      // Upthrust (Green Up) & Weight (Red Down) Vectors
+      const upLen = Math.min(85, 22 + m.fbN * 11);
+      const dnLen = Math.min(85, 22 + m.weightN * 6);
+      drawArrow(300 - 18, by + sz / 2, 300 - 18, by + sz / 2 - upLen, '#16a34a', 5);
+      drawArrow(300 + 18, by + sz / 2, 300 + 18, by + sz / 2 + dnLen, '#dc2626', 5);
+      ctx.font = 'bold 11.5px sans-serif';
+      ctx.fillStyle = '#15803d'; ctx.fillText(`Fb = ${m.fbN}N`, 235, by + sz / 2 - upLen + 6);
+      ctx.fillStyle = '#dc2626'; ctx.fillText(`W = ${m.weightN}N`, 368, by + sz / 2 + dnLen);
+
+      // Tank Glass Walls + Spout
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.moveTo(153, 72); ctx.lineTo(153, 296); ctx.lineTo(447, 296); ctx.lineTo(447, 155);
+      ctx.lineTo(492, 155);
+      ctx.moveTo(447, 140); ctx.lineTo(447, 72);
+      ctx.stroke();
+
+      // Graduated Measuring Cylinder + Digital Scale (Right)
+      const cylFill = Math.min(110, (b.pourAmt / 500) * 110);
+      ctx.fillStyle = liq.col;
+      ctx.fillRect(545, 274 - cylFill, 72, cylFill);
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+      ctx.strokeRect(544, 154, 74, 120);
+      // Scale base
+      ctx.fillStyle = '#1e293b'; rr(ctx, 515, 274, 134, 38, 8); ctx.fill();
+      ctx.fillStyle = '#4ade80'; ctx.font = 'bold 13px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`Disp: ${Math.round(b.pourAmt)} cm³`, 582, 298);
+
+      // Side Info Card
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 685, 85, 185, 160, 14); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif';
+      ctx.fillText('ARCHIMEDES SCALE', 777, 112);
+      ctx.fillStyle = '#15803d'; ctx.fillText(`Upthrust: ${m.fbN} N`, 777, 146);
+      ctx.fillStyle = '#dc2626'; ctx.fillText(`Weight: ${m.weightN} N`, 777, 174);
+      ctx.fillStyle = '#0369a1'; ctx.fillText(`Displaced: ${m.dispVol} cm³`, 777, 202);
+      ctx.fillStyle = '#475569'; ctx.fillText(m.floats ? 'Result: FLOATS ⛵' : 'Result: SINKS ⚓', 777, 230);
+    }
+
+    /* ---------- 2. SOLAR SYSTEM ORBITS & ECLIPSES ---------- */
+    function drawEclipse() {
+      const e = S.eclipse;
+      if (e.playing) {
+        e.angle = (e.angle + 0.7 * animSpeed) % 360;
+      }
+      const ang = ((e.angle % 360) + 360) % 360;
+      const rad = ang * Math.PI / 180;
+      const sunX = 125, sunY = 175;
+      const earthX = 475, earthY = 175;
+      const orbitRx = 155, orbitRy = e.tilted ? 85 : 58;
+      const moonX = earthX + Math.cos(rad) * orbitRx;
+      const moonY = earthY + Math.sin(rad) * orbitRy + (e.tilted ? Math.cos(rad) * 26 : 0);
+
+      // Deep Space Starfield
+      ctx.fillStyle = '#090d1f'; rr(ctx, 14, 12, 872, 316, 16); ctx.fill();
+      e.stars.forEach(s => {
+        const tw = 0.4 + 0.6 * Math.abs(Math.sin(animT * 2 + s.phase));
+        ctx.fillStyle = `rgba(255,255,255,${tw})`;
+        ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Glowing Sun with Corona Flares
+      const grad = ctx.createRadialGradient(sunX, sunY, 15, sunX, sunY, 85 + Math.sin(animT * 3) * 6);
+      grad.addColorStop(0, '#fef08a'); grad.addColorStop(0.5, '#f59e0b'); grad.addColorStop(1, 'rgba(245,158,11,0)');
+      ctx.fillStyle = grad; ctx.beginPath(); ctx.arc(sunX, sunY, 90, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#fde047'; ctx.beginPath(); ctx.arc(sunX, sunY, 44, 0, Math.PI * 2); ctx.fill();
+
+      // Earth Shadow Cone (Umbra & Penumbra)
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.68)';
+      ctx.beginPath(); ctx.moveTo(earthX, earthY - 26); ctx.lineTo(740, earthY - 5); ctx.lineTo(740, earthY + 5); ctx.lineTo(earthX, earthY + 26); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = 'rgba(148, 163, 184, 0.16)';
+      ctx.beginPath(); ctx.moveTo(earthX, earthY - 26); ctx.lineTo(740, earthY - 56); ctx.lineTo(740, earthY + 56); ctx.lineTo(earthX, earthY + 26); ctx.closePath(); ctx.fill();
+
+      // Moon Orbit Ring
+      ctx.strokeStyle = 'rgba(148, 163, 184, 0.35)'; ctx.lineWidth = 1.5; ctx.setLineDash([5, 5]);
+      ctx.beginPath(); ctx.ellipse(earthX, earthY, orbitRx, orbitRy, 0, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+
+      // Moon Shadow Cone during Solar Eclipse
+      const isSolar = !e.tilted && Math.abs(ang - 180) <= 10;
+      const isLunar = !e.tilted && (ang <= 10 || ang >= 350);
+      if (Math.cos(rad) < 0) {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.62)';
+        ctx.beginPath(); ctx.moveTo(moonX, moonY - 12); ctx.lineTo(moonX + 165, moonY - 2); ctx.lineTo(moonX + 165, moonY + 2); ctx.lineTo(moonX, moonY + 12); ctx.closePath(); ctx.fill();
+      }
+
+      // Earth (Blue ocean + Green continents + Night side)
+      ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(earthX, earthY, 26, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#22c55e'; ctx.beginPath(); ctx.arc(earthX - 7, earthY - 6, 9, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = 'rgba(9, 13, 31, 0.6)'; ctx.beginPath(); ctx.arc(earthX, earthY, 26, -Math.PI / 2, Math.PI / 2); ctx.fill();
+
+      // Moon (turns Blood Red during Lunar Eclipse!)
+      ctx.fillStyle = isLunar ? '#dc2626' : '#e2e8f0';
+      ctx.beginPath(); ctx.arc(moonX, moonY, 12, 0, Math.PI * 2); ctx.fill();
+      if (isLunar) {
+        ctx.fillStyle = 'rgba(239, 68, 68, 0.32)';
+        ctx.beginPath(); ctx.arc(moonX, moonY, 22, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Labels
+      ctx.fillStyle = '#cbd5e1'; ctx.font = 'bold 11.5px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('SUN', sunX, sunY + 62);
+      ctx.fillText('EARTH', earthX, earthY + 42);
+      ctx.fillText('MOON', moonX, moonY - 18);
+
+      // Mini Inset: "VIEW FROM EARTH" (Top Right)
+      ctx.fillStyle = '#111827'; ctx.strokeStyle = '#334155'; ctx.lineWidth = 2;
+      rr(ctx, 735, 30, 130, 118, 14); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 10px sans-serif'; ctx.fillText('VIEW FROM EARTH', 800, 48);
+      if (isSolar) {
+        ctx.strokeStyle = '#fde047'; ctx.lineWidth = 5; ctx.beginPath(); ctx.arc(800, 94, 24, 0, Math.PI * 2); ctx.stroke();
+        ctx.fillStyle = '#000'; ctx.beginPath(); ctx.arc(800, 94, 22, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fde047'; ctx.fillText('SOLAR CORONA', 800, 138);
+      } else if (isLunar) {
+        ctx.fillStyle = '#b91c1c'; ctx.beginPath(); ctx.arc(800, 94, 23, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fca5a5'; ctx.fillText('BLOOD MOON', 800, 138);
+      } else {
+        ctx.fillStyle = '#e2e8f0'; ctx.beginPath(); ctx.arc(800, 94, 21, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#111827';
+        const phaseOff = Math.sin(rad) * 20;
+        ctx.beginPath(); ctx.arc(800 + phaseOff, 94, 21, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#cbd5e1'; ctx.fillText('MOON PHASE', 800, 138);
+      }
+    }
+
+    /* ---------- 3. PROJECTILE MOTION & GRAVITY CANNON ---------- */
+    function drawProjectile() {
+      const p = S.projectile;
+      const gObj = GRAVITIES[p.planet];
+      const baseX = 85, gndY = 285, pxPerM = 7.4;
+
+      // Sky & Ground
+      ctx.fillStyle = gObj.sky; rr(ctx, 14, 12, 872, 273, 14); ctx.fill();
+      ctx.fillStyle = gObj.gnd; ctx.fillRect(14, gndY, 872, 42);
+
+      // Distance Markers 0m to 100m
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 11px sans-serif'; ctx.textAlign = 'center';
+      for (let m = 0; m <= 100; m += 20) {
+        const mx = baseX + m * pxPerM;
+        ctx.fillRect(mx - 1, gndY, 2, 10);
+        ctx.fillText(`${m}m`, mx, gndY + 24);
+      }
+
+      // 60m Bullseye Target Flag
+      const tgtX = baseX + 60 * pxPerM;
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(tgtX, gndY); ctx.lineTo(tgtX, gndY - 48); ctx.stroke();
+      ctx.fillStyle = '#ef4444';
+      ctx.beginPath(); ctx.moveTo(tgtX, gndY - 48); ctx.lineTo(tgtX + 28, gndY - 36); ctx.lineTo(tgtX, gndY - 24); ctx.closePath(); ctx.fill();
+      ctx.fillStyle = '#dc2626'; ctx.fillText('🎯 60m', tgtX, gndY - 54);
+
+      // Rotating Brass Cannon
+      const rad = p.angle * Math.PI / 180;
+      ctx.save();
+      ctx.translate(baseX, gndY - 16);
+      ctx.rotate(-rad);
+      ctx.fillStyle = '#b45309'; rr(ctx, -10, -11, 56, 22, 6); ctx.fill();
+      ctx.fillStyle = '#f59e0b'; ctx.fillRect(36, -13, 10, 26);
+      ctx.restore();
+      ctx.fillStyle = '#1e293b'; ctx.beginPath(); ctx.arc(baseX, gndY - 12, 14, 0, Math.PI * 2); ctx.fill();
+
+      // Update Flying Cannonball
+      if (p.flying) {
+        p.t += 0.045 * animSpeed;
+        const vx = p.speed * Math.cos(rad);
+        const vy0 = p.speed * Math.sin(rad);
+        const xM = vx * p.t;
+        const yM = vy0 * p.t - 0.5 * gObj.g * p.t * p.t;
+        const vy = vy0 - gObj.g * p.t;
+
+        if (yM >= 0 && xM <= 110) {
+          const bx = baseX + xM * pxPerM;
+          const by = gndY - 16 - yM * pxPerM;
+          p.trail.push({ x: bx, y: by });
+
+          // Draw Parabolic Trail
+          ctx.strokeStyle = '#f97316'; ctx.lineWidth = 3; ctx.setLineDash([5, 4]);
+          ctx.beginPath();
+          p.trail.forEach((pt, i) => i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y));
+          ctx.stroke(); ctx.setLineDash([]);
+
+          // Cannonball + Live vx & vy Velocity Vectors
+          ctx.fillStyle = '#0f172a'; ctx.beginPath(); ctx.arc(bx, by, 8, 0, Math.PI * 2); ctx.fill();
+          drawArrow(bx, by, bx + vx * 1.8, by, '#2563eb', 3);
+          drawArrow(bx, by, bx, by - vy * 1.8, '#16a34a', 3);
+        } else {
+          p.flying = false;
+          const landX = (p.speed * p.speed * Math.sin(2 * rad)) / gObj.g;
+          if (Math.abs(landX - 60) <= 5.5) {
+            p.hitMsg = `BULLSEYE! Landed at ${landX.toFixed(1)}m!`;
+            p.boom = 30;
+            markMissionDone('projectile', 1);
+            spawnConfetti(tgtX, gndY - 30);
+            updateLabState(true);
+          } else {
+            p.hitMsg = '';
+            setCoach('📍', `Landed at ${landX.toFixed(1)}m (Target is 60m)`, landX < 60 ? 'Too short! Increase speed or adjust angle closer to 45°.' : 'Overshot! Lower speed slightly to hit 60m.', 'state-warn', !isAutoSolving);
+          }
+        }
+      } else if (p.trail.length > 1) {
+        ctx.strokeStyle = 'rgba(249, 115, 22, 0.55)'; ctx.lineWidth = 3; ctx.setLineDash([5, 4]);
+        ctx.beginPath();
+        p.trail.forEach((pt, i) => i === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y));
+        ctx.stroke(); ctx.setLineDash([]);
+      }
+
+      if (p.boom > 0) {
+        p.boom--;
+        ctx.fillStyle = `rgba(249, 115, 22, ${p.boom / 30})`;
+        ctx.beginPath(); ctx.arc(tgtX, gndY - 20, 46 - p.boom, 0, Math.PI * 2); ctx.fill();
+      }
+    }
+
+    /* ---------- 4. SERIES VS. PARALLEL CIRCUITS & FUSE SAFETY ---------- */
+    function drawCircuits() {
+      const c = S.circuits;
+      const m = getCircuitMetrics();
+      const flowing = c.switchOn && !c.fuseBlown && m.I > 0;
+
+      // Battery (Left)
+      ctx.fillStyle = '#0f172a'; rr(ctx, 75, 115, 76, 110, 12); ctx.fill();
+      ctx.fillStyle = '#f59e0b'; ctx.fillRect(98, 104, 30, 11);
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 17px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('12V', 113, 175);
+
+      // Main Top & Bottom Copper Bus Wires
+      ctx.strokeStyle = '#334155'; ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.moveTo(113, 104); ctx.lineTo(113, 78); ctx.lineTo(315, 78); // to fuse
+      ctx.moveTo(385, 78); ctx.lineTo(760, 78); // after fuse
+      ctx.moveTo(113, 225); ctx.lineTo(113, 275); ctx.lineTo(760, 275);
+      ctx.stroke();
+
+      // Interactive Glass Tube Fuse (Top Center-Left)
+      ctx.fillStyle = c.fuseBlown ? '#fef2f2' : '#f8fafc';
+      ctx.strokeStyle = c.fuseBlown ? '#dc2626' : '#64748b'; ctx.lineWidth = 3;
+      rr(ctx, 315, 62, 70, 32, 8); ctx.fill(); ctx.stroke();
+      if (!c.fuseBlown) {
+        ctx.strokeStyle = m.I >= 3.5 ? '#f97316' : '#d97706'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(320, 78); ctx.lineTo(380, 78); ctx.stroke();
+      } else {
+        ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.moveTo(320, 78); ctx.lineTo(342, 70); ctx.moveTo(358, 86); ctx.lineTo(380, 78); ctx.stroke();
+      }
+      ctx.fillStyle = c.fuseBlown ? '#dc2626' : '#334155'; ctx.font = 'bold 11px sans-serif';
+      ctx.fillText(c.fuseBlown ? '💥 FUSE BLOWN' : '4A FUSE', 350, 52);
+
+      // Draw Series OR Parallel Bulbs
+      if (c.mode === 'Series') {
+        ctx.strokeStyle = '#334155'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.moveTo(760, 78); ctx.lineTo(760, 275); ctx.stroke();
+        const spacing = 360 / (c.bulbs + 1);
+        for (let i = 1; i <= c.bulbs; i++) {
+          const bx = 400 + i * spacing;
+          drawBulb(bx, 176, flowing ? m.brightness : 0, `${m.bulbV}V`);
+          ctx.strokeStyle = '#334155'; ctx.lineWidth = 4;
+          if (i === 1) { ctx.beginPath(); ctx.moveTo(760, 176); ctx.lineTo(bx + 24, 176); ctx.stroke(); }
+        }
+        // Series branch wire
+        ctx.strokeStyle = '#334155'; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(420, 78); ctx.lineTo(420, 176); ctx.lineTo(760, 176); ctx.stroke();
+        // Redraw bulbs on top of wire
+        for (let i = 1; i <= c.bulbs; i++) {
+          drawBulb(420 + (i / (c.bulbs + 1)) * 340, 176, flowing ? m.brightness : 0, `${m.bulbV}V`);
+        }
+      } else {
+        for (let i = 0; i < c.bulbs; i++) {
+          const bx = 460 + i * 135;
+          ctx.strokeStyle = '#334155'; ctx.lineWidth = 4;
+          ctx.beginPath(); ctx.moveTo(bx, 78); ctx.lineTo(bx, 275); ctx.stroke();
+          drawBulb(bx, 176, flowing ? 1.0 : 0, '12V');
+          if (flowing) {
+            const ey = 95 + ((animT * 70 + i * 35) % 165);
+            ctx.fillStyle = '#38bdf8'; ctx.beginPath(); ctx.arc(bx, ey, 5, 0, Math.PI * 2); ctx.fill();
+          }
+        }
+      }
+
+      // Glowing Electron Beads on Main Bus
+      if (flowing) {
+        for (let i = 0; i < 8; i++) {
+          const ex = 140 + ((animT * (40 + m.I * 18) + i * 78) % 610);
+          ctx.fillStyle = '#38bdf8'; ctx.beginPath(); ctx.arc(ex, 78, 5, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(750 - (ex - 140), 275, 5, 0, Math.PI * 2); ctx.fill();
+        }
+      }
+
+      // Sparks on Fuse Blow
+      c.sparks.forEach(s => {
+        s.x += s.vx; s.y += s.vy; s.life--;
+        ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(s.x, s.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      c.sparks = c.sparks.filter(s => s.life > 0);
+
+      // Ammeter Pill
+      ctx.fillStyle = '#0f172a'; rr(ctx, 175, 145, 130, 56, 12); ctx.fill();
+      ctx.fillStyle = c.fuseBlown ? '#f87171' : '#4ade80'; ctx.font = 'bold 17px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`I = ${m.I} A`, 240, 178);
+    }
+
+    function drawBulb(x, y, bright, vTxt) {
+      if (bright > 0) {
+        ctx.fillStyle = `rgba(250, 204, 21, ${bright * 0.55})`;
+        ctx.beginPath(); ctx.arc(x, y, 28 + bright * 22, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = bright > 0 ? `rgba(254, 240, 138, ${0.45 + bright * 0.55})` : '#e2e8f0';
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.arc(x, y, 23, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.font = '21px sans-serif'; ctx.textAlign = 'center'; ctx.fillText('💡', x, y + 7);
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 11px sans-serif'; ctx.fillText(vTxt, x, y + 38);
+    }
+
+    /* ---------- 5. REACTION RATE & CATALYST ENERGY LAB ---------- */
+    function drawKinetics() {
+      const k = S.kinetics;
+      const spd = (0.5 + (k.temp / 45)) * animSpeed;
+
+      // Left: Glass Reaction Chamber
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#64748b'; ctx.lineWidth = 3.5;
+      rr(ctx, 36, 48, 385, 250, 16); ctx.fill(); ctx.stroke();
+
+      // Glowing Platinum Catalyst Bed at bottom
+      if (k.catalyst) {
+        ctx.fillStyle = 'rgba(124, 58, 237, 0.25)';
+        rr(ctx, 44, 266, 369, 26, 8); ctx.fill();
+        ctx.fillStyle = '#6d28d9'; ctx.font = 'bold 11.5px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('✨ PLATINUM CATALYST BED (ACTIVE) ✨', 228, 283);
+      }
+
+      // Move & Collide Molecules
+      k.mols.forEach((m, i) => {
+        m.x += m.vx * spd; m.y += m.vy * spd;
+        if (m.x < 52 || m.x > 406) m.vx *= -1;
+        if (m.y < 62 || m.y > 258) m.vy *= -1;
+        if (m.cooldown > 0) m.cooldown--;
+
+        for (let j = i + 1; j < k.mols.length; j++) {
+          const o = k.mols[j];
+          if (m.type !== o.type && m.type !== 'AB' && o.type !== 'AB' && Math.hypot(m.x - o.x, m.y - o.y) < 17) {
+            const prob = (k.temp / 100) * (k.catalyst ? 0.55 : 0.14);
+            if (Math.random() < prob) {
+              m.type = 'AB'; m.cooldown = 160;
+              k.sparks.push({ x: (m.x + o.x) / 2, y: (m.y + o.y) / 2, life: 18 });
+            }
+          }
+        }
+        if (m.type === 'AB' && m.cooldown === 0) m.type = i % 2 === 0 ? 'A' : 'B';
+
+        ctx.fillStyle = m.type === 'A' ? '#2563eb' : (m.type === 'B' ? '#f59e0b' : '#16a34a');
+        ctx.beginPath(); ctx.arc(m.x, m.y, m.type === 'AB' ? 10 : 7.5, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 9px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(m.type, m.x, m.y + 3);
+      });
+
+      k.sparks.forEach(s => {
+        s.life--;
+        ctx.strokeStyle = `rgba(34, 197, 94, ${s.life / 18})`; ctx.lineWidth = 3;
+        ctx.beginPath(); ctx.arc(s.x, s.y, 24 - s.life, 0, Math.PI * 2); ctx.stroke();
+      });
+      k.sparks = k.sparks.filter(s => s.life > 0);
+
+      // Right: Live Activation Energy (Ea) Hill Graph
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 455, 48, 412, 250, 16); ctx.fill(); ctx.stroke();
+
+      ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(495, 255); ctx.lineTo(840, 255); ctx.moveTo(495, 255); ctx.lineTo(495, 76); ctx.stroke();
+
+      // Uncatalyzed Curve (Dashed Grey)
+      ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 3; ctx.setLineDash([6, 4]);
+      ctx.beginPath(); ctx.moveTo(505, 195); ctx.bezierCurveTo(600, 195, 620, 82, 670, 82); ctx.bezierCurveTo(720, 82, 745, 232, 830, 232); ctx.stroke();
+      ctx.setLineDash([]);
+
+      // Active Curve (Purple Lowered Hill when Catalyst ON!)
+      const peakY = k.catalyst ? 142 : 82;
+      ctx.strokeStyle = k.catalyst ? '#7c3aed' : '#2563eb'; ctx.lineWidth = 4;
+      ctx.beginPath(); ctx.moveTo(505, 195); ctx.bezierCurveTo(600, 195, 620, peakY, 670, peakY); ctx.bezierCurveTo(720, peakY, 745, 232, 830, 232); ctx.stroke();
+
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Activation Energy (Ea) Profile', 668, 70);
+      ctx.fillStyle = k.catalyst ? '#7c3aed' : '#2563eb';
+      ctx.fillText(k.catalyst ? 'Lower Ea with Catalyst! ✨' : 'High Ea Barrier', 670, peakY - 10);
+      ctx.fillStyle = '#16a34a'; ctx.font = 'bold 13px sans-serif';
+      ctx.fillText(`Reaction Speedometer: ${k.ratePct}%`, 668, 282);
+    }
+
+    /* ---------- 6. DISTILLATION & MIXTURE SEPARATION ---------- */
+    function drawDistillation() {
+      const d = S.distillation;
+      const isEth = d.mixture === 'EthanolWater';
+      const bp = isEth ? 78 : 100;
+      const boiling = d.temp >= bp;
+
+      // Bunsen Burner Flame
+      ctx.fillStyle = '#475569'; ctx.fillRect(190, 268, 24, 42); ctx.fillRect(168, 304, 68, 12);
+      if (d.temp > 30) {
+        const fh = 12 + (d.temp - 30) * 0.25;
+        ctx.fillStyle = 'rgba(249, 115, 22, 0.85)';
+        ctx.beginPath(); ctx.ellipse(202, 260 - fh * 0.3, 12, fh + Math.sin(animT * 14) * 3, 0, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Round-Bottom Distillation Flask
+      ctx.fillStyle = isEth ? 'rgba(139, 92, 246, 0.35)' : 'rgba(56, 189, 248, 0.45)';
+      ctx.beginPath(); ctx.arc(202, 200, 56, 0.15, Math.PI - 0.15); ctx.closePath(); ctx.fill();
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.arc(202, 200, 58, -1.25, Math.PI + 1.25); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(184, 145); ctx.lineTo(184, 82); ctx.moveTo(220, 145); ctx.lineTo(220, 82); ctx.stroke();
+
+      // Thermometer at Neck
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#94a3b8'; ctx.lineWidth = 2;
+      rr(ctx, 196, 48, 12, 85, 6); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#ef4444'; ctx.fillRect(199, 130 - (d.temp / 110) * 72, 6, (d.temp / 110) * 72);
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`${d.temp}°C`, 202, 40);
+
+      // Slanted Liebig Condenser + Cold Blue Water Jacket
+      ctx.save();
+      ctx.translate(220, 108);
+      ctx.rotate(0.28);
+      ctx.fillStyle = d.cooling ? 'rgba(56, 189, 248, 0.45)' : 'rgba(226, 232, 240, 0.35)';
+      ctx.strokeStyle = d.cooling ? '#0284c7' : '#94a3b8'; ctx.lineWidth = 3;
+      rr(ctx, 70, -24, 280, 48, 12); ctx.fill(); ctx.stroke();
+      // Inner vapor glass tube
+      ctx.fillStyle = '#fff'; ctx.strokeStyle = '#475569'; ctx.lineWidth = 2.5;
+      ctx.fillRect(0, -8, 430, 16); ctx.strokeRect(0, -8, 430, 16);
+      ctx.restore();
+
+      // Rising Vapor & Condensing Drops
+      if (boiling && Math.random() < 0.35 * animSpeed) {
+        d.vapor.push({ t: 0 });
+      }
+      d.vapor.forEach(v => {
+        v.t += 0.014 * animSpeed;
+        let vx, vy;
+        if (v.t < 0.3) { vx = 202; vy = 195 - (v.t / 0.3) * 85; }
+        else { const u = (v.t - 0.3) / 0.7; vx = 220 + u * 412; vy = 108 + u * 122; }
+        ctx.fillStyle = d.cooling && v.t > 0.6 ? '#0284c7' : 'rgba(148, 163, 184, 0.75)';
+        ctx.beginPath(); ctx.arc(vx, vy, d.cooling && v.t > 0.6 ? 4.5 : 7, 0, Math.PI * 2); ctx.fill();
+        if (v.t >= 1 && d.cooling) {
+          d.drops.push({ x: 642, y: 230, vy: 2.2 });
+          if (isEth && d.temp < 96) d.collectedEthanol = Math.min(100, d.collectedEthanol + 2.5);
+          else d.collectedWater = Math.min(100, d.collectedWater + 2.5);
+        }
+      });
+      d.vapor = d.vapor.filter(v => v.t < 1);
+
+      // Dripping Pure Distillate into Receiving Conical Flask
+      d.drops.forEach(dr => {
+        dr.y += dr.vy * animSpeed;
+        ctx.fillStyle = '#0ea5e9'; ctx.beginPath(); ctx.arc(dr.x, dr.y, 4, 0, Math.PI * 2); ctx.fill();
+      });
+      d.drops = d.drops.filter(dr => dr.y < 290);
+
+      const colAmt = Math.min(100, d.collectedEthanol + d.collectedWater);
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.55)';
+      ctx.beginPath();
+      ctx.moveTo(605, 304); ctx.lineTo(680, 304);
+      ctx.lineTo(665, 304 - colAmt * 0.55); ctx.lineTo(620, 304 - colAmt * 0.55);
+      ctx.closePath(); ctx.fill();
+
+      ctx.strokeStyle = '#475569'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.moveTo(628, 224); ctx.lineTo(602, 305); ctx.lineTo(682, 305); ctx.lineTo(656, 224); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Pure Distillate', 642, 326);
+      ctx.fillStyle = d.cooling ? '#0369a1' : '#64748b';
+      ctx.fillText(d.cooling ? '❄️ Liebig Condenser (Cooling ON)' : 'Liebig Condenser (OFF)', 440, 128);
+    }
+
+    /* ---------- 7. IONIC VS. COVALENT BONDING LAB ---------- */
+    function drawBonding() {
+      const b = S.bonding;
+      const target = b.bonded ? 1 : 0;
+      b.progress += (target - b.progress) * 0.06 * animSpeed;
+      const p = b.progress;
+      const cy = 172;
+
+      if (b.pair === 'NaCl') {
+        const naX = 280 + p * 80, clX = 620 - p * 80;
+        drawBohrAtom(naX, cy, 'Na', p > 0.7 ? 'Na⁺' : 'Na', '#ef4444', [2, 8, p > 0.5 ? 0 : 1], b.showShells);
+        drawBohrAtom(clX, cy, 'Cl', p > 0.7 ? 'Cl⁻' : 'Cl', '#16a34a', [2, 8, p > 0.5 ? 8 : 7], b.showShells);
+        // Transferring Valence Electron!
+        if (p > 0.05 && p < 0.95) {
+          const ex = naX + 82 + (clX - 82 - (naX + 82)) * p;
+          const ey = cy - Math.sin(p * Math.PI) * 55;
+          ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(ex, ey, 8, 0, Math.PI * 2); ctx.fill();
+        }
+        if (p > 0.75) {
+          ctx.strokeStyle = '#7c3aed'; ctx.lineWidth = 3; ctx.setLineDash([6, 4]);
+          ctx.beginPath(); ctx.moveTo(naX + 85, cy); ctx.lineTo(clX - 85, cy); ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = '#6d28d9'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText('⚡ Electrostatic Ionic Attraction!', 450, 295);
+        }
+      } else if (b.pair === 'H2' || b.pair === 'O2') {
+        const isO = b.pair === 'O2';
+        const lx = 310 + p * 85, rx = 590 - p * 85;
+        drawBohrAtom(lx, cy, isO ? 'O' : 'H', isO ? 'O' : 'H', isO ? '#2563eb' : '#0ea5e9', isO ? [2, 4] : [0], b.showShells);
+        drawBohrAtom(rx, cy, isO ? 'O' : 'H', isO ? 'O' : 'H', isO ? '#2563eb' : '#0ea5e9', isO ? [2, 4] : [0], b.showShells);
+        // Shared Figure-8 Electron Cloud
+        const sharedCount = isO ? 4 : 2;
+        for (let i = 0; i < sharedCount; i++) {
+          const ang = animT * 2.5 + (i / sharedCount) * Math.PI * 2;
+          const ex = 450 + Math.cos(ang) * (32 + (1 - p) * 60);
+          const ey = cy + Math.sin(ang * 2) * 26;
+          ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(ex, ey, 7, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.fillStyle = '#15803d'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(p > 0.6 ? (isO ? '🔗 Double Covalent Bond (O=O — 4 Shared Electrons)' : '🔗 Single Covalent Bond (H—H — 2 Shared Electrons)') : 'Tap Form Bond to Share Electrons!', 450, 298);
+      } else {
+        // H2O Water Molecule
+        const ox = 450, oy = 148;
+        const h1x = 260 + p * 110, h1y = 225 - p * 18;
+        const h2x = 640 - p * 110, h2y = 225 - p * 18;
+        drawBohrAtom(ox, oy, 'O', 'O', '#2563eb', [2, 4], b.showShells);
+        drawBohrAtom(h1x, h1y, 'H', 'H', '#0ea5e9', [1], b.showShells);
+        drawBohrAtom(h2x, h2y, 'H', 'H', '#0ea5e9', [1], b.showShells);
+        if (p > 0.5) {
+          ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 5;
+          ctx.beginPath(); ctx.moveTo(ox - 28, oy + 22); ctx.lineTo(h1x + 22, h1y - 16);
+          ctx.moveTo(ox + 28, oy + 22); ctx.lineTo(h2x - 22, h2y - 16); ctx.stroke();
+          ctx.fillStyle = '#0369a1'; ctx.font = 'bold 13px sans-serif'; ctx.textAlign = 'center';
+          ctx.fillText('💧 Polar Covalent Water Molecule (H—O—H)', 450, 304);
+        }
+      }
+    }
+
+    function drawBohrAtom(x, y, sym, lbl, col, shells, showShells) {
+      if (showShells) {
+        shells.forEach((cnt, idx) => {
+          const r = 38 + idx * 22;
+          ctx.strokeStyle = 'rgba(148, 163, 184, 0.55)'; ctx.lineWidth = 2; ctx.setLineDash([4, 4]);
+          ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); ctx.setLineDash([]);
+          for (let i = 0; i < cnt; i++) {
+            const a = animT * (1.4 - idx * 0.25) + (i / cnt) * Math.PI * 2;
+            ctx.fillStyle = '#2563eb'; ctx.beginPath(); ctx.arc(x + Math.cos(a) * r, y + Math.sin(a) * r, 5.5, 0, Math.PI * 2); ctx.fill();
+          }
+        });
+      }
+      ctx.fillStyle = col; ctx.beginPath(); ctx.arc(x, y, 24, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#fff'; ctx.font = 'bold 15px sans-serif'; ctx.textAlign = 'center'; ctx.fillText(lbl, x, y + 5);
+    }
+
+    /* ---------- 8. REFLEX ARC & NEURON IMPULSE LAB ---------- */
+    function drawReflex() {
+      const r = S.reflex;
+      const isBrain = r.stimulus === 'Bell';
+      const stepSpd = (r.slowMo ? 0.004 : 0.011) * (isBrain ? 0.55 : 1.0) * animSpeed;
+
+      if (r.active) {
+        r.progress += stepSpd;
+        r.elapsedMs = Math.round(r.progress * (isBrain ? 450 : 150));
+        if (r.progress >= 0.92) r.handPull = Math.min(55, r.handPull + 4);
+        if (r.progress >= 1) {
+          r.active = false;
+          if (isBrain) { r.lastBrainMs = 450; }
+          else { r.lastReflexMs = 150; markMissionDone('reflex', 1); }
+          if (r.lastReflexMs && r.lastBrainMs) markMissionDone('reflex', 2);
+          setCoach('⚡', isBrain ? 'Voluntary Brain Response: 0.45s!' : 'Spinal Reflex Complete in 0.15s!',
+            isBrain ? 'Sound traveled all the way up to the Brain Cortex before moving the hand!' : 'The Spinal Cord shortcut pulled the hand back 3× faster than thinking!',
+            'state-success', !isAutoSolving);
+        }
+      }
+
+      // Stimulus on Left
+      const handX = 165 - r.handPull, handY = 210;
+      ctx.font = '38px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText(r.stimulus === 'Flame' ? '🔥' : (r.stimulus === 'Pin' ? '📌' : '🔔'), 95, 222);
+      ctx.fillText('🖐️', handX, handY);
+
+      // Spinal Cord Cross-Section (Right)
+      ctx.fillStyle = '#fef3c7'; ctx.strokeStyle = '#d97706'; ctx.lineWidth = 3;
+      ctx.beginPath(); ctx.ellipse(725, 165, 86, 68, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      // Grey Matter Butterfly
+      ctx.fillStyle = '#cbd5e1';
+      ctx.beginPath(); ctx.ellipse(705, 165, 24, 42, 0.3, 0, Math.PI * 2); ctx.ellipse(745, 165, 24, 42, -0.3, 0, Math.PI * 2); ctx.fill();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 11px sans-serif'; ctx.fillText('SPINAL CORD', 725, 248);
+
+      // Brain Icon (Top Right, highlighted for Bell Voluntary path)
+      ctx.fillStyle = isBrain ? '#ede9fe' : '#f1f5f9'; ctx.strokeStyle = isBrain ? '#7c3aed' : '#94a3b8'; ctx.lineWidth = 2.5;
+      rr(ctx, 665, 20, 120, 48, 14); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.fillText('🧠 BRAIN', 725, 49);
+
+      // Sensory Neuron (Top Path: Hand → Spinal Cord)
+      ctx.strokeStyle = '#2563eb'; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.moveTo(190, 190); ctx.quadraticCurveTo(440, 88, 690, 145); ctx.stroke();
+      ctx.fillStyle = '#1d4ed8'; ctx.font = 'bold 11.5px sans-serif'; ctx.fillText('1. Sensory Neuron →', 435, 108);
+
+      // Motor Neuron (Bottom Path: Spinal Cord → Biceps Muscle)
+      ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 6;
+      ctx.beginPath(); ctx.moveTo(690, 188); ctx.quadraticCurveTo(450, 275, 270, 240); ctx.stroke();
+      ctx.fillStyle = '#b91c1c'; ctx.fillText('← 3. Motor Neuron', 465, 266);
+
+      // Biceps Muscle (Effector)
+      ctx.fillStyle = '#fecaca'; ctx.strokeStyle = '#dc2626'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.ellipse(245, 245, 36, 18, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#991b1b'; ctx.font = 'bold 10px sans-serif'; ctx.fillText('MUSCLE', 245, 249);
+
+      // Racing Golden Action Potential Spark!
+      if (r.active) {
+        let sx, sy;
+        if (r.progress < 0.45) {
+          const u = r.progress / 0.45;
+          sx = (1 - u) * (1 - u) * 190 + 2 * (1 - u) * u * 440 + u * u * 690;
+          sy = (1 - u) * (1 - u) * 190 + 2 * (1 - u) * u * 88 + u * u * 145;
+        } else if (r.progress < 0.6) {
+          sx = 725; sy = isBrain ? 48 : 165;
+        } else {
+          const u = (r.progress - 0.6) / 0.4;
+          sx = (1 - u) * (1 - u) * 690 + 2 * (1 - u) * u * 450 + u * u * 270;
+          sy = (1 - u) * (1 - u) * 188 + 2 * (1 - u) * u * 275 + u * u * 240;
+        }
+        ctx.fillStyle = 'rgba(250, 204, 21, 0.45)'; ctx.beginPath(); ctx.arc(sx, sy, 18, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(sx, sy, 9, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Live Reaction Timer Box (Top Left)
+      ctx.fillStyle = '#0f172a'; rr(ctx, 28, 22, 235, 62, 12); ctx.fill();
+      ctx.fillStyle = '#4ade80'; ctx.font = 'bold 15px monospace'; ctx.textAlign = 'center';
+      ctx.fillText(`Timer: ${(r.elapsedMs / 1000).toFixed(2)} s`, 145, 48);
+      ctx.fillStyle = '#cbd5e1'; ctx.font = 'bold 11px sans-serif';
+      ctx.fillText('Reflex: 0.15s  |  Brain: 0.45s', 145, 70);
+    }
+
+    /* ---------- 9. DNA DOUBLE HELIX & BASE-PAIRING LAB ---------- */
+    function drawDna() {
+      const d = S.dna;
+      if (d.shake > 0) d.shake--;
+
+      // Left: Rotating 3D-Projected DNA Double Helix
+      const hx = 210;
+      ctx.fillStyle = '#0f172a'; rr(ctx, 24, 18, 370, 304, 16); ctx.fill();
+      ctx.fillStyle = '#94a3b8'; ctx.font = 'bold 11.5px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('3D ROTATING DOUBLE HELIX', hx, 42);
+
+      for (let i = 0; i < 12; i++) {
+        const y = 66 + i * 21;
+        const phase = animT * 1.8 + i * 0.55;
+        const x1 = hx + Math.sin(phase) * 72;
+        const x2 = hx - Math.sin(phase) * 72;
+        const col1 = DNA_COLS[['A', 'T', 'G', 'C'][i % 4]];
+        const col2 = DNA_COLS[DNA_COMP[['A', 'T', 'G', 'C'][i % 4]]];
+
+        ctx.strokeStyle = col1; ctx.lineWidth = 4;
+        ctx.beginPath(); ctx.moveTo(x1, y); ctx.lineTo(hx, y); ctx.stroke();
+        ctx.strokeStyle = col2;
+        ctx.beginPath(); ctx.moveTo(hx, y); ctx.lineTo(x2, y); ctx.stroke();
+
+        ctx.fillStyle = '#38bdf8'; ctx.beginPath(); ctx.arc(x1, y, 5.5, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = '#c084fc'; ctx.beginPath(); ctx.arc(x2, y, 5.5, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Right: Interactive Unzipped Replication Fork
+      const shakeX = d.shake > 0 ? Math.sin(d.shake * 2.5) * 6 : 0;
+      ctx.fillStyle = '#f8fafc'; ctx.strokeStyle = '#cbd5e1'; ctx.lineWidth = 2;
+      rr(ctx, 420 + shakeX, 18, 456, 304, 16); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = '#0f172a'; ctx.font = 'bold 12px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('UNZIPPED REPLICATION FORK — SNAP COMPLEMENTARY BASES', 648, 42);
+
+      // Left Sugar-Phosphate Backbone
+      ctx.fillStyle = '#2563eb'; rr(ctx, 468, 60, 16, 240, 8); ctx.fill();
+      // Right Sugar-Phosphate Backbone
+      ctx.fillStyle = '#7c3aed'; rr(ctx, 812, 60, 16, 240, 8); ctx.fill();
+
+      d.template.forEach((base, idx) => {
+        const y = 78 + idx * 40;
+        const isCur = idx === d.cursor;
+        // Template Base Block (Left)
+        ctx.fillStyle = DNA_COLS[base];
+        rr(ctx, 488, y - 14, 98, 28, 8); ctx.fill();
+        ctx.fillStyle = '#fff'; ctx.font = 'bold 14px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText(base, 537, y + 5);
+
+        // Complementary Paired Base (Right)
+        const paired = d.paired[idx];
+        if (paired) {
+          ctx.fillStyle = DNA_COLS[paired];
+          rr(ctx, 710, y - 14, 98, 28, 8); ctx.fill();
+          ctx.fillStyle = '#fff'; ctx.fillText(paired, 759, y + 5);
+
+          // Glowing Hydrogen Bonds (2 for A=T, 3 for G≡C)
+          const hCount = (base === 'A' || base === 'T') ? 2 : 3;
+          ctx.strokeStyle = d.highlightH ? '#f59e0b' : '#94a3b8';
+          ctx.lineWidth = d.highlightH ? 3 : 2;
+          ctx.setLineDash([5, 4]);
+          for (let h = 0; h < hCount; h++) {
+            const hy = y + (h - (hCount - 1) / 2) * 7;
+            ctx.beginPath(); ctx.moveTo(592, hy); ctx.lineTo(704, hy); ctx.stroke();
+          }
+          ctx.setLineDash([]);
+          if (d.highlightH) {
+            ctx.fillStyle = '#b45309'; ctx.font = 'bold 10px sans-serif';
+            ctx.fillText(`${hCount} H`, 648, y - 10);
+          }
+        } else {
+          ctx.strokeStyle = isCur ? '#7c3aed' : '#cbd5e1';
+          ctx.lineWidth = isCur ? 3 : 2; ctx.setLineDash([4, 4]);
+          rr(ctx, 710, y - 14, 98, 28, 8); ctx.stroke(); ctx.setLineDash([]);
+          ctx.fillStyle = isCur ? '#7c3aed' : '#94a3b8'; ctx.font = 'bold 12px sans-serif';
+          ctx.fillText(isCur ? '? TAP BASE' : '?', 759, y + 4);
+        }
+      });
+    }
+
+    /* ---------- 10. FLOWER POLLINATION & FERTILIZATION LAB ---------- */
+    function drawPollination() {
+      const pl = S.pollination;
+      if (pl.stage >= 3) pl.tubeProg = Math.min(1, pl.tubeProg + 0.012 * animSpeed);
+      if (pl.stage === 4) pl.fruitProg = Math.min(1, pl.fruitProg + 0.012 * animSpeed);
+
+      // Soft Garden Backdrop
+      ctx.fillStyle = '#f0fdf4'; rr(ctx, 16, 14, 868, 312, 16); ctx.fill();
+
+      const cx = 450;
+      // Green Stem & Sepals
+      ctx.fillStyle = '#15803d'; ctx.fillRect(cx - 10, 260, 20, 65);
+      ctx.fillStyle = '#22c55e';
+      ctx.beginPath(); ctx.ellipse(cx - 50, 258, 42, 14, -0.3, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(cx + 50, 258, 42, 14, 0.3, 0, Math.PI * 2); ctx.fill();
+
+      // Colorful Petals (fade slightly as fruit ripens!)
+      const petalAlpha = 1 - pl.fruitProg * 0.72;
+      ctx.fillStyle = `rgba(244, 114, 182, ${petalAlpha})`;
+      ctx.beginPath(); ctx.ellipse(cx - 105, 165, 68, 36, -0.45, 0, Math.PI * 2); ctx.fill();
+      ctx.beginPath(); ctx.ellipse(cx + 105, 165, 68, 36, 0.45, 0, Math.PI * 2); ctx.fill();
+
+      // Male Stamens & Golden Anthers
+      [cx - 115, cx + 115].forEach(ax => {
+        ctx.strokeStyle = '#65a30d'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.moveTo(cx + (ax < cx ? -28 : 28), 235); ctx.quadraticCurveTo(ax, 185, ax, 118); ctx.stroke();
+        ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.ellipse(ax, 114, 18, 11, 0, 0, Math.PI * 2); ctx.fill();
+      });
+
+      // Female Pistil: Swelling Ovary → Fruit, Hollow Style, Sticky Stigma
+      const ovR = 46 + pl.fruitProg * 30;
+      ctx.fillStyle = pl.fruitProg > 0.3 ? `rgba(239, 68, 68, ${0.35 + pl.fruitProg * 0.55})` : '#bbf7d0';
+      ctx.strokeStyle = pl.fruitProg > 0.3 ? '#dc2626' : '#16a34a'; ctx.lineWidth = 3.5;
+      ctx.beginPath(); ctx.ellipse(cx, 224, ovR, ovR * 0.85, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Style Tube & Sticky Stigma
+      ctx.fillStyle = '#dcfce7'; ctx.strokeStyle = '#16a34a'; ctx.lineWidth = 3;
+      ctx.fillRect(cx - 14, 92, 28, 92); ctx.strokeRect(cx - 14, 92, 28, 92);
+      ctx.fillStyle = '#4ade80'; ctx.beginPath(); ctx.ellipse(cx, 88, 28, 12, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Ovule inside Ovary (turns into golden Seed!)
+      ctx.fillStyle = pl.stage === 4 ? '#92400e' : '#fef08a';
+      ctx.strokeStyle = '#ca8a04'; ctx.lineWidth = 2.5;
+      ctx.beginPath(); ctx.ellipse(cx, 226, 18, 14, 0, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+
+      // Golden Pollen on Stigma + Glowing Pollen Tube!
+      if (pl.stage >= 2) {
+        ctx.fillStyle = '#f59e0b';
+        ctx.beginPath(); ctx.arc(cx, 80, 7, 0, Math.PI * 2); ctx.fill();
+      }
+      if (pl.stage >= 3) {
+        const tubeEnd = 84 + pl.tubeProg * 140;
+        ctx.strokeStyle = '#f59e0b'; ctx.lineWidth = 5;
+        ctx.beginPath(); ctx.moveTo(cx, 84); ctx.lineTo(cx, tubeEnd); ctx.stroke();
+        ctx.fillStyle = '#fde047'; ctx.beginPath(); ctx.arc(cx, tubeEnd, 6, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // Animated Honeybee (Insect Mode) OR Floating Wind Pollen (Wind Mode)
+      if (pl.mode === 'Insect') {
+        const tx = pl.stage === 0 ? 220 : (pl.stage === 1 ? cx - 115 : (pl.stage === 2 ? cx : 680));
+        const ty = pl.stage === 1 ? 94 : (pl.stage === 2 ? 64 : 88);
+        pl.beeX += (tx - pl.beeX) * 0.06 * animSpeed;
+        pl.beeY += (ty - pl.beeY) * 0.06 * animSpeed + Math.sin(animT * 8) * 1.4;
+        ctx.font = '32px sans-serif'; ctx.textAlign = 'center';
+        ctx.fillText('🐝', pl.beeX, pl.beeY);
+      } else {
+        if (Math.random() < 0.25 * animSpeed) pl.windGrains.push({ x: cx - 115, y: 112, vx: 2.2 + Math.random() * 1.5, vy: -0.6 + Math.random() });
+        pl.windGrains.forEach(w => {
+          w.x += w.vx * animSpeed; w.y += w.vy * animSpeed;
+          ctx.fillStyle = '#f59e0b'; ctx.beginPath(); ctx.arc(w.x, w.y, 4, 0, Math.PI * 2); ctx.fill();
+        });
+        pl.windGrains = pl.windGrains.filter(w => w.x < 780);
+      }
+
+      // Botanical Labels
+      ctx.fillStyle = '#334155'; ctx.font = 'bold 11.5px sans-serif'; ctx.textAlign = 'center';
+      ctx.fillText('Anther (Pollen)', cx - 120, 95);
+      ctx.fillText('Sticky Stigma', cx, 64);
+      ctx.fillText(pl.stage === 4 ? '🍎 Ripe Fruit (Ovary) + Seed (Ovule)' : 'Ovary & Ovule', cx + 150, 234);
+    }
+
+    /* =====================================================================
+       11. LEARN FIRST 3-STEP CONCEPT MODAL & MAIN RENDER LOOP
+    ===================================================================== */
+    let modalStep = 0;
+    const miniCanvas = document.getElementById('miniConceptCanvas');
+    const miniCtx = miniCanvas.getContext('2d');
+
+    function openConceptModal() {
+      modalStep = 0;
+      document.getElementById('conceptModal').classList.add('open');
+      renderConceptStep();
+    }
+    function closeConceptModal() {
+      document.getElementById('conceptModal').classList.remove('open');
+      VoiceEngine.stop();
+    }
+    function renderConceptStep() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      const s = lab.concepts[modalStep];
+      document.getElementById('modalHeaderTitle').textContent = `📖 Learn First: ${lab.short}`;
+      document.getElementById('modalStepTitle').textContent = s.t;
+      document.getElementById('modalStepText').textContent = s.d;
+      document.getElementById('modalDots').innerHTML = lab.concepts.map((_, i) => `<div class="step-dot ${i <= modalStep ? 'active' : ''}"></div>`).join('');
+      document.getElementById('modalPrevBtn').style.visibility = modalStep === 0 ? 'hidden' : 'visible';
+      document.getElementById('modalNextBtn').textContent = modalStep === 2 ? 'Start Experiment 🚀' : 'Next →';
+    }
+    function stepConcept(dir) {
+      if (dir > 0 && modalStep === 2) { closeConceptModal(); return; }
+      modalStep = Math.max(0, Math.min(2, modalStep + dir));
+      renderConceptStep();
+      speakCurrentConcept();
+    }
+    function speakCurrentConcept() {
+      const s = LABS.find(l => l.id === activeLabId).concepts[modalStep];
+      VoiceEngine.speak(`${s.t}. ${s.d}`);
+    }
+
+    function drawMiniConcept() {
+      miniCtx.clearRect(0, 0, miniCanvas.width, miniCanvas.height);
+      const lab = LABS.find(l => l.id === activeLabId);
+      miniCtx.fillStyle = '#eff6ff'; rr(miniCtx, 12, 12, 536, 114, 14); miniCtx.fill();
+      miniCtx.font = '42px sans-serif'; miniCtx.textAlign = 'center';
+      miniCtx.fillText(lab.icon, 280 + Math.sin(animT * 3) * 18, 72);
+      miniCtx.fillStyle = '#1e3a8a'; miniCtx.font = 'bold 13px sans-serif';
+      miniCtx.fillText(lab.concepts[modalStep].t, 280, 108);
+    }
+
+    function mainLoop() {
+      animT += 0.03 * animSpeed;
+      drawActiveLab();
+      if (document.getElementById('conceptModal').classList.contains('open')) drawMiniConcept();
+      requestAnimationFrame(mainLoop);
+    }
+
+    /* =====================================================================
+       12. RIGHT-DOCKED GEMINI AI LAB TUTOR (ALL 10 PACK 3 LABS)
+    ===================================================================== */
+    function updateLiveStateSummary() {
+      const el = document.getElementById('liveStateSummary');
+      const lab = LABS.find(l => l.id === activeLabId);
+      let info = '';
+      if (activeLabId === 'buoyancy') { const m = getBuoyancyMetrics(); info = `${S.buoyancy.mat} in ${S.buoyancy.liq} • Fb=${m.fbN}N, W=${m.weightN}N`; }
+      else if (activeLabId === 'eclipse') info = `Angle ${Math.round(S.eclipse.angle)}° • ${S.eclipse.tilted ? '5° Tilted' : '0° Aligned'}`;
+      else if (activeLabId === 'projectile') info = `${S.projectile.angle}°, ${S.projectile.speed}m/s on ${S.projectile.planet}`;
+      else if (activeLabId === 'circuits') { const m = getCircuitMetrics(); info = `${S.circuits.mode}, ${S.circuits.bulbs} bulbs, I=${m.I}A`; }
+      else if (activeLabId === 'kinetics') info = `${S.kinetics.temp}°C, ${S.kinetics.conc}, Cat:${S.kinetics.catalyst ? 'ON' : 'OFF'} (${S.kinetics.ratePct}%)`;
+      else if (activeLabId === 'distillation') info = `${S.distillation.mixture}, ${S.distillation.temp}°C, Cool:${S.distillation.cooling ? 'ON' : 'OFF'}`;
+      else if (activeLabId === 'bonding') info = `${S.bonding.pair} (${S.bonding.bonded ? 'Bonded' : 'Separate'})`;
+      else if (activeLabId === 'reflex') info = `${S.reflex.stimulus} (${S.reflex.slowMo ? 'Slow-Mo' : 'Normal'})`;
+      else if (activeLabId === 'dna') info = `${S.dna.cursor}/6 bases paired`;
+      else if (activeLabId === 'pollination') info = `Stage ${S.pollination.stage}/4 (${S.pollination.mode})`;
+      el.textContent = `Live: ${lab.short} (${info})`;
+    }
+
+    function updateQuickChips() {
+      const lab = LABS.find(l => l.id === activeLabId);
+      document.getElementById('quickChips').innerHTML = lab.chips.map(c =>
+        `<button class="q-chip" onclick="askTutor('${c.replace(/'/g, "\\'")}')">${c}</button>`
+      ).join('');
+    }
+
+    function appendMsg(role, text) {
+      const log = document.getElementById('chatLog');
+      const div = document.createElement('div');
+      div.className = `msg ${role}`;
+      div.innerHTML = text.replace(/\n/g, '<br>');
+      if (role === 'bot') {
+        const btn = document.createElement('button');
+        btn.className = 'msg-speak';
+        btn.textContent = '🔊 Read Answer';
+        btn.onclick = () => VoiceEngine.speak(text);
+        div.appendChild(document.createElement('br'));
+        div.appendChild(btn);
+      }
+      log.appendChild(div);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    function handleChatSubmit(e) {
+      e.preventDefault();
+      const inp = document.getElementById('chatInput');
+      const q = inp.value.trim();
+      if (!q) return;
+      inp.value = '';
+      askTutor(q);
+    }
+
+    async function askTutor(question) {
+      appendMsg('user', question);
+      const liveContext = document.getElementById('liveStateSummary').textContent;
+
+      if (LAB_CONFIG.GEMINI_PROXY_ENDPOINT) {
+        try {
+          const res = await fetch(LAB_CONFIG.GEMINI_PROXY_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question, liveContext })
+          });
+          if (res.ok) { appendMsg('bot', (await res.json()).reply); return; }
+        } catch (_) {}
+      }
+
+      const q = question.toLowerCase();
+      let r = '';
+      if (q.includes('float') || q.includes('archimedes') || q.includes('brine') || q.includes('buoy')) r = 'Archimedes’ Principle says Upthrust equals the weight of liquid displaced! Wood (0.6) floats because it is less dense than Water (1.0), while Iron (7.8) sinks. Salty Dead Sea Brine (1.25) is extra dense, pushing objects even higher!';
+      else if (q.includes('eclipse') || q.includes('blood') || q.includes('tilt') || q.includes('month')) r = 'A Solar Eclipse happens when the Moon blocks the Sun (180°). A Blood Moon Lunar Eclipse happens when Earth’s shadow covers the Full Moon (0°). Because the Moon’s orbit is tilted 5°, most months the shadow misses Earth!';
+      else if (q.includes('45') || q.includes('velocity') || q.includes('moon') || q.includes('cannon')) r = '45° balances forward speed (vx) and upward hang-time (vy) for maximum range R = v²·sin(2θ)/g. On the Moon, gravity is 6× weaker (1.6 m/s²), so the cannonball flies 6× farther!';
+      else if (q.includes('series') || q.includes('parallel') || q.includes('fuse')) r = 'In Series, bulbs share the 12V and dim as you add more. Homes use Parallel wiring so every appliance gets full 12V independently! A Safety Fuse melts and breaks the circuit if current exceeds 4A.';
+      else if (q.includes('collision') || q.includes('catalyst') || q.includes('activation') || q.includes('heat')) r = 'Collision Theory says reactant particles must collide with enough energy to pass Activation Energy (Ea). Heating speeds up molecules, and a Catalyst lowers the Ea hill so reactions happen much faster!';
+      else if (q.includes('distill') || q.includes('ethanol') || q.includes('condenser') || q.includes('salt')) r = 'Ethanol boils at 78°C while Water boils at 100°C. Heating to ~80°C boils only Ethanol, and the cold Liebig Condenser turns vapor back into pure liquid drops — while salt stays behind!';
+      else if (q.includes('ionic') || q.includes('covalent') || q.includes('sodium') || q.includes('double')) r = 'In an Ionic bond (NaCl), Sodium transfers 1 outer electron to Chlorine, forming Na⁺ and Cl⁻ ions. In a Covalent bond, non-metals share electron pairs — O=O shares 2 pairs (4 electrons) in a Double Covalent Bond!';
+      else if (q.includes('reflex') || q.includes('synapse') || q.includes('faster')) r = 'The 5 parts of a Reflex Arc are Receptor → Sensory Neuron → Spinal Cord (Relay) → Motor Neuron → Effector Muscle. Skipping the brain lets you react in ~0.15s instead of ~0.45s!';
+      else if (q.includes('chargaff') || q.includes('hydrogen') || q.includes('dna') || q.includes('ladder')) r = 'Chargaff’s Rule says Adenine (A) always pairs with Thymine (T) using 2 Hydrogen bonds, and Guanine (G) always pairs with Cytosine (C) using 3 Hydrogen bonds!';
+      else if (q.includes('pollin') || q.includes('tube') || q.includes('seed') || q.includes('fruit')) r = 'Pollination carries pollen from Anther to Stigma. Then a Pollen Tube grows down the Style into the Ovule for Fertilization — turning the Ovule into a Seed and the Ovary into a Fruit!';
+      else r = `Looking at your live lab (${liveContext}) — try adjusting the controls below or click "✨ Show Me How (Auto-Solve)" for a slow guided walkthrough!`;
+
+      appendMsg('bot', r);
+    }
+
+    // SharpStudy standalone and embedded entry point.
+    const params = new URLSearchParams(location.search);
+    const embedded = params.get('embedded') === '1' && window.parent !== window;
+    if (embedded) document.documentElement.setAttribute('data-embedded', '');
+    else document.documentElement.removeAttribute('data-embedded');
+    const selectedLab = LABS.find(lab => lab.id === params.get('lab'));
+    if (selectedLab) activeLabId = selectedLab.id;
+    const storedSubject = params.get('subject');
+    if (selectedLab && selectedLab.subject === storedSubject) {
+      activeSubject = storedSubject;
+      document.querySelectorAll('.subj-btn').forEach(button => {
+        button.classList.toggle('active', button.getAttribute('onclick').includes("'" + activeSubject + "'"));
+      });
+    }
+    const resizeReport = () => {
+      const workspace = document.querySelector('main');
+      if (embedded && workspace) parent.postMessage({ source: 'sharpstudy-lab', height: Math.max(500, Math.ceil(workspace.getBoundingClientRect().bottom + scrollY + 18)) }, location.origin);
+    };
+
+    function updateRangeBadge(input) {
+      const badge = input.closest('.control-box')?.querySelector('.badge');
+      if (!badge) return;
+      const text = badge.textContent;
+      badge.textContent = text.replace(/-?\d+(?:\.\d+)?/, input.value);
+    }
+
+    const unwrappedSelect = selectLab;
+    selectLab = (id, showBriefing) => {
+      if (!LABS.some(lab => lab.id === id) || isAutoSolving) return;
+      if (embedded && id !== activeLabId) {
+        parent.postMessage({ source: 'sharpstudy-lab', lab: id, subject: activeSubject }, location.origin);
+        return;
+      }
+      unwrappedSelect(id, showBriefing);
+    };
+
+    const nativeClose = closeConceptModal;
+    closeConceptModal = () => {
+      nativeClose();
+      try { sessionStorage.setItem('sharpstudy-lab-guide-' + activeLabId, 'done'); } catch {}
+    };
+    try {
+      if (sessionStorage.getItem('sharpstudy-lab-guide-' + activeLabId) === 'done') document.getElementById('conceptModal').classList.remove('open');
+    } catch {}
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && document.getElementById('conceptModal').classList.contains('open')) closeConceptModal();
+    });
+    window.addEventListener('pagehide', () => {
+      VoiceEngine.stop();
+      if (typeof SoundAudio !== 'undefined') SoundAudio.stop?.();
+    });
+    if (embedded) {
+      const observer = new ResizeObserver(resizeReport);
+      observer.observe(document.body);
+      window.addEventListener('load', resizeReport, { once: true });
+    }
+
+    // Boot Application
+    renderLabStrip();
+    renderMissions();
+    renderControls();
+    updateQuickChips();
+    updateLabState(false);
+    renderConceptStep();
+    mainLoop();
+  </script>
+</body>
+</html>

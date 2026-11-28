@@ -21,3 +21,13 @@ The pilot opens two experiments for student review. The desktop menu places Virt
 1. Check the two existing experiments on desktop, mobile and with keyboard navigation. Compare AC and DC, change the turns ratio, reset both labs, and listen to the walkthrough and result narration.
 2. Verify curriculum and scientific accuracy before adding practical-match labels. For each approved lab, add its route, observable variables, beginner challenges, model limits, walkthrough transcript and recorded clips. Keep generic labs discoverable independently of grade or board.
 3. For a future Gemini-assisted design pass, provide the learning objective, age range, verified formula or observation, and validation cases. Ask for parameter bounds, visual cues, accessibility alternatives and caption text for human review. Run any future student-facing AI through the site’s server-side provider controls and verify child privacy and moderation before enabling it.
+
+## Three-pack integration
+
+The Virtual Lab catalogue groups the 30 supplied workbenches by Physics, Chemistry, and Biology. It also supports pack and title filters. Each experiment has a canonical /virtual-lab/:id path. The former transformer and pH URLs are reused, with the compact pilot layouts available from the same page.
+
+The workbench loads exactly one of the original standalone HTML layouts with its starting experiment selected by query string. The integration keeps the original control deck, Canvas, Auto-Solve, concept modal, mode switch, Save HTML, and docked tutor. A same-origin message lets the site open the selected experiment's canonical link and resize the frame to its workspace. The static files also run on their own.
+
+The HTML packs retain the browser-selected English voice and their built-in tutor answers. The standalone Gemini proxy and custom speech endpoints are blank. A restrictive content policy prevents the supplied files from calling network services. Malar recordings remain in the compact pilot views.
+
+To import another supplied pack, review the document's source, then run the prepare-suite.py script in tools/virtual-lab with the supplied HTML path and the new public output path. Register the pack and its experiment identifiers in VirtualLabWorkbench.tsx. Browser-check every direct link, the toolbar, in-pack navigation, mobile layout, and the exported HTML. Keep exact board and class mappings separate until checked against the applicable syllabus.

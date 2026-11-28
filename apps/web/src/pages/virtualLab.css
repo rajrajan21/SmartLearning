@@ -32,3 +32,17 @@
 .vl-guide p { margin: .4rem 0 .6rem; }
 .vl-guide .btn { min-height: 40px; }
 @media (max-width: 760px) { .vl-workbench { grid-template-columns: minmax(0,1fr); } .vl-guide { bottom: 4.5rem; } }
+
+.vl-catalog-controls, .vl-catalog-downloads, .vl-workbench-nav { display: flex; flex-wrap: wrap; gap: .9rem 1.2rem; }
+.vl-catalog-group { margin-block: 1.5rem 2rem; }
+.vl-catalog-group h3 { margin: 0 0 .4rem; }
+.vl-catalog-downloads { margin-top: 1.5rem; }
+.vl-workbench-page { min-width: 0; }
+.vl-workbench-nav { justify-content: space-between; padding: .55rem .9rem; }
+.vl-workbench-frame { width: 100%; display: block; border: 0; background: #0f172a; border-radius: .8rem; }
+.vl-compact-link { display: inline-block; margin: .85rem; }
+
+.vl-catalog-controls { align-items: end; }
+.vl-catalog-controls .vl-filter { margin: 0; }
+.vl-catalog-controls .vl-filter:first-child { flex: 1 1 225px; }
+.vl-catalog-controls input[type="search"] { width: 100%; }

@@ -3,15 +3,15 @@ import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { Router, Route } from "wouter";
 import { memoryLocation } from "wouter/memory-location";
 import { SettingsProvider } from "../lib/settings";
-import { VirtualLabHub, VirtualLabPage } from "./VirtualLab";
+import { CompactVirtualLabPage, VirtualLabHub, VirtualLabPage } from "./VirtualLab";
 import { nominalPh, transformer } from "./virtualLabData";
 
 vi.mock("./virtualLabScene", () => ({ LabScene: () => null }));
-function mount(path: string) {
+function mount(path: string, compact = false) {
   const { hook } = memoryLocation({ path });
   return render(<SettingsProvider><Router hook={hook}>
     <Route path="/virtual-lab" component={VirtualLabHub} />
-    <Route path="/virtual-lab/:id" component={VirtualLabPage} />
+    <Route path="/virtual-lab/:id" component={compact ? CompactVirtualLabPage : VirtualLabPage} />
   </Router></SettingsProvider>);
 }
 beforeEach(() => {
@@ -41,7 +41,7 @@ describe("Virtual Lab pilot", () => {
     expect(screen.getByRole("link", { name: /Colour and pH/i }).getAttribute("href")).toBe("/virtual-lab/indicator");
   });
   it("can dismiss or reopen the walkthrough and test the transformer controls", async () => {
-    mount("/virtual-lab/transformer");
+    mount("/virtual-lab/transformer", true);
     const guide = await screen.findByRole("complementary", { name: "Lab walkthrough" });
     fireEvent.click(within(guide).getByRole("button", { name: "Dismiss walkthrough" }));
     expect(screen.queryByRole("complementary", { name: "Lab walkthrough" })).toBeNull();
